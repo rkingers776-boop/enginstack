@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Guides — 13 Unit Conversion Deep Dives | EnginStack</title>
+    <meta name="description" content="25 in-depth engineering conversion guides: length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, fuel economy, and engine displacement. Exact constants, historical origins, real-world failure cases, and reference tables.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://enginstack.com/guides/">
+    <meta property="og:title" content="Engineering Guides — 13 Unit Conversion Deep Dives | EnginStack">
+    <meta property="og:description" content="25 in-depth engineering conversion guides covering length, pressure, energy, temperature, volume, data storage, speed, time, engine displacement, and more.">
+    <meta property="og:url" content="https://enginstack.com/guides/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Engineering Conversion Guides",
+  "description": "25 in-depth engineering conversion guides: length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, fuel economy, and engine displacement. Every constant traceable to NIST and international metrology standards.",
+  "url": "https://enginstack.com/guides/",
+  "hasPart": [
+    {"@type": "Article", "name": "Length Conversion Guide", "url": "https://enginstack.com/guides/length-conversion-guide"},
+    {"@type": "Article", "name": "Weight & Mass Conversion Guide", "url": "https://enginstack.com/guides/weight-mass-conversion-guide"},
+    {"@type": "Article", "name": "Temperature Conversion Guide", "url": "https://enginstack.com/guides/temperature-conversion-guide"},
+    {"@type": "Article", "name": "Speed Conversion Guide", "url": "https://enginstack.com/guides/speed-conversion-guide"},
+    {"@type": "Article", "name": "Pressure Conversion Guide", "url": "https://enginstack.com/guides/pressure-conversion-guide"},
+    {"@type": "Article", "name": "Area Conversion Guide", "url": "https://enginstack.com/guides/area-conversion-guide"},
+    {"@type": "Article", "name": "Volume & Cooking Conversion Guide", "url": "https://enginstack.com/guides/volume-cooking-conversion-guide"},
+    {"@type": "Article", "name": "Time Conversion Guide", "url": "https://enginstack.com/guides/time-conversion-guide"},
+    {"@type": "Article", "name": "Data Storage Conversion Guide", "url": "https://enginstack.com/guides/data-storage-conversion-guide"},
+    {"@type": "Article", "name": "Energy & Power Conversion Guide", "url": "https://enginstack.com/guides/energy-power-conversion-guide"},
+    {"@type": "Article", "name": "Angle Conversion Guide", "url": "https://enginstack.com/guides/angle-conversion-guide"},
+    {"@type": "Article", "name": "Fuel Economy Conversion Guide", "url": "https://enginstack.com/guides/fuel-economy-conversion-guide"},
+    {"@type": "Article", "name": "Engine Displacement Conversion Guide", "url": "https://enginstack.com/guides/engine-displacement-conversion-guide"},
+    {"@type": "Article", "name": "Force Conversion Guide", "url": "https://enginstack.com/guides/force-conversion-guide"},
+    {"@type": "Article", "name": "Frequency Conversion Guide", "url": "https://enginstack.com/guides/frequency-conversion-guide"},
+    {"@type": "Article", "name": "Torque Conversion Guide", "url": "https://enginstack.com/guides/torque-conversion-guide"},
+    {"@type": "Article", "name": "Density Conversion Guide", "url": "https://enginstack.com/guides/density-conversion-guide"},
+    {"@type": "Article", "name": "Why America Doesn't Use the Metric System", "url": "https://enginstack.com/guides/why-america-doesnt-use-metric-system"},
+    {"@type": "Article", "name": "The Cost of Retooling", "url": "https://enginstack.com/guides/the-cost-of-retooling"},
+    {"@type": "Article", "name": "Flow Rate Conversion Guide", "url": "https://enginstack.com/guides/flow-rate-conversion-guide"},
+    {"@type": "Article", "name": "Electric Conversion Guide", "url": "https://enginstack.com/guides/electric-conversion-guide"},
+    {"@type": "Article", "name": "The 1893 Photocopy", "url": "https://enginstack.com/guides/the-1893-photocopy"},
+    {"@type": "Article", "name": "The 1975 Metric Conversion Act", "url": "https://enginstack.com/guides/the-1975-metric-conversion-act"},
+    {"@type": "Article", "name": "The 8 Most Expensive Unit Conversion Mistakes", "url": "https://enginstack.com/guides/engineering-unit-conversion-mistakes"},
+    {"@type": "Article", "name": "The Year 2038 Problem", "url": "https://enginstack.com/guides/year-2038-problem"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <span class="current">Guides</span></nav>
+
+        <header class="page-header">
+            <h1>Engineering Conversion Guides</h1>
+            <p>Long-form technical references for engineers who need more than a calculator. Exact constants, historical origins, systematic pitfalls by discipline, and the accident reports that prove units matter.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="guides-list">
+
+            <a href="/guides/engineering-unit-conversion-mistakes" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">💀</div>
+                    <div class="guide-summary-body">
+                        <h2>The 8 Most Expensive Unit Conversion Mistakes in Engineering History</h2>
+                        <p>From the $327M Mars Climate Orbiter to the Gimli Glider — a forensic tour of disasters where one unconverted unit destroyed spacecraft, killed soldiers, and cost billions. Includes the Vasa warship (1628), Patriot Missile (1991), Deepwater Horizon (2010), Laufenburg Bridge (2003), and three more. Root-cause diagrams and preventive strategies for practicing engineers.</p>
+                        <span class="guide-summary-meta">July 29, 2026 &nbsp;·&nbsp; 14 linked converters &nbsp;·&nbsp; Disaster case studies</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/weight-mass-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">⚖️</div>
+                    <div class="guide-summary-body">
+                        <h2>Weight & Mass Conversion — The Kilogram-Pound Problem</h2>
+                        <p>Why the kilogram was the last SI unit tied to a physical object — a platinum-iridium cylinder in a Paris vault that drifted 50 micrograms per century. The 2019 Planck-constant redefinition, avoirdupois vs troy, the Gimli Glider, and notable mass-unit errors that have occurred in aerospace and medicine.</p>
+                        <span class="guide-summary-meta">July 5, 2026 &nbsp;·&nbsp; 12 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/length-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">📐</div>
+                    <div class="guide-summary-body">
+                        <h2>Length Conversion — The Complete Engineering Guide</h2>
+                        <p>Metric vs imperial history, exact constants from the 1959 International Yard and Pound Agreement, systematic pitfalls in structural steel, BIM, CNC machining, and maritime engineering. Plus the Mars Climate Orbiter and Gimli Glider.</p>
+                        <span class="guide-summary-meta">June 22, 2026 &nbsp;·&nbsp; 30 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/area-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">📏</div>
+                    <div class="guide-summary-body">
+                        <h2>Area Conversion — Acres, Hectares, Square Feet &amp; Square Miles</h2>
+                        <p>Why area is length squared — and why early rounding error gets squared too. The acre (43,560 ft² from oxen-and-plow), the hectare (10,000 m² the world farms in), the square-foot-to-square-meter code gap, and the 2023 US survey-foot retirement that moved every surveyed acre by a few parts per million.</p>
+                        <span class="guide-summary-meta">July 13, 2026 &nbsp;·&nbsp; 7 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/pressure-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">💥</div>
+                    <div class="guide-summary-body">
+                        <h2>Pressure Conversion — From Vacuum to Gigapascals</h2>
+                        <p>Every pressure unit — pascal, bar, psi, atm, torr, mmHg — their origins and exact conversions. Deepwater Horizon, SCUBA cascade failures, Apollo 1, and why pressure errors are among the most dangerous in engineering.</p>
+                        <span class="guide-summary-meta">June 25, 2026 &nbsp;·&nbsp; 6 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/energy-power-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">⚡</div>
+                    <div class="guide-summary-body">
+                        <h2>Energy & Power Conversion — The Kilowatt-Hour Problem</h2>
+                        <p>Why confusing kW and kWh is the most expensive unit mistake in engineering. James Watt's marketing lie, the four different horsepower definitions, and how your electric bill invented a unit that breaks SI.</p>
+                        <span class="guide-summary-meta">June 25, 2026 &nbsp;·&nbsp; 8 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/temperature-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🌡️</div>
+                    <div class="guide-summary-body">
+                        <h2>Temperature Conversion — Fahrenheit, Celsius, Kelvin</h2>
+                        <p>Why temperature is the only affine conversion most people use. Fahrenheit's brine-and-armpit origin, why Celsius ran backwards until Linnaeus flipped it, the 1851 body temperature myth that survived 141 years, and why Kelvin sits inside every engineering data pipeline.</p>
+                        <span class="guide-summary-meta">June 27, 2026 &nbsp;·&nbsp; 3 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/volume-cooking-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🫗</div>
+                    <div class="guide-summary-body">
+                        <h2>Volume & Cooking Conversion — The Three-Gallon Problem</h2>
+                        <p>Three different gallons, four different cups, and a 20% fuel error at 35,000 feet. From French baking to concrete pours to Olympic swimming pools — every volume catastrophe starts with assuming a word means the same thing everywhere.</p>
+                        <span class="guide-summary-meta">June 25, 2026 &nbsp;·&nbsp; 13 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/data-storage-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">💾</div>
+                    <div class="guide-summary-body">
+                        <h2>Data Storage Conversion — KB, MB, GB, TB and the 1,000-vs-1,024 War</h2>
+                        <p>Why your 1 TB hard drive shows 931 GB. The 66-year collision between binary addressing and decimal marketing, the class-action lawsuits, the 1998 IEC standard nobody adopted, and why Windows and macOS disagree on the size of the same file.</p>
+                        <span class="guide-summary-meta">June 27, 2026 &nbsp;·&nbsp; 8 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/speed-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🏎️</div>
+                    <div class="guide-summary-body">
+                        <h2>Speed Conversion — m/s, km/h, mph, Knots, ft/s</h2>
+                        <p>Why the knot is defined by the Earth's circumference, the ÷3.6 rule every physics student learns, the 1959 treaty that made mph-to-m/s exact, the Mars Climate Orbiter's fatal chain of speed conversions, and why m/s is the only safe computational intermediate.</p>
+                        <span class="guide-summary-meta">July 12, 2026 &nbsp;·&nbsp; 12 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/time-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">⏱️</div>
+                    <div class="guide-summary-body">
+                        <h2>Time Conversion — Seconds, Minutes, Hours, Days &amp; the Leap Second</h2>
+                        <p>Why a day is not 86,400 seconds — Earth's rotation is slowing. The 27 leap seconds inserted since 1972, GPS time's 18-second drift from UTC, the UNIX 2038 problem, the cesium clock that redefined the second, and what happens when a Mars lander confuses seconds with milliseconds.</p>
+                        <span class="guide-summary-meta">July 13, 2026 &nbsp;·&nbsp; 8 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/angle-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🔄</div>
+                    <div class="guide-summary-body">
+                        <h2>Angle Conversion — Degrees, Radians, Gradians &amp; Turns</h2>
+                        <p>Why radians are the only unit calculus respects, what the gradian was for, and how a wrong-degree unit silently breaks CSS rotate(), game-engine rotations, and CNC rotary axes. From the Babylonian 360 to the French Revolution&rsquo;s 400-gon circle.</p>
+                        <span class="guide-summary-meta">July 14, 2026 &nbsp;·&nbsp; 3 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/fuel-economy-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">⛽</div>
+                    <div class="guide-summary-body">
+                        <h2>Fuel Economy Conversion — MPG, L/100km, km/L &amp; the MPG Illusion</h2>
+                        <p>Why a 5 MPG improvement can save 6× more fuel than a 15 MPG one — depending on where you start. The 235.215 constant, US vs Imperial gallons (the 20% trap), why Europe regulates in L/100km, and the Gimli Glider's fuel miscalculation that left a 767 gliding over Manitoba.</p>
+                        <span class="guide-summary-meta">July 19, 2026 &nbsp;·&nbsp; 4 linked converters</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/engine-displacement-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🏁</div>
+                    <div class="guide-summary-body">
+                        <h2>Engine Displacement Conversion — Cubic Inches to Liters</h2>
+                        <p>Every American V8 tells two displacement stories. The Chevy 350 is 5.7 liters. The Ford 302 became the "5.0" — a 1% marketing rounding that sold millions of Mustangs. From the 0.01639 constant to bore × stroke math, the complete V8 translation table, tax-bracket edge cases in China and Japan, the Dodge Viper's accidental 8.0-liter perfection, and why the cubic inch refuses to die.</p>
+                        <span class="guide-summary-meta">July 30, 2026 &nbsp;·&nbsp; 12 linked converters &nbsp;·&nbsp; Complete V8 displacement table</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/force-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">⚙️</div>
+                    <div class="guide-summary-body">
+                        <h2>Force Conversion — Newtons, Pound-Force, Kilogram-Force &amp; Dynes</h2>
+                        <p>Two of the four force units share their name with a mass — and that's where the danger lives. The missing 4.4482216153 that cost NASA $327.6 million on the Mars Climate Orbiter. Why 1 lbf is exactly 4.4482216153 N and 1 kgf is exactly 9.80665 N. The lbf-vs-lb trap, the kgf nameplates that never left Japanese and European shop floors, the dyn/cm surface-tension holdout, and the full newton/pound-force/kilogram-force conversion table from a handrail load to a 25-ton crane.</p>
+                        <span class="guide-summary-meta">August 2, 2026 &nbsp;·&nbsp; 8 linked converters &nbsp;·&nbsp; Complete force conversion table</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/frequency-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">📡</div>
+                    <div class="guide-summary-body">
+                        <h2>Frequency Conversion — Hz, kHz, MHz, GHz &amp; the RPM Crossover</h2>
+                        <p>The only unit family on this site where every prefix conversion is exact — and the one place where it isn't. Why 1 Hz = 60 RPM, the 440-Hz tuning standard and the Beatles' slightly-fast tape, the 50/60 Hz grid divide that leaves a 20% speed gap in every motor, the pole-count formula behind every motor nameplate, and the ISM band where a 1947 frequency allocation ended up carrying Wi-Fi, Bluetooth, and the microwave oven. From a resting heartbeat at 1.2 Hz to 28 GHz 5G millimeter wave.</p>
+                        <span class="guide-summary-meta">August 2, 2026 &nbsp;·&nbsp; 8 linked converters &nbsp;·&nbsp; From heartbeat to millimeter wave</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/torque-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🔧</div>
+                    <div class="guide-summary-body">
+                        <h2>Torque Conversion — N·m, ft·lb, in·lb, kgf·m &amp; the Fatal Multiples</h2>
+                        <p>Torque is the unit family where three different multiplication errors — 12×, 9.8×, and 1.36× — are each one wrench-setting away. The inch-pound vs foot-pound hangar trap, the kilogram-meter hiding in Japanese engine manuals, the newton-meter that is not a joule, and why a bolt doesn't respond to torque at all — only to tension. Every converter, every exact constant from the 1959 treaty and standard gravity, and the dyno formula that connects torque to horsepower.</p>
+                        <span class="guide-summary-meta">August 2, 2026 &nbsp;·&nbsp; 10 linked converters &nbsp;·&nbsp; The three fatal multiples</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/density-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">💧</div>
+                    <div class="guide-summary-body">
+                        <h2>Density Conversion — kg/m³, g/cm³, lb/ft³ &amp; the Water Anchor</h2>
+                        <p>In 1795 the French Academy defined the gram as one cubic centimeter of water — and accidentally made water the anchor of every density unit ever invented. Why 1 g/cm³ = 1,000 kg/m³ = 62.4 lb/ft³ = 1 kg/L, the cubed-length trap that triples unit errors, aluminum's double life as 2.7 and 2,700, the US construction world of 62.4 and 150, and the aerospace inch-cubed world of lb/in³. From ice floating at 0.917 to gold at 19.3.</p>
+                        <span class="guide-summary-meta">August 5, 2026 &nbsp;·&nbsp; 10 linked converters &nbsp;·&nbsp; The cup of water that anchors every unit</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/why-america-doesnt-use-metric-system" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🗽</div>
+                    <div class="guide-summary-body">
+                        <h2>Why America Doesn't Use the Metric System — The 130-Year History</h2>
+                        <p>The US never chose inches — its official standards have been metric since the 1893 Mendenhall Order, and the inch is legally 2.54 cm. Why a country whose yard and pound are defined as fractions of the meter and kilogram still buys gas by the gallon: the retooling math that closed the conversion door, the 1975 voluntary act that converted nothing, the 1988 federal mandate that split America into a metric government and a customary economy, and the two disasters — a $327.6M Mars probe and a Boeing 767 that ran out of fuel — that priced the status quo.</p>
+                        <span class="guide-summary-meta">August 5, 2026 &nbsp;·&nbsp; 58 linked pages &nbsp;·&nbsp; The history hub behind every converter</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/the-cost-of-retooling" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🛤️</div>
+                    <div class="guide-summary-body">
+                        <h2>The Cost of Retooling — Four Objects That Locked America to Inches</h2>
+                        <p>Why the US didn't convert to metric isn't a policy story — it's a machine story. Four physical objects: the 4 ft 8.5 in railroad gauge inherited from Roman cart tracks, the Whitworth 55° thread that made fasteners interchangeable in threads-per-inch, the lathe leadscrew that copies its own units into every part it makes, and the Johansson gage blocks that set tolerances in millionths of an inch. Paper converts in an afternoon; a gage block is steel and does not. Why France, Germany, and Japan converted while their machines were young — and the window that closed for America.</p>
+                        <span class="guide-summary-meta">August 7, 2026 &nbsp;·&nbsp; 41 linked pages &nbsp;·&nbsp; The machine-level mechanism behind every converter</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/flow-rate-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🌊</div>
+                    <div class="guide-summary-body">
+                        <h2>Flow Rate Conversion — L/min, GPM, m³/h, CFM &amp; the Two-Fluid World</h2>
+                        <p>Every pump, pipe, and fan is described by one number in five dialects: liters per minute on a European pump plate, gallons per minute on an American one, cubic meters per hour on a municipal spec, cubic feet per minute on a fan curve, and liters per second in a fire code. Why the US gallon is the odd one out (231 in³), the only non-decimal flow factor (GPM↔CFM's 0.13368), why hydrants speak L/s, and the pump-sizing rule that prevents the classic 3.79× error.</p>
+                        <span class="guide-summary-meta">August 9, 2026 &nbsp;·&nbsp; 10 linked converters &nbsp;·&nbsp; The five dialects of moving fluid</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/electric-conversion-guide" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">⚡</div>
+                    <div class="guide-summary-body">
+                        <h2>Electric Conversion — Volts, Amps, Ohms, Watts, dBm, AWG</h2>
+                        <p>Electricity reduces to two exact laws and one formula: Ohm's law (V = I·R) and watt's law (P = V·I) tie volts, amps, ohms, and watts together — given any two, the other two are fixed, with zero measured constants anywhere. The US 120/240 V split, breaker sizing and the 80% rule, the LED resistor, the dBm RF power scale anchored at 30 dBm = 1 W, and the AWG wire gauge defined geometrically in 1857 — 12 AWG = 3.31 mm² exactly.</p>
+                        <span class="guide-summary-meta">August 11, 2026 &nbsp;·&nbsp; 14 linked converters &nbsp;·&nbsp; The two laws, the decibel, and the wire gauge</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/the-1893-photocopy" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">📜</div>
+                    <div class="guide-summary-body">
+                        <h2>The 1893 Photocopy — How America's Inch Became a Metric Copy</h2>
+                        <p>On January 2, 1890, President Harrison accepted two platinum prototypes at the White House — Meter No. 27 and Kilogram No. 20, cast at Sèvres. Three years later the Mendenhall Order made them the legal basis of every American unit: the yard became exactly 3600/3937 of a meter, the pound exactly 0.4535924277 kg. The 1959 agreement refined the yard to exactly 0.9144 m — a two-parts-per-million change that still required nationwide recalibration. Why 1 inch = 2.54 cm is law, not approximation.</p>
+                        <span class="guide-summary-meta">August 11, 2026 &nbsp;·&nbsp; 38 linked pages &nbsp;·&nbsp; The standards-level story behind every exact constant</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/the-1975-metric-conversion-act" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">🏛️</div>
+                    <div class="guide-summary-body">
+                        <h2>The Board That Converted Nothing — Anatomy of the 1975 Metric Conversion Act</h2>
+                        <p>In 1982, the US Metric Board quietly ceased to exist after converting essentially nothing. The story of why: the 190-page 'Going Metric' study that recommended a real 10-year plan, the 1975 law that made conversion voluntary instead, the collective-action economics that guaranteed the failure, the 2-liter soda bottle exception, and how the failure set up the 1988 federal mandate that split America into a metric government and a customary economy.</p>
+                        <span class="guide-summary-meta">August 11, 2026 &nbsp;·&nbsp; 39 linked pages &nbsp;·&nbsp; The policy failure that created the two-system world</span>
+                    </div>
+                </article>
+            </a>
+
+            <a href="/guides/year-2038-problem" class="guide-card-link">
+                <article class="guide-summary-card">
+                    <div class="guide-summary-icon">⏱️</div>
+                    <div class="guide-summary-body">
+                        <h2>The Year 2038 Problem — When Converting Time to Seconds Breaks Everything</h2>
+                        <p>At 03:14:07 UTC on January 19, 2038, the 32-bit Unix timestamp overflows from 2,147,483,647 seconds to a number every affected computer reads as 1901. It is not Y2K — a date-formatting slip — but a unit conversion whose counter ran out of digits. Why the epoch's second counter has a 136-year span, where it still lives in 2026, how a 25-year mortgage already crosses the wall, and the 64-bit fix that outlasts the universe.</p>
+                        <span class="guide-summary-meta">August 24, 2026 &nbsp;·&nbsp; 6 linked pages &nbsp;·&nbsp; The overflow hiding in the epoch's second counter</span>
+                    </div>
+                </article>
+            </a>
+
+        </div>
+            <p><strong>Reprint & Attribution.</strong> This guide collection is curated and maintained by the EnginStack engineering team. Original page: <a href="https://enginstack.com/guides/">enginstack.com/guides</a>. Link freely, cite freely — we ask only for attribution. Reprint inquiries: <a href="/contact">contact us</a>.</p>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>

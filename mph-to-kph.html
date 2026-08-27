@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPH to KPH —Speed Limits, Speedometers, and the 1.609 Multiplier | EnginStack</title>
+    <meta name="description" content="1 mph = 1.609344 kph. The conversion on every car speedometer with dual markings. 60 mph = 96.6 kph, 70 mph = 112.7 kph —your GPS already does this math.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/mph-to-kph">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/mph-to-kph">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/mph-to-kph">
+    <meta property="og:title" content="MPH to KPH —Speed Limits, Speedometers, and the 1.609 Multiplier | EnginStack">
+    <meta property="og:description" content="1 mph = 1.609344 kph. The conversion on every car speedometer with dual markings. 60 mph = 96.6 kph, 70 mph = 112.7 kph.">
+    <meta property="og:url" content="https://enginstack.com/mph-to-kph">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "MPH to KPH Converter",
+  "description": "1 mph = 1.609344 kph. The conversion on every car speedometer with dual markings. 60 mph = 96.6 kph, 70 mph = 112.7 kph.",
+  "url": "https://enginstack.com/mph-to-kph",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Speed", "item": "https://enginstack.com/speed/" },
+    { "@type": "ListItem", "position": 3, "name": "MPH to KPH —Speed Limits, Speedometers, and the 1.609 Multiplier" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I quickly convert mph to kph in my head while driving?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Memorize the landmark speeds. 30 mph = 48 km/h, 50 mph = 80 km/h, 60 mph = 97 km/h, 70 mph = 113 km/h. If you need an exact conversion on the fly: multiply by 1.6. 45 mph × 1.6 = 72 km/h (actual: 72.4). For a rental car crossing a border, a sticky note with five key conversions on the dash will keep you ticket-free for the whole trip."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do speedometers show both mph and kph?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because cars cross borders. US-market speedometers have mph dominant on the outer ring with kph secondary on the inner ring. European-market cars are the reverse. Canadian cars use kph dominant (Canada metricated in 1977) with mph secondary for US cross-border driving. Adding a second set of numbers to the gauge face was always cheaper than producing separate instrument clusters for different markets —so dual-marked speedometers became the universal default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it 'kph' or 'km/h' —which is correct?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "km/h is the official SI symbol and appears on road signs worldwide. KPH (or kph) is an informal English abbreviation —common on older speedometers and in casual writing, but technically non-standard. Modern speedometers and every road sign in a metric country use km/h. For technical documents, use km/h. For typing into a search engine, either works."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do common US speed limits convert to in km/h?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "25 mph (residential) = 40 km/h. 35 mph (urban) = 56 km/h. 55 mph (rural highway) = 89 km/h. 65 mph (interstate) = 105 km/h. 70 mph (common interstate) = 113 km/h. 75 mph (western states) = 121 km/h. 85 mph (Texas SH 130 —highest in the US) = 137 km/h. For comparison, the German Autobahn advisory speed is 130 km/h = 81 mph."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/speed/">Speed</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">MPH to KPH Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>MPH to KPH (mph to km/h)</h1>
+            <p>1 mph = 1.609344 km/h. Same conversion factor as miles to kilometers —speed is just distance over time, and the hour cancels out. Your speedometer already knows this.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <!-- Calculator -->
+        <div class="calculator-card" data-coefficient="1.609344" data-unit-from="mph" data-unit-to="km/h">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <!-- FROM row -->
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="60" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">mph</span>
+                    </div>
+                </div>
+
+                <!-- SWAP button -->
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <!-- TO row -->
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">96.5606</span>
+                        <span class="unit-pill unit-pill-to">km/h</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail line -->
+            <div class="result-detail">
+                <span class="forward-res">60 mph = 96.5606 km/h</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">60 km/h = 37.2823 mph</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>How to Convert Mph to Kph</h2>
+            <p>Speed is just distance divided by time. Since both mph and km/h use the same unit of time —the hour —the conversion factor is identical to miles-to-kilometers: <strong>1 mph = 1.609344 km/h</strong>. The formula is multiplication. The number is exact. What makes this conversion interesting isn't the math —it's the fact that every car dashboard in the world already shows you both numbers side by side. Look at your speedometer: the outer ring is in mph (if you're in the US or UK), the inner ring is km/h. The conversion is literally printed on your instrument cluster, hard-coded into the gauge face by the mechanical spacing of the tick marks. For decades before GPS, this was how drivers crossed borders —they glanced at the smaller numbers on the inner ring and hoped they were reading the right one.</p>
+            <h2>The Conversion Formula</h2>
+            <div class="formula-box">
+                <p>
+                km/h = mph &times; 1.609344
+                </p>
+            </div>
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert 60 mph to km/h</p>
+                <p>60 &times; 1.609344 = <strong>96.56 km/h</strong> (the most common highway speed in the US, just under 100 km/h)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert 70 mph to km/h</p>
+                <p>70 &times; 1.609344 = <strong>112.65 km/h</strong> (typical US interstate speed limit —comparable to the European 110 or 120 km/h motorway limit)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert 100 mph to km/h</p>
+                <p>100 &times; 1.609344 = <strong>160.93 km/h</strong> (the benchmark speed for high-performance cars —100 mph = 161 km/h is a common magazine stat)</p>
+            </div>
+            <h2>Common Mph To Kph Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr>
+                    <th>mph</th>
+                    <th>km/h</th>
+                </tr></thead><tbody>
+                <tr>
+                    <td>25 mph</td>
+                    <td>40.2 km/h</td>
+                </tr>
+                <tr>
+                    <td>35 mph</td>
+                    <td>56.3 km/h</td>
+                </tr>
+                <tr>
+                    <td>50 mph</td>
+                    <td>80.5 km/h</td>
+                </tr>
+                <tr>
+                    <td>60 mph</td>
+                    <td>96.6 km/h</td>
+                </tr>
+                <tr>
+                    <td>70 mph</td>
+                    <td>112.7 km/h</td>
+                </tr>
+                <tr>
+                    <td>85 mph</td>
+                    <td>136.8 km/h</td>
+                </tr>
+                <tr>
+                    <td>100 mph</td>
+                    <td>160.9 km/h</td>
+                </tr>
+                </tbody></table></div>
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags"><a href="/kph-to-mph">KPH to MPH</a> <a href="/miles-to-km">Miles to KM</a> <a href="/km-to-miles">KM to Miles</a> <a href="/feet-to-meters">Feet to Meters</a><a href="/guides/speed-conversion-guide">Speed Conversion Guide</a></div>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">How do I quickly convert mph to kph in my head while driving?</p>
+                <p class="faq-a">Memorize the landmark speeds. 30 mph = 48 km/h, 50 mph = 80 km/h, 60 mph = 97 km/h, 70 mph = 113 km/h. If you need an exact conversion on the fly: multiply by 1.6. 45 mph × 1.6 = 72 km/h (actual: 72.4). For a rental car crossing a border, a sticky note with five key conversions on the dash will keep you ticket-free for the whole trip.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why do speedometers show both mph and kph?</p>
+                <p class="faq-a">Because cars cross borders. US-market speedometers have mph dominant on the outer ring with kph secondary on the inner ring. European-market cars are the reverse. Canadian cars use kph dominant (Canada metricated in 1977) with mph secondary for US cross-border driving. Adding a second set of numbers to the gauge face was always cheaper than producing separate instrument clusters for different markets —so dual-marked speedometers became the universal default.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Is it 'kph' or 'km/h' —which is correct?</p>
+                <p class="faq-a">km/h is the official SI symbol and appears on road signs worldwide. KPH (or kph) is an informal English abbreviation —common on older speedometers and in casual writing, but technically non-standard. Modern speedometers and every road sign in a metric country use km/h. For technical documents, use km/h. For typing into a search engine, either works.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What do common US speed limits convert to in km/h?</p>
+                <p class="faq-a">25 mph (residential) = 40 km/h. 35 mph (urban) = 56 km/h. 55 mph (rural highway) = 89 km/h. 65 mph (interstate) = 105 km/h. 70 mph (common interstate) = 113 km/h. 75 mph (western states) = 121 km/h. 85 mph (Texas SH 130 —highest in the US) = 137 km/h. For comparison, the German Autobahn advisory speed is 130 km/h = 81 mph.</p>
+            </div>
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The mph-to-kph conversion is hard-coded into every vehicle's speedometer gearing. A mechanical speedometer works by spinning a magnet inside an aluminum cup —the faster the transmission output shaft turns, the stronger the eddy currents, the further the needle deflects. The gauge face is printed with mph and km/h tick marks spaced 1.609:1 apart. If you swap a US-market instrument cluster into a Canadian-market car (or vice versa), the needle will point to the wrong number on both scales, because the transmission's speed sensor gear is cut to match the primary scale. This is why digital dashboards replaced mechanical speedometers in the 2000s: a digital cluster reads wheel speed from the ABS sensor (in pulses per revolution), converts to the desired unit via a software setting, and displays either mph or km/h with a menu toggle —no gear swap required. The hardware cost of supporting both unit systems dropped from ~$50 per vehicle (separate gauge faces and sensor gears) to $0 (one line of firmware).</p>
+<p style="margin-top:1.2em;">More: <a href="/kph-to-mph">kph to mph</a> · <a href="/miles-to-km">miles to km</a> · <a href="/km-to-miles">km to miles</a> · <a href="/guides/speed-conversion-guide">Speed Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Mile per hour",
+  "termCode": "mile per hour (mph)",
+  "description": "The mile per hour is a speed unit defined as exactly 1.609344 kilometers per hour, derived from the 1959 mile definition. It is used for road speed limits and vehicle speedometers in the United States and the United Kingdom.",
+  "url": "https://en.wikipedia.org/wiki/Miles_per_hour",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

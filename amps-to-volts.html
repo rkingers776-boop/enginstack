@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Amps to Volts — Power Supplies and the Ohm's Law Reverse | EnginStack</title>
+    <meta name="description" content="Convert amps to volts with Ohm's law: V = I·R or V = P/I. Enter current and resistance (or power) to get voltage. A 15 A circuit at 8 Ω needs 120 V. The power supply designer's daily calculation.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/amps-to-volts">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/amps-to-volts">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/amps-to-volts">
+    <meta property="og:title" content="Amps to Volts — Power Supplies and the Ohm's Law Reverse | EnginStack">
+    <meta property="og:description" content="Convert amps to volts with Ohm's law: V = I·R or V = P/I. Enter current and resistance (or power) to get voltage. A 15 A circuit at 8 Ω needs 120 V. The power supply designer's daily calculation.">
+    <meta property="og:url" content="https://enginstack.com/amps-to-volts">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "amps to volts Converter",
+      "description": "Convert amps to volts with Ohm's law: V = I·R or V = P/I. Enter current and resistance (or power) to get voltage. A 15 A circuit at 8 Ω needs 120 V. The power supply designer's daily calculation.",
+      "url": "https://enginstack.com/amps-to-volts",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert amps to volts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply amps by resistance: V = I·R. Or divide power by current: V = P/I. A 15 A current through an 8 Ω load requires 120 V."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do phone chargers output 5 volts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the USB standard chose 5 V as its baseline. The charger's circuitry converts mains voltage down to the level the device needs — and the device draws whatever current its load requires at that voltage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate volts without resistance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — if you know power: V = P/I. A 60 W device drawing 5 A needs 12 V. Either resistance or power completes the pair; volts alone are never computable from amps alone."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "amps to volts Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">amps to volts Converter</span></nav>
+
+        <header class="page-header">
+            <h1>amps to volts</h1>
+            <p>Amps become volts only when pushed through a resistance: V = I·R. A 15 A current through an 8 Ω load needs 120 V — the exact pair the US grid delivers. Power supply designers use this in reverse every day: to push a target current through a known load, they must supply the voltage this calculator returns.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="amps" data-unit-to="volts" data-ctx-unit="ohms" data-formula="i*r">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive Ohm's law calculator. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">amps</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="15" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">amps</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label" for="ctx-val">ohms</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="ctx-input" id="ctx-val" value="8" min="0" step="any">
+                        <span class="unit-pill unit-pill-ctx">ohms</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">volts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">—</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">—</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>amps to volts</h2>
+
+            <p>Ohm's law works in any direction: V = I·R, or with power, V = P/I. The reverse direction is how a charger works — a phone charging at 2 A through an effective load needs the voltage its circuitry demands. Automotive 12 V systems, USB 5 V, and the 48 V of telecom racks are all answers to the same question: what voltage do these amps need?</p>
+
+            <div class="formula-box"><p><strong>volts = amps × ohms&nbsp;&nbsp;(or&nbsp;&nbsp;volts = watts ÷ amps)</strong><br>V = I·R &nbsp;·&nbsp; V = P/I<br>Exact Ohm's law calculation from the current and load you provide.</p></div>
+
+            <h2>Common amps to volts Values</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>amps</th><th>ohms</th><th>volts</th><th>Context</th></tr></thead><tbody>
+                <tr><td>15 A</td><td>8 Ω</td><td>120 V</td><td>US branch circuit pair.</td></tr>
+                <tr><td>20 A</td><td>6 Ω</td><td>120 V</td><td>Kitchen circuit pair.</td></tr>
+                <tr><td>30 A</td><td>8 Ω</td><td>240 V</td><td>Dryer circuit pair.</td></tr>
+                <tr><td>2 A</td><td>2.5 Ω</td><td>5 V</td><td>USB charger pair.</td></tr>
+                <tr><td>10 A</td><td>1.2 Ω</td><td>12 V</td><td>Automotive circuit pair.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The amps-to-volts page is the inverse of <a href="/volts-to-amps">volts to amps</a> — V = I·R versus I = V/R. Together with <a href="/volts-to-watts">volts to watts</a> and <a href="/watts-to-volts">watts to volts</a> they cover the four-way Ohm/watt relationship. The <a href="/electric/">electric hub</a> collects all twelve converters, and the power side feeds the <a href="/energy/">energy</a> family.</p>
+                <p style="margin-top:1.2em;">More: <a href="/volts-to-amps">V to A</a> · <a href="/watts-to-volts">W to V</a> · <a href="/volts-to-ohms">V to Ω</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/volts-to-amps">Volts To Amps</a>
+                <a href="/watts-to-volts">Watts To Volts</a>
+                <a href="/volts-to-ohms">Volts To Ohms</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert amps to volts?</p>
+                    <p class="faq-a">Multiply amps by resistance: V = I·R. Or divide power by current: V = P/I. A 15 A current through an 8 Ω load requires 120 V.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why do phone chargers output 5 volts?</p>
+                    <p class="faq-a">Because the USB standard chose 5 V as its baseline. The charger's circuitry converts mains voltage down to the level the device needs — and the device draws whatever current its load requires at that voltage.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Can I calculate volts without resistance?</p>
+                    <p class="faq-a">Yes — if you know power: V = P/I. A 60 W device drawing 5 A needs 12 V. Either resistance or power completes the pair; volts alone are never computable from amps alone.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var ctx = card.querySelector('.ctx-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fCtx = card.getAttribute('data-ctx-unit');
+    var fTo = card.getAttribute('data-unit-to');
+    var formula = card.getAttribute('data-formula');
+    function calc() {
+        var a = parseFloat(main.value), b = parseFloat(ctx.value);
+        if (isNaN(a) || isNaN(b)) { out.textContent = '—'; return; }
+        var r;
+        switch (formula) {
+            case 'v*i': r = a * b; break;
+            case 'p/i': r = (b === 0) ? NaN : a / b; break;
+            case 'p/v': r = (b === 0) ? NaN : a / b; break;
+            case 'v/r': r = (b === 0) ? NaN : a / b; break;
+            case 'v/a': r = (b === 0) ? NaN : a / b; break;
+            case 'i*r': r = a * b; break;
+            case 'p/a': r = (b === 0) ? NaN : a / b; break;
+            case 'a*v': r = a * b; break;
+            default: r = NaN;
+        }
+        out.textContent = fmt(r);
+        fwd.textContent = main.value + ' ' + fMain + ' × ' + ctx.value + ' ' + fCtx + ' = ' + fmt(r) + ' ' + fTo;
+        rev.textContent = fmt(r) + ' ' + fTo + ' = ' + main.value + ' ' + fMain + ' × ' + ctx.value + ' ' + fCtx;
+    }
+    main.addEventListener('input', calc);
+    ctx.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+</body>
+</html>

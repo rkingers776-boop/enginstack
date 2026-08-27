@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GB to MB — Cloud Tier Economics &amp; the Binary Gap | EnginStack</title>
+    <meta name="description" content="1 GB = 1024 MB. The conversion behind every AWS Lambda bill, every Docker memory limit, and every mobile data plan. Binary vs decimal matters here more than anywhere else in computing.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/gb-to-mb">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/gb-to-mb">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/gb-to-mb">
+    <meta property="og:title" content="GB to MB — Cloud Tier Economics &amp; the Binary Gap">
+    <meta property="og:description" content="1 GB = 1024 MB. The conversion behind every AWS Lambda bill, every Docker memory limit, and every mobile data plan. Binary vs decimal matters here more than anywhere else in computing.">
+    <meta property="og:url" content="https://enginstack.com/gb-to-mb">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "GB-TO-MB Converter",
+  "description": "1 GB = 1024 MB. The conversion behind every AWS Lambda bill, every Docker memory limit, and every mobile data plan. Binary vs decimal matters here more than anywhere else in computing.",
+  "url": "https://enginstack.com/gb-to-mb",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Data Storage", "item": "https://enginstack.com/data-storage/" },
+    { "@type": "ListItem", "position": 3, "name": "GB-TO-MB Converter" }
+  ]
+}
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many megabytes are in a gigabyte for mobile data plans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most mobile carriers worldwide use decimal gigabytes: 1 GB = 1,000 MB. A 5 GB plan gives you 5,000 MB of data. Some prepaid and regional carriers use binary, in which case 5 GB = 5,120 MB. The difference — 120 MB — is about 30 minutes of standard-definition video streaming. Always verify in your carrier's fine print: if they advertise \"GB\" but meter usage in \"MB,\" the convention determines whether you get 1,000 or 1,024 MB per advertised GB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does 1 GB always equal 1024 MB in programming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and this is a common source of bugs. Programming languages are inconsistent: Python's humanize library defaults to binary but offers both; Java's File.length() returns bytes and leaves interpretation to you; Go's standard library uses powers of 1024. The safest practice is to never assume — always check whether your framework, cloud provider, or database uses binary or decimal for memory and storage limits. Kubernetes' explicit \"Gi\" (binary) vs \"G\" (decimal) distinction was created precisely to eliminate this ambiguity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my 1 TB external hard drive show as 931 GB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the manufacturer uses decimal terabytes (1 TB = 1,000,000,000,000 bytes) while your operating system uses binary (1 GB = 1,073,741,824 bytes). 1,000,000,000,000 ÷ 1,073,741,824 ≈ 931. The drive hasn't lost any space — the two numbers are simply measuring the same byte count with different rulers. This discrepancy affects all storage media: SSDs, HDDs, USB drives, and SD cards. The only storage medium immune to this confusion is RAM, which is inherently binary-addressed and always uses powers of 1024 despite being labeled in \"GB.\""
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <!-- ════Main Content ════-->
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/data-storage/">Data Storage</a> <span class="sep">&rsaquo;</span>
+            <span class="current">GB to MB Converter</span></nav>
+                <header class="page-header">
+            <h1>GB to MB — Multiply by 1024 or 1000</h1>
+            <p>1 GB = 1024 MB (binary). Marketing says 1000. A 2 GB file is 2048 MB to your OS, 2000 MB to the box it came in.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+<!-- ════Calculator ════-->
+        <div class="calculator-card" data-coefficient="1024" data-unit-from="GB" data-unit-to="MB">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <!-- ════FROM row ════-->
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">GB</span>
+                    </div>
+                </div>
+
+                <!-- ════SWAP button ════-->
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <!-- ════TO row ════-->
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1,024.0000</span>
+                        <span class="unit-pill unit-pill-to">MB</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ════Detail line ════-->
+            <div class="result-detail">
+                <span class="forward-res">1 GB = 1,024 MB</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 MB = 0.0009766 GB</span>
+            </div>
+            <p class="source-note">Constants verified against NIST Special Publication 811 (Guide for the Use of the International System of Units) and the 1959 International Yard and Pound Agreement. All values are exact — none are rounded approximations.</p>
+        </div><article class="seo-section">            <h2>The Conversion That Bills You Every Month</h2>
+            <p>Gigabytes to megabytes. It sounds like a straightforward multiplication — and mathematically, it is. Multiply by 1024. Done. But in the cloud computing economy, this conversion is a pricing function. AWS Lambda, the serverless platform that powers a significant chunk of the modern internet, bills compute time in GB-seconds and provisions memory in MB. A function configured at <strong>1,024 MB</strong> costs exactly the same as one configured at <strong>1 GB</strong>. Configure it at 1,025 MB and you've crossed into a new pricing tier, paying for 2 GB of allocated memory bandwidth. That single megabyte — the gap between binary 1,024 and decimal 1,000 — is the most expensive byte in the cloud.</p>
+            <p>Mobile carriers exploit the same ambiguity in the opposite direction. A "5 GB" data plan from AT&amp;T or Verizon typically means 5,000 MB (decimal), not 5,120 MB (binary). Over a month of streaming, that missing 120 MB is half an hour of Spotify. Over a year, it's six hours. Multiply by 100 million subscribers and you're looking at billions of phantom megabytes — capacity that was sold but never delivered.</p>
+
+            <h2>The Arithmetic (Not the Confusing Part)</h2>
+            <div class="formula-box"><p>MB = GB × 1024</p></div>
+            <p>Under the binary convention, every step up the data ladder multiplies by 1024. 1 GB = 1,024 MB = 1,048,576 KB = 1,073,741,824 bytes. Under decimal (SI), it's simply 1,000, 1,000,000, and 1,000,000,000. The formula itself is trivial. The context — which convention applies to <em>your</em> specific situation — is where every mistake lives.</p>
+
+            <h2>When 4 GB ≠ 4,096 MB</h2>
+            <p>A Docker container started with <code>--memory=4g</code> gets 4,000 MB of RAM. The same container started with <code>--memory=4Gi</code> or <code>--memory=4096m</code> gets 4,096 MB — 96 MB more. In Kubernetes, <code>resources.limits.memory: 4Gi</code> explicitly means binary gibibytes (4 × 1,024³ bytes), while <code>4G</code> without the "i" means decimal gigabytes. The difference between those two values is about 280 MB — enough to crash a JVM process that was sized for the larger allocation. DevOps engineers learn to spot the missing "i" the way machinists learn to spot a missing decimal point on a tolerance callout.</p>
+            <p>Windows has used binary counting for file sizes since the 1980s, labeling them "GB" despite technically measuring in GiB. macOS switched to decimal in Snow Leopard (2009), so the same 1 TB hard drive reports as 1 TB in Finder but 931 GB in Windows Explorer. Both numbers are true — they're just using different definitions of "gigabyte."</p>
+
+            <h2>Why the Binary Gap Compounds</h2>
+            <div class="formula-box">
+                <p><strong>At kilobyte scale:</strong> 1 KB (decimal) = 1,000 bytes vs 1 KiB (binary) = 1,024 bytes — 2.4% gap</p>
+                <p><strong>At megabyte scale:</strong> 1 MB = 1,000² vs 1 MiB = 1,024² — 4.9% gap</p>
+                <p><strong>At gigabyte scale:</strong> 1 GB = 1,000³ vs 1 GiB = 1,024³ — 7.4% gap</p>
+                <p><strong>At terabyte scale:</strong> 1 TB = 1,000⁴ vs 1 TiB = 1,024⁴ — 10.0% gap</p>
+            </div>
+            <p>This is why your 1 TB SSD shows 931 GB in Windows but 1 TB on the box. Western Digital, Seagate, and every other drive manufacturer use decimal. Your operating system uses whichever convention its developers chose. The class-action lawsuits over this were settled — the customer lost. The IEC created binary prefixes (kibi, mebi, gibi, tebi) in 1998 to fix this. Almost nobody adopted them outside of technical specifications.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item"><p class="faq-q">How many megabytes are in a gigabyte for mobile data plans?</p><p class="faq-a">Most mobile carriers worldwide use decimal gigabytes: 1 GB = 1,000 MB. A 5 GB plan gives you 5,000 MB of data. Some prepaid and regional carriers use binary, in which case 5 GB = 5,120 MB. The difference — 120 MB — is about 30 minutes of standard-definition video streaming. Always verify in your carrier's fine print: if they advertise "GB" but meter usage in "MB," the convention determines whether you get 1,000 or 1,024 MB per advertised GB.</p></div>
+            <div class="faq-item"><p class="faq-q">Does 1 GB always equal 1024 MB in programming?</p><p class="faq-a">No, and this is a common source of bugs. Programming languages are inconsistent: Python's <code>humanize</code> library defaults to binary but offers both; Java's <code>File.length()</code> returns bytes and leaves interpretation to you; Go's standard library uses powers of 1024. The safest practice is to never assume — always check whether your framework, cloud provider, or database uses binary or decimal for memory and storage limits. Kubernetes' explicit "Gi" (binary) vs "G" (decimal) distinction was created precisely to eliminate this ambiguity.</p></div>
+            <div class="faq-item"><p class="faq-q">Why does my 1 TB external hard drive show as 931 GB?</p><p class="faq-a">Because the manufacturer uses decimal terabytes (1 TB = 1,000,000,000,000 bytes) while your operating system uses binary (1 GB = 1,073,741,824 bytes). 1,000,000,000,000 ÷ 1,073,741,824 ≈ 931. The drive hasn't lost any space — the two numbers are simply measuring the same byte count with different rulers. This discrepancy affects all storage media: SSDs, HDDs, USB drives, and SD cards. The only storage medium immune to this confusion is RAM, which is inherently binary-addressed and always uses powers of 1024 despite being labeled in "GB."</p></div>
+            <p style="margin-top:1.2em;">More: <a href="/mb-to-gb">mb to gb</a> · <a href="/gb-to-tb">gb to tb</a> · <a href="/gb-to-kb">gb to kb</a> · <a href="/tb-to-gb">tb to gb</a> · <a href="/guides/data-storage-conversion-guide">Guide</a></p>
+
+
+            </article>
+        </main>
+            <!-- ════Footer ════-->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

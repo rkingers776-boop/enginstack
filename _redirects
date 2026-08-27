@@ -1,0 +1,7 @@
+# Cloudflare Pages _redirects
+# Force .html → clean URL (301 permanent redirect)
+# Single-segment + nested: /*.html already catches everything including /guides/*.html
+/*.html /:splat 301
+
+# Force www → non-www
+www.enginstack.com/* https://enginstack.com/:splat 301

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Power Factor Calculator — PF = W ÷ VA and Why the Grid Cares | EnginStack</title>
+    <meta name="description" content="Calculate power factor: PF = real watts ÷ apparent volt-amps. A motor drawing 1,800 W at 2,250 VA runs at 0.8 PF. Why utilities penalize sites below 0.9 and how capacitor banks fix it.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/power-factor">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/power-factor">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/power-factor">
+    <meta property="og:title" content="Power Factor Calculator — PF = W ÷ VA and Why the Grid Cares | EnginStack">
+    <meta property="og:description" content="Calculate power factor: PF = real watts ÷ apparent volt-amps. Why utilities penalize sites below 0.9 and how capacitor banks fix it.">
+    <meta property="og:url" content="https://enginstack.com/power-factor">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Power Factor Calculator",
+      "description": "Calculate power factor from real power and apparent power: PF = W ÷ VA. A motor drawing 1,800 W at 2,250 VA runs at 0.8 PF. Also shows the angle φ = arccos(PF).",
+      "url": "https://enginstack.com/power-factor",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate power factor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide real power by apparent power: PF = watts ÷ volt-amps. A motor drawing 1,800 W while the meter shows 2,250 VA runs at 1,800 ÷ 2,250 = 0.8. The result is always between 0 and 1, and it is the cosine of the phase angle between voltage and current."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do utilities charge extra for low power factor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because low-PF current still heats the utility's wires, transformers, and generators without doing useful work. A site at 0.7 PF needs roughly 43% more current to deliver the same kW as a site at 1.0 — so the utility's distribution losses are higher and less of its capacity is usable. Many commercial tariffs apply a penalty below 0.9 or 0.95, which is why capacitor banks are installed: correcting PF from 0.7 to 0.95 cuts the current draw by over a quarter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can power factor be higher than 1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Real power can never exceed apparent power, so PF is mathematically capped at 1.0, which is where pure resistive loads (heaters, incandescent lamps) sit. A leading PF (below 1 but capacitive rather than inductive) can occur on cable-heavy or over-corrected systems, and some utilities penalize leading PF too, because it pushes voltage up."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "Power Factor Calculator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Power Factor Calculator</span></nav>
+
+        <header class="page-header">
+            <h1>power factor — the ratio that decides your electricity bill</h1>
+            <p>A motor that does 1,800 W of work can still pull 2,250 VA from the wall, because coils and iron make the current arrive late behind the voltage. Power factor measures how much of what the grid sends you actually becomes work: PF = watts ÷ volt-amps. Below 0.9, commercial utilities start charging penalties; below 0.7, a plant is literally paying to heat its own wiring. This calculator finds your PF from the two meter readings, and shows the phase angle behind it.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="watts" data-unit-to="power factor" data-ctx-unit="volt-amps" data-formula="w-over-va">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive power factor calculator. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">watts (real)</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1800" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">W</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label" for="ctx-val">volt-amps (apparent)</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="ctx-input" id="ctx-val" value="2250" min="0" step="any">
+                        <span class="unit-pill unit-pill-ctx">VA</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">PF</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1800 W ÷ 2250 VA = PF 0.8  (φ = 36.9°)</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">cos φ = 0.8 — reactive share: 60.0% of VA</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 and IEEE 1459. Power factor is a definition — PF = P/S = cos φ — exact for the watt and VA readings you enter.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Current That Does No Work</h2>
+
+            <p>Feed AC into a coil and the current is lazy: it peaks after the voltage peaks, because the coil stores energy in its magnetic field and gives it back a quarter-cycle later. The grid has to carry that sloshing current — it heats wires, transformers, and generator windings — but the site never converts it to work. That is the reactive current, and it is why a factory floor meter can read 2,250 VA while the machines inside only do 1,800 W of useful power. The ratio of the two numbers is the power factor: 0.8 in this case, and every 0.1 of PF lost is real money on a commercial tariff.</p>
+
+            <div class="formula-box"><p><strong>PF = watts ÷ volt-amps&nbsp;&nbsp;=&nbsp;&nbsp;cos φ</strong><br>PF = P / S<br>PF runs 0 to 1 — 1.0 is pure resistance; the phase angle φ = arccos(PF).</p></div>
+
+            <h2>Where the PF Numbers Come From</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Load</th><th>Typical PF</th><th>Why</th></tr></thead><tbody>
+                <tr><td>Heater, incandescent lamp</td><td>1.0</td><td>Pure resistance — voltage and current in phase.</td></tr>
+                <tr><td>LED driver, PFC supply</td><td>0.9–0.99</td><td>Active correction circuits pull current in phase on purpose.</td></tr>
+                <tr><td>Induction motor, loaded</td><td>0.75–0.85</td><td>Windings store magnetic energy — the classic lagging load.</td></tr>
+                <tr><td>Induction motor, idling</td><td>0.2–0.4</td><td>Almost no real work but full magnetizing current.</td></tr>
+                <tr><td>Old fluorescent ballast</td><td>0.5–0.7</td><td>Choke coil with no correction — the reason ballasts were regulated.</td></tr>
+                </tbody></table></div>
+
+            <p>The idling-motor row is the one that surprises plant managers: a motor spinning a conveyor belt with nothing on it still draws its full magnetizing current, so its PF collapses toward 0.3. A factory full of lightly loaded motors can sit below 0.6 — and the standard fix is a capacitor bank sized to supply the reactive current locally. The capacitor's current leads the voltage, canceling the motor's lag, and the site's PF climbs back above 0.9. That is why the <a href="/kva-to-kw">kVA to kW</a> and <a href="/kw-to-kva">kW to kVA</a> pages matter here: PF is the coefficient in both.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Power factor is the bridge between the two other AC power converters in this family: <a href="/kva-to-kw">kVA to kW</a> applies it as a multiplier, and <a href="/kw-to-kva">kW to kVA</a> as a divisor. For single-phase loads the volt-amps are simply volts × amps at the branch circuit — see <a href="/volts-to-amps">volts to amps</a> and <a href="/amps-to-volts">amps to volts</a>. Motors, the biggest PF offenders, are rated in <a href="/hp-to-kw">horsepower</a>, and the energy those corrected loads consume is billed in <a href="/kwh-to-btu">kilowatt-hours</a>. The whole set returns to the <a href="/electric/">electric hub</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/kva-to-kw">kVA to kW</a> · <a href="/kw-to-kva">kW to kVA</a> · <a href="/volts-to-amps">V to A</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/kva-to-kw">kVA To kW</a>
+                <a href="/kw-to-kva">kW To kVA</a>
+                <a href="/volts-to-amps">Volts To Amps</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I calculate power factor?</p>
+                    <p class="faq-a">Divide real power by apparent power: PF = watts ÷ volt-amps. A motor drawing 1,800 W while the meter shows 2,250 VA runs at 1,800 ÷ 2,250 = 0.8. The result is always between 0 and 1, and it is the cosine of the phase angle between voltage and current.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why do utilities charge extra for low power factor?</p>
+                    <p class="faq-a">Because low-PF current still heats the utility's wires, transformers, and generators without doing useful work. A site at 0.7 PF needs roughly 43% more current to deliver the same kW as a site at 1.0 — so the utility's distribution losses are higher and less of its capacity is usable. Many commercial tariffs apply a penalty below 0.9 or 0.95, which is why capacitor banks are installed: correcting PF from 0.7 to 0.95 cuts the current draw by over a quarter.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Can power factor be higher than 1?</p>
+                    <p class="faq-a">No. Real power can never exceed apparent power, so PF is mathematically capped at 1.0, which is where pure resistive loads (heaters, incandescent lamps) sit. A leading PF (below 1 but capacitive rather than inductive) can occur on cable-heavy or over-corrected systems, and some utilities penalize leading PF too, because it pushes voltage up.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var ctx = card.querySelector('.ctx-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fCtx = card.getAttribute('data-ctx-unit');
+    var fTo = card.getAttribute('data-unit-to');
+    function calc() {
+        var a = parseFloat(main.value), b = parseFloat(ctx.value);
+        if (isNaN(a) || isNaN(b) || b === 0) { out.textContent = '—'; return; }
+        var r = a / b;
+        var ang = Math.acos(Math.min(1, Math.max(0, r))) * 180 / Math.PI;
+        out.textContent = fmt(r);
+        fwd.textContent = a + ' W ÷ ' + b + ' VA = PF ' + fmt(r) + '  (φ = ' + ang.toFixed(1) + '°)';
+        rev.textContent = 'cos φ = ' + fmt(r) + ' — reactive share: ' + (100 * Math.sqrt(Math.max(0, 1 - r * r))).toFixed(1) + '% of VA';
+    }
+    main.addEventListener('input', calc);
+    ctx.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Power factor",
+  "termCode": "power factor (PF)",
+  "description": "Power factor is the ratio of real power to apparent power in an AC circuit: PF = W/VA = cos φ. It ranges from 0 to 1, where 1 indicates a purely resistive load and lower values indicate reactive (inductive or capacitive) loads.",
+  "url": "https://en.wikipedia.org/wiki/Power_factor",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+
+</body>
+</html>

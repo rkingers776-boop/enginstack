@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradians to Degrees — The French Revolution's Other Failed Metric, the 400-Grad Circle, and the Artillery Officer Who Needed a Cleaner Number | EnginStack</title>
+    <meta name="description" content="1 grad = 0.9&deg; (exactly). The gradian (gon) divides a right angle into 100 parts &mdash; 400 per circle. Born from the French metric system, adopted in surveying and artillery, ignored by everyone else. Your calculator probably has a GRAD mode you've never used. Here's why it exists.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/gradians-to-degrees">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/gradians-to-degrees">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/gradians-to-degrees">
+    <meta property="og:title" content="Gradians to Degrees — The 400-Grad Circle That Almost Replaced 360 | EnginStack">
+    <meta property="og:description" content="1 grad = 0.9&deg;. Divide a right angle into 100. The French tried it. Surveyors still use it. Your calculator has a GRAD button that nobody presses.">
+    <meta property="og:url" content="https://enginstack.com/gradians-to-degrees">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gradians to Degrees Converter",
+  "description": "1 grad = 0.9 degrees exactly. Convert between gradians (gons) and decimal degrees for surveying, engineering, and calculator work.",
+  "url": "https://enginstack.com/gradians-to-degrees",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my calculator giving weird sine values?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check the angle mode. If it says \"GRAD\" or \"GON\" instead of \"DEG,\" your calculator interprets all inputs as gradians. sin(90) in DEG mode = 1.000. sin(90) in GRAD mode = sin(81°) = 0.9877. Close but wrong. cos(100) in DEG = -0.1736. cos(100) in GRAD = cos(90°) = 0.0000. Very wrong. If your exam answers are consistently off by small amounts, check the DRG key. This single mistake accounts for more lost points on engineering calculus exams than actual conceptual errors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are gradians and grades the same thing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Grade\" can mean several things: a mark in school, the slope of a road (percentage grade), or an angle unit (archaic term for gradian). In modern ISO terminology, the correct name for the metric angle unit is \"gon\" (plural: \"gons\"), not \"grade.\" The abbreviation \"grad\" is deprecated to avoid confusion with other meanings. However, many calculators still label the mode \"GRAD,\" and many engineers still say \"grads\" colloquially. Context disambiguates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do GPS coordinates use degrees or gradians?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Decimal degrees, always. Latitude and longitude are expressed in degrees (DD.DDDDDD format). WGS84, the datum used by GPS, defines coordinates in decimal degrees. Internal computations may use radians (for distance formulas like haversine), but external representation is always decimal degrees. No major GIS format uses gradians for coordinate storage — not Shapefile, not GeoJSON, not KML. If you encounter gradians in coordinate data, someone made a mistake converting from a European survey source that used gon. Multiply by 0.9 and proceed with caution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a centigrad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An older synonym for gradian (from Latin: centi = hundred + gradus = step). 100 centigrads = 100 grads = 90 degrees. The term fell out of use partly because \"centigrade\" also referred to the Celsius temperature scale (now officially \"Celsius\" to avoid confusion), creating ambiguity. Modern usage prefers \"gon\" or \"gradian.\" Avoid \"centigrad\" unless you enjoy explaining yourself twice per sentence."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Angle", "item": "https://enginstack.com/angle/" },
+    { "@type": "ListItem", "position": 3, "name": "Gradians to Degrees" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/angle/">Angle</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Gradians to Degrees Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Gradians to Degrees: The Metric Angle That Lost to History</h1>
+            <p>1 grad = 0.9&deg; exactly. Multiply by 0.9 and you're done. But behind that simple multiplication lies a 230-year-old debate about whether angles should be measured in numbers that make sense to humans (360 degrees, chosen because Babylonians counted on their fingers in base-60) or numbers that make sense to the metric system (400 gradians, chosen because revolutionaries in Paris wanted everything to be divisible by 10). The gradians lost the popular vote but won a permanent seat in surveying instruments, artillery ballistics tables, and the DRG button on your calculator that you've pressed accidentally at least once.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.9" data-unit-from="gradians" data-unit-to="degrees">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">gradians</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.9</span>
+                        <span class="unit-pill unit-pill-to">degrees</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 grad = 0.9 degrees</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 degree = 1.1111 gradians</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The 400-Grad Circle That Should Have Been</h2>
+
+            <p>In 1793, as the French National Convention was busy inventing the meter, the kilogram, and the liter, a committee including Lagrange, Laplace, Monge, and Condorcet turned their attention to angles. The problem: the degree (1/360 of a circle) was a Babylonian relic based on base-60 counting, incompatible with the new decimal metric system. Their solution: define a new unit where a right angle equals 100 grads, making a full circle 400 grads. Every quadrant would be a clean 100. Every percent slope could be expressed directly in grads without conversion.</p>
+
+            <p>The proposal made intellectual sense. 400 is divisible by 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100, 200 — more divisors than 360, which was the main selling point. Navigation charts could use grads directly for compass bearings. Surveyors could calculate slopes with integer arithmetic. Artillery officers could compute elevation corrections with simpler tables.</p>
+
+            <p>It didn't matter. By the time the gradian was standardized (in the late 19th century), degrees had colonized astronomy, navigation, mechanical engineering, and education worldwide. Radians — the natural unit for mathematics (where the arc length equals radius times angle in radians) — had captured pure science. The gradian arrived too late for the party that mattered and found refuge in specific niches where its decimal advantages outweighed the cost of being different: geodetic surveying in continental Europe and some fields of civil engineering.</p>
+
+            <h2>The Conversion Chain: Gon, Deg, Rad</h2>
+
+            <p>All three units measure the same physical quantity (plane angle) with different scales:</p>
+
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Quantity</th><th>Degrees (&deg;)</th><th>Gradians (gon)</th><td>Radians (rad)</td></tr></thead><tbody>
+                <tr><td>Full turn</td><td>360</td><td>400</td><td>2π ≈ 6.28319</td></tr>
+                <tr><td>Right angle</td><td>90</td><td>100</td><td>π/2 ≈ 1.57080</td></tr>
+                <tr><td>Straight line</td><td>180</td><td>200</td><td>π ≈ 3.14159</td></tr>
+                <tr><td>1 grad/gon</td><td>0.9</td><td>1</td><td>π/200 ≈ 0.01571</td></tr>
+                <tr><td>1 degree</td><td>1</td><td>1.111...</td><td>π/180 ≈ 0.01745</td></tr>
+                <tr><td>1 radian</td><td>57.2958</td><td>63.6620</td><td>1</td></tr>
+                </tbody></table></div>
+
+            <div class="formula-box">
+                <p>degrees = gradians &times; 0.9 &nbsp;&nbsp;&nbsp;&nbsp;radians = gradians &times; (&pi; / 200)</p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box"><p><strong>100 grads → 90&deg;</strong></p><p>A perfect right angle. This is why gradians were appealing: 100 grads = 90&deg; = quarter-turn. In surveying, this means a 100-gon deflection is exactly perpendicular to the baseline — cleaner than saying "89.9997&deg;" when your theodolite reads 100.000 gon.</p></div>
+            <div class="example-box"><p><strong>200 grads → 180&deg;</strong></p><p>A straight line. Half-circle. Sunrise to sunset at the equinox (ignoring atmospheric refraction and solar diameter, each of which adds ~0.83&deg; to the visible horizon).</p></div>
+            <div class="example-box"><p><strong>50 grads → 45&deg;</strong></p><p>Half a right angle. The pitch of a standard residential roof (often 45&deg;, sometimes 30&deg; or 22.5&deg;). Also the angle of the isosceles triangle formed by cutting a square along its diagonal. In gradians: 50 gon. Clean integer. One reason roofers in France might prefer gons over degrees — though most just use a speed square.</p></div>
+            <div class="example-box"><p><strong>400 grads → 360&deg;</strong></p><p>Full circle. The complete rotation. 400 gon = 360&deg; = 2π rad. All three represent the same thing. The difference is which number you prefer to say out loud. Engineers usually pick whichever matches their tool's display mode.</p></div>
+
+            <h2>Common Gradian Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Gradians</th><th>Degrees</th><th>Radians</th><th>Real-world Reference</th></tr></thead><tbody>
+                <tr><td>1 gon</td><td>0.9&deg;</td><td>0.0157 rad</td><td>About 0.5&deg; less than one full moon's apparent diameter.</td></tr>
+                <tr><td>10 gon</td><td>9&deg;</td><td>0.157 rad</td><td>Roughly 18 moon widths across the sky.</td></tr>
+                <tr><td>50 gon</td><td>45&deg;</td><td>0.785 rad</td><td>Roof pitch. Diagonal of a square. Octagon interior angle.</td></tr>
+                <tr><td>100 gon</td><td>90&deg;</td><td>1.571 rad</td><td>Right angle. Corner of your room.</td></tr>
+                <tr><td>150 gon</td><td>135&deg;</td><td>2.356 rad</td><td>Interior angle of a regular octagon.</td></tr>
+                <tr><td>200 gon</td><td>180&deg;</td><td>3.142 rad</td><td>Straight line. Half-circle. Sunset direction at noon.</td></tr>
+                <tr><td>300 gon</td><td>270&deg;</td><td>5.236 rad</td><td>Three-quarter turn. Clock position at 9 o'clock.</td></tr>
+                <tr><td>400 gon</td><td>360&deg;</td><td>6.283 rad</td><td>Full circle. Back where you started.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>In geomatics and land surveying, the gradian (called "gon" in ISO standards since 1999) remains common for expressing slopes, directions, and angular measurements in geographic information systems (GIS). Many European cadastral systems store angles in gon internally. When importing such data into software that expects degrees (most CAD tools, game engines, CSS transforms), a multiply-by-0.9 conversion is required. Failing to detect the unit produces systematic errors: a 100-gon bearing imported as 100&deg; points 10&deg; off-target — enough to miss a property corner by meters at survey distances. The Mars Climate Orbiter disaster (1999) famously resulted from a unit mix-up between metric and imperial, and while that case involved thrust force rather than angles, it illustrates the general principle: silently wrong units in engineering data destroy hardware before anyone notices. Always verify the angular unit column in your coordinate file header. For related conversions: <a href="/degrees-to-radians">degrees to radians</a>, <a href="/radians-to-degrees">radians to degrees</a>, and the comprehensive <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/degrees-to-radians">degrees to radians</a> · <a href="/radians-to-degrees">radians to degrees</a> · <a href="/guides/angle-conversion-guide">Angle Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                
+                <a href="/degrees-to-gradians">Degrees to Gradians (&times; 1.111)</a> <a href="/degrees-to-radians">Degrees to Radians</a>middot; <a href="/degrees-to-radians">Degrees to Radians</a>
+                <a href="/radians-to-degrees">Radians to Degrees</a>
+                <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why is my calculator giving weird sine values?</p>
+                <p class="faq-a">Check the angle mode. If it says "GRAD" or "GON" instead of "DEG," your calculator interprets all inputs as gradians. sin(90) in DEG mode = 1.000. sin(90) in GRAD mode = sin(81&deg;) = 0.9877. Close but wrong. cos(100) in DEG = -0.1736. cos(100) in GRAD = cos(90&deg;) = 0.0000. Very wrong. If your exam answers are consistently off by small amounts, check the DRG key. This single mistake accounts for more lost points on engineering calculus exams than actual conceptual errors.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Are gradians and grades the same thing?</p>
+                <p class="faq-a">"Grade" can mean several things: a mark in school, the slope of a road (percentage grade), or an angle unit (archaic term for gradian). In modern ISO terminology, the correct name for the metric angle unit is "gon" (plural: "gons"), not "grade." The abbreviation "grad" is deprecated to avoid confusion with other meanings. However, many calculators still label the mode "GRAD," and many engineers still say "grads" colloquially. Context disambiguates.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Do GPS coordinates use degrees or gradians?</p>
+                <p class="faq-a">Decimal degrees, always. Latitude and longitude are expressed in degrees (DD.DDDDDD format). WGS84, the datum used by GPS, defines coordinates in decimal degrees. Internal computations may use radians (for distance formulas like haversine), but external representation is always decimal degrees. No major GIS format uses gradians for coordinate storage — not Shapefile, not GeoJSON, not KML. If you encounter gradians in coordinate data, someone made a mistake converting from a European survey source that used gon. Multiply by 0.9 and proceed with caution.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What is a centigrad?</p>
+                <p class="faq-a">An older synonym for gradian (from Latin: centi = hundred + gradus = step). 100 centigrads = 100 grads = 90 degrees. The term fell out of use partly because "centigrade" also referred to the Celsius temperature scale (now officially "Celsius" to avoid confusion), creating ambiguity. Modern usage prefers "gon" or "gradian." Avoid "centigrad" unless you enjoy explaining yourself twice per sentence.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

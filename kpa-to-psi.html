@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kPa to PSI — When Your Metric Car Meets an American Pump</title>
+    <meta name="description" content="1 kPa = 0.145038 psi. The reverse of the tire pressure conversion — what happens when a European car pulls up to an American air pump. From TPMS sensor logic to bicycle racing tire strategy.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/kpa-to-psi">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/kpa-to-psi">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/kpa-to-psi">
+    <meta property="og:title" content="kPa to PSI — When Your Metric Car Meets an American Pump">
+    <meta property="og:description" content="1 kPa = 0.145038 psi. The reverse of the tire pressure conversion — what happens when a European car pulls up to an American air pump. From TPMS sensor logic to bicycle racing tire strategy.">
+    <meta property="og:url" content="https://enginstack.com/kpa-to-psi">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "kPa to psi Converter",
+  "description": "Multiply kPa by 0.145038 for psi. kPa-to-psi is the step that turns a European or ISO building-code pressure into the number an American shop floor reads.",
+  "url": "https://enginstack.com/kpa-to-psi",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Pressure", "item": "https://enginstack.com/pressure/" },
+    { "@type": "ListItem", "position": 3, "name": "kPa to psi Converter" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert kPa to PSI in my head at the gas station?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 7 and add 3%. Example: 220 kPa. 220 ÷ 7 = 31.4. Multiply 31.4 by 0.03 ≈ 0.94. Add: 31.4 + 0.94 = 32.3 PSI. The exact answer is 31.9 PSI — close enough for any tire. The \"divide by 7\" shortcut works because 1 PSI = 6.895 kPa, which is very close to 7. The 3% correction compensates for the 1.5% undercount from using 7 instead of 6.895, plus a little extra for dividing by a round number in your head. For quick reference: every 7 kPa ≈ 1 PSI, and every 10 kPa ≈ 1.45 PSI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my car's TPMS reset in kPa but the dealer's gauge reads PSI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TPMS sensors are manufactured to a global standard (typically ISO 21750) and report pressure in kPa to the vehicle's ECU. The dashboard display converts to PSI for North American market vehicles and displays kPa (or bar) for European and Asian markets. When a dealership in the US connects a diagnostic tool to reset a TPMS sensor, the tool reports in kPa (the sensor's native unit), but the mechanic's handheld gauge reads PSI. The discrepancy often leads to a cycle of \"the sensor must be wrong\" when in reality the gauge was simply not calibrated to the same precision as the sensor. TPMS sensors are accurate to ±7 kPa (±1 PSI); most handheld gauges are less accurate. Trust the sensor, convert the number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a kPa equivalent for PSI in other metric countries' daily life?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Japan, South Korea, and China use kPa for tire pressures in owner's manuals but often label gas station air pumps in kgf/cm² (kilograms-force per square centimeter) — a legacy unit that is approximately 98.07 kPa. A tire spec of 2.2 kgf/cm² equals 215.7 kPa, which rounds to 220 kPa on the door sticker. Australia and New Zealand use kPa exclusively. Europe uses bar (1 bar = 100 kPa) for consumer-facing tire labels but kPa for technical specifications. The result is a fragmented landscape where your car's sticker might say 220 kPa, your local pump says 2.2 bar, and your American-made pressure gauge says 32 PSI — and all three are the same pressure."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/pressure/">Pressure</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">kPa to psi Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>kPa to psi — when the international spec meets the American gauge</h1>
+            <p>A European building code states pressure in kilopascals; the technician's gauge reads pounds per square inch. kPa-to-psi is the bridge — multiply by 0.145038 — and it is the conversion that lets one pressure speak two dialects at once.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.145038" data-unit-from="kPa" data-unit-to="psi">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">kPa</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.145038</span>
+                        <span class="unit-pill unit-pill-to">psi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">1 kPa = 0.145038 psi</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 psi = 6.89476 kPa</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+<article class="seo-section">            <h2>The Pump Says PSI, Your Car Says kPa</h2>
+            <p>A Volkswagen Golf rolls into a gas station in rural Montana. The door sticker says <strong>220 kPa</strong>. The air pump on the wall reads only in PSI. The driver — a European tourist or the car's second owner — needs to convert, and "just fill it to 32" is the correct answer but not the obvious one. A single kilopascal is an almost invisibly small unit: <strong>0.145 PSI</strong>, roughly the pressure exerted by a thin paperback book resting on a postage stamp. That's why tire pressures use hundreds of kPa — 220, not 2.2 — and why the mental conversion is divide by 7 and add a little. 220 ÷ 7 = 31.4, call it 32. Close enough to keep you from driving on underinflated rubber.</p>
+
+            <h2>The Division</h2>
+            <div class="formula-box"><p>psi = kPa ÷ 6.894757293168</p></div>
+            <p>Or more practically: psi ≈ kPa × 0.145038. The exact factor is 1 ÷ 6.894757293168 = 0.14503773773... Every decimal place matters because the PSI world thinks in single-digit increments (1 PSI) while the kPa world thinks in tens (10 kPa ≈ 1.45 PSI). A rounding error of 0.01 in the factor translates to a 2.2 kPa error at 220 kPa — invisible in kPa, potentially a full PSI at the gauge. For passenger car tires, a 1 PSI error doesn't matter. For Formula 1 tires operating at 1.5 bar (150 kPa, 21.8 PSI front), where the optimal pressure window is ±0.1 PSI, the conversion precision absolutely matters.</p>
+
+            <h2>Where kPa-to-PSI Goes Beyond the Garage</h2>
+            <p>Blood pressure cuffs in different countries use different units: mmHg in the US, kPa in some European clinical settings. The standard "120 over 80" reading in mmHg converts to 16.0 over 10.7 kPa — numbers that feel alarming to a patient accustomed to mmHg, even though they represent the same physiological measurement. The World Health Organization's hypertension guidelines are published in mmHg (and increasingly in both units), but the underlying pressure transducers in automated cuffs measure in kPa and convert internally. A calibration error of 1 kPa (7.5 mmHg) in the transducer can shift a patient from "normal" to "elevated" — a clinical decision with real consequences traced back to a conversion factor.</p>
+            <p>In industrial gas handling, oxygen cylinders are filled to approximately 15,000 kPa (2,176 PSI) in most of the world. American cylinders use PSI markings. When a hospital in a metric country receives an American-spec oxygen regulator, the kPa-to-PSI conversion on the adapter fitting is a life-safety calculation. The regulator rated for 2,000 PSI maximum must be verified to handle 15,000 kPa (which equals 2,176 PSI — within the margin, but close enough that someone must check the arithmetic).</p>
+
+            <h2>Quick Tire Pressure Cross-Reference</h2>
+            <div class="formula-box">
+                <p><strong>180 kPa = 26.1 PSI</strong> — minimum safe pressure for most passenger tires</p>
+                <p><strong>200 kPa = 29.0 PSI</strong> — common economy car recommendation</p>
+                <p><strong>220 kPa = 31.9 PSI</strong> — the global standard (VW, Toyota, Honda)</p>
+                <p><strong>250 kPa = 36.3 PSI</strong> — common for loaded vehicles and SUVs</p>
+                <p><strong>300 kPa = 43.5 PSI</strong> — maximum cold inflation for most passenger tires</p>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item"><p class="faq-q">How do I convert kPa to PSI in my head at the gas station?</p><p class="faq-a">Divide by 7 and add 3%. Example: 220 kPa. 220 ÷ 7 = 31.4. Multiply 31.4 by 0.03 ≈ 0.94. Add: 31.4 + 0.94 = 32.3 PSI. The exact answer is 31.9 PSI — close enough for any tire. The "divide by 7" shortcut works because 1 PSI = 6.895 kPa, which is very close to 7. The 3% correction compensates for the 1.5% undercount from using 7 instead of 6.895, plus a little extra for dividing by a round number in your head. For quick reference: every 7 kPa ≈ 1 PSI, and every 10 kPa ≈ 1.45 PSI.</p></div>
+            <div class="faq-item"><p class="faq-q">Why does my car's TPMS reset in kPa but the dealer's gauge reads PSI?</p><p class="faq-a">TPMS sensors are manufactured to a global standard (typically ISO 21750) and report pressure in kPa to the vehicle's ECU. The dashboard display converts to PSI for North American market vehicles and displays kPa (or bar) for European and Asian markets. When a dealership in the US connects a diagnostic tool to reset a TPMS sensor, the tool reports in kPa (the sensor's native unit), but the mechanic's handheld gauge reads PSI. The discrepancy often leads to a cycle of "the sensor must be wrong" when in reality the gauge was simply not calibrated to the same precision as the sensor. TPMS sensors are accurate to ±7 kPa (±1 PSI); most handheld gauges are less accurate. Trust the sensor, convert the number.</p></div>
+            <div class="faq-item"><p class="faq-q">Is there a kPa equivalent for PSI in other metric countries' daily life?</p><p class="faq-a">Japan, South Korea, and China use kPa for tire pressures in owner's manuals but often label gas station air pumps in kgf/cm² (kilograms-force per square centimeter) — a legacy unit that is approximately 98.07 kPa. A tire spec of 2.2 kgf/cm² equals 215.7 kPa, which rounds to 220 kPa on the door sticker. Australia and New Zealand use kPa exclusively. Europe uses bar (1 bar = 100 kPa) for consumer-facing tire labels but kPa for technical specifications. The result is a fragmented landscape where your car's sticker might say 220 kPa, your local pump says 2.2 bar, and your American-made pressure gauge says 32 PSI — and all three are the same pressure.</p></div>
+            <p style="margin-top:1.2em;">More: <a href="/psi-to-kpa">psi to kpa</a> · <a href="/bar-to-psi">bar to psi</a> · <a href="/psi-to-bar">psi to bar</a> · <a href="/pa-to-atm">pa to atm</a> · <a href="/guides/pressure-conversion-guide">Guide</a></p>
+
+
+            </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

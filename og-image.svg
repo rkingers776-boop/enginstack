@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630">
+      <stop offset="0%" stop-color="#1a1e26"/>
+      <stop offset="100%" stop-color="#22262f"/>
+    </linearGradient>
+    <linearGradient id="logoG" x1="0" y1="0" x2="80" y2="80">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" rx="0" fill="url(#bg)"/>
+  <!-- Subtle grid lines -->
+  <g stroke="#343a46" stroke-width="0.5" opacity="0.4">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="430" x2="1200" y2="430"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+  <!-- Logo mark -->
+  <rect x="560" y="180" width="80" height="80" rx="18" fill="url(#logoG)"/>
+  <text x="600" y="238" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="38" font-weight="700" fill="#1a1e26" letter-spacing="-0.02em">ES</text>
+  <!-- Title -->
+  <text x="600" y="340" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="56" font-weight="700" fill="#edf0f5" letter-spacing="-0.03em">EnginStack</text>
+  <!-- Subtitle -->
+  <text x="600" y="400" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="24" fill="#788290" letter-spacing="-0.01em">Engineering Measurement Reference</text>
+  <!-- Bottom tag -->
+  <text x="600" y="480" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="18" fill="#5b6473">98+ precision unit converters · Verified metrology constants · Free &amp; instant</text>
+</svg>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPH to m/s — Crash Reconstruction, Radar Guns, and the 0.447 Exact Factor | EnginStack</title>
+    <meta name="description" content="1 mph = 0.44704 m/s. Exact — defined by the 1959 International Yard and Pound Agreement. A 60 mph highway speed is 26.82 m/s. Every US crash reconstruction starts with this number.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/mph-to-mps">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/mph-to-mps">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/mph-to-mps">
+    <meta property="og:title" content="MPH to m/s — Crash Reconstruction, Radar Guns, and the 0.447 Exact Factor | EnginStack">
+    <meta property="og:description" content="1 mph = 0.44704 m/s. Exact — defined by the 1959 International Yard and Pound Agreement. A 60 mph highway speed is 26.82 m/s.">
+    <meta property="og:url" content="https://enginstack.com/mph-to-mps">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "MPH to m/s Converter",
+  "description": "1 mph = 0.44704 m/s. Exact — defined by the 1959 International Yard and Pound Agreement. A 60 mph highway speed is 26.82 m/s. Every US crash reconstruction starts here.",
+  "url": "https://enginstack.com/mph-to-mps",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Speed", "item": "https://enginstack.com/speed/" },
+    { "@type": "ListItem", "position": 3, "name": "MPH to m/s Converter" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the 0.44704 factor exact or rounded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exact. The 1959 International Yard and Pound Agreement set 1 yard = 0.9144 m. A mile is 1760 yards = 1609.344 m. Divide by 3600 s/hr and you get 0.44704 — exactly. The decimal terminates because both the numerator (1609.344) and denominator (3600) are rational numbers. This is one of the few imperial-to-metric conversions with zero measurement uncertainty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is mph-to-m/s used in crash reconstruction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every physics formula in crash reconstruction — skid distance (v²=2μgd), kinetic energy (½mv²), conservation of momentum — requires speeds in m/s. A reconstructionist takes the police report mph, multiplies by 0.44704, and only then starts calculating. Skipping this step can produce a factor-of-5 error in skid-distance calculations — enough to incorrectly assign fault in a fatal accident."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does mph-to-m/s relate to pedestrian fatality risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A landmark 2011 study by Tefft (AAA Foundation) found pedestrian fatality risk at 30 mph (13.4 m/s) is about 50% for adults. At 23 mph (10.3 m/s), it drops to 10%. At 42 mph (18.8 m/s), it reaches 75%. These speeds in m/s feed into vehicle front-end design standards: pedestrian-protection airbags and active bonnet systems are calibrated to deploy at closing speeds between roughly 7–15 m/s (16–34 mph), the range where they can meaningfully reduce head-injury criterion (HIC) scores. The mph-to-m/s conversion is embedded in every pedestrian safety regulation worldwide — even in the US, where regulations are written in mph but compliance testing uses SI instrumentation."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/speed/">Speed</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">MPH to m/s Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>MPH to m/s — The 0.44704 Exact Conversion</h1>
+            <p>1 mph = 0.44704 m/s. Exact — defined by the 1959 treaty that fixed the yard at 0.9144 metres. This is the number every US crash reconstructionist, every ballistics expert, and every traffic engineer types into their calculator first.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <!-- Calculator -->
+        <div class="calculator-card" data-coefficient="0.44704" data-unit-from="mph" data-unit-to="m/s">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="60" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">mph</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">26.8224</span>
+                        <span class="unit-pill unit-pill-to">m/s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">60 mph = 26.8224 m/s</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">60 m/s = 134.216 mph</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>How to Convert MPH to m/s</h2>
+            <p>The conversion from miles per hour to metres per second is one of the few imperial-to-SI conversions that is <strong>exact</strong>. In 1959, six English-speaking nations signed the International Yard and Pound Agreement, defining 1 yard = 0.9144 metre exactly. A statute mile is 1,760 yards, so 1 mile = 1,760 × 0.9144 = 1,609.344 metres. Divide by 3,600 seconds per hour: 1 mph = 1,609.344 / 3,600 = <strong>0.44704 m/s</strong>. The last digit is not rounded — it's the integer 44704 with the decimal shifted. This matters in forensic contexts: a crash reconstructionist can state with mathematical certainty that a vehicle travelling 60.00 mph was doing 26.8224 m/s, with no measurement uncertainty from the conversion itself.</p>
+
+            <h2>The Conversion Formula</h2>
+            <div class="formula-box">
+                <p>
+                m/s = mph &times; 0.44704
+                </p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert 60 mph to m/s</p>
+                <p>60 &times; 0.44704 = <strong>26.82 m/s</strong> (the standard US highway speed, and the starting point for most vehicle dynamics homework problems in American engineering schools)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert 30 mph to m/s</p>
+                <p>30 &times; 0.44704 = <strong>13.41 m/s</strong> (a typical residential speed limit — a pedestrian struck at this speed has roughly a 50% probability of survival, which drops below 10% at 45 mph)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert 100 mph to m/s</p>
+                <p>100 &times; 0.44704 = <strong>44.70 m/s</strong> (roughly the speed of an MLB fastball, also the maximum speed rating of many passenger car tyres — S-rated tyres are limited to 112 mph or 50 m/s)</p>
+            </div>
+
+            <h2>Common MPH to m/s Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr>
+                    <th>mph</th>
+                    <th>m/s</th>
+                    <th>Real-world context</th>
+                </tr></thead><tbody>
+                <tr><td>10 mph</td><td>4.47 m/s</td><td>Jogging pace</td></tr>
+                <tr><td>25 mph</td><td>11.18 m/s</td><td>School zone speed limit</td></tr>
+                <tr><td>35 mph</td><td>15.65 m/s</td><td>Urban arterial limit</td></tr>
+                <tr><td>45 mph</td><td>20.12 m/s</td><td>Pedestrian fatality threshold</td></tr>
+                <tr><td>60 mph</td><td>26.82 m/s</td><td>Highway limit (common)</td></tr>
+                <tr><td>70 mph</td><td>31.29 m/s</td><td>Interstate limit</td></tr>
+                <tr><td>100 mph</td><td>44.70 m/s</td><td>MLB fastball, S-rated tyre limit</td></tr>
+                <tr><td>200 mph</td><td>89.41 m/s</td><td>Supercar top speed range</td></tr>
+                </tbody></table></div>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags"><a href="/mps-to-mph">m/s to MPH</a> <a href="/mph-to-kph">MPH to KPH</a> <a href="/kph-to-mps">km/h to m/s</a> <a href="/mps-to-kph">m/s to km/h</a> <a href="/knots-to-kph">Knots to km/h</a></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Is the 0.44704 factor exact or rounded?</p>
+                <p class="faq-a">Exact. The 1959 International Yard and Pound Agreement set 1 yard = 0.9144 m. A mile is 1760 yards = 1609.344 m. Divide by 3600 s/hr and you get 0.44704 — exactly. The decimal terminates because both the numerator (1609.344) and denominator (3600) are rational numbers. This is one of the few imperial-to-metric conversions with zero measurement uncertainty.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How is mph-to-m/s used in crash reconstruction?</p>
+                <p class="faq-a">Every physics formula in crash reconstruction — skid distance (v²=2μgd), kinetic energy (½mv²), conservation of momentum — requires speeds in m/s. A reconstructionist takes the police report mph, multiplies by 0.44704, and only then starts calculating. Skipping this step can produce a factor-of-5 error in skid-distance calculations — enough to incorrectly assign fault in a fatal accident.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How does mph-to-m/s relate to pedestrian fatality risk?</p>
+                <p class="faq-a">A landmark 2011 study by Tefft (AAA Foundation) found pedestrian fatality risk at 30 mph (13.4 m/s) is about 50% for adults. At 23 mph (10.3 m/s), it drops to 10%. At 42 mph (18.8 m/s), it reaches 75%. These speeds in m/s feed into vehicle front-end design standards: pedestrian-protection airbags and active bonnet systems are calibrated to deploy at closing speeds between roughly 7–15 m/s (16–34 mph), the range where they can meaningfully reduce head-injury criterion (HIC) scores. The mph-to-m/s conversion is embedded in every pedestrian safety regulation worldwide — even in the US, where regulations are written in mph but compliance testing uses SI instrumentation.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The mph-to-m/s direction is the most consequential speed conversion in US forensic engineering because it's the first computation in any crash reconstruction. Event data recorders — the "black boxes" in every car sold in the US since 2014 — log pre-crash speed in mph. The reconstructionist downloads the EDR report, sees "vehicle speed: 72 mph, brake application at −1.5 s," and immediately multiplies 72 by 0.44704 = 32.19 m/s. That number then feeds into every subsequent calculation: kinetic energy before braking (½ × vehicle mass × 32.19²), speed loss during the 1.5-second skid (Δv = μgΔt = 0.7 × 9.81 × 1.5 = 10.31 m/s), impact speed (32.19 − 10.31 = 21.88 m/s = 48.9 mph). If that conversion is done wrong — if the reconstructionist forgets to convert and plugs 72 mph directly into the SI formulas — every number that follows is garbage. The error doesn't just change the answer; it changes the legal conclusion about who was at fault and whether a crime was committed.</p>
+                <p style="margin-top:1.2em;">More: <a href="/mps-to-mph">m/s to mph</a> · <a href="/mps-to-kph">m/s to km/h</a> · <a href="/knots-to-kph">knots to km/h</a> · <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

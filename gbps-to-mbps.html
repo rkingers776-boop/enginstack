@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gbps to Mbps — Reading the Backbone: Why That 10 Gbps SFP+ Port Reads 10,000 Mbps in the Switch CLI | EnginStack</title>
+    <meta name="description" content="1 Gbps = 1,000 Mbps. The conversion network engineers do forty times a night — why switch GUIs, monitoring dashboards, ISP SLAs, and peering agreements all speak Mbps even when the optics say 10G/25G/100G/400G.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/gbps-to-mbps">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/gbps-to-mbps">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/gbps-to-mbps">
+    <meta property="og:title" content="Gbps to Mbps — Reading the Backbone | EnginStack">
+    <meta property="og:description" content="1 Gbps = 1,000 Mbps. Why switch CLIs, NOC dashboards, and ISP peering agreements all speak Mbps — even when the transceiver label says 100G.">
+    <meta property="og:url" content="https://enginstack.com/gbps-to-mbps">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gbps to Mbps Converter",
+  "description": "Convert gigabits per second (Gbps) to megabits per second (Mbps) for reading network backbone specs, switch CLI output, data-center interconnect capacity, and ISP peering documentation.",
+  "url": "https://enginstack.com/gbps-to-mbps",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my switch CLI show interface bandwidth in Kbps or Mbps instead of Gbps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Legacy CLI parsers were written when Fast Ethernet (100 Mbps) was the ceiling, and the bandwidth command was designed to accept an integer in Kbps. Cisco IOS takes the bandwidth value in Kbps — so a 10 Gbps interface is configured as bandwidth 10000000 (10,000,000 Kbps = 10 Gbps). Newer platforms support \"k\" or \"m\" or \"g\" suffixes, but the default output format is still Kbps or Mbps because the show interface formatting code predates widespread gigabit adoption. Changing it now would break countless scripts that parse CLI output — network automation depends on stable text formats far more than human-readable unit labels. The same reasoning is why SNMP MIBs return interface counters in raw octets: the conversion to Mbps happens in the monitoring tool, not the switch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there ever a case where Gbps-to-Mbps uses 1,024 instead of 1,000?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Network speeds are unambiguously decimal under ITU-T and IEEE 802.3. 1 Gbps = 1,000,000,000 bits per second, always. The 1,024 multiplier exists in two places — RAM (1 GB = 1,073,741,824 bytes) and storage marketing (a \"1 TB\" drive is 1,000,000,000,000 bytes but your OS shows ~931 GB because it uses binary). Networks never inherited that ambiguity because the bit-per-second unit was standardized by telecom engineers from the decimal metric world, not the binary-addressing world of memory. If you see an article applying 1,024 to a bandwidth conversion, it is wrong. For the full explanation, see the Data Storage Guide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I estimate real download times from a Gbps figure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convert Gbps to Mbps first (×1,000), divide by 8 for MB/s, apply a ~0.94 Ethernet framing overhead factor, then divide your file size by that figure. A 100 GB game on 10 Gbps: 10,000 Mbps ÷ 8 = 1,250 MB/s × 0.94 = ~1,175 MB/s. 100 GB ÷ 1,175 MB/s ≈ 85 seconds. On 1 Gbps home fiber: 1,000 Mbps ÷ 8 = 125 MB/s × 0.94 ≈ 117 MB/s, so the same 100 GB takes ~14 minutes. These numbers assume the server saturates the link — Steam's CDN usually can, a random website probably cannot. On Wi-Fi, halve the estimate before you start; a 10 Gbps server uplink to a laptop on 802.11ac at 400 Mbps real throughput is the bottleneck, not the wire. The infrastructure perspective: the Gbps figure is the ceiling; the Mbps figure of the weakest link is the floor."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Data Storage", "item": "https://enginstack.com/data-storage/" },
+    { "@type": "ListItem", "position": 3, "name": "Gbps to Mbps" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/data-storage/">Data Storage</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Gbps to Mbps Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Gbps to Mbps: Reading the Backbone — Why That 10 Gbps SFP+ Port Reads 10,000 Mbps in the Switch CLI</h1>
+            <p>1 Gbps = 1,000 Mbps. Multiply by a thousand and you have translated the fiber spec into the language every network dashboard speaks. Going from the bigger unit to the smaller one feels backward — but enterprise networking documentation, ISP peering agreements, and data-center monitoring tools all normalize to Mbps because when your network spans four orders of magnitude, from a 100 Mbps management port to a 400 Gbps backbone trunk, a single unit prevents the config error that takes down a cage. This page is for the people who read switch spec sheets, configure SFP+ optics, and size cloud interconnects — the ones who know 10 Gbps and 10,000 Mbps are the exact same wire, but one of those numbers appears in the CLI and the other in the marketing slide.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="1000" data-unit-from="Gbps" data-unit-to="Mbps">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">Gbps</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1000</span>
+                        <span class="unit-pill unit-pill-to">Mbps</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 Gbps = 1,000 Mbps</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 Mbps = 0.001 Gbps</span>
+            </div>
+            <p class="source-note">Constants verified against NIST Special Publication 811 (Guide for the Use of the International System of Units) and the 1959 International Yard and Pound Agreement. All values are exact — none are rounded approximations.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>SFP+ Says 10 Gbps, the Dashboard Says 10,000 Mbps — Both Are Right</h2>
+
+            <p>When you slot a 10 Gbps SFP+ optic into a switch, the transceiver label reads "10GBASE-SR" and the spec sheet says "10 Gbps." SSH in and run <code>show interface tenGigE 1/0/1</code> — the output says "BW 10000000 Kbits/sec," and your monitoring dashboard graphs it as "10,000 Mbps." Nobody's wrong. The hardware negotiates at 10.3125 Gbaud (64B/66B encoding adds ~3% overhead to the line rate), and the switch OS reports throughput in the unit the rest of the system expects — Mbps. The optic does not care what unit you label it; it pushes the same photons regardless.</p>
+
+            <p>The conversion exists for a practical reason. A switch chassis might have 1 Gbps management ports, 10 Gbps SFP+ uplinks, 25 Gbps SFP28 server-facing ports, and 100 Gbps QSFP28 spine uplinks. If each reported in its native unit, an engineer would see "1," "10," "25," and "100" — and the "1" could be a healthy management port or a server port that lost 90% of traffic. Converting to Mbps — 1,000, 10,000, 25,000, 100,000 — makes outliers instantly visible. SNMP MIBs feeding PRTG or Zabbix return raw octet counters; the tool divides by the polling interval and displays Mbps. The dashboard's Y-axis covers 10 Mbps to 400,000 Mbps — a shared unit keeps the scale linear and alert thresholds uniform across every port.</p>
+
+            <h2>Why Network Architects Live in Mbps, Even at 400 Gbps Scale</h2>
+
+            <p>Network design happens in Gbps. Documentation happens in Mbps. The gap between the two is where most configuration errors breed, and the fix — standardizing on Mbps for all written specs — is older than most engineers writing them today.</p>
+
+            <p>Early Ethernet (10 Mbps, 100 Mbps) was natively in Mbps. Gigabit Ethernet arrived in 1999, but by then every management tool, SNMP MIB, and carrier SLA was built around Mbps — rewriting them would have broken monitoring for every network on the planet. The industry translated at the human layer: think in Gbps at the whiteboard, document in Mbps in the config. A typical project involves four or more conversions: marketing says "deploy 100 Gbps spine," the RFP documents 1,200,000 Mbps of server-facing capacity, the QoS policy reserves <code>bandwidth 5000</code> (5,000 Mbps for storage), monitoring alerts at 85,000 Mbps (85% of a spine link), and the VP slide deck converts back to "2.0 Tbps." Four multiply-by-1,000 operations — trivial on paper, dangerous at 2 AM during a maintenance window. The ones who get it wrong explain an outage to a director the next morning.</p>
+
+            <p>The 400 Gbps example is instructive. 400 Gbps = 400,000 Mbps. A QSFP-DD optic pushing customer traffic through a DCI carries VLANs, VXLAN tunnels, and MPLS LSPs whose bandwidth reservations — 200 Mbps for a trading VLAN, 50,000 Mbps for storage replication — are all configured in Mbps. Nobody writes "0.2 Gbps" for voice; they write "200" because the CLI parser was built when 100 Mbps was the ceiling and no one added unit suffixes. The convention is institutional — every CCNA learns it, every CCIE lives by it, and AWS and Azure capacity planners inherit it when Direct Connect and ExpressRoute portals report in Mbps.</p>
+
+            <div class="formula-box">
+                <p>Mbps = Gbps &times; 1,000 &nbsp;&nbsp;&nbsp;&nbsp;Gbps = Mbps &divide; 1,000</p>
+                <p style="margin-top:.6em;font-size:.85em;color:var(--muted);">Network speeds are strictly decimal SI: 1 Gbps = 1,000,000,000 bits per second. No 1,024 trap here — that belongs to storage.</p>
+            </div>
+
+            <h2>The Backbone Engineer's Daily Conversions</h2>
+
+            <div class="example-box"><p><strong>10 Gbps SFP+ server uplink → 10,000 Mbps</strong></p><p><code>show interface eth1/1</code> reports "8,450,000,000 bits/sec" — divide by 1,000,000 and your dashboard shows 8,450 Mbps (84.5% utilization). To reserve 20% for voice, you write <code>bandwidth 2000</code> — 2,000 Mbps, not "0.2 Gbps" — because the CLI expects an integer in Mbps or Kbps. Get the unit wrong and you have silently reserved 1,000 times too little or too much bandwidth, an error that survives <code>show run</code> because the number looks plausible in either unit.</p></div>
+
+            <div class="example-box"><p><strong>ISP peering at an Internet Exchange — 100 Gbps port → 100,000 Mbps</strong></p><p>At DE-CIX Frankfurt or AMS-IX Amsterdam, the peering port is sold as "100 Gbps" but the IXP portal graphs traffic in Mbps — smaller peers at 1 Gbps (1,000 Mbps) and 10 Gbps (10,000 Mbps) share the same Y-axis. When the 95th-percentile touches 85,000 Mbps, the peering coordinator orders another 100 Gbps port — the Mbps number triggers the purchase order. At 800 Gbps (800,000 Mbps), a single IX fiber pair carries more traffic than the entire internet did in 2002. The Gbps figure makes the press release; the Mbps figure pays the invoice.</p></div>
+
+            <div class="example-box"><p><strong>Data-center spine-leaf with 25 Gbps ports → 25,000 Mbps per port</strong></p><p>A leaf switch with 48 &#215; 25 Gbps downlinks has 48 &#215; 25,000 = 1,200,000 Mbps (1.2 Tbps) of server-facing capacity. Four 100 Gbps uplinks provide 4 &#215; 100,000 = 400,000 Mbps — a 3:1 oversubscription ratio computed in Mbps first, then converted to Tbps for the design-review slide. The spreadsheet column is labeled "Mbps" because when you sum 48 port rows mixing 1 Gbps, 10 Gbps, and 25 Gbps, a raw Gbps column produces single-digit and double-digit numbers where a stray "1" could be 1 Gbps or 10 Gbps post-typo. Summing in Mbps — 1,000 + 10,000 + 25,000 — makes the arithmetic self-documenting.</p></div>
+
+            <div class="example-box"><p><strong>Carrier MPLS WAN — 1 Gbps delivered as 1,000 Mbps on the NID</strong></p><p>The SLA says "1 Gbps CIR." The NID reports "1000 Mbps" and guarantees 999 Mbps — reserving 1 Mbps for OAM keepalives. Your NOC polls SNMP ifInOctets every 60 seconds, divides by the interval, and displays Mbps. A grey line at 950 Mbps means "open a ticket" — 50 Mbps below committed rate. The Mbps granularity is what makes SLA monitoring possible; at Gbps resolution, a 50 Mbps drop is 0.05 Gbps — invisible rounding noise on a graph whose Y-axis goes to 10.</p></div>
+
+            <h2>Common Backbone Link Speeds in Both Units</h2>
+
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Transceiver / Standard</th><th>Gbps (marketing)</th><th>Mbps (config / monitoring)</th><th>Typical deployment</th></tr></thead><tbody>
+                <tr><td>1G SFP (1000BASE-LX)</td><td>1 Gbps</td><td>1,000 Mbps</td><td>Legacy access, management uplinks.</td></tr>
+                <tr><td>10G SFP+ (10GBASE-SR)</td><td>10 Gbps</td><td>10,000 Mbps</td><td>Server uplinks, campus distribution.</td></tr>
+                <tr><td>25G SFP28 (25GBASE-SR)</td><td>25 Gbps</td><td>25,000 Mbps</td><td>Top-of-rack, hyper-converged storage.</td></tr>
+
+                <tr><td>100G QSFP28 (100GBASE-SR4)</td><td>100 Gbps</td><td>100,000 Mbps</td><td>Spine-leaf fabric, ISP peering, DCI.</td></tr>
+                <tr><td>400G QSFP-DD (400GBASE-SR8)</td><td>400 Gbps</td><td>400,000 Mbps</td><td>Hyperscaler DCI, next-gen IXP ports.</td></tr>
+                <tr><td>800G OSFP / QSFP-DD800</td><td>800 Gbps</td><td>800,000 Mbps</td><td>Emerging: AI-training clusters, 51.2 Tbps switch ASICs.</td></tr>
+                </tbody></table></div>
+
+            <p style="margin-top:1em; font-size:.92em; color:var(--muted);">Every "Mbps" value is Gbps &#215; 1,000. Optics market in Gbps because bigger numbers sell; monitoring reports in Mbps because the same dashboard must show a 100 Mbps port and a 400,000 Mbps spine link without a unit toggle. That is the operational reason the Gbps-to-Mbps conversion exists — not math for its own sake.</p>
+
+            <h2>From Peering Agreements to Your Speed Test: Where the Gbps-to-Mbps Translation Actually Happens</h2>
+
+            <p>When you sign up for "1 Gig" fiber, the contract says 1 Gbps. When you run a speed test, it says 940 Mbps. Three distinct Gbps-to-Mbps conversions happened in between, and none are a lie.</p>
+
+            <p>The first is physical: Ethernet frames carry a 7-byte preamble, a 1-byte delimiter, and a 12-byte interframe gap — 20 bytes of protocol overhead per frame. For 1,500-byte payloads, that is ~6% of the 1,000 Mbps line rate, leaving ~940 Mbps of usable throughput. This "Ethernet tax" exists on every link from 10 Mbps to 800 Gbps.</p>
+
+            <p>The second is the speed test's UX choice. Ookla, fast.com, and Google display Mbps even on multi-gig connections because Mbps has been the consumer unit since the DSL era, and integer results (940, 1880) are easier to compare than decimals (0.94, 1.88). An ISP marketing "2 Gig" hopes you do not notice the test shows 1,880 — market it as "2,000 Mbps" and the same number feels like a 6% haircut.</p>
+
+            <p>The third is upstream aggregation. Your GPON port at the neighborhood OLT is shared across 32–64 households on a 2.488 Gbps pool (32:1 oversubscription), and your ISP's 100 Gbps peering port at an IX serves tens of thousands of subscribers. The Gbps on your bill is a statistical promise; the Mbps on your speed test is actual throughput on your timeslot right now. The infrastructure engineer reads both in Mbps — 1,000 for the subscriber, 2,488,000 for the OLT, 100,000 for the peering port — because those are the units the monitoring stack reports.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Gbps-to-Mbps is a bit-rate scaling conversion — it translates the big number on the transceiver label to the smaller number the config file expects. Optics are marketed in Gbps (10G, 25G, 100G, 400G), but SLAs, monitoring thresholds, and QoS policies are written in Mbps. The conversion is always a clean &#215;1,000 — no 1,024 trap — because network speeds are strictly decimal SI under ITU-T and IEEE 802.3. The 1,024 confusion belongs to storage (see the <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>). For the reverse consumer-facing conversion, see <a href="/mbps-to-gbps">Mbps to Gbps</a>. For scaling at smaller magnitudes: <a href="/mbps-to-kbps">Mbps to Kbps</a> and <a href="/kbps-to-mbps">Kbps to Mbps</a>. For the capacity side (bytes, not bits): <a href="/mb-to-gb">MB to GB</a> and <a href="/gb-to-mb">GB to MB</a>. The bits-to-bytes bridge is always &#247;8 — and that trap catches more engineers than the Gbps-to-Mbps multiplication ever will.</p>
+                <p style="margin-top:1.2em;">More: <a href="/mbps-to-gbps">mbps to gbps</a> · <a href="/mbps-to-kbps">mbps to kbps</a> · <a href="/kbps-to-mbps">kbps to mbps</a> · <a href="/gb-to-mb">gb to mb</a> · <a href="/mb-to-gb">mb to gb</a> · <a href="/guides/data-storage-conversion-guide">Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/mbps-to-gbps">Mbps to Gbps</a>
+                <a href="/mbps-to-kbps">Mbps to Kbps</a>
+                <a href="/kbps-to-mbps">Kbps to Mbps</a>
+                <a href="/mb-to-gb">MB to GB</a>
+                <a href="/gb-to-mb">GB to MB</a>
+                <a href="/data-storage/">Data Storage</a>
+                <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why does my switch CLI show interface bandwidth in Kbps or Mbps instead of Gbps?</p>
+                <p class="faq-a">Legacy CLI parsers were written when Fast Ethernet (100 Mbps) was the ceiling, and the <code>bandwidth</code> command was designed to accept an integer in Kbps. Cisco IOS takes the <code>bandwidth</code> value in Kbps — so a 10 Gbps interface is configured as <code>bandwidth 10000000</code> (10,000,000 Kbps = 10 Gbps). Newer platforms support "k" or "m" or "g" suffixes, but the default output format is still Kbps or Mbps because the <code>show interface</code> formatting code predates widespread gigabit adoption. Changing it now would break countless scripts that parse CLI output — network automation depends on stable text formats far more than human-readable unit labels. The same reasoning is why SNMP MIBs return interface counters in raw octets: the conversion to Mbps happens in the monitoring tool, not the switch.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Is there ever a case where Gbps-to-Mbps uses 1,024 instead of 1,000?</p>
+                <p class="faq-a">No. Network speeds are unambiguously decimal under ITU-T and IEEE 802.3. 1 Gbps = 1,000,000,000 bits per second, always. The 1,024 multiplier exists in two places — RAM (1 GB = 1,073,741,824 bytes) and storage marketing (a "1 TB" drive is 1,000,000,000,000 bytes but your OS shows ~931 GB because it uses binary). Networks never inherited that ambiguity because the bit-per-second unit was standardized by telecom engineers from the decimal metric world, not the binary-addressing world of memory. If you see an article applying 1,024 to a bandwidth conversion, it is wrong. For the full explanation, see the <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How do I estimate real download times from a Gbps figure?</p>
+                <p class="faq-a">Convert Gbps to Mbps first (&#215;1,000), divide by 8 for MB/s, apply a ~0.94 Ethernet framing overhead factor, then divide your file size by that figure. A 100 GB game on 10 Gbps: 10,000 Mbps &#247; 8 = 1,250 MB/s &#215; 0.94 = ~1,175 MB/s. 100 GB &#247; 1,175 MB/s &#8776; 85 seconds. On 1 Gbps home fiber: 1,000 Mbps &#247; 8 = 125 MB/s &#215; 0.94 &#8776; 117 MB/s, so the same 100 GB takes ~14 minutes. These numbers assume the server saturates the link — Steam's CDN usually can, a random website probably cannot. On Wi-Fi, halve the estimate before you start; a 10 Gbps server uplink to a laptop on 802.11ac at 400 Mbps real throughput is the bottleneck, not the wire. The infrastructure perspective: the Gbps figure is the ceiling; the Mbps figure of the weakest link is the floor.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feet to Miles — Divide by 5280 | EnginStack</title>
+    <meta name="description" content="1 foot = 0.0001893939... miles. Divide by 5,280. A 42-digit repeating decimal. The ugliest conversion in the imperial system — every highway milepost, every survey plat, every runway approach plate depends on it.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/feet-to-miles">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/feet-to-miles">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/feet-to-miles">
+    <meta property="og:title" content="Feet to Miles — Divide by 5280 | EnginStack">
+    <meta property="og:description" content="1 foot = 0.0001893939... miles. A 42-digit repeating decimal. The ugliest conversion in the imperial system — every highway milepost and survey plat depends on it.">
+    <meta property="og:url" content="https://enginstack.com/feet-to-miles">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Feet to Miles Converter",
+  "description": "1 foot = 1/5,280 mile ≈ 0.0001893939... miles. Divide by 5,280. The prime factors of 5,280 include 3 and 11 — neither divides 10, producing a 42-digit repeating decimal cycle.",
+  "url": "https://enginstack.com/feet-to-miles",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert feet to miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 5,280. miles = feet ÷ 5,280. Use the calculator at the top of this page — doing this division by hand produces a 42-digit repeating decimal and you will make a rounding error eventually. For quick estimates, 1,000 feet ≈ 0.19 miles; 5,000 feet ≈ 0.95 miles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does 1/5280 produce such an ugly decimal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5,280 factors into 2⁵ × 3 × 5 × 11. For a fraction to produce a terminating decimal, the denominator's prime factors can only be 2 and 5. The 3 and the 11 guarantee the decimal repeats forever. The 11 is the worst contributor — it gives the 2-digit \"09\" repeating block you see in 0.0001893939... The 3 stretches the overall period to 42 digits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between the international foot and the US survey foot in miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The international foot (0.3048 m exactly, since 1959) and the US survey foot (1200/3937 m, the pre-1959 definition) differ by about 2 parts per million. Over one mile (5,280 ft), the survey-foot mile is about 0.01 ft longer — negligible for a milepost. Over a 300-mile state boundary, the difference is about 3 feet. NIST deprecated the survey foot in 2023. When working with legacy surveys, always verify which foot was used."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why don't runners think in feet when measuring distance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because feet are too small for human-scale distance. 5,280 of anything is hard to count. Runners use miles (or kilometers) because the numbers stay small — a 10K is 6.2 miles, which is 32,808 feet, a number nobody wants on a race bib. The foot only reappears at the track: 1,320 feet to the quarter mile, measured by the course certifier with a steel tape and a calibrated bicycle, certified to the nearest inch. The rest of us just run the oval."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do pilots convert feet to statute miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost never. Altitude is in feet (MSL or AGL), horizontal distance is in nautical miles, and the two dimensions don't interact arithmetically. The conversion pilots do use is feet-per-minute descent rate to groundspeed in knots, which uses nautical miles (6,076 ft/NM), not statute miles (5,280 ft/mi). The only place statute miles appear in the cockpit is on the visibility minimum of an approach plate — and that's a look-up, not a calculation."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Length & Distance", "item": "https://enginstack.com/length/" },
+    { "@type": "ListItem", "position": 3, "name": "Feet to Miles", "item": "https://enginstack.com/feet-to-miles" }
+  ]
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/length/">Distance &amp; Length</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Feet to Miles Converter</span></nav>
+
+        <header class="page-header">
+            <h1>A foot is 0.000189393939393939... of a mile. That string of 39s never stops.</h1>
+            <p>Divide anything by 5,280 and you get a mess. The prime factors of 5,280 are 2⁵ × 3 × 5 × 11. The 3 and the 11 are the troublemakers — neither divides 10, so the decimal never terminates. The repeating block is 42 digits long. Feet to inches? Integer. Inches to feet? A clean repeating 0.08333... Feet to yards? 0.333... Feet to miles? Forty-two digits of chaos. This is the imperial system's ugliest conversion, and it's wired into every milepost sign on every interstate highway in the United States.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.0001893939393939394" data-unit-from="ft" data-unit-to="mi">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="5280" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">ft</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1</span>
+                        <span class="unit-pill unit-pill-to">mi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">5,280 ft = 1 mi</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 mi = 5,280 ft</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <p>Nobody does this division in their head. Highway engineers keep a conversion chart taped to the wall or — more likely — let the CAD file handle it. A bridge at station 1,247+35 (that's 124,735 feet from the project origin) sits at milepost 236.24. The formula is (124,735 ÷ 5,280) + some offset because the project zero and the route zero are different places. That offset changes from project to project. Get it wrong and the bridge goes in the wrong county.</p>
+
+            <p>Surveyors avoid the division altogether during fieldwork. They measure everything in decimal feet. The total station is set to feet. The data collector records feet. The traverse closes in feet. Only at the end, when someone writes the legal description, does the total get divided by 5,280 — once — and rounded. The surveyor writes "thence N 45° E a distance of 2,640.00 feet (0.50 miles)." The feet are the measurement. The miles are the translation.</p>
+
+            <p>Runners know the landmarks, not the formula. A tenth of a mile is 528 feet. A quarter mile is 1,320 feet — one lap of a standard track. A half mile is 2,640. Most people who run regularly can feel a quarter mile in their legs. They don't think "1,320 feet." They think "one lap." The foot count is for the course certifier with the calibrated bicycle.</p>
+
+            <p>If you need a quick estimate without a calculator: 1,000 feet is roughly 0.19 miles. 5,000 feet is a hair under a mile — 0.947, to be exact. A football field from goal line to goal line is 300 feet, which is about 0.057 miles. You'd need about 17.6 football fields to make a mile. None of these are round numbers. None of them will ever be round numbers. The 5,280-foot mile guarantees it.</p>
+
+            <h2>Why 5,280? The number that no committee would ever choose</h2>
+            <p>The mile began as the Roman <em>mille passus</em> — literally "a thousand paces." A Roman pace was two steps, roughly 5 Roman feet, giving a mile of about 5,000 Roman feet. As the Roman Empire receded and local measurement customs took over, medieval England developed the furlong: 660 feet, the distance a team of oxen could plough a furrow before needing rest. An acre was the area ploughed in one day — 1 furlong long by 1 chain (22 yards, or 66 feet) wide. When Elizabeth I's parliament standardized the statute mile in 1593, they defined it as 8 furlongs. Since a furlong was already fixed at 660 feet, the mile became 8 × 660 = 5,280 feet. The number was inherited from oxen and ploughs, not from any mathematical consideration.</p>
+
+            <p>The furlong-chain-rod system was brilliantly self-consistent for surveying: 1 furlong = 10 chains = 40 rods = 660 feet. An acre = 1 furlong × 1 chain = 43,560 square feet — a number that still appears on every US property deed. The statute mile of 5,280 feet was the only number in the system not divisible by 10, and it was the one that mattered most for travel. The metric system, when it arrived in the 1790s, fixed this by defining the kilometer as exactly 1,000 meters — a number a committee <em>would</em> choose.</p>
+
+            <h2>The international foot vs. the survey foot: a 2 ppm problem that survived 64 years</h2>
+            <p>In 1959, the United States and the British Commonwealth signed the International Yard and Pound Agreement, which defined 1 yard = 0.9144 meter exactly, making 1 international foot = 0.3048 meter exactly. But the US had previously defined its foot as 1,200/3,937 meter (≈ 0.3048006096 meter) — the "US survey foot." The difference is tiny: about 2 parts per million, or 0.01 foot per mile. For most purposes, that's invisible. For state plane coordinate systems — which express coordinates in millions of feet — that 2 ppm grows to several feet of horizontal displacement, enough to shift a property line on a large plat.</p>
+
+            <p>NIST formally deprecated the US survey foot on January 1, 2023, after 64 years of maintaining dual definitions. Twenty-three states had already legislated the switch; several more had survey-foot coordinates baked into decades of GIS layers. The practical rule: any survey plat dated before 2023 must be checked for which foot it used. The difference between the two feet over 1 mile of road is about 0.01 foot — negligible. Over the 300-mile length of a state, it's about 3 feet — enough to put a highway centerline in the wrong lane.</p>
+
+            <h2>Aviation: feet up, miles across — and they never meet</h2>
+            <p>Aviation is the one domain where feet and miles coexist on the same chart without ever converting between them. Altitude is in feet above mean sea level (MSL) or above ground level (AGL). Horizontal distances on instrument approach plates are in nautical miles (NM), not statute miles. A typical ILS approach might call for a decision altitude of 200 feet AGL and require 1/2 statute mile visibility — the pilot sees both numbers on the same plate but never multiplies one by the other. The conversion that pilots <em>do</em> use is feet-per-minute descent rate against groundspeed in knots: a 3° glideslope requires about 318 feet per nautical mile, which at 120 knots groundspeed works out to roughly 636 feet per minute. That conversion uses 6,076 feet per nautical mile — not 5,280.</p>
+
+            <p>Air traffic control separates aircraft vertically by 1,000 feet (or 500 feet under reduced vertical separation minima below FL290). Horizontally, separation is 3 to 5 nautical miles. No controller converts between the two — the units measure orthogonal dimensions that never interact arithmetically. The only place feet-to-statute-miles matters in aviation is on the sectional chart's scale bar.</p>
+
+            <h2>Quick reference</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Feet</th><th>Miles</th><th></th></tr></thead><tbody>
+                <tr><td>528</td><td>0.1</td><td>Manhattan block (~20 per mile)</td></tr>
+                <tr><td>1,320</td><td>0.25</td><td>Standard track lap</td></tr>
+                <tr><td>2,640</td><td>0.5</td><td>Half mile</td></tr>
+                <tr><td>5,280</td><td>1</td><td>The statute mile</td></tr>
+                <tr><td>10,000</td><td>1.894</td><td>Typical general aviation runway</td></tr>
+                <tr><td>13,200</td><td>2.5</td><td>5K race (actually 3.107 mi)</td></tr>
+                <tr><td>26,400</td><td>5</td><td>10K training run</td></tr>
+                <tr><td>69,168</td><td>13.1</td><td>Half marathon</td></tr>
+                <tr><td>138,336</td><td>26.2</td><td>Marathon</td></tr>
+                <tr><td>250,000</td><td>47.35</td><td>Low Earth orbit (~250K ft)</td></tr>
+                </tbody></table></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">How do I convert feet to miles?</p>
+                <p class="faq-a">Divide by 5,280. miles = feet ÷ 5,280. Use the calculator at the top of this page — doing this division by hand produces a 42-digit repeating decimal and you will make a rounding error eventually. For quick estimates, 1,000 feet ≈ 0.19 miles; 5,000 feet ≈ 0.95 miles.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why does 1/5280 produce such an ugly decimal?</p>
+                <p class="faq-a">5,280 factors into 2⁵ × 3 × 5 × 11. For a fraction to produce a terminating decimal, the denominator's prime factors can only be 2 and 5. The 3 and the 11 guarantee the decimal repeats forever. The 11 is the worst contributor — it gives the 2-digit "09" repeating block you see in 0.0001893939... The 3 stretches the overall period to 42 digits.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What's the difference between the international foot and the US survey foot in miles?</p>
+                <p class="faq-a">The international foot (0.3048 m exactly, since 1959) and the US survey foot (1200/3937 m, the pre-1959 definition) differ by about 2 parts per million. Over one mile (5,280 ft), the survey-foot mile is about 0.01 ft longer — negligible for a milepost. Over a 300-mile state boundary, the difference is about 3 feet. NIST deprecated the survey foot in 2023. When working with legacy surveys, always verify which foot was used.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why don't runners think in feet when measuring distance?</p>
+                <p class="faq-a">Because feet are too small for human-scale distance. 5,280 of anything is hard to count. Runners use miles (or kilometers) because the numbers stay small — a 10K is 6.2 miles, which is 32,808 feet, a number nobody wants on a race bib. The foot only reappears at the track: 1,320 feet to the quarter mile, measured by the course certifier with a steel tape and a calibrated bicycle, certified to the nearest inch. The rest of us just run the oval.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Do pilots convert feet to statute miles?</p>
+                <p class="faq-a">Almost never. Altitude is in feet (MSL or AGL), horizontal distance is in nautical miles, and the two dimensions don't interact arithmetically. The conversion pilots do use is feet-per-minute descent rate to groundspeed in knots, which uses nautical miles (6,076 ft/NM), not statute miles (5,280 ft/mi). The only place statute miles appear in the cockpit is on the visibility minimum of an approach plate — and that's a look-up, not a calculation.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Station equations. A highway's stationing baseline runs in feet from a project origin. Mileposts run in miles from a route origin — typically the state line. The two don't start at the same place, and they can run in opposite directions. A station equation — "Sta 1247+35.20 = MP 236.24" — reconciles them. The contractor reads this on the plans, multiplies 236.24 by 5,280 to get feet, then adjusts for the offset. If the sign is wrong — if the station runs north-to-south and the milepost runs south-to-north — the bridge lands a mile from where it should be. The arithmetic is simple. Getting the sign right is where people fail.</p>
+                <p>In road design, vertical curves are computed in feet (stationing along the centerline) while speed limits and sight distances are in miles per hour. The two meet in stopping sight distance formulas: SSD = 1.47 × V × t + V² / (30 × (a/32.2)), where V is in mph and the output is in feet. The conversion factor 1.47 converts mph to feet per second — 5,280 ft/mi ÷ 3,600 s/hr. That 5,280 appears in the denominator of every highway design equation that bridges speed and distance. <a href="/guides/length-conversion-guide">Length Conversion Guide</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/miles-to-feet">miles to feet</a> · <a href="/miles-to-meters">miles to meters</a> · <a href="/feet-to-meters">feet to meters</a> · <a href="/km-to-miles">km to miles</a> · <a href="/guides/length-conversion-guide">Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

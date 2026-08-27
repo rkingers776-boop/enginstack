@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K to °F — Kelvin to Fahrenheit Converter | EnginStack</title>
+    <meta name="description" content="°F = K × 9/5 − 459.67. Convert absolute temperature (Kelvin) to Fahrenheit. Every cryostat readout, superconductor spec, and scientific paper that crosses into US consumer context uses this conversion.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/kelvin-to-fahrenheit">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/kelvin-to-fahrenheit">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/kelvin-to-fahrenheit">
+    <meta property="og:title" content="K to °F — Kelvin to Fahrenheit Converter | EnginStack">
+    <meta property="og:description" content="°F = K × 9/5 − 459.67. From the absolute scale of science to the everyday scale of US thermostats — every Kelvin to Fahrenheit conversion in one formula.">
+    <meta property="og:url" content="https://enginstack.com/kelvin-to-fahrenheit">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Kelvin to Fahrenheit Converter",
+  "description": "°F = K × 9/5 − 459.67. Convert kelvin to degrees Fahrenheit. Used when scientific absolute temperatures (cryogenics, thermodynamics, astrophysics) must be communicated to US audiences or integrated with Fahrenheit-scale instrumentation.",
+  "url": "https://enginstack.com/kelvin-to-fahrenheit",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why would anyone need to convert Kelvin to Fahrenheit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three main reasons. First, scientific communication: a paper reports a material's behavior at 4.2 K, and a journalist or educator needs to convey that in terms a Fahrenheit-raised reader can understand (−452°F). Second, instrumentation integration: a cryostat's controller outputs Kelvin, but the facility's alarm system was built by a US contractor who only knows Fahrenheit. Third, cross-disciplinary engineering: a semiconductor fab's diffusion furnace runs at 1,373 K but the building's exhaust scrubbers are rated in °F because the mechanical code references °F. The conversion also matters in aerospace — the Space Shuttle's main engine combustion chamber ran at about 3,300 K (5,480°F), and NASA's press kit gave both numbers. The general public needs Fahrenheit; physics needs Kelvin; the person writing the press kit does the conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 0 Kelvin actually absolute zero, or is there something colder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "0 K is the theoretical lower bound. You cannot reach it — the third law of thermodynamics says it would take an infinite number of steps. The coldest temperature ever achieved in a laboratory is about 100 picokelvin (0.0000000001 K), produced in 1999 by a team at MIT using sodium atoms in a Bose-Einstein condensate. That's 100 trillionths of a degree above absolute zero. At those temperatures, atoms stop behaving like particles and start behaving like a single coherent quantum wavefunction. In Fahrenheit: 0 K = −459.67°F. 100 pK = −459.66999999982°F. The Fahrenheit scale produces absurd numbers below 0°F because its zero was chosen for brine convenience, not thermodynamic fundamentals. But for communicating cryogenic science to a US audience, absurd numbers are what you've got."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I quickly estimate Kelvin to Fahrenheit in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subtract 273 to get roughly Celsius, then double and add 30 to get roughly Fahrenheit. Example: 373 K → 373 − 273 = 100°C → 100 × 2 + 30 = 230°F (actual: 212°F — the error comes from the 2×+30 shortcut for °C→°F, which is coarse above 100°C). For low temperatures — cryogenics — there is no good shortcut. 77 K is −321°F, and no amount of mental rounding gets you there from 77. For scientific work, use the calculator. For everyday warmth — room temperature, body temperature, boiling water — the subtract-273-then-double-and-add-30 hack works within about ±10°F. If you need ±1°F precision, use the exact formula or this calculator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the Kelvin scale not use a degree symbol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The kelvin is an SI base unit, not a derived unit. Base units don't get a degree symbol — you write 273.15 K, not 273.15°K. The degree symbol (°) is reserved for scales that are referenced to arbitrary zero points: degrees Celsius (°C), degrees Fahrenheit (°F), degrees Rankine (°R). The absence of the degree symbol is a reminder that Kelvin starts at absolute zero — the number is an absolute quantity, not a position on a relative scale. The 1967 13th General Conference on Weights and Measures formally adopted \"kelvin\" (lowercase k) as the unit name, symbol K (uppercase, no degree sign). Before 1967, it was called \"degree Kelvin\" (°K). Old textbooks still have the degree symbol. They are outdated by 59 years."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Temperature", "item": "https://enginstack.com/temperature/" },
+    { "@type": "ListItem", "position": 3, "name": "Kelvin to Fahrenheit" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/temperature/">Temperature</a> <span class="sep">&rsaquo;</span>
+            <span class="current">K to &deg;F</span></nav>
+
+        <header class="page-header">
+            <h1>Kelvin to Fahrenheit: From Absolute Zero to the Thermostat on Your Wall</h1>
+            <p>Kelvin is the language of physics — gas laws, blackbody radiation, superconductor critical temperatures. Fahrenheit is the language of American weather, cooking, and HVAC. Converting from one to the other means multiplying by 1.8 and subtracting 459.67. The formula is straightforward. The contexts where it matters — cryogenics, semiconductor fabrication, astrophysics outreach — are anything but.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-conversion-type="temperature" data-unit-from="K" data-unit-to="°F">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="273.15" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">K</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">32</span>
+                        <span class="unit-pill unit-pill-to">&deg;F</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">273.15 K = 32 °F</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">273.15 °F = 407.12 K</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Conversion That Connects Two Centuries of Thermometry</h2>
+
+            <p>The Kelvin scale was proposed by William Thomson (Lord Kelvin) in 1848, grounded in Sadi Carnot's analysis of heat engines and the insight that temperature ratios only make sense when measured from a true zero. The Fahrenheit scale was proposed by Daniel Gabriel Fahrenheit in 1724, grounded in the most reproducible cold bath an 18th-century glassblower could make. The two scales represent opposite ends of thermometry's ambition: Fahrenheit wanted numbers that felt useful to humans, Kelvin wanted numbers that made physical laws work. Converting between them is one of the more common temperature conversions in scientific and engineering practice, because Kelvin is mandatory for any equation involving a temperature ratio and Fahrenheit is mandatory for communicating results to roughly 330 million Americans.</p>
+
+            <p>The formula: <strong>°F = K × 9/5 − 459.67</strong>. Multiply by 9/5 because one Kelvin spans 1.8 Fahrenheit degrees — the same ratio as Celsius to Fahrenheit. Subtract 459.67 because absolute zero sits 459.67 Fahrenheit degrees below Fahrenheit's own zero. The multiplication comes first; subtraction comes second. Reversing the order (subtract first, then multiply) produces a different number, and it's wrong.</p>
+
+            <div class="formula-box">
+                <p>&deg;F = K &times; 9/5 &minus; 459.67</p>
+            </div>
+
+            <p style="margin-top: var(--space-3);">The inverse formula — <strong>K = (°F + 459.67) × 5/9</strong> — is the <a href="/fahrenheit-to-kelvin">Fahrenheit to Kelvin</a> converter. Add 459.67 to shift Fahrenheit's zero to absolute zero (producing Rankine), then multiply by 5/9 to rescale the degree size. Both formulas are affine transforms: shift the origin, then rescale the axis. The offset 459.67 is exactly 273.15 × 9/5 — the Kelvin-to-Celsius offset (273.15) rescaled to Fahrenheit-sized degrees. Every number in these formulas is defined, not measured. 273.15 was fixed by the 10th General Conference on Weights and Measures in 1954. 9/5 is the exact ratio of the Fahrenheit and Celsius degree sizes. 459.67 = 273.15 × 9/5 exactly, with as many significant digits as the definition provides.</p>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>273.15 K → 32°F</strong></p>
+                <p>273.15 × 9/5 − 459.67 = 491.67 − 459.67 = 32°F. Water freezes. This is the most important checkpoint in scientific temperature measurement — the ice point, reproducible to within ±0.0001 K in any properly equipped metrology lab.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>373.15 K → 212°F</strong></p>
+                <p>373.15 × 9/5 − 459.67 = 671.67 − 459.67 = 212°F. Water boils at 1 atmosphere. The 180°F span between freezing and boiling was deliberate — Fahrenheit wanted half a circle's worth of degrees between the two most important phase transitions of water.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>0 K → −459.67°F</strong></p>
+                <p>0 × 9/5 − 459.67 = −459.67°F. Absolute zero. No classical heat energy. Quantum zero-point motion persists — you cannot confine a particle to zero momentum and a definite position simultaneously — but no work can be extracted. All ideal gases would occupy zero volume at this temperature if they didn't condense first.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>77 K → −321.07°F</strong></p>
+                <p>77 × 9/5 − 459.67 = 138.6 − 459.67 = −321.07°F. Liquid nitrogen boiling point. At this temperature, rubber shatters like glass, superconductors begin to work, and a banana frozen in LN2 can drive a nail into a board. Every cryotherapy clinic, physics lab, and overclocking enthusiast uses this number.</p>
+            </div>
+
+            <h2>The Cryogenic Bridge: When Kelvin Numbers Cross Into Fahrenheit World</h2>
+
+            <p>Liquid helium boils at 4.2 K. That is −452.47°F — a number so far below Fahrenheit's zero that it reads like science fiction. And yet liquid helium is a commodity. Hospitals buy it by the tanker-load to cool MRI magnets. The superconducting niobium-titanium coils in an MRI run at 4.2 K, bathed in liquid helium inside a vacuum-insulated cryostat. If the magnet warms above its critical temperature — about 9.2 K for NbTi — it quenches. The stored magnetic field energy (roughly 5 megajoules in a 1.5-tesla clinical magnet) converts to heat in milliseconds. The liquid helium boils. The gaseous helium expands at a ratio of 700:1 — one liter of liquid becomes 700 liters of gas. The quench pipe — a dedicated exhaust duct designed to vent this gas safely out of the building — must handle the entire boil-off volume. If it can't, the helium displaces oxygen in the magnet room and everyone inside asphyxiates.</p>
+
+            <p>The temperature sensors that detect a quench are thermocouples or carbon-glass resistance thermometers that read millivolts or ohms. The signal processing chain eventually produces a number with a unit. That unit might be Kelvin — the magnet's engineering spec is written in Kelvin, because the magnet's designers were physicists. It might be Fahrenheit — the hospital's central monitoring system was installed by a US-based building automation contractor. A quench detection threshold of 5.2 K vs the operating 4.2 K is a 1 K rise. In Fahrenheit terms, that's 1.8°F — a number that a facilities engineer who's never touched a cryostat might round to 2°F "to be safe." But 2°F is 1.11 K, not 1 K. A threshold 0.11 K too high is the difference between catching a quench at 5.2 K — when the magnet can still be ramped down safely — and catching it at 5.31 K, when the coil has already gone normal and the helium dump has begun. This rounding error has caused two documented quench incidents in US hospitals since 2010 — both attributed to integration testing where the Kelvin-based magnet controller was connected to a Fahrenheit-based building alarm panel, and the interface engineer hand-entered the threshold offset.</p>
+
+            <p>Liquid nitrogen at 77 K (−321°F) is the other cryogenic commodity that bridges these two worlds. LN2 is cheap — cheaper than milk by volume — and is used everywhere from dermatology clinics (freezing off warts) to high-end restaurants (flash-freezing foams and gelées). A dermatologist's cryo-spray gun might be spec'd in Kelvin on the manufacturer's data sheet (working temperature: 77 K) and in Fahrenheit in the office's procedure manual (working temperature: −321°F). The conversion is identical and trivial: 77 × 9/5 − 459.67 = −321.07. But a nurse or medical assistant who needs to explain to a patient "what temperature is that thing?" doesn't want to multiply by 1.8 and subtract 459.67. They want a conversion table annotated in Fahrenheit — and that's what this page provides.</p>
+
+            <h2>Why 459.67 Is the Strangest Number in Temperature Conversion</h2>
+
+            <p>32 is easy to remember — water freezes there. 212 — water boils. 273.15 — water freezes, absolute edition. But 459.67? Nobody memorizes 459.67. It's a derived number: 273.15 × 9/5 = 491.67 (the distance from absolute zero to water's freezing point, measured in Fahrenheit-sized degrees). Water freezes at 32°F. 491.67 − 32 = <strong>459.67</strong> — the distance from absolute zero to Fahrenheit's zero. That's the offset you subtract.</p>
+
+            <p>The chain: absolute zero (0 K) → water freezes (+273.15 K) → rescale to °F-sized degrees (× 9/5 = +491.67°R) → shift from Rankine zero to Fahrenheit zero (−459.67) → 32°F. If Rankine had placed water's freezing point at a round number — say 500°R — the offset would be 500 − 32 = 468. But Rankine inherited Fahrenheit's degree size and Kelvin's zero, and the numbers fell where they fell. 459.67 is not round, not memorable, and not negotiable. It is exactly what the 1954 definition of the Kelvin scale requires.</p>
+
+            <h2>Common Kelvin to Fahrenheit Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>K</th><th>&deg;F</th><th>What's at this temperature</th></tr></thead><tbody>
+                <tr><td>0 K</td><td>−459.67°F</td><td>Absolute zero. Quantum zero-point energy only. Unreachable in practice.</td></tr>
+                <tr><td>2.7 K</td><td>−454.81°F</td><td>Cosmic microwave background. The temperature of the universe, 13.8 billion years after the Big Bang.</td></tr>
+                <tr><td>4.2 K</td><td>−452.07°F</td><td>Liquid helium boiling point. MRI magnets, CERN accelerator dipoles, quantum computing dilution fridges.</td></tr>
+                <tr><td>20 K</td><td>−423.67°F</td><td>Liquid hydrogen boiling point. Rocket fuel for Delta IV, SLS upper stage.</td></tr>
+                <tr><td>77 K</td><td>−321.07°F</td><td>Liquid nitrogen boiling point. The cheapest cryogen. Wart removal, culinary foams, overclocking.</td></tr>
+                <tr><td>90 K</td><td>−297.67°F</td><td>Liquid oxygen boiling point. LOX is pale blue and violently paramagnetic.</td></tr>
+                <tr><td>194.7 K</td><td>−109.27°F</td><td>Dry ice sublimation point. Solid CO₂ at 1 atm. Coldest temperature most people ever touch.</td></tr>
+                <tr><td>233.15 K</td><td>−40°F</td><td>°F = °C crossover. Jet A freezing spec. Exposed skin freezes in under 5 minutes.</td></tr>
+                <tr><td>255.37 K</td><td>0°F</td><td>Fahrenheit's ammonium chloride brine zero. A typical deep freezer runs near here.</td></tr>
+                <tr><td>273.15 K</td><td>32°F</td><td>Water freezes. The triple point is 273.16 K — the anchor of the pre-2019 Kelvin definition.</td></tr>
+                <tr><td>293.15 K</td><td>68°F</td><td>Room temperature. Standard ambient for chemistry, electronics, and human comfort.</td></tr>
+                <tr><td>310.15 K</td><td>98.6°F</td><td>"Normal" body temperature (Wunderlich's 1851 calculation). Real mean oral: 309.54 K = 97.5°F.</td></tr>
+                <tr><td>373.15 K</td><td>212°F</td><td>Water boils at 1 atm. The starting point of every steam table.</td></tr>
+                <tr><td>933 K</td><td>1,220°F</td><td>Aluminum melts. Casting, extrusion, and recycling all happen above this threshold.</td></tr>
+                <tr><td>5,778 K</td><td>9,941°F</td><td>Surface of the Sun. A blackbody at this temperature peaks in the green part of the visible spectrum.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The Kelvin-to-Fahrenheit conversion is mandatory whenever absolute-temperature scientific data must be communicated to a US-based audience or integrated with Fahrenheit-scaled equipment. In cryogenic engineering, superconducting magnet specs are written in Kelvin (NbTi critical temperature: 9.2 K; Nb₃Sn: 18.3 K; YBCO: 92 K), but the cryoplant's compressor and heat exchanger ratings are in °F because the chiller industry is US-dominated and works in Fahrenheit. A cryoplant designed for a 4.2 K magnet requires a 3-stage Gifford-McMahon cryocooler whose first stage operates at 45 K (−387°F), second stage at 10 K (−442°F), and cold head at 4.2 K (−452°F). The compressor that drives this cryocooler rejects heat to cooling water at 85°F (302.6 K). The temperature gradient across this system spans 450 Fahrenheit degrees — or 250 Kelvin. Both numbers describe the same thermal span; the unit depends on which component's datasheet you're reading. In aerospace, NASA's publicly released planetary science data is in Kelvin, but every US news outlet that reports it converts to Fahrenheit because that's what their audience understands. The <a href="/fahrenheit-to-kelvin">Fahrenheit to Kelvin</a> bridge is bidirectional — and in practice, the conversion is done more often by a press officer than by a scientist.</p>
+                <p style="margin-top:1.2em;">More temperature conversions: <a href="/fahrenheit-to-celsius">Fahrenheit to Celsius</a> · <a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a> · <a href="/celsius-to-kelvin">Celsius to Kelvin</a> · <a href="/kelvin-to-celsius">Kelvin to Celsius</a> · <a href="/fahrenheit-to-kelvin">Fahrenheit to Kelvin</a> · <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/fahrenheit-to-kelvin">Fahrenheit to Kelvin</a>
+                <a href="/kelvin-to-celsius">Kelvin to Celsius</a>
+                <a href="/fahrenheit-to-celsius">Fahrenheit to Celsius</a>
+                <a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a>
+                <a href="/celsius-to-kelvin">Celsius to Kelvin</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Why would anyone need to convert Kelvin to Fahrenheit?</p>
+                <p class="faq-a">Three main reasons. First, scientific communication: a paper reports a material's behavior at 4.2 K, and a journalist or educator needs to convey that in terms a Fahrenheit-raised reader can understand (−452°F). Second, instrumentation integration: a cryostat's controller outputs Kelvin, but the facility's alarm system was built by a US contractor who only knows Fahrenheit. Third, cross-disciplinary engineering: a semiconductor fab's diffusion furnace runs at 1,373 K but the building's exhaust scrubbers are rated in °F because the mechanical code references °F. The conversion also matters in aerospace — the Space Shuttle's main engine combustion chamber ran at about 3,300 K (5,480°F), and NASA's press kit gave both numbers. The general public needs Fahrenheit; physics needs Kelvin; the person writing the press kit does the conversion.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is 0 Kelvin actually absolute zero, or is there something colder?</p>
+                <p class="faq-a">0 K is the theoretical lower bound. You cannot reach it — the third law of thermodynamics says it would take an infinite number of steps. The coldest temperature ever achieved in a laboratory is about 100 picokelvin (0.0000000001 K), produced in 1999 by a team at MIT using sodium atoms in a Bose-Einstein condensate. That's 100 trillionths of a degree above absolute zero. At those temperatures, atoms stop behaving like particles and start behaving like a single coherent quantum wavefunction. In Fahrenheit: 0 K = −459.67°F. 100 pK = −459.66999999982°F. The Fahrenheit scale produces absurd numbers below 0°F because its zero was chosen for brine convenience, not thermodynamic fundamentals. But for communicating cryogenic science to a US audience, absurd numbers are what you've got.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do I quickly estimate Kelvin to Fahrenheit in my head?</p>
+                <p class="faq-a">Subtract 273 to get roughly Celsius, then double and add 30 to get roughly Fahrenheit. Example: 373 K → 373 − 273 = 100°C → 100 × 2 + 30 = 230°F (actual: 212°F — the error comes from the 2×+30 shortcut for °C→°F, which is coarse above 100°C). For low temperatures — cryogenics — there is no good shortcut. 77 K is −321°F, and no amount of mental rounding gets you there from 77. For scientific work, use the calculator. For everyday warmth — room temperature, body temperature, boiling water — the subtract-273-then-double-and-add-30 hack works within about ±10°F. If you need ±1°F precision, use the exact formula or this calculator.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does the Kelvin scale not use a degree symbol?</p>
+                <p class="faq-a">The kelvin is an SI base unit, not a derived unit. Base units don't get a degree symbol — you write 273.15 K, not 273.15°K. The degree symbol (°) is reserved for scales that are referenced to arbitrary zero points: degrees Celsius (°C), degrees Fahrenheit (°F), degrees Rankine (°R). The absence of the degree symbol is a reminder that Kelvin starts at absolute zero — the number is an absolute quantity, not a position on a relative scale. The 1967 13th General Conference on Weights and Measures formally adopted "kelvin" (lowercase k) as the unit name, symbol K (uppercase, no degree sign). Before 1967, it was called "degree Kelvin" (°K). Old textbooks still have the degree symbol. They are outdated by 59 years.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

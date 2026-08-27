@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Amp Hours to Watt Hours — Total Energy of a Battery Pack | EnginStack</title>
+    <meta name="description" content="Convert amp hours to watt hours: Wh = Ah × V. A 100 Ah 12 V deep-cycle battery holds 1,200 Wh; a 20 Ah 48 V e-bike pack holds 960 Wh. The total-energy calculation for solar, marine, and vehicle systems.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/amp-hours-to-watt-hours">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/amp-hours-to-watt-hours">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/amp-hours-to-watt-hours">
+    <meta property="og:title" content="Amp Hours to Watt Hours — Total Energy of a Battery Pack | EnginStack">
+    <meta property="og:description" content="Convert amp hours to watt hours: Wh = Ah × V. A 100 Ah 12 V battery holds 1,200 Wh. Total energy for solar, marine, vehicle systems.">
+    <meta property="og:url" content="https://enginstack.com/amp-hours-to-watt-hours">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "amp hours to watt hours Converter",
+      "description": "Convert amp hours to watt hours at a given battery voltage: Wh = Ah × V. A 100 Ah 12 V deep-cycle battery holds 1,200 Wh; a 20 Ah 48 V e-bike pack holds 960 Wh.",
+      "url": "https://enginstack.com/amp-hours-to-watt-hours",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert amp hours to watt hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by the battery's voltage: watt hours (Wh) = amp hours (Ah) × volts (V). A 100 Ah 12 V deep-cycle battery holds 100 × 12 = 1,200 Wh — enough to run a 100 W device for 12 hours before fully discharging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is watt hours the right way to compare batteries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because watt hours is energy — the thing a load actually consumes — while amp hours is only charge, which means nothing until you multiply by the voltage it flows at. A 20 Ah battery at 12 V holds 240 Wh; at 48 V it holds 960 Wh, four times the energy under the same amp-hour label. Wh normalizes that: compare any two packs by Wh and the voltage noise disappears."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long will a battery run my appliances?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the battery's watt hours by the load's watts: runtime (h) = Wh ÷ W. A 1,200 Wh pack running a 100 W refrigerator-compressor style load lasts 12 hours. For lead-acid, derate to 50% of rated capacity (depth-of-discharge limit); for lithium you can use 80–90%. A 100 Ah lead-acid at 12 V is therefore a practical 600 Wh, not 1,200 Wh."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "amp hours to watt hours Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">amp hours to watt hours Converter</span></nav>
+
+        <header class="page-header">
+            <h1>amp hours to watt hours — the total energy sitting in the pack</h1>
+            <p>A 100 Ah battery label tells you the charge. It does not tell you how long the fridge runs, whether the solar panel can refill it in a day, or if the inverter is big enough — those questions are about energy, and energy is amp hours times voltage. A 100 Ah 12 V deep-cycle pack holds 1,200 Wh; the same 100 Ah at 48 V holds 4,800 Wh. This converter computes the number that actually sizes a system: Wh = Ah × V.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="amp hours" data-unit-to="watt hours" data-ctx-unit="volts" data-formula="ah-times-v">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive amp hours to watt hours calculator. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">amp hours</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="100" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">Ah</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label" for="ctx-val">battery voltage</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="ctx-input" id="ctx-val" value="12" min="0" step="any">
+                        <span class="unit-pill unit-pill-ctx">V</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">Wh</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">100 Ah × 12 V = 1,200 Wh</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1,200 Wh ÷ 12 V = 100 Ah</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide). The conversion Wh = Ah × V is exact by definition — the voltage is the nominal rating from the battery's datasheet.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Charge Is the Label, Energy Is the System</h2>
+
+            <p>Buying a battery by amp hours alone is like buying fuel by the gallon without asking what grade — the volume is real, but the energy in it depends on the chemistry. For batteries the chemistry is encoded in voltage: a lead-acid cell sits near 2 V, a lithium cell near 3.7 V, and a pack is cells in series. Two packs can both say 100 Ah and differ by a factor of four in total energy, purely from how many cells are stacked. Multiply by the pack voltage and the labels become comparable — this is the conversion every solar, marine, RV, and vehicle system runs before anything else.</p>
+
+            <div class="formula-box"><p><strong>watt hours = amp hours × volts</strong><br>Wh = Ah × V<br>Exact, by the definition of the watt-hour — use the battery's nominal voltage.</p></div>
+
+            <h2>Battery Packs You Will Actually Meet</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>amp hours</th><th>volts</th><th>watt hours</th><th>What it powers</th></tr></thead><tbody>
+                <tr><td>4 Ah</td><td>12 V</td><td>48 Wh</td><td>Small power tool battery — drill, impact driver.</td></tr>
+                <tr><td>20 Ah</td><td>48 V</td><td>960 Wh</td><td>E-bike pack — roughly a 1 kWh ride.</td></tr>
+                <tr><td>50 Ah</td><td>12 V</td><td>600 Wh</td><td>Mid-size marine/AGM battery.</td></tr>
+                <tr><td>100 Ah</td><td>12 V</td><td>1,200 Wh</td><td>Standard deep-cycle — the RV/solar workhorse.</td></tr>
+                <tr><td>25 Ah</td><td>48 V</td><td>1,200 Wh</td><td>E-bike long-range pack — same energy as the 100 Ah 12 V battery.</td></tr>
+                </tbody></table></div>
+
+            <p>The last two rows are the conversion's point in one glance: 100 Ah at 12 V and 25 Ah at 48 V both hold 1,200 Wh — identical energy, radically different labels. That is why an e-bike with a "small" 25 Ah pack and an RV with a "big" 100 Ah battery carry the same energy. It is also why 48 V is winning in solar and e-bike systems: the same watt hours at four times the voltage means a quarter of the current, which means thinner wire and less loss — the <a href="/voltage-drop">voltage drop</a> question, not a battery question at all.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The reverse direction — a known Wh rating converted back to the Ah label — is <a href="/watt-hours-to-amp-hours">watt hours to amp hours</a>, the power-bank comparison page. The energy this page computes connects directly to the <a href="/energy/">energy</a> hub: <a href="/wh-to-kwh">watt hours to kWh</a> puts a pack in electricity-bill terms, <a href="/kwh-to-joules">kWh to joules</a> in scientific terms. Sizing the solar panel that refills the pack, or the inverter that drains it, both start from watts — see <a href="/watts-to-amps">watts to amps</a> and <a href="/amps-to-watts">amps to watts</a>. The wire between them is the <a href="/voltage-drop">voltage drop</a> page. All roads lead back to the <a href="/electric/">electric hub</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/watt-hours-to-amp-hours">Wh to Ah</a> · <a href="/wh-to-kwh">Wh to kWh</a> · <a href="/voltage-drop">Voltage Drop</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/watt-hours-to-amp-hours">Watt Hours To Amp Hours</a>
+                <a href="/voltage-drop">Voltage Drop Calculator</a>
+                <a href="/wh-to-kwh">Watt Hours To kWh</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert amp hours to watt hours?</p>
+                    <p class="faq-a">Multiply by the battery's voltage: watt hours (Wh) = amp hours (Ah) × volts (V). A 100 Ah 12 V deep-cycle battery holds 100 × 12 = 1,200 Wh — enough to run a 100 W device for 12 hours before fully discharging.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why is watt hours the right way to compare batteries?</p>
+                    <p class="faq-a">Because watt hours is energy — the thing a load actually consumes — while amp hours is only charge, which means nothing until you multiply by the voltage it flows at. A 20 Ah battery at 12 V holds 240 Wh; at 48 V it holds 960 Wh, four times the energy under the same amp-hour label. Wh normalizes that: compare any two packs by Wh and the voltage noise disappears.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">How long will a battery run my appliances?</p>
+                    <p class="faq-a">Divide the battery's watt hours by the load's watts: runtime (h) = Wh ÷ W. A 1,200 Wh pack running a 100 W refrigerator-compressor style load lasts 12 hours. For lead-acid, derate to 50% of rated capacity (depth-of-discharge limit); for lithium you can use 80–90%. A 100 Ah lead-acid at 12 V is therefore a practical 600 Wh, not 1,200 Wh.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var ctx = card.querySelector('.ctx-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fCtx = card.getAttribute('data-ctx-unit');
+    var fTo = card.getAttribute('data-unit-to');
+    function calc() {
+        var a = parseFloat(main.value), b = parseFloat(ctx.value);
+        if (isNaN(a) || isNaN(b)) { out.textContent = '—'; return; }
+        var r = a * b;
+        out.textContent = fmt(r);
+        fwd.textContent = a + ' Ah × ' + b + ' V = ' + fmt(r) + ' Wh';
+        rev.textContent = fmt(r) + ' Wh ÷ ' + b + ' V = ' + a + ' Ah';
+    }
+    main.addEventListener('input', calc);
+    ctx.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Ampere-hour",
+  "termCode": "ampere-hour (Ah)",
+  "description": "The ampere-hour is a unit of electric charge equal to 3,600 coulombs — one ampere flowing for one hour. Battery energy in watt-hours equals capacity in ampere-hours times nominal voltage: Wh = Ah × V.",
+  "url": "https://en.wikipedia.org/wiki/Ampere_hour",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+
+</body>
+</html>

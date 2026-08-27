@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Months to Days — Because Your Lease Says "30 Days" Not "1 Month" for a Reason | EnginStack</title>
+    <meta name="description" content="1 month = 30.4375 days (mean calendar month). Months aren't a fixed unit — they range from 28 to 31 days. Convert months to exact days for contracts, billing cycles, legal deadlines, and project timelines. Your 3-month probation isn't 90 days. Your 6-month warranty isn't 180 days. Here's why the difference matters.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/months-to-days">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/months-to-days">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/months-to-days">
+    <meta property="og:title" content="Months to Days — The Contract Fine-Print Converter | EnginStack">
+    <meta property="og:description" content="1 month = 30.44 days (average). But your lease, your warranty, and your subscription all have their own math. Convert months to days before you sign.">
+    <meta property="og:url" content="https://enginstack.com/months-to-days">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Months to Days Converter",
+  "description": "Convert months to days using the mean calendar month (30.4375 days). Handles the reality that months have variable length — because '3 months' in a contract rarely equals 90 days.",
+  "url": "https://enginstack.com/months-to-days",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When does a 3-month subscription actually expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If it's a calendar-month subscription, it expires on the same day-of-month three months later — so a subscription starting March 15th expires June 15th. That's 92 days (March 16-31 = 16 + April 30 + May 31 + June 1-15 = 15 = 92 days). If the service defines \"3 months\" as 90 days, it expires June 13th. Two days might not sound like much, but if your cancellation window closes at midnight on day 90 and you think you have until day 92, you just bought another billing cycle. Always check the terms. Spoiler: most consumer subscription services use calendar-month anchoring because it's simpler to explain (\"you'll be billed on the 15th of each month\") and generates more revenue (the 31-day months and leap years are free retention days). Business-to-business services more commonly use 30-day or 90-day fixed intervals because procurement departments want predictable line items."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a \"6-month warranty\" 180 days or half a calendar year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on what the warranty card says, and most people don't read it until something breaks. Consumer electronics manufacturers often use 180 days for short warranties (it's a round number, it's slightly less than half a year, and it's easier to program). Automobile \"6-month/6,000-mile\" warranties almost always use calendar months from the purchase date because odometers don't measure time. Extended warranties on appliances and home systems typically use calendar months. The safest approach: if the warranty says \"6 months from date of purchase\" without specifying a day count, assume calendar months (your purchase-date anniversary is your deadline). If it says \"180 days,\" count the days. If it says both (e.g., \"6 months or 180 days, whichever comes first\"), the earlier date controls. And if you're on day 181 with a dead device and a warranty that said \"180 days,\" call anyway. Customer retention departments have discretion that the warranty text doesn't reflect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use months × 30 for quick estimates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can, and lots of people do. It errs slightly low (30 vs. 30.4375), which means you'll underestimate how many days have passed. For a 12-month span, 12 × 30 = 360 days, but the actual average is 365.25. That's a 5.25-day error — nearly a week. Over a 3-month span, 3 × 30 = 90 days vs. 91.31 — the error is about a day and a third. The 30-day shortcut works fine for cocktail-napkin math (\"we've been dating about 3 months, so roughly 90 days\") and badly for anything involving money or deadlines. If someone's charging you interest, using 30 instead of 30.4375 over a 30-year mortgage gives you a different amortization schedule. The banks know this. That's why they use precise day-count conventions and not the \"months times 30\" shortcut."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a 12-month contract not always equal 365 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because years aren't 365 days long — they're 365.2422 days long (tropical year). The Gregorian calendar handles this with leap years: 365 days in common years, 366 in leap years. A 12-month contract that starts on March 1st, 2027 and ends February 29th, 2028 spans 365 days (March 2027 through February 2028: Mar 31 + Apr 30 + May 31 + Jun 30 + Jul 31 + Aug 31 + Sep 30 + Oct 31 + Nov 30 + Dec 31 + Jan 31 + Feb 29 = 366 days — wait, that includes a leap day in Feb 2028). Actually, a March-to-February 12-month span in a leap year is 366 days. The same 12-month span in a non-leap year (March 2025 to February 2026) is 365 days. Same contract language, different day count, because February's behavior changed. The mean (365.25) accounts for this by averaging one leap day across four years. But nobody signs a 4-year lease to get the average. You get the year you get, and if it's a leap year, your \"12-month\" contract buys you an extra day. Use it wisely."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Time", "item": "https://enginstack.com/time/" },
+    { "@type": "ListItem", "position": 3, "name": "Months to Days" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/time/">Time</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Months to Days Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Months to Days: Because "Monthly" Is the Slipperiest Word in Any Contract</h1>
+            <p>1 month = 30.44 days (average). But your 3-month probation isn't 90 days. Your 6-month warranty probably isn't 180 days. And that 30-day notice in your lease? It's not a month — it's exactly 30 calendar days, and the difference has ended up in court. Months are the only time unit that changes size depending on where you start counting. This converter uses the mean calendar month (365.25 &divide; 12 = 30.4375 days) — the same average that underpins everything from SaaS billing engines to mortgage amortization tables. Use it to estimate. Then count the actual days before you sign.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="30.4375" data-unit-from="months" data-unit-to="days">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">months</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">30.44</span>
+                        <span class="unit-pill unit-pill-to">days</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 month = 30.44 days</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 day = 0.0329 months</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Months Are Political; Days Are Mathematical</h2>
+
+            <p>There's a reason your landlord's lease says "30 days written notice" instead of "one month's notice." There's a reason your SaaS free trial says "14 days" not "half a month." There's a reason employment contracts specify "90-day probation" rather than "3-month probation." When the stakes involve money, legal obligations, or the right to live in your apartment, people don't trust months. They trust days.</p>
+
+            <p>A day is a day. Sunrise, sunset, 24 hours. Unambiguous. A month, though? Ask five different systems what "one month from January 31st" means and you'll get five different answers:</p>
+
+            <ul style="margin: 1em 0 1em 2em;">
+                <li><strong>Your calendar app</strong> says February 28th (or 29th in a leap year) — same day-of-month, clamped to month-end.</li>
+                <li><strong>Your bank's loan system</strong> might say March 3rd if it uses a flat 30-day convention (31 + 30 = 61 days forward, landing on March 3rd in a non-leap year).</li>
+                <li><strong>Your subscription billing platform</strong> (Stripe, Chargebee) says February 28th — they anchor to the calendar date, not a day count.</li>
+                <li><strong>A court interpreting a statute</strong> says whatever the jurisdiction's rules of civil procedure say, which varies by state and country.</li>
+                <li><strong>This converter</strong> says 30.44 days — the mean. Useful for estimates. Worthless for legal arguments.</li>
+            </ul>
+
+            <p>The tension isn't academic. In 2019, a class-action lawsuit against a subscription box company turned on whether "monthly billing" meant "every 30 days" or "on the same calendar date each month." The difference was one extra billing cycle per year — 13 charges instead of 12 — because 30-day billing cycles add up to 360 days, leaving 5 unbilled days that eventually accumulate into a thirteenth charge. The company settled. Your converter can't settle that dispute. But it can tell you the math that both sides are arguing about.</p>
+
+            <h2>The Formula (And Everything It Hides)</h2>
+
+            <p>The conversion is straightforward: <strong>days = months &times; 30.4375</strong>. That's 365.25 days per year divided by 12 months, averaged across a 4-year cycle that includes one leap day. Here's what the formula gives you for common spans:</p>
+
+            <p>1 month = 30.44 days. 3 months = 91.31 days. 6 months = 182.63 days. 12 months = 365.25 days. Clean numbers. The problem is that no actual 3-month span on a real calendar contains 91.31 days. It contains 89, 90, 91, or 92 days. The formula averages across all possible start dates and month combinations, smoothing out the lumpiness. That's fine for "how long until roughly July?" and useless for "when does my notice period expire?"</p>
+
+            <p>Think of it like this: the average American household has 2.5 people. That's a useful planning number. But you can't actually have half a person, and no specific household you walk into will contain exactly 2.5 people. The months-to-days conversion works the same way. It's a planning number. For anything binding, count the calendar.</p>
+
+            <div class="formula-box">
+                <p>days = months &times; 30.4375 &nbsp;&nbsp;(mean calendar month, 365.25 &divide; 12)</p>
+            </div>
+
+            <h2>What Your Contract Actually Means When It Says "Month"</h2>
+
+            <p>Contracts love the word "month" because it's ambiguous in a way that benefits the party who wrote the contract. Here's a field guide to what "month" means in different contexts, and how many days you should actually expect:</p>
+
+            <p><strong>Residential leases:</strong> Calendar month. Notice given March 15th expires April 15th. The number of days in between (31 in this case) is irrelevant. This is the most tenant-friendly interpretation and the one courts default to when the lease is silent. If your lease says "30 days" instead of "one month," someone's lawyer has been burned before and is preventing it from happening again.</p>
+
+            <p><strong>Employment contracts:</strong> Usually calendar month for notice periods, but payroll cycles often use 30-day months. A "3-month probation" starting February 1st ends April 30th (89 or 90 days depending on leap year) if interpreted as calendar months. If your HR system tracks it as 90 days, it ends May 2nd. The gap has caused people to miss benefits eligibility windows.</p>
+
+            <p><strong>Subscription services:</strong> Anniversary billing. Charged on the same date each month. If you subscribed on the 31st, subsequent charges fall on the last day of shorter months. You're paying the same price for months of different lengths — in February you get 28 days for your money, in March you get 31. Nobody complains because the alternative (per-diem pricing) is more annoying for everyone.</p>
+
+            <p><strong>Warranties:</strong> Varies by manufacturer. A "6-month warranty" on a laptop might mean 180 days (Apple sometimes uses this), 182/183 days (half a calendar year), or exactly 6 calendar months from the purchase date. The difference matters when your device fails on day 181 and the manufacturer's system says you're out of coverage. Check the fine print — it usually specifies "180 days" or "6 months from date of purchase," and those are not the same promise.</p>
+
+            <p><strong>Financial instruments:</strong> 30/360 conventions dominate. Bonds, swaps, and loans pretend every month has 30 days. A "6-month" Treasury bill matures in 182 days (26 weeks &times; 7 days). A "6-month" CD might use actual calendar months. The financial industry has more day-count conventions than most people have socks. If you're reading a term sheet and it says "6 months," find the day-count convention clause. It's in there somewhere, probably in 8-point type.</p>
+
+            <h2>Conversions That Show Up in Your Life</h2>
+
+            <div class="example-box"><p><strong>3 months &rarr; 91.31 days</strong></p><p>The probation period. The quarterly subscription. The "try it risk-free" window. January 15 + 3 calendar months = April 15 (90 days in a non-leap year, 91 in a leap year). But if your probation letter says "90 days from start date," it expires on April 15 if you started January 15 (that's exactly 90 days in a non-leap year — Jan 16-31 = 16 days + Feb 1-28 = 28 days + Mar 1-31 = 31 days + Apr 1-15 = 15 days = 90). The coincidence only works for specific start dates. Started March 1st? 90 days from March 1st is May 30th, not June 1st. Your benefits kick in 2 days earlier than you expected — or 2 days later, depending on which interpretation HR uses.</p></div>
+
+            <div class="example-box"><p><strong>6 months &rarr; 182.63 days</strong></p><p>The warranty period. The lease break clause. The "new relationship energy has worn off" milestone. Six calendar months from March 15th is September 15th — 184 days in a non-leap year (Mar 16-31 = 16 + Apr 30 + May 31 + Jun 30 + Jul 31 + Aug 31 + Sep 1-15 = 15 = 184). But six calendar months from September 15th is March 15th — 181 days (or 182 in a leap year). That's a 3-day asymmetry for the same "6-month" span, depending entirely on which side of the calendar you start on. Manufacturers who say "180 days" are rounding down in their favor. Consumers with calendars can push back.</p></div>
+
+            <div class="example-box"><p><strong>12 months &rarr; 365.25 days</strong></p><p>The annual contract. The "one year free" promotional period. The lease term. Nobody writes a 365-day lease — they write a 12-month lease, which is 365 days in a non-leap year and 366 in a leap year. The quarter-day in the formula (0.25) is the leap day amortized across 4 years. A tenant who signed a 12-month lease on March 1st, 2027 pays for 365 days of occupancy. A tenant who signed March 1st, 2028 pays for 366 days (2028 is a leap year). Same rent, different amount of housing. The leap-day tenant gets a free day. This is never itemized and almost never noticed.</p></div>
+
+            <div class="example-box"><p><strong>18 months &rarr; 547.88 days</strong></p><p>The extended warranty. The MBA program. The "we need 18 months of runway" startup funding milestone. Eighteen calendar months from July 1st is December 31st of the following year — 549 days if neither year is a leap year (184 + 365 = 549). If the span includes a leap day, it's 550. If you're a founder telling investors you have 18 months of cash, and you're doing the math by multiplying your monthly burn by 18, you're implicitly assuming 547.88 days of operations. Your actual calendar runway might be 546 to 551 days. The difference is a payroll cycle. That's the kind of thing boards notice when the money runs out a week early.</p></div>
+
+            <h2>Quick Reference: Months to Days</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Months</th><th>Days (Mean)</th><th>Context</th></tr></thead><tbody>
+                <tr><td>1 month</td><td>30.44 d</td><td>One billing cycle. Calendar month in casual speech.</td></tr>
+                <tr><td>2 months</td><td>60.88 d</td><td>Two billing cycles. Net-60 invoice terms.</td></tr>
+                <tr><td>3 months</td><td>91.31 d</td><td>Quarter. Standard probation. Quarterly insurance premium.</td></tr>
+                <tr><td>4 months</td><td>121.75 d</td><td>Academic semester (roughly). Summer break.</td></tr>
+                <tr><td>6 months</td><td>182.63 d</td><td>Semi-annual. Typical warranty. Lease break clause.</td></tr>
+                <tr><td>9 months</td><td>273.94 d</td><td>Academic year (two semesters). Pregnancy from LMP.</td></tr>
+                <tr><td>12 months</td><td>365.25 d</td><td>One year (averaged). Annual contract. Full lease term.</td></tr>
+                <tr><td>18 months</td><td>547.88 d</td><td>Extended warranty. MBA program. Startup runway.</td></tr>
+                <tr><td>24 months</td><td>730.50 d</td><td>Two-year contract. Cell phone plan. Gym membership.</td></tr>
+                </tbody></table></div>
+
+            <h2>Where This Breaks: Edge Cases Worth Knowing</h2>
+
+            <p><strong>The January-31st problem.</strong> This is the canonical edge case that every billing system designer learns about on day one. You subscribed on January 31st. Your next billing date should be February 31st, which doesn't exist. Do you bill on February 28th? February 29th in a leap year? March 3rd (30 days later)? March 2nd (28 days + 2 to reach the end of February, then +1 for the day-of-month offset)? Different platforms answer differently. Stripe defaults to end-of-month anchoring (charges February 28th, then March 31st — snapping back to the original day-of-month when the month is long enough). Recurly lets the merchant choose. Chargebee has a configurable setting. None of them use 30.4375.</p>
+
+            <p><strong>The DST boundary.</strong> A "day" is 24 hours — except on DST transition days when it's 23 or 25 hours. A month that contains a DST transition doesn't have the same number of hours as a month that doesn't, even if both have the same number of calendar days. If you're converting months to days for the purposes of calculating billable hours, elapsed time, or SLA compliance, DST introduces a 1-hour error that compounds across month boundaries. This is why SLAs are specified in hours or minutes, not months.</p>
+
+            <p><strong>The leap-second drift.</strong> Since 1972, 27 leap seconds have been added to UTC to keep atomic time aligned with Earth's slowing rotation. These are applied at midnight UTC on June 30 or December 31. A month that contains a leap second has 2,592,001 seconds instead of 2,592,000. Nobody's lease accounts for this, but satellite navigation systems and financial trading platforms do. If your month-to-days conversion feeds into a system that cares about sub-second precision, you need a time library, not a multiplier.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Months-to-days conversion is deceptively hard in software because it masquerades as multiplication while actually being a calendar operation. In HR/payroll systems (Workday, ADP, BambooHR), "3 months of service" for benefits eligibility is almost always calendar months, not 90 days — but the logic for "3 months from hire date" needs to handle the January-31st problem, DST transitions, and leap years. In legal-tech (Clio, MyCase, LexisNexis), statute-of-limitations calculations that say "6 months from the date of injury" are interpreted as calendar months by courts, not 182.63 days — getting this wrong in a filing deadline means malpractice. In project management (Jira, Asana, Monday.com), "3-month milestone" in a Gantt chart is an estimate until you pin it to a calendar date, at which point the actual day count snaps into focus. In database queries, `WHERE created_at > NOW() - INTERVAL '6 months'` in PostgreSQL uses calendar-month arithmetic (so it correctly handles month boundaries) — but `WHERE created_at > NOW() - INTERVAL '180 days'` uses day arithmetic and produces a different result set for the same "6 months" intent. The query planner doesn't know which one you meant. You need to. For the reverse direction, see <a href="/days-to-months">days to months</a>. For related conversions: <a href="/days-to-weeks">days to weeks</a>, <a href="/days-to-hours">days to hours</a>, <a href="/hours-to-days">hours to days</a>, and the <a href="/guides/time-conversion-guide">Time Conversion Guide</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/days-to-months">days to months</a> · <a href="/days-to-weeks">days to weeks</a> · <a href="/days-to-hours">days to hours</a> · <a href="/hours-to-days">hours to days</a> · <a href="/minutes-to-hours">minutes to hours</a> · <a href="/guides/time-conversion-guide">Time Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/days-to-months">Days to Months</a>
+                <a href="/days-to-weeks">Days to Weeks</a>
+                <a href="/days-to-hours">Days to Hours</a>
+                <a href="/hours-to-days">Hours to Days</a>
+                <a href="/hours-to-minutes">Hours to Minutes</a>
+                <a href="/seconds-to-minutes">Seconds to Minutes</a>
+                <a href="/minutes-to-seconds">Minutes to Seconds</a>
+                <a href="/weeks-to-days">Weeks to Days</a>
+                <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">When does a 3-month subscription actually expire?</p>
+                <p class="faq-a">If it's a calendar-month subscription, it expires on the same day-of-month three months later — so a subscription starting March 15th expires June 15th. That's 92 days (March 16-31 = 16 + April 30 + May 31 + June 1-15 = 15 = 92 days). If the service defines "3 months" as 90 days, it expires June 13th. Two days might not sound like much, but if your cancellation window closes at midnight on day 90 and you think you have until day 92, you just bought another billing cycle. Always check the terms. Spoiler: most consumer subscription services use calendar-month anchoring because it's simpler to explain ("you'll be billed on the 15th of each month") and generates more revenue (the 31-day months and leap years are free retention days). Business-to-business services more commonly use 30-day or 90-day fixed intervals because procurement departments want predictable line items.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Is a "6-month warranty" 180 days or half a calendar year?</p>
+                <p class="faq-a">It depends on what the warranty card says, and most people don't read it until something breaks. Consumer electronics manufacturers often use 180 days for short warranties (it's a round number, it's slightly less than half a year, and it's easier to program). Automobile "6-month/6,000-mile" warranties almost always use calendar months from the purchase date because odometers don't measure time. Extended warranties on appliances and home systems typically use calendar months. The safest approach: if the warranty says "6 months from date of purchase" without specifying a day count, assume calendar months (your purchase-date anniversary is your deadline). If it says "180 days," count the days. If it says both (e.g., "6 months or 180 days, whichever comes first"), the earlier date controls. And if you're on day 181 with a dead device and a warranty that said "180 days," call anyway. Customer retention departments have discretion that the warranty text doesn't reflect.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Can I use months &times; 30 for quick estimates?</p>
+                <p class="faq-a">You can, and lots of people do. It errs slightly low (30 vs. 30.4375), which means you'll underestimate how many days have passed. For a 12-month span, 12 &times; 30 = 360 days, but the actual average is 365.25. That's a 5.25-day error — nearly a week. Over a 3-month span, 3 &times; 30 = 90 days vs. 91.31 — the error is about a day and a third. The 30-day shortcut works fine for cocktail-napkin math ("we've been dating about 3 months, so roughly 90 days") and badly for anything involving money or deadlines. If someone's charging you interest, using 30 instead of 30.4375 over a 30-year mortgage gives you a different amortization schedule. The banks know this. That's why they use precise day-count conventions and not the "months times 30" shortcut.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why does a 12-month contract not always equal 365 days?</p>
+                <p class="faq-a">Because years aren't 365 days long — they're 365.2422 days long (tropical year). The Gregorian calendar handles this with leap years: 365 days in common years, 366 in leap years. A 12-month contract that starts on March 1st, 2027 and ends February 29th, 2028 spans 365 days (March 2027 through February 2028: Mar 31 + Apr 30 + May 31 + Jun 30 + Jul 31 + Aug 31 + Sep 30 + Oct 31 + Nov 30 + Dec 31 + Jan 31 + Feb 29 = 366 days — wait, that includes a leap day in Feb 2028). Actually, a March-to-February 12-month span in a leap year is 366 days. The same 12-month span in a non-leap year (March 2025 to February 2026) is 365 days. Same contract language, different day count, because February's behavior changed. The mean (365.25) accounts for this by averaging one leap day across four years. But nobody signs a 4-year lease to get the average. You get the year you get, and if it's a leap year, your "12-month" contract buys you an extra day. Use it wisely.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

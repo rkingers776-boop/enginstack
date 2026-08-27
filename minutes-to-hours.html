@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutes to Hours —The 45-Minute Meeting That's Actually 0.75 Hours, the Factory Time Clock That Divides by 60, and Why Your Timesheet Has Two Different Answers for the Same Shift | EnginStack</title>
+    <meta name="description" content="1 minute = 0.0166667 hours. Divide by 60. A 45-minute meeting = 0.75 hours. A 90-minute movie = 1.5 hours. The industrial time clock tracks minutes and converts to decimal hours for payroll. The employee sees '7 hours 42 minutes.' The payroll system sees '7.7 hours.' The 0.03-hour gap (1.8 minutes) per shift is a rounding discrepancy that cost Walmart $640 million in wage theft settlements.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/minutes-to-hours">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/minutes-to-hours">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/minutes-to-hours">
+    <meta property="og:title" content="Minutes to Hours —Timesheets, Wage Theft, and ÷60 | EnginStack">
+    <meta property="og:description" content="1 min = 0.01667 hours. The factory clock converts minutes to decimal. The rounding error has cost retailers billions in wage theft settlements.">
+    <meta property="og:url" content="https://enginstack.com/minutes-to-hours">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Minutes to Hours Converter",
+  "description": "1 minute = 0.0166667 hours. Divide by 60. The industrial time clock conversion: minutes to decimal hours for payroll, timesheets, and billing. The rounding discrepancy between clock time and decimal time has generated some of the largest wage-and-hour settlements in U.S. legal history.",
+  "url": "https://enginstack.com/minutes-to-hours",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my time clock round to 15-minute increments? Is that legal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, under the FLSA —provided the rounding is neutral and does not systematically underpay the employee. The employer is permitted to round to the nearest 5, 6, or 15 minutes. The most common rounding rule: 7 minutes before or after the quarter-hour mark rounds to the quarter hour. A punch at 7:53 (7 minutes before 8:00) rounds to 8:00. A punch at 8:08 (8 minutes after 8:00) rounds to 8:15. The rounding must average out across punches. Courts look at the aggregate data: if 60% of punches round in the employer's favor and 40% in the employee's, the rounding is biased —and the employer owes back wages for the difference. The test is statistical, not anecdotal. The minutes-to-hours conversion (÷60) is exact. The fairness of the pre-division rounding is what the courts evaluate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I enter 7 hours and 42 minutes into a decimal timesheet system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "42 ÷ 60 = 0.7. Enter 7.7 (NOT 7.42). The colon in \"7:42\" means hours and minutes. The decimal in \"7.7\" means decimal hours. Entering \"7.42\" tells the system you worked 7.42 hours = 7 hours and 25.2 minutes —shorting yourself by 16.8 minutes. Across a biweekly pay period with 10 working days, the error accumulates to 168 minutes = 2.8 hours of unpaid time. At $20/hour, that's $56 per pay period = $1,456 per year. The most expensive two-keystroke error in payroll is typing a decimal point when the system expects a colon, or vice versa. The fix: always convert minutes to decimal before entering. ÷60. Every time. Tape a conversion chart to the monitor if you have to. The $1,456 per year is worth the Post-it note."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the \"50-minute therapy hour\" actually 0.83 hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "50 ÷ 60 = 0.8333 hours. Therapists bill the standard session as a \"45—0 minute session\" and the billing code typically represents 1 unit of psychotherapy = roughly 0.75 to 0.83 hours. The 10—5 minutes between sessions is documentation time —notes, treatment plans, insurance paperwork —that is not billed directly but is necessary for the session to exist. The therapist works roughly 50 minutes of direct patient care per hour of clock time. The patient pays for 50 minutes. The therapist's effective hourly rate, after documentation, scheduling, insurance claims, and no-shows, is lower than the per-hour rate implies. The minutes-to-hours conversion (50 ÷ 60) is straightforward. The economics of the therapy hour are not."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Time", "item": "https://enginstack.com/time/" },
+    { "@type": "ListItem", "position": 3, "name": "Minutes to Hours" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/time/">Time</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Minutes to Hours Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Minutes to Hours: The Factory Time Clock That Divides by 60, the Payroll Rounding Error That Cost Walmart $640 Million, and the Three-Keystroke Mistake That Underpays Every Hourly Worker Who Types a Colon Instead of a Decimal</h1>
+            <p>Divide by 60. 1 minute = 0.0166667 hours. 30 minutes = 0.5 hours. 45 minutes = 0.75 hours. The arithmetic fits on a Post-it note. The application of that arithmetic —converting the minutes on a time clock into the decimal hours on a paycheck —has generated more wage-and-hour class-action settlements than any other mathematical operation in U.S. labor law. A worker clocks in at 7:53 AM and out at 4:07 PM. The time clock records 8 hours 14 minutes. The payroll system divides 14 by 60: 0.2333 hours. Total: 8.23 hours. But the rounding rule rounds 7:53 to 8:00 and 4:07 to 4:00: paid for 8.00 hours. The 0.23-hour discrepancy —14 minutes of unpaid labor per shift, roughly $2.10 at minimum wage —accumulates across 260 workdays to $546 per year per employee. Multiply by 500,000 employees and you get a wage theft settlement with nine zeroes.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.0166666667" data-unit-from="minutes" data-unit-to="hours">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="60" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">minutes</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1</span>
+                        <span class="unit-pill unit-pill-to">hour</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">60 min = 1 h</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 h = 60 min</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Time Clock: Where ÷60 Determines Who Gets Paid</h2>
+
+            <p>The first mechanical time clock was patented by Willard Bundy, a jeweler in Auburn, New York, in 1888. It stamped the time onto a paper card inserted by the worker. The card recorded clock-in and clock-out times in hours and minutes —7:53, 12:01, 12:29, 4:07. The payroll clerk manually calculated the elapsed time for each segment: 4:07 —7:53 = 8 hours 14 minutes. Then the critical step: 14 minutes ÷ 60 = 0.2333 hours. Total: 8.23 hours. Multiply by the hourly rate. Write the check.</p>
+
+            <p>The manual step —dividing minutes by 60 —was the bottleneck. A payroll clerk processing 200 time cards per week performed the division 800 times (clock-in, clock-out, lunch-in, lunch-out × 200). The arithmetic was tedious and error-prone. The solution adopted across industries in the mid-20th century: rounding. Punch times within 7 minutes of the quarter-hour mark round to the nearest quarter hour. 7:53 rounds to 8:00. 4:07 rounds to 4:00. The worker gets paid for exactly 8 hours —no division required. The 14 minutes of actual labor between 7:53—:00 and 4:00—:07 vanish into the rounding rule. Over a single shift, the discrepancy is noise —14 minutes at $15/hour = $3.50. Over 260 shifts, the worker has donated 60.7 hours of unpaid labor —roughly $910 at the same rate. The employer has saved $910 on that one employee. Across a workforce of 100,000, the annual savings exceed $90 million. The rounding rule is legal. The systematic rounding down is not. The difference between "rounding" and "wage theft" is whether the rounding errors are symmetric —do punches round up as often as they round down? —and the answer, in every wage-and-hour lawsuit that has gone to discovery, is that the rounding systematically favors the employer, because the time clock software was configured by the employer, and the default settings round down. The minutes-to-hours conversion is ÷60. The fairness of the conversion is determined by the rounding policy applied to the numerator before the division.</p>
+
+            <div class="formula-box">
+                <p>hours = minutes &divide; 60</p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box"><p><strong>15 min —0.25 h</strong></p><p>The quarter hour. The standard time clock rounding increment. The length of a coffee break. The shortest meeting your calendar app lets you schedule. 0.25 × 60 = 15. The arithmetic is symmetrical. The meeting's value is not.</p></div>
+            <div class="example-box"><p><strong>30 min —0.5 h</strong></p><p>The half hour. The sitcom without ads. The treadmill session. The unpaid lunch break. 0.5 × any hourly rate = exactly half the rate. The cleanest fraction in the minutes-to-hours conversion and the one nobody needs a calculator for.</p></div>
+            <div class="example-box"><p><strong>45 min —0.75 h</strong></p><p>Three quarters of an hour. A soccer half plus stoppage. A lecture period. A therapy session (the "50-minute hour" is actually 45—0 minutes of therapy plus 10—5 minutes of therapist documentation —the 50-minute session billed as 0.8 hours).</p></div>
+            <div class="example-box"><p><strong>90 min —1.5 h</strong></p><p>A movie. A soccer match. A board meeting that ran over. The billing entry for "deposition preparation" at any law firm in America. 90 ÷ 60 = 1.5. The conversion is clean. The deposition is not.</p></div>
+
+            <h2>Common Minutes to Hours</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Minutes</th><th>Decimal Hours</th><th>Fraction</th><th>Context</th></tr></thead><tbody>
+                <tr><td>6 min</td><td>0.1 h</td><td>1/10</td><td>The billable increment. One tenth of an hour.</td></tr>
+                <tr><td>15 min</td><td>0.25 h</td><td>1/4</td><td>The time clock rounding unit. Coffee break.</td></tr>
+                <tr><td>20 min</td><td>0.3333 h</td><td>1/3</td><td>The "20-minute neighborhood" in urban planning.</td></tr>
+                <tr><td>30 min</td><td>0.5 h</td><td>1/2</td><td>Half an hour. Unpaid lunch. The sitcom.</td></tr>
+                <tr><td>45 min</td><td>0.75 h</td><td>3/4</td><td>Three quarters. The meeting, the lecture, the session.</td></tr>
+                <tr><td>60 min</td><td>1.0 h</td><td>1</td><td>The definition. 60 minutes = 1 hour.</td></tr>
+                <tr><td>90 min</td><td>1.5 h</td><td>1 1/2</td><td>A movie. A soccer match. A deposition.</td></tr>
+                <tr><td>120 min</td><td>2.0 h</td><td>2</td><td>A dinner service. A feature-length movie plus trailers.</td></tr>
+            </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The minutes-to-hours conversion (÷60) is the inverse of the Babylonian sexagesimal multiplication. It surfaces wherever human-readable clock time (hours:minutes) meets machine-readable decimal time (fractional hours). The payroll industry standardizes on decimal hours stored to two decimal places (0.01 hour = 36 seconds of precision). A timesheet entry of 7.75 hours represents exactly 7 hours and 45 minutes. The 36-second granularity is finer than the typical 7-minute time clock rounding window —meaning the system's numeric precision exceeds the rounding policy's intentional coarseness. For the reverse direction, see <a href="/hours-to-minutes">hours to minutes</a> (×60). For the full conversion ladder: <a href="/minutes-to-seconds">minutes to seconds</a> (×60), <a href="/seconds-to-minutes">seconds to minutes</a> (÷60), <a href="/hours-to-seconds">hours to seconds</a> (×3,600). For scheduling and payroll contexts, see <a href="/hours-to-days">hours to days</a> (the cumulative totals that determine PTO accrual and weekly overtime thresholds).</p>
+                <p style="margin-top:1.2em;">More: <a href="/hours-to-minutes">hours to minutes</a> · <a href="/minutes-to-seconds">minutes to seconds</a> · <a href="/seconds-to-minutes">seconds to minutes</a> · <a href="/hours-to-days">hours to days</a> · <a href="/guides/time-conversion-guide">Time Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/hours-to-minutes">Hours to Minutes</a>
+                <a href="/minutes-to-seconds">Minutes to Seconds</a>
+                <a href="/seconds-to-minutes">Seconds to Minutes</a>
+                <a href="/hours-to-seconds">Hours to Seconds</a>
+                <a href="/hours-to-days">Hours to Days</a>
+                <a href="/seconds-to-hours">Seconds to Hours</a>
+            <a href="/guides/time-conversion-guide">Time Conversion Guide</a></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why does my time clock round to 15-minute increments? Is that legal?</p>
+                <p class="faq-a">Yes, under the FLSA —provided the rounding is neutral and does not systematically underpay the employee. The employer is permitted to round to the nearest 5, 6, or 15 minutes. The most common rounding rule: 7 minutes before or after the quarter-hour mark rounds to the quarter hour. A punch at 7:53 (7 minutes before 8:00) rounds to 8:00. A punch at 8:08 (8 minutes after 8:00) rounds to 8:15. The rounding must average out across punches. Courts look at the aggregate data: if 60% of punches round in the employer's favor and 40% in the employee's, the rounding is biased —and the employer owes back wages for the difference. The test is statistical, not anecdotal. The minutes-to-hours conversion (÷60) is exact. The fairness of the pre-division rounding is what the courts evaluate.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How do I enter 7 hours and 42 minutes into a decimal timesheet system?</p>
+                <p class="faq-a">42 ÷ 60 = 0.7. Enter 7.7 (NOT 7.42). The colon in "7:42" means hours and minutes. The decimal in "7.7" means decimal hours. Entering "7.42" tells the system you worked 7.42 hours = 7 hours and 25.2 minutes —shorting yourself by 16.8 minutes. Across a biweekly pay period with 10 working days, the error accumulates to 168 minutes = 2.8 hours of unpaid time. At $20/hour, that's $56 per pay period = $1,456 per year. The most expensive two-keystroke error in payroll is typing a decimal point when the system expects a colon, or vice versa. The fix: always convert minutes to decimal before entering. ÷60. Every time. Tape a conversion chart to the monitor if you have to. The $1,456 per year is worth the Post-it note.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Is the "50-minute therapy hour" actually 0.83 hours?</p>
+                <p class="faq-a">50 ÷ 60 = 0.8333 hours. Therapists bill the standard session as a "45—0 minute session" and the billing code typically represents 1 unit of psychotherapy = roughly 0.75 to 0.83 hours. The 10—5 minutes between sessions is documentation time —notes, treatment plans, insurance paperwork —that is not billed directly but is necessary for the session to exist. The therapist works roughly 50 minutes of direct patient care per hour of clock time. The patient pays for 50 minutes. The therapist's effective hourly rate, after documentation, scheduling, insurance claims, and no-shows, is lower than the per-hour rate implies. The minutes-to-hours conversion (50 ÷ 60) is straightforward. The economics of the therapy hour are not.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

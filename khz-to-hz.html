@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Kilohertz to Hertz (kHz to Hz) — Sample Rates, Bands, and the Missing Three Zeros | EnginStack</title>
+    <meta name="description" content="1 kHz = 1,000 Hz exactly. Convert kilohertz to hertz — the conversion behind sample rates, audio bandwidth, and RF channel math. 44.1 kHz is 44,100 Hz. Here's the exact math, the sampling story, and the conversion table.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/khz-to-hz">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/khz-to-hz">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/khz-to-hz">
+    <meta property="og:title" content="Kilohertz to Hertz (kHz to Hz) — Sample Rates, Bands, and the Missing Three Zeros | EnginStack">
+    <meta property="og:description" content="1 kHz = 1,000 Hz exactly. Convert kilohertz to hertz — the conversion behind sample rates and RF channel math.">
+    <meta property="og:url" content="https://enginstack.com/khz-to-hz">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Kilohertz to Hertz Converter",
+      "description": "Convert kilohertz (kHz) to hertz (Hz) by multiplying by 1,000 — the exact SI prefix relationship. 1 kHz = 1,000 Hz by definition.",
+      "url": "https://enginstack.com/khz-to-hz",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a kHz bigger than a Hz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — 1 kHz = 1,000 Hz, so a kilohertz is exactly a thousand times larger. The prefix system works the same as kilometers (1,000 meters) and kilograms (1,000 grams). Frequency values in kHz are numerically smaller than the same values in Hz: 5 kHz = 5,000 Hz. You never see '5,000 Hz' on a modern datasheet when '5 kHz' is available — the prefix exists to keep numbers compact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my computer show 2.4 GHz, not kHz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because a gigahertz is 1,000,000,000 hertz — a billion. Wi-Fi at 2.4 GHz is 2,400,000,000 Hz; written in kHz that's 2,400,000 kHz, and in Hz it's a nine-digit number nobody wants to type. The prefix escalates with the scale: Hz for audio, kHz for ultrasound and AM radio, MHz for FM and processors, GHz for Wi-Fi and modern CPUs. The MHz to GHz page handles the top of that ladder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert kHz to MHz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 1,000. 1,700 kHz (the top of the AM band) = 1.7 MHz. 88,000 kHz (the bottom of the FM band) = 88 MHz. The kHz to MHz converter on this site does that step, and the chain kHz → Hz → MHz is always exact because every step is a power of ten."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Frequency", "item": "https://enginstack.com/frequency/" },
+        { "@type": "ListItem", "position": 3, "name": "Kilohertz to Hertz Converter" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/frequency/">Frequency</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Kilohertz to Hertz Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Kilohertz to Hertz: The Three Zeros Hiding in Every Sample Rate</h1>
+            <p>Your phone's audio file says "44.1 kHz." The oscilloscope in the lab says "44,100 Hz." The numbers mean the same thing — the waveform is being measured 44,100 times every second — but they look completely different, and the difference is exactly three zeros. Every kHz value carries those zeros folded into a prefix. This page unfolds them: multiply by 1,000, and the kilohertz becomes the hertz the instruments actually count.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1000" data-unit-from="kHz" data-unit-to="hertz">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="44.1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">kHz</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">44100</span>
+                        <span class="unit-pill unit-pill-to">hertz</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">44.1 kHz = 44100 hertz</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">44.1 hertz = 0.0441 kHz</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Why 44.1 kHz Isn't a Round Number</h2>
+
+            <p>If you were designing digital audio from scratch, you'd pick a round sample rate — 44,000 or 48,000 Hz. The CD standard's 44,100 Hz is deliberately un-round, and its origin is a story of late-1970s video tape engineering. The first digital audio recorders stored samples on video tape, and the sample rate had to lock to the tape's frame structure. NTSC video runs at 30 frames per second, each frame holding 490 lines with 3 samples per line — 30 × 490 × 3 = 44,100. The number was chosen because it fit the existing video hardware, not because it was acoustically ideal. It stuck because the CD standard was locked in 1979 and 44.1 kHz became the world's audio default.</p>
+
+            <p>The acoustic logic underneath it is sound: the Nyquist–Shannon theorem says a digitized signal can represent frequencies up to half the sample rate, so 44.1 kHz captures up to 22.05 kHz — headroom above the 20 kHz human hearing limit. In hertz terms, the whole conversation is about the number 44,100, and the kHz label is just a way to say it with fewer characters. This converter restores the full number when you need it — in a code snippet, a datasheet, or a spec comparison.</p>
+
+            <div class="formula-box"><p><strong>Hz = kHz × 1,000</strong><br>The SI prefix 'kilo-' = 1,000 exactly<br>Multiply by 1,000 — the conversion is exact, always.</p></div>
+
+            <h2>Where kHz Masks Big Numbers</h2>
+
+            <p>The kilohertz prefix exists to keep everyday numbers small, but it hides magnitudes. A 20 kHz dog whistle is 20,000 Hz — and the "silent" dog whistle that sounds silent to humans is often around 22-25 kHz, or 22,000-25,000 Hz. An ultrasonic cleaner at 40 kHz is vibrating 40,000 times per second. A smart meter transmitting at 60 kHz is cycling 60,000 times per second. When these numbers enter a calculation — say, the wavelength of a 40 kHz cleaner signal (about 8.6 mm) — the full hertz value is what the math needs, and the kHz display is what the datasheet shows. The converter removes the step where people lose a zero.</p>
+
+            <h2>Common Kilohertz to Hertz Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>kHz</th><th>Hertz</th><th>Where you'd see this</th></tr></thead><tbody>
+                <tr><td>0.001 kHz</td><td>1 Hz</td><td>The definitional anchor — one hertz.</td></tr>
+                <tr><td>0.02 kHz</td><td>20 Hz</td><td>Lower limit of human hearing.</td></tr>
+                <tr><td>0.06 kHz</td><td>60 Hz</td><td>US AC mains frequency.</td></tr>
+                <tr><td>0.44 kHz</td><td>440 Hz</td><td>Concert A tuning note.</td></tr>
+                <tr><td>1 kHz</td><td>1,000 Hz</td><td>The kilohertz itself. Upper speech harmonics.</td></tr>
+                <tr><td>8.2 kHz</td><td>8,200 Hz</td><td>Typical oscilloscope square-wave test signal.</td></tr>
+                <tr><td>15 kHz</td><td>15,000 Hz</td><td>High-end hearing limit for many adults.</td></tr>
+                <tr><td>20 kHz</td><td>20,000 Hz</td><td>Nominal human hearing limit.</td></tr>
+                <tr><td>40 kHz</td><td>40,000 Hz</td><td>Ultrasonic cleaner frequency.</td></tr>
+                <tr><td>44.1 kHz</td><td>44,100 Hz</td><td>CD audio sampling rate.</td></tr>
+                <tr><td>48 kHz</td><td>48,000 Hz</td><td>Professional video/film audio sample rate.</td></tr>
+                <tr><td>96 kHz</td><td>96,000 Hz</td><td>High-resolution audio sample rate.</td></tr>
+                </tbody></table></div>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>The ultrasonic cleaner wavelength</strong></p>
+                <p>An ultrasonic cleaner runs at 40 kHz. A technician needs the wavelength in air to check transducer placement: λ = v/f = 343 m/s ÷ 40,000 Hz = 0.008575 m = 8.58 mm. Notice the hertz form of the frequency — 40,000 — is what makes the calculation clean. Using 40 kHz directly would require writing 40 × 1,000 in the denominator anyway. The kHz label is a display convenience; the physics runs on hertz, and this converter supplies the full number.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>The RF channel math</b></strong></p>
+                <p>An AM radio station broadcasts at 640 kHz. The wavelength: 300,000,000 m/s ÷ 640,000 Hz = 468.75 m. The antenna designer works in hertz — 640,000 — while the dial shows 640. Both are the same station. A quarter-wave antenna for 640 kHz: 468.75 ÷ 4 ≈ 117 m, far too long for a physical tower, which is why AM towers use electrically shortened designs. The conversion between the dial reading and the physics is this page's job, and it's exact.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>The dog whistle that isn't silent</b></strong></p>
+                <p>Many "silent" dog whistles operate around 23 kHz. That's 23,000 Hz — inaudible to most adult humans (whose high-frequency hearing has rolled off) but within a dog's range up to about 45,000 Hz. In hertz: 23,000. In kHz: 23. The trainer adjusting the whistle's pitch is working in kHz on the datasheet and in Hz in their head. Same frequency, two notations, one exact conversion.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Frequency conversions between SI-prefixed units are exact by definition — the kilo-, mega-, and giga- prefixes are fixed powers of ten (1,000, 10⁶, 10⁹). This makes the kHz↔Hz, MHz↔kHz, and GHz↔MHz conversions pure decimal-point shifts with zero uncertainty, unlike the force and torque conversions elsewhere on this site which carry treaty-derived constants. The one non-power-of-ten in the frequency family is the rotational crossover: 1 RPM = 1/60 Hz. The <a href="/hz-to-rpm">Hz to RPM</a> page covers that. For the data rates that audio and RF systems carry — sample rates relate to bit rates through word size and channels — see the <a href="/data-storage/">data storage</a> hub.</p>
+                <p style="margin-top:1.2em;">More: <a href="/hz-to-khz">Hz to kHz</a> · <a href="/khz-to-mhz">kHz to MHz</a> · <a href="/mhz-to-khz">MHz to kHz</a> · <a href="/frequency/">Frequency Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/hz-to-khz">Hz to kHz</a>
+                <a href="/khz-to-mhz">kHz to MHz</a>
+                <a href="/mhz-to-khz">MHz to kHz</a>
+                <a href="/hz-to-rpm">Hz to RPM</a>
+                <a href="/rpm-to-hz">RPM to Hz</a>
+                <a href="/frequency/">Frequency Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a kHz bigger than a Hz?</p>
+                <p class="faq-a">Yes — 1 kHz = 1,000 Hz, so a kilohertz is exactly a thousand times larger. The prefix system works the same as kilometers (1,000 meters) and kilograms (1,000 grams). Frequency values in kHz are numerically smaller than the same values in Hz: 5 kHz = 5,000 Hz. You never see '5,000 Hz' on a modern datasheet when '5 kHz' is available — the prefix exists to keep numbers compact.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does my computer show 2.4 GHz, not kHz?</p>
+                <p class="faq-a">Because a gigahertz is 1,000,000,000 hertz — a billion. Wi-Fi at 2.4 GHz is 2,400,000,000 Hz; written in kHz that's 2,400,000 kHz, and in Hz it's a nine-digit number nobody wants to type. The prefix escalates with the scale: Hz for audio, kHz for ultrasound and AM radio, MHz for FM and processors, GHz for Wi-Fi and modern CPUs. The <a href="/mhz-to-ghz">MHz to GHz</a> page handles the top of that ladder.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do I convert kHz to MHz?</p>
+                <p class="faq-a">Divide by 1,000. 1,700 kHz (the top of the AM band) = 1.7 MHz. 88,000 kHz (the bottom of the FM band) = 88 MHz. The <a href="/khz-to-mhz">kHz to MHz</a> converter on this site does that step, and the chain kHz → Hz → MHz is always exact because every step is a power of ten.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

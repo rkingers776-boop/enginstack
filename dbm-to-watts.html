@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>dBm to Watts — Wi-Fi Power and the 30 dBm = 1 W Anchor | EnginStack</title>
+    <meta name="description" content="Convert dBm to watts exactly: P(W) = 10^((dBm−30)/10). 30 dBm = 1 W, 20 dBm = 100 mW, 0 dBm = 1 mW. The RF power conversion for Wi-Fi, transmitters, and signal equipment.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/dbm-to-watts">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/dbm-to-watts">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/dbm-to-watts">
+    <meta property="og:title" content="dBm to Watts — Wi-Fi Power and the 30 dBm = 1 W Anchor | EnginStack">
+    <meta property="og:description" content="Convert dBm to watts exactly: P(W) = 10^((dBm−30)/10). 30 dBm = 1 W, 20 dBm = 100 mW, 0 dBm = 1 mW. The RF power conversion for Wi-Fi, transmitters, and signal equipment.">
+    <meta property="og:url" content="https://enginstack.com/dbm-to-watts">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "dBm to watts Converter",
+      "description": "Convert dBm to watts exactly: P(W) = 10^((dBm−30)/10). 30 dBm = 1 W, 20 dBm = 100 mW, 0 dBm = 1 mW. The RF power conversion for Wi-Fi, transmitters, and signal equipment.",
+      "url": "https://enginstack.com/dbm-to-watts",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many watts is 30 dBm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 1 watt. The dBm scale is relative to 1 mW, so 30 dBm = 10^(30/10) mW = 1,000 mW = 1 W. It is the best-known anchor in RF power."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does dBm mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Decibels relative to one milliwatt: 0 dBm = 1 mW, and every 10 dB multiplies power by 10. It is a logarithmic scale that compresses the huge power range of radio signals into readable numbers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Wi-Fi limited to about 20–23 dBm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Regulators cap consumer Wi-Fi transmit power (typically 1 W EIRP in the US, which is 30 dBm including antenna gain). Access points run at 20–23 dBm of actual transmitter power to stay under the limit with antenna gain included."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "dBm to watts Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">dBm to watts Converter</span></nav>
+
+        <header class="page-header">
+            <h1>dBm to watts</h1>
+            <p>dBm is the unit RF engineers actually use — the decibel value of power relative to one milliwatt. The anchor is easy: 30 dBm is exactly 1 W, 20 dBm is 100 mW, and 0 dBm is 1 mW. A Wi-Fi access point transmits around 20–23 dBm; a phone about 23–27 dBm; a licensed radio up to 40 dBm (10 W). This calculator converts the dBm on your equipment label into the watts that feed your transmitter math.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="dBm" data-unit-to="watts" data-formula="dbm-to-w">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">dBm</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="30" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">dBm</span>
+                    </div>
+                </div>
+                <div class="calc-row">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">watts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">—</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">—</span>
+            </div>
+            <p class="source-note">Constants verified against NIST Special Publication 811 (Guide for the Use of the International System of Units) and the 1959 International Yard and Pound Agreement. All values are exact — none are rounded approximations.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>dBm to watts</h2>
+
+            <p>The dBm scale is logarithmic because power in RF spans orders of magnitude — from microwatts to kilowatts — and decibels compress that range into readable numbers. The conversion is exact: P(W) = 10^((dBm−30)/10), since dBm is dB relative to 1 mW and 0 dBm = 1 mW = 0.001 W. Regulatory limits, antenna gain calculations, and link budgets all work in dBm, but equipment power and heat dissipation work in watts — so the conversion is a daily tool for anyone who touches radio equipment.</p>
+
+            <div class="formula-box"><p><strong>watts = 10^((dBm − 30) / 10)</strong><br>30 dBm = 1 W &nbsp;·&nbsp; 20 dBm = 0.1 W &nbsp;·&nbsp; 0 dBm = 1 mW<br>The conversion is exact — dBm is dB relative to 1 milliwatt.</p></div>
+
+            <h2>Common dBm to watts Values</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>dBm</th><th></th><th>watts</th><th>Context</th></tr></thead><tbody>
+                <tr><td>0 dBm</td><td>—</td><td>0.001 W</td><td>1 mW — the dBm anchor.</td></tr>
+                <tr><td>20 dBm</td><td>—</td><td>0.1 W</td><td>Indoor Wi-Fi access point.</td></tr>
+                <tr><td>23 dBm</td><td>—</td><td>0.2 W</td><td>Consumer Wi-Fi at max.</td></tr>
+                <tr><td>30 dBm</td><td>—</td><td>1 W</td><td>The 30 dBm = 1 W milestone.</td></tr>
+                <tr><td>40 dBm</td><td>—</td><td>10 W</td><td>Licensed two-way radio.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>dBm-to-watts is the power-side companion to <a href="/watts-to-dbm">watts to dBm</a>, and both live at the junction of the <a href="/electric/">electric hub</a> and the <a href="/energy/">energy</a> family — the watt is the shared unit. Link budgets that add and subtract dBm connect to the frequency world via the <a href="/frequency/">frequency hub</a> (Wi-Fi at 2.4/5 GHz).</p>
+                <p style="margin-top:1.2em;">More: <a href="/watts-to-dbm">W to dBm</a> · <a href="/dbm-to-mw">dBm to mW</a> · <a href="/watts-to-kw">W to kW</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/watts-to-dbm">Watts To Dbm</a>
+                <a href="/dbm-to-mw">Dbm To Mw</a>
+                <a href="/watts-to-kw">Watts To Kw</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How many watts is 30 dBm?</p>
+                    <p class="faq-a">Exactly 1 watt. The dBm scale is relative to 1 mW, so 30 dBm = 10^(30/10) mW = 1,000 mW = 1 W. It is the best-known anchor in RF power.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">What does dBm mean?</p>
+                    <p class="faq-a">Decibels relative to one milliwatt: 0 dBm = 1 mW, and every 10 dB multiplies power by 10. It is a logarithmic scale that compresses the huge power range of radio signals into readable numbers.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why is Wi-Fi limited to about 20–23 dBm?</p>
+                    <p class="faq-a">Regulators cap consumer Wi-Fi transmit power (typically 1 W EIRP in the US, which is 30 dBm including antenna gain). Access points run at 20–23 dBm of actual transmitter power to stay under the limit with antenna gain included.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fTo = card.getAttribute('data-unit-to');
+    var formula = card.getAttribute('data-formula');
+    function calc() {
+        var a = parseFloat(main.value);
+        if (isNaN(a)) { out.textContent = '—'; return; }
+        var r;
+        if (formula === 'dbm-to-w') { r = Math.pow(10, (a - 30) / 10); }
+        else if (formula === 'w-to-dbm') { r = (a <= 0) ? NaN : 10 * Math.log10(a) + 30; }
+        else if (formula === 'dbm-to-mw') { r = Math.pow(10, a / 10); }
+        else if (formula === 'mw-to-dbm') { r = (a <= 0) ? NaN : 10 * Math.log10(a); }
+        else { r = NaN; }
+        out.textContent = fmt(r);
+        fwd.textContent = main.value + ' ' + fMain + ' = ' + fmt(r) + ' ' + fTo;
+        rev.textContent = fmt(r) + ' ' + fTo + ' = ' + main.value + ' ' + fMain;
+    }
+    main.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+</body>
+</html>

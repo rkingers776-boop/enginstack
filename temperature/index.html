@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converters — °F, °C, Kelvin | EnginStack</title>
+    <meta name="description" content="6 temperature converters: Fahrenheit to Celsius, Celsius to Kelvin, Kelvin to Celsius, Fahrenheit to Kelvin, and reverse. Temperature is the only affine conversion most people use — you can't just multiply, the zero points differ.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/temperature/">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/temperature/">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/temperature/">
+    <meta property="og:title" content="Temperature Converters — °F, °C, Kelvin | EnginStack">
+    <meta property="og:description" content="6 temperature converters: Fahrenheit to Celsius, Celsius to Fahrenheit, Celsius to Kelvin, Kelvin to Celsius, Fahrenheit to Kelvin, Kelvin to Fahrenheit. Affine conversions — not simple multiplication.">
+    <meta property="og:url" content="https://enginstack.com/temperature/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Temperature Converters",
+  "description": "6 temperature converters covering Fahrenheit, Celsius, and Kelvin. Affine conversions with exact formulas — not simple multiplication.",
+  "url": "https://enginstack.com/temperature/",
+  "hasPart": [
+    {"@type": "WebApplication", "name": "Fahrenheit to Celsius", "url": "https://enginstack.com/fahrenheit-to-celsius"},
+    {"@type": "WebApplication", "name": "Celsius to Fahrenheit", "url": "https://enginstack.com/celsius-to-fahrenheit"},
+    {"@type": "WebApplication", "name": "Celsius to Kelvin", "url": "https://enginstack.com/celsius-to-kelvin"},
+    {"@type": "WebApplication", "name": "Kelvin to Celsius", "url": "https://enginstack.com/kelvin-to-celsius"},
+    {"@type": "WebApplication", "name": "Fahrenheit to Kelvin", "url": "https://enginstack.com/fahrenheit-to-kelvin"},
+    {"@type": "WebApplication", "name": "Kelvin to Fahrenheit", "url": "https://enginstack.com/kelvin-to-fahrenheit"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Temperature Converters", "item": "https://enginstack.com/temperature/" }
+  ]
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Temperature</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Temperature Converters <span class="count-badge">6</span></h1>
+            <p>Temperature doesn't work like other units. You can't just multiply by a constant — these are <em>affine</em> conversions. Fahrenheit and Celsius have different zero points, so the formula includes an offset. Kelvin fixes this by starting at absolute zero. Every engineering pipeline converts to Kelvin first, does the math, then converts back. That's why all 6 converters are here — including the ones that seem redundant.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <a href="/guides/temperature-conversion-guide" class="category-guide-cta">
+            <div class="category-guide-cta-icon">🌡️</div>
+            <div class="category-guide-cta-body">
+                <h3>Read the Temperature Conversion Guide</h3>
+                <p>Fahrenheit's brine-and-armpit origin, why Celsius ran backwards until Linnaeus flipped it, the 1851 body temperature myth that survived 141 years, and why every engineering pipeline converts to Kelvin first.</p>
+                <span class="category-guide-cta-link">Open the full guide →</span>
+            </div>
+        </a>
+
+        <section class="hub-seo-section">
+            <h2>Why Temperature Conversion Is Different</h2>
+            <p>Temperature is the only common unit conversion that is <strong>affine rather than multiplicative</strong>. Unlike length (where 1 inch = 2.54 cm, and 0 inches = 0 cm), temperature scales have different zero points. Celsius and Kelvin share the same degree size but differ by 273.15. Fahrenheit uses a different degree size entirely (1°F = 5/9°C) and a different zero point. Converting temperature requires both multiplication and addition — which is why "doubling" a temperature in Celsius does not double it in Fahrenheit.</p>
+            <p>Daniel Gabriel Fahrenheit defined his scale in 1724 using three reference points: 0°F (a brine-ice mixture), 32°F (ice-water equilibrium), and 96°F (approximate human body temperature — later refined to 98.6°F). Anders Celsius proposed his scale in 1742 — but originally it ran backwards, with 0° as the boiling point of water and 100° as the freezing point. Carl Linnaeus flipped it to the modern orientation in 1745. Lord Kelvin introduced the absolute scale in 1848, anchoring 0 K at absolute zero (−273.15°C), the temperature at which all molecular motion theoretically ceases.</p>
+            <h2>Temperature Conversion Formulas</h2>
+            <div class="formula-box">
+                <p><strong>°F → °C:</strong> °C = (°F − 32) × 5/9</p>
+                <p><strong>°C → °F:</strong> °F = (°C × 9/5) + 32</p>
+                <p><strong>°C → K:</strong> K = °C + 273.15</p>
+                <p><strong>°F → K:</strong> K = (°F + 459.67) × 5/9</p>
+            </div>
+            <p>Every engineering pipeline that handles temperature converts to Kelvin first — it is the only scale with a true zero and a mathematically clean ratio relationship. For the full story — including the 1851 body temperature myth that survived 141 years — see the <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>.</p>
+        </section>
+
+        <section class="hub-seo-section">
+            <h2>Temperature Conversion in Engineering Practice</h2>
+            <p>In manufacturing, temperature conversion errors have real costs. A European CNC specification calling for 20°C (standard metrology reference temperature, ISO 1:2016) must be converted correctly when the American shop floor is calibrated in Fahrenheit — 20°C = 68°F. An autoclave sterilization cycle specified at 121°C must reach exactly 250°F — not 249.8°F, which would fail validation. Every degree matters when sterility or material properties are on the line.</p>
+            <p>The ideal gas law (PV = nRT) is the canonical example of why engineers use Kelvin: doubling the temperature from 20°C to 40°C does NOT double the pressure in a sealed container, because the ratio is (293.15 K / 313.15 K) = 0.936, not (20/40) = 0.5. Using Celsius or Fahrenheit in any thermodynamic ratio calculation produces nonsense. The rule is universal: convert to Kelvin, compute the ratio, and if the output must be in °C or °F, convert back only at the end. Every thermodynamics textbook, every HVAC design manual, and every engine control unit follows this rule. The intermediate Kelvin step is not optional.</p>
+            <h2>Material Science: Where a Single Degree Changes Everything</h2>
+            <div class="formula-box">
+                <p><strong>Water freezes:</strong> 0°C = 32°F = 273.15 K — the ice point, used to calibrate thermometers worldwide</p>
+                <p><strong>Water boils (1 atm):</strong> 100°C = 212°F = 373.15 K — a 100-degree span in Celsius, 180 in Fahrenheit</p>
+                <p><strong>Human body (normal):</strong> 37°C = 98.6°F = 310.15 K — the 98.6 number comes from an 1851 German study</p>
+                <p><strong>Absolute zero:</strong> −273.15°C = −459.67°F = 0 K — zero molecular motion, the thermodynamic floor</p>
+                <p><strong>Steel austenitizing:</strong> ~815°C = 1,500°F = 1,088 K — the temperature steel transforms for hardening</p>
+                <p><strong>Glass annealing:</strong> ~550°C = 1,022°F = 823 K — internal stress relief in float glass production</p>
+            </div>
+            <p>In metallurgy, heat treatment specifications are temperature-critical to within ±5°C. An aerospace aluminum alloy solution-treated at 530°C (986°F) instead of the specified 525°C (977°F) may overshoot the solidus temperature and begin to melt at grain boundaries — a defect invisible to the eye but catastrophic under load. The temperature window between optimal hardening and incipient melting can be as narrow as 10°C. A Fahrenheit-reading furnace operator working from a Celsius spec without conversion is gambling with a part that will later carry 300 passengers. The conversion runs on the shop traveler: the spec is in °C, the furnace controller reads in °F, and the operator must get it right every time.</p>
+        </section>
+
+
+        <!-- ═══ Fahrenheit ⇄ Celsius ═══ -->
+        <h2 class="category-section-title">Fahrenheit &harr; Celsius</h2>
+        <div class="converter-grid">
+            <a href="/fahrenheit-to-celsius" class="converter-item">
+                <span class="converter-item-name">Fahrenheit to Celsius</span>
+                <span class="converter-item-desc">°C = (°F − 32) × 5/9. Weather, cooking, body temperature. The conversion everyone outside the US uses daily.</span>
+                <span class="converter-item-formula">subtract 32, × 5/9</span>
+            </a>
+            <a href="/celsius-to-fahrenheit" class="converter-item">
+                <span class="converter-item-name">Celsius to Fahrenheit</span>
+                <span class="converter-item-desc">°F = (°C × 9/5) + 32. American weather from European forecasts. Double it, subtract 10%, add 32.</span>
+                <span class="converter-item-formula">× 9/5, add 32</span>
+            </a>
+        </div>
+
+        <!-- ═══ Celsius ⇄ Kelvin ═══ -->
+        <h2 class="category-section-title">Celsius &harr; Kelvin</h2>
+        <div class="converter-grid">
+            <a href="/celsius-to-kelvin" class="converter-item">
+                <span class="converter-item-name">Celsius to Kelvin</span>
+                <span class="converter-item-desc">K = °C + 273.15. The scientific standard. Absolute zero is 0 K, which is −273.15 °C. Add 273.15 and you're in the system that physics uses.</span>
+                <span class="converter-item-formula">+ 273.15</span>
+            </a>
+            <a href="/kelvin-to-celsius" class="converter-item">
+                <span class="converter-item-name">Kelvin to Celsius</span>
+                <span class="converter-item-desc">°C = K − 273.15. The readout direction — instruments output Kelvin, humans read Celsius. Since 2019 the kelvin is defined by the Boltzmann constant.</span>
+                <span class="converter-item-formula">− 273.15</span>
+            </a>
+            <a href="/kelvin-to-fahrenheit" class="converter-item">
+                <span class="converter-item-name">Kelvin to Fahrenheit</span>
+                <span class="converter-item-desc">°F = (K × 9/5) − 459.67. Converting scientific data to US units. Cryogenics, materials science, engine thermodynamics.</span>
+                <span class="converter-item-formula">× 9/5, − 459.67</span>
+            </a>
+        </div>
+
+        <!-- ═══ Fahrenheit ⇄ Kelvin ═══ -->
+        <h2 class="category-section-title">Fahrenheit &harr; Kelvin</h2>
+        <div class="converter-grid">
+            <a href="/fahrenheit-to-kelvin" class="converter-item">
+                <span class="converter-item-name">Fahrenheit to Kelvin</span>
+                <span class="converter-item-desc">K = (°F + 459.67) × 5/9. Converting US engineering data to absolute temperature for thermodynamic and heat transfer calculations.</span>
+                <span class="converter-item-formula">+ 459.67, × 5/9</span>
+            </a>
+        </div>
+
+        <div class="related-categories">
+            <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
+            <a href="/energy/" class="related-cat-pill">Energy &amp; Power</a>
+            <a href="/speed/" class="related-cat-pill">Speed</a>
+            <a href="/pressure/" class="related-cat-pill">Pressure</a>
+            <a href="/guides/temperature-conversion-guide" class="related-cat-pill">🌡️ Temperature Guide</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+            <a href="/guides/">Engineering Guides</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>

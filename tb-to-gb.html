@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TB to GB — The Hard Drive Factory Truth vs Your File Explorer</title>
+    <meta name="description" content="1 TB = 1024 GB. The conversion that made Western Digital settle a class-action lawsuit. Why every hard drive you've ever bought appears smaller than advertised — and the math is on the manufacturer's side.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/tb-to-gb">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/tb-to-gb">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/tb-to-gb">
+    <meta property="og:title" content="TB to GB — The Hard Drive Factory Truth vs Your File Explorer">
+    <meta property="og:description" content="1 TB = 1024 GB. The conversion that made Western Digital settle a class-action lawsuit. Why every hard drive you've ever bought appears smaller than advertised — and the math is on the manufacturer's side.">
+    <meta property="og:url" content="https://enginstack.com/tb-to-gb">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TB-TO-GB Converter",
+  "description": "1 TB = 1024 GB. The conversion that made Western Digital settle a class-action lawsuit. Why every hard drive you've ever bought appears smaller than advertised — and the math is on the manufacturer's side.",
+  "url": "https://enginstack.com/tb-to-gb",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Data Storage", "item": "https://enginstack.com/data-storage/" },
+    { "@type": "ListItem", "position": 3, "name": "TB-TO-GB Converter" }
+  ]
+}
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my 2 TB external drive show as 1.81 TB on Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because Windows uses binary units while labeling them with decimal names. The drive manufacturer sold you 2,000,000,000,000 bytes (decimal). Windows divides by 1,073,741,824 (binary GB in bytes) and gets ~1,862.6 — which it displays as \"1.81 TB\" because it converts to terabytes by dividing by 1,024 again. The drive contains exactly 2 trillion bytes; Windows is simply measuring with a longer ruler. None of the space is missing — the number is just translated through two incompatible definitions of the same word."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Macs show the same drive size as Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. macOS has used decimal units since Snow Leopard (10.6, 2009), so a 1 TB (decimal) drive displays as \"1 TB\" in Finder. The same drive shows ~931 GB in Windows Explorer. Both operating systems are reading the exact same number of bytes from the drive controller. They simply disagree on what \"GB\" means. Ubuntu and most Linux distributions use binary by default; you can switch the display preference in GNOME Disks or via df -h (binary) vs df -H (decimal). This inconsistency between platforms is why cloud providers and enterprise storage vendors now specify capacity in both tebibytes and terabytes in their documentation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the practical difference between TB and TiB when buying storage for a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At the terabyte scale, the binary-decimal gap is 9.95%. For a server with 100 TB of advertised storage, you'll get approximately 90.9 TiB of usable binary capacity. Beyond the naming convention, you also need to account for filesystem overhead (typically 1-3% for ext4/ZFS), RAID parity (losing one or two drives' worth of capacity to redundancy), and overprovisioning on SSDs (another 7-10%). A rule of thumb: advertised decimal capacity × 0.82 ≈ actual usable binary capacity after a RAID-6 configuration and filesystem overhead. Plan procurement accordingly."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <!-- ════Main Content ════-->
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/data-storage/">Data Storage</a> <span class="sep">&rsaquo;</span>
+            <span class="current">TB to GB Converter</span></nav>
+                <header class="page-header">
+            <h1>TB to GB — Multiply by 1024</h1>
+            <p>1 TB = 1024 GB. When Windows formats a 1 TB drive, it sees 1024 GB before the file system overhead. Marketing sees 1000.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+<!-- ════Calculator ════-->
+        <div class="calculator-card" data-coefficient="1024" data-unit-from="TB" data-unit-to="GB">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <!-- ════FROM row ════-->
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">TB</span>
+                    </div>
+                </div>
+
+                <!-- ════SWAP button ════-->
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <!-- ════TO row ════-->
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1,024.0000</span>
+                        <span class="unit-pill unit-pill-to">GB</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ════Detail line ════-->
+            <div class="result-detail">
+                <span class="forward-res">1 TB = 1,024 GB</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 GB = 0.0009766 TB</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div><article class="seo-section">            <h2>The Decimal Label on the Box, the Binary Number in Windows</h2>
+            <p>Every person who has ever plugged in a new external hard drive has experienced this moment: the box says <strong>1 TB</strong>, but Windows reports <strong>931 GB</strong>. The drive isn't defective. The math hasn't failed. What's happened is that the manufacturer counted in decimal terabytes (1,000,000,000,000 bytes) and Windows counted in binary (1,073,741,824 bytes per "GB" — which it insists on labeling GB rather than GiB). The conversion isn't between two different units; it's between two different <em>definitions</em> of the same unit name. And it has sparked multiple class-action lawsuits — all of which the manufacturers won, because they technically disclose the decimal definition in microscopic print.</p>
+
+            <h2>The Arithmetic (and the Lawsuit)</h2>
+            <div class="formula-box"><p>GB = TB × 1024</p></div>
+            <p>Binary: 1 TB = 1,024 GB = 1,048,576 MB = 1,073,741,824 KB = 1,099,511,627,776 bytes. Decimal: 1 TB = 1,000,000,000,000 bytes. The 99.5 billion byte difference between those two numbers is approximately 92.7 GB — and that's the "missing" space that launched a thousand Reddit threads. Western Digital, Seagate, Samsung, and Kingston all faced consumer lawsuits over this in the 2000s. Every single one was either dismissed or settled without requiring manufacturers to change their labeling. The legal reasoning: the decimal definition of "tera" predates computing and is the internationally recognized SI standard. Computer scientists' adoption of powers-of-1024 was an engineering convenience, not a legal standard.</p>
+
+            <h2>From Flash Drives to Data Centers</h2>
+            <p>The TB-to-GB gap isn't just a consumer annoyance. In data center procurement, a "petabyte-scale" storage array advertised as 1 PB (decimal) = 1,000 TB actually stores about 909 tebibytes (binary) — a 9.1% shortfall. When an enterprise signs a $500,000 storage contract expecting a specific usable capacity, that 9% gap is a $45,000 discrepancy that requires legal review. Enterprise storage vendors now specify both numbers in RFPs: nominal (decimal) and usable after RAID overhead and binary conversion.</p>
+            <p>SSD manufacturers face an additional complication: NAND flash inherently organizes storage in powers of 2 (pages, blocks, planes, dies), but they <em>overprovision</em> — including spare capacity beyond the labeled decimal size — to compensate for wear leveling and the binary-decimal gap. A "1 TB" consumer SSD typically contains 1,024 GiB of raw NAND, of which approximately 7% is reserved for the controller, leaving the decimal 1 TB (931 GiB) visible to the user. The remaining 93 GiB is the SSD's life-support system — handling wear leveling, garbage collection, and bad block replacement — invisible to the operating system and essential for the drive's longevity.</p>
+
+            <h2>Reference Table</h2>
+            <div class="formula-box">
+                <p><strong>0.5 TB = 512 GB</strong> — a mid-range laptop SSD in 2025</p>
+                <p><strong>1 TB = 1,024 GB (binary)</strong> or <strong>~931 GB (decimal TB reported in binary)</strong></p>
+                <p><strong>2 TB = 2,048 GB</strong> — a premium consumer NVMe drive</p>
+                <p><strong>10 TB = 10,240 GB</strong> — a single modern helium-filled HDD platter stack</p>
+                <p><strong>1 PB = 1,024 TB</strong> — small data center tier; a single 42U rack can hold ~2 PB</p>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item"><p class="faq-q">Why does my 2 TB external drive show as 1.81 TB on Windows?</p><p class="faq-a">Because Windows uses binary units while labeling them with decimal names. The drive manufacturer sold you 2,000,000,000,000 bytes (decimal). Windows divides by 1,073,741,824 (binary GB in bytes) and gets ~1,862.6 — which it displays as "1.81 TB" because it converts to terabytes by dividing by 1,024 again. The drive contains exactly 2 trillion bytes; Windows is simply measuring with a longer ruler. None of the space is missing — the number is just translated through two incompatible definitions of the same word.</p></div>
+            <div class="faq-item"><p class="faq-q">Do Macs show the same drive size as Windows?</p><p class="faq-a">No. macOS has used decimal units since Snow Leopard (10.6, 2009), so a 1 TB (decimal) drive displays as "1 TB" in Finder. The same drive shows ~931 GB in Windows Explorer. Both operating systems are reading the exact same number of bytes from the drive controller. They simply disagree on what "GB" means. Ubuntu and most Linux distributions use binary by default; you can switch the display preference in GNOME Disks or via <code>df -h</code> (binary) vs <code>df -H</code> (decimal). This inconsistency between platforms is why cloud providers and enterprise storage vendors now specify capacity in both tebibytes and terabytes in their documentation.</p></div>
+            <div class="faq-item"><p class="faq-q">What's the practical difference between TB and TiB when buying storage for a server?</p><p class="faq-a">At the terabyte scale, the binary-decimal gap is 9.95%. For a server with 100 TB of advertised storage, you'll get approximately 90.9 TiB of usable binary capacity. Beyond the naming convention, you also need to account for filesystem overhead (typically 1-3% for ext4/ZFS), RAID parity (losing one or two drives' worth of capacity to redundancy), and overprovisioning on SSDs (another 7-10%). A rule of thumb: advertised decimal capacity × 0.82 ≈ actual usable binary capacity after a RAID-6 configuration and filesystem overhead. Plan procurement accordingly.</p></div>
+            <p style="margin-top:1.2em;">More: <a href="/gb-to-tb">gb to tb</a> · <a href="/gb-to-mb">gb to mb</a> · <a href="/mb-to-gb">mb to gb</a> · <a href="/mb-to-kb">tb to mb</a> · <a href="/guides/data-storage-conversion-guide">Guide</a></p>
+
+
+            </article>
+        </main>
+            <!-- ════Footer ════-->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

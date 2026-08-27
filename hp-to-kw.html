@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP to kW — The Brewery Horse That Became Every Car Window Sticker, and the 1.4% Gap Between Germany and Detroit | EnginStack</title>
+    <meta name="description" content="1 mechanical hp = 0.7457 kW. 1 metric hp (PS) = 0.7355 kW — 1.4% smaller. James Watt invented horsepower in 1782 to sell steam engines to breweries. He added a 50% margin so his machines would look better than horses. That margin is still printed on every car in the world. DIN 70020 and SAE J1349 test the same engine and get different numbers.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/hp-to-kw">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/hp-to-kw">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/hp-to-kw">
+    <meta property="og:title" content="HP to kW — The Brewery Horse That Became Every Car Window Sticker | EnginStack">
+    <meta property="og:description" content="James Watt measured a brewery horse, rounded up, added a 50% margin, and invented the horsepower. 243 years later, the EU and the US still can't agree what it means. The gap is 1.4%.">
+    <meta property="og:url" content="https://enginstack.com/hp-to-kw">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HP to kW Converter — Mechanical, Metric, Electrical & Boiler",
+  "description": "Convert mechanical horsepower (0.7457 kW), metric PS (0.7355 kW), electrical hp (0.746 kW), and boiler hp (9.8095 kW) to kilowatts. Four definitions, one word, a 1.4% gap between the two most common — and a 243-year-old marketing trick that still runs the automotive industry.",
+  "url": "https://enginstack.com/hp-to-kw",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know whether a car's spec sheet is quoting mechanical or metric horsepower?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the abbreviation is \"PS\" (Pferdestärke), \"CV\" (cheval-vapeur), or \"ch\" (cheval — French shorthand), it's metric. If it's \"hp\" or \"BHP\" (brake horsepower), it's mechanical — unless the car is German and the text was translated by someone who didn't know the difference. BMW, Mercedes, Audi, and Porsche publish PS figures for the European market and hp figures for the US market on separate versions of their websites. The kW figure is always the same on both. When comparing specifications across markets: trust the kW number. Convert the kW to your preferred unit using the multiplier you need. Never trust an hp figure on a translated website without verifying the kW baseline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was James Watt's horsepower measurement accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For the specific horse he measured, on that specific day, at that specific brewery — possibly. For a draft horse working an 8-hour shift: no. A real workhorse sustains roughly 0.7–0.8 hp over a full workday. Peak output — the first few minutes after a rest, on a cool morning, with fresh hay — can reach 4–5 hp from a large Shire or Clydesdale. Watt's 33,000 ft·lbf/min deliberately overshoots the sustainable work rate of a horse by about 50%. He knew this. The overshoot was not a measurement error. It was a feature. The sales brochure promised 10 horses' worth of work. The machine delivered 15. The customer felt like they'd gotten a deal. The definition survived 243 years because it was designed to sell steam engines, and it did that job flawlessly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do electric motors use a different horsepower definition?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The electrical horsepower — 746 W exactly — was adopted as a convention for motor nameplates because 745.69987158 W is an awkward number to stamp on a data plate. The 0.3 W rounding error is 0.04% — far smaller than the manufacturing tolerance of any production motor. The NEMA MG 1 standard codified the 746 W convention, and every US-built electric motor since roughly 1900 follows it. The electrical hp differs from the mechanical hp by 0.04% and from the metric hp by 1.43%. In practice, nobody worries about the 0.04% mechanical-to-electrical difference because motor efficiency, voltage sag, and bearing wear dominate the uncertainty by orders of magnitude."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"brake horsepower\" (BHP) mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BHP is mechanical horsepower measured at the engine's crankshaft using a dynamometer (a \"brake\" that absorbs the engine's torque and measures it). It is the engine's output before the transmission, differential, driveshaft, water pump, alternator, and power steering pump take their share. Wheel horsepower (WHP) — what a chassis dynamometer measures at the tires — is typically 10–20% lower than BHP due to drivetrain losses. A 300 BHP engine typically delivers 240–270 WHP depending on the transmission type, differential ratio, and tire compound. When a manufacturer advertises \"300 hp,\" they mean BHP, measured per SAE J1349 or DIN 70020 on an engine dynamometer. The BHP is always higher than the WHP. The gap between them is the reason a \"300 hp\" car on paper can lose a drag race to a \"280 hp\" car with a more efficient transmission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much power does a modern Formula 1 engine produce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The current Formula 1 power unit (2026 regulations) combines a 1.6L turbocharged V6 internal combustion engine with an electric MGU-K (Motor Generator Unit – Kinetic). The combustion engine produces approximately 550 kW (737 hp). The hybrid system contributes roughly 350 kW (469 hp) under full deployment. Combined peak output: approximately 900 kW — or 1,207 mechanical hp, or 1,224 metric PS — from an engine smaller than the one in a Toyota Camry. The FIA technical regulations specify all power limits in kW. The horsepower figures reported in media are conversions, and the 1.4% mechanical/metric split means two publications can report different numbers for the same car depending on which multiplier the journalist used. The teams' telemetry engineers work entirely in kW."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Energy & Power", "item": "https://enginstack.com/energy/" },
+    { "@type": "ListItem", "position": 3, "name": "HP to kW" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/energy/">Energy &amp; Power</a> <span class="sep">&rsaquo;</span>
+            <span class="current">HP to kW Converter</span></nav>
+
+        <header class="page-header">
+            <h1>HP to kW: A Salesman, a Brewery Horse, and a Number That Outlived an Empire</h1>
+            <p>James Watt didn't discover horsepower. He invented it — in 1782, in a London brewery, with a stopwatch and a draft horse walking in circles. He rounded the number up, added a 50% margin, and wrote it into a sales brochure. Two hundred and forty-three years later, that number — 33,000 foot-pounds per minute — is the legal definition of horsepower in the United States of America, printed on every car window sticker from a Kia Rio to a Bugatti Chiron. Meanwhile, Germany, France, Italy, and Japan each defined their own horsepower. They differ by 1.4%. They test the same engine on different continents and get different numbers. The unit that powers every argument about "which car is faster" has never meant the same thing in two countries at once.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.74569987158" data-unit-from="hp (mech)" data-unit-to="kW">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">hp (mech)</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.7457</span>
+                        <span class="unit-pill unit-pill-to">kW</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 hp (mech) = 0.7457 kW</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 kW = 1.341 hp (mech)</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Brewery, the Stopwatch, and the Sales Brochure</h2>
+
+            <p>In 1782, James Watt had a problem. His improved steam engine — the one with the separate condenser he'd patented in 1769 — was three times more efficient than Thomas Newcomen's 1712 atmospheric engine. It burned a third of the coal for the same work output. The coal mines of Cornwall, which had been Watt's first customers, bought the argument instantly — coal cost money, and an engine that burned less coal paid for itself in fuel savings. The breweries of London were harder to convince. They didn't burn coal to pump water. They burned hay. Their power source was a stable full of draft horses, and their accounting was measured in bales of hay per barrel of beer. Watt needed to translate "foot-pounds per minute of steam expansion" into "horses this machine will replace, and how much hay you'll stop buying."</p>
+
+            <p>He went to a brewery. He measured. A single draft horse — probably a Shire or a Clydesdale, the heavy breeds used for brewery dray work — walked in a 24-foot diameter circle, harnessed to a central shaft that turned a mill wheel. Pulling with roughly 180 pounds of force at about 2.5 miles per hour. Converted through the circular path to straight-line work: 180 pounds × (2.5 miles/hr × 5,280 feet/mile ÷ 60 minutes) ≈ 32,580 foot-pounds per minute.</p>
+
+            <p>Watt rounded it to 33,000. A round number. A memorable number. A sales brochure number.</p>
+
+            <p>Then came the margin. A brewery horse working an 8-hour shift with rest breaks, water troughs, and the natural fatigue of a living animal sustains roughly 22,000 ft·lbf/min — about two-thirds of Watt's published figure. The "10-horsepower" engine Watt sold to the Whitbread Brewery on Chiswell Street in London in 1785 actually did the work of roughly 15 real horses over the course of a working day. The brewery owner thought he was getting a 10-horse equivalent. Watt had engineered the definition to under-promise and over-deliver — the same technique every sales department on Earth has been using ever since, except Watt got there first and wrote his version into law.</p>
+
+            <p>Divide 33,000 by 60 seconds: 550 foot-pounds per second. Under standard gravity (g₀ = 9.80665 m/s², defined at the 3rd CGPM in 1901), and with 1 lb = 0.45359237 kg exactly (1959 International Yard and Pound Agreement): 550 ft·lbf/s × 0.3048 m/ft × 0.45359237 kg/lb × 9.80665 m/s² = <strong>745.69987158 watts</strong>. That chain of conversions — four international treaties and three standards-body conventions, all layered on top of a brewery horse measurement from 1782 — is the legal definition of one mechanical horsepower in the United States. Every car window sticker in America traces back to it.</p>
+
+            <h2>Four Horsepowers, One Word</h2>
+
+            <p>Watt's number was not the last horsepower. Four different definitions are in active industrial and regulatory use today. They differ enough to matter. The table:</p>
+
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Type</th><th>Watts</th><th>kW</th><th>Definition</th><th>Where it's used</th></tr></thead><tbody>
+                <tr><td><strong>Mechanical hp</strong></td><td>745.6999 W</td><td>0.7457 kW</td><td>550 ft·lbf/s at g₀ = 9.80665 m/s²</td><td>US, UK automotive, engines, generators</td></tr>
+                <tr><td><strong>Metric hp (PS/CV)</strong></td><td>735.4988 W</td><td>0.7355 kW</td><td>75 kgf·m/s at g₀. Literally: lifting 75 kg by 1 meter in 1 second against standard gravity</td><td>Germany, France, Italy, Japan, Korea, most of the non-English-speaking world</td></tr>
+                <tr><td><strong>Electrical hp</strong></td><td>746.0000 W</td><td>0.7460 kW</td><td>Convention for electric motor nameplates — 746 exactly, a round-number simplification of 745.7</td><td>Motor nameplates, NEMA MG 1 standard (US)</td></tr>
+                <tr><td><strong>Boiler hp</strong></td><td>9,809.5 W</td><td>9.8095 kW</td><td>Thermal output to evaporate 34.5 lb of water per hour at 212°F into dry saturated steam. A completely different physical quantity — heat rate, not shaft power</td><td>Industrial steam boilers, district heating plants</td></tr>
+                </tbody></table></div>
+
+            <p>The two that cause real-world confusion: mechanical and metric. The gap is 1.4%. A BMW 330i is rated at 255 PS (metric) in the German brochure and 251 hp (mechanical) on the American Monroney window sticker. The engine produces exactly 188 kW in both markets — 188 ÷ 0.7355 = 255.6 PS, 188 ÷ 0.7457 = 252.1 hp. The kW number is the truth. The hp and PS numbers are different translations of the same truth, using different dictionaries.</p>
+
+            <p>This calculator uses the mechanical definition: <strong>kW = hp × 0.74569987158</strong>. For metric PS, use 0.73549875. For an electric motor nameplate, 0.746. For a steam boiler, 9.8095. The formula is one multiplication. The hard part is knowing which multiplier applies to the number you're reading.</p>
+
+            <h2>DIN 70020 vs SAE J1349: Same Engine, Different Dyno, Different Number</h2>
+
+            <p>Even if Europe and America agreed on which horsepower to use — which they don't — they test engines differently, and the test method changes the result by more than the unit conversion alone.</p>
+
+            <p><strong>DIN 70020</strong> (Deutsches Institut für Normung, the German standard): the engine is tested with the alternator disconnected, the power steering pump uncoupled, the air conditioning compressor removed, the intake air filter housing detached, and the exhaust system optimized for minimum backpressure. The coolant and oil temperatures are tightly controlled. The correction factors for ambient temperature and barometric pressure are conservative. The result is an engine output number measured under conditions that exist in a Stuttgart laboratory on a Tuesday morning and nowhere else in the universe.</p>
+
+            <p><strong>SAE J1349</strong> (Society of Automotive Engineers, the US standard): the engine is tested with all production accessories installed and operating — alternator charging, power steering pump circulating, air conditioning compressor turning (even if the AC clutch is disengaged, the belt drag is present). The intake and exhaust systems are the production parts. The correction factors for ambient conditions are different from DIN's. The result is typically 2–5% lower than a DIN measurement of the same engine, before any unit conversion happens. Then the conversion from PS to hp shaves off another 1.4%.</p>
+
+            <p>A Mercedes-AMG C63 S with the M177 4.0L V8 biturbo: rated at 510 PS under DIN 70020, and 503 hp under SAE J1349. Both numbers are in the owner's manual. Both describe the same engine. Neither is wrong. The difference — 7 hp — is roughly half from the test standard and half from the unit conversion. A buyer comparing a German performance spec to an American one without knowing which test standard was used is comparing numbers measured with different yardsticks.</p>
+
+            <p>In 2004, the SAE revised J1349 to require an independent witness during certification testing. The "witnessed" SAE net rating is sometimes called "SAE Certified" and carries slightly more credibility than manufacturer self-reported figures. But the standard's existence didn't eliminate the DIN/SAE gap — it just gave American buyers a more rigorously enforced version of their own definition, leaving the transatlantic gap intact. The European Union's counterpart, ECE R85, harmonized European testing standards but did not align with SAE J1349. The two continents still test engines differently. They still use different horsepower definitions. And they still print both numbers on export cars without explaining either one.</p>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>1 hp (mech) → 0.7457 kW</strong></p>
+                <p>1 × 0.74569987158 = 0.7457 kW. The definition. This is the number under the hood of every American car, the one James Watt picked in 1782, unchanged except for the treaty revisions that tied the pound and the foot to metric standards in 1959. The horsepower survived metrication because it was too culturally embedded to kill.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>300 hp → 223.7 kW</strong></p>
+                <p>300 × 0.7457 = 223.7 kW. Ford Mustang GT 5.0L Coyote V8 (2024 model year). In Germany, the same engine is rated at 304 PS (metric): 304 × 0.7355 = 223.6 kW. The kW numbers match. The hp and PS numbers are the ones that disagree.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>1 kW → 1.341 hp (mech), 1.360 PS (metric)</strong></p>
+                <p>1 ÷ 0.7457 = 1.34102 hp. 1 ÷ 0.7355 = 1.35962 PS. A Nissan Leaf makes 110 kW exactly. That's 147.5 hp (mech) or 149.6 PS (metric). The car is identical. The window sticker says 147 hp in the US, 150 PS in Germany. Neither number matches the motor controller's native reading of 110,000 watts.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>1,000 hp (mech) → 745.7 kW</strong></p>
+                <p>1,000 × 0.7457 = 745.7 kW. Bugatti Veyron 16.4 (2005). In European press materials: 1,001 PS (metric), which converts to 736 kW. The 736 kW and 745.7 kW both describe the same W16 quad-turbo engine. The difference is entirely in the multiplier. At this power level, the 10 kW gap between the two ratings is the output of a small motorcycle engine, generated purely by which definition of horsepower the press release was written in.</p>
+            </div>
+
+            <h2>Common HP to kW Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>hp (mech)</th><th>kW</th><th>hp (metric/PS)</th><th>Real-world engine</th></tr></thead><tbody>
+                <tr><td>1 hp</td><td>0.746 kW</td><td>1.014 PS</td><td>James Watt's definitional horse. Real horses sustain ~0.7 hp over a workday.</td></tr>
+                <tr><td>75 hp</td><td>55.9 kW</td><td>76.0 PS</td><td>Mazda MX-5 Miata 1.5L. The small end of "fun to drive."</td></tr>
+                <tr><td>100 hp</td><td>74.6 kW</td><td>101.4 PS</td><td>Economy car baseline. Honda Civic 2.0L base engine. VW Golf 1.0 TSI.</td></tr>
+                <tr><td>200 hp</td><td>149.1 kW</td><td>202.8 PS</td><td>Hot hatch territory. VW Golf GTI. Mazda MX-5 turbo. Family sedan V6.</td></tr>
+                <tr><td>300 hp</td><td>223.7 kW</td><td>304.2 PS</td><td>Ford Mustang GT. BMW M340i. Toyota Supra 3.0. The modern muscle car sweet spot.</td></tr>
+                <tr><td>500 hp</td><td>372.8 kW</td><td>507.0 PS</td><td>Porsche 911 Turbo S. Chevrolet Corvette Z06. Supercar territory.</td></tr>
+                <tr><td>760 hp</td><td>566.8 kW</td><td>771 PS</td><td>Ford Mustang Shelby GT500. Lamborghini Aventador SVJ. The limit of rear-wheel-drive street tires.</td></tr>
+                <tr><td>1,000 hp</td><td>745.7 kW</td><td>1,014 PS</td><td>Bugatti Veyron. Rimac Nevera (electric, 1,408 hp total from 4 motors = 1,050 kW).</td></tr>
+                <tr><td>1,500 hp</td><td>1,119 kW</td><td>1,521 PS</td><td>Bugatti Chiron Super Sport. Koenigsegg Jesko. The current street-legal ceiling.</td></tr>
+                </tbody></table></div>
+
+            <h2>The Horsepower Has Already Lost (It Just Doesn't Know It Yet)</h2>
+
+            <p>In 2010, the European Union mandated that all new car advertisements, brochures, and price lists display power output in kilowatts. PS could remain, but kW had to come first. The UK — having spent a century comparing cars by brake horsepower — resisted the change with the same quiet noncompliance it applies to metric road signs and pint glasses. British car magazines still lead with BHP. British buyers still search by horsepower. The EU regulation is on the books and widely ignored by the marketing departments it was meant to discipline.</p>
+
+            <p>The United States has never attempted to replace horsepower on the window sticker. The Monroney label — the federally required new-car price and specification sheet — displays horsepower prominently. Kilowatts are printed smaller, in parentheses, for the enthusiast who knows to look. The Environmental Protection Agency's fuel economy label, the window sticker that every American car buyer actually reads, doesn't mention kilowatts at all.</p>
+
+            <p>In electric vehicles, the kW is the native unit. The motor controller measures voltage and current directly — no conversion, no legacy multiplier, no Brewery Horse Constant from 1782. A Tesla Model 3 Performance makes 393 kW from its dual-motor setup. Tesla's US website converts this to "526 hp" because American buyers shop in horsepower and because the Monroney label requires it. The conversion is one line of JavaScript in the website's template. The car itself, from its battery management system to its traction inverter to its CAN bus telemetry, operates exclusively in kilowatts. The "horsepower" number on the screen is a translation layer for a market that hasn't caught up to the unit the machine speaks natively.</p>
+
+            <p>The kilowatt will win eventually — probably not through regulation, and probably not through consumer preference, but through the raw engineering reality that every electric machine designed after 1990 uses it. The horsepower will survive on window stickers for another generation, and on barstool arguments forever. James Watt's brewery measurement has 243 years of inertia behind it. It took the United States 64 years to retire a single redundant foot. Retiring the horsepower will take longer than that.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>In power generation and industrial drives, the horsepower is a legacy unit surviving in the English-speaking world's procurement documents while the rest of the engineering happens in kilowatts. A NEMA-frame motor nameplate shows both hp and kW — the hp for the US buyer, the kW for the IEC efficiency class printed on the same plate. A US-sourced 100 hp motor (74.6 kW) and a German-sourced 75 kW motor (100.5 hp) are functionally identical machines. Cross-reference a 100 hp spec against a European vendor's 100 kW offering, however, and the buyer receives a 134 hp motor — 34% more machine than intended, 34% more expensive, and potentially oversized for the driven equipment. Pumps, fans, and compressors selected for a 100 hp prime mover will be incorrectly sized for a 100 kW one. The unit must be written into the spec explicitly, and the spec must survive translation across procurement teams that have never heard of each other. EU Directive 2009/125/EC requires electric motor efficiency classes IE1 through IE4 to be based on rated output in kW rather than hp — meaning even motors sold in the US market carry efficiency certifications keyed to their kW rating. A motor's legal efficiency documentation follows the metric number, not the imperial one. For the reverse conversion, see <a href="/kw-to-hp">kW to hp</a>. When power meets the electrical grid, the unit flips entirely — <a href="/watts-to-kw">watts to kW</a> handles the residential and commercial scale, while <a href="/mw-to-gw">MW to GW</a> covers utility-scale generation. The generator set industry, which bridges mechanical shaft power and electrical output, rates its machines in kVA (apparent power) and kW (real power) — the horsepower the diesel engine produces is converted to kW at the generator's nameplate, but the genset catalog still lists both. For the full taxonomy, consult the <a href="/guides/energy-power-conversion-guide">Energy & Power Conversion Guide</a>.</p>
+<p style="margin-top:1.2em;">More: <a href="/kw-to-hp">kw to hp</a> · <a href="/hp-to-watts">hp to watts</a> · <a href="/watts-to-hp">watts to hp</a> · <a href="/joules-to-kwh">joules to kwh</a> · <a href="/guides/energy-power-conversion-guide">Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/kw-to-hp">kW to hp</a>
+                <a href="/watts-to-hp">Watts to hp</a>
+                <a href="/hp-to-watts">hp to Watts</a>
+                <a href="/watts-to-kw">Watts to kW</a>
+                <a href="/mw-to-gw">MW to GW</a>
+                <a href="/guides/energy-power-conversion-guide">Energy & Power Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How do I know whether a car's spec sheet is quoting mechanical or metric horsepower?</p>
+                <p class="faq-a">If the abbreviation is "PS" (Pferdestärke), "CV" (cheval-vapeur), or "ch" (cheval — French shorthand), it's metric. If it's "hp" or "BHP" (brake horsepower), it's mechanical — unless the car is German and the text was translated by someone who didn't know the difference. BMW, Mercedes, Audi, and Porsche publish PS figures for the European market and hp figures for the US market on separate versions of their websites. The kW figure is always the same on both. When comparing specifications across markets: trust the kW number. Convert the kW to your preferred unit using the multiplier you need. Never trust an hp figure on a translated website without verifying the kW baseline.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Was James Watt's horsepower measurement accurate?</p>
+                <p class="faq-a">For the specific horse he measured, on that specific day, at that specific brewery — possibly. For a draft horse working an 8-hour shift: no. A real workhorse sustains roughly 0.7–0.8 hp over a full workday. Peak output — the first few minutes after a rest, on a cool morning, with fresh hay — can reach 4–5 hp from a large Shire or Clydesdale. Watt's 33,000 ft·lbf/min deliberately overshoots the sustainable work rate of a horse by about 50%. He knew this. The overshoot was not a measurement error. It was a feature. The sales brochure promised 10 horses' worth of work. The machine delivered 15. The customer felt like they'd gotten a deal. The definition survived 243 years because it was designed to sell steam engines, and it did that job flawlessly.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why do electric motors use a different horsepower definition?</p>
+                <p class="faq-a">The electrical horsepower — 746 W exactly — was adopted as a convention for motor nameplates because 745.69987158 W is an awkward number to stamp on a data plate. The 0.3 W rounding error is 0.04% — far smaller than the manufacturing tolerance of any production motor. The NEMA MG 1 standard codified the 746 W convention, and every US-built electric motor since roughly 1900 follows it. The electrical hp differs from the mechanical hp by 0.04% and from the metric hp by 1.43%. In practice, nobody worries about the 0.04% mechanical-to-electrical difference because motor efficiency, voltage sag, and bearing wear dominate the uncertainty by orders of magnitude.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What does "brake horsepower" (BHP) mean?</p>
+                <p class="faq-a">BHP is mechanical horsepower measured at the engine's crankshaft using a dynamometer (a "brake" that absorbs the engine's torque and measures it). It is the engine's output before the transmission, differential, driveshaft, water pump, alternator, and power steering pump take their share. Wheel horsepower (WHP) — what a chassis dynamometer measures at the tires — is typically 10–20% lower than BHP due to drivetrain losses. A 300 BHP engine typically delivers 240–270 WHP depending on the transmission type, differential ratio, and tire compound. When a manufacturer advertises "300 hp," they mean BHP, measured per SAE J1349 or DIN 70020 on an engine dynamometer. The BHP is always higher than the WHP. The gap between them is the reason a "300 hp" car on paper can lose a drag race to a "280 hp" car with a more efficient transmission.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How much power does a modern Formula 1 engine produce?</p>
+                <p class="faq-a">The current Formula 1 power unit (2026 regulations) combines a 1.6L turbocharged V6 internal combustion engine with an electric MGU-K (Motor Generator Unit – Kinetic). The combustion engine produces approximately 550 kW (737 hp). The hybrid system contributes roughly 350 kW (469 hp) under full deployment. Combined peak output: approximately 900 kW — or 1,207 mechanical hp, or 1,224 metric PS — from an engine smaller than the one in a Toyota Camry. The FIA technical regulations specify all power limits in kW. The horsepower figures reported in media are conversions, and the 1.4% mechanical/metric split means two publications can report different numbers for the same car depending on which multiplier the journalist used. The teams' telemetry engineers work entirely in kW.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

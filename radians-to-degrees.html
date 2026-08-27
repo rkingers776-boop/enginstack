@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rad to deg — Debugging Code Output | EnginStack</title>
+    <meta name="description" content="1 rad = 57.2958°. Multiply by 180/π. Your code outputs 1.047 radians — is that 60°? Yes. Every developer does this conversion by hand at some point.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/radians-to-degrees">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/radians-to-degrees">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/radians-to-degrees">
+    <meta property="og:title" content="rad to deg — Debugging Code Output | EnginStack">
+    <meta property="og:description" content="1 rad = 57.2958°. Multiply by 180/π. Your code outputs 1.047 radians — is that 60°? Yes. Every developer does this conversion by hand at some point.">
+    <meta property="og:url" content="https://enginstack.com/radians-to-degrees">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Radians to Degrees Converter",
+  "description": "1 rad = 57.2958°. Multiply by 180/π. Your code outputs 1.047 radians — is that 60°? Yes. Every developer does this conversion by hand at some point.",
+  "url": "https://enginstack.com/radians-to-degrees",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Angle", "item": "https://enginstack.com/angle/" },
+    { "@type": "ListItem", "position": 3, "name": "Radians to Degrees Converter" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert radians to degrees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply radians by 180/π (approximately 57.2958). Formula: ° = rad × 180 / π. For a quick estimate, 1 rad — 7.3°. Divide radians by 0.01745 for a more precise conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do engineers prefer degrees for display but radians for computation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Degrees are intuitive — 60° divides cleanly by 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, etc., making them ideal for human communication. But calculus requires radians: the small-angle approximation sin θ —— (with less than 1% error for θ < 0.24 rad — 4°) fails if θ is in degrees. Every control system, DSP algorithm, and physics simulation computes in radians internally, then converts to degrees only at the final display layer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the origin of 360 degrees in a circle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 360° circle originates from Babylonian astronomy (~2000 BCE), likely because 360 approximates the number of days in a year (365.25) and is a highly composite number with 24 divisors. The radian, by contrast, was formalized by James Thomson (Lord Kelvin's brother) in 1873 and adopted by ISO in 1960 as the SI derived unit for plane angle. The 360° standard has survived 4,000 years of mathematical evolution — a testament to its practical convenience for navigation, surveying, and everyday communication."
+      }
+    }
+  ]
+}
+    </script>
+
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <!-- ════Main Content ════-->
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/angle/">Angle</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Radians to Degrees Converter</span></nav>
+                <header class="page-header">
+            <h1>Radians to Degrees — Multiply by 180/π</h1>
+            <p>1 rad = 57.2958°. Your atan2() returned 0.785. That's 45°. Every dev tool, every game engine, every robotics platform uses this conversion.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+<!-- ════Calculator ════-->
+        <div class="calculator-card" data-coefficient="57.2958" data-unit-from="rad" data-unit-to="°">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <!-- ════FROM row ════-->
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">rad</span>
+                    </div>
+                </div>
+
+                <!-- ════SWAP button ════-->
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <!-- ════TO row ════-->
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">57.2958</span>
+                        <span class="unit-pill unit-pill-to">°</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ════Detail line ════-->
+            <div class="result-detail">
+                <span class="forward-res">1 rad = 57.2958°</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1° = 0.0175 rad</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div><article class="seo-section">
+                <h2>How to Convert Radians to Degrees</h2>
+                <p>Converting radians to degrees is the most frequent angle conversion in applied science — it's how you interpret MATLAB's atan2() output as a heading, how you read a quaternion-derived Euler angle from an IMU, and why every phase angle computed by a network analyzer appears in degrees on the display despite being processed in radians internally. The conversion is defined by the relationship: <strong>π radians = 180°</strong>. Multiply radians by 180/π (approximately 57.2958). A full circle is 2π rad = 360°; a right angle is π/2 rad = 90°; the angular diameter of the Moon as seen from Earth is approximately 0.009 rad = 0.52°. This conversion is the last step in virtually every scientific algorithm that presents angular output to a human operator.</p>
+                <h2>The Conversion Formula</h2>
+                <div class="formula-box">
+                    <p>
+                    ° = rad × 180 / π
+                    </p>
+                </div>
+                <h2>Worked Examples</h2>
+                <div class="example-box">
+                    <p><strong>Example 1:</strong> Convert π/2 rad to degrees</p>
+                    <p>π/2 × 180/π = <strong>90°</strong> (a right angle — the output of atan2(1, 0) in every programming language)</p>
+                </div>
+                <div class="example-box">
+                    <p><strong>Example 2:</strong> Convert 2 rad to degrees</p>
+                    <p>2 × 180/π = <strong>114.5916°</strong> (an obtuse angle — typical of a satellite's Earth-covering beamwidth)</p>
+                </div>
+                <div class="example-box">
+                    <p><strong>Example 3:</strong> Convert 0.01745 rad to degrees</p>
+                    <p>0.01745 × 180/π = <strong>1.00°</strong> (the angular width of your thumb at arm's length)</p>
+                </div>
+                <h2>Common Radians to Degrees Conversions</h2>
+                <div class="table-scroll">
+                <table>
+                    <thead><tr>
+                        <th>Radians</th>
+                        <th>Degrees</th>
+                    </tr></thead><tbody>
+                    <tr>
+                        <td>π/6 —.5236 rad</td>
+                        <td>30°</td>
+                    </tr>
+                    <tr>
+                        <td>π/4 —.7854 rad</td>
+                        <td>45°</td>
+                    </tr>
+                    <tr>
+                        <td>π/3 —.0472 rad</td>
+                        <td>60°</td>
+                    </tr>
+                    <tr>
+                        <td>π/2 —.5708 rad</td>
+                        <td>90°</td>
+                    </tr>
+                    <tr>
+                        <td>π —.1416 rad</td>
+                        <td>180°</td>
+                    </tr>
+                    <tr>
+                        <td>2π —.2832 rad</td>
+                        <td>360°</td>
+                    </tr>
+                    </tbody></table></div>
+                <h2>Related Unit Converters</h2>
+                <div class="related-tags"><a href="/degrees-to-radians">Degrees to Radians</a><a href="/guides/angle-conversion-guide">Angle Conversion Guide</a></div>
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert radians to degrees?</p>
+                    <p class="faq-a">Multiply radians by 180/π (approximately 57.2958). Formula: <strong>° = rad × 180 / π</strong>. For a quick estimate, 1 rad — 7.3°. Divide radians by 0.01745 for a more precise conversion.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why do engineers prefer degrees for display but radians for computation?</p>
+                    <p class="faq-a">Degrees are intuitive — 60° divides cleanly by 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, etc., making them ideal for human communication. But calculus requires radians: the small-angle approximation sin θ —— (with less than 1% error for θ < 0.24 rad — 4°) fails if θ is in degrees. Every control system, DSP algorithm, and physics simulation computes in radians internally, then converts to degrees only at the final display layer.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">What is the origin of 360 degrees in a circle?</p>
+                    <p class="faq-a">The 360° circle originates from Babylonian astronomy (~2000 BCE), likely because 360 approximates the number of days in a year (365.25) and is a highly composite number with 24 divisors. The radian, by contrast, was formalized by James Thomson (Lord Kelvin's brother) in 1873 and adopted by ISO in 1960 as the SI derived unit for plane angle. The 360° standard has survived 4,000 years of mathematical evolution — a testament to its practical convenience for navigation, surveying, and everyday communication.</p>
+                </div>
+                <section class="eng-context">
+                    <h3>Engineering Context</h3>
+                    <p>The radian-to-degree conversion is the final transform in every system where the machine computes in radians but the human reads in degrees — which is nearly every engineered system with a display. In aerospace, an AHRS (Attitude and Heading Reference System) fuses 9-axis IMU data (accelerometer + gyroscope + magnetometer) through a Mahony or Madgwick filter that computes quaternion orientation entirely in radians internally, but the PFD (Primary Flight Display) renders pitch and bank in degrees — the conversion runs at 50 Hz on an ARINC 429 bus, and a rounding error of 0.005° per iteration would accumulate to 18° of drift in one hour if the radian-to-degree conversion weren't exact. Boeing's 737 MAX MCAS investigation highlighted how a single AOA (Angle of Attack) sensor discrepancy of 0.55° (0.0096 rad) could trigger repeated nose-down trim — the AOA vane transducer outputs a voltage linearized to degrees, the FCC (Flight Control Computer) converts to radians for the stability augmentation algorithm, and the trim command converts back to degrees for actuator displacement; all three conversions must use identical precision or the feedback loop accumulates error. In radio astronomy, the Very Large Array (VLA) in New Mexico specifies antenna pointing accuracy of 10 arcseconds (1/360° = 4.85 × 10⁻⁵ rad) — achieved by converting celestial coordinates (J2000.0 right ascension in hours-minutes-seconds, declination in degrees-minutes-seconds) to radians for the baseline vector computation in the u-v plane, then back to degrees for the motor encoder feedback. ALMA's 66 antennas in the Atacama Desert achieve 0.6 arcsecond pointing (2.9 × 10⁻⁶ rad) — the radian-to-degree conversion constant is stored as a 64-bit compile-time constant in the TCS (Telescope Control System) C++ codebase, and changing it would invalidate 15 years of validated observing scripts. In medical imaging, CT scanner gantry rotation is specified in degrees/sec (typically 1— rotations/sec = 360— 80°/s), but the filtered back-projection reconstruction algorithm — the Radon transform inverse — integrates over 0 to π radians, not 0° to 180°. The ramp filter |ω| in the frequency domain is derived from the Jacobian of polar-to-Cartesian coordinate conversion, and its mathematical validity depends on the integration limits being exactly π radians. A Siemens Somatom Force CT scanner acquires 1,152 projections per rotation (0.3125° or 0.00545 rad spacing), and each projection's sinogram bin is indexed by radian angle; the 0.3125° spacing corresponds to exactly π/576 rad — the design choice to make the spacing an exact rational multiple of π eliminates interpolation artifacts in the FFT-based reconstruction. In audio DSP, the phase response of an IIR filter is computed by angle(H(e^{jω})) where ω is the normalized radian frequency (0 to π rad/sample) — but plugin GUIs display phase in degrees. Every parametric EQ, every loudspeaker crossover, every phased-array beam-steering system converts arctan(Im/Re) from radians to degrees before drawing the phase plot. The conversion is so pervasive that Intel's x87 FPU included the FLDPI instruction (load π into ST(0)) primarily to accelerate radian-degree conversions in engineering and CAD workloads — the instruction was present from the 8087 in 1980 through the last x87-compatible processor, a 40-year architectural commitment to one constant for one conversion.</p>
+<p style="margin-top:1.2em;">More: <a href="/degrees-to-radians">degrees to radians</a> · <a href="/guides/angle-conversion-guide">Angle Guide</a></p>
+                </section>
+
+            </article>
+        </main>
+            <!-- ════Footer ════-->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

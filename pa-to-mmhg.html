@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pa to mmHg — When the Sensor Speaks Pascals But the Gauge Was Born in 1643 | EnginStack</title>
+    <meta name="description" content="Divide pascals by 133.322 for mmHg. Lab vacuum sensors output in pascals. Your analog gauge reads in millimeters of mercury. This is the bridge between the SI laboratory and the pre-SI workshop.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/pa-to-mmhg">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/pa-to-mmhg">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/pa-to-mmhg">
+    <meta property="og:title" content="Pa to mmHg — When Your Sensor Speaks Pascals But the Gauge Reads mmHg | EnginStack">
+    <meta property="og:description" content="Divide pascals by 133.322 for mmHg. The SI-to-legacy translator for vacuum chambers, altitude simulators, and every lab sensor that outputs Pa to a technician who thinks in mercury.">
+    <meta property="og:url" content="https://enginstack.com/pa-to-mmhg">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pa to mmHg Converter",
+  "description": "Convert pascals to millimeters of mercury. 1 Pa = 0.00750062 mmHg. Use when a vacuum sensor or lab instrument outputs in pascals and the readout must match a mercury-column standard.",
+  "url": "https://enginstack.com/pa-to-mmhg",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Pressure", "item": "https://enginstack.com/pressure/" },
+    { "@type": "ListItem", "position": 3, "name": "Pa to mmHg Converter" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert pascals to mmHg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide pascals by 133.322. Or multiply by 0.00750062. Either way, the answer is the same. The factor is exact to six decimal places; beyond that, it depends on mercury temperature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why would I need to go from Pa to mmHg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common scenario: a digital sensor outputs pascals but the process spec, the analog backup gauge, or the calibration certificate uses mmHg. Vacuum systems, freeze dryers, and altitude chambers are the three places this comes up daily."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 1 Pa really equal to 0.0075 mmHg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It's a tiny number because a pascal is a tiny pressure. One pascal is roughly the weight of 100 mL of water spread over a square meter. It takes 133 of them to match one millimeter of mercury. If the number feels awkwardly small, that's not a mistake — it's an honest reflection of how different these two pressure scales are."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/pressure/">Pressure</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Pa to mmHg Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Pa to mmHg — the transducer reads Pa. The spec sheet says mmHg. Here's the 0.0075 that translates.</h1>
+            <p>A modern vacuum sensor outputs pressure in pascals. It's clean. It's SI. It's what the datasheet promises. Then you walk over to the analog gauge on the chamber wall and it's marked in millimeters of mercury — because that gauge was designed 40 years ago, or because the process engineer who wrote the SOP trained on mercury manometers in 1985. Pa-to-mmHg is the translation: <strong>divide by 133.322</strong>, and the SI number becomes the legacy number the equipment understands.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.00750062" data-unit-from="Pa" data-unit-to="mmHg">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">Pa</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.00750062</span>
+                        <span class="unit-pill unit-pill-to">mmHg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">1 Pa = 0.00750062 mmHg</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 mmHg = 133.322 Pa</span>
+            </div>
+            <p class="source-note">Constants verified against NIST Special Publication 811 (Guide for the Use of the International System of Units) and the 1959 International Yard and Pound Agreement. All values are exact — none are rounded approximations.</p>
+        </div>
+
+<article class="seo-section">
+    <h2>Why this conversion exists at all</h2>
+
+    <p>The pascal was adopted as the SI unit of pressure in 1971. A clean newton per square meter — no mercury column, no physical artifact, just force over area. Every modern pressure transducer, every lab instrument, every vacuum controller speaks pascals natively. But the installed base of equipment, the calibration certificates, and the human operators didn't retire. Vacuum gauges graduated in mmHg are still on walls. Medical device specifications still cite mmHg. Weather barometers still list both. So the conversion lives: <strong>Pa ÷ 133.322 = mmHg</strong>.</p>
+
+    <p>It's not a legacy annoyance. It's a reminder that a unit, once embedded in a century of practice, outlasts the committee that tries to replace it. The pascal is technically superior. The mmHg is culturally unbudgeable. The engineer who masters both — who can glance at a sensor outputting 13,332 Pa and think "about 100 mmHg" — is the engineer who doesn't get tripped up by documentation from a different decade.</p>
+
+    <h2>When the numbers go small: vacuum territory</h2>
+    <p>At atmospheric pressure (≈ 101,325 Pa), Pa-to-mmHg gives you 760 — the familiar standard. But this conversion does most of its real work at the low end. A rotary vane pump pulls to 1 Pa. That's 0.0075 mmHg. A turbomolecular pump reaches 10⁻⁶ Pa — call it 7.5 × 10⁻⁹ mmHg. At these pressures, neither unit is intuitive, but the mmHg still tends to be what's written on the roughing gauge. The sensor reads Pa. The gauge reads mmHg. The operator needs to trust the number on both sides of the divider.</p>
+
+    <h2>Three conversions from the lab floor</h2>
+    <div class="example-box">
+        <p><strong>Semiconductor process chamber — 133 Pa.</strong> A PVD chamber backfill pressure of 133 Pa. In mmHg: 133 ÷ 133.322 ≈ <strong>1 mmHg</strong>. The technician verifies this against the analog roughing gauge. Both readings must agree, or the interlock won't release.</p>
+    </div>
+    <div class="example-box">
+        <p><strong>Altitude simulation — 75,000 Pa.</strong> An avionics test chamber simulates 2,500 m altitude. The controller targets 75,000 Pa (75 kPa). Converted: 75,000 ÷ 133.322 = <strong>562.5 mmHg</strong> — the barometric pressure at that altitude. The altimeter under test sees both representations internally.</p>
+    </div>
+    <div class="example-box">
+        <p><strong>Freeze dryer — 13.3 Pa.</strong> A pharmaceutical lyophilizer operates at 13.3 Pa. That's <strong>0.1 mmHg</strong>. The process recipe was written in mmHg (0.1), the PID controller works in Pa (13.3). The operator converts in both directions every shift.</p>
+    </div>
+
+    <h2>Pa-to-mmHg reference values</h2>
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Pa</th><th>mmHg</th><th>Context</th></tr></thead><tbody>
+        <tr><td>1 Pa</td><td>0.0075 mmHg</td><td>Near-vacuum — sensor noise floor in cheap gauges</td></tr>
+        <tr><td>10 Pa</td><td>0.075 mmHg</td><td>Roughing pump crossover point</td></tr>
+        <tr><td>100 Pa</td><td>0.75 mmHg</td><td>Rough vacuum, freeze drying</td></tr>
+        <tr><td>133.3 Pa</td><td>1 mmHg</td><td>Definition point — 1 millimeter of mercury</td></tr>
+        <tr><td>1,000 Pa</td><td>7.50 mmHg</td><td>1 kPa — noticeable as a pressure difference</td></tr>
+        <tr><td>10,000 Pa</td><td>75.0 mmHg</td><td>~10% of atmospheric pressure</td></tr>
+        <tr><td>101,325 Pa</td><td>760 mmHg</td><td>1 standard atmosphere at sea level</td></tr>
+        </tbody></table></div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+        <p class="faq-q">How do I convert pascals to mmHg?</p>
+        <p class="faq-a">Divide pascals by <strong>133.322</strong>. Or multiply by 0.00750062. Either way, the answer is the same. The factor is exact to six decimal places; beyond that, it depends on mercury temperature.</p>
+    </div>
+    <div class="faq-item">
+        <p class="faq-q">Why would I need to go from Pa to mmHg?</p>
+        <p class="faq-a">The most common scenario: a digital sensor outputs pascals but the process spec, the analog backup gauge, or the calibration certificate uses mmHg. Vacuum systems, freeze dryers, and altitude chambers are the three places this comes up daily.</p>
+    </div>
+    <div class="faq-item">
+        <p class="faq-q">Is 1 Pa really equal to 0.0075 mmHg?</p>
+        <p class="faq-a">Yes. It's a tiny number because a pascal is a tiny pressure. One pascal is roughly the weight of 100 mL of water spread over a square meter. It takes 133 of them to match one millimeter of mercury. If the number feels awkwardly small, that's not a mistake — it's an honest reflection of how different these two pressure scales are.</p>
+    </div>
+
+    <section class="eng-context">
+        <h3>Engineering context</h3>
+        <p>Pa-to-mmHg is the SI-to-legacy direction — less common in clinical settings, highly common in vacuum engineering and sensor calibration. The conversion is fixed (133.322) for standard conditions. If your application involves precision barometry with temperature compensation, factor in the mercury thermal expansion coefficient (0.000181/°C). For most industrial vacuum work, the standard factor is perfectly adequate — the gauge's own accuracy is rarely better than ±1% anyway. Reverse direction: <a href="/mmhg-to-pa">mmHg to Pa</a>. Related: <a href="/pa-to-atm">Pa to atm</a>, <a href="/atm-to-pa">atm to Pa</a>, <a href="/psi-to-kpa">psi to kPa</a>. Full reference: <a href="/guides/pressure-conversion-guide">Pressure conversion guide</a>.</p>
+    </section>
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Flow Rate Conversion Guide — L/min, GPM, m³/h, CFM &amp; the Two-Fluid World | EnginStack</title>
+    <meta name="description" content="The complete engineering guide to flow rate conversion: liters per minute, US gallons per minute, cubic meters per hour, cubic feet per minute, and liters per second. Exact constants from the 231 in³ gallon and the 1959 foot, the pump-sizing math, the fire-flow world, and the HVAC water-versus-air comparison.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/flow-rate-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/flow-rate-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/flow-rate-conversion-guide">
+    <meta property="og:title" content="Flow Rate Conversion Guide — L/min, GPM, m³/h, CFM &amp; the Two-Fluid World | EnginStack">
+    <meta property="og:description" content="The complete flow rate conversion guide: L/min, GPM, m³/h, CFM, L/s. Exact constants, pump sizing, fire flows, and HVAC water-versus-air.">
+    <meta property="og:url" content="https://enginstack.com/guides/flow-rate-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Flow Rate Conversion Guide — L/min, GPM, m³/h, CFM &amp; the Two-Fluid World | EnginStack">
+    <meta name="twitter:description" content="L/min, GPM, m³/h, CFM, L/s — exact flow constants, pump sizing, fire flows, HVAC air vs water.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Flow Rate Conversion Guide — L/min, GPM, m³/h, CFM & the Two-Fluid World",
+  "description": "Definitive engineering reference for flow rate conversion: liters per minute, US gallons per minute, cubic meters per hour, cubic feet per minute, and liters per second. Exact constants from the 231 cubic inch US gallon, the 1959 foot, and SI definitions; the pump-sizing arithmetic; the fire-flow world of liters per second; and the HVAC water-versus-air comparison that makes GPM meet CFM.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/flow-rate-conversion-guide",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://enginstack.com/guides/flow-rate-conversion-guide"
+  },
+  "datePublished": "2026-08-09",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many GPM is 1 L/min?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 0.2641720524 US gallons per minute. The US gallon is legally 231 in³ = 3.785411784 L, so one liter per minute is the reciprocal. For a quick estimate, multiply L/min by 0.264."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert GPM to m³/h?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply GPM by 0.22712470704. The factor is exact: the US gallon is 3.785411784 L, and 1 L/min = 0.06 m³/h, so 1 GPM = 3.785411784 × 0.06 = 0.22712470704 m³/h."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between CFM and GPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CFM (cubic feet per minute) measures air flow — fans, compressors, cooling towers. GPM (US gallons per minute) measures liquid flow — pumps, chillers, fire systems. Both are volume-per-time units, connected by the exact factor 1 CFM = 7.4805194805 GPM, since one cubic foot holds 7.48 US gallons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 1 L/s equal to 60 L/min?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, exactly. The factor is the number of seconds in a minute — a definition, not a measured constant. The reciprocal is 0.0166666666667 L/s per L/min, whose repeating decimal is the signature of a factor built from 60."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is flow rate related to volume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow rate is volume divided by time — the amount of fluid passing a point per unit time. Every flow conversion is the corresponding volume conversion applied per time base: the US gallon's 3.785411784 L, the liter's 0.001 m³, and the cubic foot's 28.316846592 L. That is why the flow factors chain directly from the volume constants."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Engineering Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Flow Rate Conversion Guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "logo": "https://enginstack.com/favicon.svg"
+}
+</script>
+</head>
+<body>
+    <div class="page-container">
+        <header class="page-header">
+            <h1>Flow Rate: The Unit Where Water Speaks GPM and Air Speaks CFM</h1>
+            <p>Every pump, pipe, and fan on the planet is described by one number: how much fluid it moves per unit time. But that number is written in five different dialects — liters per minute on a European pump plate, gallons per minute on an American one, cubic meters per hour on a municipal spec, cubic feet per minute on a fan curve, and liters per second in a fire code. All five describe the same physics, all five are connected by exact constants, and none of them converts to another without a number that most engineers have to look up. This guide is the lookup table, plus the reason those five dialects exist in the first place.</p>
+            <p class="page-meta">~10 min read &nbsp;·&nbsp; Last updated August 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<!-- ══ KEY TAKEAWAYS ══ -->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>Flow rate is volume ÷ time.</strong> Every flow constant on this site is a volume constant from the <a href="/volume/">volume</a> family applied per minute, hour, or second — nothing more.</li>
+        <li><strong>The US gallon is the odd one out.</strong> 1 US gal = 3.785411784 L exactly (231 in³). That single constant drives L/min↔GPM and GPM↔m³/h, and it is why 1 GPM is never a round number in metric.</li>
+        <li><strong>The only non-decimal flow factor is GPM↔CFM.</strong> 1 GPM = 0.1336805556 CFM, because it divides the 231 in³ gallon by the 1,728 in³ cubic foot — pure inch-world arithmetic.</li>
+        <li><strong>L/s is fire language; L/min is pump language.</strong> The ×60 between them is exact, and the choice is about readability: hydrant flows stay in two digits in L/s.</li>
+        <li><strong>m³/h is the cleanest metric flow unit.</strong> 1 L/min = 0.06 m³/h exactly — no constant beyond the liter, the meter, and the hour. Its reciprocal 16.667 repeats forever because it is built from 60.</li>
+        <li><strong>HVAC is a two-fluid world.</strong> Water side in GPM, air side in CFM — and the balance between them is a 7.4805194805 (gallons per cubic foot) conversion performed daily.</li>
+    </ul>
+</div>
+
+<!-- ══ QUICK REFERENCE ══ -->
+<h2>Quick Flow Rate Conversion Reference</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Factor</th><th>Use this converter</th></tr></thead>
+    <tbody>
+        <tr><td>L/min</td><td>GPM</td><td>× 0.2641720524</td><td><a href="/l-min-to-gpm">L/min to GPM →</a></td></tr>
+        <tr><td>GPM</td><td>L/min</td><td>× 3.785411784</td><td><a href="/gpm-to-l-min">GPM to L/min →</a></td></tr>
+        <tr><td>L/min</td><td>m³/h</td><td>× 0.06</td><td><a href="/l-min-to-m3-h">L/min to m³/h →</a></td></tr>
+        <tr><td>m³/h</td><td>L/min</td><td>× 16.6666666667</td><td><a href="/m3-h-to-l-min">m³/h to L/min →</a></td></tr>
+        <tr><td>GPM</td><td>m³/h</td><td>× 0.22712470704</td><td><a href="/gpm-to-m3-h">GPM to m³/h →</a></td></tr>
+        <tr><td>m³/h</td><td>GPM</td><td>× 4.4028675393</td><td><a href="/m3-h-to-gpm">m³/h to GPM →</a></td></tr>
+        <tr><td>L/s</td><td>L/min</td><td>× 60</td><td><a href="/l-s-to-l-min">L/s to L/min →</a></td></tr>
+        <tr><td>L/min</td><td>L/s</td><td>× 0.0166666667</td><td><a href="/l-min-to-l-s">L/min to L/s →</a></td></tr>
+        <tr><td>GPM</td><td>CFM</td><td>× 0.1336805556</td><td><a href="/gpm-to-cfm">GPM to CFM →</a></td></tr>
+        <tr><td>CFM</td><td>GPM</td><td>× 7.4805194805</td><td><a href="/cfm-to-gpm">CFM to GPM →</a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══ TOC ══ -->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#what-flow-is">What Flow Rate Is — and Why It Has Five Dialects</a></li>
+        <li><a href="#the-liter-world">The Liter World: L/min, m³/h, L/s — Three Scales of One Family</a></li>
+        <li><a href="#the-gallon-anchor">The 231 in³ Anchor: Where GPM Comes From</a></li>
+        <li><a href="#the-fire-language">The Fire Language: Why Hydrants Speak L/s</a></li>
+        <li><a href="#the-two-fluid-problem">The Two-Fluid Problem: Water in GPM, Air in CFM</a></li>
+        <li><a href="#pump-sizing">Pump Sizing: When Flow Meets Head</a></li>
+        <li><a href="#master-table">Master Flow Rate Conversion Table</a></li>
+        <li><a href="#tools">Every Flow Rate Converter on This Site</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+</nav>
+
+<section id="what-flow-is">
+<h2>1. What Flow Rate Is — and Why It Has Five Dialects</h2>
+<p>Flow rate is the simplest derived quantity in engineering: volume divided by time. Move 60 liters through a pipe in one minute and the flow is 60 L/min. The same volume in gallons is 15.85 GPM; in cubic meters per hour it is 3.6 m³/h; in liters per second it is 1 L/s; and in cubic feet per minute it is 2.12 CFM. Five numbers, one pipe, zero ambiguity — once you know the constants. The constants themselves are all volume definitions from the <a href="/volume/">volume family</a> divided by time units, which is why this guide opens with the simplest possible statement: <strong>convert the volume, then divide by the time — the flow conversion is the volume conversion per time base.</strong></p>
+<p>Why five dialects instead of one? History again. The liter world (L/min, m³/h, L/s) descends from the metric system and its clean decimal structure. The GPM world descends from the US gallon's 231 in³ definition. The CFM world descends from the foot. And each world picked its own time base — minutes for pumps, hours for municipal totals, seconds for emergency flows. Every one of those choices was about readability at the time it was made, and every one of them survives because the installed base — pumps, codes, datasheets — was built around it. This is the same path-dependence the <a href="/guides/the-cost-of-retooling">retooling guide</a> describes at the machine level, now visible at the datasheet level.</p>
+</section>
+
+<section id="the-liter-world">
+<h2>2. The Liter World: L/min, m³/h, L/s — Three Scales of One Family</h2>
+<p>The three metric flow units are the same family at three scales, and two of the conversions between them are pure decimal. L/min is the equipment scale — the pump plate, the faucet spec, the process line. m³/h is the plant scale — municipal supply, treatment feeds, cooling circuits — and it is exactly 0.06 × the L/min figure, because 1,000 liters make a cubic meter and 60 minutes make an hour. L/s is the emergency scale — hydrants, stormwater, canal feeds — and it is exactly 60 × the L/min figure, because 60 seconds make a minute.</p>
+<p>The practical consequence: <a href="/l-min-to-m3-h">L/min to m³/h</a> is a ×0.06 decimal move that needs no calculator, and <a href="/l-s-to-l-min">L/s to L/min</a> is a ×60 that needs no calculator either. The only repeating decimal in the family is the reverse of ×0.06 — <a href="/m3-h-to-l-min">m³/h to L/min</a> is ×16.6666666667, whose infinite 6s are the signature of a factor built from 60 and 1,000. None of these numbers is measured. All of them are definitions, which is why this family has zero conversion uncertainty — the same claim the <a href="/guides/frequency-conversion-guide">frequency guide</a> makes for its powers of ten.</p>
+</section>
+
+<section id="the-gallon-anchor">
+<h2>3. The 231 in³ Anchor: Where GPM Comes From</h2>
+<p>Every GPM figure in the world traces back to one number: the US gallon is legally 231 cubic inches, a definition inherited from the English wine gallon of the 18th century. Through the 1959 inch (2.54 cm exactly), 231 in³ becomes exactly 3.785411784 liters. That single constant is the anchor of three of this site's flow converters: <a href="/gpm-to-l-min">GPM to L/min</a> multiplies by it, <a href="/l-min-to-gpm">L/min to GPM</a> divides by it, and <a href="/gpm-to-m3-h">GPM to m³/h</a> chains it through the 0.06 factor to reach 0.22712470704.</p>
+<p>The gallon's non-decimal nature is why GPM never converts to metric cleanly. There is no friendly number between the two systems — only 3.785411784 and its reciprocals, exact but ugly. The same ugliness shows up in the <a href="/gallons-to-liters">gallons to liters</a> volume page and, one level up, in the <a href="/guides/why-america-doesnt-use-metric-system">why America doesn't use metric</a> story: the 231 in³ gallon is a machine-level inheritance, and every pump datasheet that carries both GPM and L/min is a small monument to it. When an American spec and an international spec meet on a pump curve, the 3.785411784 between them is the translation layer — and getting it wrong by treating GPM as if it were L/min is a 3.79× error in flow, which in a fire system or a chiller is a system-sized error, not a paperwork one.</p>
+</section>
+
+<section id="the-fire-language">
+<h2>4. The Fire Language: Why Hydrants Speak L/s</h2>
+<p>Fire protection is the one branch of fluid engineering that standardized on liters per second — and the reason is pure readability. A fire hydrant flows about 4 L/s; a fire engine pump delivers 100 L/s. In L/min those same numbers are 240 and 6,000 — the second one strays into five digits and loses its grip. The fire world chose the time base that keeps its critical numbers small, and codes, pump curves, and training all followed.</p>
+<p>The conversion <a href="/l-s-to-l-min">L/s to L/min</a> is exact ×60, and its reciprocal <a href="/l-min-to-l-s">L/min to L/s</a> is exact ÷60 — the liter is the same on both sides, only the second changes. The interesting engineering is elsewhere: fire flows are specified alongside pressure (a hydrant at 4 L/s at 20 psi), which means the flow converters meet the <a href="/pressure/">pressure hub</a> on every fire system design. And because fire codes in the US quote flows in GPM while international codes quote L/s, a transatlantic fire spec crosses two constants at once — the gallon and the second. That is exactly the kind of double conversion the <a href="/guides/engineering-unit-conversion-mistakes">unit conversion mistakes guide</a> warns about, and it is worth running through both converters in sequence rather than combining the factors by memory.</p>
+</section>
+
+<section id="the-two-fluid-problem">
+<h2>5. The Two-Fluid Problem: Water in GPM, Air in CFM</h2>
+<p>HVAC is the one industry where a single piece of equipment moves two fluids measured in two incompatible-sounding units: the water loop through the chiller in GPM, the air stream through the cooling tower in CFM. The two are connected by a single exact constant: 1 CFM = 7.4805194805 GPM, because one cubic foot holds exactly 7.48 US gallons (1,728 in³ ÷ 231 in³). That number is famous outside HVAC too — every aquarium, pool, and tank calculation in America uses it.</p>
+<p>The <a href="/gpm-to-cfm">GPM to CFM</a> converter applies the 0.1336805556 form (the reciprocal of 7.48), and <a href="/cfm-to-gpm">CFM to GPM</a> applies the 7.4805194805 form directly. This is the only non-decimal factor in the entire flow family on this site — every other constant chains through the liter, while this one lives entirely inside the inch world. When a cooling tower spec says 500 GPM water against 40,000 CFM air, the balance is not obvious without the conversion; with it, the water flow is 66.8 CFM against the air's 40,000 — a ratio that shows how little water it takes to carry the heat an air stream must reject. The same two-fluid logic appears in the <a href="/energy/">energy</a> family, where flow × temperature difference carries the actual heat load.</p>
+</section>
+
+<section id="pump-sizing">
+<h2>6. Pump Sizing: When Flow Meets Head</h2>
+<p>A pump curve is a trade: at any given flow, the pump can deliver a certain head (pressure), and the two move against each other. Flow is the x-axis in every unit this guide covers; head lives in the <a href="/pressure/">pressure hub</a>. The reason the flow unit matters in sizing is the duty point: an irrigation system needs 44 GPM at 60 ft of head, a chiller loop needs 100 GPM at 30 ft, a fire pump needs 500 GPM at 150 psi. Translate the flow to the pump vendor's unit — often L/min for imported pumps, GPM for American ones — and the duty point lands on the right curve.</p>
+<p>The recurring trap is unit blending: a spec written in m³/h meeting a pump rated in GPM, or a fire flow in L/s meeting a US pump curve in GPM. Each of those is a single exact conversion — <a href="/m3-h-to-gpm">m³/h to GPM</a> is ×4.4028675393, <a href="/l-s-to-l-min">L/s to L/min</a> is ×60, then <a href="/l-min-to-gpm">L/min to GPM</a> is ×0.2641720524. The rule that prevents the classic 3.79× error: <strong>convert flow to a single unit before comparing anything, and never trust a pump curve whose unit you assumed.</strong> The same discipline — one unit of record, conversion at the boundary — is the operational lesson of the <a href="/guides/engineering-unit-conversion-mistakes">mistakes guide</a>, applied to rotating equipment.</p>
+</section>
+
+<section id="master-table">
+<h2>7. Master Flow Rate Conversion Table</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Flow</th><th>L/min</th><th>GPM</th><th>m³/h</th><th>L/s</th><th>CFM</th></tr></thead>
+    <tbody>
+        <tr><td><strong>1 L/min</strong></td><td>1</td><td>0.2642</td><td>0.06</td><td>0.0167</td><td>0.0353</td></tr>
+        <tr><td><strong>1 GPM</strong></td><td>3.7854</td><td>1</td><td>0.2271</td><td>0.0631</td><td>0.1337</td></tr>
+        <tr><td><strong>1 m³/h</strong></td><td>16.6667</td><td>4.4029</td><td>1</td><td>0.2778</td><td>0.5886</td></tr>
+        <tr><td><strong>1 L/s</strong></td><td>60</td><td>15.8503</td><td>3.6</td><td>1</td><td>2.1189</td></tr>
+        <tr><td><strong>1 CFM</strong></td><td>28.3168</td><td>7.4805</td><td>1.6990</td><td>0.4719</td><td>1</td></tr>
+    </tbody>
+</table>
+</div>
+<p style="margin-top:0.8em;">Every entry in this table is exact at the shown precision — the CFM column uses the 28.316846592 L/ft³ volume constant from the <a href="/cubic-feet-to-liters">cubic feet to liters</a> page, applied per minute. The L/s column chains the ×60 from the minute, and the GPM column the 3.785411784 from the gallon.</p>
+</section>
+
+<section id="tools">
+<h2>8. Every Flow Rate Converter on This Site</h2>
+<p>The <a href="/flow-rate/">flow rate hub</a> collects all ten converters. The pairs: <a href="/l-min-to-gpm">L/min ↔ GPM</a> (pumps and fixtures), <a href="/l-min-to-m3-h">L/min ↔ m³/h</a> (process and municipal), <a href="/gpm-to-m3-h">GPM ↔ m³/h</a> (the transatlantic fire and chiller pair), <a href="/l-s-to-l-min">L/s ↔ L/min</a> (fire and high-flow), and <a href="/gpm-to-cfm">GPM ↔ CFM</a> (the two-fluid HVAC pair). All ten are exact — none of them carries a measured constant — and all of them chain back to the same volume anchors the rest of the site uses.</p>
+</section>
+
+<section class="eng-context">
+<h3>Engineering Context</h3>
+<p>Flow rate sits at the intersection of the <a href="/volume/">volume</a>, <a href="/time/">time</a>, and <a href="/pressure/">pressure</a> families on this site. Every flow constant is a volume constant per time base: the 3.785411784 from <a href="/gallons-to-liters">gallons to liters</a>, the 0.001 from <a href="/liters-to-cubic-meters">liters to cubic meters</a>, the 28.316846592 from <a href="/cubic-feet-to-liters">cubic feet to liters</a>. The mass-flow extension — how much the moving fluid weighs — is density × flow, which is the <a href="/guides/density-conversion-guide">density guide's</a> territory. And the pump curve's other axis lives in the <a href="/guides/pressure-conversion-guide">pressure guide</a>. Convert the volume, divide by the time, multiply by the density — the whole fluid chain unlocks.</p>
+<p style="margin-top:1.2em;">More: <a href="/l-min-to-gpm">L/min to GPM</a> · <a href="/gpm-to-m3-h">GPM to m³/h</a> · <a href="/l-s-to-l-min">L/s to L/min</a> · <a href="/gpm-to-cfm">GPM to CFM</a> · <a href="/flow-rate/">Flow Rate Hub</a></p>
+</section>
+
+<section id="faq">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<p class="faq-q"><strong>How many GPM is 1 L/min?</strong></p>
+<p class="faq-a">Exactly 0.2641720524 US gallons per minute. The US gallon is legally 231 in³ = 3.785411784 L, so one liter per minute is the reciprocal. For a quick estimate, multiply L/min by 0.264.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>How do I convert GPM to m³/h?</strong></p>
+<p class="faq-a">Multiply GPM by 0.22712470704. The factor is exact: the US gallon is 3.785411784 L, and 1 L/min = 0.06 m³/h, so 1 GPM = 3.785411784 × 0.06 = 0.22712470704 m³/h.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>What is the difference between CFM and GPM?</strong></p>
+<p class="faq-a">CFM (cubic feet per minute) measures air flow — fans, compressors, cooling towers. GPM (US gallons per minute) measures liquid flow — pumps, chillers, fire systems. Both are volume-per-time units, connected by the exact factor 1 CFM = 7.4805194805 GPM, since one cubic foot holds 7.48 US gallons.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>Is 1 L/s equal to 60 L/min?</strong></p>
+<p class="faq-a">Yes, exactly. The factor is the number of seconds in a minute — a definition, not a measured constant. The reciprocal is 0.0166666666667 L/s per L/min, whose repeating decimal is the signature of a factor built from 60.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>How is flow rate related to volume?</strong></p>
+<p class="faq-a">Flow rate is volume divided by time — the amount of fluid passing a point per unit time. Every flow conversion is the corresponding volume conversion applied per time base: the US gallon's 3.785411784 L, the liter's 0.001 m³, and the cubic foot's 28.316846592 L. That is why the flow factors chain directly from the volume constants.</p>
+</div>
+</section>
+
+<section class="eng-context">
+<h3>Reprint &amp; Attribution</h3>
+<p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the engineering team at EnginStack. It was first published on August 9, 2026 at <a href="https://enginstack.com/guides/flow-rate-conversion-guide">enginstack.com/guides/flow-rate-conversion-guide</a>. Quote it, share it, translate it — just link back to the original and credit EnginStack. For full-text republication inquiries, please reach us through the <a href="/contact">EnginStack contact page</a>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+</section>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Volumetric flow rate",
+  "termCode": "volumetric flow rate",
+  "description": "Volumetric flow rate is the volume of fluid passing a point per unit time, measured in L/min, GPM, m³/h, CFM, or L/s. The US gallon anchor (231 in³ = 3.785411784 L) connects all of them.",
+  "url": "https://en.wikipedia.org/wiki/Volumetric_flow_rate",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

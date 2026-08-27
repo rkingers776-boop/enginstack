@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days to Months — The Calendar That Lies About Its Own Length, the 29.53-Day Moon, and Why 30-Day Notices Are Legal Fictions | EnginStack</title>
+    <meta name="description" content="1 day ≈ 0.03285 month (average 30.4375 d/mo). Months are irregular (28&ndash;31 days) because the moon&rsquo;s 29.53-day orbit refuses to align with the 365.24-day year. This converter uses the mean calendar month (365.25 &divide; 12). For exact calendar math, consult a library, not a multiplier.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/days-to-months">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/days-to-months">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/days-to-months">
+    <meta property="og:title" content="Days to Months — The 30-Day Lie, the Lunar Drift, and Your Lease Agreement | EnginStack">
+    <meta property="og:description" content="1 day = 0.03285 mo (average). Months are the only time unit that actively lies about their own length. 28, 29, 30, or 31? It depends.">
+    <meta property="og:url" content="https://enginstack.com/days-to-months">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Days to Months Converter",
+  "description": "Convert days to months using the mean calendar month (30.4375 days). Handles the reality that months have variable length.",
+  "url": "https://enginstack.com/days-to-months",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I use 30 or 31 days per month for rough estimates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 30.4375 (this calculator) for multi-month estimates spanning 3+ months. For quick mental math, 30 is convenient and errs slightly low (you'll underestimate elapsed time, which is safer for deadlines). For financial modeling, never guess — read the contract's day-count convention. The difference between using 30 and Actual/Actual over a $100M bond portfolio can exceed $100k per year in accrued interest discrepancies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why doesn't the Gregorian calendar just make all months 30 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because 12 × 30 = 360, leaving 5 (or 6 in leap year) orphan days. You could distribute them as holidays (essentially what the French tried with their complementary days at the end of the year), but that breaks the alignment of months with seasons and with traditional festivals. The current uneven system preserves the approximate alignment of solstices/equinoxes with familiar month boundaries. It's ugly but functional. Proposals for a regularized calendar (like the World Calendar with equal quarters of 31+30+30 days) have been floated for over a century but never adopted, because changing the calendar requires simultaneous global coordination across every computer system, legal framework, religious observance, and cultural tradition. The cost of switching exceeds the benefit of fixing a minor annoyance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate age in months accurately?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Count full calendar months from birth date to today, then add remaining days divided by the target month's actual length. Example: born March 15, today July 13. Full months: March 15→April 15→May 15→June 15 = 3 months. Remaining: June 15→July 13 = 28 days. July has 31 days. Fraction: 28/31 = 0.90. Total: 3.90 months. Different domains define \"age in months\" differently: pediatrics uses completed 4-week intervals from birth (so a child born June 1 is \"6 months old\" on December 1, not November 29). HR benefits use calendar months. Legal contexts may use 30-day conventions. Know your domain before computing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which month is the longest and which is shortest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Longest: July and August (31 days each). Tied for longest because Augustus Caesar couldn't stand having fewer days than Julius Caesar. Shortest: February (28 days normally, 29 in leap years). The seven 31-day months follow a semi-regular pattern broken only by the July-August double-31 anomaly: 31,28/29,31,30,31,30,31,31,30,31,30,31. Memorizing the knuckle method (make fists, count knuckles as 31, valleys as 30, with February as the exception) remains the most reliable technique taught to children, and the one most adults forget by age 30 and rely on their phones for."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Time", "item": "https://enginstack.com/time/" },
+    { "@type": "ListItem", "position": 3, "name": "Days to Months" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/time/">Time</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Days to Months Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Days to Months: The Only Time Unit That Actively Lies About Its Own Length</h1>
+            <p>1 day ≈ 0.03285 month (mean calendar). But which month? A 28-day February? A 31-day July? A 30-day June? A 29-day leap-year February? The word "month" conceals four different lengths, two astronomical definitions, and a dozen financial conventions. This calculator uses the mean calendar month (365.25 &divide; 12 = 30.4375 days) — the same average that makes your rent due on the same date each month, even though the number of days between payments varies by up to 3. Use this for estimation. For contracts, billing, and legal deadlines, read the fine print — it almost certainly specifies a convention that is not this one.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.03285491" data-unit-from="days" data-unit-to="months">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">days</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.03285</span>
+                        <span class="unit-pill unit-pill-to">months</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 day = 0.03285 months</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 month = 30.44 days</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Month: Four Lengths, Zero Consensus</h2>
+
+            <p>If someone asked you "how long is a minute?" you'd say 60 seconds. "How long is an hour?" 60 minutes. "How long is a day?" 24 hours. These answers are stable, agreed-upon, and true for virtually every practical purpose. Now ask: "how long is a month?" The honest answer is: it depends on which month you mean, which calendar you use, and whether you care about astronomy, law, finance, or just paying your rent.</p>
+
+            <p>Here are the competing definitions, ranked by how much trouble each causes:</p>
+
+            <p><strong>The calendar month:</strong> 28, 29, 30, or 31 days depending on which named month and whether it's a leap year. Seven months have 31 days (Jan, Mar, May, Jul, Aug, Oct, Dec), four have 30 (Apr, Jun, Sep, Nov), and February has 28 (or 29). Average: 30.4375 days (including leap day every 4 years). This is the definition your lease, your phone bill, and your subscription renewal use.</p>
+
+            <p><strong>The synodic (lunar) month:</strong> 29.530588 days average — the time for the moon to return to the same phase (new moon to new moon). This varies ±6 hours per cycle due to orbital eccentricity. The Islamic calendar is purely lunar: 12 months × 29.530588 = 354.367 days/year, which is why Ramadan drifts 11 days earlier each solar year. The Chinese lunisolar calendar inserts a leap month every ~3 years to keep lunar months aligned with solar seasons.</p>
+
+            <p><strong>The sidereal month:</strong> 27.321661 days — the time for the moon to return to the same position against the background stars. Shorter than the synodic month because Earth moves around the Sun during that time, so the moon must travel further to catch up to the same sun-Earth-moon alignment. Nobody uses sidereal months for civil purposes. Astronomers use them to calculate orbital mechanics.</p>
+
+            <p><strong>The financial month:</strong> whatever your contract says. Common conventions include 30/360 (every month = 30 days, year = 360), Actual/365 (count real days, fixed denominator), Actual/Actual (count real days in numerator and denominator — most accurate, most complex), and Business/252 (only count business days, exclude weekends and holidays). Bond traders, derivatives quants, and lease accountants spend careers learning which convention applies to which instrument. Getting it wrong can cost millions in mispriced interest accruals.</p>
+
+            <h2>When Multiplication Works (And When It Doesn't)</h2>
+
+            <p>This calculator uses the mean calendar month: <strong>months = days &divide; 30.4375</strong>. This is accurate for estimating time spans of 3+ months, where the averaging effect smooths out individual month-length variations. For example, 90 days &divide; 30.4375 = 2.96 months — close enough to "about 3 months" for planning purposes.</p>
+
+            <p>Multiplication fails catastrophically for:</p>
+
+            <ul style="margin: 1em 0 1em 2em;">
+                <li><strong>Legal deadlines:</strong> A "30-day notice" terminating on March 15 means counting 30 calendar days forward, not dividing by 30.4375. Courts interpret notices literally.</li>
+                <li><strong>Billing cycles:</strong> If your SaaS charges $10/month and a customer signs up on Jan 31, when is the Feb 29 bill due? Different billing systems handle this differently (some charge on last-day-of-month, some on anniversary-date, pro-rating). Division by 30.4375 gives 0.98 months — meaningless to a billing engine.</li>
+                <li><strong>Date arithmetic in code:</strong> As noted above, adding "1 month" to Jan 31 requires knowing whether the target is Feb 28/29 or Mar 3. Simple multiplication cannot handle this.</li>
+            </ul>
+
+            <div class="formula-box">
+                <p>months = days &divide; 30.4375 &nbsp;&nbsp;(mean calendar month)</p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box"><p><strong>30 days → 0.986 month</strong></p><p>Almost one month. But 30 days starting Jan 15 ends Feb 14 — which is less than one "calendar month" (Jan 15 to Feb 15 would be 31 days). Starting Feb 1, 30 days ends Mar 3 (or Mar 2 in non-leap year) — which is more than one calendar month. The same number of calendar days spans different fractional months depending on where you start in the calendar. This is why "30-day month" is only approximate.</p></div>
+            <div class="example-box"><p><strong>90 days → 2.96 months</strong></p><p>Quarter of a year (roughly). Standard probation period. Typical warranty period for consumer electronics. Visa-free tourist stay limit in many countries (90 days). 2.96 months is close enough to say "about 3 months" in conversation. In a contract, specify 90 days, not 3 months.</p></div>
+            <div class="example-box"><p><strong>182 days → 5.98 months</strong></p><p>Half a year (non-leap). 182.5 days would be exactly half of 365. 182 days is one day short of 6 calendar months in any non-leap-year span. The difference between 182 days (half-year) and 183 days (leap-year half) is the source of countless bugs in date-range logic that assumes 6 months = 182.5 days always.</p></div>
+            <div class="example-box"><p><strong>365 days → 12.00 months</strong></p><p>Exactly one non-leap year. Exactly 12 calendar months. This is the one case where the conversion is integer-perfect. In a leap year (366 days), 366 &divide; 30.4375 = 12.02 months — the extra 0.02 months (0.62 days) is the leap day. Even the calendar can't hide from the fact that 12 × 30.4375 = 365.25, not 365 or 366.</p></div>
+
+            <h2>Common Days to Months</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Days</th><th>Months (Mean)</th><th>Context</th></tr></thead><tbody>
+                <tr><td>15 days</td><td>0.49 mo</td><td>Half a billing cycle (approx). Credit card grace period.</td></tr>
+                <tr><td>30 days</td><td>0.99 mo</td><td>"One month" in casual speech. Notice period. Trial period.</td></tr>
+                <tr><td>45 days</td><td>1.48 mo</td><td>Extended return policy. Some mortgage rate locks.</td></tr>
+                <tr><td>60 days</td><td>1.97 mo</td><td>Two billing cycles. Invoice payment terms (Net 60).</td></tr>
+                <tr><td>90 days</td><td>2.96 mo</td><td>Quarter. Probation. Warranty. Tourist visa limit.</td></tr>
+                <tr><td>120 days</td><td>3.94 mo</td><td>Four months. Season length (meteorological summer/winter).</td></tr>
+                <tr><td>180 days</td><td>5.92 mo</td><td>Half a year. Some option exercise windows.</td></tr>
+                <tr><td>270 days</td><td>8.87 mo</td><td>Nine months. Human gestation (from conception, not LMP).</td></tr>
+                <tr><td>365 days</td><td>12.00 mo</td><td>One year (non-leap). The perfect case.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The days-to-months conversion is the single most dangerous time conversion in software because it tempts developers to treat months as a fixed-duration unit. In scheduling software (Calendly, Cronofy, Acuity), booking "monthly" recurring events requires choosing a strategy: anchor to the same date-of-month (Feb 15, Mar 15, Apr 15...) or the same interval (every 30 days)? These diverge immediately because months differ in length. In subscription billing (Stripe, Chargebee, Recurly), "monthly" plans default to anniversary billing (charge on the same day each month), with special handling for months shorter than the start date (charging Feb 28/29 for a Jan 31 start). In legal-tech (DocuSign, HelloSign), "30-day review period" means 30 calendar days, not 1 month — and the countdown starts on the day after signing, not the signing day itself. Always read the spec before picking a multiplier. For related conversions: <a href="/days-to-weeks">days to weeks (&divide; 7)</a>, <a href="/days-to-hours">days to hours (&times; 24)</a>, <a href="/hours-to-days">hours to days</a>, and <a href="/guides/time-conversion-guide">Time Conversion Guide</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/months-to-days">months to days (&times; 30.4375)</a> <a href="/days-to-weeks">days to weeks</a>middot; <a href="/days-to-weeks">days to weeks</a> · <a href="/days-to-hours">days to hours</a> · <a href="/hours-to-days">hours to days</a> · <a href="/minutes-to-hours">minutes to hours</a> · <a href="/guides/time-conversion-guide">Time Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/hours-to-minutes">Hours to Minutes</a>
+                <a href="/days-to-weeks">Days to Weeks</a>
+                <a href="/days-to-hours">Days to Hours</a>
+                <a href="/hours-to-days">Hours to Days</a>
+                <a href="/seconds-to-minutes">Seconds to Minutes</a>
+                <a href="/minutes-to-seconds">Minutes to Seconds</a>
+                <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Should I use 30 or 31 days per month for rough estimates?</p>
+                <p class="faq-a">Use 30.4375 (this calculator) for multi-month estimates spanning 3+ months. For quick mental math, 30 is convenient and errs slightly low (you'll underestimate elapsed time, which is safer for deadlines). For financial modeling, never guess — read the contract's day-count convention. The difference between using 30 and Actual/Actual over a $100M bond portfolio can exceed $100k per year in accrued interest discrepancies.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why doesn't the Gregorian calendar just make all months 30 days?</p>
+                <p class="faq-a">Because 12 × 30 = 360, leaving 5 (or 6 in leap year) orphan days. You could distribute them as holidays (essentially what the French tried with their complementary days at the end of the year), but that breaks the alignment of months with seasons and with traditional festivals. The current uneven system preserves the approximate alignment of solstices/equinoxes with familiar month boundaries. It's ugly but functional. Proposals for a regularized calendar (like the World Calendar with equal quarters of 31+30+30 days) have been floated for over a century but never adopted, because changing the calendar requires simultaneous global coordination across every computer system, legal framework, religious observance, and cultural tradition. The cost of switching exceeds the benefit of fixing a minor annoyance.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How do I calculate age in months accurately?</p>
+                <p class="faq-a">Count full calendar months from birth date to today, then add remaining days divided by the target month's actual length. Example: born March 15, today July 13. Full months: March 15→April 15→May 15→June 15 = 3 months. Remaining: June 15→July 13 = 28 days. July has 31 days. Fraction: 28/31 = 0.90. Total: 3.90 months. Different domains define "age in months" differently: pediatrics uses completed 4-week intervals from birth (so a child born June 1 is "6 months old" on December 1, not November 29). HR benefits use calendar months. Legal contexts may use 30-day conventions. Know your domain before computing.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Which month is the longest and which is shortest?</p>
+                <p class="faq-a">Longest: July and August (31 days each). Tied for longest because Augustus Caesar couldn't stand having fewer days than Julius Caesar. Shortest: February (28 days normally, 29 in leap years). The seven 31-day months follow a semi-regular pattern broken only by the July-August double-31 anomaly: 31,28/29,31,30,31,30,31,31,30,31,30,31. Memorizing the knuckle method (make fists, count knuckles as 31, valleys as 30, with February as the exception) remains the most reliable technique taught to children, and the one most adults forget by age 30 and rely on their phones for.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

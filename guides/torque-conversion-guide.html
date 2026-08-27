@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Torque Conversion Guide — N·m, ft·lb, in·lb, kgf·m &amp; the Fatal Multiples | EnginStack</title>
+    <meta name="description" content="The complete engineering guide to torque conversion: the 12× inch-pound trap, the 9.8× kilogram-meter trap, the 1.36× foot-pound trap, why a newton-meter is not a joule, and how bolt preload makes every torque number a lie. Exact constants from the 1959 yard/pound agreement and standard gravity.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/torque-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/torque-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/torque-conversion-guide">
+    <meta property="og:title" content="Torque Conversion Guide — N·m, ft·lb, in·lb, kgf·m &amp; the Fatal Multiples | EnginStack">
+    <meta property="og:description" content="The 12× inch-pound trap, the 9.8× kilogram-meter trap, the 1.36× foot-pound trap, and why a newton-meter is not a joule. Exact torque constants, real bolt specs, and the preload problem.">
+    <meta property="og:url" content="https://enginstack.com/guides/torque-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Torque Conversion Guide — N·m, ft·lb, in·lb, kgf·m &amp; the Fatal Multiples | EnginStack">
+    <meta name="twitter:description" content="The 12× inch-pound trap, the 9.8× kilogram-meter trap, the 1.36× foot-pound trap, and why N·m is not J. Exact torque constants and the preload problem.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Torque Conversion Guide — N·m, ft·lb, in·lb, kgf·m & the Fatal Multiples",
+  "description": "Definitive engineering reference for torque conversion: newton-meters, foot-pounds, inch-pounds, and kilogram-meters. The three fatal multiples (12×, 9.8×, 1.36×), exact constants from the 1959 yard/pound agreement and standard gravity, why a newton-meter is not a joule, and why bolt preload means every torque number is a compromise between friction and reality.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/torque-conversion-guide",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://enginstack.com/guides/torque-conversion-guide"
+  },
+  "datePublished": "2026-08-02",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a newton-meter of torque, physically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One newton of force applied at a perpendicular distance of one meter from the axis of rotation. If you push with 10 N at the end of a 0.1 m wrench, you apply 1 N·m. The SI brochure insists on writing it \"N·m\" with a space or dot, never \"Nm\" in a way that could be read as newton-meters or nanometer depending on context. It is the coherent SI derived unit for torque, defined in 1960 alongside the newton."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert ft·lb to N·m in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 1.356 for a quick estimate, or 1.3558179483 for exact values. 88.5 ft·lb ≈ 120 N·m — the VW wheel bolt conversion. For N·m to ft·lb, divide by 1.356 or multiply by 0.7376. The common shortcut \"a foot-pound is about 1.36 newton-meters\" is accurate to 0.04%, fine even for design work at moderate precision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is stronger: 100 in·lb or 100 ft·lb?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "100 ft·lb is 12 times stronger — 100 ft·lb = 1,200 in·lb = 135.6 N·m, while 100 in·lb is only 8.33 ft·lb = 11.3 N·m. If a spec says 100 in·lb and a wrench reads 100 ft·lb, the fastener receives 12× the intended torque. This is the most common torque unit error in the trade, and it's why aerospace and automotive work use different units to keep the numbers readable in their own ranges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"torque-plus-angle\" mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A two-stage tightening method for critical bolts. First, tighten to a modest initial torque (say 29 N·m) to seat the joint. Then rotate the fastener a specified number of degrees (90° + 90°) using an angle gauge or a wrench with angle marking. The angle step stretches the bolt a known amount regardless of friction, giving far more consistent clamping force than torque alone. It's standard for modern cylinder head bolts, which are designed to stretch into their plastic region once, and it's why those bolts are one-time-use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my torque wrench have ft·lb on one side and N·m on the other?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the wrench is sold to a market that uses both systems. US-market wrenches calibrate in ft·lb with N·m as a secondary scale; the calibration certificate (per ISO 6789) lists reference values in N·m first because the international standard uses SI. The two scales don't align graduation-for-graduation, which is why setting a wrench by the \"wrong\" scale and reading the \"right\" one is a classic error. Set the wrench in the unit your spec is written in, and let the converters on this page handle any translation."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Engineering Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Torque Conversion Guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Engineering Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Torque Conversion Guide</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Torque: A Field Guide to the Unit Where 12×, 9.8×, and 1.36× Are All One Mistake Away</h1>
+            <p>Somewhere in a hangar, an aircraft mechanic torques a small fastener to "32 inch-pounds" — and on the next workbench over, a car mechanic torques a wheel bolt to "120 foot-pounds." Both numbers are right. Both would destroy each other's fastener. The gap between them is a factor of 12 — the inch-pound to foot-pound jump — and it is the single most dangerous unit conversion in mechanical work, because both units share the word "pound" and neither torque wrench displays a warning when you pick the wrong scale. This guide is about that 12, the 9.8 hiding inside kilogram-meters, the 1.36 between every American and European torque spec, and why the bolt itself doesn't care about any of them.</p>
+            <p class="page-meta">~13 min read &nbsp;·&nbsp; Last updated August 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<!-- ══ KEY TAKEAWAYS ══ -->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>Torque has four live unit systems.</strong> N·m (SI), ft·lb (US automotive), in·lb (US aerospace), kgf·m (legacy metric) — and the conversions between them are the most mis-applied numbers in mechanical work.</li>
+        <li><strong>The fatal multiples are exact.</strong> 1 ft·lb = 12 in·lb. 1 kgf·m = 9.80665 N·m. 1 N·m = 0.7375621493 ft·lb. Confuse any of them and you over- or under-torque by a factor that no bolt tolerates.</li>
+        <li><strong>A newton-meter is not a joule.</strong> Same dimensional formula (force × distance), different physics: torque is static unless the bolt turns; energy is what happens when it does.</li>
+        <li><strong>Torque is a proxy for tension.</strong> Only 10-15% of applied torque becomes bolt clamping force; the rest fights friction. Lubrication changes the required torque by up to 50%.</li>
+        <li><strong>The same physical torque has three correct numbers.</strong> A VW wheel bolt at 120 N·m is 88.5 ft·lb, or 1,062 in·lb, or 12.24 kgf·m. All four numbers describe the same tightening — the wrench just needs to be set to the right one.</li>
+        <li><strong>Every engineering pipeline should convert torque to N·m on ingestion.</strong> Compute in SI, convert to display units at the output. The 12× trap lives in the unstated unit, not the arithmetic.</li>
+    </ul>
+</div>
+
+<!-- ══ QUICK REFERENCE ══ -->
+<h2>Quick Torque Conversion Reference</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Factor</th><th>Use this converter</th></tr></thead>
+    <tbody>
+        <tr><td>ft·lb</td><td>N·m</td><td>× 1.3558179483</td><td><a href="/ft-lbs-to-nm">ft·lb to N·m →</a></td></tr>
+        <tr><td>N·m</td><td>ft·lb</td><td>× 0.7375621493</td><td><a href="/nm-to-ft-lbs">N·m to ft·lb →</a></td></tr>
+        <tr><td>in·lb</td><td>ft·lb</td><td>÷ 12</td><td><a href="/inch-lbs-to-ft-lbs">in·lb to ft·lb →</a></td></tr>
+        <tr><td>ft·lb</td><td>in·lb</td><td>× 12</td><td><a href="/ft-lbs-to-inch-lbs">ft·lb to in·lb →</a></td></tr>
+        <tr><td>in·lb</td><td>N·m</td><td>× 0.1129848290</td><td><a href="/inch-lbs-to-nm">in·lb to N·m →</a></td></tr>
+        <tr><td>N·m</td><td>in·lb</td><td>× 8.8507457916</td><td><a href="/nm-to-inch-lbs">N·m to in·lb →</a></td></tr>
+        <tr><td>kgf·m</td><td>N·m</td><td>× 9.80665</td><td><a href="/kg-m-to-nm">kgf·m to N·m →</a></td></tr>
+        <tr><td>N·m</td><td>kgf·m</td><td>× 0.1019716213</td><td><a href="/nm-to-kg-m">N·m to kgf·m →</a></td></tr>
+        <tr><td>kgf·m</td><td>ft·lb</td><td>× 7.2330138512</td><td><a href="/kg-m-to-ft-lbs">kgf·m to ft·lb →</a></td></tr>
+        <tr><td>ft·lb</td><td>kgf·m</td><td>× 0.1382549544</td><td><a href="/ft-lbs-to-kg-m">ft·lb to kgf·m →</a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══ TOC ══ -->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#the-12x-trap">The 12× Trap: in·lb vs ft·lb, and the Hangar That Never Shares a Wrench</a></li>
+        <li><a href="#the-9.8x-trap">The 9.8× Trap: kgf·m and the Japanese Engine Manual</a></li>
+        <li><a href="#the-1.36x-trap">The 1.36× Trap: ft·lb vs N·m Across the Atlantic</a></li>
+        <li><a href="#not-a-joule">The N·m Is Not a Joule Problem: Same Units, Different Physics</a></li>
+        <li><a href="#preload">The Bolt Doesn't Care: Preload, Friction, and Why Torque Is a Lie</a></li>
+        <li><a href="#torque-and-power">Torque Meets Power: The Dyno and the Engine Curve</a></li>
+        <li><a href="#master-table">Master Torque Conversion Table</a></li>
+        <li><a href="#tools">Every Torque Converter on This Site</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+</nav>
+
+<section id="the-12x-trap">
+<h2>1. The 12× Trap: in·lb vs ft·lb, and the Hangar That Never Shares a Wrench</h2>
+<p>Every aerospace torque specification in the United States is written in inch-pounds. Every automotive specification is written in foot-pounds. Both units contain the word "pound." Neither unit announces itself on the wrench — a click-type torque wrench with dual scales has the ft·lb graduations on one side of the barrel and in·lb on the other, and the scales don't align. An M6 fastener that wants 72 in·lb (6 ft·lb) will snap its head off if it receives 72 ft·lb — a factor of 12, the exact number of inches in a foot, and the most common catastrophic torque error in mechanical work.</p>
+<p>The aerospace preference for in·lb is practical: small fasteners have naturally small torque values. A 4-40 UNJF screw at 5 in·lb reads awkwardly as 0.42 ft·lb, so the inch-pound keeps the numbers whole. The automotive preference for ft·lb is equally practical: a wheel bolt at 120 N·m reads cleanly as 88.5 ft·lb but as 1,062 in·lb — a four-digit number nobody wants on a spec sheet. Both conventions serve their industries. The danger is the mechanic who carries the automotive habit into an aerospace job, or the spec that gets transcribed across a boundary without the unit. The <a href="/inch-lbs-to-ft-lbs">in·lb to ft·lb</a> and <a href="/ft-lbs-to-inch-lbs">ft·lb to in·lb</a> converters exist for exactly that handoff — divide by 12, or multiply by 12, and nothing else.</p>
+</section>
+
+<section id="the-9.8x-trap">
+<h2>2. The 9.8× Trap: kgf·m and the Japanese Engine Manual</h2>
+<p>Japanese automotive and machinery documentation used kilogram-meters of torque for decades — the product of the kilogram-force (1 kgf = 9.80665 N, exact) and a meter of lever arm. A Japanese engine rebuild manual specifies cylinder head bolts at "12 kgf·m." A German manual for the same bolt pattern says "118 N·m." A US manual says "87 ft·lb." All three numbers are correct, and they are related by exact constants: 12 × 9.80665 = 117.68 N·m, which × 0.7375621493 = 86.8 ft·lb.</p>
+<p>The trap is the factor of 9.8. An engineer who reads "12 kgf·m" and types 12 into an N·m system has under-torqued the bolt by 9.8× — the joint will be loose, the gasket will leak, and in a head-bolt sequence the clamping force will be a tenth of design. This is the metric-world cousin of the inch-pound error, and it's quieter because both units use the same "kg" and "m" letters. The <a href="/kg-m-to-nm">kgf·m to N·m</a> converter applies the exact 9.80665; the <a href="/nm-to-kg-m">N·m to kgf·m</a> page does the reverse. If a manual was printed before full SI adoption in Japan or Europe, treat every torque value as kgf·m until proven otherwise.</p>
+</section>
+
+<section id="the-1.36x-trap">
+<h2>3. The 1.36× Trap: ft·lb vs N·m Across the Atlantic</h2>
+<p>Every European, Japanese, and Korean vehicle sold in the United States specifies its torques in newton-meters. Every US shop manual converts them to foot-pounds. The conversion factor — 1.3558179483, the product of the 1959 yard/pound constants and standard gravity — is the one that runs every import repair shop in America. A Volkswagen wheel bolt: 120 N·m = 88.5 ft·lb. A Honda crank pulley bolt: 245 N·m = 180.7 ft·lb. A Toyota cylinder head sequence: 29 N·m + 90° + 90°.</p>
+<p>The 1.36 is gentler than the 12 and the 9.8, but it's still fatal at the right fastener. A torque spec transcribed as "100" in N·m is 73.8 ft·lb; the same "100" in ft·lb is 135.6 N·m — a 35.6% overtorque that can yield an M10 bolt or strip an aluminum thread. The laminated conversion charts on shop walls often round 120 N·m to "89 ft·lb" instead of the correct 88.5 — a rounding that compounds across a torque sequence with angle-tightening steps, where the starting torque sets the beginning of the plastic region. The <a href="/nm-to-ft-lbs">N·m to ft·lb</a> and <a href="/ft-lbs-to-nm">ft·lb to N·m</a> converters carry the full constant, and this site's <a href="/guides/force-conversion-guide">force guide</a> explains where the 4.4482216153 inside it comes from.</p>
+</section>
+
+<section id="not-a-joule">
+<h2>4. The N·m Is Not a Joule Problem: Same Units, Different Physics</h2>
+<p>Torque and energy share a dimensional formula — force times distance — which is why both are measured in kg·m²/s². The physics is opposite. A newton-meter of torque is a rotational force applied through a lever arm, the force perpendicular to the lever, doing no work unless the shaft rotates. A joule is energy: the work done when one newton displaces something one meter in the direction of the force. You can stand on a torque wrench applying 100 N·m to a seized bolt all afternoon and transfer exactly zero joules of energy — the bolt doesn't move, no work is done, no energy flows.</p>
+<p>The instant the bolt breaks free and turns, torque becomes energy — at which point you could describe the work in joules. The SI brochure explicitly recommends writing "N·m" for torque and "J" for energy, even though they are dimensionally identical, precisely because the conflation is a classic notation error. A torque value expressed in joules is wrong; an energy value in N·m is confusing; and a design review that lets either slide is inviting a unit error into the torque family, which is where the 12× and 9.8× traps live.</p>
+</section>
+
+<section id="preload">
+<h2>5. The Bolt Doesn't Care: Preload, Friction, and Why Torque Is a Lie</h2>
+<p>The uncomfortable truth about every torque spec on this page: the bolt doesn't respond to torque. It responds to tension — the clamping force that squeezes the joint together, which comes from the elastic stretch of the bolt shank. Torque is a convenient proxy: twist the wrench, the bolt stretches, the joint clamps. But the relationship is corrupted by friction. Only about 10-15% of applied torque actually becomes bolt tension; roughly 40% is consumed by thread friction and another 40-50% by the friction under the bolt head or nut. The exact split varies with thread pitch, plating, lubrication, and temperature — and the friction coefficients can vary by a factor of two between a dry bolt and a well-lubricated one.</p>
+<p>This is why the same fastener has different torque specs depending on lubrication, why anti-seize compound can reduce required torque by 10-15%, and why torque-plus-angle methods — tighten to a modest initial torque, then rotate a specified number of degrees — are used for critical head bolts. The angle step bypasses friction: it stretches the bolt a known amount regardless of the torque needed to get there. It's also why torque wrenches need calibration (ISO 6789 governs design and testing) and why the number on the wrench is always a compromise between friction and reality. The unit conversion matters, but the friction uncertainty underneath it is often larger than the conversion error itself.</p>
+</section>
+
+<section id="torque-and-power">
+<h2>6. Torque Meets Power: The Dyno and the Engine Curve</h2>
+<p>Torque doesn't live alone. Every engine dyno measures torque in N·m or ft·lb and derives power from it with one formula: <strong>power = torque × angular velocity</strong>. A car making 400 N·m at 5,000 RPM produces 400 × (5,000 × 2π/60) = 209,440 W = 209 kW = 280 hp. The same 400 N·m at 6,500 RPM gives 364 hp — more power at the same torque, because power is torque × speed. This is why "torque is what you feel, horsepower is what you brag about" is a half-truth: the feel is torque at the wheels, and the brag is power, which multiplies the torque by how fast the engine can turn.</p>
+<p>The unit handoff here matters. A European spec sheet lists engine torque in N·m; a US review converts to ft·lb (÷ 1.3558179483); a Japanese catalog might use kgf·m (÷ 9.80665). The same engine has three torque numbers and one power figure, and the conversion between them is the same exact constants this guide has been running. If you're comparing engines across markets, convert everything to N·m and kW first, then compare. The <a href="/guides/energy-power-conversion-guide">energy &amp; power guide</a> covers the kW/kWh side of the story; this guide handles the torque half of the dyno formula.</p>
+</section>
+
+<section id="master-table">
+<h2>7. Master Torque Conversion Table</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>N·m</th><th>ft·lb</th><th>in·lb</th><th>kgf·m</th><th>Where you'd see this</th></tr></thead>
+    <tbody>
+        <tr><td>1 N·m</td><td>0.74 ft·lb</td><td>8.85 in·lb</td><td>0.10 kgf·m</td><td>Small electronic screw terminals.</td></tr>
+        <tr><td>5 N·m</td><td>3.69 ft·lb</td><td>44.3 in·lb</td><td>0.51 kgf·m</td><td>Bicycle stem faceplate bolts. Carbon clamp limit.</td></tr>
+        <tr><td>10 N·m</td><td>7.38 ft·lb</td><td>88.5 in·lb</td><td>1.02 kgf·m</td><td>Motorcycle clutch perch. Small M6 fasteners.</td></tr>
+        <tr><td>25 N·m</td><td>18.4 ft·lb</td><td>221 in·lb</td><td>2.55 kgf·m</td><td>Spark plugs — VW/Audi 2.0 TSI.</td></tr>
+        <tr><td>50 N·m</td><td>36.9 ft·lb</td><td>443 in·lb</td><td>5.10 kgf·m</td><td>Brake caliper bracket bolts on compact cars.</td></tr>
+        <tr><td>100 N·m</td><td>73.8 ft·lb</td><td>885 in·lb</td><td>10.2 kgf·m</td><td>Motorcycle axle nut. Common M10 fastener.</td></tr>
+        <tr><td>120 N·m</td><td>88.5 ft·lb</td><td>1,062 in·lb</td><td>12.2 kgf·m</td><td>VW/Audi wheel bolt — the most-torqued value in America.</td></tr>
+        <tr><td>200 N·m</td><td>147.5 ft·lb</td><td>1,770 in·lb</td><td>20.4 kgf·m</td><td>Truck lug nut (light-duty). Sprinter wheel bolt.</td></tr>
+        <tr><td>245 N·m</td><td>180.7 ft·lb</td><td>2,168 in·lb</td><td>25.0 kgf·m</td><td>Honda K-series crank pulley bolt.</td></tr>
+        <tr><td>450 N·m</td><td>331.9 ft·lb</td><td>3,983 in·lb</td><td>45.9 kgf·m</td><td>Heavy truck wheel nut. Porsche center-lock.</td></tr>
+        <tr><td>1,000 N·m</td><td>737.6 ft·lb</td><td>8,851 in·lb</td><td>102 kgf·m</td><td>Heavy equipment track bolts. Hydraulic tool territory.</td></tr>
+    </tbody>
+</table>
+</div>
+</section>
+
+<section id="tools">
+<h2>8. Every Torque Converter on This Site</h2>
+<p>The <a href="/torque/">torque hub</a> organizes all ten converters in this family — every pair of the four unit systems, in both directions:</p>
+<div class="related-tags">
+    <a href="/ft-lbs-to-nm">ft·lb to N·m</a>
+    <a href="/nm-to-ft-lbs">N·m to ft·lb</a>
+    <a href="/inch-lbs-to-ft-lbs">in·lb to ft·lb</a>
+    <a href="/ft-lbs-to-inch-lbs">ft·lb to in·lb</a>
+    <a href="/inch-lbs-to-nm">in·lb to N·m</a>
+    <a href="/nm-to-inch-lbs">N·m to in·lb</a>
+    <a href="/kg-m-to-nm">kgf·m to N·m</a>
+    <a href="/nm-to-kg-m">N·m to kgf·m</a>
+    <a href="/kg-m-to-ft-lbs">kgf·m to ft·lb</a>
+    <a href="/ft-lbs-to-kg-m">ft·lb to kgf·m</a>
+</div>
+<p style="margin-top:1.2em;">Related families: <a href="/guides/force-conversion-guide">force guide</a> (torque is force × lever arm — same constants) · <a href="/guides/frequency-conversion-guide">frequency guide</a> (the RPM side of the power formula) · <a href="/guides/energy-power-conversion-guide">energy &amp; power guide</a> (the kW half of the dyno) · <a href="/guides/engineering-unit-conversion-mistakes">conversion-mistakes chronicle</a> (the 12× and 4.448 errors in context).</p>
+</section>
+
+<section id="faq">
+<h2>9. Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<p class="faq-q">What is a newton-meter of torque, physically?</p>
+<p class="faq-a">One newton of force applied at a perpendicular distance of one meter from the axis of rotation. If you push with 10 N at the end of a 0.1 m wrench, you apply 1 N·m. The SI brochure insists on writing it "N·m" with a space or dot, never "Nm" in a way that could be read as newton-meters or nanometer depending on context. It is the coherent SI derived unit for torque, defined in 1960 alongside the newton.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">How do I convert ft·lb to N·m in my head?</p>
+<p class="faq-a">Multiply by 1.356 for a quick estimate, or 1.3558179483 for exact values. 88.5 ft·lb ≈ 120 N·m — the VW wheel bolt conversion. For N·m to ft·lb, divide by 1.356 or multiply by 0.7376. The common shortcut "a foot-pound is about 1.36 newton-meters" is accurate to 0.04%, fine even for design work at moderate precision.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">Which is stronger: 100 in·lb or 100 ft·lb?</p>
+<p class="faq-a">100 ft·lb is 12 times stronger — 100 ft·lb = 1,200 in·lb = 135.6 N·m, while 100 in·lb is only 8.33 ft·lb = 11.3 N·m. If a spec says 100 in·lb and a wrench reads 100 ft·lb, the fastener receives 12× the intended torque. This is the most common torque unit error in the trade, and it's why aerospace and automotive work use different units to keep the numbers readable in their own ranges.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">What does "torque-plus-angle" mean?</p>
+<p class="faq-a">A two-stage tightening method for critical bolts. First, tighten to a modest initial torque (say 29 N·m) to seat the joint. Then rotate the fastener a specified number of degrees (90° + 90°) using an angle gauge or a wrench with angle marking. The angle step stretches the bolt a known amount regardless of friction, giving far more consistent clamping force than torque alone. It's standard for modern cylinder head bolts, which are designed to stretch into their plastic region once, and it's why those bolts are one-time-use.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">Why does my torque wrench have ft·lb on one side and N·m on the other?</p>
+<p class="faq-a">Because the wrench is sold to a market that uses both systems. US-market wrenches calibrate in ft·lb with N·m as a secondary scale; the calibration certificate (per ISO 6789) lists reference values in N·m first because the international standard uses SI. The two scales don't align graduation-for-graduation, which is why setting a wrench by the "wrong" scale and reading the "right" one is a classic error. Set the wrench in the unit your spec is written in, and let the converters on this page handle any translation.</p>
+</div>
+</section>
+
+<section class="eng-context">
+<h3>Engineering Context</h3>
+<p>Torque sits at the intersection of the force, energy, and frequency families on this site. The 1.3558179483 factor is the <a href="/guides/force-conversion-guide">force guide's</a> 4.4482216153 multiplied by the 0.3048 foot-to-meter constant — force times lever arm. The kgf·m conversions reuse the 9.80665 from the force and weight families. And the power formula, torque × angular velocity, connects directly to the <a href="/guides/frequency-conversion-guide">frequency guide's</a> Hz↔RPM crossover — an engine at 5,000 RPM is turning at 83.3 Hz, and its 400 N·m of torque produces 209 kW at that speed. ISO 6789 governs torque wrench calibration; ISO 80000-4 governs the SI definitions. Between them, the standards say what the units are and how to measure them — but they can't stop a 12× error from a wrench set to the wrong scale. That part is on the engineer, and this guide is the translation layer.</p>
+<p style="margin-top:1.2em;">More: <a href="/nm-to-ft-lbs">N·m to ft·lb</a> · <a href="/ft-lbs-to-nm">ft·lb to N·m</a> · <a href="/inch-lbs-to-nm">in·lb to N·m</a> · <a href="/kg-m-to-nm">kgf·m to N·m</a> · <a href="/torque/">Torque Hub</a></p>
+</section>
+
+<section class="eng-context">
+<h3>Reprint &amp; Attribution</h3>
+<p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the engineering team at EnginStack. It was first published on August 2, 2026 at <a href="https://enginstack.com/guides/torque-conversion-guide">enginstack.com/guides/torque-conversion-guide</a>. Quote it, share it, translate it — just link back to the original and credit EnginStack. For full-text republication inquiries, please reach us through the <a href="/contact">EnginStack contact page</a>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+</section>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Torque",
+  "termCode": "torque (moment of force)",
+  "description": "Torque is the rotational equivalent of force, defined as force multiplied by perpendicular lever arm, measured in newton-meters (SI) or foot-pounds (US customary). It is dimensionally identical to energy but physically distinct.",
+  "url": "https://en.wikipedia.org/wiki/Torque",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

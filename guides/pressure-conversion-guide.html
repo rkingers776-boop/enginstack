@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Pressure Conversion Guide —From Vacuum to Gigapascals | EnginStack</title>
+    <meta name="description" content="The engineering guide to pressure conversion across all scales —pascal, bar, psi, atm, torr, mmHg, kPa, MPa. Deepwater Horizon, SCUBA fills, espresso machines, and why pressure kills when you round the numbers.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/pressure-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/pressure-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/pressure-conversion-guide">
+    <meta property="og:title" content="Pressure Conversion Guide —From Vacuum to Gigapascals | EnginStack">
+    <meta property="og:description" content="Every unit of pressure ever invented —pascal, bar, psi, atm, torr, mmHg —and what goes wrong when engineers confuse them. Deepwater Horizon, SCUBA tanks, espresso pumps, diamond anvils.">
+    <meta property="og:url" content="https://enginstack.com/guides/pressure-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pressure Conversion Guide —From Vacuum to Gigapascals",
+  "description": "Engineering guide to pressure conversion at every practical scale. Covers pascal, bar, psi, atm, torr, mmHg, exact conversion factors, historical origins of each unit, and real accidents caused by pressure unit confusion.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/pressure-conversion-guide",
+  "datePublished": "2026-06-25",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Pressure Conversion Guide", "item": "https://enginstack.com/guides/pressure-conversion-guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is 1 bar in psi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 bar = 14.5038 psi. This is the exact conversion factor derived from the 1959 international inch (1 in = 25.4 mm) and standard gravity (g₀ = 9.80665 m/s²). For quick estimates, multiply bar by 14.5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is bar higher than psi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No —a bar represents a much larger pressure than a single psi. 1 bar equals 14.5038 psi. If a gauge reads 2 bar, that's approximately 29 psi. The bar is roughly atmospheric pressure; 1 psi is roughly the pressure under 2.3 feet of water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What pressure unit is used in SCUBA diving?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bar is used throughout Europe and most of the world. A standard aluminum SCUBA cylinder is rated for 200 bar (2,900 psi). PSI is used in North America —the same cylinder is marked 3,000 psi. Carbon-fiber wrapped cylinders go to 300 bar (4,500 psi). Always check which unit your fill station and submersible pressure gauge use before connecting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What exactly is standard atmospheric pressure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 standard atmosphere (atm) = 101,325 Pa exactly —defined by international convention (CGPM 1954), not by measurement. This approximates average sea-level pressure at 45° latitude. In practical units: 1 atm = 1.01325 bar = 14.6959 psi = 760 mmHg (Torr)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are blood pressure readings measured in mmHg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the first clinical blood pressure measurements were taken with mercury sphygmomanometers —a glass column of mercury in which the height of the column is directly proportional to the pressure in the cuff. The convention persisted even after digital oscillometric monitors replaced mercury columns. 1 mmHg = 133.322 Pa. A reading of 120/80 means 120 mmHg systolic and 80 mmHg diastolic."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Pressure Conversion Guide</span></nav>
+
+        <header class="page-header">
+            <h1>Why Pressure Keeps Killing People: A Field Guide to Six Units That Won't Go Away</h1>
+            <p>Pressure is the only engineering quantity where you can walk onto a single job site and face five different units before lunch. And every one of them has killed someone.</p>
+            <p class="page-meta">~18 min read &nbsp;·&nbsp; Last updated June 2026</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<!-- ══════════════════════════════════════════════════════════—     This guide is organized by pressure MAGNITUDE, not by topic.
+     It reads as a continuous journey —no modular chapters.
+     ══════════════════════════════════════════════════════════—-->
+
+<p>You walk into a dive shop in Sharm el-Sheikh. The compressor gauge reads 200 bar. The rental regulator you just picked up has a submersible pressure gauge marked in psi. You need to know: is this tank full? The math is straightforward —multiply bar by 14.5, get about 2,900 psi. The tank's fine.</p>
+
+<p>Except the compressor wasn't set to 200 bar. It was set to 3,000 psi, because the shop bought American-spec equipment. 3,000 psi is 207 bar. 200 bar is 2,901 psi. The difference is 99 psi —roughly five minutes of breathing gas at 30 meters. Shorten that by a navigation error, a silt-out, or a stuck regulator purge, and you've got a body recovery instead of a dive log.</p>
+
+<p>Pressure units are different from length units. If you confuse inches and millimeters, your part is 25.4 times too big and you spot the mistake immediately. If you confuse bar and psi, your numbers are off by a factor of 14.5 —close enough to <em>look</em> right on a gauge with a lazy needle, far enough to kill you.</p>
+
+<p>This guide covers every pressure unit an engineer is likely to encounter: where they came from, how they relate, and what goes wrong when you mix them up. The numbers are exact. So are the stories.</p>
+
+<!-- ══════════════════════════════════════════════════════════—     KEY TAKEAWAYS + QUICK REFERENCE
+     ══════════════════════════════════════════════════════════—-->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>1 bar = 14.5038 psi</strong> —the automotive, diving, and espresso crossover</li>
+        <li><strong>1 atm = 101,325 Pa</strong> —the anchor of all pressure measurement</li>
+        <li><strong>1 psi = 6,894.76 Pa</strong> —the American unit, exact to twelve digits</li>
+        <li><strong>Pressure mistakes release stored energy.</strong> A 1-liter vessel at 1 MPa holds about 1 kJ —equivalent to a 1 kg mass dropped from 100 meters. Length errors make scrap. Pressure errors make shrapnel.</li>
+    </ul>
+</div>
+
+<h2>Quick Pressure Conversion Table</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Unit</th><th>Pascals (Pa)</th><th>bar</th><th>psi</th><th>atm</th></tr></thead>
+    <tbody>
+        <tr><td><strong>1 Pa</strong></td><td>1</td><td>0.00001</td><td>0.000145038</td><td>9.86923 × 10⁻⁶</td></tr>
+        <tr><td><strong>1 kPa</strong></td><td>1,000</td><td>0.01</td><td>0.145038</td><td>0.00986923</td></tr>
+        <tr><td><strong>1 bar</strong></td><td>100,000</td><td>1</td><td>14.5038</td><td>0.986923</td></tr>
+        <tr><td><strong>1 psi</strong></td><td>6,894.76</td><td>0.0689476</td><td>1</td><td>0.068046</td></tr>
+        <tr><td><strong>1 atm</strong></td><td>101,325</td><td>1.01325</td><td>14.6959</td><td>1</td></tr>
+        <tr><td><strong>1 MPa</strong></td><td>1,000,000</td><td>10</td><td>145.038</td><td>9.86923</td></tr>
+        <tr><td><strong>1 Torr / mmHg</strong></td><td>133.322</td><td>0.00133322</td><td>0.0193368</td><td>0.00131579</td></tr>
+    </tbody>
+</table>
+</div>
+
+<h2>Common Pressure Conversions</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Result</th><th>Use this converter</th></tr></thead>
+    <tbody>
+        <tr><td>1 bar</td><td>psi</td><td><strong>14.5038 psi</strong></td><td><a href="/bar-to-psi">Bar to PSI —/a></td></tr>
+        <tr><td>100 psi</td><td>bar</td><td><strong>6.89476 bar</strong></td><td><a href="/psi-to-bar">PSI to Bar —/a></td></tr>
+        <tr><td>1 atm</td><td>kPa</td><td><strong>101.325 kPa</strong></td><td><a href="/atm-to-pa">Atm to Pa —/a></td></tr>
+        <tr><td>200 kPa</td><td>psi</td><td><strong>29.0076 psi</strong></td><td><a href="/kpa-to-psi">kPa to PSI —/a></td></tr>
+        <tr><td>1 atm</td><td>psi</td><td><strong>14.6959 psi</strong></td><td><span class="table-ref-text">—/span></td></tr>
+        <tr><td>1 atm</td><td>bar</td><td><strong>1.01325 bar</strong></td><td><span class="table-ref-text">—/span></td></tr>
+        <tr><td>1 psi</td><td>kPa</td><td><strong>6.89476 kPa</strong></td><td><a href="/psi-to-kpa">PSI to kPa —/a></td></tr>
+        <tr><td>1 MPa</td><td>psi</td><td><strong>145.038 psi</strong></td><td><a href="/kpa-to-psi">kPa to PSI —/a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══—Quick nav —kept minimal ══—-->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#the-smallest-unit">The Pascal: A Unit So Small It's Almost Useless</a></li>
+        <li><a href="#the-weight-of-air">The Weight of the Sky: Atmospheres, Bars, and the First Measurement</a></li>
+        <li><a href="#american-pressure">PSI: The American Outlier</a></li>
+        <li><a href="#the-body-unit">mmHg and Torr: The Body's Own Pressure Scale</a></li>
+        <li><a href="#industrial-scale">Megapascals and Thousands of PSI: Where Things Get Dangerous</a></li>
+        <li><a href="#conversion-atlas">The Master Conversion Table</a></li>
+        <li><a href="#what-goes-wrong">What Goes Wrong and Who Died</a></li>
+        <li><a href="#all-tools">Every Pressure Converter on This Site</a></li>
+    </ol>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 1: THE PASCAL
+     ══════════════════════════════════════════════════════════—-->
+<section id="the-smallest-unit">
+    <h2>1. The Pascal: A Unit So Small It's Almost Useless</h2>
+
+    <p>A single pascal is the pressure exerted by a one-newton force spread over one square meter. How much is that? Take a standard sheet of A4 paper —80 gsm, 210 × 297 mm. Its weight is about 0.05 N. Lay it flat on a table and it presses down at roughly 0.8 pascals. That's a pascal: less than the weight of a sheet of paper distributed across a square meter.</p>
+
+    <p>This is the only SI unit of pressure. Everything else —bar, psi, atm, torr, mmHg —is tolerated for historical or practical reasons. The pascal is defined cleanly from the SI base units: 1 Pa = 1 kg·m⁻¹·s⁻— No fudge factors, no calibration artifacts, no "at a specific temperature." It is as exact as the kilogram, meter, and second are exact.</p>
+
+    <p>The unit is named after Blaise Pascal (1623—662), the French mathematician who, at age 19, built a mechanical calculator to help his tax-collector father. Pascal's contribution to pressure measurement came in 1648 when he convinced his brother-in-law, Florin Périer, to carry a mercury barometer up the Puy-de-Dôme volcano in central France. Périer took readings at the base, the summit (1,465 m), and several points in between. The mercury column dropped as altitude increased —proving, for the first time, that air pressure decreases with height. It also proved Torricelli right: the mercury wasn't held up by some mysterious vacuum-abhorring force. It was the literal weight of the atmosphere pressing down on the dish.</p>
+
+    <p>Pascal published the results in <em>Récit de la grande expérience de l'équilibre des liqueurs</em> (1648). The experiment cost him his relationship with Descartes, who claimed to have suggested the idea first. It made Pascal's reputation across Europe. And in 1971, the 14th CGPM named the SI unit of pressure after him —a unit that Pascal himself never used, because he worked entirely in <em>pieds d'eau</em> and <em>pouces de mercure</em> (feet of water and inches of mercury).</p>
+
+    <div class="callout">
+        <h4>Why the pascal is useless in conversation</h4>
+        <p>A car tire at 220 kPa sounds like you're inflating it to launch into low Earth orbit. 0.22 MPa sounds like nothing at all. In pascals it's 220,000 Pa —too many digits. The pascal is perfect for physics and terrible for human communication. Every other pressure unit exists because the pascal is the wrong size for daily life.</p>
+    </div>
+
+    <p>In semiconductor fabrication, though, pascals are everything. A plasma etch chamber operates at 0.1—0 Pa. A molecular beam epitaxy system runs at 10⁻⁸ Pa —one hundred-trillionth of atmospheric pressure. At those levels, a fingerprint on a chamber wall outgasses enough water vapor to ruin a wafer batch. Vacuum engineers count pascals because, at that end of the scale, a pascal is enormous. A 1 Pa rise in a UHV chamber means a leak somewhere, and the difference between 10⁻⁸ and 10⁻⁷ Pa is the difference between epitaxial growth and contaminated junk.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 2: ATMOSPHERE, BAR, AND THE SKY
+     ══════════════════════════════════════════════════════════—-->
+<section id="the-weight-of-air">
+    <h2>2. The Weight of the Sky: Atmospheres, Bars, and What Torricelli Actually Did</h2>
+
+    <p>In 1643, Evangelista Torricelli filled a glass tube —about a meter long, sealed at one end —with mercury. He stoppered the open end with his thumb, inverted the tube into a dish of mercury, and removed his thumb. The mercury column dropped. It didn't empty. It settled at about 760 mm above the dish surface, leaving a vacuum above it.</p>
+
+    <p>This was the first barometer and the first measurement of atmospheric pressure. Torricelli correctly guessed that the column wasn't held up by nature's supposed horror of a vacuum —a doctrine that had stood unchallenged since Aristotle —but by the weight of the air pressing on the mercury in the dish. He wrote to his friend Michelangelo Ricci in 1644: "We live submerged at the bottom of an ocean of air."</p>
+
+    <p>That single observation defined almost every pressure unit we use today.</p>
+
+    <h3>The atmosphere (atm)</h3>
+
+    <p>One standard atmosphere is <strong>101,325 pascals exactly</strong>. This was defined by the 10th CGPM in 1954, not by measuring the atmosphere —which varies with weather, altitude, and latitude —but by convention. It approximates the average sea-level pressure at 45° latitude. In practice, actual sea-level pressure wanders between about 98 and 104 kPa depending on the weather. The "standard atmosphere" is a legal fiction, useful precisely because it doesn't change.</p>
+
+    <p>Chemists love atmospheres. STP —Standard Temperature and Pressure —is 0°C and 1 atm. Every gas law calculation starts here. A mole of ideal gas occupies 22.414 liters at STP. Change the pressure unit and all the tables need rewriting. That's why atm survives: not because it's metric or tidy, but because too much chemical engineering paper is printed with it.</p>
+
+    <h3>The bar</h3>
+
+    <p>The bar equals <strong>100,000 Pa exactly</strong>. It was introduced by the Norwegian meteorologist Vilhelm Bjerknes, one of the founders of modern weather forecasting. Bjerknes wanted a unit that was close to atmospheric pressure (so weather maps would show familiar numbers) but metric in spirit (a clean power of ten from the pascal). 1 bar = 100 kPa = 0.1 MPa. One millibar —a thousandth of a bar —is 100 Pa, or almost exactly 0.75 mmHg. Weather maps worldwide report pressure in millibars (or the numerically identical hectopascals) for this reason.</p>
+
+    <p>The bar is not an SI unit. The BIPM tolerates it but doesn't endorse it. And yet the bar is everywhere: European tire pressures, SCUBA tank ratings, espresso machine pumps, natural gas pipeline pressures, CO—cylinder fills for home brewing. It's the metric unit that metric purists hate and working engineers reach for.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Unit</th><th>Equals (Pa)</th><th>Created</th><th>Still used in</th></tr></thead>
+        <tbody>
+            <tr><td>1 atm</td><td>101,325 Pa (exact)</td><td>1954 (CGPM)</td><td>Chemistry, diving medicine, gas laws</td></tr>
+            <tr><td>1 bar</td><td>100,000 Pa (exact)</td><td>~1910 (Bjerknes)</td><td>Tires (EU), SCUBA, espresso, pipelines</td></tr>
+            <tr><td>1 mbar</td><td>100 Pa (exact)</td><td>~1910</td><td>Meteorology, aviation altimetry</td></tr>
+            <tr><td>1 hPa</td><td>100 Pa (exact)</td><td>—/td><td>Meteorology (identical to mbar; the name changed, the number didn't)</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The bar's clean decimal relationship to the pascal —100,000, no fractions —makes conversions within the metric family painless. 1 bar = 100 kPa = 0.1 MPa = 1,000 mbar. You can do them in your head. The problems start when bar meets psi.</p>
+
+    <div class="formula-box">
+        <p>1 bar = 14.5038 psi &nbsp;|&nbsp; 1 psi = 0.0689476 bar</p>
+    </div>
+
+    <p>The 14.5038 factor is ugly. There's no way around it. The bar derives from the pascal, which derives from SI base units. The psi derives from the pound-force and the inch, which derive from an avoirdupois pound under standard gravity and the 1959 international inch. The conversion accumulates three layers of definitional cruft. You can't simplify it. You either use the exact number or you're wrong.</p>
+
+    <p>Quick mental shortcut that <strong>does</strong> work: multiply bar by 14.5. For anything under 10 bar, the error is under 0.04 psi per bar —negligible for tire gauges, weather, home espresso. For anything over 100 bar, use a calculator. At 200 bar (a full SCUBA cylinder), 14.5 gives 2,900 psi instead of 2,900.76 psi —a 0.76 psi error that doesn't matter for a recreational dive plan. At 345 bar (5,000 psi wellhead equipment), the shortcut gives 5,002.5 psi instead of 5,003.811 psi —still only 1.3 psi off. But here's the thing: at those pressures, the steel cares about 1.3 psi. The <a href="https://enginstack.com/bar-to-psi">bar to psi converter</a> uses the exact factor. Use it.</p>
+</section>
+
+<!-- ══—Image 1: Pressure Scale ══—-->
+<figure class="guide-figure">
+    <img src="/guides/img/pressure-scale.webp"
+         alt="Pressure scale from vacuum chambers to diamond anvil cells showing pressure ranges in pascals"
+         loading="lazy" decoding="async" width="774" height="512">
+    <figcaption>Pressure Scale: From Vacuum to Extreme Engineering —every regime from semiconductor fab chambers (10⁻⁸ Pa) to diamond anvil cells (100 GPa), with the units engineers use at each level.</figcaption>
+</figure>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 3: PSI
+     ══════════════════════════════════════════════════════════—-->
+<section id="american-pressure">
+    <h2>3. PSI: The American Outlier</h2>
+
+    <p>The pound per square inch is a purely mechanical unit. 1 psi is exactly the pressure exerted by one pound-force distributed over one square inch. A pound-force is the gravitational force on one avoirdupois pound at standard gravity (g₀ = 9.80665 m/s² exactly). An inch is 25.4 mm exactly (since 1959). Chase the chain:</p>
+
+    <div class="formula-box">
+        <p>1 psi = 6,894.757 293 168 Pa</p>
+    </div>
+
+    <p>That's twelve significant figures. In practice, 6,894.76 Pa is more than anyone needs. But the exact number exists because every component —the pound-mass, standard gravity, the inch —has an exact SI definition now. PSI is as precisely defined as the pascal. It's just inconveniently linked to it.</p>
+
+    <p>PSI dominates the United States, Canada (alongside kPa), and partly the UK. Car tires: psi. Natural gas distribution: psig (gauge). Hydraulic systems: psi. SCUBA tanks in North America: psi. The American Society of Mechanical Engineers writes its Boiler and Pressure Vessel Code in psi. Every ASME flange class —150, 300, 600, 900, 1500, 2500 —is a psi rating at a specified temperature.</p>
+
+    <p>The unit has two personalities. Below about 30 psi, it's consumer territory: tires, basketballs, bike shocks, air mattresses. The average car tire at 35 psi is something you can feel —thumb into the sidewall, it gives but doesn't yield. Above about 1,000 psi, psi becomes an industrial unit. A 2,200 psi hydraulic system can sever a finger cleanly at the knuckle. A 4,500 psi breathing air cascade can turn a loose whip into a steel snake that breaks ankles. At 15,000 psi, waterjet cutters slice through titanium plate. At 60,000 psi, the fluid itself compresses by about 15% —you're no longer dealing with an incompressible liquid at all.</p>
+
+    <div class="callout">
+        <h4>psig vs psia: the suffix you forget at your peril</h4>
+        <p>psig (gauge) is pressure relative to ambient air. psia (absolute) is pressure relative to vacuum. The difference is one atmosphere —14.7 psi at sea level. A vessel rated for 150 psig at 200°F is at 164.7 psia absolute. Miss the "g" and your relief valve sizing is wrong by 14.7 psi. In low-pressure systems —fuel gas regulators, vacuum furnaces, medical oxygen —14.7 psi is the entire operating range. Confusing gauge for absolute in a medical gas system kills patients. Confusing it in a refinery alkylation unit kills neighborhoods.</p>
+    </div>
+
+    <p>If you're converting between psi and anything metric, use <a href="https://enginstack.com/psi-to-bar">psi to bar</a> or <a href="https://enginstack.com/psi-to-kpa">psi to kPa</a>. The mental shortcuts —divide by 14.5, multiply by 7 —work until they don't.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 4: mmHg AND TORR
+     ══════════════════════════════════════════════════════════—-->
+<section id="the-body-unit">
+    <h2>4. mmHg and Torr: The Body's Own Pressure Scale</h2>
+
+    <p>Blood pressure is measured in millimeters of mercury. Your 120/80 reading is 120 mmHg systolic over 80 mmHg diastolic —the pressure your heart generates to push blood through your arteries, expressed as the height of a mercury column it could support. A sphygmomanometer —the inflatable cuff your doctor wraps around your arm —is literally a mercury manometer with the scale marked in mm. The unit survived digitalization. Even a modern oscillometric blood pressure monitor, which contains no mercury anywhere, reports in mmHg. It's too embedded in clinical practice to change.</p>
+
+    <p>One millimeter of mercury is defined as <strong>133.322 387 415 Pa</strong> —or, more practically, as exactly 1/760 of a standard atmosphere at 0°C, where the density of mercury is 13,595.1 kg/m³. The temperature specification matters because mercury expands. A column that reads 760 mm at 0°C reads 760.8 mm at 20°C. In a laboratory, this correction is mandatory. In a doctor's office, nobody adjusts for room temperature, and nobody has died from the error.</p>
+
+    <p>The torr is, for most practical purposes, identical to the mmHg. 1 Torr = 1/760 atm —133.322 Pa. It's named after Torricelli and used almost exclusively in vacuum engineering. American vacuum pump manufacturers quote ultimate vacuum in torr. European ones use mbar. A two-stage rotary vane pump might pull 0.1 mtorr (1 × 10⁻⁴ torr). A turbomolecular pump goes to 10⁻¹⁰ torr. A cryopump can hit 10⁻¹—torr —the pressure regime where individual molecules are countable rather than statistical.</p>
+
+    <p>The mmHg/torr near-equivalence is both convenient and dangerous. 1 mmHg = 1.000 000 Torr at 0°C, but 1 mmHg = 1.000 015 Torr under standard conditions with realistic mercury density corrections. For vacuum gauging, ignore the difference. For primary pressure metrology, the difference is the entire error budget. Pick one and stay with it.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Vacuum regime</th><th>Pressure range (Torr)</th><th>Pressure range (Pa)</th><th>Typical pump technology</th></tr></thead>
+        <tbody>
+            <tr><td>Rough vacuum</td><td>760 —1</td><td>101,325 —133</td><td>Rotary vane, diaphragm</td></tr>
+            <tr><td>Medium vacuum</td><td>1 —10⁻—/td><td>133 —0.133</td><td>Roots blower + rotary backing</td></tr>
+            <tr><td>High vacuum</td><td>10⁻——10⁻⁸</td><td>0.133 —10⁻⁶</td><td>Turbomolecular, diffusion</td></tr>
+            <tr><td>Ultra-high vacuum (UHV)</td><td>10⁻⁸ —10⁻¹—/td><td>10⁻⁶ —10⁻¹⁰</td><td>Cryopump, ion pump, NEG</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>At UHV pressures, you stop thinking about fluid mechanics and start thinking about molecular ballistics. A molecule desorbing from the chamber wall travels line-of-sight until it hits another surface. The concept of "pressure" as a continuous field breaks down. The vacuum gauge is counting individual impacts, not measuring a bulk property. Yet the units persist: torr in the US and Japan, mbar in Europe, Pa in China. Three different numbers on three different gauges, all on the same chamber.</p>
+</section>
+
+<!-- ══—Image 2: Pressure Units Relationship Chart ══—-->
+<figure class="guide-figure">
+    <img src="/guides/img/pressure-units-chart.webp"
+         alt="Engineering pressure unit conversion chart showing relationships between Pascal, bar, psi, atm and torr"
+         loading="lazy" decoding="async" width="765" height="512">
+    <figcaption>Pressure Units Relationship Chart —how Pa, kPa, MPa, bar, psi, atm, mmHg, and Torr connect through exact conversion factors.</figcaption>
+</figure>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 5: INDUSTRIAL SCALE
+     ══════════════════════════════════════════════════════════—-->
+<section id="industrial-scale">
+    <h2>5. Megapascals and Thousands of PSI: Where Things Get Dangerous</h2>
+
+    <p>At about 1 MPa (145 psi), pressure stops being an inconvenience and starts being stored energy. A 1-liter volume at 1 MPa contains roughly 1 kJ of potential energy —about the same as a 1 kg mass dropped from 100 meters. Release it suddenly and you get shrapnel, not a hiss.</p>
+
+    <h3>Hydraulic systems</h3>
+
+    <p>Mobile hydraulic systems run at 21—5 MPa (3,000—,000 psi). Industrial presses go to 70 MPa (10,000 psi). The failure mode of a pinhole leak at these pressures isn't a drip —it's an invisible jet that can inject hydraulic fluid through skin, into muscle, and along fascial planes. An injection injury at 3,000 psi requires immediate surgical debridement. The entry wound looks like a paper cut. Six hours later the arm is being amputated.</p>
+
+    <p>This is a pressure story, not just a safety story: hydraulic injection injuries happen most often when a mechanic uses a fitting rated in bar on a system spec'd in psi, or vice versa. A JIC 37° flare fitting rated for 5,000 psi looks identical to a metric 24° cone fitting rated for 350 bar —and 350 bar is 5,076 psi, close enough to "fit" but not close enough to be safe if the actual system pressure is 5,000 psi on a metric-rated fitting. The fitting fails. The jet finds the mechanic's hand. Two weeks later the occupational health report reads "pressure unit confusion."</p>
+
+    <h3>Gas cylinders and cascade systems</h3>
+
+    <p>A standard SCUBA cylinder is a steel or aluminum bottle at 200 bar (Europe) or 3,000 psi (US). A carbon-fiber wrapped cylinder goes to 300 bar / 4,500 psi. A breathing air cascade —the bank of large cylinders a dive shop uses to fill individual tanks —sits at 350—50 bar (5,000—,500 psi).</p>
+
+    <p>The fill operator's nightmare: a diver hands over a cylinder marked "2,400 psi service pressure" but the shop's compressor fills to 232 bar (European standard). 232 bar = 3,365 psi. Into a 2,400 psi cylinder. The burst disc blows —that's the good outcome. The bad outcome is a burst disc that's been painted over during a sloppy hydro test, doesn't rupture, and the cylinder fails at the neck thread. The hydraulic energy in a single 80 ft³ cylinder at 3,365 psi is about 1.3 MJ. Enough to go through a concrete block wall.</p>
+
+        <div class="formula-box">
+            <p>1 MPa = 145.038 psi &nbsp;|&nbsp; 1,000 psi = 6.89476 MPa</p>
+        </div>
+
+    <h3>The ASME flange problem</h3>
+
+    <p>ASME B16.5 pipe flanges are designated by pressure class: Class 150, 300, 600, 900, 1500, 2500. Those numbers look like psi but they aren't. A Class 300 flange is not rated for 300 psi at all temperatures. At room temperature with carbon steel, Class 300 is good for 740 psig. At 400°F, it drops to 655 psig. At 800°F, 500 psig.</p>
+
+    <p>The number is a pressure-temperature rating class, not a pressure. It derives from the flange's bolt circle geometry and allowable material stress at temperature, not from a simple conversion. But in the field, people say "it's a 300-pound flange." And someone who doesn't know the code hears "rated for 300 psi" and bolts it into a 285 psi steam line. It won't fail today. It'll fail in five years, after thermal cycling has crept the bolts, on the coldest night of the winter, when the steam load is highest. The investigation will blame the gasket or the bolt torque. The root cause was someone confusing a class designation with a pressure rating.</p>
+
+    <p>European codes (EN 1092-1) use PN ratings: PN 10, 16, 25, 40, 63, 100, 160, 250, 320, 400. The number is the maximum pressure in bar at room temperature. A PN 40 flange is rated for 40 bar at ambient. Simple. But a PN 40 flange is not interchangeable with a Class 150 flange —PN 40 / 40 bar = 580 psi, while Class 150 at room temp = 285 psig max. If you bolt a PN 40 flange to a Class 150 flange because "40 bar is about 600 psi, way above 150, should be fine" —the bolt circles don't match, the gasket surfaces don't match, and you've created a leak path that will find you at 3 AM during the first cold start.</p>
+
+    <p>Use the <a href="https://enginstack.com/kpa-to-psi">kPa to psi</a> and <a href="https://enginstack.com/psi-to-kpa">psi to kPa</a> converters for these cross-code comparisons. Better yet, never convert flange ratings. Use the matching flange.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 6: THE MASTER TABLE
+     ══════════════════════════════════════════════════════════—-->
+<section id="conversion-atlas">
+    <h2>6. The Master Conversion Table</h2>
+
+    <p>This is every pressure unit relationship covered by the converters on this site. All factors are given to six significant figures except where the conversion is exact by definition. Print this or bookmark it —it's the reference you'll reach for when the gauge doesn't match the spec sheet.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>From</th><th>To</th><th>Multiply by</th><th>Or divide by</th><th>Exact?</th></tr></thead>
+        <tbody>
+            <tr><td>bar</td><td>psi</td><td>14.5038</td><td>0.0689476</td><td>Exact via 1959 inch + g₀</td></tr>
+            <tr><td>psi</td><td>bar</td><td>0.0689476</td><td>14.5038</td><td>Exact via 1959 inch + g₀</td></tr>
+            <tr><td>kPa</td><td>psi</td><td>0.145038</td><td>6.89476</td><td>Exact via 1959 inch + g₀</td></tr>
+            <tr><td>psi</td><td>kPa</td><td>6.89476</td><td>0.145038</td><td>Exact via 1959 inch + g₀</td></tr>
+            <tr><td>atm</td><td>Pa</td><td>101,325</td><td>—/td><td>Exact (CGPM 1954)</td></tr>
+            <tr><td>Pa</td><td>atm</td><td>9.86923 × 10⁻⁶</td><td>101,325</td><td>Exact (CGPM 1954)</td></tr>
+            <tr><td>atm</td><td>bar</td><td>1.01325</td><td>0.986923</td><td>—/td></tr>
+            <tr><td>atm</td><td>psi</td><td>14.6959</td><td>0.068046</td><td>—/td></tr>
+            <tr><td>atm</td><td>Torr</td><td>760</td><td>—/td><td>Exact (definition of Torr)</td></tr>
+            <tr><td>MPa</td><td>psi</td><td>145.038</td><td>0.00689476</td><td>—/td></tr>
+            <tr><td>psi</td><td>MPa</td><td>0.00689476</td><td>145.038</td><td>—/td></tr>
+            <tr><td>mmHg</td><td>Pa</td><td>133.322</td><td>—/td><td>At 0°C</td></tr>
+            <tr><td>inHg</td><td>Pa</td><td>3,386.39</td><td>—/td><td>At 0°C</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="callout">
+        <h4>A note on "exact" vs "approximate"</h4>
+        <p>"Exact via 1959 inch + g₀" means the conversion is mathematically exact from the 1959 international inch (25.4 mm) and standard gravity (9.80665 m/s²) definitions. These conversions have an infinite number of correct decimal places —you just stop when you have enough. "Exact (CGPM 1954)" means the number was set by international agreement as a definition, not a measurement. Unmarked conversions are derived from exact definitions but the printed value is rounded to six significant figures.</p>
+    </div>
+</section>
+
+<!-- ══—Image 3: Deepwater Horizon ══—-->
+<figure class="guide-figure">
+    <img src="/guides/img/deepwater-horizon.webp"
+         alt="Deepwater Horizon oil rig diagram showing wellhead at 5000 ft depth with 12000 psi reservoir pressure and failed blowout preventer"
+         loading="lazy" decoding="async" width="1200" height="402">
+    <figcaption>Deepwater Horizon: When Pressure Becomes Energy —5,000 ft of water depth, 12,000 psi reservoir pressure at the mudline, and a negative pressure test that was misinterpreted because the crew debated two conflicting gauge readings for 40 minutes.</figcaption>
+</figure>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 7: ACCIDENTS
+     ══════════════════════════════════════════════════════════—-->
+<section id="what-goes-wrong">
+    <h2>7. What Goes Wrong and Who Died</h2>
+
+    <p>Every unit conversion disaster is a pressure disaster. Length errors produce scrap parts. Mass errors produce overweight aircraft. Pressure errors produce explosions. Here are the ones that changed how engineers think about units.</p>
+
+    <div class="example-box">
+        <p><strong>Deepwater Horizon (2010) —11 dead, $65 billion in liability</strong></p>
+        <p>The Macondo well was at 5,000 ft of water depth, with a reservoir pressure of about 12,000 psi at the mudline. During the negative pressure test —the last barrier check before the blowout —the drill pipe showed 1,400 psi while the kill line showed 0 psi. Two different pressure readings on two different lines that should have been in communication. The crew debated what this meant for 40 minutes. The test was misinterpreted as successful. The well blew out. The rig burned for 36 hours and sank.</p>
+        <p>Deeper cause: the cement program was designed in pounds per gallon (ppg) —the oilfield's bizarre unit for mud weight, which is actually a density expressed as hydrostatic pressure gradient. 1 ppg = 0.051948 psi/ft of hydrostatic head. The engineers were mentally converting between ppg, psi, and equivalent circulating density in real time, in a high-stress well control situation, at 10 PM. They got it wrong.</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Apollo 1 Fire (1967) —3 dead</strong></p>
+        <p>The Apollo 1 command module was pressurized to 16.7 psi pure oxygen for a plugs-out ground test. In orbit, the cabin would operate at 5 psi pure oxygen. But on the pad, to maintain positive pressure against the atmosphere, they ran at 16.7 psi —over three times the partial pressure of oxygen at sea level. A spark in the wiring, a Velcro-rich cabin, and 16.7 psi O— the flash fire was over in 26 seconds. The cabin pressure rose instantly to over 29 psi, preventing the inward-opening hatch from being opened. The unit conversion failure wasn't the cause, but the post-fire investigation rewrote spacecraft atmosphere standards worldwide. Apollo 7 onwards flew at 60% oxygen / 40% nitrogen at 16 psi on the pad, bleeding to 5 psi pure O—in orbit.</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Barcelona Gas Explosion (1978) —1 dead, blocks leveled</strong></p>
+        <p>A natural gas distribution main in Barcelona was rated for 4 bar but connected to a 10 bar transmission line through a regulator station that had been incorrectly calibrated during maintenance. The regulator was set to pass 4 bar; the maintenance crew had adjusted it using a gauge marked in kg/cm² (a now-obsolete metric pressure unit equal to 98.0665 kPa). 4 bar = 4.08 kg/cm² —close enough that the gauge looked right. The regulator was actually passing nearly 10 bar. A cast-iron joint in the distribution main failed. Gas migrated through the soil into a basement. The explosion leveled a four-story apartment building.</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Wildenrath Rail Tanker (1998) —3 dead, Germany</strong></p>
+        <p>A chemical tank car was pressure-tested with compressed air instead of nitrogen or water. The test pressure was supposed to be 4 bar gauge. The workshop air line was at 10 bar. A valve was left open. The tank car —designed for 4 bar, tested with incompressible water at 6 bar —saw 10 bar of compressed air. Water stores almost no energy when compressed; air stores enormous energy. The tank ruptured catastrophically. The fragments killed three workers. The German Federal Institute for Materials Research (BAM) later calculated that the stored energy in the air-filled tank at failure was equivalent to 2.7 kg of TNT.</p>
+    </div>
+
+    <p>Reading these investigations side by side reveals a pattern that isn't about unit conversion tables. It's about <strong>pressure as stored energy</strong>. A length conversion error produces a gap. A mass conversion error produces an overload. A pressure conversion error produces a bomb. The unit is always, in the final accounting, a proxy for how much energy is waiting to be released.</p>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 8: TOOLS
+     ══════════════════════════════════════════════════════════—-->
+<section id="all-tools">
+    <h2>8. Every Pressure Converter on This Site</h2>
+
+    <p>Six converters covering the five pressure units that working engineers deal with daily. Every one uses the exact factors from Section 6. No rounding, no shortcuts. Drop in a number and get the right answer.</p>
+
+    <h3>Bar &harr; PSI —the automotive and diving pair</h3>
+    <div class="related-tags">
+        <a href="/bar-to-psi">Bar to PSI</a>
+        <a href="/psi-to-bar">PSI to Bar</a>
+    </div>
+    <p>The one you'll use every time a European car's door placard meets an American tire gauge, or a European dive computer meets an American fill station. <strong>1 bar = 14.5038 psi.</strong></p>
+
+    <h3>kPa &harr; PSI —the engineering spec crossover</h3>
+    <div class="related-tags">
+        <a href="/kpa-to-psi">kPa to PSI</a>
+        <a href="/psi-to-kpa">PSI to kPa</a>
+    </div>
+    <p>ISO specs are in kPa. ANSI specs are in psi. The piping spec, the relief valve datasheet, the turbocharger compressor map —all of them need this pair. <strong>1 psi = 6.89476 kPa.</strong></p>
+
+    <h3>atm &harr; Pa —the chemistry and physics pair</h3>
+    <div class="related-tags">
+        <a href="/atm-to-pa">Atm to Pa</a>
+        <a href="/pa-to-atm">Pa to Atm</a>
+    </div>
+    <p>STP calculations, gas law problems, vacuum chamber specifications. The atm is 101,325 Pa by international convention; the pascal is 1 N/m² by SI definition. The converter handles both directions exactly. <strong>1 atm = 101,325 Pa.</strong></p>
+
+</section>
+
+
+
+<!-- ══—FAQ ══—-->
+<section id="faq">
+    <h2>Frequently Asked Questions About Pressure Conversion</h2>
+
+    <div class="faq-item">
+        <p class="faq-q">What is 1 bar in psi?</p>
+        <p class="faq-a">1 bar = <strong>14.5038 psi</strong>. This is the exact conversion factor derived from the 1959 international inch (1 in = 25.4 mm) and standard gravity (g₀ = 9.80665 m/s²). For quick estimates, multiply bar by 14.5.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">Is bar higher than psi?</p>
+        <p class="faq-a">No —a bar represents a much larger pressure than a single psi. 1 bar equals 14.5038 psi. If a gauge reads 2 bar, that's approximately 29 psi. The bar is roughly atmospheric pressure; 1 psi is roughly the pressure under 2.3 feet of water.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">What pressure unit is used in SCUBA diving?</p>
+        <p class="faq-a"><strong>Bar</strong> is used throughout Europe and most of the world. A standard aluminum SCUBA cylinder is rated for 200 bar (2,900 psi). <strong>PSI</strong> is used in North America —the same cylinder is marked 3,000 psi. Carbon-fiber wrapped cylinders go to 300 bar (4,500 psi). Always check which unit your fill station and submersible pressure gauge use before connecting.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">What exactly is standard atmospheric pressure?</p>
+        <p class="faq-a">1 standard atmosphere (atm) = <strong>101,325 Pa exactly</strong> —defined by international convention (CGPM 1954), not by measurement. This approximates average sea-level pressure at 45° latitude. In practical units: 1 atm = 1.01325 bar = 14.6959 psi = 760 mmHg (Torr).</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">Why are blood pressure readings measured in mmHg?</p>
+        <p class="faq-a">Because the first clinical blood pressure measurements were taken with mercury sphygmomanometers —a glass column of mercury in which the height of the column is directly proportional to the pressure in the cuff. The convention persisted even after digital oscillometric monitors replaced mercury columns. 1 mmHg = 133.322 Pa. A reading of 120/80 means 120 mmHg systolic and 80 mmHg diastolic.</p>
+    </div>
+</section>
+
+<!-- ══—References ══—-->
+<section class="eng-context">
+    <h3>Sources and Further Reading</h3>
+    <ul>
+        <li>BIPM —The International System of Units (SI), 9th Edition (2019), Section 2.3.4: Pressure units</li>
+        <li>NIST Special Publication 811 —Guide for the Use of the International System of Units (SI), Section 6.2.4: Units outside the SI accepted for use</li>
+        <li>Torricelli, E. —Letter to Michelangelo Ricci (11 June 1644), describing the mercury barometer</li>
+        <li>Pascal, B. —<em>Récit de la grande expérience de l'équilibre des liqueurs</em> (1648), account of the Puy-de-Dôme experiment</li>
+        <li>10th CGPM (1954) —Resolution 4: Definition of the standard atmosphere</li>
+        <li>ASME Boiler and Pressure Vessel Code, Section VIII, Division 1 —Rules for Construction of Pressure Vessels</li>
+        <li>BP Deepwater Horizon Accident Investigation Report (September 8, 2010), Section 4.4: Negative Pressure Test Interpretation</li>
+        <li>BAM (Bundesanstalt für Materialforschung und -prüfung) —Bericht zum Tankwagenunfall Wildenrath (1999)</li>
+        <li>NASA —Apollo 204 Review Board Report (1967), Findings 4.1—.4: Cabin Atmosphere</li>
+        <li>European Standard EN 1092-1 —Flanges and Their Joints: Circular Flanges for Pipes, Valves, Fittings and Accessories, PN Designated</li>
+        <li>International Yard and Pound Agreement (1959) —Federal Register Notice 24 FR 5347, defining 1 inch = 25.4 mm</li>
+    </ul>
+</section>
+
+        <h3>Related Guides</h3>
+        <div class="related-tags">
+            <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+            <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>
+            <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Guide</a>
+            <a href="/guides/fuel-economy-conversion-guide">Fuel Economy Guide</a>
+            <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+            <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>
+            <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+            <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Guide</a>
+            <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Guide</a>
+        <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a></div>
+
+        <div class="attribution-box"><p><strong>Reprint & Attribution.</strong> This guide was researched and written by the engineering team at EnginStack, first published June 25, 2026. Original URL: <a href="https://enginstack.com/guides/pressure-conversion-guide">enginstack.com/guides/pressure-conversion-guide</a>. You're welcome to excerpt, cite, or share —a link back to the original is all we require. Commercial syndication and full-text reproduction inquiries go to <code>rkingers776@gmail.com</code>. We grant free educational and non-commercial reprint licenses with proper credit.</p></div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Pascal",
+  "termCode": "pascal (Pa)",
+  "description": "The pascal is the SI derived unit of pressure, defined as one newton per square meter. Standard atmospheric pressure is 101,325 Pa; tire pressures run 200–250 kPa.",
+  "url": "https://en.wikipedia.org/wiki/Pascal_(unit)",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

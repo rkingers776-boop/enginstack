@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pints to Liters —"A Pint's a Pound the World Around" (Except in London, Where It's 20% Bigger) | EnginStack</title>
+    <meta name="description" content="1 US liquid pint = 0.473176473 liters. 1 UK Imperial pint = 0.56826125 liters —20% larger. Two pints, one name, and a 95 mL gap that has ruined more homebrew recipes than any other unit confusion. Know which pint your recipe means.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/pints-to-liters">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/pints-to-liters">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/pints-to-liters">
+    <meta property="og:title" content="Pints to Liters —Two Pints, 20% Apart | EnginStack">
+    <meta property="og:description" content="1 US pint = 0.473 L. 1 UK pint = 0.568 L. Same word, 95 mL difference. Beer, blood donation, and British pub law all hang on knowing which pint you're pouring.">
+    <meta property="og:url" content="https://enginstack.com/pints-to-liters">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pints to Liters Converter —US & Imperial",
+  "description": "Convert US liquid pints (×0.473176473) and UK Imperial pints (×0.56826125) to liters. The two pints differ by 20.1%. This converter defaults to the US pint. Recipes, beer volumes, and blood donation units all require knowing which pint.",
+  "url": "https://enginstack.com/pints-to-liters",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which pint does this converter use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The interactive calculator above converts US liquid pints (473.2 mL). The UK Imperial pint is 568.3 mL —multiply by 0.56826 instead. For manual UK conversions, use the formula box on this page. For a converter that handles both, see the related tools below. The US pint is the default because it's the pint used in American recipes, US nutrition labels, and all US consumer product packaging. UK recipes since 1995 almost exclusively use metric (mL and L). The UK pint survives in pubs and in the cultural memory of pre-metrication cookbooks —but a 2024 UK recipe calling for \"a pint of stock\" almost certainly means 600 mL, not 568 mL, because British home cooks have been rounding to the nearest 50 mL for 30 years."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a homebrew recipe that uses UK pints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Homebrew recipes are the most frequent casualty of the US/UK pint split. A British homebrew recipe calling for \"6 pints of water\" —using the standard 5-gallon (UK) brew kettle —means 6 × 0.568 = 3.41 liters. An American brewer reading the same recipe and using US pints adds 6 × 0.473 = 2.84 liters —0.57 liters (over 1 US pint) too little water. That's a 17% water deficit, which concentrates the wort, raises the original gravity, and produces a stronger, maltier beer than the recipe intended. The fix: British homebrew recipes written after 2000 usually list volumes in liters. If they use pints, assume Imperial pints. If the recipe is American, assume US pints. If the recipe is Australian, it's in liters —Australia metricated in 1974 and no Australian under 50 has ever measured anything in pints."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is \"a pint of ice cream\" actually a pint?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes —a US pint of ice cream is 473 mL by volume. But ice cream is sold by volume, not weight, and the amount of air whipped into the product (called \"overrun\" in the ice cream industry) determines how much ice cream you're actually getting. A premium ice cream (low overrun, ~25% air) weighs about 380 grams per pint. An economy ice cream (high overrun, ~60% air) weighs about 240 grams per pint. Both are exactly one pint by volume. The FDA does not regulate overrun —only that the product meet minimum butterfat and total milk solids by weight. The pint is a volume unit containing a product whose density varies by more than 50% between brands. It is perhaps the only consumer product where the container size is legally fixed but the contents vary by more than a factor of 1.5. The solution, as with flour and a scale, is to ignore the volume and check the weight on the label —except ice cream labels don't list weight per pint. They list serving size (usually 2/3 cup, a volume measure) and servings per container. The volume recursion is total. For general cooking conversions, see cups to mL and the Volume Guide."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Volume", "item": "https://enginstack.com/volume/" },
+    { "@type": "ListItem", "position": 3, "name": "Pints to Liters" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards.",
+  "foundingDate": "2025",
+  "contactPoint": { "@type": "ContactPoint", "email": "rkingers776@gmail.com", "contactType": "customer support" }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/volume/">Volume</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Pints to Liters Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Pints to Liters: Two Pints, One Name, a 95 mL Gap —and Why the British Pub Pint Is Protected by Law</h1>
+            <p>In 1824, the British Parliament passed the Weights and Measures Act —and created a fork in the pint that has never been merged. The United States kept the Queen Anne wine gallon (231 cubic inches), which makes a pint <strong>473 mL</strong>. Britain adopted the Imperial gallon (the volume of 10 pounds of water), making a pint <strong>568 mL</strong>. Same word. Same etymology (from the Old French <em>pinte</em>, from the Latin <em>pincta</em>, "painted" —referring to the painted line marking a liquid level on a container). But the line was painted at different heights on opposite sides of the Atlantic. An American in a London pub gets 20% more beer than expected. A Londoner in a New York bar gets 20% less. Neither pub is cheating. The pint has simply meant two different volumes since 1824.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Every constant traceable to NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="0.473176473" data-unit-from="pt (US liquid)" data-unit-to="L">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">pt (US)</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.47318</span>
+                        <span class="unit-pill unit-pill-to">L</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 US pt = 0.47318 L</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 L = 2.11338 US pt</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>"A Pint's a Pound the World Around" —and Other Metrology Lies</h2>
+            <p>The rhyme is catchy and wrong. A US pint of water weighs 1.043 pounds at room temperature —close to a pound, close enough for a colonial-era market trader weighing produce on a balance scale. But a pint of honey weighs about 1.4 pounds. A pint of olive oil weighs 0.91 pounds. A pint of mercury weighs 14.3 pounds. The rhyme assumes water and only water, and even then it's 4% off —a discrepancy that was invisible to an 18th-century market scale but is easily measured by a modern digital balance. The rhyme survived not because it's accurate but because it's easy to remember and true enough for the one commodity that mattered most in a pre-refrigeration economy: milk. A pint of milk weighs very close to a pound, and milk was the liquid most commonly sold by volume and weighed for quality control. Every other liquid betrays the rhyme.</p>
+
+            <h2>Blood, Beer, and Berries: Three Industries That Can't Agree on a Pint</h2>
+            <p>If you donate blood in the United States, the phlebotomist draws <strong>one US pint —473 mL</strong>. A whole blood donation is roughly 500 mL in most countries (the World Health Organization standard), but the US blood banking system was built around the US pint bag. The difference between a US pint donation (473 mL) and a WHO 500 mL donation is about 5.7% —roughly a shot glass of blood. That 27 mL gap means a US blood donor gives slightly less volume per donation, which slightly reduces the yield of packed red cells, platelets, and plasma per bag. The blood banking system compensates by screening more donors. The unit was baked into the infrastructure: the apheresis machines, the storage refrigerator shelves, the anticoagulant-to-blood ratio in the collection bag. Switching to 500 mL would require replacing every blood collection bag in the United States —a packaging change that no FDA-regulated industry undertakes lightly.</p>
+
+            <p>British pubs, meanwhile, are required by law to serve draught beer and cider in Imperial pints (568 mL) or half-pints (284 mL). The UK Weights and Measures Act 1985 specifically mandates that beer and cider sold by the glass must be dispensed in "a third of a pint, a half-pint, or a multiple of a half-pint" —a legal carve-out that protects the Imperial pint against EU metrication directives. When Britain left the European Union in 2020, the pint's legal status was one of the few measurement regulations that Brexit advocates campaigned to preserve. The British pint is arguably the most politically defended unit of volume on earth.</p>
+
+            <p>A pint of blueberries at a US farmers' market is a <strong>dry pint</strong> —550.6 mL, defined as 1/64 of a US bushel. It is neither the liquid pint (473 mL) nor the Imperial pint (568 mL). The pint of blueberries container holds about 16% more volume than the liquid pint, because the dry pint was standardized for grain and produce, not for liquids. A recipe that calls for "a pint of blueberries" from a farmers' market is getting different amounts depending on whether the farmer used the dry pint basket or the liquid pint. Most don't know there's a difference. The US dry pint has been legally obsolete since 1968 but persists in farm stands and U-pick operations across New England. For more on this unit, see the <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Guide</a>.</p>
+
+            <div class="formula-box">
+                <p>L = pt (US) &times; 0.473176473 &emsp;|&emsp; L = pt (UK) &times; 0.56826125</p>
+            </div>
+
+            <h2>Common Pints to Liters</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Pints (US)</th><th>Liters</th><th>Pints (UK)</th><th>Liters</th><th>Real-world example</th></tr></thead><tbody>
+                <tr><td>1/2 pt</td><td>0.237 L</td><td>1/2 pt</td><td>0.284 L</td><td>Half-pint of cream. US: 237 mL (1 cup). UK: 284 mL (the old UK cup).</td></tr>
+                <tr><td>1 pt</td><td>0.473 L</td><td>1 pt</td><td>0.568 L</td><td>US: blood donation unit. UK: pub draught beer. The 95 mL gap.</td></tr>
+                <tr><td>2 pt</td><td>0.946 L</td><td>2 pt</td><td>1.137 L</td><td>One US quart. One UK quart (largely obsolete). US takeout soup container.</td></tr>
+                <tr><td>4 pt</td><td>1.893 L</td><td>4 pt</td><td>2.273 L</td><td>Half-gallon (US). Half a UK gallon. A large pitcher of beer.</td></tr>
+                <tr><td>8 pt</td><td>3.785 L</td><td>8 pt</td><td>4.546 L</td><td>US gallon. UK gallon. The 20% fork is the entire gallon difference.</td></tr>
+                </tbody></table></div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Which pint does this converter use?</p>
+                <p class="faq-a">The interactive calculator above converts <strong>US liquid pints</strong> (473.2 mL). The UK Imperial pint is 568.3 mL —multiply by 0.56826 instead. For manual UK conversions, use the formula box on this page. For a converter that handles both, see the related tools below. The US pint is the default because it's the pint used in American recipes, US nutrition labels, and all US consumer product packaging. UK recipes since 1995 almost exclusively use metric (mL and L). The UK pint survives in pubs and in the cultural memory of pre-metrication cookbooks —but a 2024 UK recipe calling for "a pint of stock" almost certainly means 600 mL, not 568 mL, because British home cooks have been rounding to the nearest 50 mL for 30 years.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do I convert a homebrew recipe that uses UK pints?</p>
+                <p class="faq-a">Homebrew recipes are the most frequent casualty of the US/UK pint split. A British homebrew recipe calling for "6 pints of water" —using the standard 5-gallon (UK) brew kettle —means 6 × 0.568 = 3.41 liters. An American brewer reading the same recipe and using US pints adds 6 × 0.473 = 2.84 liters —0.57 liters (over 1 US pint) too little water. That's a 17% water deficit, which concentrates the wort, raises the original gravity, and produces a stronger, maltier beer than the recipe intended. The fix: British homebrew recipes written after 2000 usually list volumes in liters. If they use pints, assume Imperial pints. If the recipe is American, assume US pints. If the recipe is Australian, it's in liters —Australia metricated in 1974 and no Australian under 50 has ever measured anything in pints.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is "a pint of ice cream" actually a pint?</p>
+                <p class="faq-a">Yes —a US pint of ice cream is 473 mL by volume. But ice cream is sold by volume, not weight, and the amount of air whipped into the product (called "overrun" in the ice cream industry) determines how much ice cream you're actually getting. A premium ice cream (low overrun, ~25% air) weighs about 380 grams per pint. An economy ice cream (high overrun, ~60% air) weighs about 240 grams per pint. Both are exactly one pint by volume. The FDA does not regulate overrun —only that the product meet minimum butterfat and total milk solids by weight. The pint is a volume unit containing a product whose density varies by more than 50% between brands. It is perhaps the only consumer product where the container size is legally fixed but the contents vary by more than a factor of 1.5. The solution, as with flour and a scale, is to ignore the volume and check the weight on the label —except ice cream labels don't list weight per pint. They list serving size (usually 2/3 cup, a volume measure) and servings per container. The volume recursion is total. For general cooking conversions, see <a href="/cups-to-ml">cups to mL</a> and the <a href="/guides/volume-cooking-conversion-guide">Volume Guide</a>.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The US liquid pint is 1/8 US gallon = 28.875 cubic inches = 473.176473 cm³. The UK pint is 1/8 Imperial gallon = 34.677 cubic inches = 568.26125 cm³. In fluid-system design, the US/UK pint split appears whenever a British specification (e.g., a pump rated in "pints per minute" from a UK manufacturer) is integrated into a system whose pipe diameters were specified in US customary units. The flow rate is off by 20% if the engineer assumes the wrong pint. In the 1970s, during the North Sea oil boom, American roughnecks and British engineers routinely miscommunicated mud pump flow rates because "gallons per minute" and "pints per stroke" meant different things depending on which side of the Atlantic the pump manual was printed on. The industry's solution was to adopt barrels (42 US gallons, invariant worldwide) for all drilling-fluid volume, abandoning pints and gallons entirely. The barrel is the only volume unit that the oil industry has successfully globalized without a US/UK fork. For the next rung up: <a href="/liters-to-pints">liters to pints</a> (the metric-to-pint reverse), <a href="/quarts-to-liters">quarts to liters</a> (2 pints to liters, dressed as quarts), and <a href="/gallons-to-liters">gallons to liters</a> (the 8-pint container).</p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/liters-to-pints">Liters to Pints</a>
+                <a href="/quarts-to-liters">Quarts to Liters</a>
+                <a href="/gallons-to-liters">Gallons to Liters</a>
+                <a href="/cups-to-ml">Cups to mL</a>
+                <a href="/fl-oz-to-ml">fl oz to mL</a>
+                <a href="/liters-to-ml">Liters to mL</a>
+                <a href="/guides/volume-cooking-conversion-guide">Volume Guide</a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="/main.js"></script>
+</body>
+</html>

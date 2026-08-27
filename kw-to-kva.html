@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>kW to kVA — Sizing the UPS and Generator You Actually Need | EnginStack</title>
+    <meta name="description" content="Convert kW to kVA: kVA = kW ÷ PF. A 5 kW server rack at 0.8 power factor needs 6.25 kVA — buy the 8 kVA UPS. The equipment-sizing calculation for UPS units, generators, and transformers.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/kw-to-kva">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/kw-to-kva">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/kw-to-kva">
+    <meta property="og:title" content="kW to kVA — Sizing the UPS and Generator You Actually Need | EnginStack">
+    <meta property="og:description" content="Convert kW to kVA: kVA = kW ÷ PF. A 5 kW server rack at 0.8 PF needs 6.25 kVA — buy the 8 kVA UPS. Equipment sizing for UPS, generators, transformers.">
+    <meta property="og:url" content="https://enginstack.com/kw-to-kva">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "kW to kVA Converter",
+      "description": "Convert kW to kVA with power factor: kVA = kW ÷ PF. Enter the real power of your load and the power factor to find the apparent power rating you must buy. A 5 kW rack at 0.8 PF needs 6.25 kVA.",
+      "url": "https://enginstack.com/kw-to-kva",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert kW to kVA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by the power factor: kVA = kW ÷ PF. A 5 kW server rack with a 0.8 power factor needs 5 ÷ 0.8 = 6.25 kVA, so you buy the 8 kVA UPS model. The kW is what the load does; the kVA is the current-handling the equipment must provide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I size a UPS for my equipment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add up the nameplate watts of everything to be protected, convert that total kW to kVA at the UPS's rated power factor (0.8 for most online double-conversion units), then pick the next standard size up. A 5 kW total therefore lands on an 8 kVA UPS — 6.25 kVA calculated, 8 kVA purchased — leaving headroom for inrush and future loads. Never size a UPS at 100% of its rating; 80% utilization is the practical ceiling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the power factor change the size I must buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the UPS's kVA rating caps its output current, and real load current carries both the working current (kW) and the reactive sloshing current that does no work. At PF 0.8, every kW of real load drags along 1.25 kVA worth of current — so the machine has to be rated 25% larger than the kW alone would suggest. Higher-PF loads (PFC power supplies at 0.95–0.99) shrink that gap."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "kW to kVA Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">kW to kVA Converter</span></nav>
+
+        <header class="page-header">
+            <h1>kW to kVA — sizing the UPS and generator you actually need</h1>
+            <p>You know what your equipment draws in watts. The UPS catalog sells in kVA. The gap between them is the power factor, and it decides whether you buy the 6 kVA unit or the 8 kVA unit. This converter does the equipment-sizing arithmetic: kVA = kW ÷ PF, the number behind every data-center UPS purchase, backup-generator selection, and transformer spec in the electrical trades.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="kW" data-unit-to="kVA" data-ctx-unit="power factor" data-formula="kw-over-pf">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive kW to kVA calculator. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">kW</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="5" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">kW</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label" for="ctx-val">power factor</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="ctx-input" id="ctx-val" value="0.8" min="0" max="1" step="0.01">
+                        <span class="unit-pill unit-pill-ctx">PF</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">kVA</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">5 kW ÷ 0.8 power factor = 6.25 kVA</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">6.25 kVA × 0.8 power factor = 5 kW</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 and IEC 60050. kVA = kW ÷ cos φ is a definition — the power factor comes from your load's measurements or datasheet.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Catalog Sells kVA, Your Rack Draws kW</h2>
+
+            <p>Open any UPS or generator datasheet and the model number carries its kVA: the APC Smart-UPS 1500VA, the Generac 22kW (which is actually a 27.5 kVA machine), the data-center 800 kVA transformer. The equipment you are protecting, meanwhile, is quoted in watts on every PSU sticker. Bridging the two is the power factor of the load — and for a rack of servers with active PFC supplies it is 0.95 to 0.99, while for motor loads it sinks toward 0.7. This converter keeps the two straight: <strong>divide the watts by the PF to find the kVA you must buy</strong>.</p>
+
+            <div class="formula-box"><p><strong>kVA = kW ÷ power factor</strong><br>S = P / cos φ<br>At 0.8 PF every kW costs 1.25 kVA of rating; at 1.0 the two are equal.</p></div>
+
+            <h2>Typical Sizing Decisions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>load (kW)</th><th>PF</th><th>kVA needed</th><th>Purchase decision</th></tr></thead><tbody>
+                <tr><td>1.2 kW</td><td>0.8</td><td>1.5 kVA</td><td>Home office — the 1500 VA UPS.</td></tr>
+                <tr><td>5 kW</td><td>0.8</td><td>6.25 kVA</td><td>Small server rack — buy 8 kVA, not 6 kVA.</td></tr>
+                <tr><td>5 kW</td><td>0.99</td><td>5.05 kVA</td><td>Same rack with PFC power supplies — 6 kVA suffices.</td></tr>
+                <tr><td>40 kW</td><td>0.8</td><td>50 kVA</td><td>Telco or office floor — 50 kVA transformer.</td></tr>
+                <tr><td>90 kW</td><td>0.9</td><td>100 kVA</td><td>PFC-corrected floor — a 100 kVA unit, fully utilized.</td></tr>
+                </tbody></table></div>
+
+            <p>The 5 kW pair is the practical takeaway: identical load, two power factors, and the difference decides between the 6 kVA and 8 kVA price tier. That is why modern server PSUs advertise "active PFC" — 0.99 power factor means a 5 kW rack needs barely more kVA than kW, shrinking the UPS, the generator, and the branch circuit all at once. The same arithmetic in reverse, converting a nameplate kVA back to usable kW, is the <a href="/kva-to-kw">kVA to kW</a> page.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The mirror calculation — what a nameplate kVA delivers as kW — is <a href="/kva-to-kw">kVA to kW</a>, and the underlying ratio is explained on the <a href="/power-factor">power factor</a> page. When the load is a motor rather than a rack, its rating arrives in <a href="/hp-to-kw">horsepower</a> and must be converted before it enters this formula. The branch circuit and breaker that feed the UPS are sized by the current, not the kVA — see <a href="/watts-to-amps">watts to amps</a> at your supply voltage. Everything traces to the <a href="/electric/">electric hub</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/kva-to-kw">kVA to kW</a> · <a href="/power-factor">Power Factor</a> · <a href="/watts-to-amps">W to A</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/kva-to-kw">kVA To kW</a>
+                <a href="/power-factor">Power Factor Calculator</a>
+                <a href="/watts-to-amps">Watts To Amps</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert kW to kVA?</p>
+                    <p class="faq-a">Divide by the power factor: kVA = kW ÷ PF. A 5 kW server rack with a 0.8 power factor needs 5 ÷ 0.8 = 6.25 kVA, so you buy the 8 kVA UPS model. The kW is what the load does; the kVA is the current-handling the equipment must provide.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">How do I size a UPS for my equipment?</p>
+                    <p class="faq-a">Add up the nameplate watts of everything to be protected, convert that total kW to kVA at the UPS's rated power factor (0.8 for most online double-conversion units), then pick the next standard size up. A 5 kW total therefore lands on an 8 kVA UPS — 6.25 kVA calculated, 8 kVA purchased — leaving headroom for inrush and future loads. Never size a UPS at 100% of its rating; 80% utilization is the practical ceiling.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why does the power factor change the size I must buy?</p>
+                    <p class="faq-a">Because the UPS's kVA rating caps its output current, and real load current carries both the working current (kW) and the reactive sloshing current that does no work. At PF 0.8, every kW of real load drags along 1.25 kVA worth of current — so the machine has to be rated 25% larger than the kW alone would suggest. Higher-PF loads (PFC power supplies at 0.95–0.99) shrink that gap.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var ctx = card.querySelector('.ctx-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fCtx = card.getAttribute('data-ctx-unit');
+    var fTo = card.getAttribute('data-unit-to');
+    function calc() {
+        var a = parseFloat(main.value), b = parseFloat(ctx.value);
+        if (isNaN(a) || isNaN(b) || b === 0) { out.textContent = '—'; return; }
+        var r = a / b;
+        out.textContent = fmt(r);
+        fwd.textContent = a + ' ' + fMain + ' ÷ ' + b + ' ' + fCtx + ' = ' + fmt(r) + ' ' + fTo;
+        rev.textContent = fmt(r) + ' ' + fTo + ' × ' + b + ' ' + fCtx + ' = ' + a + ' ' + fMain;
+    }
+    main.addEventListener('input', calc);
+    ctx.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Kilovolt-ampere",
+  "termCode": "kilovolt-ampere (kVA)",
+  "description": "The kilovolt-ampere is the unit of apparent power in AC circuits, equal to 1,000 volt-amperes. Apparent power (kVA) relates to real power (kW) through the power factor: kW = kVA × PF.",
+  "url": "https://en.wikipedia.org/wiki/Volt-ampere",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+
+</body>
+</html>

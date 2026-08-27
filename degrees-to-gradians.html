@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degrees to Gradians — When You Need 100 in a Right Angle, and Why European Surveyors Still Use Gons | EnginStack</title>
+    <meta name="description" content="1 degree = 1.1111111111 gon (10/9 exactly). Surveyors in France, Germany, and Poland still record angles in gradians because a right angle of exactly 100 makes slope calculations clean. If your degree data must be output in gon, here is the exact multiplication and why this unit refuses to die.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/degrees-to-gradians">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/degrees-to-gradians">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/degrees-to-gradians">
+    <meta property="og:title" content="Degrees to Gradians — The 100-Gon Right Angle That Europe Won't Abandon | EnginStack">
+    <meta property="og:description" content="Multiply degrees by 10/9 to get gradians. 90 degrees = 100 gon. Your calculator's GRAD button exists because European surveyors wanted a right angle to be a round number.">
+    <meta property="og:url" content="https://enginstack.com/degrees-to-gradians">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Degrees to Gradians Converter",
+  "description": "Convert degrees to gradians (gons) using the exact factor 10/9 = 1.1111111111. 90 degrees = 100 gon. Used for European surveying data, cadastral records, and theodolite readings that output in the 400-grad circle.",
+  "url": "https://enginstack.com/degrees-to-gradians",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "I opened a European survey file and all the angles are around 100 when I expected 90. Is the data corrupted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The data is in gradians. Multiply all values by 0.9 to get degrees. Check the file header — well-formed geospatial data (LandXML, CityGML) includes a uom attribute on angular fields. In a plain CSV with German, French, or Polish column names, look for \"gon,\" \"grad,\" or \"Neugrad.\" If values cluster around 100/200/300/400 rather than 90/180/270/360, it is almost certainly gon. After multiplying by 0.9, a right angle should read near 90. If it still reads near 100, the data was already in degrees and you have over-corrected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are \"gon,\" \"grad,\" \"grade,\" and \"gradian\" four words for the same thing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. \"Gon\" is the ISO standard term (ISO 80000-3, 1999). \"Grad\" and \"grade\" are older terms deprecated to avoid confusion with slope percentage or academic marks. \"Gradian\" is the standard English textbook term. \"Neugrad\" appears in pre-1945 German records. All are numerically identical — \"100 gon\" = \"100 grads\" = \"100 gradians.\" No conversion between them is needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Microsoft Excel have a function for converting degrees to gradians?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Excel's CONVERT function does not include gradians. Use =A1*10/9 for degrees to gon, =A1*0.9 for gon to degrees. No add-in required. Google Sheets is the same. MATLAB's Mapping Toolbox provides deg2grad and grad2deg. In Python, C, Java, Rust, Go, and every other language: multiply by 10/9. The conversion is too simple to justify a library function and too obscure for a third-party package worth depending on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I accidentally convert degrees to gradians twice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You multiply by (10/9)² = 100/81 ≈ 1.2346. A 90-degree right angle becomes 100 gon after one conversion but 111.111 gon after two. The output stays plausible — a 200-degree bearing becomes 246.9, which looks like a valid compass heading — so eyeballing will not catch it. Verify a known reference: a right angle in the source must be 100 gon after one conversion, period. Check your toolchain for hidden conversion settings. Some GIS import wizards have a checkbox labelled \"Input angles in gradians\" that silently converts on import — combine that with a preprocessing step that already converted, and the factor is applied twice."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Angle", "item": "https://enginstack.com/angle/" },
+    { "@type": "ListItem", "position": 3, "name": "Degrees to Gradians" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/angle/">Angle</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Degrees to Gradians Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Degrees to Gradians: When You Need 100 in a Right Angle</h1>
+            <p>Multiply by 10/9. That is the entire conversion: 1 degree = 1.1111111111 gradians. No pi. No irrational constant. Just a rational factor that makes the right angle exactly 100 gon and the full circle exactly 400. The math takes one multiplication. The reason anyone bothers: a European cadastral regulation from 1973 says "all boundary angles shall be expressed in gon," and a civil engineer in Frankfurt has a theodolite locked to the 400-grad circle. Your GPS collected the baseline in degrees. The contract requires gon. This is the simplest step in the project and the one most likely to be forgotten until the night before the deadline.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="1.1111111111" data-unit-from="degrees (°)" data-unit-to="gradians (gon)">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="90" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">degrees (°)</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">100</span>
+                        <span class="unit-pill unit-pill-to">gradians (gon)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">90° = 100 gon (exact)</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 gon = 0.9° (exact)</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>You Have Degrees. Someone Wants Gons. Now What?</h2>
+
+            <p>It happens when a firm bids a highway contract in Poland, when a GIS analyst imports German property shapefiles, when a geomatics student opens a swisstopo dataset. The field data is in decimal degrees — GPS receivers speak WGS84 in degrees, always — but the deliverable must be in gon. The spec says "Winkelangaben in Gon," and a submission in degrees gets rejected. Not because the math is wrong. Because the format is wrong.</p>
+
+            <p>The reason is continuity. A cadastral map from 1923 recorded angles in gradians. It was digitized in 1987 and migrated to PostGIS in 2012. No one converted to degrees, because converting introduces rounding — multiplied across 40,000 boundaries, enough centimeters shift to trigger a legal dispute. The gon stays not because anyone likes it but because changing it costs more than keeping it. Same dynamic as American road signs in miles: measurement systems survive embedded in contracts, not because they are optimal.</p>
+
+            <h2>Surveying Europe: The Countries That Never Switched</h2>
+
+            <p>Walk into a surveying supply shop in Munich, Lyon, or Warsaw. The theodolite's default display is gon — 400 divisions per circle. The salesperson never asks which unit you prefer. A German Vermessungsingenieur with 30 years in the field has never set an instrument to degrees.</p>
+
+            <p>Gon-using countries include Germany, France, Poland, Switzerland, Austria, the Czech Republic, Slovakia, and parts of Belgium and the Netherlands. Their national mapping agencies — BKG, IGN, swisstopo, GUGiK — store primary angle measurements in gon. Degrees are produced at the output boundary: web viewer, data export, PDF survey plan. Anyone querying the raw German ALKIS cadastral system gets angles in gon. If you do not know that, a 100-gon corner gets plotted as 100 degrees — 10 degrees off true, compounding to meters of displacement across a rural parcel.</p>
+
+            <div class="formula-box">
+                <p>gradians = degrees &times; 10 / 9 &nbsp;&nbsp;&nbsp;&nbsp;gon = &deg; &times; 1.1111111111</p>
+            </div>
+
+            <h2>That One Time You Pressed GRAD on Your Calculator</h2>
+
+            <p>Every scientific calculator of the last 40 years — Casio fx, TI-30, Sharp EL, HP — has a DRG key cycling through DEG, RAD, and GRAD. DEG is default. RAD is for calculus. GRAD is the one you activate accidentally during a physics exam and spend 20 minutes wondering why sin(90) returns 0.9877 instead of 1.0000.</p>
+
+            <p>In GRAD mode, the calculator interprets its input as gradians (400 per circle). sin(100) in GRAD = sin(90&deg;) = 1 — because 100 gon is a right angle. sin(90) in GRAD = sin(81&deg;) = 0.9877 — wrong enough to be dangerous. The mode exists because European engineering exams state problems in gon. A French exam might ask for sin(50 gon) — trivial with GRAD mode, a conversion headache without it.</p>
+
+            <p>If you just found your calculator in GRAD mode: switch to DEG, redo the work, check sin(90). It must equal 1. If 0.8939, you are in RAD. If 0.9877, you are in GRAD. This has happened to approximately every engineer who ever took a timed exam with a borrowed calculator.</p>
+
+            <h2>Mils, Gradians, and the Artillery Connection</h2>
+
+            <p>NATO artillery measures angles in mils — 6,400 per circle. The mil derives from the milliradian (1/1000 rad, subtending ~1 meter at 1 km), but the mathematically correct 2&pi; &times; 1,000 &asymp; 6,283 is rounded to 6,400 for divisibility by 4, 8, 16, 32, 64, and 128. Warsaw Pact countries used 6,000 mils; Sweden used 6,300 until 2007.</p>
+
+            <p>The connection: 1 gon = 16 mils exactly (400 &times; 16 = 6,400). European military surveyors designed the NATO mil grid to work with gon-graduated geodetic equipment. Fire missions are called in mils, but survey teams establishing artillery control points work in gon — they are the same people who survey roads and property in civilian life. A wrong multiplier in that chain puts a 155 mm round 300 meters off target.</p>
+
+            <h2>Degrees to Gradians at a Glance</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Degrees (&deg;)</th><th>Gradians (gon)</th><th>Radians</th><th>Real-world Angle</th></tr></thead><tbody>
+                <tr><td>1&deg;</td><td>1.111 gon</td><td>0.01745 rad</td><td>A pencil-width at arm's length. Barely perceptible.</td></tr>
+                <tr><td>30&deg;</td><td>33.333 gon</td><td>0.5236 rad</td><td>Interior angle of an equilateral triangle. sin(30&deg;) = 0.5.</td></tr>
+                <tr><td>45&deg;</td><td>50 gon</td><td>0.7854 rad</td><td>Diagonal of a square. Standard roof pitch.</td></tr>
+                <tr><td>57.296&deg;</td><td>63.662 gon</td><td>1 rad</td><td>One radian. Width of your thumb at arm's length.</td></tr>
+                <tr><td>60&deg;</td><td>66.667 gon</td><td>1.0472 rad</td><td>Equilateral corner. cos(60&deg;) = 0.5.</td></tr>
+                <tr><td>90&deg;</td><td>100 gon</td><td>1.5708 rad</td><td>Right angle. The entire justification for gradians.</td></tr>
+                <tr><td>180&deg;</td><td>200 gon</td><td>3.1416 rad</td><td>Straight line. Semicircle. Half a rotation.</td></tr>
+                <tr><td>270&deg;</td><td>300 gon</td><td>4.7124 rad</td><td>Three-quarter turn. 9 o'clock. Due west.</td></tr>
+                <tr><td>360&deg;</td><td>400 gon</td><td>6.2832 rad</td><td>Full circle. 360&deg; = 400 gon = 2&pi; rad.</td></tr>
+                </tbody></table></div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box"><p><strong>90&deg; &rarr; 100 gon</strong></p><p>The right angle. 90 &times; 10/9 = 100, exactly. A surveyor reads 100.00 gon and knows the walls are perpendicular. 100.02 gon means 0.02 gon off — about 3.2 mm of deviation across a 10-meter wall.</p></div>
+            <div class="example-box"><p><strong>45&deg; &rarr; 50 gon</strong></p><p>Half a right angle. An American roofer says "45 degrees." A German Bauzeichner thinks "50 gon." Same roof, same 1:1 slope, different number.</p></div>
+            <div class="example-box"><p><strong>1&deg; &rarr; 1.111... gon</strong></p><p>The base unit. 1 &times; 10/9 = 1.111... with the digit 1 repeating. The factor 10/9 is rational — no pi. One-tenth of a degree = 0.111... gon. Exact conversions, limited only by how many digits you write.</p></div>
+            <div class="example-box"><p><strong>360&deg; &rarr; 400 gon</strong></p><p>The full circle. 360 &times; 10/9 = 400. The anchor of the system: 400 gradians to a circle, 100 to a right angle. Remember 360-to-400. The factor 10/9 is 400/360 reduced.</p></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>In land surveying, the gradian appears when data crosses a border. A GPS baseline is in degrees. A German Vermessungsamt requires gon. The conversion is a one-liner. The risk is the assumption that angles are always in degrees. Import a French highway DXF — drafted in gon — into software that assumes degrees, and the road rotates by 0.9&times;. A 100-gon curve drawn as 100&deg; is off by 10&deg; — 40 meters laterally at 200-meter radius. The fix takes five minutes. Finding it takes eight. Reverse: <a href="/gradians-to-degrees">gradians to degrees</a>. Programmer's daily: <a href="/degrees-to-radians">degrees to radians</a>. Reference: <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/gradians-to-degrees">gradians to degrees</a> &middot; <a href="/degrees-to-radians">degrees to radians</a> &middot; <a href="/radians-to-degrees">radians to degrees</a> &middot; <a href="/guides/angle-conversion-guide">Angle Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/gradians-to-degrees">Gradians to Degrees</a>
+                <a href="/degrees-to-radians">Degrees to Radians</a>
+                <a href="/radians-to-degrees">Radians to Degrees</a>
+                <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">I opened a European survey file and all the angles are around 100 when I expected 90. Is the data corrupted?</p>
+                <p class="faq-a">No. The data is in gradians. Multiply all values by 0.9 to get degrees. Check the file header — well-formed geospatial data (LandXML, CityGML) includes a <code>uom</code> attribute on angular fields. In a plain CSV with German, French, or Polish column names, look for "gon," "grad," or "Neugrad." If values cluster around 100/200/300/400 rather than 90/180/270/360, it is almost certainly gon. After multiplying by 0.9, a right angle should read near 90. If it still reads near 100, the data was already in degrees and you have over-corrected.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Are "gon," "grad," "grade," and "gradian" four words for the same thing?</p>
+                <p class="faq-a">Yes. "Gon" is the ISO standard term (ISO 80000-3, 1999). "Grad" and "grade" are older terms deprecated to avoid confusion with slope percentage or academic marks. "Gradian" is the standard English textbook term. "Neugrad" appears in pre-1945 German records. All are numerically identical — "100 gon" = "100 grads" = "100 gradians." No conversion between them is needed.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Does Microsoft Excel have a function for converting degrees to gradians?</p>
+                <p class="faq-a">No. Excel's CONVERT function does not include gradians. Use <code>=A1*10/9</code> for degrees to gon, <code>=A1*0.9</code> for gon to degrees. No add-in required. Google Sheets is the same. MATLAB's Mapping Toolbox provides <code>deg2grad</code> and <code>grad2deg</code>. In Python, C, Java, Rust, Go, and every other language: multiply by 10/9. The conversion is too simple to justify a library function and too obscure for a third-party package worth depending on.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What happens if I accidentally convert degrees to gradians twice?</p>
+                <p class="faq-a">You multiply by (10/9)&sup2; = 100/81 &asymp; 1.2346. A 90-degree right angle becomes 100 gon after one conversion but 111.111 gon after two. The output stays plausible — a 200-degree bearing becomes 246.9, which looks like a valid compass heading — so eyeballing will not catch it. Verify a known reference: a right angle in the source must be 100 gon after one conversion, period. Check your toolchain for hidden conversion settings. Some GIS import wizards have a checkbox labelled "Input angles in gradians" that silently converts on import — combine that with a preprocessing step that already converted, and the factor is applied twice.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

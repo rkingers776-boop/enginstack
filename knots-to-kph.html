@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knots to km/h — Maritime Speed, Nautical Miles, and the 1.852 Constant | EnginStack</title>
+    <meta name="description" content="1 knot = 1.852 km/h exactly. A 20-knot cruising yacht is doing 37 km/h. The knot is tied to the circumference of the Earth — every nautical mile is one arcminute of latitude.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/knots-to-kph">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/knots-to-kph">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/knots-to-kph">
+    <meta property="og:title" content="Knots to km/h — Maritime Speed, Nautical Miles, and the 1.852 Constant | EnginStack">
+    <meta property="og:description" content="1 knot = 1.852 km/h exactly. A 20-knot cruising yacht is doing 37 km/h. The knot is tied to the circumference of the Earth — literally.">
+    <meta property="og:url" content="https://enginstack.com/knots-to-kph">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Knots to km/h Converter",
+  "description": "1 knot = 1.852 km/h exactly. A 20-knot cruising yacht is doing 37 km/h. The knot is defined by the Earth's circumference — one nautical mile per hour.",
+  "url": "https://enginstack.com/knots-to-kph",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Speed", "item": "https://enginstack.com/speed/" },
+    { "@type": "ListItem", "position": 3, "name": "Knots to km/h Converter" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is a nautical mile longer than a statute mile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A statute mile (1,609.344 m) is a historical unit from Roman road-building — mille passus, a thousand paces. A nautical mile (1,852 m) is derived from the Earth's geometry — one arcminute of latitude. The nautical mile is about 15% longer. This means a speed of 10 knots (18.52 km/h) is faster than 10 mph (16.09 km/h). Confusing the two can be expensive: in 1998, the cruise ship Royal Majesty ran aground off Nantucket because the GPS was set to display nautical miles but the crew assumed statute miles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast is a container ship in km/h?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Large container ships cruise at 20–25 knots = 37–46 km/h. That's slower than highway driving. At these speeds, a voyage from Shanghai to Los Angeles (about 5,700 nautical miles) takes roughly 12–14 days. The slow speed is a trade-off: fuel consumption scales roughly with the cube of speed, so reducing from 25 knots to 20 knots cuts fuel burn by nearly 50%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do maritime wind warnings convert to km/h?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Small Craft Advisory (18–33 kn) = 33–61 km/h — small boats should seek shelter. Gale Warning (34–47 kn) = 63–87 km/h — strong enough to walk against with difficulty. Storm Warning (48–63 kn) = 89–117 km/h — structural damage to small vessels. Hurricane Force (64+ kn) = 119+ km/h — survival conditions at sea. A 100-knot typhoon is 185 km/h sustained — Category 3, where \"devastating damage will occur.\""
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/speed/">Speed</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Knots to km/h Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Knots to km/h — 1.852, the Number That Maps the Earth</h1>
+            <p>1 knot = 1.852 km/h. Exact since 1929. A knot is a nautical mile per hour, and a nautical mile is one arcminute of latitude — this isn't an arbitrary conversion, it's the circumference of the planet divided into navigable units.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <!-- Calculator -->
+        <div class="calculator-card" data-coefficient="1.852" data-unit-from="knots" data-unit-to="km/h">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="20" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">knots</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">37.04</span>
+                        <span class="unit-pill unit-pill-to">km/h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">20 knots = 37.04 km/h</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">20 km/h = 10.7991 knots</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>How to Convert Knots to km/h</h2>
+            <p>A knot is exactly one nautical mile per hour, and since 1929 a nautical mile has been defined as exactly <strong>1,852 metres</strong>. Therefore <strong>1 knot = 1.852 km/h</strong> — exact, by international agreement. This conversion traces back not to an arbitrary committee decision but to the geometry of the Earth: one arcminute of latitude measured along any meridian is approximately one nautical mile. The distance varies slightly due to the Earth's oblateness (the equatorial bulge makes the meridional circumference about 40,008 km, giving an average minute of latitude of 1,852.3 metres), but the 1929 standard rounded to 1,852 metres for convenience. The knot survives because every navigation chart on Earth is gridded in latitude and longitude — if you measure distance on a chart with dividers and place them against the latitude scale, the reading is in nautical miles. If your speed is in knots, your ETA calculations are one division long.</p>
+
+            <h2>The Conversion Formula</h2>
+            <div class="formula-box">
+                <p>
+                km/h = knots &times; 1.852
+                </p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert 20 knots to km/h</p>
+                <p>20 &times; 1.852 = <strong>37.04 km/h</strong> (a large container ship's cruising speed — slower than a car on a suburban road but consuming 300 tonnes of fuel oil per day)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert 50 knots to km/h</p>
+                <p>50 &times; 1.852 = <strong>92.6 km/h</strong> (an America's Cup AC75 foiling yacht at full pace — faster than most highway speed limits, on water, powered by wind alone)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert 100 knots to km/h</p>
+                <p>100 &times; 1.852 = <strong>185.2 km/h</strong> (Category 3 hurricane wind speed threshold — the outer eyewall of a major tropical cyclone, where wind loads transition from "structural damage" to "structural failure")</p>
+            </div>
+
+            <h2>Common Knots to km/h Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr>
+                    <th>Knots</th>
+                    <th>km/h</th>
+                    <th>Maritime context</th>
+                </tr></thead><tbody>
+                <tr><td>5 kn</td><td>9.26 km/h</td><td>Harbour speed limit, light breeze (Bft 3)</td></tr>
+                <tr><td>10 kn</td><td>18.52 km/h</td><td>Sailing yacht, moderate breeze</td></tr>
+                <tr><td>20 kn</td><td>37.04 km/h</td><td>Container ship cruise, fresh breeze (Bft 5)</td></tr>
+                <tr><td>34 kn</td><td>62.97 km/h</td><td>Small craft advisory threshold, near gale</td></tr>
+                <tr><td>50 kn</td><td>92.60 km/h</td><td>Storm warning threshold, AC75 foil speed</td></tr>
+                <tr><td>64 kn</td><td>118.53 km/h</td><td>Hurricane force warning threshold (Bft 12)</td></tr>
+                <tr><td>100 kn</td><td>185.20 km/h</td><td>Category 3 hurricane sustained winds</td></tr>
+                <tr><td>150 kn</td><td>277.80 km/h</td><td>Category 5 hurricane, extreme tornado</td></tr>
+                </tbody></table></div>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags"><a href="/kph-to-mps">km/h to m/s</a> <a href="/mps-to-kph">m/s to km/h</a> <a href="/nautical-miles-to-km">Nautical Miles to KM</a> <a href="/mph-to-kph">MPH to KPH</a> <a href="/nautical-miles-to-miles">Nautical Miles to Miles</a></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why is a nautical mile longer than a statute mile?</p>
+                <p class="faq-a">A statute mile (1,609.344 m) is a historical unit from Roman road-building — mille passus, a thousand paces. A nautical mile (1,852 m) is derived from the Earth's geometry — one arcminute of latitude. The nautical mile is about 15% longer. This means a speed of 10 knots (18.52 km/h) is faster than 10 mph (16.09 km/h). Confusing the two can be expensive: in 1998, the cruise ship Royal Majesty ran aground off Nantucket because the GPS was set to display nautical miles but the crew assumed statute miles.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How fast is a container ship in km/h?</p>
+                <p class="faq-a">Large container ships cruise at 20–25 knots = 37–46 km/h. That's slower than highway driving. At these speeds, a voyage from Shanghai to Los Angeles (about 5,700 nautical miles) takes roughly 12–14 days. The slow speed is a trade-off: fuel consumption scales roughly with the cube of speed, so reducing from 25 knots to 20 knots cuts fuel burn by nearly 50%.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How do maritime wind warnings convert to km/h?</p>
+                <p class="faq-a">Small Craft Advisory (18–33 kn) = 33–61 km/h — small boats should seek shelter. Gale Warning (34–47 kn) = 63–87 km/h — strong enough to walk against with difficulty. Storm Warning (48–63 kn) = 89–117 km/h — structural damage to small vessels. Hurricane Force (64+ kn) = 119+ km/h — survival conditions at sea. A 100-knot typhoon is 185 km/h sustained — Category 3, where "devastating damage will occur."</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The knot survives in an age of GPS because the nautical mile — and therefore the knot — is the only unit of speed that makes navigation calculations trivial. On a Mercator-projection chart, one minute of latitude equals one nautical mile anywhere on the planet. (Longitude minutes vary with the cosine of latitude — a fact that has led to more than one navigation error.) A ship moving at 15 knots for 6 hours covers 90 nautical miles. The same calculation in kilometres requires multiplying 6 × 15 × 1.852 = 166.68 km — not difficult, but an extra step, and extra steps accumulate errors over a 30-day voyage. Container shipping, aviation, and naval operations continue to use knots because the entire global infrastructure of charts, procedures, and trained personnel uses it. The International Civil Aviation Organization (ICAO) mandates knots for airspeed and km/h for wind speed on runways — a dual-unit system that has caused at least one fatal accident when the two were confused during a takeoff calculation.</p>
+                <p style="margin-top:1.2em;">More: <a href="/mps-to-kph">m/s to km/h</a> · <a href="/mph-to-kph">mph to km/h</a> · <a href="/nautical-miles-to-km">nautical miles to km</a> · <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

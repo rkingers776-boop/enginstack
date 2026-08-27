@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Feet to Square Metres — when the code speaks metric and the drawing speaks feet | EnginStack</title>
+    <meta name="description" content="Multiply square feet by 0.092903 for square metres. Sq-ft-to-sq-m is the step the International Building Code forces — it is written in metric while US drawings are still dimensioned in feet. Every floor plan that crosses a border runs this number.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/sq-ft-to-sq-m">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/sq-ft-to-sq-m">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/sq-ft-to-sq-m">
+    <meta property="og:title" content="Square Feet to Square Metres — when the code speaks metric and the drawing speaks feet | EnginStack">
+    <meta property="og:description" content="Multiply square feet by 0.092903 for square metres. Every floor plan that crosses a border, every building code limit, every international real estate listing depends on this number.">
+    <meta property="og:url" content="https://enginstack.com/sq-ft-to-sq-m">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Square Feet to Square Metres Converter",
+  "description": "Multiply square feet by 0.092903 for square metres. Sq-ft-to-sq-m is the forced translation between US construction drawings and the International Building Code — and the number that bridges every cross-border real estate transaction.",
+  "url": "https://enginstack.com/sq-ft-to-sq-m",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Area", "item": "https://enginstack.com/area/" },
+    { "@type": "ListItem", "position": 3, "name": "Square Feet to Square Metres Converter" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the square-foot-to-square-metre factor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One square foot equals 0.09290304 square metres exactly, from the international definition 1 ft = 0.3048 m. Multiply sq ft by 0.09290304 to get sq m. For rough work, 0.0929 is acceptable for a single room; for a whole building, use the full 8-decimal factor to avoid cumulative error against code limits. Equivalently, 1 sq m = 10.7639 sq ft — divide sq ft by 10.7639 for sq m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the building code use metric but drawings use feet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The International Building Code (IBC) is written in metric units as the normative reference, while most US construction drawings are dimensioned in feet and inches because that is what crews read. A contractor therefore converts the code's metric area limits back to the sq ft the crew actually measures — sq-ft-to-sq-m is that forced translation, and it appears on the title sheet of every architectural drawing set submitted in an IBC jurisdiction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 0.092903 a clean number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the square of 0.3048 m/ft — exact because the linear definition is exact. 0.3048² = 0.09290304, which terminates at 8 decimal places. It is clean in the metrological sense: derived from an exact definition, not an empirical measurement. Any rounding introduces error that propagates — a 0.1% error in the linear factor becomes a 0.2% error in the area factor, which for a 100,000 sq ft building shifts the metric area by about 2 sq m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the 2023 US survey foot retirement affect area conversions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The US survey foot (1200/3937 m) yields a survey square foot of about 0.09290341 sq m — roughly 4 parts per million larger than the international square foot. Over a 100-acre subdivision, the difference is about 170 sq ft. NIST deprecated the survey foot on January 1, 2023. Legacy surveys and PLSS records in survey feet must be converted using the survey-foot factor, not the international one — and the conversion method must be noted on the plat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do international real estate buyers convert sq ft to sq m?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most countries list residential property in square metres; the US uses square feet. A European buyer seeing a 2,000 sq ft US listing multiplies by 0.0929 to get about 186 sq m. A US buyer seeing a 200 m² Paris listing divides by 0.0929 to get about 2,150 sq ft. Avoid the \"divide by 10\" shortcut — it overstates area by 7.6%. With luxury property at $10,000+/m², that rounding error represents real money."
+      }
+    }
+  ]
+}
+    </script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/area/">Area</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Square Feet to Square Metres Converter</span></nav>
+                <header class="page-header">
+            <h1>Square Feet to Square Metres — when the code speaks metric and the drawing speaks feet</h1>
+            <p>The International Building Code is written in square metres; the drawings on the site trailer are still in square feet. Sq-ft-to-sq-m is the forced translation between them — multiply by 0.09290304 — and it is exactly the step a contractor runs before a square-foot crew can read a metric limit. Every cross-border real estate listing, every LEED certification, every architectural competition entry with a footprint on two continents runs this number.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.092903" data-unit-from="sq ft" data-unit-to="sq m">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">sq ft</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.092903</span>
+                        <span class="unit-pill unit-pill-to">sq m</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">1 sq ft = 0.092903 sq m</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 sq m = 10.7639 sq ft</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+<article class="seo-section">
+    <h2>The code that speaks metric, the drawing that speaks feet</h2>
+    <p>US construction lives a double life. The <strong>International Building Code</strong> — the document officials enforce — states occupancy, egress, and area limits in square metres. The drawings crews build from are dimensioned in feet and inches. The gap is closed by conversion: <strong>sq ft × 0.09290304 = sq m</strong>. A 5,000 sq ft floor plate is 464.5 sq m against the code's metric threshold. The math is forced, not optional — a plan that ignores it fails inspection.</p>
+
+    <p>This dual-language problem is unique to the United States. Canada, Australia, and the UK all publish their building codes in metric — but their construction industries also work in metric, so no conversion is needed on site. In the US, the code is metric, the drawings are imperial, and the contractor is the translator. A structural engineer in Chicago designs a floor plate at 150 ft × 100 ft = 15,000 sq ft. The code limits floor area to 1,400 sq m per storey for that occupancy type. The engineer runs 15,000 × 0.09290304 = 1,393.5 sq m — under the limit by 6.5 sq m, a margin of 0.46%. That margin is real. Round the factor to 0.093 and the calculated area becomes 1,395 sq m — still under, but now only by 5 sq m. Round to 0.09 and it's 1,350 sq m — a phantom 50 sq m of compliance that doesn't exist.</p>
+
+    <h2>Why 0.09290304 is the square of the foot — and why that matters</h2>
+    <p>The linear factor is 1 ft = 0.3048 m (exact, by the 1959 International Yard and Pound Agreement). Area squares it, so 1 sq ft = (0.3048)² = <strong>0.09290304 sq m</strong>. That squaring is why area factors are longer and less intuitive than length ones, and why a rounded "0.093" drifts on a large floor plan. For a 10,000 sq ft building, rounding the factor to 0.093 overshoots the metric area by about 10 sq m — a meaningful error against a code limit.</p>
+
+    <p>There's a deeper point here: area conversion carries <em>compounded</em> error. If you start with a rounded linear conversion (1 ft ≈ 0.305 m instead of 0.3048 m), your linear error is 0.07%. Square it and the area error is 0.13%. That's small — but for a 100,000 sq ft warehouse, it's 130 sq ft of phantom floor space. The rule in metrology is: <strong>never round the factor before squaring; carry the exact definition and round only the final result</strong>. The international foot of exactly 0.3048 m makes this possible. The pre-1959 survey foot of 1200/3937 m (≈ 0.3048006096 m) makes it more complicated — squaring that gives 0.09290341 sq m, about 4 parts per million larger than the international square foot.</p>
+
+    <h2>The 2023 survey foot retirement: what it means for area</h2>
+    <p>On January 1, 2023, NIST formally deprecated the US survey foot after 64 years of dual definitions. For length, the difference is academic — 2 parts per million, or 0.01 foot per mile. For area, it's still 2 ppm — but area numbers are larger. A 100-acre subdivision (4,356,000 sq ft) in survey feet converts to 404,694.7 sq m. The same 100 acres in international feet converts to 404,685.6 sq m — a difference of 9.1 sq m, or about 98 sq ft. That's a small bedroom. Over an entire county GIS layer, the accumulated discrepancy between survey-foot parcels and international-foot parcels can shift assessment boundaries by tens of feet.</p>
+
+    <p>Twenty-three US states had already legislated the switch to the international foot before NIST's 2023 deadline. The holdouts were states with extensive public-land survey system (PLSS) records — mostly in the West — where millions of parcel descriptions were written in survey-foot coordinates. Converting these requires multiplying by (1200/3937)², not 0.3048², and the difference must be flagged on the plat. Every surveyor working with legacy data now carries both factors and a note about which applies.</p>
+
+    <h2>Where the two dialects meet on a site</h2>
+    <ul>
+        <li><strong>Code compliance.</strong> Metric area limits from the IBC and IRC converted to the sq ft a site supervisor measures with a laser disto — and back again when the inspector checks against the code.</li>
+        <li><strong>Materials take-off.</strong> Metric-quoted products (European tile, Canadian engineered flooring, Australian cladding) priced against a sq ft bill of quantities generated from US-dimensioned drawings.</li>
+        <li><strong>Cross-border real estate.</strong> A London flat listed at 85 m² and a Manhattan apartment at 915 sq ft are the same size — but the buyer comparing them has to run the number to know that.</li>
+        <li><strong>LEED and BREEAM certification.</strong> Both green building standards report floor area in square metres. A US project pursuing certification must convert every floor plate from the architect's sq ft dimensions to sq m for the submission — and get it right, because the certification audit will check.</li>
+        <li><strong>Permit submittals.</strong> A drawing in feet supporting a metric-stated permit application — the sq-ft-to-sq-m step sits on the title sheet of every set of architectural drawings submitted in an IBC jurisdiction.</li>
+    </ul>
+
+    <h2>How international real estate handles the conversion — and gets it wrong</h2>
+    <p>The global real estate market runs on square metres except in the United States, which uses square feet, and the UK, which mixes both (houses in sq ft, flats in sq m). A real estate listing aggregator pulling from multiple countries must normalize area to a single unit for search — and here the "divide by 10" shortcut appears with alarming frequency. A 1,000 sq ft apartment divided by 10 gives "100 m²" — but the correct value is 92.9 m². That 7.1 m² difference is a 7.6% overstatement of area. For a luxury property at $10,000/m², the phantom 7.1 m² is $71,000 of imaginary value.</p>
+
+    <p>Hong Kong uses square feet for residential listings but has its own definition of "saleable area" that excludes common areas, bay windows, and utility platforms — so a "500 sq ft" listing in Hong Kong's saleable-area convention is physically smaller than a "500 sq ft" listing in the US gross-area convention. The sq-ft-to-sq-m conversion is the same arithmetic, but the input number means different things in different jurisdictions. No conversion factor can fix a definitional mismatch in the source unit.</p>
+
+    <h2>Three worked conversions</h2>
+    <div class="example-box">
+        <p><strong>Example 1 — a floor plate:</strong> 5,000 sq ft × 0.09290304 = <strong>464.52 sq m</strong>. The contractor checks this against the IBC's 500 m² sprinkler threshold — under the limit, no sprinkler required.</p>
+    </div>
+    <div class="example-box">
+        <p><strong>Example 2 — a cross-border listing:</strong> A 2,000 sq ft house × 0.09290304 = <strong>185.81 sq m</strong>. The European buyer comparing it to a 180 m² house in Berlin sees they are within 3% — the same size class.</p>
+    </div>
+    <div class="example-box">
+        <p><strong>Example 3 — a large building with precision:</strong> 10,000.00 sq ft × 0.09290304 = <strong>929.03 sq m</strong>. Using the rounded 0.0929 gives 929.00 sq m — off by 0.03 sq m, which won't fail inspection but will annoy the architect who specified the exact value.</p>
+    </div>
+
+    <h2>Square-foot-to-square-metre reference</h2>
+    <div class="table-scroll">
+    <table>
+        <thead><tr>
+            <th>Sq Feet</th>
+            <th>Sq Metres</th>
+            <th>Real-world reference</th>
+        </tr></thead><tbody>
+        <tr><td>1 sq ft</td><td>0.092903 sq m</td><td>Roughly a sheet of A4 paper</td></tr>
+        <tr><td>10 sq ft</td><td>0.92903 sq m</td><td>Bathroom floor tile area</td></tr>
+        <tr><td>100 sq ft</td><td>9.2903 sq m</td><td>Small bedroom (~10×10 ft)</td></tr>
+        <tr><td>500 sq ft</td><td>46.452 sq m</td><td>Studio apartment</td></tr>
+        <tr><td>1,000 sq ft</td><td>92.903 sq m</td><td>Typical two-bedroom apartment</td></tr>
+        <tr><td>1,500 sq ft</td><td>139.35 sq m</td><td>Average US single-family home (~2015)</td></tr>
+        <tr><td>2,500 sq ft</td><td>232.26 sq m</td><td>Large US suburban house</td></tr>
+        <tr><td>5,000 sq ft</td><td>464.52 sq m</td><td>Office floor plate / IBC sprinkler threshold</td></tr>
+        <tr><td>10,000 sq ft</td><td>929.03 sq m</td><td>Big-box retail footprint</td></tr>
+        <tr><td>43,560 sq ft</td><td>4,046.86 sq m</td><td>One acre — the surveyor's reference area</td></tr>
+        </tbody></table></div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+        <p class="faq-q">What is the square-foot-to-square-metre factor?</p>
+        <p class="faq-a">One square foot equals <strong>0.09290304 square metres</strong> exactly, from the international definition 1 ft = 0.3048 m. Multiply sq ft by 0.09290304 to get sq m. For rough work, 0.0929 is acceptable for a single room; for a whole building, use the full 8-decimal factor to avoid cumulative error against code limits. Equivalently, 1 sq m = 10.7639 sq ft — divide sq ft by 10.7639 for sq m.</p>
+    </div>
+    <div class="faq-item">
+        <p class="faq-q">Why does the building code use metric but drawings use feet?</p>
+        <p class="faq-a">The International Building Code (IBC) is written in metric units as the normative reference, while most US construction drawings are dimensioned in feet and inches because that is what crews read. A contractor therefore converts the code's metric area limits back to the sq ft the crew actually measures — sq-ft-to-sq-m is that forced translation, and it appears on the title sheet of every architectural drawing set submitted in an IBC jurisdiction.</p>
+    </div>
+    <div class="faq-item">
+        <p class="faq-q">Is 0.092903 a clean number?</p>
+        <p class="faq-a">It is the square of 0.3048 m/ft — exact because the linear definition is exact. 0.3048² = 0.09290304, which terminates at 8 decimal places. It is clean in the metrological sense: derived from an exact definition, not an empirical measurement. Any rounding introduces error that propagates — a 0.1% error in the linear factor becomes a 0.2% error in the area factor, which for a 100,000 sq ft building shifts the metric area by about 2 sq m.</p>
+    </div>
+    <div class="faq-item">
+        <p class="faq-q">How does the 2023 US survey foot retirement affect area conversions?</p>
+        <p class="faq-a">The US survey foot (1200/3937 m) yields a survey square foot of about 0.09290341 sq m — roughly 4 parts per million larger than the international square foot. Over a 100-acre subdivision, the difference is about 170 sq ft. NIST deprecated the survey foot on January 1, 2023. Legacy surveys and PLSS records in survey feet must be converted using the survey-foot factor, not the international one — and the conversion method must be noted on the plat.</p>
+    </div>
+    <div class="faq-item">
+        <p class="faq-q">How do international real estate buyers convert sq ft to sq m?</p>
+        <p class="faq-a">Most countries list residential property in square metres; the US uses square feet. A European buyer seeing a 2,000 sq ft US listing multiplies by 0.0929 to get about 186 sq m. A US buyer seeing a 200 m² Paris listing divides by 0.0929 to get about 2,150 sq ft. Avoid the "divide by 10" shortcut — it overstates area by 7.6%. With luxury property at $10,000+/m², that rounding error represents real money.</p>
+    </div>
+
+    <section class="eng-context">
+        <h3>Engineering context</h3>
+        <p>Sq-ft-to-sq-m is the reciprocal of sq-m-to-sq-ft: both are (0.3048)² in disguise, so the discipline is to keep the exact linear factor (0.3048 m/ft) canonical and square it, never rounding the area factor early. The practical hazard is inspection — a metric code limit misread in sq ft fails a permit — and the compounding of linear error through squaring. For a building designed entirely in feet, every sq-ft-to-sq-m conversion on the title sheet carries the architect's professional liability. For adjacent area steps the same reference covers <a href="/sq-m-to-sq-ft">sq m to sq ft</a>, <a href="/acres-to-sq-ft">acres to sq ft</a>, <a href="/sq-ft-to-acres">sq ft to acres</a>, and <a href="/hectares-to-acres">hectares to acres</a>; the deep walkthrough is at <a href="/acres-to-sq-ft">acres to square feet</a>, and the full topic is in the <a href="/guides/area-conversion-guide">Area conversion guide</a>.</p>
+    </section>
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Square foot",
+  "termCode": "square foot (sq ft)",
+  "description": "The square foot is an area unit defined as the area of a square with one-foot sides, equal to exactly 0.09290304 square meters. It is standard for real estate, flooring, and HVAC sizing in the US.",
+  "url": "https://en.wikipedia.org/wiki/Square_foot",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

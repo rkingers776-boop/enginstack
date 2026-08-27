@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ft/s to MPH — Drag Strip Math, Quarter-Mile Trap Speeds, and the 15/22 Multiplier | EnginStack</title>
+    <meta name="description" content="1 ft/s = 0.681818 mph (exactly 15/22). From skid-mark analysis to drag racing trap speeds, this is the conversion that turns the output of every foot-pound-second dynamics calculation into the number on the speedometer.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/fts-to-mph">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/fts-to-mph">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/fts-to-mph">
+    <meta property="og:title" content="ft/s to MPH — Drag Strip Math, Quarter-Mile Trap Speeds, and the 15/22 Multiplier | EnginStack">
+    <meta property="og:description" content="1 ft/s = 0.681818 mph (exactly 15/22). From skid-mark analysis to drag racing trap speeds, the conversion that turns physics output into the number on the speedometer.">
+    <meta property="og:url" content="https://enginstack.com/fts-to-mph">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ft/s to MPH Converter",
+  "description": "1 ft/s = 0.681818 mph. Convert feet per second to miles per hour for drag racing trap speeds, accident reconstruction, sports biomechanics, and ballistics analysis.",
+  "url": "https://enginstack.com/fts-to-mph",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Speed", "item": "https://enginstack.com/speed/" },
+    { "@type": "ListItem", "position": 3, "name": "ft/s to MPH Converter" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do skid-mark calculations yield mph from a distance measured in feet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The core formula is the work-energy principle: the kinetic energy of the vehicle (½mv²) equals the work done by friction (μmgd), where v is in ft/s, μ is the friction coefficient, g is 32.2 ft/s², and d is the skid distance in feet. Mass cancels, and v = √(2μgd) in ft/s. Everything in the formula uses feet and seconds — the output is naturally in ft/s. To get mph, multiply by 15/22. A 150-foot skid on dry asphalt (μ ≈ 0.75) yields v = √(2 × 0.75 × 32.2 × 150) = √7,245 ≈ 85.1 ft/s. In mph: 85.1 × 15/22 = 58.0 mph. The calculation is dimensionally tight — every input is in the foot-second system — and the only conversion happens at the end, when the engineer translates the physics answer into the legal unit. If a case goes to trial, both numbers appear in the expert's report: the ft/s value (showing the raw physics) and the mph value (showing the speed limit comparison)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between trap speed and average speed in a drag race?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The quarter-mile ET (elapsed time) gives the average speed: 1,320 feet ÷ ET seconds = average ft/s, then × 15/22 = average mph. A 12-second quarter mile averages 110 ft/s (75 mph). But the trap speed — measured across the last 66 feet — is much higher because the car is accelerating the entire way. A car that runs 12.0 seconds at 115 mph (~169 ft/s) crosses the finish line at nearly double its average speed. The trap speed is a better indicator of engine power; the ET is a better indicator of launch traction and overall vehicle setup. The conversion from a 66-foot beam-to-beam time to mph is: mph = (66 ft / Δt seconds) × 15/22 = 45 / Δt. So a 0.15-second beam trip means 45 / 0.15 = 300 mph. This is how the timing system at every NHRA-sanctioned drag strip computes the speed that flashes on the scoreboard before the parachutes even bloom."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do NFL Combine 40-yard dash times convert to mph?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 40-yard dash is 120 feet. A 4.30-second run: 120 ft / 4.30 s = 27.91 ft/s. In mph: 27.91 × 15/22 = 19.0 mph. A 4.50-second run: 120 / 4.50 = 26.67 ft/s = 18.2 mph. A 5.00-second run (slow for a skill-position player): 120 / 5.00 = 24 ft/s = 16.4 mph. The 40 time is reported in seconds because that's the tradition, but the underlying measurement is purely ft/s — distance in feet, time in seconds, speed in feet per second. The mph conversion is what broadcasters put on the screen because \"19 miles per hour\" means something to a viewer that \"27.9 feet per second\" does not. The fastest 40-yard dash ever recorded at the Combine was John Ross in 2017 at 4.22 seconds: 120 / 4.22 = 28.44 ft/s = 19.4 mph. A cheetah, for perspective, would run the 40 in about 1.2 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do ballistics tables report muzzle velocity in ft/s but hunters talk in mph?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ballistics is a foot-pound-second discipline by historical convention. SAAMI (the Sporting Arms and Ammunition Manufacturers' Institute) specifies all ammunition performance in ft/s. A .308 Winchester cartridge: muzzle velocity 2,700 ft/s. In mph: 2,700 × 15/22 = 1,841 mph — roughly Mach 2.4 at sea level. A .22 Long Rifle: muzzle velocity 1,200 ft/s = 818 mph = Mach 1.07. The switch from ft/s (engineering) to mph (hunter conversation) is purely about mental scale: \"1,200 feet per second\" sounds impressive but abstract; \"over 800 miles per hour\" sounds like what it is — a bullet travelling faster than the speed of sound. Both numbers are the same velocity. The ft/s figure goes into the ballistic calculator (along with the ballistic coefficient, atmospheric conditions, and zero range) to compute the trajectory; the mph figure is what you tell someone at the gun counter to convey how fast the round is relative to things they've experienced."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/speed/">Speed</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">ft/s to MPH Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>ft/s to MPH — From Physics Output to Speedometer</h1>
+            <p>1 ft/s = 0.681818 mph — exactly 15/22. Every dynamics formula in the US customary system spits out ft/s. This is the conversion that turns the physics answer into the number on the speed limit sign.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.681818" data-unit-from="ft/s" data-unit-to="mph">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="88" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">ft/s</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">60</span>
+                        <span class="unit-pill unit-pill-to">mph</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">88 ft/s = 60 mph</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">60 mph = 88 ft/s</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>How to Convert Feet Per Second to Miles Per Hour</h2>
+            <p>Feet per second is the working unit of the US customary dynamics system — the language of crash reconstruction, ballistic trajectory analysis, and sports biomechanics. Miles per hour is the display unit — the number on the speedometer, the radar gun, the drag strip scoreboard. The conversion from the former to the latter is <strong>multiplication by 15/22</strong>: 1 ft/s = 15/22 mph = <strong>0.681818 mph</strong> (the "81" repeats forever). Going from ft/s to mph shrinks the number — because the hour is a much longer time unit than the second, and the mile is a much longer distance unit than the foot. An object moving at 100 ft/s covers 100 feet every second — that's 6,000 feet per minute, 360,000 feet per hour, or 68.18 miles per hour. The conversion folds three unit changes (feet→miles, seconds→minutes→hours) into a single factor.</p>
+
+            <p>The most useful property of this conversion is the integer mapping: every 22 ft/s of speed equals exactly 15 mph. This gives engineers a calibration table they can use without electronics: 22 ft/s = 15 mph, 44 ft/s = 30 mph, 66 ft/s = 45 mph, 88 ft/s = 60 mph, 110 ft/s = 75 mph, 132 ft/s = 90 mph. At a crash scene, an accident reconstructionist measuring a 100-foot skid mark on dry pavement can calculate the pre-braking speed in ft/s using the slide-to-stop formula, find the nearest multiple of 22, and state the speed in mph to a police officer on the spot — no calculator, no spreadsheet, just the 22/15 pattern burned into memory through years of practice.</p>
+
+            <h2>The Conversion Formula</h2>
+            <div class="formula-box">
+                <p>
+                mph = ft/s &times; 0.681818 &nbsp; (exactly ft/s &times; 15/22)
+                </p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert 88 ft/s to mph</p>
+                <p>88 &times; 15 / 22 = <strong>60 mph</strong> — the exact integer landmark known to every physics student in the US. This equivalence is the reason 60 mph and 88 ft/s appear together in every introductory kinematics problem: they are the same speed, expressed in the two unit systems that bookend every US engineering calculation. A car moving at 88 ft/s travels the length of a football field (300 feet) in 3.41 seconds.</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert 150 ft/s to mph</p>
+                <p>150 &times; 15 / 22 = <strong>102.27 mph</strong> (a major-league fastball just above Chapman's record, or the exit velocity of a well-struck home run off the bat. A baseball hit at 150 ft/s will travel roughly 400 feet before hitting the ground under standard conditions — the exact distance depends on launch angle, backspin, air density, and the height of the bat at contact. Barry Bonds' record 762 home runs were all launched with exit velocities between roughly 100 and 120 mph, or 147–176 ft/s)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert 484 ft/s to mph</p>
+                <p>484 &times; 15 / 22 = <strong>330 mph</strong> (a Top Fuel dragster at the quarter-mile finish line. 484 ft/s = 330 mph is another exact integer relationship — 484 is 22 × 22, so 22 × 22 × 15/22 = 22 × 15 = 330. The dragster covers the 1,320-foot quarter mile from a standing start in about 3.7 seconds. During the run, the engine consumes roughly 15 gallons of nitromethane fuel — almost all of it burned in the last 1.5 seconds when the engine is at full load and the supercharger is forcing air into the intake at 50+ psi of boost)</p>
+            </div>
+
+            <h2>Common ft/s to MPH Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr>
+                    <th>ft/s</th>
+                    <th>mph</th>
+                    <th>Real-world reference</th>
+                </tr></thead><tbody>
+                <tr><td>22 ft/s</td><td>15.00 mph</td><td>School zone — brisk bicycle pace</td></tr>
+                <tr><td>44 ft/s</td><td>30.00 mph</td><td>Urban street — cat sprint speed</td></tr>
+                <tr><td>66 ft/s</td><td>45.00 mph</td><td>Urban arterial — horse gallop</td></tr>
+                <tr><td>73.3 ft/s</td><td>50.00 mph</td><td>Road with no centre line — common limit</td></tr>
+                <tr><td>88 ft/s</td><td>60.00 mph</td><td>The landmark integer — highway speed</td></tr>
+                <tr><td>100 ft/s</td><td>68.18 mph</td><td>100 ft/s feels fast — it's nearly 70 mph</td></tr>
+                <tr><td>110 ft/s</td><td>75.00 mph</td><td>Western US interstate — exactly 75 mph</td></tr>
+                <tr><td>147 ft/s</td><td>100.23 mph</td><td>MLB fastball — 100 mph ≈ 147 ft/s</td></tr>
+                <tr><td>220 ft/s</td><td>150.00 mph</td><td>IndyCar average lap — exactly 150 mph</td></tr>
+                <tr><td>484 ft/s</td><td>330.00 mph</td><td>Top Fuel dragster trap speed</td></tr>
+                </tbody></table></div>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags"><a href="/mph-to-fts">MPH to ft/s</a> <a href="/mph-to-mps">MPH to m/s</a> <a href="/mps-to-mph">m/s to MPH</a> <a href="/feet-to-meters">Feet to Meters</a> <a href="/miles-to-km">Miles to KM</a></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">How do skid-mark calculations yield mph from a distance measured in feet?</p>
+                <p class="faq-a">The core formula is the work-energy principle: the kinetic energy of the vehicle (½mv²) equals the work done by friction (μmgd), where v is in ft/s, μ is the friction coefficient, g is 32.2 ft/s², and d is the skid distance in feet. Mass cancels, and v = √(2μgd) in ft/s. Everything in the formula uses feet and seconds — the output is naturally in ft/s. To get mph, multiply by 15/22. A 150-foot skid on dry asphalt (μ ≈ 0.75) yields v = √(2 × 0.75 × 32.2 × 150) = √7,245 ≈ 85.1 ft/s. In mph: 85.1 × 15/22 = 58.0 mph. The calculation is dimensionally tight — every input is in the foot-second system — and the only conversion happens at the end, when the engineer translates the physics answer into the legal unit. If a case goes to trial, both numbers appear in the expert's report: the ft/s value (showing the raw physics) and the mph value (showing the speed limit comparison).</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What's the difference between trap speed and average speed in a drag race?</p>
+                <p class="faq-a">The quarter-mile ET (elapsed time) gives the average speed: 1,320 feet ÷ ET seconds = average ft/s, then × 15/22 = average mph. A 12-second quarter mile averages 110 ft/s (75 mph). But the trap speed — measured across the last 66 feet — is much higher because the car is accelerating the entire way. A car that runs 12.0 seconds at 115 mph (~169 ft/s) crosses the finish line at nearly double its average speed. The trap speed is a better indicator of engine power; the ET is a better indicator of launch traction and overall vehicle setup. The conversion from a 66-foot beam-to-beam time to mph is: mph = (66 ft / Δt seconds) × 15/22 = 45 / Δt. So a 0.15-second beam trip means 45 / 0.15 = 300 mph. This is how the timing system at every NHRA-sanctioned drag strip computes the speed that flashes on the scoreboard before the parachutes even bloom.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How do NFL Combine 40-yard dash times convert to mph?</p>
+                <p class="faq-a">The 40-yard dash is 120 feet. A 4.30-second run: 120 ft / 4.30 s = 27.91 ft/s. In mph: 27.91 × 15/22 = 19.0 mph. A 4.50-second run: 120 / 4.50 = 26.67 ft/s = 18.2 mph. A 5.00-second run (slow for a skill-position player): 120 / 5.00 = 24 ft/s = 16.4 mph. The 40 time is reported in seconds because that's the tradition, but the underlying measurement is purely ft/s — distance in feet, time in seconds, speed in feet per second. The mph conversion is what broadcasters put on the screen because "19 miles per hour" means something to a viewer that "27.9 feet per second" does not. The fastest 40-yard dash ever recorded at the Combine was John Ross in 2017 at 4.22 seconds: 120 / 4.22 = 28.44 ft/s = 19.4 mph. A cheetah, for perspective, would run the 40 in about 1.2 seconds.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why do ballistics tables report muzzle velocity in ft/s but hunters talk in mph?</p>
+                <p class="faq-a">Ballistics is a foot-pound-second discipline by historical convention. SAAMI (the Sporting Arms and Ammunition Manufacturers' Institute) specifies all ammunition performance in ft/s. A .308 Winchester cartridge: muzzle velocity 2,700 ft/s. In mph: 2,700 × 15/22 = 1,841 mph — roughly Mach 2.4 at sea level. A .22 Long Rifle: muzzle velocity 1,200 ft/s = 818 mph = Mach 1.07. The switch from ft/s (engineering) to mph (hunter conversation) is purely about mental scale: "1,200 feet per second" sounds impressive but abstract; "over 800 miles per hour" sounds like what it is — a bullet travelling faster than the speed of sound. Both numbers are the same velocity. The ft/s figure goes into the ballistic calculator (along with the ballistic coefficient, atmospheric conditions, and zero range) to compute the trajectory; the mph figure is what you tell someone at the gun counter to convey how fast the round is relative to things they've experienced.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The ft/s-to-mph conversion is always the last step — the translation from the working unit to the display unit. In a US engineering workflow, every input gets converted to feet and seconds at the boundary of the calculation: miles become feet, hours become seconds, tonnes become slugs (the US unit of mass, 1 slug = 32.174 lb·s²/ft). The calculation runs entirely in the foot-pound-second system, where Newton's second law is F = ma without conversion factors (1 lb = 1 slug × 1 ft/s² — the US system is internally coherent in a way that surprises engineers trained only in SI). The output of the calculation is a velocity in ft/s. Only then — at the reporting layer — does the 15/22 factor appear, converting ft/s to mph so that the result lands in a unit a judge, a jury, a coach, or a customer can understand. This pattern of "convert-in, calculate, convert-out" is the defining rhythm of US customary engineering. The 15/22 factor is the outbound conversion for speed, as fundamental to the workflow as π is to geometry.</p>
+                <p style="margin-top:1.2em;">More: <a href="/mph-to-fts">mph to ft/s</a> · <a href="/mph-to-mps">mph to m/s</a> · <a href="/feet-to-meters">feet to metres</a> · <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

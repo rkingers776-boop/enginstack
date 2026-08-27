@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>kVA to kW — What a Generator Nameplate Really Means | EnginStack</title>
+    <meta name="description" content="Convert kVA to kW with power factor: kW = kVA × PF. A 10 kVA generator at 0.8 PF delivers 8 kW of real power. The nameplate rating explained — why generators, transformers, and UPS units are rated in apparent power.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/kva-to-kw">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/kva-to-kw">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/kva-to-kw">
+    <meta property="og:title" content="kVA to kW — What a Generator Nameplate Really Means | EnginStack">
+    <meta property="og:description" content="Convert kVA to kW with power factor: kW = kVA × PF. A 10 kVA generator at 0.8 PF delivers 8 kW. Why AC equipment is rated in apparent power.">
+    <meta property="og:url" content="https://enginstack.com/kva-to-kw">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "kVA to kW Converter",
+      "description": "Convert kVA to kW with power factor: kW = kVA × PF. Enter the apparent power rating and the load's power factor to get real power. A 10 kVA generator at 0.8 PF delivers 8 kW.",
+      "url": "https://enginstack.com/kva-to-kw",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert kVA to kW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by the power factor: kW = kVA × PF. A 10 kVA generator feeding a load at 0.8 PF delivers 10 × 0.8 = 8 kW of real power. The PF is the cosine of the phase angle between voltage and current — use 0.8 when the load mix is unknown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are generators and transformers rated in kVA instead of kW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the machine's limiting factor is current — heat in the windings — and current is set by apparent power (kVA), regardless of the load's power factor. A generator rated 10 kVA can safely deliver 10 kVA of current at any PF; the kW it produces depends on what the load actually converts to work. The 0.8 figure on many nameplates is the PF the machine is guaranteed to support, not what every load will present."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What power factor should I use for typical loads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Resistive loads — heaters, incandescent lamps — sit at 1.0. Induction motors run 0.7 to 0.85, worse when lightly loaded. Modern switched-mode power supplies with PFC correction reach 0.95 to 0.99. If you are sizing a generator for a mixed site and have no measurements, 0.8 is the conservative industry default."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "kVA to kW Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">kVA to kW Converter</span></nav>
+
+        <header class="page-header">
+            <h1>kVA to kW — what a generator nameplate really means</h1>
+            <p>Walk past a generator, transformer, or UPS and the nameplate says kVA, not kW — and the gap between those two numbers is the power factor. A 10 kVA genset at a site with motors and pumps delivers 8 kW of work; a 10 kVA unit feeding only heaters delivers the full 10 kW. This converter applies PF = cos φ: kW = kVA × PF, the calculation that turns a nameplate rating into the watts an appliance actually uses.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="kVA" data-unit-to="kW" data-ctx-unit="power factor" data-formula="kva-times-pf">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive kVA to kW calculator. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">kVA</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="10" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">kVA</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label" for="ctx-val">power factor</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="ctx-input" id="ctx-val" value="0.8" min="0" max="1" step="0.01">
+                        <span class="unit-pill unit-pill-ctx">PF</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">kW</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">10 kVA × 0.8 power factor = 8 kW</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">8 kW ÷ 0.8 power factor = 10 kVA</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 and IEC 60050 (International Electrotechnical Vocabulary). Power factor is a definition — kW = kVA × cos φ — with the phase angle from your load's measurements.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Nameplate Is a Ceiling, Not a Promise</h2>
+
+            <p>A generator's kVA rating says: <em>I can push this much current without overheating, at any power factor.</em> The kW it actually delivers is decided by the load — how much of that current comes back as work instead of sloshing between source and load. Motors, transformers, and fluorescent lighting all have coils and iron that shift the current waveform out of phase with the voltage. The cosine of that phase shift is the power factor, and it is the single number that converts the machine's rating into the site's real power draw.</p>
+
+            <div class="formula-box"><p><strong>kW = kVA × power factor</strong><br>P = S · cos φ<br>PF is a number between 0 and 1 — 1.0 for pure resistance, ~0.8 for a motor-heavy site.</p></div>
+
+            <h2>Common Ratings at Real Power Factors</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>kVA</th><th>PF</th><th>kW</th><th>Context</th></tr></thead><tbody>
+                <tr><td>5 kVA</td><td>0.8</td><td>4 kW</td><td>Small RV/backup generator — the nameplate 5,000 VA at mixed loads.</td></tr>
+                <tr><td>10 kVA</td><td>0.8</td><td>8 kW</td><td>Construction-site generator running tools and pumps.</td></tr>
+                <tr><td>10 kVA</td><td>1.0</td><td>10 kW</td><td>Same machine feeding only resistive heaters.</td></tr>
+                <tr><td>50 kVA</td><td>0.8</td><td>40 kW</td><td>Commercial transformer feeding a small building.</td></tr>
+                <tr><td>100 kVA</td><td>0.9</td><td>90 kW</td><td>PFC-corrected office load — better PF, more kW per kVA.</td></tr>
+                </tbody></table></div>
+
+            <p>The 10 kVA row pair is the lesson: the identical machine swings from 8 kW to 10 kW depending on what is plugged in. That is why two sites with the same generator can pay wildly different electricity bills, and why a PF correction capacitor bank — which lifts a site's PF from 0.7 toward 0.95 — can free up 20% of a transformer's real capacity without buying new iron. The kVA ceiling never moves; the kW that fits under it does.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Running the conversion backwards — finding the kVA you must buy for a known kW load — is the <a href="/kw-to-kva">kW to kVA</a> page, the UPS-sizing calculation. If you only need the raw power numbers without the phase-angle picture, the straight unit work lives in <a href="/watts-to-kw">watts to kW</a> and <a href="/kw-to-watts">kW to watts</a> on the <a href="/energy/">energy</a> hub. The motors that drag a site's PF down are rated in <a href="/hp-to-kw">horsepower to kW</a>, and the current those same kW pull at 120/240 V is the <a href="/watts-to-amps">watts to amps</a> question. All of it returns to the <a href="/electric/">electric hub</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/kw-to-kva">kW to kVA</a> · <a href="/power-factor">Power Factor</a> · <a href="/watts-to-kw">W to kW</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/kw-to-kva">kW To kVA</a>
+                <a href="/power-factor">Power Factor Calculator</a>
+                <a href="/watts-to-kw">Watts To kW</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert kVA to kW?</p>
+                    <p class="faq-a">Multiply by the power factor: kW = kVA × PF. A 10 kVA generator feeding a load at 0.8 PF delivers 10 × 0.8 = 8 kW of real power. The PF is the cosine of the phase angle between voltage and current — use 0.8 when the load mix is unknown.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why are generators and transformers rated in kVA instead of kW?</p>
+                    <p class="faq-a">Because the machine's limiting factor is current — heat in the windings — and current is set by apparent power (kVA), regardless of the load's power factor. A generator rated 10 kVA can safely deliver 10 kVA of current at any PF; the kW it produces depends on what the load actually converts to work. The 0.8 figure on many nameplates is the PF the machine is guaranteed to support, not what every load will present.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">What power factor should I use for typical loads?</p>
+                    <p class="faq-a">Resistive loads — heaters, incandescent lamps — sit at 1.0. Induction motors run 0.7 to 0.85, worse when lightly loaded. Modern switched-mode power supplies with PFC correction reach 0.95 to 0.99. If you are sizing a generator for a mixed site and have no measurements, 0.8 is the conservative industry default.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var ctx = card.querySelector('.ctx-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fCtx = card.getAttribute('data-ctx-unit');
+    var fTo = card.getAttribute('data-unit-to');
+    function calc() {
+        var a = parseFloat(main.value), b = parseFloat(ctx.value);
+        if (isNaN(a) || isNaN(b)) { out.textContent = '—'; return; }
+        var r = a * b;
+        out.textContent = fmt(r);
+        fwd.textContent = a + ' ' + fMain + ' × ' + b + ' ' + fCtx + ' = ' + fmt(r) + ' ' + fTo;
+        rev.textContent = fmt(r) + ' ' + fTo + ' ÷ ' + b + ' ' + fCtx + ' = ' + a + ' ' + fMain;
+    }
+    main.addEventListener('input', calc);
+    ctx.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Power factor",
+  "termCode": "power factor (PF)",
+  "description": "Power factor is the ratio of real power (kW) to apparent power (kVA): PF = kW/kVA = cos φ, where φ is the phase angle between voltage and current. This calculator applies it as kW = kVA × PF.",
+  "url": "https://en.wikipedia.org/wiki/Power_factor",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+
+</body>
+</html>

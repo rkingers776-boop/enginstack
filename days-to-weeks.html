@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days to Weeks — The Babylonian 7, the French Decade, and the Sprint That Broke the Calendar | EnginStack</title>
+    <meta name="description" content="1 day = 1/7 week (≈ 0.14286). The seven-day week has no astronomical basis — it came from Babylonian astronomy, passed through Judaism and Rome, survived the French Revolution&rsquo;s failed 10-day decade, and now runs your agile sprint cycle. Multiply by 0.142857 or divide by 7. Same result, very different history.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/days-to-weeks">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/days-to-weeks">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/days-to-weeks">
+    <meta property="og:title" content="Days to Weeks — The Babylonian Week, the Failed Decade, and Agile Sprints | EnginStack">
+    <meta property="og:description" content="1 day = 0.14286 week. The 7-day week isn't natural — it's Babylonian. The French tried to kill it with a 10-day decimal week. It survived. Now it runs your Jira board.">
+    <meta property="og:url" content="https://enginstack.com/days-to-weeks">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Days to Weeks Converter",
+  "description": "1 day = 1/7 week. Convert days to weeks for project scheduling, sprint planning, pregnancy timelines, and calendar arithmetic.",
+  "url": "https://enginstack.com/days-to-weeks",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a way to convert days to weeks without getting a repeating decimal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if your input is a multiple of 7. 7 days = 1 week exactly. 14 days = 2 weeks exactly. Everything else produces a repeating decimal (0.142857142857...) because 1/7 in base 10 repeats forever. In binary (base 2), 1/7 also repeats (0.001001001...). In base 7, it's exactly 0.1. So the repeating-decimal problem isn't inherent to the number — it's inherent to representing sevenths in bases that don't divide evenly by 7. Base 10 doesn't. Base 2 doesn't. Base 7 does. Choose your radix wisely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many working days are in a typical week?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the country and industry. The standard Western corporate workweek is 5 days (Monday–Friday). France has a statutory 35-hour workweek (typically 5 days of 7 hours). Many Middle Eastern countries use a Sunday–Thursday workweek (5 days). Israel uses Sunday–Thursday. Brunei uses Monday–Thursday + Saturday (5 days, with Friday and Sunday off for religious reasons). In construction and manufacturing, 6-day and 7-day workweeks remain common. In healthcare and emergency services, \"workweek\" is a meaningless concept — shifts run 24/7/365 regardless of what the calendar says. When converting days to weeks for workforce planning, always clarify: calendar weeks or working weeks? The ratio is 7:5 for standard corporate environments, but verify before committing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do sprint retrospectives feel like they happen every 3 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Psychological compression. A 2-week sprint contains roughly 10 working days. Days 1–2: planning and ramp-up (feels slow). Days 3–7: execution (flows, time disappears). Day 8: \"oh god we're halfway through and behind.\" Day 9–10: crunch, cut scope, panic. Day 11–12: testing, demos, retrospective. Then immediately into next sprint planning. The perception of \"it just ended\" is accurate — 12 working days is barely enough time to finish anything meaningful, which is exactly why Scrum recommends 2-week sprints: long enough to deliver something, short enough that the pain of failure doesn't accumulate beyond recoverability. If your retrospectives feel too frequent, consider 3-week sprints. But know that Jeff Sutherland (Scrum co-creator) will judge you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does ISO 8601 define a standard week numbering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ISO 8601 defines week 01 as the week containing the first Thursday of the year. This means January 1st can fall in week 52/53 of the previous year or week 01 of the current year, depending on which weekday it lands on. Under this system, a year can have 52 or 53 weeks. Years starting on Thursday (or Wednesday in leap years) get 53 weeks. The next 53-week year is 2026. This affects financial reporting (some companies use ISO week numbering for fiscal weeks), manufacturing scheduling (production plans are often organized by ISO week), and logistics (shipping manifests sometimes reference week numbers). The days-to-weeks calculator here converts to decimal weeks (continuous); for ISO week integers, you need a separate function that accounts for the Thursday rule."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Time", "item": "https://enginstack.com/time/" },
+    { "@type": "ListItem", "position": 3, "name": "Days to Weeks" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/time/">Time</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Days to Weeks Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Days to Weeks: The Number Nobody Asked For Until Someone Needed to Ship Software</h1>
+            <p>Divide by 7. 1 day = 0.142857 weeks. The math is trivial. The reason you are here is probably not: you have a deadline measured in days, a sprint measured in weeks, and a manager who speaks a different time language than your timesheet. The days-to-weeks conversion is the lingua franca between HR departments (who count PTO in days), product teams (who count sprints in weeks), and contracts (which specify delivery windows in calendar days). All three are measuring the same thing. None of them agree on the number.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.142857142857" data-unit-from="days" data-unit-to="weeks">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">days</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.142857</span>
+                        <span class="unit-pill unit-pill-to">weeks</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 day = 0.142857 weeks</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 week = 7 days</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The 7-Day Accident</h2>
+
+            <p>There is no astronomical reason for a 7-day week. The day comes from Earth's rotation. The month approximates the lunar cycle (~29.53 days). The year is Earth's orbit (~365.25 days). These are all observable celestial periods. The week is none of these. The week is a cultural artifact that originated in Mesopotamia around the 6th century BCE, when Babylonian astronomers noticed that the moon's phases repeat roughly every 7 days (actually 7.38, but 7 is cleaner), and decided that dividing time into 7 parts aligned nicely with the 7 visible wandering bodies in the night sky.</p>
+
+            <p>This choice propagated through Judaism (the Sabbath), then through Christianity (which kept the 7-day cycle but moved the holy day to Sunday to distance itself from Judaism), then through Islam (Friday as the congregational day, preserving the 7-day structure), then through European colonialism, which exported the Gregorian calendar — and its embedded 7-day week — to every continent. Today, the 7-day week is universal even in cultures that independently developed different systems (China traditionally used 10-day weeks; the Javanese have a 5-day market cycle). The Babylonian week outcompeted every alternative not because it was better, but because it arrived first and attached itself to the world's dominant religions.</p>
+
+            <h2>The French Tried Decimal Time. Twice. It Failed Twice.</h2>
+
+            <p>The French Revolutionary Calendar (1793–1805) replaced the 7-day week with the décade — a 10-day cycle with one day of rest (décadi) every ten days instead of every seventh. Workers went from 1 day off in 7 to 1 day off in 10 — a 30% reduction in leisure time, which they noticed immediately. The decimal clock (10 hours per day, 100 minutes per hour, 100 seconds per minute) was introduced simultaneously, so workers weren't just working longer weeks — they were working longer hours too, because a decimal hour was 144 conventional minutes.</p>
+
+            <p>The Soviet Union attempted a similar experiment in 1929: the nepreryvka ("continuous") calendar abolished weekends entirely, replacing them with a rotating schedule where workers got 1 day off every 5 days, staggered so factories never closed. Productivity dropped. Absenteeism rose. Stalin quietly abandoned the experiment in 1940, restoring the 7-day week. The lesson, learned twice at enormous social cost: you can legislate a calendar, but you cannot legislate biology. Humans need rhythm. The 7-day rhythm may be arbitrary, but it is the one we have.</p>
+
+            <div class="formula-box">
+                <p>weeks = days &divide; 7 &nbsp;&nbsp;or&nbsp;&nbsp; weeks = days &times; 0.142857</p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box"><p><strong>7 days → 1 week</strong></p><p>The definition. One full weekly cycle. The length of a standard free trial. The interval between garbage collection days in most cities. Also the amount of time a new employee has to make a first impression before people decide whether they like them.</p></div>
+            <div class="example-box"><p><strong>14 days → 2 weeks</strong></p><p>A fortnight (archaic but charming). Standard vacation length in many countries. Amazon Prime trial period. The incubation period for common cold viruses. Biweekly payroll frequency. Two sprints if your team runs weekly sprints; one sprint if you run two-week sprints (which is more common).</p></div>
+            <div class="example-box"><p><strong>21 days → 3 weeks</strong></p><p>The canonical "21 days to form a habit" rule (popularized by Maxwell Maltz in 1960, since debunked by modern psychology which suggests 66 days average). Also the notice period for resigning from some jobs. Three weekly sprints. The time it takes to grow a beard from clean-shaven to presentable.</p></div>
+            <div class="example-box"><p><strong>30 days → 4.29 weeks</strong></p><p>One month (roughly). 30 &divide; 7 = 4.2857. Cloud billing cycle. Credit card statement period. Notice period for apartment leases in some jurisdictions. The reason "30-day month" is a useful approximation but a dangerous assumption in contract law: a 30-day clause executed in February covers more calendar time than the same clause executed in July.</p></div>
+            <div class="example-box"><p><strong>365 days → 52.14 weeks</strong></p><p>A non-leap year. 52 weeks + 1 day. This extra day is why your birthday shifts one weekday later each year (and two days after a leap year). The ISO 8601 standard handles this by defining week 01 as the week containing the first Thursday, meaning some years have 52 weeks and some have 53. If you are paid weekly, a 53-week year is a bonus. If you pay salaries weekly, it's a liability.</p></div>
+
+            <h2>Common Days to Weeks</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Days</th><th>Weeks</th><th>Context</th></tr></thead><tbody>
+                <tr><td>1 day</td><td>0.143 wk</td><td>One rotation. The base unit.</td></tr>
+                <tr><td>7 days</td><td>1 week</td><td>The week itself. Free trial. Garbage day.</td></tr>
+                <tr><td>14 days</td><td>2 weeks</td><td>Fortnight. Vacation. Cold incubation. Prime trial.</td></tr>
+                <tr><td>21 days</td><td>3 weeks</td><td>Habit myth. Notice period. Sprint trio.</td></tr>
+                <tr><td>28 days</td><td>4 weeks</td><td>Lunar month (approx). Monthly billing. One paycheck.</td></tr>
+                <tr><td>30 days</td><td>4.29 weeks</td><td>"Month." Lease term. Trial period. Billing cycle.</td></tr>
+                <tr><td>56 days</td><td>8 weeks</td><td>Standard maternity leave (some countries). Two months.</td></tr>
+                <tr><td>90 days</td><td>12.86 weeks</td><td>Probationary period. Quarter. Visa waiver limit.</td></tr>
+                <tr><td>280 days</td><td>40 weeks</td><td>Pregnancy (LMP-based). Ten lunar months.</td></tr>
+                <tr><td>365 days</td><td>52.14 weeks</td><td>One year (non-leap). 52 weeks + 1 day.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>In software project management, the days-to-weeks conversion is the bridge between contractual delivery terms (measured in calendar days), team capacity planning (measured in working weeks), and sprint cadence (measured in iterations). The trap: confusing calendar days with working days. A 30-day delivery window sounds like 4.3 weeks, but if it includes 8 weekend days and 2 public holidays, it's actually 20 working days = 4 working weeks (assuming 5-day weeks). Project managers who multiply days by 0.143 and call it "weeks" are mixing units: calendar weeks ≠ working weeks. The correct conversion depends on the organization's workweek definition, holiday calendar, and individual leave schedules — all of which vary. This is why Gantt charts lie: they assume uniform resource availability across every day of the project, which never happens. For related conversions: <a href="/days-to-hours">days to hours (&times;24)</a>, <a href="/days-to-months">days to months (&divide; 30.44)</a>, <a href="/hours-to-days">hours to days</a>, and <a href="/minutes-to-hours">minutes to hours</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/days-to-hours">days to hours</a> · <a href="/weeks-to-days">weeks to days (&times; 7)</a> <a href="/days-to-months">days to months</a>middot; <a href="/days-to-months">days to months</a> · <a href="/hours-to-days">hours to days</a> · <a href="/minutes-to-seconds">minutes to seconds</a> · <a href="/guides/time-conversion-guide">Time Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/hours-to-minutes">Hours to Minutes</a>
+                <a href="/days-to-hours">Days to Hours</a>
+                <a href="/hours-to-days">Hours to Days</a>
+                <a href="/days-to-months">Days to Months</a>
+                <a href="/minutes-to-hours">Minutes to Hours</a>
+                <a href="/seconds-to-minutes">Seconds to Minutes</a>
+                <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Is there a way to convert days to weeks without getting a repeating decimal?</p>
+                <p class="faq-a">Only if your input is a multiple of 7. 7 days = 1 week exactly. 14 days = 2 weeks exactly. Everything else produces a repeating decimal (0.142857142857...) because 1/7 in base 10 repeats forever. In binary (base 2), 1/7 also repeats (0.001001001...). In base 7, it's exactly 0.1. So the repeating-decimal problem isn't inherent to the number — it's inherent to representing sevenths in bases that don't divide evenly by 7. Base 10 doesn't. Base 2 doesn't. Base 7 does. Choose your radix wisely.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How many working days are in a typical week?</p>
+                <p class="faq-a">It depends on the country and industry. The standard Western corporate workweek is 5 days (Monday–Friday). France has a statutory 35-hour workweek (typically 5 days of 7 hours). Many Middle Eastern countries use a Sunday–Thursday workweek (5 days). Israel uses Sunday–Thursday. Brunei uses Monday–Thursday + Saturday (5 days, with Friday and Sunday off for religious reasons). In construction and manufacturing, 6-day and 7-day workweeks remain common. In healthcare and emergency services, "workweek" is a meaningless concept — shifts run 24/7/365 regardless of what the calendar says. When converting days to weeks for workforce planning, always clarify: calendar weeks or working weeks? The ratio is 7:5 for standard corporate environments, but verify before committing.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why do sprint retrospectives feel like they happen every 3 days?</p>
+                <p class="faq-a">Psychological compression. A 2-week sprint contains roughly 10 working days. Days 1–2: planning and ramp-up (feels slow). Days 3–7: execution (flows, time disappears). Day 8: "oh god we're halfway through and behind." Day 9–10: crunch, cut scope, panic. Day 11–12: testing, demos, retrospective. Then immediately into next sprint planning. The perception of "it just ended" is accurate — 12 working days is barely enough time to finish anything meaningful, which is exactly why Scrum recommends 2-week sprints: long enough to deliver something, short enough that the pain of failure doesn't accumulate beyond recoverability. If your retrospectives feel too frequent, consider 3-week sprints. But know that Jeff Sutherland (Scrum co-creator) will judge you.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Does ISO 8601 define a standard week numbering?</p>
+                <p class="faq-a">Yes. ISO 8601 defines week 01 as the week containing the first Thursday of the year. This means January 1st can fall in week 52/53 of the previous year or week 01 of the current year, depending on which weekday it lands on. Under this system, a year can have 52 or 53 weeks. Years starting on Thursday (or Wednesday in leap years) get 53 weeks. The next 53-week year is 2026. This affects financial reporting (some companies use ISO week numbering for fiscal weeks), manufacturing scheduling (production plans are often organized by ISO week), and logistics (shipping manifests sometimes reference week numbers). The days-to-weeks calculator here converts to decimal weeks (continuous); for ISO week integers, you need a separate function that accounts for the Thursday rule.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

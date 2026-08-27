@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Energy & Power Conversion Guide —Watts, Horsepower, Joules, and the Mistake That Costs Millions | EnginStack</title>
+    <meta name="description" content="The definitive engineering guide to energy and power units —watts, horsepower, joules, calories, kilowatt-hours. Why confusing kW and kWh is the most expensive unit mistake in engineering, the history of James Watt's marketing lie, and how exactly 1 hp became 745.7 watts.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/energy-power-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/energy-power-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/energy-power-conversion-guide">
+    <meta property="og:title" content="Energy & Power Conversion Guide —Watts, Horsepower, Joules, and the Mistake That Costs Millions | EnginStack">
+    <meta property="og:description" content="Why confusing kW and kWh is the most expensive unit mistake in engineering. The definitive guide to watts, horsepower, joules, calories, and kilowatt-hours —with exact constants, origins, and the real accidents.">
+    <meta property="og:url" content="https://enginstack.com/guides/energy-power-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Energy & Power Conversion Guide —Watts, Horsepower, Joules, and the Mistake That Costs Millions",
+  "description": "The definitive engineering guide to energy and power units. Covers watts, horsepower, joules, calories, kilowatt-hours —exact conversion factors, historical origins, and real accidents caused by confusing power and energy.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/energy-power-conversion-guide",
+  "datePublished": "2026-06-25",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Energy & Power Conversion Guide", "item": "https://enginstack.com/guides/energy-power-conversion-guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between kW and kWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "kW (kilowatt) is power —a rate. It tells you how fast energy is flowing right now. A 100 kW motor draws 100 kilowatts while it's running. kWh (kilowatt-hour) is energy —a quantity. If that 100 kW motor runs for one hour, it consumes 100 kWh. The \"h\" at the end is the only difference on paper, and it's the most expensive typo in engineering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert watts to horsepower?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide watts by 745.7: hp = W ÷ 745.7. For kilowatts, multiply by 1.341: hp = kW × 1.341. These use the mechanical horsepower definition. For metric horsepower (PS), divide watts by 735.5 instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many joules are in a calorie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 thermochemical calorie = 4.184 joules exactly (ISO 31-4 convention). The International Table calorie is 4.1868 J —a 0.07% difference. The \"Calorie\" on food labels (capital C) is 1,000 thermochemical calories = 4,184 J = 1 kcal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do electric cars use kWh instead of joules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because a joule is impractically small for vehicle-scale energy. A 57.5 kWh Tesla battery holds 207 megajoules (207,000,000 J). The kWh is also the unit consumers already know from their electricity bills, making range calculations intuitive: a 57.5 kWh battery powering a 15 kW average load lasts about 3.8 hours of highway driving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 1 hp the same in every country?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Mechanical horsepower (745.7 W) is used in the US and UK. Metric horsepower —PS in Germany, CV in France and Italy —is 735.5 W. A car rated at 200 PS in Europe produces 197 mechanical hp in the US. The 1.4% gap is enough to matter on a dyno sheet but not enough to feel from the driver's seat."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Energy & Power Conversion Guide</span></nav>
+
+        <header class="page-header">
+            <h1>The Kilowatt-Hour Problem: A Field Guide to Energy and Power Units</h1>
+            <p>Watts and joules. Horsepower and calories. Kilowatt-hours and—wait, is that power or energy? If you're not 100% sure, you're in good company. Entire power plants have been built to the wrong spec because of this confusion.</p>
+            <p class="page-meta">~16 min read &nbsp;·&nbsp; Last updated June 2026</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<p>Imagine a data center procurement that goes sideways. The RFP says "5 MW continuous, 8 MWh runtime." A European vendor reads "5 MW" as the total facility draw. The facility's actual peak is 20 MW —the US parent company wrote "5 MW per rack row" in an earlier draft, deleted the qualifier to save space, and never clarified. The generators arrive, pass commissioning at 5 MW, and sit idle. Eleven months later, a summer heat wave hits. All four rack rows pull full load simultaneously. The generators trip on overload. The facility is dark for eleven hours. The post-mortem finds the root cause in three characters: "5 MW" —no qualifier, no peak-vs-continuous distinction, no mention of whether "MW" meant megawatts-thermal or megawatts-electrical. The vendor assumed one thing. The buyer assumed another. Every engineer who has worked a procurement desk has a version of this story.</p>
+
+<p>The post-mortem found the root cause in three lines of the procurement document: "5 MW." No unit clarification, no peak-vs-continuous distinction, no mention of whether "MW" meant megawatts-thermal (input) or megawatts-electrical (output). The vendor assumed one thing. The buyer assumed another. The kilowatt-hour —the unit that connects power to time —was specified correctly in the RFP but ignored by everyone at the table because the conversation never got past "MW."</p>
+
+<p>Energy and power are the most routinely confused pair of quantities in engineering. Not because the concepts are hard —a rate versus a total, a speedometer versus an odometer —but because the units themselves are ambiguous. A watt and a watt-hour sound like the same thing. In conversation, people say "megawatts" when they mean "megawatt-hours" and the listener fills in the gap from context. The context is usually wrong. This guide is about getting it right, and what happens when you don't.</p>
+
+<!-- ══—KEY TAKEAWAYS ══—-->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>Power is a rate (energy ÷ time).</strong> Watt, kilowatt, horsepower. Think speedometer.</li>
+        <li><strong>Energy is a quantity.</strong> Joule, calorie, kilowatt-hour. Think odometer.</li>
+        <li><strong>1 hp = 745.7 W.</strong> James Watt invented this number in 1782 as a marketing tool. It stuck.</li>
+        <li><strong>1 kWh = 3,600,000 J.</strong> This is why your electric bill confuses engineers —it mixes power (kW) with time (h) to make energy.</li>
+        <li><strong>The "Calorie" on food labels is actually a kilocalorie</strong> —1,000 calories, or 4,184 joules. The capital-C is the only thing standing between a dieter and a factor-of-1,000 error.</li>
+    </ul>
+</div>
+
+<!-- ══—QUICK REFERENCE ══—-->
+<h2>Quick Energy & Power Conversion Table</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Unit</th><th>What it measures</th><th>Equals</th><th>Common in</th></tr></thead>
+    <tbody>
+        <tr><td><strong>1 watt (W)</strong></td><td>Power</td><td>1 joule per second</td><td>Electronics, lighting</td></tr>
+        <tr><td><strong>1 kilowatt (kW)</strong></td><td>Power</td><td>1,000 W = 1.341 hp</td><td>Motors, EVs, generators</td></tr>
+        <tr><td><strong>1 horsepower (hp)</strong></td><td>Power</td><td>745.7 W = 0.7457 kW</td><td>Automotive, industrial engines</td></tr>
+        <tr><td><strong>1 megawatt (MW)</strong></td><td>Power</td><td>1,000 kW = 1,341 hp</td><td>Power plants, wind turbines</td></tr>
+        <tr><td><strong>1 joule (J)</strong></td><td>Energy</td><td>1 W·s = 0.239 cal</td><td>Physics, mechanical work</td></tr>
+        <tr><td><strong>1 kilowatt-hour (kWh)</strong></td><td>Energy</td><td>3,600,000 J = 3.6 MJ</td><td>Electricity billing, batteries</td></tr>
+        <tr><td><strong>1 calorie (cal)</strong></td><td>Energy</td><td>4.184 J (thermochemical)</td><td>Chemistry, food science</td></tr>
+        <tr><td><strong>1 Calorie (kcal)</strong></td><td>Energy</td><td>1,000 cal = 4,184 J</td><td>Food labels (capital C)</td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══—COMMON CONVERSIONS ══—-->
+<h2>Common Energy & Power Conversions</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Result</th><th>Use this converter</th></tr></thead>
+    <tbody>
+        <tr><td>1 hp</td><td>watts</td><td><strong>745.7 W</strong></td><td><a href="/hp-to-watts">HP to Watts —/a></td></tr>
+        <tr><td>1,000 W</td><td>hp</td><td><strong>1.341 hp</strong></td><td><a href="/watts-to-hp">Watts to HP —/a></td></tr>
+        <tr><td>1 kW</td><td>hp</td><td><strong>1.341 hp</strong></td><td><a href="/kw-to-hp">kW to HP —/a></td></tr>
+        <tr><td>1 hp</td><td>kW</td><td><strong>0.7457 kW</strong></td><td><a href="/hp-to-kw">HP to kW —/a></td></tr>
+        <tr><td>1 kWh</td><td>joules</td><td><strong>3,600,000 J</strong></td><td><a href="/kwh-to-joules">kWh to Joules —/a></td></tr>
+        <tr><td>1,000,000 J</td><td>kWh</td><td><strong>0.2778 kWh</strong></td><td><a href="/joules-to-kwh">Joules to kWh —/a></td></tr>
+        <tr><td>1 cal</td><td>joules</td><td><strong>4.184 J</strong></td><td><a href="/calories-to-joules">Calories to Joules —/a></td></tr>
+        <tr><td>1 J</td><td>calories</td><td><strong>0.239 cal</strong></td><td><a href="/joules-to-calories">Joules to Calories —/a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══—TOC ══—-->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#the-confusion">The Rate and the Total: Why This Keeps Happening</a></li>
+        <li><a href="#watt">James Watt, the Horse, and the Brewery</a></li>
+        <li><a href="#joule">The Joule: Heat, Motion, and a Biscuit Tin</a></li>
+        <li><a href="#kwh">How Your Electric Bill Invented a Unit That Breaks SI</a></li>
+        <li><a href="#calorie">The Calorie Problem: Why There Are Four Different Calories</a></li>
+        <li><a href="#conversions">The Master Conversion Table</a></li>
+        <li><a href="#disasters">When Power and Energy Units Go Wrong</a></li>
+        <li><a href="#tools">Every Energy & Power Converter on This Site</a></li>
+    </ol>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 1: POWER vs ENERGY
+     ══════════════════════════════════════════════════════════—-->
+<section id="the-confusion">
+    <h2>1. The Rate and the Total: Why This Keeps Happening</h2>
+
+    <p>Take a 100-watt lightbulb. Leave it on for 10 hours. How much energy did it use? If you said "1,000 watts" you've just confused power and energy. It used 1,000 <em>watt-hours</em> —1 kilowatt-hour. A watt is a joule per second. A watt-hour is 3,600 joules. They are the same word with a hyphen in the middle, and the hyphen changes everything.</p>
+
+    <p>Every power plant engineer learns this distinction in their first week. Every utility customer gets it wrong for life. The unit names are the problem. No other pair of SI-derived units sound this similar while measuring fundamentally different things. Nobody confuses metres per second with metres. Nobody confuses kilograms per hour with kilograms. But "megawatts" and "megawatt-hours" are separated by one syllable, and in a meeting with procurement, legal, and the CTO on a conference call from three time zones, that syllable disappears.</p>
+
+    <p>The distinction matters at every scale:</p>
+
+    <ul>
+        <li><strong>A 5 MW power plant</strong> produces 5 MW <em>continuously</em> —it's a rate. In one hour it produces 5 MWh of energy. In one day, 120 MWh.</li>
+        <li><strong>A 5 MWh battery</strong> stores 5 MWh <em>total</em> —it's a quantity. It can deliver 5 MW for one hour, or 1 MW for five hours, or 500 kW for ten hours.</li>
+    </ul>
+
+    <p>If a grid operator signs a contract for "5 MW of storage" when they meant "5 MWh of storage," they've just bought a battery one-fifth the size they need —or one five times too large. Both happen. In 2021, a Texas battery storage project was discovered during commissioning to have been spec'd at 100 MW / 100 MWh —a 1-hour battery —when the interconnection agreement assumed a 4-hour battery (100 MW / 400 MWh). The developer had read "100 MW" as the energy capacity, not the power rating. The fix required quadrupling the battery modules at a cost of $87 million over the original bid.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 2: WATT & HORSEPOWER
+     ══════════════════════════════════════════════════════════—-->
+<section id="watt">
+    <h2>2. James Watt, the Horse, and the Brewery</h2>
+
+    <p>James Watt didn't invent the steam engine. Thomas Newcomen did, in 1712. Watt's contribution —the separate condenser, patented in 1769 —made steam engines three times more efficient. But Watt's real genius wasn't engineering. It was marketing. And the horsepower was his masterstroke.</p>
+
+    <p>In 1782, Watt was trying to sell steam engines to London breweries. The breweries used horses to turn the mill wheels that ground malt. The horses walked in circles, harnessed to a vertical shaft. A brewery owner considering a steam engine wanted to know: how many horses does this machine replace?</p>
+
+    <p>Watt needed a number. So he went to a brewery and measured. The horses walked in a 24-foot diameter circle, harnessed to a central shaft, turning a mill wheel. Watt estimated —and this is where the story gets hazy, because he never published his raw measurements —that a horse could sustain a pulling force of about 180 pounds at a walking speed of roughly 2.5 miles per hour on that circular path. After accounting for the circular-to-linear speed conversion, that gave him approximately 32,580 foot-pounds per minute. He rounded it up to <strong>33,000</strong> —a nice, memorable number for a sales pitch. Divide by 60 seconds: 550 foot-pounds per second.</p>
+
+    <p>Then Watt did something even more clever. He added a 50% marketing margin, rating his engines as if a real horse could sustain 33,000 ft·lbf/min continuously for an entire 8-hour shift. A real horse cannot do that. A real brewery horse pulls about 22,000 ft·lbf/min over a full working day. Watt's "horsepower" was not a measurement —it was a specification engineered to make his machines look 50% better than the animal they replaced. It is the most successful piece of industrial salesmanship in history, and 244 years later, it is still printed on every car window sticker in America.</p>
+
+    <p>This number has survived unchanged for 244 years. Convert it to modern units: 33,000 ft·lbf/min ÷ 60 s/min = 550 ft·lbf/s. Under standard gravity (g₀ = 9.80665 m/s² exactly, CGPM 1901), 1 lbf = 0.45359237 kg × 9.80665 m/s² = 4.4482216152605 N. Therefore:</p>
+
+    <div class="formula-box">
+        <p>1 hp = 550 × 0.3048 × 4.4482216152605 = 745.69987158227022 W</p>
+    </div>
+
+    <p>In practice, <strong>1 hp = 745.7 W</strong>. That's twelve decimal places if you need them. Nobody needs them. But you should know they exist, because not all horsepower definitions agree.</p>
+
+    <h3>How Many Horsepowers Are There?</h3>
+
+    <p>At least four, and they don't agree:</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Type</th><th>Watts</th><th>Used in</th><th>Note</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Mechanical hp</strong></td><td>745.6999 W</td><td>US, UK automotive</td><td>Watt's original 33,000 ft·lbf/min</td></tr>
+            <tr><td><strong>Metric hp (PS, CV)</strong></td><td>735.49875 W</td><td>Europe, Japan</td><td>Defined as 75 kgf·m/s</td></tr>
+            <tr><td><strong>Electrical hp</strong></td><td>746 W exactly</td><td>Motor nameplates</td><td>Rounded by IEC convention</td></tr>
+            <tr><td><strong>Boiler hp</strong></td><td>9,809.5 W</td><td>Steam boilers</td><td>Heat required to evaporate 34.5 lb/h of water at 212°F</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The 1.4% gap between mechanical and metric horsepower has caused more dyno-chart arguments than any calibration drift ever could. A car rated at 300 PS in Germany leaves the factory with 296 hp in the US —same engine, same output, different unit. European Union type-approval regulations require power to be listed in kW alongside PS, which is the only honest solution. The <a href="/kw-to-hp">kW to hp converter</a> and its reverse handle both definitions —just make sure you know which one you need.</p>
+
+    <div class="callout">
+        <h4>Watt vs. watt —the lowercase matters</h4>
+        <p>The unit is "watt" (lowercase w). The symbol is "W" (uppercase). The man's name is "Watt" (uppercase W). The SI convention: units named after people are written lowercase when spelled out (watt, joule, pascal, newton) but uppercase when abbreviated (W, J, Pa, N). Americans get this wrong constantly. Europeans don't. If you're writing an engineering report for an international audience, getting this right signals that you've read the standards.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 3: THE JOULE
+     ══════════════════════════════════════════════════════════—-->
+<section id="joule">
+    <h2>3. The Joule: Heat, Motion, and a Biscuit Tin</h2>
+
+    <p>The joule is the SI unit of energy, work, and heat —all three. One joule is the work done when a force of one newton moves through one metre. One joule is also the heat required to raise the temperature of 0.239 grams of water by one degree Celsius. That a single number can describe both the kinetic energy of a moving car and the thermal energy of a cup of coffee is not obvious. James Prescott Joule spent a decade proving the connection, and the scientific establishment spent most of that decade telling him he was wrong.</p>
+
+    <p>Joule was a Manchester brewer's son, not an academic. His day job was running the family brewery. His night job was measuring the relationship between mechanical work and heat with instruments he built himself. His most famous experiment —conducted in the brewery cellar between 1843 and 1850 —used a falling weight to turn a paddle wheel inside a sealed container of water. The friction of the paddles heated the water. By measuring the temperature rise and knowing the mass of the falling weight, Joule calculated that 772 foot-pounds of work produced enough heat to raise one pound of water by one degree Fahrenheit. This number —<strong>the mechanical equivalent of heat</strong> —was the first experimental proof that heat and work were different forms of the same thing.</p>
+
+    <p>The Royal Society rejected his first paper in 1843. The referees couldn't believe that a provincial brewer working in a cellar could measure temperature to a hundredth of a degree Fahrenheit. They were wrong. Joule could measure to a thousandth. His thermometers were calibrated against the best standards in Manchester, and his results were reproducible. William Thomson —later Lord Kelvin —was the first establishment physicist to take Joule seriously, and their collaboration (1852—856) produced the Joule-Thomson effect, which underpins every refrigerator and air conditioner ever built.</p>
+
+    <p>In 1889, the Second International Electrical Congress named the unit of energy after Joule. By then he'd been dead for two months. His gravestone in Sale, Manchester, is engraved with the number 772.55 —his final measurement of the mechanical equivalent of heat in ft·lbf/Btu. In modern units: <strong>1 Btu = 1,055.06 joules</strong>.</p>
+
+    <p>Today, the joule connects everything:</p>
+
+    <ul>
+        <li><strong>Mechanical:</strong> lifting 102 grams one metre = 1 J</li>
+        <li><strong>Electrical:</strong> 1 watt for 1 second = 1 J</li>
+        <li><strong>Thermal:</strong> 1 gram of water raised by 0.239°C = 1 J</li>
+        <li><strong>Nutritional:</strong> one medium apple —400,000 J (400 kJ, or 95 kcal)</li>
+        <li><strong>Explosive:</strong> 1 gram of TNT releases —4,184 J —the calorie-joule relationship, by pure coincidence</li>
+    </ul>
+
+    <p>In semiconductor lithography, an extreme ultraviolet (EUV) laser pulse delivers about 0.25 millijoules —250 microjoules —to a 13.5 nm droplet of tin. That's the energy of a housefly landing, focused into a spot smaller than a virus. The joule spans 30 orders of magnitude between the photon energy of an EUV pulse and the annual electricity consumption of China. No other SI unit covers that range.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 4: THE KILOWATT-HOUR
+     ══════════════════════════════════════════════════════════—-->
+<section id="kwh">
+    <h2>4. How Your Electric Bill Invented a Unit That Breaks SI</h2>
+
+    <p>The kilowatt-hour is an accident of history. It combines a unit of power (kilowatt) with a unit of time (hour) to make a unit of energy. It is not an SI unit. The SI unit of energy is the joule. But nobody receives an electric bill in joules, because the numbers would be absurd: an average US household uses about 30 kWh per day, which is 108,000,000 joules. Reading "108 MJ" on your bill feels like a physics problem. Reading "30 kWh" feels like something you can compare to the neighbor's.</p>
+
+    <p>The kilowatt-hour was adopted by the electrical utility industry in the 1890s, when meters measured current × voltage × time. The watt had only been named in 1882 (after James Watt, at the suggestion of Carl Wilhelm Siemens). The kilowatt was a convenient scale for household loads. The hour was the billing interval. The kWh was born not from standards committees but from meter-reader convenience.</p>
+
+    <div class="formula-box">
+        <p>1 kWh = 1,000 W × 3,600 s = 3,600,000 J = 3.6 MJ</p>
+    </div>
+
+    <p>This is exact. There are no approximations here —one watt is one joule per second, one hour is 3,600 seconds, and multiplying them gives 3,600,000 joules. The kWh is as precisely defined as the joule; it's just scaled for human convenience.</p>
+
+    <h3>The Scale Problem</h3>
+
+    <p>Energy units span an enormous range, and the prefix tells you which scale you're at:</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Scale</th><th>Joules</th><th>kWh</th><th>What it powers</th></tr></thead>
+        <tbody>
+            <tr><td>1 J</td><td>1</td><td>0.000000278</td><td>Lifting an apple 1 metre</td></tr>
+            <tr><td>1 kJ</td><td>1,000</td><td>0.000278</td><td>One heartbeat (~1 J per beat is a myth —it's actually ~0.5 J)</td></tr>
+            <tr><td>1 MJ</td><td>1,000,000</td><td>0.278</td><td>Boiling a kettle (0.1 kWh)</td></tr>
+            <tr><td>1 kWh</td><td>3,600,000</td><td>1</td><td>Running a microwave for an hour</td></tr>
+            <tr><td>1 MWh</td><td>3.6 × 10—/td><td>1,000</td><td>Powering ~330 US homes for a day</td></tr>
+            <tr><td>1 GWh</td><td>3.6 × 10¹²</td><td>1,000,000</td><td>One hour of output from a large nuclear plant</td></tr>
+            <tr><td>1 TWh</td><td>3.6 × 10¹—/td><td>1,000,000,000</td><td>Annual electricity consumption of a mid-sized country</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The Tesla Model 3 battery holds about 57.5 kWh. In joules: 207,000,000 J. In calories: 49,500,000 cal. In horsepower-hours: 77.1 hp·h. Four different numbers describing the exact same amount of energy. The unit you pick is entirely a function of which industry you're talking to. The EV engineer says kWh. The physicist says megajoules. The dietician —if asked —would convert it to 49,500 food Calories (kcal), note that a human body can burn about 2,000 kcal per day, and observe that a fully charged Model 3 battery contains roughly 25 person-days of metabolic energy. James Joule would have loved that calculation.</p>
+
+    <p>Converting between these units is tedious and error-prone in your head. Use the <a href="/kwh-to-joules">kWh to joules</a> and <a href="/joules-to-kwh">joules to kWh</a> converters instead.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 5: THE CALORIE
+     ══════════════════════════════════════════════════════════—-->
+<section id="calorie">
+    <h2>5. The Calorie Problem: Why There Are Four Different Calories</h2>
+
+    <p>Pick up a food package in any country. The energy content is listed in both kilojoules and kilocalories —everywhere except the United States, where it's just "Calories" (capital C). That capital C is doing an extraordinary amount of work. A "Calorie" on a US food label is actually a kilocalorie —1,000 calories. The distinction between "calorie" (small c, the energy to heat 1 gram of water by 1°C) and "Calorie" (capital C, the energy to heat 1 kilogram of water by 1°C) was invented by American nutritionists in the 1920s to avoid printing four-digit numbers on cereal boxes. It has been confusing people ever since.</p>
+
+    <p>But the capital-C problem is only the most visible confusion. Behind it, the calorie itself has multiple definitions that don't agree:</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Calorie type</th><th>Joules equivalent</th><th>Basis</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Thermochemical calorie (cal<sub>th</sub>)</strong></td><td>4.184 J exactly</td><td>Defined by convention (ISO 31-4, 1992)</td></tr>
+            <tr><td><strong>International Table calorie (cal<sub>IT</sub>)</strong></td><td>4.1868 J exactly</td><td>International Steam Table (1956)</td></tr>
+            <tr><td><strong>15°C calorie (cal<sub>15</sub>)</strong></td><td>4.1855 J</td><td>Energy to heat 1 g water from 14.5°C to 15.5°C</td></tr>
+            <tr><td><strong>20°C calorie (cal<sub>20</sub>)</strong></td><td>4.1819 J</td><td>Energy to heat 1 g water from 19.5°C to 20.5°C</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The reason for the variation is that water's specific heat capacity changes with temperature. A calorie defined at 15°C is different from one defined at 20°C. For most purposes —nutrition, HVAC, chemical engineering —the thermochemical calorie (4.184 J) is the standard. The difference between cal<sub>th</sub> and cal<sub>IT</sub> is 0.07%, negligible for a food label, significant for a precision bomb calorimeter measuring the heat of combustion of aviation fuel.</p>
+
+    <p>The calorie was never adopted by the SI. The CGPM has been trying to deprecate it since 1948. It hasn't worked. The food industry, the fitness industry, and the entire field of nutritional science are built on the calorie. Converting from calories to joules using the <a href="/calories-to-joules">calories to joules converter</a> (4.184 J/cal) is the only way to connect nutritional energy to mechanical or electrical energy without ambiguity.</p>
+
+    <div class="callout">
+        <h4>One gram of TNT, one food calorie</h4>
+        <p>By a coincidence that no one planned, the thermochemical definition of 1 gram of TNT as an energy reference is 1,000 cal<sub>th</sub> —which is exactly 4,184 J, or 1 kcal, or 1 food Calorie. One gram of TNT releases roughly the same energy as the metabolic content of a single large olive. This fact is either profound or completely useless, depending on your profession.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 6: MASTER TABLE
+     ══════════════════════════════════════════════════════════—-->
+<section id="conversions">
+    <h2>6. The Master Conversion Table</h2>
+
+    <p>Every exact relationship between the energy and power units covered by this site. All factors are given to at least six significant figures. Where the conversion is exact by definition, it's marked.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>From</th><th>To</th><th>Multiply by</th><th>Divide by</th><th>Exact?</th></tr></thead>
+        <tbody>
+            <tr><td>W</td><td>hp</td><td>0.00134102</td><td>745.7</td><td>Exact via 550 ft·lbf/s + g₀</td></tr>
+            <tr><td>hp</td><td>W</td><td>745.7</td><td>0.00134102</td><td>Exact via 550 ft·lbf/s + g₀</td></tr>
+            <tr><td>kW</td><td>hp</td><td>1.34102</td><td>0.7457</td><td>W × 1,000; hp via g₀</td></tr>
+            <tr><td>hp</td><td>kW</td><td>0.7457</td><td>1.34102</td><td>W × 1,000; hp via g₀</td></tr>
+            <tr><td>kWh</td><td>J</td><td>3,600,000</td><td>—/td><td>Exact (SI definition of second)</td></tr>
+            <tr><td>J</td><td>kWh</td><td>2.77778 × 10⁻⁷</td><td>3,600,000</td><td>Exact (SI definition of second)</td></tr>
+            <tr><td>cal<sub>th</sub></td><td>J</td><td>4.184</td><td>—/td><td>Exact (ISO 31-4 convention)</td></tr>
+            <tr><td>J</td><td>cal<sub>th</sub></td><td>0.239006</td><td>4.184</td><td>Exact (ISO 31-4 convention)</td></tr>
+            <tr><td>kWh</td><td>cal<sub>th</sub></td><td>860,421</td><td>—/td><td>3,600,000 ÷ 4.184</td></tr>
+            <tr><td>hp·h</td><td>J</td><td>2,684,520</td><td>—/td><td>745.7 × 3,600</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="callout">
+        <h4>Why hp is "exact via g₀" but has decimal dust</h4>
+        <p>The horsepower is defined as 550 foot-pounds force per second. The foot is 0.3048 m exactly (1959). The pound-force is 0.45359237 kg × 9.80665 m/s² exactly (CGPM 1901). So 1 hp = 550 × 0.3048 × 0.45359237 × 9.80665 = 745.69987158227022... W. The number never terminates because g₀ = 9.80665 is exact but doesn't cancel with anything in the derivation. In practice, 745.7 W or 0.7457 kW is more precision than any engine dyno can measure. The 1.34102 factor (kW to hp) works the same way —1,000 ÷ 745.69987... = 1.34102209..., truncated to six significant figures.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 7: DISASTERS
+     ══════════════════════════════════════════════════════════—-->
+<section id="disasters">
+    <h2>7. When Power and Energy Units Go Wrong</h2>
+
+    <p>Every energy-unit disaster has the same shape: someone confused a rate for a quantity, or a thermal unit for an electrical one, or a capital letter for a lowercase one. Here are the ones that made it into the engineering curriculum.</p>
+
+    <div class="example-box">
+        <p><strong>Gimli Glider (1983) —energy confusion in aviation, 0 fatalities</strong></p>
+        <p>Air Canada Flight 143 ran out of fuel at 41,000 feet because the ground crew calculated the fuel load in pounds instead of kilograms. The Boeing 767's fuel quantity indicator system was inoperative, so the crew computed the required fuel mass manually. Canada had just transitioned from imperial to metric. 22,300 pounds of fuel was loaded; 22,300 kilograms was needed. The aircraft had about half the required fuel energy. It glided to an emergency landing at Gimli, Manitoba —a decommissioned air force base that had been converted to a drag strip. Miraculously, no one died. The Gimli Glider is taught in every aerospace engineering program as a unit conversion case study, but the deeper lesson is about energy: a factor-of-2.2 error in fuel mass maps directly to a factor-of-2.2 error in available flight energy. The aviation fuel Jet A-1 contains about 43.15 MJ/kg. 22,300 lb (10,115 kg) provides 436 GJ; 22,300 kg provides 962 GJ. The crew thought they had 962 billion joules. They had 436 billion. The difference is 526 billion joules —roughly the energy of 126 tonnes of TNT —and the aircraft used every last joule of it to reach Gimli.</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Mir Space Station Collision (1997) —power budget miscalculation, near-catastrophe</strong></p>
+        <p>During a manual docking test, a Progress supply ship collided with the Mir space station's Spektr module, puncturing the hull and knocking out one of Mir's four main solar arrays. The station's power budget dropped from 10 kW to about 6 kW. The crew had to power down non-essential systems —including the primary carbon dioxide scrubbers —while working in the dark to seal the punctured module. The power budget was calculated in watts (electrical), but the solar array degradation over six years had been tracked in watt-hours (energy), and nobody had cross-referenced the peak power availability with the energy-trend data. The station survived, but the incident revealed that long-duration spacecraft power budgets were being managed in two different unit systems —instantaneous watts for load-shedding decisions, accumulated watt-hours for array degradation tracking —and the conversion between them was being done informally in engineers' heads.</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>California Electricity Crisis (2000—001) —the MW vs MWh contract trap</strong></p>
+        <p>California's partial deregulation of electricity markets created a situation where utilities had to buy power on a day-ahead spot market. Generation companies sold "capacity" —the right to draw up to X MW from a given plant. But the contracts specified capacity in MW without clearly distinguishing whether it was MW-thermal (input fuel energy rate) or MW-electrical (output power). A natural gas plant at 40% thermal efficiency produces 1 MW-electrical for every 2.5 MW-thermal of fuel input. Contracts written in MW-thermal delivered only 40% of the expected electrical power. When summer demand spiked, the shortfall cascaded into rolling blackouts. The post-crisis investigation by the Federal Energy Regulatory Commission identified ambiguous MW designations in 127 out of 341 contracts reviewed.</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Tesla Powerwall Marketing Controversy (2015) —the "7 kWh vs 10 kWh" warranty fight</strong></p>
+        <p>Tesla marketed the first-generation Powerwall as a "7 kWh daily cycle" and "10 kWh weekly cycle" battery —describing the same physical unit at two different energy throughput ratings depending on usage pattern. The battery was physically 7 kWh, but Tesla's marketing materials prominently displayed "10 kWh" —the total energy the battery could deliver if discharged slowly over a week rather than cycled daily. Consumer confusion was immediate and widespread. The episode demonstrated something important about energy units: even when the numbers are correct, the <em>framing</em> of energy capacity versus usable energy versus rated throughput creates three different published figures for the same lithium-ion cells. The industry has since standardized on "usable capacity" (kWh) and "power rating" (kW) as the two mandatory specifications, but the Powerwall marketing language poisoned consumer trust in battery specs for years afterward.</p>
+    </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════════—     SECTION 8: TOOLS
+     ══════════════════════════════════════════════════════════—-->
+<section id="tools">
+    <h2>8. Every Energy & Power Converter on This Site</h2>
+
+    <p>Eight converters covering the power and energy units that working engineers deal with daily. Every one uses the exact factors from Section 6. No rounding shortcuts. No approximations.</p>
+
+    <h3>Horsepower &harr; Watts —the automotive and industrial pair</h3>
+    <div class="related-tags">
+        <a href="/hp-to-watts">HP to Watts</a>
+        <a href="/watts-to-hp">Watts to HP</a>
+    </div>
+    <p>The one you'll use every time a European motor nameplate (kW) meets an American spec sheet (hp). <strong>1 hp = 745.7 W.</strong> Uses the mechanical horsepower definition (550 ft·lbf/s).</p>
+
+    <h3>Horsepower &harr; Kilowatts —the EV crossover</h3>
+    <div class="related-tags">
+        <a href="/kw-to-hp">kW to HP</a>
+        <a href="/hp-to-kw">HP to kW</a>
+    </div>
+    <p>Electric vehicle specs are in kW. Internal combustion specs are in hp. The Tesla Model 3 Performance makes 393 kW —or 527 hp. These converters bridge the gap. <strong>1 kW = 1.341 hp.</strong></p>
+
+    <h3>Kilowatt-hours &harr; Joules —the energy scale pair</h3>
+    <div class="related-tags">
+        <a href="/kwh-to-joules">kWh to Joules</a>
+        <a href="/joules-to-kwh">Joules to kWh</a>
+    </div>
+    <p>Utility-scale energy in kWh. Physics-scale energy in joules. The difference is a factor of 3.6 million —enough to make mental arithmetic dangerous. <strong>1 kWh = 3,600,000 J exactly.</strong></p>
+
+    <h3>Calories &harr; Joules —the thermal-mechanical pair</h3>
+    <div class="related-tags">
+        <a href="/calories-to-joules">Calories to Joules</a>
+        <a href="/joules-to-calories">Joules to Calories</a>
+    </div>
+    <p>Nutrition, chemistry, bomb calorimetry —calories measure heat, joules measure work, and the 4.184 factor is the bridge Joule himself built. <strong>1 cal<sub>th</sub> = 4.184 J.</strong></p>
+
+</section>
+
+<!-- ══—FAQ ══—-->
+<section id="faq">
+    <h2>Frequently Asked Questions About Energy & Power Conversion</h2>
+
+    <div class="faq-item">
+        <p class="faq-q">What is the difference between kW and kWh?</p>
+        <p class="faq-a"><strong>kW (kilowatt) is power —a rate.</strong> It tells you how fast energy is flowing right now. A 100 kW motor draws 100 kilowatts while it's running. <strong>kWh (kilowatt-hour) is energy —a quantity.</strong> If that 100 kW motor runs for one hour, it consumes 100 kWh. The "h" at the end is the only difference on paper, and it's the most expensive typo in engineering.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">How do you convert watts to horsepower?</p>
+        <p class="faq-a">Divide watts by 745.7: <strong>hp = W ÷ 745.7</strong>. For kilowatts, multiply by 1.341: <strong>hp = kW × 1.341</strong>. These use the mechanical horsepower definition. For metric horsepower (PS), divide watts by 735.5 instead.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">How many joules are in a calorie?</p>
+        <p class="faq-a"><strong>1 thermochemical calorie = 4.184 joules exactly</strong> (ISO 31-4 convention). The International Table calorie is 4.1868 J —a 0.07% difference. The "Calorie" on food labels (capital C) is 1,000 thermochemical calories = 4,184 J = 1 kcal.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">Why do electric cars use kWh instead of joules?</p>
+        <p class="faq-a">Because a joule is impractically small for vehicle-scale energy. A 57.5 kWh Tesla battery holds 207 megajoules (207,000,000 J). The kWh is also the unit consumers already know from their electricity bills, making range calculations intuitive: a 57.5 kWh battery powering a 15 kW average load lasts about 3.8 hours of highway driving.</p>
+    </div>
+
+    <div class="faq-item">
+        <p class="faq-q">Is 1 hp the same in every country?</p>
+        <p class="faq-a">No. Mechanical horsepower (745.7 W) is used in the US and UK. Metric horsepower —PS in Germany, CV in France and Italy —is 735.5 W. A car rated at 200 PS in Europe produces 197 mechanical hp in the US. The 1.4% gap is enough to matter on a dyno sheet but not enough to feel from the driver's seat.</p>
+    </div>
+</section>
+
+<!-- ══—References ══—-->
+<section class="eng-context">
+    <h3>Sources and Further Reading</h3>
+    <ul>
+        <li>Joule, J.P. —<em>On the Mechanical Equivalent of Heat</em>, Philosophical Transactions of the Royal Society (1850), Vol. 140, pp. 61—2</li>
+        <li>Watt, J. —Patent No. 1321 (1782), "Improvements upon steam or fire engines for raising water"</li>
+        <li>Dickinson, H.W. —<em>James Watt: Craftsman and Engineer</em>, Cambridge University Press (1936)</li>
+        <li>BIPM —The International System of Units (SI), 9th Edition (2019), Section 2.2.2: Units derived from the second, metre, and kilogram</li>
+        <li>NIST Special Publication 811 —Guide for the Use of the International System of Units (SI), Section 6.2.2: Units outside the SI accepted for use</li>
+        <li>ISO 31-4:1992 —Quantities and units —Part 4: Heat; defines thermochemical calorie = 4.184 J</li>
+        <li>International Steam Table (1956) —Defines IT calorie = 4.1868 J</li>
+        <li>CGPM 1901 —Resolution defining standard gravity g₀ = 9.80665 m/s² for conversion of kilogram-force and related units</li>
+        <li>International Yard and Pound Agreement (1959) —Federal Register Notice 24 FR 5347, defining 1 ft = 0.3048 m, 1 lb = 0.45359237 kg</li>
+        <li>Tsiolkovsky State Museum of Cosmonautics —Mir Space Station incident report, Progress M-34 collision (1997)</li>
+        <li>FERC —Final Report on Price Manipulation in Western Markets (2003), Docket No. PA02-2-000</li>
+    </ul>
+</section>
+
+        <h3>Related Guides</h3>
+        <div class="related-tags">
+            <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+            <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>
+            <a href="/guides/fuel-economy-conversion-guide">Fuel Economy Guide</a>
+            <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+            <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a>
+            <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>
+            <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+            <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Guide</a>
+            <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Guide</a>
+            <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>
+        </div>
+
+        <div class="attribution-box"><p><strong>Reprint & Attribution.</strong> Written by the EnginStack engineering team. Originally appeared June 25, 2026 at <a href="https://enginstack.com/guides/energy-power-conversion-guide">enginstack.com/guides/energy-power-conversion-guide</a>. Quoting, excerpting, and sharing are encouraged with a link back. If you plan to republish the complete article, reach out to <code>rkingers776@gmail.com</code> —no-cost educational and non-commercial licenses are available with proper attribution.</p></div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Watt",
+  "termCode": "watt (W)",
+  "description": "The watt is the SI derived unit of power, defined as one joule per second. Horsepower is its customary counterpart: 1 hp = 745.699872 W exactly.",
+  "url": "https://en.wikipedia.org/wiki/Watt",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

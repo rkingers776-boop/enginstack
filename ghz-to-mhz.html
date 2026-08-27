@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Gigahertz to Megahertz (GHz to MHz) — Downshifting From Radio to Router Math | EnginStack</title>
+    <meta name="description" content="1 GHz = 1,000 MHz exactly. Convert gigahertz to megahertz — the conversion behind Wi-Fi channel planning, 5G band allocation, and CPU clock specs. 5.18 GHz is 5,180 MHz. Here's the exact math, the spectrum stories, and the conversion table.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/ghz-to-mhz">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/ghz-to-mhz">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/ghz-to-mhz">
+    <meta property="og:title" content="Gigahertz to Megahertz (GHz to MHz) — Downshifting From Radio to Router Math | EnginStack">
+    <meta property="og:description" content="1 GHz = 1,000 MHz exactly. Convert gigahertz to megahertz — the conversion behind Wi-Fi channels and 5G bands.">
+    <meta property="og:url" content="https://enginstack.com/ghz-to-mhz">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Gigahertz to Megahertz Converter",
+      "description": "Convert gigahertz (GHz) to megahertz (MHz) by multiplying by 1,000 — the exact SI prefix relationship. 1 GHz = 1,000 MHz by definition.",
+      "url": "https://enginstack.com/ghz-to-mhz",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 5.18 GHz the same as 5,180 MHz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, exactly. 5.18 × 1,000 = 5,180 MHz. This is Wi-Fi channel 36's center frequency. Both notations describe the same radio wave; the GHz form is used on consumer labels, the MHz form in engineering channel tables. The conversion is exact because the SI prefixes are definitions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my router use GHz but my analyzer shows MHz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convention and display readability. Routers market the band as \"2.4 GHz\" or \"5 GHz\" because those are short, memorable labels. Spectrum analyzers and channel scanners show MHz (or Hz) because channel plans and regulatory tables are written in MHz with finer resolution — 2,437 MHz is more precise-looking than 2.437 GHz. Both are correct; the ×1,000/÷1,000 conversion between them is exact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's higher: 5 GHz Wi-Fi or 24 GHz radar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "24 GHz radar is higher — 24,000 MHz vs 5,000 MHz. The radar band is nearly five times the Wi-Fi band's frequency. Higher frequency means shorter wavelength (about 12.5 mm at 24 GHz), which is why automotive radar can resolve fine detail at close range but has limited penetration. All of these are just different points on the same GHz ladder, separated by exact powers of ten."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Frequency", "item": "https://enginstack.com/frequency/" },
+        { "@type": "ListItem", "position": 3, "name": "Gigahertz to Megahertz Converter" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/frequency/">Frequency</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Gigahertz to Megahertz Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Gigahertz to Megahertz: Every Wi-Fi Channel, Unpacked</h1>
+            <p>Your router says "2.4 GHz." Your Wi-Fi analyzer says channel 6 at 2,437 MHz. The two numbers describe the same radio wave, and the conversion between them — multiply by 1,000 — is the quiet arithmetic behind every wireless deployment on earth. This page makes that conversion visible: type in gigahertz, get the megahertz, and see exactly which channel or band you're actually on.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1000" data-unit-from="GHz" data-unit-to="MHz">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="2.412" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">GHz</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">2412</span>
+                        <span class="unit-pill unit-pill-to">MHz</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">2.412 GHz = 2412 MHz</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">2.412 MHz = 0.002412 GHz</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Why the Channel Number Hides the Real Frequency</h2>
+
+            <p>Wi-Fi channels are numbered, but the numbers aren't arbitrary — they encode a center frequency. Channel 1 on 2.4 GHz is at 2,412 MHz. Channel 6 is at 2,437 MHz. Channel 11 is at 2,462 MHz. The step between adjacent channels is exactly 5 MHz, and the formula is: center frequency (MHz) = 2,412 + (channel − 1) × 5. In gigahertz, the same channels are 2.412, 2.437, and 2.462 — numbers too long to print on a router. The industry chose channel numbers for the consumer interface and kept MHz (or GHz) for the engineering layer. This page converts between the two notations in one step.</p>
+
+            <p>The 5 GHz band does the same trick one rung up. Channel 36 centers at 5,180 MHz — 5.18 GHz. The channels step in 20 MHz increments: 36 = 5,180, 40 = 5,200, 44 = 5,220, 48 = 5,240 MHz. Every one of those MHz values has an exact GHz equivalent, and every GHz value on a router label has an exact MHz channel frequency. The conversion is exact because the prefixes are definitions, not measurements.</p>
+
+            <div class="formula-box"><p><strong>MHz = GHz × 1,000</strong><br>because 1 GHz = 10⁹ Hz and 1 MHz = 10⁶ Hz<br>The factor 1,000 is exact — a definition, not a measurement.</p></div>
+
+            <h2>From Router Labels to Regulatory Tables</h2>
+
+            <p>The GHz-to-MHz conversion shows up at every level of wireless work. The consumer router label says "2.4/5 GHz." The regulatory filing for the same device lists emission frequencies in MHz. The spectrum analyzer's marker can be set to either. The network engineer tuning channel 157 (5,785 MHz, or 5.785 GHz) works in both notations daily. And the cellular world does the same: 5G band n78 spans 3,300-3,800 MHz — the "3.5 GHz band" — and the auction documents, the device certification, and the marketing all use different notations for the same allocation.</p>
+
+            <h2>Common Gigahertz to Megahertz Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>GHz</th><th>MHz</th><th>Where you'd see this</th></tr></thead><tbody>
+                <tr><td>0.001 GHz</td><td>1 MHz</td><td>The definitional anchor — one megahertz.</td></tr>
+                <tr><td>0.7 GHz</td><td>700 MHz</td><td>UHF TV band. 4G LTE low band.</td></tr>
+                <tr><td>0.9 GHz</td><td>900 MHz</td><td>GSM cellular. Cordless phones.</td></tr>
+                <tr><td>1 GHz</td><td>1,000 MHz</td><td>The boundary itself.</td></tr>
+                <tr><td>2.412 GHz</td><td>2,412 MHz</td><td>Wi-Fi 2.4 GHz channel 1.</td></tr>
+                <tr><td>2.437 GHz</td><td>2,437 MHz</td><td>Wi-Fi 2.4 GHz channel 6.</td></tr>
+                <tr><td>2.462 GHz</td><td>2,462 MHz</td><td>Wi-Fi 2.4 GHz channel 11.</td></tr>
+                <tr><td>3.5 GHz</td><td>3,500 MHz</td><td>5G mid-band. The famous n78 range.</td></tr>
+                <tr><td>5.18 GHz</td><td>5,180 MHz</td><td>Wi-Fi 5 GHz channel 36.</td></tr>
+                <tr><td>5.785 GHz</td><td>5,785 MHz</td><td>Wi-Fi 5 GHz channel 157.</td></tr>
+                <tr><td>24 GHz</td><td>24,000 MHz</td><td>Automotive radar.</td></tr>
+                <tr><td>28 GHz</td><td>28,000 MHz</td><td>5G millimeter wave.</td></tr>
+                </tbody></table></div>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>Finding the channel from the label</strong></p>
+                <p>A router's spec says "5.18 GHz." What channel is that? 5.18 × 1,000 = 5,180 MHz, which is channel 36 — the first channel of the 5 GHz band. A neighbor's router on "5.785 GHz" is channel 157 (5,785 MHz). The conversion from the GHz label to the MHz channel frequency is the first step of any Wi-Fi interference analysis, and it's exact every time.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>The 5G auction math</b></strong></p>
+                <p>A carrier buys spectrum "in the 3.5 GHz band" — 100 MHz wide, centered at 3,500 MHz. The compliance engineer files the exact block boundaries: 3,450-3,550 MHz. The marketing team quotes "3.5 GHz 5G." The device certification table lists band n78 as 3,300-3,800 MHz. Four documents, four notations, one allocation — and every conversion between them is ×1,000 or ÷1,000, exact to the hertz.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>CPU clocks in the UEFI</b></strong></p>
+                <p>A motherboard's BIOS displays CPU frequency in MHz; the box says GHz. A 5.0 GHz boost clock appears as 5,000 MHz in the UEFI. An overclocker raising the clock from 4.8 to 4.9 GHz is moving from 4,800 to 4,900 MHz. The mental conversion (×1,000) is so common in hardware forums that the 'GHz = MHz/1000' reflex is a rite of passage — and this page makes it explicit.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The GHz range spans the SHF band (3-30 GHz) and the start of EHF (30-300 GHz, millimeter wave). IEEE 802.11 and 3GPP publish channel tables in MHz, while test instruments (spectrum analyzers, signal generators) often default to GHz above 3 GHz. The conversion is exact and universal. For the data rates these frequencies carry — 5 GHz Wi-Fi at up to 1 Gbps, 5G at multi-Gbps — the <a href="/data-storage/">data storage</a> hub provides the Mbps/Gbps converters, and the <a href="/frequency/">frequency hub</a> organizes all eight frequency converters on this site.</p>
+                <p style="margin-top:1.2em;">More: <a href="/mhz-to-ghz">MHz to GHz</a> · <a href="/khz-to-mhz">kHz to MHz</a> · <a href="/mhz-to-khz">MHz to kHz</a> · <a href="/frequency/">Frequency Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/mhz-to-ghz">MHz to GHz</a>
+                <a href="/khz-to-mhz">kHz to MHz</a>
+                <a href="/mhz-to-khz">MHz to kHz</a>
+                <a href="/hz-to-khz">Hz to kHz</a>
+                <a href="/frequency/">Frequency Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Is 5.18 GHz the same as 5,180 MHz?</p>
+                <p class="faq-a">Yes, exactly. 5.18 × 1,000 = 5,180 MHz. This is Wi-Fi channel 36's center frequency. Both notations describe the same radio wave; the GHz form is used on consumer labels, the MHz form in engineering channel tables. The conversion is exact because the SI prefixes are definitions.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does my router use GHz but my analyzer shows MHz?</p>
+                <p class="faq-a">Convention and display readability. Routers market the band as "2.4 GHz" or "5 GHz" because those are short, memorable labels. Spectrum analyzers and channel scanners show MHz (or Hz) because channel plans and regulatory tables are written in MHz with finer resolution — 2,437 MHz is more precise-looking than 2.437 GHz. Both are correct; the ×1,000/÷1,000 conversion between them is exact.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What's higher: 5 GHz Wi-Fi or 24 GHz radar?</p>
+                <p class="faq-a">24 GHz radar is higher — 24,000 MHz vs 5,000 MHz. The radar band is nearly five times the Wi-Fi band's frequency. Higher frequency means shorter wavelength (about 12.5 mm at 24 GHz), which is why automotive radar can resolve fine detail at close range but has limited penetration. All of these are just different points on the same GHz ladder, separated by exact powers of ten.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

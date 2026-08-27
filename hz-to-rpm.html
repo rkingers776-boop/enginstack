@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Hertz to RPM (Hz to rpm) — The Motor Speed Crossover Every VFD User Meets | EnginStack</title>
+    <meta name="description" content="1 Hz = 60 RPM exactly. Convert hertz to RPM — the frequency-to-rotation conversion behind every VFD, motor speed spec, and 50/60 Hz power grid question. A 60 Hz 4-pole motor runs at 1,800 RPM. Here's the exact 60 factor, pole-pair math, and the conversion table.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/hz-to-rpm">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/hz-to-rpm">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/hz-to-rpm">
+    <meta property="og:title" content="Hertz to RPM (Hz to rpm) — The Motor Speed Crossover Every VFD User Meets | EnginStack">
+    <meta property="og:description" content="1 Hz = 60 RPM exactly. Convert hertz to RPM — the frequency-to-rotation conversion behind every VFD and motor spec.">
+    <meta property="og:url" content="https://enginstack.com/hz-to-rpm">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Hertz to RPM Converter",
+      "description": "Convert hertz (Hz) to revolutions per minute (RPM) by multiplying by 60 — the exact relationship between cycles per second and cycles per minute. 1 Hz = 60 RPM.",
+      "url": "https://enginstack.com/hz-to-rpm",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many RPM is 60 Hz on a 4-pole motor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1,800 RPM synchronous — 120 × 60 ÷ 4 = 1,800. Under load, an induction motor runs slightly slower (about 1,740-1,780 RPM) due to slip. On 50 Hz, the same 4-pole motor runs at 1,500 RPM synchronous. The '120' in the formula is 60 (seconds per minute) × 2 (poles per pole pair), which is why the numbers always come out in whole hundreds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Hz the same as RPM for vibration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They're the same physical quantity — cycles per unit time — expressed in different time bases. 1 Hz = 60 RPM, always. Vibration analysts use Hz (or CPM, cycles per minute, where 1 Hz = 60 CPM) for spectral analysis and RPM for shaft-speed reference. A '1× running speed' peak at 30 Hz on an 1,800-RPM machine is the same number in both notations, linked by the exact 60."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does aircraft equipment use 400 Hz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because 400 Hz allows much smaller, lighter transformers and motors. Electrical machine size scales down as frequency goes up — a 400 Hz transformer has about 1/8 the core volume of a 60 Hz one for the same power. Aircraft generators produce 400 Hz (24,000 RPM for a 2-pole machine) specifically to save weight. The Hz↔RPM conversion for that generator: 400 × 60 = 24,000 RPM."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Frequency", "item": "https://enginstack.com/frequency/" },
+        { "@type": "ListItem", "position": 3, "name": "Hertz to RPM Converter" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/frequency/">Frequency</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Hertz to RPM Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Hertz to RPM: The 60-Factor That Connects Power Grids to Motor Shafts</h1>
+            <p>Every electric motor in the world has two speed numbers. The electrical one is in hertz — 50 or 60, depending on which continent's grid feeds it. The mechanical one is in RPM — 1,500 or 1,800 for a typical 4-pole motor. The bridge between them is the number 60, exact and unforgiving: 1 Hz = 60 RPM. And the moment you add a variable frequency drive (VFD), the hertz becomes a dial you turn — 30 Hz, 45 Hz, 60 Hz — and the shaft speed follows, one multiplication away.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="60" data-unit-from="hertz" data-unit-to="RPM">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="60" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">hertz</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">3600</span>
+                        <span class="unit-pill unit-pill-to">RPM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">60 hertz = 3600 RPM</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">60 RPM = 1 hertz</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The 60 That Isn't a Constant — It's a Calendar</h2>
+
+            <p>Why 60? Because a hertz counts cycles per <em>second</em>, and an RPM counts revolutions per <em>minute</em>, and there are 60 seconds in a minute. The number 60 is not a physical constant; it's a consequence of how we divide time, inherited from the Babylonians and their sexagesimal system. That's why this conversion is exact in a way that almost no other unit conversion is: it's pure arithmetic on the calendar, with no metrology, no treaty, and no measurement involved. 1 Hz = 60 RPM, always, everywhere.</p>
+
+            <p>The practical meaning: when a VFD display says "45 Hz," the motor shaft is commanded to turn 45 × 60 = 2,700 RPM (for a 2-pole motor; the pole count divides this). When a pump spec says "3,600 RPM," the driving frequency is 60 Hz. The conversion is so simple that it's easy to forget — and so universal that a factor-of-60 slip is a classic motor-drive debugging trap. This page exists to make the ×60 automatic.</p>
+
+            <div class="formula-box"><p><strong>RPM = Hz × 60</strong><br>because 1 Hz = 1 cycle/second and 1 RPM = 1 cycle/minute, with 60 s/min<br>For motor synchronous speed: RPM = 120 × Hz ÷ poles</p></div>
+
+            <h2>The Pole Count Complication</h2>
+
+            <p>Here's where the pure Hz↔RPM conversion meets the real world. A hertz of electrical frequency doesn't directly equal a shaft RPM, because a motor's shaft doesn't complete one revolution per electrical cycle — it completes one revolution per <em>pole pair</em> of electrical cycles. A 2-pole motor: one revolution per electrical cycle, so 60 Hz = 3,600 RPM. A 4-pole motor: half a revolution per cycle, so 60 Hz = 1,800 RPM. The general formula — synchronous RPM = 120 × frequency ÷ number of poles — contains the same 60, doubled because a pole pair is two poles.</p>
+
+            <p>So the converter above answers "how many RPM is 60 Hz?" with 3,600 — correct for the electrical-to-rotation relationship. For the motor nameplate question "how fast does my 4-pole motor spin on 60 Hz?", you divide by the pole count: 3,600 ÷ 4 × 2 = 1,800 RPM. Both numbers are in the table below, and both flow from the same exact 60.</p>
+
+            <h2>Common Hertz to RPM Conversions (2-Pole Electrical Speed)</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Hertz</th><th>RPM</th><th>Where you'd see this</th></tr></thead><tbody>
+                <tr><td>0.0167 Hz</td><td>1 RPM</td><td>One revolution per minute — the exact reverse anchor.</td></tr>
+                <tr><td>0.5 Hz</td><td>30 RPM</td><td>Slow rotation — turntables, mixers, VFD low end.</td></tr>
+                <tr><td>1 Hz</td><td>60 RPM</td><td>The definitional anchor — one cycle per second.</td></tr>
+                <tr><td>10 Hz</td><td>600 RPM</td><td>VFD low-speed operation for large pumps.</td></tr>
+                <tr><td>25 Hz</td><td>1,500 RPM</td><td>Half-speed on 50 Hz grids (2-pole: 1,500 RPM).</td></tr>
+                <tr><td>30 Hz</td><td>1,800 RPM</td><td>Half-speed on 60 Hz grids (2-pole: 1,800 RPM).</td></tr>
+                <tr><td>50 Hz</td><td>3,000 RPM</td><td>European grid frequency — 2-pole synchronous speed.</td></tr>
+                <tr><td>60 Hz</td><td>3,600 RPM</td><td>US grid frequency — 2-pole synchronous speed.</td></tr>
+                <tr><td>100 Hz</td><td>6,000 RPM</td><td>VFD high-speed operation. High-speed spindles.</td></tr>
+                <tr><td>400 Hz</td><td>24,000 RPM</td><td>Aerospace power frequency — compact aircraft motors.</td></tr>
+                <tr><td>1,000 Hz</td><td>60,000 RPM</td><td>High-speed spindle territory.</td></tr>
+                </tbody></table></div>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>The VFD setpoint</strong></p>
+                <p>A conveyor needs 1,200 RPM from its 4-pole motor. The VFD frequency setpoint: synchronous RPM = 120 × f ÷ 4, so f = 1,200 × 4 ÷ 120 = 40 Hz. The motor will run slightly below 1,200 RPM due to slip (typically 1,150-1,180 at full load), and the VFD compensates if the application needs exact speed. The Hz↔RPM math here is the ×60 family in disguise: 40 Hz × 60 = 2,400 electrical cycles per minute, ÷ 4 poles × 2 = 1,200 RPM.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>The 50/60 Hz equipment move</b></strong></p>
+                <p>A US pump with a 4-pole motor runs at 1,800 RPM on 60 Hz. Shipped to a 50 Hz country and connected directly to the grid, it runs at 1,500 RPM — 17% slower, with proportionally lower flow and head. The engineer either accepts the derating, installs a VFD to synthesize 60 Hz from the 50 Hz supply, or rewinds the motor for 50 Hz. The conversion that frames the whole decision: 60 Hz × 60 = 3,600 electrical RPM ÷ 4 × 2 = 1,800 shaft RPM; 50 Hz gives 1,500. The 60 is the same in both.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Vibration analysis: shaft speed to frequency</b></strong></p>
+                <p>A vibration analyst measures a peak at 30 Hz on a pump and needs to know if it's a running-speed harmonic. If the pump runs at 1,800 RPM, its running frequency is 1,800 ÷ 60 = 30 Hz — exactly the peak. The diagnosis: imbalance at 1× running speed, not a bearing defect. This Hz↔RPM comparison is the bread and butter of condition monitoring, and it's the same exact 60 in both directions.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The Hz↔RPM conversion is exact (factor 60) but motor practice adds the pole count: synchronous RPM = 120 × f / poles. NEMA MG-1 (the US motor standard) rates motors by horsepower and synchronous speed classes (3,600, 1,800, 1,200, 900 RPM at 60 Hz); IEC 60034-1 does the same at 50 Hz (3,000, 1,500, 1,000, 750). When VFDs drive motors above base speed, the shaft RPM can exceed the nameplate synchronous speed — a 60 Hz motor run at 90 Hz spins at 5,400 RPM (2-pole) but with reduced torque. For the linear speed those rotations produce — a 200 mm pulley at 1,800 RPM moves belt at 18.85 m/s — see the <a href="/speed/">speed</a> hub. For the time side of the 60, the <a href="/time/">time</a> converters are the natural companion.</p>
+                <p style="margin-top:1.2em;">More: <a href="/rpm-to-hz">RPM to Hz</a> · <a href="/hz-to-khz">Hz to kHz</a> · <a href="/khz-to-hz">kHz to Hz</a> · <a href="/frequency/">Frequency Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/rpm-to-hz">RPM to Hz</a>
+                <a href="/hz-to-khz">Hz to kHz</a>
+                <a href="/khz-to-hz">kHz to Hz</a>
+                <a href="/mph-to-kph">mph to km/h</a>
+                <a href="/frequency/">Frequency Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many RPM is 60 Hz on a 4-pole motor?</p>
+                <p class="faq-a">1,800 RPM synchronous — 120 × 60 ÷ 4 = 1,800. Under load, an induction motor runs slightly slower (about 1,740-1,780 RPM) due to slip. On 50 Hz, the same 4-pole motor runs at 1,500 RPM synchronous. The '120' in the formula is 60 (seconds per minute) × 2 (poles per pole pair), which is why the numbers always come out in whole hundreds.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is Hz the same as RPM for vibration?</p>
+                <p class="faq-a">They're the same physical quantity — cycles per unit time — expressed in different time bases. 1 Hz = 60 RPM, always. Vibration analysts use Hz (or CPM, cycles per minute, where 1 Hz = 60 CPM) for spectral analysis and RPM for shaft-speed reference. A '1× running speed' peak at 30 Hz on an 1,800-RPM machine is the same number in both notations, linked by the exact 60.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does aircraft equipment use 400 Hz?</p>
+                <p class="faq-a">Because 400 Hz allows much smaller, lighter transformers and motors. Electrical machine size scales down as frequency goes up — a 400 Hz transformer has about 1/8 the core volume of a 60 Hz one for the same power. Aircraft generators produce 400 Hz (24,000 RPM for a 2-pole machine) specifically to save weight. The Hz↔RPM conversion for that generator: 400 × 60 = 24,000 RPM.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

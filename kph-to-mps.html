@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>km/h to m/s — Wind Speeds, Crash Tests, and the ÷3.6 Rule | EnginStack</title>
+    <meta name="description" content="1 km/h = 0.27778 m/s. Divide by 3.6. A 50 km/h urban limit is 13.89 m/s — the speed a crash-test dummy hits the wall at. Every physics problem starts with this conversion.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/kph-to-mps">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/kph-to-mps">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/kph-to-mps">
+    <meta property="og:title" content="km/h to m/s — Wind Speeds, Crash Tests, and the ÷3.6 Rule | EnginStack">
+    <meta property="og:description" content="1 km/h = 0.27778 m/s. Divide by 3.6. A 50 km/h urban limit is 13.89 m/s — the speed a crash-test dummy hits the wall at.">
+    <meta property="og:url" content="https://enginstack.com/kph-to-mps">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "km/h to m/s Converter",
+  "description": "1 km/h = 0.27778 m/s. Divide by 3.6. A 50 km/h urban limit is 13.89 m/s. Every physics problem starts with this conversion.",
+  "url": "https://enginstack.com/kph-to-mps",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Speed", "item": "https://enginstack.com/speed/" },
+    { "@type": "ListItem", "position": 3, "name": "km/h to m/s Converter" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do I need to convert km/h to m/s for physics problems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SI system is built on metres, kilograms, and seconds. Plug km/h directly into F=ma, and the units won't cancel properly — the equation produces nonsense. Every engineer learns this in their first semester: convert to SI base units first, compute, then convert the answer to display units. The ÷3.6 step is so automatic that experienced engineers do it without thinking, but skipping it can produce answers wrong by a factor of 12.96 in energy calculations (because v² makes it 3.6²)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast is a 50 km/h crash in m/s?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "13.89 m/s. In a frontal crash at this speed, a car's front crush zone absorbs energy over roughly 0.1 seconds, producing an average deceleration of about 14 g. The peak deceleration — the spike that triggers airbags — can hit 40–50 g. Kinetic energy at 50 km/h (13.89 m/s) for a 1500 kg car is about 145 kJ. At 64 km/h (17.78 m/s), the offset-deformable-barrier test speed, it's 237 kJ — a 64% increase for only a 28% speed increase. That nonlinearity is why small speed differences matter enormously in crash outcomes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do weather services convert wind speeds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Meteorological organisations store wind data in m/s (the WMO standard) but broadcast it in km/h for public consumption. The Beaufort scale was originally descriptive — \"leaves rustle,\" \"whole trees in motion\" — and was only later calibrated to instrument readings in m/s. When you see \"wind: 45 km/h, gusting to 65 km/h\" on a weather app, the anemometer measured those values in m/s and the display layer multiplied by 3.6. The underlying model computations — atmospheric pressure gradients, Coriolis effects — all run in m/s."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/speed/">Speed</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">km/h to m/s Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>km/h to m/s — Divide by 3.6</h1>
+            <p>1 km/h = 0.27778 m/s. This is the first step in any physics problem that starts with a road sign number. Wind loading, vehicle dynamics, pedestrian comfort, ballistic trajectories — they all begin here.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <!-- Calculator -->
+        <div class="calculator-card" data-coefficient="0.2777777778" data-unit-from="km/h" data-unit-to="m/s">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="50" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">km/h</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">13.8889</span>
+                        <span class="unit-pill unit-pill-to">m/s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">50 km/h = 13.8889 m/s</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">50 m/s = 180 km/h</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>How to Convert km/h to m/s</h2>
+            <p>Divide by 3.6. That's the whole conversion. One kilometre per hour means you travel 1000 metres in 3600 seconds — so the speed in metres per second is (1000 / 3600) = 1 / 3.6 of the km/h value. The factor 3.6 is exact: it's just the ratio of seconds in an hour to metres in a kilometre. There's no treaty, no measurement campaign, no committee decision behind it — it's dimensional analysis from first principles. This is the direction that matters for engineering: wind speeds for structural loading codes, vehicle speeds for crash modelling, pedestrian comfort in urban microclimate studies, sprint kinematics in sports biomechanics. Every one of those disciplines ingests data in km/h (because that's what weather reports, speedometers, and stopwatches produce) and immediately divides by 3.6 before touching an equation.</p>
+
+            <h2>The Conversion Formula</h2>
+            <div class="formula-box">
+                <p>
+                m/s = km/h &divide; 3.6
+                </p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert 50 km/h to m/s</p>
+                <p>50 &divide; 3.6 = <strong>13.89 m/s</strong> (standard urban speed limit — the speed at which a Euro NCAP frontal crash test is conducted)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert 100 km/h to m/s</p>
+                <p>100 &divide; 3.6 = <strong>27.78 m/s</strong> (rural highway speed, and the cutoff between Force 9 and Force 10 on the Beaufort wind scale — "severe gale" to "storm")</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert 120 km/h to m/s</p>
+                <p>120 &divide; 3.6 = <strong>33.33 m/s</strong> (European motorway limit, just under hurricane-force wind on the Beaufort scale — 32.7 m/s is the Force 12 threshold)</p>
+            </div>
+
+            <h2>Common km/h to m/s Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr>
+                    <th>km/h</th>
+                    <th>m/s</th>
+                    <th>Context</th>
+                </tr></thead><tbody>
+                <tr><td>5 km/h</td><td>1.39 m/s</td><td>Walking speed</td></tr>
+                <tr><td>20 km/h</td><td>5.56 m/s</td><td>Light breeze (Beaufort 4)</td></tr>
+                <tr><td>30 km/h</td><td>8.33 m/s</td><td>School zone (common limit)</td></tr>
+                <tr><td>50 km/h</td><td>13.89 m/s</td><td>Urban limit, NCAP crash test</td></tr>
+                <tr><td>80 km/h</td><td>22.22 m/s</td><td>Rural road, strong gale (Bft 9)</td></tr>
+                <tr><td>100 km/h</td><td>27.78 m/s</td><td>Highway, storm force wind</td></tr>
+                <tr><td>120 km/h</td><td>33.33 m/s</td><td>Motorway, hurricane threshold</td></tr>
+                <tr><td>300 km/h</td><td>83.33 m/s</td><td>High-speed rail cruising speed</td></tr>
+                </tbody></table></div>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags"><a href="/mps-to-kph">m/s to km/h</a> <a href="/mph-to-kph">MPH to KPH</a> <a href="/mph-to-mps">MPH to m/s</a> <a href="/knots-to-kph">Knots to km/h</a> <a href="/mps-to-mph">m/s to MPH</a></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why do I need to convert km/h to m/s for physics problems?</p>
+                <p class="faq-a">The SI system is built on metres, kilograms, and seconds. Plug km/h directly into F=ma, and the units won't cancel properly — the equation produces nonsense. Every engineer learns this in their first semester: convert to SI base units first, compute, then convert the answer to display units. The ÷3.6 step is so automatic that experienced engineers do it without thinking, but skipping it can produce answers wrong by a factor of 12.96 in energy calculations (because v² makes it 3.6²).</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How fast is a 50 km/h crash in m/s?</p>
+                <p class="faq-a">13.89 m/s. In a frontal crash at this speed, a car's front crush zone absorbs energy over roughly 0.1 seconds, producing an average deceleration of about 14 g. The peak deceleration — the spike that triggers airbags — can hit 40–50 g. Kinetic energy at 50 km/h (13.89 m/s) for a 1500 kg car is about 145 kJ. At 64 km/h (17.78 m/s), the offset-deformable-barrier test speed, it's 237 kJ — a 64% increase for only a 28% speed increase. That nonlinearity is why small speed differences matter enormously in crash outcomes.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How do weather services convert wind speeds?</p>
+                <p class="faq-a">Meteorological organisations store wind data in m/s (the WMO standard) but broadcast it in km/h for public consumption. The Beaufort scale was originally descriptive — "leaves rustle," "whole trees in motion" — and was only later calibrated to instrument readings in m/s. When you see "wind: 45 km/h, gusting to 65 km/h" on a weather app, the anemometer measured those values in m/s and the display layer multiplied by 3.6. The underlying model computations — atmospheric pressure gradients, Coriolis effects — all run in m/s.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The ÷3.6 operation is so fundamental in engineering that it's baked into every computational pipeline that touches speed data. A structural engineer designing a building facade receives the design wind speed from the local building code — say, 150 km/h for a hurricane-prone region in Asia. The first line of the calculation spreadsheet divides by 3.6: 150 km/h = 41.67 m/s. That m/s value then feeds into the wind pressure equation (q = ½ρv²), where ρ is air density in kg/m³ and v is in m/s. The resulting pressure in pascals determines bolt spacing, glass thickness, and mullion depth. If someone pastes 150 directly into ½ρv² without dividing by 3.6, the calculated pressure is 13 times too high — and the building gets over-engineered at massive cost, or the error is caught in peer review and the engineer gets asked some uncomfortable questions. The same pipeline runs in automotive (NCAP crash simulations initialise the vehicle speed in m/s), aerospace (aircraft takeoff speeds are computed in m/s from runway length and thrust), and sports science (sprint kinematics at 200 Hz use m/s per frame). The conversion is trivial — one division — but it's the most important division in applied mechanics.</p>
+                <p style="margin-top:1.2em;">More: <a href="/mps-to-kph">m/s to km/h</a> · <a href="/mph-to-mps">mph to m/s</a> · <a href="/knots-to-kph">knots to km/h</a> · <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

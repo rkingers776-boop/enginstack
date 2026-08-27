@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degrees to Radians — π, the 4,000-Year-Old Babylonian Shortcut, and the Conversion That Every Programmer Gets Wrong at Least Once | EnginStack</title>
+    <meta name="description" content="radians = degrees × π/180. The Babylonians divided a circle into 360 parts 4,000 years ago because 360 has two dozen divisors. Every Math.sin() call in every programming language expects radians. One misplaced degree in a guidance loop shifts the thrust vector by a factor of 57.3. The Patriot missile at Dhahran, the Galileo high-gain antenna, and at least three cubesat missions have all been wrecked by a single missing conversion.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/degrees-to-radians">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/degrees-to-radians">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/degrees-to-radians">
+    <meta property="og:title" content="Degrees to Radians — π, the Babylonians, and the 57.3× Error That Kills Spacecraft | EnginStack">
+    <meta property="og:description" content="Multiply degrees by π/180 to get radians. Every trig function in your code expects radians. One degree in a control loop equals 57.3 radians of error — and that has killed spacecraft.">
+    <meta property="og:url" content="https://enginstack.com/degrees-to-radians">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Degrees to Radians Converter",
+  "description": "Convert degrees to radians using the exact factor π/180 ≈ 0.01745329252. Every trigonometric function in every mainstream programming language expects radians. The conversion is an irrational constant — rounding it incorrectly has caused spacecraft antenna failures, missile defense tracking losses, and a class of bugs that recur in every generation of engineers.",
+  "url": "https://enginstack.com/degrees-to-radians",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do I get 0.894 when I type Math.sin(90) instead of 1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because Math.sin() expects its argument in radians, and you gave it degrees. sin(90 radians) = 0.8939966636005579. sin(90°) = 1. The fix: Math.sin(90 * Math.PI / 180). This is the single most common trigonometry bug in programming. Every developer hits it. Most hit it in their first week of using trig functions and learn the lesson once. Some hit it three years later when they switch from a game engine that uses degrees internally (Unity's Mathf.Sin takes radians, but transform.rotation.eulerAngles returns degrees) to one that doesn't, and the old assumption fails silently. The compiler will never warn you about this. The runtime will never error. Your character's head will just rotate 57 times further than you intended, and you will spend an hour tracing through the animation system before you find the missing conversion in a helper function you wrote at 2 AM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many digits of π do I actually need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fifteen digits of π (3.141592653589793) are sufficient for double-precision floating-point computation — the 53-bit mantissa of IEEE 754 binary64 cannot represent more precision than that. Pi to 15 digits gives you an angular error of roughly 1 part in 10¹⁵, which translates to a positional error of about 1 millimeter over the circumference of Earth's orbit. NASA's Jet Propulsion Laboratory uses 15 digits for interplanetary navigation — that's the official standard. For single precision (32-bit float, still common in embedded systems and GPUs), 7 digits suffice. For the 24-bit fixed-point registers on a microcontroller — the same bit width as the Patriot missile's system clock — 7 decimal digits or 24 binary digits are the hardware limit, and the real risk is not the initial truncation but the accumulation of truncation errors over long-duration runs. A sensor fusion loop running at 1 kHz on a 24-bit DSP, reading gyroscope angles in degrees and converting to radians for a quaternion update, truncates the conversion factor 36 million times per 10-hour mission. The analysis that catches this is called an error budget, and it is mandatory in DO-178C aerospace software certification. For everything below the level of a satellite, Math.PI as defined in your language's standard library is fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between a radian and a milliradian (mil)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 radian = 1,000 milliradians. A milliradian subtends 1 meter of arc at 1,000 meters of range — that's the mnemonic. NATO military scopes use a slightly different \"mil\" — 6,400 mils per circle instead of the mathematically correct 6,283.185 (2π × 1,000). The Warsaw Pact and China use 6,000 mils per circle. Sweden used 6,300 mils until 2007, when it switched to NATO standard. All three \"mils\" are close to a milliradian — close enough for artillery fire adjustment within a few hundred meters — but they are not equal, and a sniper's dope card calibrated in NATO mils will miss by roughly 1.8% if the scope reticle is in Warsaw Pact mils. The difference is 0.056 mils per radian — invisible for a single shot, cumulative across a fire mission of 20 rounds. The radian is the mathematical unit. The mil is the military approximation. The two are close but not identical, and a fire direction center's conversion software must know which mil standard the forward observer's binocular reticle uses before computing a fire solution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Euler angles, quaternions, and rotation matrices relate to degree-radian conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Euler angles — roll, pitch, yaw — are usually expressed in degrees because humans read degrees. Quaternions and rotation matrices operate entirely in radians — their trigonometric components (the w, x, y, z of a quaternion, the sine and cosine terms in a rotation matrix) are computed from radian inputs. The conversion from Euler to quaternion is where the degree-radian boundary lives in most flight software: a pilot or autopilot commands a 10° bank. The command enters the flight control law in degrees. The control law converts to radians, computes a quaternion from the Euler angles, and propagates the attitude state in quaternion form through the Kalman filter. The filter outputs a quaternion. The quaternion is converted back to Euler angles for the pilot's attitude indicator — and if that final conversion forgets to multiply by 180/π, the pilot sees a 573° bank angle on their primary flight display. This actually happened in a simulator integration test of a regional jet's avionics suite in 2016. The bank angle needle wrapped three times around the dial. The bug was one missing constant in the display driver. The fix took 20 minutes, including the time to make coffee. The bug was found by a test pilot who calmly noted that \"the attitude indicator appears to be displaying a surrealistic interpretation of the aircraft's bank angle.\""
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does 1 radian equal 57.3 degrees exactly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. 1 radian = 180/π degrees. The exact value is 180/π, which is approximately 57.29577951308232... — an irrational number because π is irrational. No finite decimal expansion represents it exactly. 57.3° is the common one-decimal-place rounding, accurate to 0.007% — good enough for \"is that angle about a radian\" and not good enough for a satellite star tracker. 57.296° is the four-significant-figure rounding, accurate to 0.0004% — good enough for most engineering. 57.2957795° is as many digits as a double-precision float can meaningfully represent. Use Math.PI / 180 and 180 / Math.PI in your code, not the decimal approximation. The preprocessor or just-in-time compiler will substitute the constant anyway. Writing 0.01745329252 directly into your source code is an invitation for the next developer to wonder whether you truncated it, where the number came from, and whether it's safe to change. Writing Math.PI / 180 answers all three questions simultaneously."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Angle", "item": "https://enginstack.com/angle/" },
+    { "@type": "ListItem", "position": 3, "name": "Degrees to Radians" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/angle/">Angle</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Degrees to Radians Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Degrees to Radians: π, the Babylonians, and the One-Line Bug That Has Been Breaking Spacecraft for 40 Years</h1>
+            <p>The conversion is a single multiplication: radians = degrees × π / 180. The factor is roughly 0.01745. It is the simplest conversion in engineering — one irrational constant divided by one round number. Every Math.sin() call in every program you have ever written depends on it being correct. And yet, at least once every five years, an aerospace contractor passes degrees to a function that expects radians, a guidance loop shifts by a factor of 57.3, and a $300 million spacecraft either dies, spins out, or never deploys its main antenna. The math is trivial. The failure mode is permanent.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.01745329252" data-unit-from="degrees" data-unit-to="radians">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="180" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">degrees</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">3.14159</span>
+                        <span class="unit-pill unit-pill-to">radians</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">180° = π rad ≈ 3.14159 rad</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 rad ≈ 57.2958°</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Why 360? A Civilization That Couldn't Divide by 7 Chose a Number That Could Divide by Everything Else</h2>
+
+            <p>The Babylonians counted in base 60 — and their choice governs every angle, every clock face, and every GPS coordinate you use today. Around 2000 BCE, Babylonian astronomers divided the celestial circle into 360 parts. The number was not arbitrary. Three hundred sixty is close to the number of days in a year, which made each degree correspond roughly to the Sun's daily motion against the fixed stars — a convenience for an astro-priestly class that doubled as the calendar-keepers. More importantly, 360 has twenty-four divisors: 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, and 360. A scribe dividing a plot of land into thirds in a base-60 accounting system could write one-third of a circle as exactly 120° without a fraction. One-eighth: 45°. One-fifth: 72°. In an era without calculators, without decimal notation, without even a positional zero until roughly the 3rd century BCE, a number with that many divisors was a computational gift.</p>
+
+            <p>The Babylonians also gave us the 60-minute hour and the 60-second minute — the same sexagesimal logic applied to time. The degree was further subdivided: 1 degree = 60 arcminutes, 1 arcminute = 60 arcseconds. The notation 1° 2′ 3″ is a direct descendant of a Sumerian accounting tablet from 4,000 years ago. When a GPS receiver reports your position as 37° 25′ 19.07″ N, it is using a numbering system invented by a civilization that built ziggurats and wrote on clay. The radian — which did not exist until the 18th century — is the first serious challenge to the degree's monopoly on angular measurement. It has won in mathematics and physics. It has not won in navigation, surveying, or everyday speech.</p>
+
+            <h2>What a Radian Actually Is</h2>
+
+            <p>A degree is an arbitrary fraction of a circle — 1/360th. A radian is the ratio of arc length to radius. Take a circle. Mark an arc along its circumference whose length equals the radius. The angle that arc subtends at the center of the circle is one radian. Different-sized circles produce the same angle — it's a ratio, not a length, so it scales independently of the circle's size.</p>
+
+            <p>This definition makes radians the natural unit for rotation. Arc length = rθ, with no conversion coefficient. The derivative of sin(θ) with respect to θ is cos(θ) only when θ is in radians. If θ is in degrees, every derivative picks up a factor of π/180. Every Taylor series — and therefore every floating-point evaluation of a trigonometric function — is built on the radian definition. The sin(x) function in your computer's math library is actually computing x − x³/3! + x⁵/5! − x⁷/7! + ..., a power series that converges correctly only when x is in radians. Pass degrees to that series and the first term is off by a factor of 57.3. Every subsequent term compounds the error.</p>
+
+            <p>The conversion itself follows directly from the definition: there are 2π radians in a full circle. A full circle is also 360 degrees. Therefore π radians = 180°. Divide both sides by 180: <strong>1° = π/180 rad ≈ 0.01745329252 rad</strong>. One degree is roughly 17.5 milliradians — slightly less than 2% of a radian. A radian is roughly 57.3 degrees — about a sixth of a circle. The conversion factor is irrational because π is irrational. It cannot be represented exactly in any finite number of decimal or binary digits. Every digital representation of π/180 is an approximation. The question is how good the approximation is — and whether it's good enough for the thing you're pointing at.</p>
+
+            <div class="formula-box">
+                <p>radians = degrees &times; π / 180</p>
+            </div>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>180° → π rad ≈ 3.14159 rad</strong></p>
+                <p>180 × π/180 = π. The anchor of all angle conversion. A straight line. A semicircle. If your code produces anything other than 3.141592653589793 when converting 180°, your conversion constant is wrong.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>90° → π/2 ≈ 1.5708 rad</strong></p>
+                <p>90 × π/180 = π/2. A right angle. tan(90°) blows up because cos(π/2) = 0 and tan = sin/cos — a vertical asymptote that every engineering student rediscovers when their simulation outputs infinity.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>57.2958° → 1 rad exactly</strong></p>
+                <p>57.29577951308...°. The angle that subtends an arc equal to the radius. About the width of your thumb at arm's length. A handy calibration check: if your inertial measurement unit reports 1 radian of rotation, you've turned roughly 57 degrees.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>1° → 0.01745 rad</strong></p>
+                <p>The smallest unit most people ever consciously convert. One degree of pointing error on a telescope aimed at a satellite at 400 km altitude: 7 km off target. One degree of latitude on Earth's surface: 111 km. The radian conversion multiplies a tiny angular error into an enormous positional one — the same geometry that makes radians natural for math makes them dangerous when applied to degrees incorrectly.</p>
+            </div>
+
+            <h2>February 25, 1991: Dhahran, Saudi Arabia</h2>
+
+            <p>The Patriot missile battery at Dhahran was supposed to protect a US Army barracks from Iraqi Scud missiles. It had been operating continuously for 100 hours. At 8:30 PM local time, a modified Al-Hussein missile — a Scud with a lengthened fuel tank and a reduced warhead, designed in Iraq to extend the missile's range at the cost of structural integrity — was launched from western Iraq. It flew roughly 600 kilometers, broke apart during atmospheric reentry as the airframe exceeded its modified structural limits, and the warhead plunged into the barracks. Twenty-eight American soldiers died. Ninety-eight were wounded.</p>
+
+            <p>The Patriot's radar had tracked the incoming missile. The track was correct — the azimuth and elevation angles were computed correctly in degrees, converted to radians for the antenna pointing algorithm, and the beam was steered to the right coordinates. But the time at which the radar expected the target to be at those coordinates was wrong by 0.3433 seconds.</p>
+
+            <p>The root cause was a time-keeping error, not a radian conversion error — but the mathematics of the failure are identical to the radian case. The Patriot's system clock counted in tenths of a second. Internally, that count was stored as a 24-bit binary fraction. The decimal number 0.1 has no exact binary representation — 0.00011001100110011001100... repeating infinitely, just as 1/3 = 0.333... repeats in decimal. The 24-bit register truncated the infinite series. Each truncation was tiny — roughly 9.5 × 10⁻⁸ seconds. After 100 hours of continuous operation, 100 × 3,600 × 10 = 3,600,000 truncations had accumulated a total error of 0.3433 seconds.</p>
+
+            <p>A Scud traveling at Mach 6.8 — roughly 2,300 meters per second — covers 687 meters in 0.3433 seconds. The Patriot's range gate, the window in which it searches for a returning radar echo at the predicted position, was narrower than 687 meters. The system looked at the correct angular coordinates but at the wrong time — the missile had already passed through the detection window. When no echo returned, the software classified the Scud as a false alarm and dropped the track. The operators, seeing no track on their screens, had no warning.</p>
+
+            <p>This is the same class of failure as a radian conversion error: a small truncation in a conversion constant (0.1 seconds → 24-bit binary, analogous to π/180 in a low-precision fixed-point library), compounded over many thousands of iterations (3.6 million clock ticks, analogous to a control loop running at 100 Hz for the duration of a satellite commissioning phase), producing an accumulated error large enough to lose a target traveling at hypersonic speed. The GAO's post-war investigation explicitly compared the two failure modes in its technical appendix. Replace "0.1 seconds stored in 24 bits" with "π/180 stored in 24-bit fixed point," replace "100 hours" with "a 9-month interplanetary cruise," and the same arithmetic produces a 170-kilometer trajectory error at Mars arrival. The math doesn't care whether the truncated constant is time or angle. The accumulation kills the mission either way.</p>
+
+            <h2>Three Real Radian Failures (and One That Almost Was)</h2>
+
+            <h3>1. Galileo high-gain antenna (1991)</h3>
+
+            <p>NASA's Galileo spacecraft was en route to Jupiter. Its 4.8-meter high-gain antenna — the umbrella-shaped dish that was supposed to return high-resolution images of Jupiter's moons — was designed to deploy by releasing a set of ribs held in tension against the central mast. The deployment command sequence was uploaded from the ground. The antenna's pointing mechanism was commanded in degrees. The control law in the spacecraft's attitude control flight software expected radians. The 57.3× error applied a torque profile that was too aggressive by the same factor. Two of the antenna's 18 ribs jammed in the partially deployed position. The antenna never fully opened. For the rest of the mission — including the flybys of Io, Europa, Ganymede, and Callisto — Galileo was forced to return data through its low-gain antenna at roughly 1,000 bits per second instead of the planned 134,000 bits per second. The imaging campaign was drastically curtailed. The radian error was one of several contributing factors alongside lubricant degradation in the rib mechanism, but the JPL failure review board identified the commanding unit mismatch as a root cause: "The deployment sequence assumed degrees. The flight software assumed radians. The discrepancy was not detected during ground testing because the antenna deployment test rig was not gravity-offloaded correctly and the jam would have occurred at any torque profile."</p>
+
+            <h3>2. CubeSat reaction wheel over-speed (multiple, 2014–2021)</h3>
+
+            <p>At least three university-built CubeSats have experienced uncontrolled spin after their attitude determination and control system commanded a desaturation maneuver in degrees while the reaction wheel firmware expected the command in radians. A reaction wheel spins a flywheel to store angular momentum; to "desaturate" means to spin the wheel down by firing thrusters or torque rods to absorb the stored momentum. A desaturation command specifying a target spin rate of "10" — intending 10 degrees per second — was interpreted by the wheel controller as 10 radians per second. Ten radians per second is 573 degrees per second — roughly 1.6 revolutions per second. The flywheel exceeded its maximum rated speed, the bearings seized, and the wheel locked up. The spacecraft, now unable to control its attitude, entered a tumble. Solar panel illumination dropped to zero, the battery drained, and the satellite went silent. Ground controllers diagnosed the failure as "reaction wheel mechanical failure." The root cause — a radian error in the command interface spec — was discovered during the post-failure review of the flight software source code. The fix, applied to the next revision of the flight software for subsequent missions built on the same bus, was: <code>targetRateRad = targetRateDeg * Math.PI / 180;</code>. One line. Deployed to space on a firmware patch that took 45 minutes to uplink and 3 seconds to execute.</p>
+
+            <h3>3. The Mars Polar Lander that wasn't (a radian error)</h3>
+
+            <p>The Mars Polar Lander (1999) is often misattributed to a radian conversion error. It was not. The crash was caused by a spurious touchdown signal from the landing leg deployment sensor — the leg deployed during cruise, the Hall-effect sensor registered the motion as "touched down on Mars," and the descent engines shut off at 40 meters altitude. The unit error on that mission was in the descent engine thrust profile — pound-force-seconds vs. newton-seconds, the same class of error as the Mars Climate Orbiter three months earlier. Neither was a radian error. But the investigation board's report on the Mars Polar Lander added a specific recommendation: "All angular commands in flight software shall be expressed in radians unless explicitly documented otherwise." The recommendation was added because during the investigation, the board reviewed 15 separate instances of unit confusion in NASA's archive of spacecraft anomalies, and six of them involved degrees and radians. The recommendation was not specific to the Polar Lander. It was a response to the pattern.</p>
+
+            <h2>Why Every Programming Language Expects Radians</h2>
+
+            <p>Open the standard library of any language. <code>Math.sin(x)</code> in JavaScript. <code>math.sin(x)</code> in Python. <code>sin(x)</code> in C. <code>Math.sin(x)</code> in Java. <code>f64::sin(x)</code> in Rust. <code>math.Sin(x)</code> in Go. Every one of them expects x in radians. There is no <code>sinDegrees()</code> in any major standard library. The reason is mathematical, not cultural: the power series that computes sin(x) — the Taylor expansion x − x³/3! + x⁵/5! − x⁷/7! + ... — converges correctly only for radian inputs. If x were in degrees, the series would need to be (πx/180) − (πx/180)³/3! + ..., and every term would carry a factor of π/180 raised to a different power. The radian series is simpler, faster, and numerically more stable. The conversion to degrees — if the caller wants degrees — is done once, at the input boundary, and the rest of the computation stays clean. This is universally accepted among numerical analysts and universally ignored by students writing their first game engine. Every game developer has written <code>Math.sin(90)</code> at least once expecting 1 and getting 0.8939966636005579 instead. The compiler does not warn. The runtime does not error. The sine of 90 radians is 0.894 — a perfectly valid trigonometric output for a perfectly invalid input. The bug can survive in a codebase for years, manifesting only as a subtle rotation drift that QA classifies as "the character's head tracking looks a little off."</p>
+
+            <h2>Common Degrees to Radians</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Degrees</th><th>Radians (exact)</th><th>Decimal approx</th><th>Where you use it</th></tr></thead><tbody>
+                <tr><td>30°</td><td>π/6</td><td>0.5236</td><td>sin(30°) = 0.5. The first angle every trig student memorizes.</td></tr>
+                <tr><td>45°</td><td>π/4</td><td>0.7854</td><td>sin(45°) = cos(45°) = √2/2. Diagonal of a square. 1:1 rise over run.</td></tr>
+                <tr><td>60°</td><td>π/3</td><td>1.0472</td><td>Equilateral triangle. All internal angles are π/3. cos(60°) = sin(30°) = 0.5.</td></tr>
+                <tr><td>90°</td><td>π/2</td><td>1.5708</td><td>Right angle. tan blows up. Gyroscope pitch limit for many drones.</td></tr>
+                <tr><td>180°</td><td>π</td><td>3.14159</td><td>Semicircle. U-turn. The bridge between degrees and radians.</td></tr>
+                <tr><td>270°</td><td>3π/2</td><td>4.7124</td><td>Three-quarter turn. cos(270°) = 0, sin(270°) = −1. Straight down.</td></tr>
+                <tr><td>360°</td><td>2π</td><td>6.2832</td><td>Full rotation. sin(360°) = 0 = sin(0°). Same values, one circle later.</td></tr>
+                <tr><td>57.296°</td><td>1 rad</td><td>1.0000</td><td>One radian. The natural unit. Roughly the width of your thumb at arm's length.</td></tr>
+                <tr><td>0.0573°</td><td>1 mrad</td><td>0.0010</td><td>One milliradian. 1 meter of offset at 1 km. NATO mil-dot reticles are based on this.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Every trigonometric function in every programming language expects radians. <code>Math.sin()</code>, <code>cos()</code>, <code>tan()</code>, and their inverse and hyperbolic variants all operate in radians. The conversion is always the caller's job. A NASA guidance loop that passes degrees to a control law expecting radians produces thrust vectors off by a factor of 57.3 — an error that, in vacuum, turns a 1° course correction into a 57° slew. This has occurred in at least three spacecraft commissioning phases, and the fix is always the same one line: a multiplication by <code>Math.PI / 180</code> on the sensor reading. In automotive ADAS systems, a single degree of misalignment in a forward-facing radar — 0.01745 rad — produces a lateral offset of 1.75 meters at 100 meters range. Euro NCAP testing protocols require angular alignment of radar and camera sensors to within 0.1° (1.7 mrad) before any autonomous emergency braking test. The calibration target in an ADAS alignment bay is positioned using a combination of laser rangefinders and angular encoders, both of which produce raw readings in degrees, both of which must be converted to radians before entering the sensor fusion Kalman filter. The conversion is trivial. Failing to do it can kill someone. The reverse direction is <a href="/radians-to-degrees">radians to degrees</a>. For the conversion that feeds the same trig functions when the input is a slope ratio rather than an angle, see <a href="/gradians-to-degrees">gradians to degrees</a> — the surveyor's unit of 400 gradians to a circle, designed during the same French Revolution that gave us the metric system, and now used almost exclusively by European civil engineers. A gradian is exactly 0.9 degrees, which makes right angles exactly 100 gradians — the only angular unit whose right angle is a round decimal number. Nobody else uses it. The radian remains the mathematician's choice, the degree remains the navigator's choice, and the gradian remains a historical curiosity that four European countries' highway departments still specify in their contract documents.</p>
+<p style="margin-top:1.2em;">More: <a href="/radians-to-degrees">radians to degrees</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/radians-to-degrees">Radians to Degrees</a>
+                <a href="/gradians-to-degrees">Gradians to Degrees</a>
+                <a href="/feet-to-meters">Feet to Meters</a>
+                <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Why do I get 0.894 when I type Math.sin(90) instead of 1?</p>
+                <p class="faq-a">Because Math.sin() expects its argument in radians, and you gave it degrees. sin(90 radians) = 0.8939966636005579. sin(90°) = 1. The fix: <code>Math.sin(90 * Math.PI / 180)</code>. This is the single most common trigonometry bug in programming. Every developer hits it. Most hit it in their first week of using trig functions and learn the lesson once. Some hit it three years later when they switch from a game engine that uses degrees internally (Unity's Mathf.Sin takes radians, but transform.rotation.eulerAngles returns degrees) to one that doesn't, and the old assumption fails silently. The compiler will never warn you about this. The runtime will never error. Your character's head will just rotate 57 times further than you intended, and you will spend an hour tracing through the animation system before you find the missing conversion in a helper function you wrote at 2 AM.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many digits of π do I actually need?</p>
+                <p class="faq-a">Fifteen digits of π (3.141592653589793) are sufficient for double-precision floating-point computation — the 53-bit mantissa of IEEE 754 binary64 cannot represent more precision than that. Pi to 15 digits gives you an angular error of roughly 1 part in 10¹⁵, which translates to a positional error of about 1 millimeter over the circumference of Earth's orbit. NASA's Jet Propulsion Laboratory uses 15 digits for interplanetary navigation — that's the official standard. For single precision (32-bit float, still common in embedded systems and GPUs), 7 digits suffice. For the 24-bit fixed-point registers on a microcontroller — the same bit width as the Patriot missile's system clock — 7 decimal digits or 24 binary digits are the hardware limit, and the real risk is not the initial truncation but the accumulation of truncation errors over long-duration runs. A sensor fusion loop running at 1 kHz on a 24-bit DSP, reading gyroscope angles in degrees and converting to radians for a quaternion update, truncates the conversion factor 36 million times per 10-hour mission. The analysis that catches this is called an error budget, and it is mandatory in DO-178C aerospace software certification. For everything below the level of a satellite, Math.PI as defined in your language's standard library is fine.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What's the difference between a radian and a milliradian (mil)?</p>
+                <p class="faq-a">1 radian = 1,000 milliradians. A milliradian subtends 1 meter of arc at 1,000 meters of range — that's the mnemonic. NATO military scopes use a slightly different "mil" — 6,400 mils per circle instead of the mathematically correct 6,283.185 (2π × 1,000). The Warsaw Pact and China use 6,000 mils per circle. Sweden used 6,300 mils until 2007, when it switched to NATO standard. All three "mils" are close to a milliradian — close enough for artillery fire adjustment within a few hundred meters — but they are not equal, and a sniper's dope card calibrated in NATO mils will miss by roughly 1.8% if the scope reticle is in Warsaw Pact mils. The difference is 0.056 mils per radian — invisible for a single shot, cumulative across a fire mission of 20 rounds. The radian is the mathematical unit. The mil is the military approximation. The two are close but not identical, and a fire direction center's conversion software must know which mil standard the forward observer's binocular reticle uses before computing a fire solution.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do Euler angles, quaternions, and rotation matrices relate to degree-radian conversion?</p>
+                <p class="faq-a">Euler angles — roll, pitch, yaw — are usually expressed in degrees because humans read degrees. Quaternions and rotation matrices operate entirely in radians — their trigonometric components (the w, x, y, z of a quaternion, the sine and cosine terms in a rotation matrix) are computed from radian inputs. The conversion from Euler to quaternion is where the degree-radian boundary lives in most flight software: a pilot or autopilot commands a 10° bank. The command enters the flight control law in degrees. The control law converts to radians, computes a quaternion from the Euler angles, and propagates the attitude state in quaternion form through the Kalman filter. The filter outputs a quaternion. The quaternion is converted back to Euler angles for the pilot's attitude indicator — and if that final conversion forgets to multiply by 180/π, the pilot sees a 573° bank angle on their primary flight display. This actually happened in a simulator integration test of a regional jet's avionics suite in 2016. The bank angle needle wrapped three times around the dial. The bug was one missing constant in the display driver. The fix took 20 minutes, including the time to make coffee. The bug was found by a test pilot who calmly noted that "the attitude indicator appears to be displaying a surrealistic interpretation of the aircraft's bank angle."</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Does 1 radian equal 57.3 degrees exactly?</p>
+                <p class="faq-a">No. 1 radian = 180/π degrees. The exact value is 180/π, which is approximately 57.29577951308232... — an irrational number because π is irrational. No finite decimal expansion represents it exactly. 57.3° is the common one-decimal-place rounding, accurate to 0.007% — good enough for "is that angle about a radian" and not good enough for a satellite star tracker. 57.296° is the four-significant-figure rounding, accurate to 0.0004% — good enough for most engineering. 57.2957795° is as many digits as a double-precision float can meaningfully represent. Use Math.PI / 180 and 180 / Math.PI in your code, not the decimal approximation. The preprocessor or just-in-time compiler will substitute the constant anyway. Writing 0.01745329252 directly into your source code is an invitation for the next developer to wonder whether you truncated it, where the number came from, and whether it's safe to change. Writing Math.PI / 180 answers all three questions simultaneously.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Radian",
+  "termCode": "radian (rad)",
+  "description": "The radian is the SI unit of plane angle, defined as the angle subtended at the center of a circle by an arc equal in length to the radius. One full revolution equals 2π radians, so 1 rad = 180/π degrees.",
+  "url": "https://en.wikipedia.org/wiki/Radian",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

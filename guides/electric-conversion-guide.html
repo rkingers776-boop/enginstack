@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Electric Conversion Guide — Volts, Amps, Ohms, Watts, dBm, AWG | EnginStack</title>
+    <meta name="description" content="The complete engineering guide to electric unit conversion: Ohm's law (V = I·R) and watt's law (P = V·I) across volts, amps, ohms, and watts; the dBm RF power scale anchored at 30 dBm = 1 W; and the AWG wire gauge defined geometrically since 1857. Exact formulas, the 120/240 V split, breaker sizing, LED resistors, Wi-Fi power, and US-to-metric wire.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/electric-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/electric-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/electric-conversion-guide">
+    <meta property="og:title" content="Electric Conversion Guide — Volts, Amps, Ohms, Watts, dBm, AWG | EnginStack">
+    <meta property="og:description" content="The complete electric conversion guide: Ohm's law, watt's law, dBm RF power, and AWG wire gauge. Exact formulas, the 120/240 split, breaker sizing, LED resistors, Wi-Fi power.">
+    <meta property="og:url" content="https://enginstack.com/guides/electric-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Electric Conversion Guide — Volts, Amps, Ohms, Watts, dBm, AWG | EnginStack">
+    <meta name="twitter:description" content="Ohm's law, watt's law, dBm RF power, AWG wire gauge — the complete electric conversion guide with exact formulas.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Electric Conversion Guide — Volts, Amps, Ohms, Watts, dBm, AWG",
+  "description": "The definitive engineering reference for electric unit conversion. Part one: Ohm's law and watt's law across the four circuit quantities — volts, amps, ohms, watts — with every useful direction of the V = I·R and P = V·I relationships, the US 120/240 volt split, breaker sizing, and the 80% rule. Part two: the dBm RF power scale, anchored at 30 dBm = 1 W, used for Wi-Fi, transmitters, and link budgets. Part three: the AWG wire gauge, defined geometrically in 1857 and converted exactly to mm². Every formula on this page is exact — the laws are laws, the dBm scale is a definition, and the AWG scale is a formula.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/electric-conversion-guide",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://enginstack.com/guides/electric-conversion-guide"
+  },
+  "datePublished": "2026-08-11",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert volts to amps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You need a second quantity: current (A) = voltage (V) ÷ resistance (Ω), or current = power (W) ÷ voltage (V). A 120 V circuit with an 8 Ω load draws 15 A; the same circuit loaded to 1,800 W also draws 15 A. Volts are the pressure, amps are the flow, and the load determines the flow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many watts is 30 dBm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 1 watt. dBm is decibels relative to one milliwatt, so 30 dBm = 10^(30/10) mW = 1,000 mW = 1 W. It is the anchor of RF power: Wi-Fi runs at 20–23 dBm, consumer radios up to 40 dBm (10 W)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is 12 AWG wire in mm²?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 3.31 mm². The 1857 AWG definition gives 12 AWG a diameter of 2.0525 mm, and the cross-sectional area is π/4 × d² = 3.31 mm². It is the standard US household circuit wire, rated for 15–20 A."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between volts, amps, ohms, and watts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Volts are electrical pressure, amps are the flow of charge, ohms are the resistance the flow meets, and watts are the rate of energy use — volts × amps. Two exact laws tie them: Ohm's law V = I·R and watt's law P = V·I. Given any two, the other two are fixed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is US household voltage 120 V and 240 V?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "US homes receive 240 V split into two 120 V legs: standard outlets use one leg at 120 V, while ranges, dryers, and HVAC use both legs for 240 V. Because P = V·I, the same 15 A delivers 1,800 W at 120 V but 3,600 W at 240 V — double the capacity from the same wire and breaker."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Engineering Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Electric Conversion Guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "logo": "https://enginstack.com/favicon.svg"
+}
+</script>
+</head>
+<body>
+    <div class="page-container">
+        <header class="page-header">
+            <h1>Electric Conversion: The Two Laws, the Decibel, and the Wire Gauge</h1>
+            <p>Electricity looks like it has a frightening number of units — volts, amps, ohms, watts, dBm, AWG — but it reduces to a small set of exact relationships. Two laws cover the circuit quantities: Ohm's law (V = I·R) and watt's law (P = V·I), which together make any two of volts, amps, ohms, and watts determine the other two. One definition covers RF power: the dBm scale, anchored at 30 dBm = 1 W. And one 1857 formula covers wire gauge: AWG, a geometric progression that still sizes America's wire. This guide walks through all three systems, with the exact formulas and the real-world numbers that make them stick.</p>
+            <p class="page-meta">~12 min read &nbsp;·&nbsp; Last updated August 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<!-- ══ KEY TAKEAWAYS ══ -->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>Two laws cover four quantities.</strong> V = I·R (Ohm) and P = V·I (watt) tie volts, amps, ohms, and watts together — given any two, the other two are exact. There are no measured constants anywhere in the circuit world.</li>
+        <li><strong>US household power is a 120/240 split.</strong> Standard outlets get 120 V; ranges and dryers get 240 V. Because P = V·I, the same 15 A delivers twice the watts at 240 V.</li>
+        <li><strong>dBm is defined against the milliwatt.</strong> 0 dBm = 1 mW, and 30 dBm = 1 W exactly. Every 10 dB multiplies power by 10 — the anchor of all RF work.</li>
+        <li><strong>AWG is a geometric formula from 1857.</strong> Each gauge step multiplies diameter by 92^(1/39) ≈ 1.123. 12 AWG = 3.31 mm² exactly, and the metric world sizes the same wire in mm².</li>
+        <li><strong>Breaker sizing is watts ÷ volts.</strong> The 80% rule keeps continuous loads under 80% of the breaker rating — a 15 A breaker handles 12 A continuous = 1,440 W at 120 V.</li>
+        <li><strong>Wire size, current, and drop are one chain.</strong> Amps determine the breaker, the breaker determines the gauge, and the gauge determines the voltage drop (V = I·R) over the run.</li>
+    </ul>
+</div>
+
+<!-- ══ QUICK REFERENCE ══ -->
+<h2>Quick Electric Conversion Reference</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Conversion</th><th>Formula</th><th>Anchor value</th><th>Converter</th></tr></thead>
+    <tbody>
+        <tr><td>Volts to amps</td><td>I = V/R or I = P/V</td><td>120 V ÷ 8 Ω = 15 A</td><td><a href="/volts-to-amps">V to A →</a></td></tr>
+        <tr><td>Amps to volts</td><td>V = I·R or V = P/I</td><td>15 A × 8 Ω = 120 V</td><td><a href="/amps-to-volts">A to V →</a></td></tr>
+        <tr><td>Volts to watts</td><td>P = V·I</td><td>120 V × 0.5 A = 60 W</td><td><a href="/volts-to-watts">V to W →</a></td></tr>
+        <tr><td>Watts to volts</td><td>V = P/I</td><td>60 W ÷ 0.5 A = 120 V</td><td><a href="/watts-to-volts">W to V →</a></td></tr>
+        <tr><td>Amps to watts</td><td>P = V·I</td><td>15 A × 120 V = 1,800 W</td><td><a href="/amps-to-watts">A to W →</a></td></tr>
+        <tr><td>Watts to amps</td><td>I = P/V</td><td>1,800 W ÷ 120 V = 15 A</td><td><a href="/watts-to-amps">W to A →</a></td></tr>
+        <tr><td>Volts to ohms</td><td>R = V/I</td><td>5 V ÷ 0.02 A = 250 Ω</td><td><a href="/volts-to-ohms">V to Ω →</a></td></tr>
+        <tr><td>Ohms to volts</td><td>V = I·R</td><td>8 Ω × 15 A = 120 V</td><td><a href="/ohms-to-volts">Ω to V →</a></td></tr>
+        <tr><td>dBm to watts</td><td>W = 10^((dBm−30)/10)</td><td>30 dBm = 1 W</td><td><a href="/dbm-to-watts">dBm to W →</a></td></tr>
+        <tr><td>Watts to dBm</td><td>dBm = 10·log10(W×1000)</td><td>1 W = 30 dBm</td><td><a href="/watts-to-dbm">W to dBm →</a></td></tr>
+        <tr><td>dBm to milliwatts</td><td>mW = 10^(dBm/10)</td><td>0 dBm = 1 mW</td><td><a href="/dbm-to-mw">dBm to mW →</a></td></tr>
+        <tr><td>AWG to mm²</td><td>d = 0.127·92^((36−AWG)/39)</td><td>12 AWG = 3.31 mm²</td><td><a href="/awg-to-mm2">AWG to mm² →</a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══ TOC ══ -->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#the-two-laws">The Two Laws: Ohm and Watt — Four Quantities, No Constants</a></li>
+        <li><a href="#the-120-240-split">The 120/240 Split: Why America's Power Is Two Voltages</a></li>
+        <li><a href="#breaker-sizing">Breaker Sizing: Watts to Amps, and the 80% Rule</a></li>
+        <li><a href="#the-led-resistor">The LED Resistor: Ohm's Law in the Hands of Every Hobbyist</a></li>
+        <li><a href="#the-decibel">The Decibel: dBm, mW, W, and the RF World</a></li>
+        <li><a href="#the-wire-gauge">The Wire Gauge: AWG and the 1857 Geometric Progression</a></li>
+        <li><a href="#the-chain">The Chain: Amps → Breaker → Gauge → Drop</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+</nav>
+
+<section id="the-two-laws">
+<h2>1. The Two Laws: Ohm and Watt — Four Quantities, No Constants</h2>
+<p>The entire circuit world reduces to four quantities and two laws. Volts (V) are electrical pressure — the push that drives charge. Amps (I) are the flow of charge — how much moves per second. Ohms (Ω) are the resistance the flow meets — how hard the path is. Watts (P) are the rate of energy use — pressure times flow. And the two laws are exact: <strong>Ohm's law</strong>, V = I·R, and <strong>watt's law</strong>, P = V·I.</p>
+<p>Because both laws are exact — they are relationships, not measurements — the entire conversion family carries zero uncertainty. Given any two of the four quantities, the other two are fixed: <a href="/volts-to-amps">volts to amps</a> divides by resistance (or by power), <a href="/amps-to-volts">amps to volts</a> multiplies, <a href="/volts-to-watts">volts to watts</a> multiplies voltage by current, <a href="/watts-to-volts">watts to volts</a> divides power by current, <a href="/amps-to-watts">amps to watts</a> multiplies, <a href="/watts-to-amps">watts to amps</a> divides, and the resistance pair — <a href="/volts-to-ohms">volts to ohms</a> and <a href="/ohms-to-volts">ohms to volts</a> — closes the loop. Eight directions, two laws, zero approximations. This is the cleanest family on the site, and it is the reason the electric hub needs no coefficient tables: the laws <em>are</em> the conversion.</p>
+</section>
+
+<section id="the-120-240-split">
+<h2>2. The 120/240 Split: Why America's Power Is Two Voltages</h2>
+<p>US homes receive a single 240 V feed from the transformer, split into two 120 V legs. Standard outlets — lamps, phones, TVs — use one leg against neutral, giving 120 V. Ranges, dryers, and HVAC use both legs, giving 240 V. The reason is watt's law: P = V·I. A 15 A circuit delivers 1,800 W at 120 V (15 × 120) but 3,600 W at 240 V (15 × 240) — double the heating capacity from the same wire and breaker. That is why the appliances that need the most power get wired for 240 V.</p>
+<p>The same split explains why the <a href="/watts-to-amps">watts to amps</a> and <a href="/amps-to-watts">amps to watts</a> converters always ask for voltage: the current a 3,600 W dryer draws is 15 A at 240 V but 30 A at 120 V — and 30 A needs a thicker wire and a bigger breaker. Every load calculation in the National Electrical Code starts by asking which voltage the circuit uses. The international 230 V standard (Europe) and the 100 V standard (Japan) make the same calculation with different anchors — the formula never changes, only the input.</p>
+</section>
+
+<section id="breaker-sizing">
+<h2>3. Breaker Sizing: Watts to Amps, and the 80% Rule</h2>
+<p>A breaker protects a circuit by current — it trips when the amps exceed its rating. But appliances are labeled in watts, so the entire sizing process is one conversion: <a href="/watts-to-amps">watts to amps</a> at the circuit voltage. A room with a 1,500 W heater, a 600 W microwave, and 300 W of lighting is 2,400 W total — at 120 V that is 20 A, which needs a 20 A breaker and 12 AWG wire, not the standard 15 A / 14 AWG.</p>
+<p>The 80% rule adds the safety margin: the National Electrical Code says a continuous load (running three hours or more) should not exceed 80% of the breaker rating. So a 15 A breaker safely handles 12 A continuous — 1,440 W at 120 V — and the next size up is chosen for anything larger. The <a href="/watts-to-amps">watts-to-amps</a> converter shows both the raw current and the derated capacity, and the wire side of the decision lives on the <a href="/awg-to-mm2">AWG to mm²</a> page: 15 A → 14 AWG, 20 A → 12 AWG, 30 A → 10 AWG. Breaker, wire, and load are one chain, and every link is a conversion.</p>
+</section>
+
+<section id="the-led-resistor">
+<h2>4. The LED Resistor: Ohm's Law in the Hands of Every Hobbyist</h2>
+<p>The single most common hands-on use of Ohm's law is choosing an LED resistor — and it is a perfect case study in why the conversions matter. An LED has a forward voltage (about 2 V for red, 3 V for white) and needs a current limit (typically 20 mA). Running it from a 5 V supply, the resistor must drop the difference — 5 − 2 = 3 V — at 20 mA. Ohm's law gives the answer: R = V/I = 3 / 0.02 = 150 Ω. The <a href="/volts-to-ohms">volts to ohms</a> converter is exactly this division.</p>
+<p>The same calculation scales to every circuit: a sensor divider at 3.3 V, a fan at 12 V, a heater element at 240 V. And the reverse — <a href="/ohms-to-volts">ohms to volts</a> — is how sensors speak: push a known current through a thermistor whose resistance changes with temperature, and the voltage across it (V = I·R) is the signal an analog input reads. The pair of converters covers the two directions every electronics engineer uses daily, and both are exact applications of the same law.</p>
+</section>
+
+<section id="the-decibel">
+<h2>5. The Decibel: dBm, mW, W, and the RF World</h2>
+<p>Radio power spans so many orders of magnitude — from a receiver hearing a picowatt to a transmitter pushing kilowatts — that the RF world compresses the range into decibels. The unit dBm is decibels relative to one milliwatt: 0 dBm = 1 mW, and every 10 dB multiplies power by 10. The conversion is exact because it is the definition of the scale: P(W) = 10^((dBm−30)/10), or P(mW) = 10^(dBm/10).</p>
+<p>The anchors are easy to remember and show up everywhere. <strong>30 dBm = 1 W</strong> — the regulatory limit for consumer Wi-Fi (access points run at 20–23 dBm of transmitter power to stay under the EIRP cap with antenna gain included). 20 dBm = 100 mW, the typical Wi-Fi transmit power. 10 dBm = 10 mW, a Bluetooth Class 1 radio. 0 dBm = 1 mW, the definitional anchor. The <a href="/dbm-to-watts">dBm to watts</a> and <a href="/watts-to-dbm">watts to dBm</a> converters handle the watt side; <a href="/dbm-to-mw">dBm to milliwatts</a> and <a href="/mw-to-dbm">milliwatts to dBm</a> the mW side. Link budgets — where gains and losses add in decibels — are why the scale exists: a 40 dBm transmitter, a 3 dBi antenna, and 2 dB of cable loss end at 41 dBm EIRP, an addition that would be an ugly multiplication in watts.</p>
+</section>
+
+<section id="the-wire-gauge">
+<h2>6. The Wire Gauge: AWG and the 1857 Geometric Progression</h2>
+<p>American wire gauge is a numbering system that looks arbitrary — 12 AWG is thicker than 14 AWG, and the numbers go up as the wire gets thinner — but it is a precise geometric scale defined in 1857: 0000 AWG (4/0) has a diameter of 0.46 in, 36 AWG has 0.005 in, and there are 39 logarithmic steps between them. That definition gives the exact formula d(mm) = 0.127 × 92^((36−AWG)/39), where each gauge step multiplies the diameter by 92^(1/39) ≈ 1.123 — about 12.3% per step, and every three steps roughly halves the cross-sectional area.</p>
+<p>The conversion to mm² — the metric world's wire unit — is the area of that diameter: A = π/4 × d². <strong>12 AWG = 3.31 mm²</strong> (the standard US household circuit wire), 14 AWG = 2.08 mm² (lighting), 10 AWG = 5.26 mm² (30 A feeders). The <a href="/awg-to-mm2">AWG to mm²</a> converter applies the formula forward; <a href="/mm2-to-awg">mm² to AWG</a> inverts it for European cable meeting US terminals — 2.5 mm² lands closest to 13 AWG, 1.5 mm² to 15 AWG. Both converters return the exact continuous value, and the nearest standard gauge is the practical answer for connector compatibility.</p>
+</section>
+
+<section id="the-chain">
+<h2>7. The Chain: Amps → Breaker → Gauge → Drop</h2>
+<p>The four parts of this guide are one chain, and every link is a conversion from the hub. Start with the load: a workshop with 4,800 W of tools. At 240 V, that is 20 A — <a href="/watts-to-amps">watts to amps</a>. The breaker for 20 A is standard; the wire for 20 A is 12 AWG — <a href="/awg-to-mm2">AWG to mm²</a> if the panel is metric. The run is 100 ft, and the wire's resistance at that length and gauge produces a voltage drop — <a href="/ohms-to-volts">ohms to volts</a> with the wire's resistance per foot times the current. If the drop exceeds 3%, the gauge goes up one size and the chain restarts.</p>
+<p>That is the daily loop of every electrician and electrical engineer, and it is why this guide exists: the laws give the relationships, the dBm scale gives the RF power, and the AWG scale gives the wire — all exact, all on the <a href="/electric/">electric hub</a>. The energy side of the same circuit — what the watts cost on the bill — continues on the <a href="/energy/">energy</a> pages, where watts become kilowatt-hours and horsepower meets watts. The chain runs from the breaker box to the bill, and every link is a unit conversion.</p>
+</section>
+
+<section class="eng-context">
+<h3>Where This Sits in the EnginStack Library</h3>
+<p>The electric hub is the newest member of the site's unit families. It connects forward to the <a href="/energy/">energy hub</a> — watts are the shared unit, and <a href="/watts-to-kw">watts to kW</a> plus <a href="/wh-to-kwh">Wh to kWh</a> carry the bill-side story. It connects sideways to the <a href="/frequency/">frequency hub</a>, where RF power (dBm) meets spectrum (MHz, GHz) in every link budget. And it connects backward to the <a href="/force/">force</a> and <a href="/torque/">torque</a> families through the watts-to-horsepower bridge, where electrical power meets mechanical power. The <a href="/guides/engineering-unit-conversion-mistakes">unit conversion mistakes guide</a> carries the cautionary tales for when any of these conversions go wrong.</p>
+<p style="margin-top:1.2em;">More: <a href="/watts-to-amps">W to A</a> · <a href="/volts-to-ohms">V to Ω</a> · <a href="/dbm-to-watts">dBm to W</a> · <a href="/awg-to-mm2">AWG to mm²</a> · <a href="/electric/">Electric Hub</a></p>
+</section>
+
+<section id="faq">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<p class="faq-q"><strong>How do I convert volts to amps?</strong></p>
+<p class="faq-a">You need a second quantity: current (A) = voltage (V) ÷ resistance (Ω), or current = power (W) ÷ voltage (V). A 120 V circuit with an 8 Ω load draws 15 A; the same circuit loaded to 1,800 W also draws 15 A. Volts are the pressure, amps are the flow, and the load determines the flow.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>How many watts is 30 dBm?</strong></p>
+<p class="faq-a">Exactly 1 watt. dBm is decibels relative to one milliwatt, so 30 dBm = 10^(30/10) mW = 1,000 mW = 1 W. It is the anchor of RF power: Wi-Fi runs at 20–23 dBm, consumer radios up to 40 dBm (10 W).</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>What is 12 AWG wire in mm²?</strong></p>
+<p class="faq-a">Exactly 3.31 mm². The 1857 AWG definition gives 12 AWG a diameter of 2.0525 mm, and the cross-sectional area is π/4 × d² = 3.31 mm². It is the standard US household circuit wire, rated for 15–20 A.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>What is the difference between volts, amps, ohms, and watts?</strong></p>
+<p class="faq-a">Volts are electrical pressure, amps are the flow of charge, ohms are the resistance the flow meets, and watts are the rate of energy use — volts × amps. Two exact laws tie them: Ohm's law V = I·R and watt's law P = V·I. Given any two, the other two are fixed.</p>
+</div>
+<div class="faq-item">
+<p class="faq-q"><strong>Why is US household voltage 120 V and 240 V?</strong></p>
+<p class="faq-a">US homes receive 240 V split into two 120 V legs: standard outlets use one leg at 120 V, while ranges, dryers, and HVAC use both legs for 240 V. Because P = V·I, the same 15 A delivers 1,800 W at 120 V but 3,600 W at 240 V — double the capacity from the same wire and breaker.</p>
+</div>
+</section>
+
+<section class="eng-context">
+<h3>Reprint &amp; Attribution</h3>
+<p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the engineering team at EnginStack. It was first published on August 11, 2026 at <a href="https://enginstack.com/guides/electric-conversion-guide">enginstack.com/guides/electric-conversion-guide</a>. Quote it, share it, translate it — just link back to the original and credit EnginStack. For full-text republication inquiries, please reach us through the <a href="/contact">EnginStack contact page</a>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+</section>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Ohm’s law",
+  "termCode": "Ohm’s law",
+  "description": "Ohm’s law states that the current through a conductor between two points is directly proportional to the voltage and inversely proportional to the resistance: I = V/R. It is the foundation of all electrical calculations on this site.",
+  "url": "https://en.wikipedia.org/wiki/Ohm%27s_law",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

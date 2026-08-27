@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Fuel Economy Conversion Guide — MPG, L/100km, km/L and Why the Math Tricks You | EnginStack</title>
+    <meta name="description" content="The engineering guide to fuel economy conversion — MPG, L/100km, km/L. Why a 10 MPG improvement from 10 to 20 saves 10× more fuel than 30 to 40. The US vs Imperial gallon trap, the 235.215 constant, the Gimli Glider, and why your brain is wired to misread fuel efficiency.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/fuel-economy-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/fuel-economy-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/fuel-economy-conversion-guide">
+    <meta property="og:title" content="Fuel Economy Conversion Guide — MPG, L/100km, km/L and Why the Math Tricks You | EnginStack">
+    <meta property="og:description" content="MPG, L/100km, km/L, US vs Imperial gallons. Fuel economy is the only unit system where higher doesn't always mean better — and where a 10 MPG improvement can mean anything from 50 gallons saved to almost nothing.">
+    <meta property="og:url" content="https://enginstack.com/guides/fuel-economy-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Fuel Economy Conversion Guide — MPG, L/100km, km/L and Why the Math Tricks You",
+  "description": "Engineering guide to fuel economy unit conversion. Covers MPG (US and Imperial), L/100km, km/L, exact conversion factors, the MPG Illusion in behavioral economics, the Gimli Glider fuel miscalculation, US vs UK gallon differences, and why L/100km is the superior metric for fleet management.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/fuel-economy-conversion-guide",
+  "datePublished": "2026-07-19",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Fuel Economy Conversion Guide", "item": "https://enginstack.com/guides/fuel-economy-conversion-guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the MPG to L/100km conversion formula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L/100km = 235.215 ÷ MPG (US gallons). For UK gallons, use 282.481 instead of 235.215. The reverse — MPG = 235.215 ÷ L/100km — uses the same constant. The constant is exact, derived from 1 US gallon = 3.785411784 L and 1 mile = 1.609344 km, multiplied by 100 for the \"per 100 km\" convention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does 10→20 MPG save more fuel than 30→60 MPG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because MPG is distance per fuel, and fuel cost depends on fuel per distance (the reciprocal). Going from 10 to 20 MPG saves 5 gallons per 100 miles. Going from 30 to 60 MPG saves 1.67 gallons per 100 miles. The first improvement saves 3× more fuel. This is the MPG Illusion — documented by Larrick and Soll in Science (2008). L/100km avoids it: every 1 L/100km drop saves the same amount of fuel per distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if a UK car review's MPG is inflated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UK MPG uses the Imperial gallon (4.546 L), 20.1% larger than the US gallon (3.785 L). Multiply UK MPG by 0.8327 to get US MPG. A 60 MPG (UK) figure is 50 MPG (US). If the review doesn't specify, check the publication's country — UK and Irish outlets report in Imperial MPG. Australian outlets use L/100km. Canadian outlets use a mix of US MPG and L/100km depending on the province."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the most useful fuel economy unit for comparing cars?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L/100km, or gallons per 100 miles if you're committed to US units. Both are consumption-based, so a given reduction always saves the same amount of fuel regardless of starting efficiency. Annual fuel cost = (annual distance in km ÷ 100) × L/100km × fuel price per liter. That formula is linear — double the distance, double the cost. With MPG, the same formula requires division: (annual miles ÷ MPG) × price per gallon. The division is where the nonlinearity creeps in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I just use the liters and kilometers I see on a European trip computer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and you should. The L/100km number on a European-market car's trip computer is directly comparable across all vehicles regardless of where they were sold. 7.0 L/100km means the same thing on a Volkswagen in Berlin, a Toyota in Tokyo, and a Ford in London. If you're importing a car or comparing global reviews, convert everything to L/100km first, then translate to your local unit at the end. That's the workflow that avoids every unit trap described in this guide."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Fuel Economy Conversion Guide</span></nav>
+
+        <header class="page-header">
+            <h1>Why Better Gas Mileage Doesn't Save as Much as You Think: A Field Guide to Fuel Economy's Broken Arithmetic</h1>
+            <p>Fuel economy is the only common measurement where doubling the number doesn't mean half the cost — and where a 5 MPG improvement can be worth more than a 50 MPG one, depending on where you started.</p>
+            <p class="page-meta">~16 min read &nbsp;·&nbsp; Last updated July 2026</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<!-- ══════════════════════════════════════════════════════════
+     This guide is organized as a continuous narrative journey
+     through fuel economy units — not modular chapters.
+     Each section emerges from the last.
+     ══════════════════════════════════════════════════════════ -->
+
+<p>In 2008, two Duke researchers published a paper in <em>Science</em> that should have changed how every car window sticker in the world is printed. Richard Larrick and Jack Soll gave people a simple problem: which upgrade saves more fuel — replacing a 10 MPG SUV with a 20 MPG sedan, or replacing a 30 MPG car with a 40 MPG hybrid?</p>
+
+<p>Most people said the second one. 10 MPG vs 10 MPG, same improvement, right?</p>
+
+<p>Wrong. Over 10,000 miles, the 10→20 MPG swap saves 500 gallons. The 30→40 MPG swap saves 83 gallons. The first upgrade saves <strong>six times more fuel</strong> despite being the same 10 MPG jump. The reason is buried in the arithmetic of reciprocals — and it explains why every country that regulates fuel economy seriously has switched to a consumption-based unit. The US hasn't. This guide is about what breaks when you don't.</p>
+
+<!-- ══════════════════════════════════════════════════════════
+     KEY TAKEAWAYS
+     ══════════════════════════════════════════════════════════ -->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>MPG is distance per fuel.</strong> L/100km is fuel per distance. They measure the same thing but the math works opposite — and that inversion is the root of every confusion on this page.</li>
+        <li><strong>US MPG ÷ Imperial MPG = 0.8327.</strong> A 48 MPG (UK) car is 40 MPG (US). Same car, same fuel, different gallon. The 20% gap has confused import reviews for decades.</li>
+        <li><strong>235.215 is not arbitrary.</strong> It's the kilometer-per-liter equivalent of 1 US gallon per mile, multiplied by 100. Every digit is locked to the exact SI definitions of the mile (1,609.344 m) and the US gallon (3.785411784 L).</li>
+        <li><strong>Fuel consumption is linear. Fuel economy is a hyperbola.</strong> Going from 15 to 20 MPG saves as much fuel as going from 30 to 60 MPG. If that sounds wrong, it's because your brain runs MPG linearly. It isn't.</li>
+    </ul>
+</div>
+
+<h2>Quick Fuel Economy Conversion Table</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>To convert from</th><th>To</th><th>Formula</th><th>Example</th></tr></thead>
+    <tbody>
+        <tr><td>US MPG</td><td>L/100km</td><td>235.215 ÷ MPG</td><td>30 MPG = 7.84 L/100km</td></tr>
+        <tr><td>L/100km</td><td>US MPG</td><td>235.215 ÷ L/100km</td><td>8 L/100km = 29.4 MPG</td></tr>
+        <tr><td>US MPG</td><td>km/L</td><td>MPG × 0.425144</td><td>30 MPG = 12.75 km/L</td></tr>
+        <tr><td>km/L</td><td>US MPG</td><td>km/L × 2.35215</td><td>15 km/L = 35.3 MPG (US)</td></tr>
+        <tr><td>UK MPG</td><td>US MPG</td><td>UK MPG × 0.832674</td><td>40 MPG (UK) = 33.3 MPG (US)</td></tr>
+        <tr><td>L/100km</td><td>km/L</td><td>100 ÷ L/100km</td><td>8 L/100km = 12.5 km/L</td></tr>
+    </tbody>
+</table>
+</div>
+
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#mpg-illusion">The MPG Illusion: Why Your Brain Can't Do Reciprocals</a></li>
+        <li><a href="#the-constant">235.215: Where the Magic Number Comes From</a></li>
+        <li><a href="#imperial-gallon">The 20% Gap: US vs Imperial Gallons</a></li>
+        <li><a href="#km-per-liter">km/L: Japan's Middle Ground</a></li>
+        <li><a href="#why-europe-switched">Why Europe Regulates in L/100km</a></li>
+        <li><a href="#gimli-glider">The Gimli Glider: When Fuel Units Kill</a></li>
+        <li><a href="#conversion-table">Master Conversion Table</a></li>
+        <li><a href="#all-tools">Every Fuel Economy Converter on This Site</a></li>
+    </ol>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1: THE MPG ILLUSION
+     ══════════════════════════════════════════════════════════ -->
+<section id="mpg-illusion">
+    <h2>1. The MPG Illusion: Why Everything You Know About Gas Mileage Is Nonlinear</h2>
+
+    <p>Ask someone which is better: replacing a 15 MPG truck with a 20 MPG truck, or a 35 MPG car with a 50 MPG car. The second number is a 15 MPG improvement. The first is only 5 MPG. The second one feels bigger. It is not.</p>
+
+    <p>Over 10,000 miles driven per year, at $4 per gallon:</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Swap</th><th>MPG change</th><th>Gallons saved per 10k miles</th><th>Dollars saved at $4/gal</th></tr></thead>
+        <tbody>
+            <tr><td>15 → 20 MPG</td><td>+5</td><td><strong>167 gallons</strong></td><td><strong>$667</strong></td></tr>
+            <tr><td>35 → 50 MPG</td><td>+15</td><td><strong>86 gallons</strong></td><td><strong>$343</strong></td></tr>
+            <tr><td>10 → 11 MPG</td><td>+1</td><td><strong>91 gallons</strong></td><td><strong>$364</strong></td></tr>
+            <tr><td>40 → 50 MPG</td><td>+10</td><td><strong>50 gallons</strong></td><td><strong>$200</strong></td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The third row is the shocker. Going from 10 to 11 MPG — a single mile per gallon — saves more fuel than going from 35 to 50 MPG, which is a 15 MPG jump. The math isn't broken. It's just that MPG measures the wrong thing for the question people are actually asking.</p>
+
+    <p>When a person asks "how much fuel will I save," they are asking about gallons consumed per distance — which is 1/MPG. Gallons per mile. The relationship between MPG and gallons per mile is a reciprocal curve: flat at the high end, steep at the low end. A 1 MPG improvement at 10 MPG cuts your fuel consumption by about 9%. The same 1 MPG improvement at 50 MPG cuts it by about 2%. The MPG number went up by 1 in both cases. The fuel bill dropped by vastly different amounts.</p>
+
+    <p>Larrick and Soll called this the <strong>MPG Illusion</strong>, and their paper demonstrated it across hundreds of participants. When people were asked to rank fuel-saving upgrades using MPG, they consistently picked the wrong ones — favoring large MPG jumps from already-efficient vehicles over small MPG jumps from gas guzzlers. When the same problem was presented in gallons per 100 miles, almost everyone got it right. The unit changes the intuition.</p>
+
+    <div class="callout">
+        <h4>The reciprocal at the center of everything</h4>
+        <p>Fuel consumption = 1 ÷ fuel economy. GPM (gallons per mile) = 1 ÷ MPG. L/100km = 235.215 ÷ MPG. Every fuel economy conversion on this site traces back to this one inversion. If you remember nothing else from this guide, remember: <strong>MPG is a reciprocal measure of what you actually care about — consumption.</strong> Treat it accordingly.</p>
+    </div>
+
+    <p>The practical consequence of the MPG Illusion is that US fuel economy standards, expressed in MPG, systematically undervalue improvements to the least efficient vehicles. A CAFE standard that raises fleet average from 25 to 30 MPG sounds modest. But the vehicles that actually achieve those gains are predominantly trucks and SUVs moving from ~15 to ~18 MPG — because that's where the cheap gallons are. The standard does more good than it sounds like, but the MPG framing makes it sound insufficient. Every debate about US fuel economy standards is fought on a battlefield tilted by the unit choice.</p>
+
+    <div class="formula-box">
+        <p>gallons per 100 miles = 100 ÷ MPG &nbsp;&nbsp;|&nbsp;&nbsp; L/100km = 235.215 ÷ MPG (US)</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 2: THE 235.215 CONSTANT
+     ══════════════════════════════════════════════════════════ -->
+<section id="the-constant">
+    <h2>2. 235.215: The Number That Lives on Every Car Forum</h2>
+
+    <p>Every car forum has a thread where someone asks "how do I convert MPG to L/100km" and someone replies with a number: 235. Divide by MPG, get L/100km. Divide by L/100km, get MPG. The number gets quoted as gospel. But it's not a definition — it's a consequence of two older ones.</p>
+
+    <p>Here is every digit, accounted for:</p>
+
+    <div class="callout" style="border-left-color: var(--primary);">
+        <ul style="list-style:none;padding-left:0;">
+            <li><strong>1 US gallon</strong> = 3.785411784 liters (exact — defined by US law, 19 USC § 215, codifying the 1959 international yard-pound agreement)</li>
+            <li><strong>1 mile</strong> = 1,609.344 meters (exact — 1959 International Yard and Pound Agreement: 1 yard = 0.9144 m, 1 mile = 1,760 yards)</li>
+            <li><strong>1 US gallon per mile</strong> = 3.785411784 L ÷ 1.609344 km = 2.352145834 L/km — wait, that's liters per kilometer, not the right direction</li>
+        </ul>
+    </div>
+
+    <p>The factor in that last line is 2.352145834. That's the liters-per-kilometer equivalent of one gallon per mile. But L/100km is liters per <em>hundred</em> kilometers, so multiply by 100: 235.2145834. Round to 235.215. That's the constant. It is the exact SI translation of an American gallon consumed over an American mile, rescaled to the European convention of reporting consumption per 100 km.</p>
+
+    <p>In reverse: if a European car consumes 8.0 L/100km, how many US MPG? 235.215 ÷ 8 = 29.4 MPG. The math is symmetric because it's a pure inversion after accounting for the unit translation. The constant is only needed because we're crossing both unit systems (imperial→metric) and measurement conventions (distance-per-fuel→fuel-per-distance) in the same step.</p>
+
+    <h3>The UK constant: 282.481</h3>
+
+    <p>For Imperial (UK) gallons, the constant is different. 1 Imperial gallon = 4.54609 liters (exact — UK Weights and Measures Act 1963, reaffirmed 1985). Chase the same chain: 4.54609 L/gal ÷ 1.609344 km/mi = 2.824810 L/km. × 100 = <strong>282.481</strong>. Same logic, larger gallon, larger constant. UK MPG numbers are always about 20% higher than US MPG for the same car. A Volkswagen Golf that gets 48 MPG in a British review gets 40 MPG on the US window sticker. The car burns the same fuel. The gallon it's divided by doesn't hold the same volume.</p>
+
+    <p>This is also why you should never skip the "(US)" or "(UK)" qualifier when discussing MPG online. A number without a gallon origin is a number without meaning. A British driver bragging about "55 MPG" is getting about 45.8 MPG in American terms — still excellent, but not the number the American reader thinks they're hearing.</p>
+
+    <div class="formula-box">
+        <p>L/100km = 235.215 ÷ MPG(US) &nbsp;&nbsp;|&nbsp;&nbsp; L/100km = 282.481 ÷ MPG(UK)</p>
+        <p style="margin-top:.6em;">US MPG = UK MPG × 0.832674 &nbsp;&nbsp;|&nbsp;&nbsp; UK MPG = US MPG × 1.20095</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 3: US vs IMPERIAL GALLONS
+     ══════════════════════════════════════════════════════════ -->
+<section id="imperial-gallon">
+    <h2>3. The 20% Gap: Why a "Gallon" Is Anywhere From 3.79 to 4.55 Liters Depending on Which Side of the Atlantic You Park On</h2>
+
+    <p>The gallon is not one unit. It's three, and two of them are still in active use for fuel economy.</p>
+
+    <ul>
+        <li><strong>US liquid gallon</strong> = 231 cubic inches = 3.785411784 L. Defined by an English wine-gallon statute from 1707, adopted by the US after independence, metricized exactly in the 1959 agreement.</li>
+        <li><strong>Imperial (UK) gallon</strong> = 4.54609 L. Defined by the UK Weights and Measures Act of 1824 as the volume of 10 pounds of distilled water at 62°F (16.67°C) weighed in air against brass weights. Metricized in 1963 to exactly 4.54609 L.</li>
+    </ul>
+
+    <p>The 1824 act was supposed to unify British measures. It abolished the wine gallon, the ale gallon, and the corn gallon — all of which had different volumes — and replaced them with a single Imperial gallon. The US, having left the empire 48 years earlier, kept the old Queen Anne wine gallon. That fork in 1824 is why a "gallon of milk" means different things in London and Los Angeles. And why a British car review's MPG figure means something different from an American window sticker's MPG figure, even though both say "MPG."</p>
+
+    <p>The difference is 20.1%. That's not a rounding error. A car that consumes exactly 8.0 L/100km gets:
+        <br>· 29.4 MPG (US) — using 235.215 ÷ 8.0
+        <br>· 35.3 MPG (UK) — using 282.481 ÷ 8.0
+    </p>
+
+    <p>The car is identical. The fuel in the tank is identical. The test cycle might differ (EPA vs WLTP), but the unit-accounting difference alone shifts the number by 20%. Car magazines that publish UK MPG figures without saying so are creating a 20% phantom that American readers unconsciously import.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Fuel consumption</th><th>US MPG</th><th>UK MPG</th><th>km/L</th></tr></thead>
+        <tbody>
+            <tr><td>4.0 L/100km</td><td>58.8 MPG</td><td>70.6 MPG</td><td>25.0 km/L</td></tr>
+            <tr><td>5.0 L/100km</td><td>47.0 MPG</td><td>56.5 MPG</td><td>20.0 km/L</td></tr>
+            <tr><td>6.0 L/100km</td><td>39.2 MPG</td><td>47.1 MPG</td><td>16.7 km/L</td></tr>
+            <tr><td>7.0 L/100km</td><td>33.6 MPG</td><td>40.4 MPG</td><td>14.3 km/L</td></tr>
+            <tr><td>8.0 L/100km</td><td>29.4 MPG</td><td>35.3 MPG</td><td>12.5 km/L</td></tr>
+            <tr><td>10.0 L/100km</td><td>23.5 MPG</td><td>28.2 MPG</td><td>10.0 km/L</td></tr>
+            <tr><td>12.0 L/100km</td><td>19.6 MPG</td><td>23.5 MPG</td><td>8.3 km/L</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>Car reviewers who cross the Atlantic constantly convert between these numbers in their heads. The rough shortcut: UK MPG × 5/6 ≈ US MPG. 48 UK × 5/6 = 40 US. Close enough for a podcast, not close enough for a purchase decision. Use the <a href="/mpg-to-l-100km">MPG to L/100km</a> converter for the exact factor, and make sure you know which gallon you're starting from.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 4: km/L — JAPAN'S MIDDLE GROUND
+     ══════════════════════════════════════════════════════════ -->
+<section id="km-per-liter">
+    <h2>4. km/L: Japan's Quiet Compromise</h2>
+
+    <p>Japan, Korea, India, and much of Southeast Asia measure fuel economy in kilometers per liter. It's distance-over-volume, like MPG — so it shares MPG's nonlinearity problem — but it's fully metric. No conversion to miles, no gallon variant to specify. One liter, one kilometer. The number means what it says.</p>
+
+    <p>A car rated at 15 km/L travels 15 kilometers on one liter of fuel. That's 35.3 MPG (US) or 6.67 L/100km. Multiply km/L by 2.352 to get US MPG. Divide 100 by km/L to get L/100km. The conversions are clean, decimal, and unambiguous.</p>
+
+    <p>Japan's 2030 fuel economy standard for passenger cars is 25.4 km/L (about 60 MPG US, or 3.9 L/100km). The Japanese test cycle (JC08, now transitioning to WLTC) is gentler than the EPA cycle, so the numbers aren't directly comparable to US window stickers. The unit at least is honest: km/L hides no gallon ambiguity, no MPG Illusion. It still carries the nonlinearity — the jump from 10 to 12 km/L saves more fuel than 20 to 25 km/L — but it eliminates the transatlantic gallon confusion.</p>
+
+    <p>Indian fuel economy labels use km/L. South Korean labels use km/L. Thai stickers use km/L. For the majority of the world's car buyers by population, fuel economy is expressed in kilometers per liter. The US, UK, Canada, and Europe are the outliers — and even Europe moved away from MPG decades ago.</p>
+
+    <div class="formula-box">
+        <p>US MPG = km/L × 2.35215 &nbsp;&nbsp;|&nbsp;&nbsp; L/100km = 100 ÷ km/L</p>
+    </div>
+
+    <p>If you drive a Japanese-market car and need to convert km/L to something an American mechanic or a European fuel app understands, the <a href="/kml-to-mpg">km/L to MPG</a> and <a href="/mpg-to-kml">MPG to km/L</a> converters handle it directly.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 5: WHY EUROPE SWITCHED
+     ══════════════════════════════════════════════════════════ -->
+<section id="why-europe-switched">
+    <h2>5. Why Europe Regulates in L/100km — and the US Doesn't</h2>
+
+    <p>In 1975, the US Congress passed CAFE (Corporate Average Fuel Economy) standards in response to the 1973 oil embargo. The unit: miles per gallon. It was the unit Americans knew, and the standard was designed for a world where American cars averaged 13 MPG and Japanese imports were hitting 25. The unit made sense when every improvement was in the steep part of the reciprocal curve. At 13 MPG, a 2 MPG gain is a big deal.</p>
+
+    <p>Europe took a different path. The EU began regulating CO₂ emissions from passenger cars in 2009, and CO₂ is directly proportional to fuel consumption — grams of CO₂ per kilometer equals liters of fuel per 100 km times a constant (roughly 23.2 for gasoline, 26.5 for diesel). Europe's unit for fuel economy followed the carbon accounting: <strong>L/100km</strong>. It's consumption-based, linear with emissions, and avoids the MPG Illusion entirely.</p>
+
+    <p>The difference is not academic. Under CAFE, an automaker's fleet-wide target is an MPG number, and every vehicle's contribution is <em>harmonic</em> — the fleet average is the harmonic mean of individual MPG ratings. Under EU CO₂ regulation, the fleet target is a grams-per-km number, and every vehicle's contribution is <em>arithmetic</em> — the mean of individual g/km ratings. The arithmetic mean is simpler to calculate, easier to optimize against, and doesn't penalize low-MPG outliers as harshly as the harmonic mean. The unit choice cascades into the regulation design, and the regulation design shapes what cars get built.</p>
+
+    <p>The US has been repeatedly advised to switch to a consumption-based metric. A 2010 EPA report recommended gallons per 100 miles as a supplementary label. The National Research Council recommended it in 2011. The US window sticker now shows gallons per 100 miles in small print below the MPG number — but MPG remains the headline. No US regulation has ever been proposed in GPM. The inertia of a unit that 300 million people think they understand is stronger than the arithmetic case against it.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 6: THE GIMLI GLIDER
+     ══════════════════════════════════════════════════════════ -->
+<section id="gimli-glider">
+    <h2>6. The Gimli Glider: 22,300 Pounds of Fuel Doesn't Equal 22,300 Kilograms</h2>
+
+    <p>On July 23, 1983, a 4 PM Air Canada flight from Montreal to Edmonton — via Ottawa — pushed back from the gate at Ottawa Macdonald-Cartier International Airport. The Boeing 767-200, registration C-GAUN, was Air Canada's fourth 767 and the first to be delivered with metric instrumentation. Until then, the airline had operated entirely in imperial units: pounds of fuel, feet of altitude, nautical miles of distance. The 767 spoke kilograms, meters, and kilometers.</p>
+
+    <p>The flight management computer required fuel in kilograms. The ground crew, trained on pounds, calculated the fuel requirement using the specific gravity of jet fuel — 0.803 kg/L — but they used a pounds-per-liter figure by mistake. The combination of a broken fuel quantity indication system (both channels inoperative, deferred under the MEL with a dipstick as backup), a misapplied conversion factor, and an aircrew that triple-checked the arithmetic without catching the unit error resulted in 22,300 pounds of fuel being loaded instead of 22,300 kilograms.</p>
+
+    <p>22,300 pounds is 10,115 kilograms. Less than half the required fuel for the Ottawa-Edmonton leg.</p>
+
+    <p>At 41,000 feet, over Red Lake, Ontario, the left engine flamed out. Then the right. A 767 without engines is a 90-ton glider with a glide ratio of about 12:1. Captain Bob Pearson — an experienced glider pilot — calculated that Winnipeg was out of range but that a decommissioned Royal Canadian Air Force base at Gimli, Manitoba, might be reachable. First Officer Maurice Quintal did the math on the standby instruments as the aircraft descended at 2,500 feet per minute.</p>
+
+    <p>Gimli's runway had been converted to a drag racing strip. A sports car event was in progress. The 767 came in fast, no flaps (hydraulics gone), no nose gear (gravity drop failed to lock). Pearson executed a forward slip — a maneuver no one had ever attempted in a 767, taught in gliders to steepen descent without gaining speed — to shed altitude over the crowd. The aircraft touched down hard, nose gear collapsed, and the 767 ground to a stop on its nose and main gear, 100 feet from the spectators.</p>
+
+    <p>Zero fatalities. Sixty-one passengers, eight crew, and everyone on the ground walked away. The aircraft was patched up in Gimli, flown out two days later, and returned to service until 2008. It earned the nickname "Gimli Glider" and became the most famous case study in aviation human factors — a textbook example of how a chain of individually minor errors, any one of which could have been broken, cascaded into a near-catastrophe.</p>
+
+    <p>The unit conversion at the heart of the Gimli Glider — pounds to kilograms, multiplied by a specific gravity that was itself ambiguous between metric and imperial — is not strictly a fuel <em>economy</em> problem. But it is the same species of error. A fuel unit is a fuel unit. When the number is 22,300 and the label is ambiguous, the plane loses both engines at cruise altitude. The difference between MPG(US) and MPG(UK) is 20%. That is not a rounding problem. It is the same gap between a flight that lands and a flight that glides into a drag strip.</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 7: MASTER CONVERSION TABLE
+     ══════════════════════════════════════════════════════════ -->
+<section id="conversion-table">
+    <h2>7. Master Fuel Economy Conversion Table</h2>
+
+    <p>Every fuel economy unit relationship covered by the converters on this site. All conversion factors are exact — anchored to the 1959 international inch (0.0254 m) and the US gallon (3.785411784 L) or UK gallon (4.54609 L) as specified.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>From</th><th>To</th><th>Operation</th><th>Constant</th><th>Exact?</th></tr></thead>
+        <tbody>
+            <tr><td>US MPG</td><td>L/100km</td><td>Constant ÷ MPG</td><td>235.2145834</td><td>Yes (SI + 1959 in + US gal)</td></tr>
+            <tr><td>L/100km</td><td>US MPG</td><td>Constant ÷ L/100km</td><td>235.2145834</td><td>Yes (same)</td></tr>
+            <tr><td>UK MPG</td><td>L/100km</td><td>Constant ÷ MPG</td><td>282.4809363</td><td>Yes (SI + 1959 in + UK gal)</td></tr>
+            <tr><td>L/100km</td><td>UK MPG</td><td>Constant ÷ L/100km</td><td>282.4809363</td><td>Yes (same)</td></tr>
+            <tr><td>US MPG</td><td>km/L</td><td>MPG × constant</td><td>0.4251437</td><td>Yes</td></tr>
+            <tr><td>km/L</td><td>US MPG</td><td>km/L × constant</td><td>2.3521458</td><td>Yes</td></tr>
+            <tr><td>UK MPG</td><td>US MPG</td><td>MPG × constant</td><td>0.8326742</td><td>Yes</td></tr>
+            <tr><td>US MPG</td><td>UK MPG</td><td>MPG × constant</td><td>1.2009499</td><td>Yes</td></tr>
+            <tr><td>L/100km</td><td>km/L</td><td>100 ÷ L/100km</td><td>—</td><td>Yes (definition)</td></tr>
+            <tr><td>km/L</td><td>L/100km</td><td>100 ÷ km/L</td><td>—</td><td>Yes (definition)</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h2>Common conversions at a glance</h2>
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>From</th><th>To</th><th>Value</th><th>Converter</th></tr></thead>
+        <tbody>
+            <tr><td>25 US MPG</td><td>L/100km</td><td>9.41 L/100km</td><td><a href="/mpg-to-l-100km">MPG to L/100km →</a></td></tr>
+            <tr><td>6.0 L/100km</td><td>MPG (US)</td><td>39.2 MPG</td><td><a href="/l-100km-to-mpg">L/100km to MPG →</a></td></tr>
+            <tr><td>30 US MPG</td><td>km/L</td><td>12.75 km/L</td><td><a href="/mpg-to-kml">MPG to km/L →</a></td></tr>
+            <tr><td>18 km/L</td><td>MPG (US)</td><td>42.3 MPG</td><td><a href="/kml-to-mpg">km/L to MPG →</a></td></tr>
+            <tr><td>50 UK MPG</td><td>MPG (US)</td><td>41.6 MPG</td><td>Multiply by 0.8327</td></tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 8: ALL CONVERTERS
+     ══════════════════════════════════════════════════════════ -->
+<section id="all-tools">
+    <h2>8. Every Fuel Economy Converter on This Site</h2>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Converter</th><th>Direction</th><th>Use case</th></tr></thead>
+        <tbody>
+            <tr><td><a href="/mpg-to-l-100km">MPG to L/100km</a></td><td>US window sticker → European fuel label</td><td>Comparing a US car purchase to European fuel cost estimates. The most-requested fuel converter.</td></tr>
+            <tr><td><a href="/l-100km-to-mpg">L/100km to MPG</a></td><td>European fuel label → US window sticker</td><td>Reading a European car review and translating to American expectations. Use 235.215 ÷ L/100km.</td></tr>
+            <tr><td><a href="/mpg-to-kml">MPG to km/L</a></td><td>US MPG → Japanese/Asian km/L</td><td>Reading a JDM car spec or comparing to Indian/Thai fuel labels. Multiply by 0.425.</td></tr>
+            <tr><td><a href="/kml-to-mpg">km/L to MPG</a></td><td>Japanese km/L → US MPG</td><td>Japanese car import research. Multiply by 2.352.</td></tr>
+            <tr><td colspan="3" style="text-align:center;padding-top:1.2em;"><em>And for the gallon ambiguity specifically:</em></td></tr>
+            <tr><td><a href="/mpg-to-l-100km">US MPG → L/100km</a></td><td>Using constant 235.215</td><td>Standard US liquid gallon (3.785 L)</td></tr>
+            <tr><td><em>UK MPG → L/100km</em></td><td>Using constant 282.481</td><td>Imperial gallon (4.546 L). All four converters default to US gallons — for UK gallons, multiply your MPG by 1.201 first, or use the L/100km output directly (it's gallon-agnostic).</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The L/100km number is the universal translator. It does not depend on what kind of gallon you started with. A car that burns 7.0 L/100km burns 7.0 L/100km whether you're filling up in Texas, Tokyo, or Toulouse. The conversion from that universal number to MPG depends on which gallon you want. The conversion from that number to km/L is 100 ÷ 7 = 14.3 km/L, with no gallon involved. When in doubt: convert everything to L/100km first. It is the only fuel economy representation that is simultaneously metric, linear, and gallon-free.</p>
+
+    <div class="formula-box">
+        <p>Golden rule: L/100km is the hub. Convert everything to L/100km, compare, then convert back if needed. Every other direction introduces a reciprocal distortion or a gallon ambiguity.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CLOSING THOUGHTS
+     ══════════════════════════════════════════════════════════ -->
+<h2>The best unit is the one you don't have to invert</h2>
+
+<p>Fuel economy units are not interchangeable in the way inches and centimeters are. MPG inverts the relationship between what you put in (fuel) and what you get out (distance), creating a nonlinearity that fools human intuition at the precise moment a purchase decision is being made. L/100km fixes that. km/L doesn't — but at least it avoids the gallon problem.</p>
+
+<p>The next time you hear someone say "I upgraded from 25 to 35 MPG and I'm saving so much on gas," do the math before you nod. Then check whether they're quoting US or UK gallons. Then check whether they accounted for the fact that they also started driving more because the per-mile cost dropped — the rebound effect that swallows roughly 10–20% of any efficiency gain. Fuel economy math is simple enough to do on a napkin and deep enough to mislead an entire fleet procurement department for a decade.</p>
+
+<p>If you're buying a car, convert everything to L/100km, multiply by your annual kilometers (or miles ÷ 1.609), divide by 100, multiply by your local fuel price, and stare at the annual cost. That's the number that matters. Everything else is marketing with extra steps.</p>
+
+<section class="eng-context">
+    <h3>Engineering Context</h3>
+    <p>All fuel economy conversions on EnginStack use exact constants derived from the 1959 International Yard and Pound Agreement (1 yard = 0.9144 m exactly) and the respective gallon definitions (US: 231 in³; UK: 4.54609 L). No approximations are applied beyond standard rounding. For automotive testing, note that fuel economy numbers are cycle-dependent — EPA, WLTP, JC08, and NEDC test procedures produce different absolute values for the same vehicle. The conversion factors on this page translate the <em>units</em>, not the test cycles. A 40 MPG (EPA) car and a 40 MPG (WLTP) car are not the same car; the unit label is identical but the measurement regime behind it differs. Always check which test cycle produced the number before comparing across markets. For deeper dives into the underlying volume and length units, see the <a href="/guides/volume-cooking-conversion-guide">Volume Conversion Guide</a> (gallons and liters) and <a href="/guides/length-conversion-guide">Length Conversion Guide</a> (miles and kilometers).</p>
+</section>
+
+<div class="related-tags">
+    <a href="/mpg-to-l-100km">MPG to L/100km</a>
+    <a href="/l-100km-to-mpg">L/100km to MPG</a>
+    <a href="/mpg-to-kml">MPG to km/L</a>
+    <a href="/kml-to-mpg">km/L to MPG</a>
+    <a href="/guides/length-conversion-guide">Length Guide</a>
+    <a href="/guides/volume-cooking-conversion-guide">Volume Guide</a>
+</div>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+    <p class="faq-q">What is the MPG to L/100km conversion formula?</p>
+    <p class="faq-a">L/100km = <strong>235.215 ÷ MPG</strong> (US gallons). For UK gallons, use 282.481 instead of 235.215. The reverse — MPG = 235.215 ÷ L/100km — uses the same constant. The constant is exact, derived from 1 US gallon = 3.785411784 L and 1 mile = 1.609344 km, multiplied by 100 for the "per 100 km" convention.</p>
+</div>
+<div class="faq-item">
+    <p class="faq-q">Why does 10→20 MPG save more fuel than 30→60 MPG?</p>
+    <p class="faq-a">Because MPG is distance per fuel, and fuel cost depends on fuel per distance (the reciprocal). Going from 10 to 20 MPG saves 5 gallons per 100 miles. Going from 30 to 60 MPG saves 1.67 gallons per 100 miles. The first improvement saves 3× more fuel. This is the MPG Illusion — documented by Larrick and Soll in <em>Science</em> (2008). L/100km avoids it: every 1 L/100km drop saves the same amount of fuel per distance.</p>
+</div>
+<div class="faq-item">
+    <p class="faq-q">How do I know if a UK car review's MPG is inflated?</p>
+    <p class="faq-a">UK MPG uses the Imperial gallon (4.546 L), 20.1% larger than the US gallon (3.785 L). Multiply UK MPG by 0.8327 to get US MPG. A 60 MPG (UK) figure is 50 MPG (US). If the review doesn't specify, check the publication's country — UK and Irish outlets report in Imperial MPG. Australian outlets use L/100km. Canadian outlets use a mix of US MPG and L/100km depending on the province.</p>
+</div>
+<div class="faq-item">
+    <p class="faq-q">What's the most useful fuel economy unit for comparing cars?</p>
+    <p class="faq-a">L/100km, or gallons per 100 miles if you're committed to US units. Both are consumption-based, so a given reduction always saves the same amount of fuel regardless of starting efficiency. Annual fuel cost = (annual distance in km ÷ 100) × L/100km × fuel price per liter. That formula is linear — double the distance, double the cost. With MPG, the same formula requires division: (annual miles ÷ MPG) × price per gallon. The division is where the nonlinearity creeps in.</p>
+</div>
+<div class="faq-item">
+    <p class="faq-q">Can I just use the liters and kilometers I see on a European trip computer?</p>
+    <p class="faq-a">Yes, and you should. The L/100km number on a European-market car's trip computer is directly comparable across all vehicles regardless of where they were sold. 7.0 L/100km means the same thing on a Volkswagen in Berlin, a Toyota in Tokyo, and a Ford in London. If you're importing a car or comparing global reviews, convert everything to L/100km first, then translate to your local unit at the end. That's the workflow that avoids every unit trap described in this guide.</p>
+</div>
+
+        <h3>Related Guides</h3>
+        <div class="related-tags">
+            <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>
+            <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+            <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>
+            <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Guide</a>
+            <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+            <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a>
+            <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>
+            <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+            <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Guide</a>
+            <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Guide</a>
+        </div>
+
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+            <a href="/guides/">Engineering Guides</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Liters per 100 km",
+  "termCode": "liters per 100 kilometers (L/100km)",
+  "description": "Liters per 100 kilometers is a fuel economy measure of fuel consumed per 100 km driven; lower is better. It is the standard in Europe and most of the world, while the US uses miles per gallon.",
+  "url": "https://en.wikipedia.org/wiki/Fuel_economy_in_automobiles",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nautical Miles to Miles — Why 1.15078 Matters | EnginStack</title>
+    <meta name="description" content="1 nautical mile = 1.15078 statute miles. If a sailor tells a driver 'it's 10 miles to the harbor,' the sailor means 11.5 miles by the odometer. Multiply nautical miles by 1.15078 to get statute miles. Confuse the two and your navigation fix is 15% wrong.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/nautical-miles-to-miles">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/nautical-miles-to-miles">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/nautical-miles-to-miles">
+    <meta property="og:title" content="Nautical Miles to Miles — Why 1.15078 Matters | EnginStack">
+    <meta property="og:description" content="1 nautical mile = 1.15078 statute miles. A 15% difference. Confuse the two and your navigation fix is wrong.">
+    <meta property="og:url" content="https://enginstack.com/nautical-miles-to-miles">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Nautical Miles to Statute Miles Converter",
+  "description": "1 nautical mile = 1.15077945... statute miles. Multiply by ~1.15078. The ratio traces back to the Earth's equatorial circumference divided by the 5,280-foot statute mile — two definitions built for different purposes.",
+  "url": "https://enginstack.com/nautical-miles-to-miles",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the formula to convert nautical miles to statute miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 1.15078. statute miles = nautical miles × 1.15078. For a quick mental estimate, add 15%: take the nautical miles, multiply by 1.15. 100 nmi × 1.15 = 115 statute miles. That's within 0.07% of the true value. Good enough for conversation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do airplanes use nautical miles or statute miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nautical miles. Every aircraft above 18,000 feet (the transition altitude in the US, lower in most countries) flies in nautical miles and knots. The flight plan, the air traffic control clearance, the distance between waypoints, the fuel burn calculations — all nautical. Wind speed is reported in knots. Visibility is reported in statute miles as a concession to pilots accustomed to land-based weather reports, which is one of the few holdovers of aviation's early years. The FAA and ICAO flight rules state visibility minimums in statute miles (1 sm, 3 sm, etc.) but distance minimums in nautical miles. That's two different miles in the same cockpit. Pilots are trained to keep them separate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if a ship confuses nautical miles with statute miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It veers off course. A freighter traveling from Shanghai to Los Angeles — about 5,700 nautical miles — travels the equivalent of 6,562 statute miles. If the navigation system is set to statute miles or if the crew misreads the chart scale, the ship's DR (dead reckoning) position diverges at 15% of distance traveled. Before GPS, that was a real hazard. Today, GPS corrects for it automatically, but if the GPS fails and the crew has to fall back on paper charts, the nautical/statute confusion returns. This is why the US Coast Guard and every maritime academy run paper-chart navigation drills even though every ship has GPS. When the electronics go dark, you need to know which mile is which."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Length & Distance", "item": "https://enginstack.com/length/" },
+    { "@type": "ListItem", "position": 3, "name": "Nautical Miles to Statute Miles", "item": "https://enginstack.com/nautical-miles-to-miles" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/length/">Distance &amp; Length</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Nautical Miles to Statute Miles Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Two miles walk into a bar. One's 15% longer. They're both called "mile."</h1>
+            <p>The nautical mile is 1,852 meters. The statute mile is 5,280 feet, which is 1,609.344 meters. Divide: 1,852 ÷ 1,609.344 = 1.15077945... The number isn't round and doesn't terminate, but it's between 1.15 and 1.151 — close enough that people round it and cause problems. A sailor says "the harbor is 10 miles out." A driver hears "10 miles" and thinks the odometer will read 10. The harbor arrives when the odometer reads 11.5. The passenger thinks the sailor can't estimate distance. The sailor was right. The word "mile" was the problem.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="1.1507794480235425" data-unit-from="nmi" data-unit-to="mi">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">nmi</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1.15078</span>
+                        <span class="unit-pill unit-pill-to">mi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 nmi = 1.15078 mi</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 mi = 0.868976... nmi</span>
+            </div>
+            <p class="source-note">Constants verified against NIST Special Publication 811 (Guide for the Use of the International System of Units) and the 1959 International Yard and Pound Agreement. All values are exact — none are rounded approximations.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <p>The distinction between nautical and statute miles is one of those things that everybody in aviation and maritime knows and almost nobody outside those worlds understands. In everyday English, "mile" defaults to the statute mile — the one you drive on, walk on, and measure land with. But when a Coast Guard helicopter pilot says "target is 5 miles bearing 270," that's nautical miles. When a ship's captain broadcasts "vessel in position 12 miles southeast of the Nantucket light," that's nautical miles. The units have the same name but mean different things. It's not ambiguity — it's convention. The convention is: if you're on water or in the air, "mile" means "nautical mile" unless someone explicitly says otherwise.</p>
+
+            <p>The 15% gap has been setting traps for centuries. When the Spanish Armada sailed toward England in 1588, the Spanish navigators plotted distances in Spanish leagues — roughly 3.4 nautical miles each — while the English used English leagues, which were different again. Neither side used statute miles. Three different "mile-like" units were in play simultaneously across the same stretch of water. Ships missed rendezvous points. Fleets passed each other in fog without knowing it. The confusion wasn't settled by better charts; it was settled by the 1929 Monaco standard, plus the gradual global adoption of the nautical mile as the universal unit of sea and air navigation.</p>
+
+            <p>Some numbers to anchor your intuition: the Earth's equatorial circumference is 21,600 nautical miles. In statute miles, the same circle is 24,901. The ratio — 24,901 ÷ 21,600 — is 1.1528. But that ratio changes depending on what latitude you measure at, because the Earth isn't a sphere and the nautical mile is defined against a theoretical spherical Earth. The 1.15078 ratio we use is based on the international nautical mile of 1,852 meters divided by the international foot of 0.3048 meters times 5,280. It's a calculation that passes through three different standards bodies — the IHO, the BIPM, and whatever part of the US government still officially defines the foot. Four layers of bureaucracy, one decimal.</p>
+
+            <p>For pilots, the conversion matters when briefing passengers who think in land miles. A flight from Los Angeles to Honolulu is about 2,220 nautical miles — roughly 2,556 statute miles. The airline announces "2,200 miles" — correctly, in nautical miles — and passengers on the ground think they flew 2,200 land miles. They actually flew 15% farther. Nobody corrects the misunderstanding because correcting it would take a minute and a half of cabin announcement that nobody would listen to anyway.</p>
+
+            <h2>Quick reference</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Nautical Miles</th><th>Statute Miles</th><th>What that distance means</th></tr></thead><tbody>
+                <tr><td>1</td><td>1.151</td><td>A difference of ~796 feet</td></tr>
+                <tr><td>5</td><td>5.754</td><td>Coast Guard helicopter range to rescue</td></tr>
+                <tr><td>12</td><td>13.81</td><td>Territorial sea limit</td></tr>
+                <tr><td>60</td><td>69.05</td><td>One degree of latitude</td></tr>
+                <tr><td>1,000</td><td>1,150.8</td><td>A regional flight leg</td></tr>
+                <tr><td>2,220</td><td>2,555.9</td><td>Los Angeles to Honolulu</td></tr>
+                <tr><td>21,600</td><td>24,901</td><td>Earth's equatorial circumference</td></tr>
+                </tbody></table></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">What's the formula to convert nautical miles to statute miles?</p>
+                <p class="faq-a">Multiply by 1.15078. statute miles = nautical miles × 1.15078. For a quick mental estimate, add 15%: take the nautical miles, multiply by 1.15. 100 nmi × 1.15 = 115 statute miles. That's within 0.07% of the true value. Good enough for conversation.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Do airplanes use nautical miles or statute miles?</p>
+                <p class="faq-a">Nautical miles. Every aircraft above 18,000 feet (the transition altitude in the US, lower in most countries) flies in nautical miles and knots. The flight plan, the air traffic control clearance, the distance between waypoints, the fuel burn calculations — all nautical. Wind speed is reported in knots. Visibility is reported in statute miles as a concession to pilots accustomed to land-based weather reports, which is one of the few holdovers of aviation's early years. The FAA and ICAO flight rules state visibility minimums in statute miles (1 sm, 3 sm, etc.) but distance minimums in nautical miles. That's two different miles in the same cockpit. Pilots are trained to keep them separate.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What happens if a ship confuses nautical miles with statute miles?</p>
+                <p class="faq-a">It veers off course. A freighter traveling from Shanghai to Los Angeles — about 5,700 nautical miles — travels the equivalent of 6,562 statute miles. If the navigation system is set to statute miles or if the crew misreads the chart scale, the ship's DR (dead reckoning) position diverges at 15% of distance traveled. Before GPS, that was a real hazard. Today, GPS corrects for it automatically, but if the GPS fails and the crew has to fall back on paper charts, the nautical/statute confusion returns. This is why the US Coast Guard and every maritime academy run paper-chart navigation drills even though every ship has GPS. When the electronics go dark, you need to know which mile is which.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Modern airliners carry dual navigation databases that store waypoint coordinates to hundredths of a minute of latitude — roughly 18.5 meters of precision. The FMS (Flight Management System) computes great-circle distances in nautical miles using spherical trigonometry, then converts to statute miles only for the passenger display screen. That passenger screen is the only place on a commercial airliner where statute miles appear. Everything else — the PFD (Primary Flight Display), the ND (Navigation Display), the flight plan, the fuel calculations, the ETOPS diversion distances — is in nautical miles. The conversion happens silently, in a subroutine, tens of thousands of times per flight. <a href="/guides/length-conversion-guide">Length Conversion Guide</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/miles-to-nautical-miles">miles to nautical miles</a> · <a href="/nautical-miles-to-km">nautical miles to km</a> · <a href="/miles-to-km">miles to km</a> · <a href="/km-to-miles">km to miles</a> · <a href="/guides/length-conversion-guide">Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

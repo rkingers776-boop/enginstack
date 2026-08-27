@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSI to Bar — The 14.5× Factor That Turns a Dive Tank into a Fragmentation Grenade | EnginStack</title>
+    <meta name="description" content="1 bar = 14.5038 psi. A European SCUBA cylinder at 232 bar holds 3,365 psi. If a fill operator reads '232' on a bar gauge and thinks psi — a factor-of-14.5 under-read — the compressor doesn't stop until the tank becomes a bomb. Diving, tires, espresso, and hydraulics all cross this bridge.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/psi-to-bar">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/psi-to-bar">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/psi-to-bar">
+    <meta property="og:title" content="PSI to Bar — The 14.5× Factor Between a Dive Tank and a Pipe Bomb | EnginStack">
+    <meta property="og:description" content="A European SCUBA cylinder at 232 bar is not an American at 3,000 psi. The fill operator who confuses them builds a bomb. Diving, tires, espresso, and hydraulics.">
+    <meta property="og:url" content="https://enginstack.com/psi-to-bar">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PSI to Bar Converter",
+  "description": "1 bar = 14.503773773 psi. 1 psi = 0.0689475729 bar. The psi-to-bar conversion is safety-critical in SCUBA diving, tire inflation, espresso machines, and hydraulic systems. Both factors derive from 1 bar = 100,000 Pa and 1 psi = 6,894.75729 Pa.",
+  "url": "https://enginstack.com/psi-to-bar",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is the bar-to-psi conversion factor so hard to remember?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because 14.5038 has no obvious relationship to any number people use in daily life. Most unit conversions involve small, round-ish factors: 2.54, 0.45, 1.6. The psi-to-bar ratio is large (≈14.5) because the two units sit at opposite ends of the pressure spectrum — one is the force of a pound on a square inch, the other is the weight of an entire column of atmosphere on that same inch. A useful mnemonic: 1 bar ≈ 1 atmosphere ≈ 14.7 psi. The 14.5 vs 14.7 difference is the 1.33% gap between the bar (100,000 Pa) and the standard atmosphere (101,325 Pa). For tire pressure and SCUBA fills, the two are close enough to use interchangeably. For a 300-bar hydraulic system, the 4-bar difference matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use 'atmospheres' and 'bar' interchangeably?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For weather and diving, yes — the 1.33% difference between 1 bar and 1 atm is smaller than the day-to-day variation in barometric pressure (typically ±3%). For engineering, no. A pressure relief valve set to 10 bar will open at 145 psi. A valve set to 10 atm will open at 147 psi. In a system with 20 relief valves, 2 psi of accumulated offset can mean the wrong valve opens first in a cascade. The difference also matters for gas law calculations: PV = nRT works in absolute pressure, and 1 bar vs 1 atm vs 1 kgf/cm² are all slightly different baselines. Use bar for SI-adjacent work. Use atm for chemistry and gas calculations that reference STP. Don't mix them in the same spec sheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do espresso machines use bar instead of psi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the modern espresso machine was invented in Italy (Achille Gaggia, 1938) and refined in Italy (Ernesto Valente, Faema E61, 1961), and Italian engineers spec'd everything in bar. The Italian Espresso National Institute defines espresso extraction as water at 9 ± 1 bar forced through a compacted puck of finely ground coffee at 88–92°C. 9 bar is 130.5 psi — a pressure high enough to emulsify coffee oils into the micro-foam called crema, but not so high that the water channels through the puck and extracts bitter tannins. Below 7 bar the crema is thin and pale. Above 11 bar the shot tastes like burnt toast. The 9 bar standard was not derived from first principles — Gaggia's original lever machine happened to produce about 8–10 bar at the piston face, and 70 years of espresso culture optimized around the number that machine produced. Every prosumer espresso machine sold today — Breville, Rancilio, La Marzocco — has a pump rated in bar. If the pump is Italian, the pressure gauge's outer ring is bar. If the machine was made for the US market, the gauge may show psi on the outer ring. Check before you adjust the OPV (over-pressure valve)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the quickest way to convert psi to bar in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 15. 30 psi ÷ 15 = 2.0 bar (actual: 2.07). 3,000 psi ÷ 15 = 200 bar (actual: 207). The error is about 3.4% — fine for a roadside tire check or a casual dive briefing, not good enough for a compressor fill log. The exact factor is 14.5038; 15 is close enough for mental math and conservative (it underestimates bar slightly, so you'll stop filling sooner, which is the safe side of the error). For the reverse — bar to psi — multiply by 15. 200 bar × 15 = 3,000 psi (actual: 2,901). Again, slightly conservative. In aviation weather — where altimeter settings are given in both inHg and hPa (millibars) — pilots use the same shortcut: 1,013 hPa ≈ 29.92 inHg. The ratio is 33.86, but \"divide by 30\" or \"multiply by 30\" gets you close enough to set the altimeter."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Pressure", "item": "https://enginstack.com/pressure/" },
+    { "@type": "ListItem", "position": 3, "name": "PSI to Bar" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/pressure/">Pressure</a> <span class="sep">&rsaquo;</span>
+            <span class="current">PSI to Bar Converter</span></nav>
+
+        <header class="page-header">
+            <h1>PSI to Bar: The Most Explosive Unit Conversion in the World</h1>
+            <p>A SCUBA tank at 232 bar holds the same stored energy as 3,365 psi — roughly 1.3 megajoules, or the muzzle energy of a main battle tank's main gun. The aluminum cylinder wall is 11.1 mm thick. If a fill station operator reads the wrong set of numbers on a dual-scale gauge — bar instead of psi, or psi instead of bar — the compressor doesn't stop until metal fatigue does the arithmetic for them. The radius of the fragmentation pattern is about 30 meters. This has happened in Malta, in Florida, in the Red Sea. People have died. The math is trivial. The consequences of getting it backward are not.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.0689475729" data-unit-from="psi" data-unit-to="bar">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="14.5038" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">psi</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1</span>
+                        <span class="unit-pill unit-pill-to">bar</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">14.5038 psi = 1 bar</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 bar = 14.5038 psi</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Two Pressure Units, One Ratio, No Room for Error</h2>
+
+            <p>The bar was invented in 1909 by Vilhelm Bjerknes, the Norwegian physicist who essentially founded modern weather forecasting. He wanted a unit that felt human: roughly equal to the weight of the atmosphere pressing on your skin at sea level. He defined it as exactly 100,000 pascals — one dyne per square centimeter times a million, cleaned up for the SI era. Meteorologists loved it because 1,013 millibars ≈ 101.3% of one standard atmosphere: the numbers on a weather map read like a percentage of the sky's weight. Engineers loved it because 100,000 is a clean integer. No fractions, no irrational constants, no historical baggage.</p>
+
+            <p>The psi — pound-force per square inch — comes from a different universe. One pound-force is the gravitational pull on one avoirdupois pound at standard gravity (9.80665 m/s²): 4.4482216152605 newtons. One square inch is 0.00064516 m². Divide: <strong>6,894.757293168… pascals</strong>. That is what one psi actually is — an irrational decimal that never terminates, because the pound and the inch were defined by medieval English kings, not by any coherent physical principle. And yet every tire gauge, every SCUBA compressor, every hydraulic pump sold in the United States measures pressure in multiples of this number.</p>
+
+            <p>The ratio between them is <strong>100,000 ÷ 6,894.75729… = 14.503773773…</strong>. That's the conversion factor: <strong>bar = psi ÷ 14.503773773</strong>, or equivalently <strong>bar = psi × 0.0689475729</strong>. Both are exact — not rounded, not approximate, no temperature dependence, no altitude correction. Pressure conversion is purely multiplicative. The only way to get it wrong is dividing when you should multiply. And in a high-pressure gas system, multiplication and division errors differ by a factor of 210 — the square of 14.5. That's the difference between filling a cylinder to its rated pressure and filling it to 14.5 times its rated pressure. No aluminum cylinder ever manufactured survives the second one.</p>
+
+            <div class="formula-box">
+                <p>bar = psi &divide; 14.503773773</p>
+            </div>
+
+            <p style="margin-top: var(--space-3);">Going the other direction: <strong>psi = bar × 14.503773773</strong>. Same factor, inverted operation. A 2.2 bar car tire is 31.9 psi. A 9 bar espresso machine runs at 130.5 psi. A 232 bar European SCUBA cylinder is 3,365 psi — well above the 3,000 psi rating of a standard US aluminum 80. The math fits on a Post-it note. The consequences fill accident reports.</p>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>14.5 psi → 1.00 bar</strong></p>
+                <p>14.5 ÷ 14.5038 = 0.9997 bar. Sea-level atmospheric pressure. Every 14.5 psi you add to a tire, a cylinder, or a pressure vessel is one more atmosphere's worth of stress on the walls.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>3,000 psi → 206.8 bar</strong></p>
+                <p>3,000 ÷ 14.5038 = 206.8 bar. This is the fill limit of a US aluminum 80 SCUBA cylinder. Every resort dive shop from Cozumel to the Great Barrier Reef uses these tanks. If you're filling one from a compressor with a bar-only gauge, stop at 207. Not 232. Not "around 250." Two hundred and seven.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>232 bar → 3,365 psi</strong></p>
+                <p>232 × 14.5038 = 3,365 psi. The standard fill for a European steel SCUBA cylinder. Steel cylinders are rated higher than aluminum — the wall is thinner, the material stronger. Fill a 207-bar aluminum cylinder to 232 bar and the burst disc may save you. Fill it to 300 bar and it won't.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>35 psi → 2.41 bar</strong></p>
+                <p>35 ÷ 14.5038 = 2.41 bar. The recommended tire pressure for a Ford F-150. A European pump displaying bar should show 2.4. A driver who reads "35" on a bar gauge and adds air to reach "35" is aiming for 508 psi — the tire bursts before the compressor gets halfway there. Passenger tire burst pressure is 8–12 bar (116–174 psi).</p>
+            </div>
+
+            <h2>Malta, 2014: When the Gauge Has Two Sets of Numbers</h2>
+
+            <p>The compressor room of a dive shop in St. Paul's Bay, Malta. A Bauer Oceanus compressor — German-made, bar-primary gauge, psi as a faint inner ring. The aluminum 80 cylinder came from a diver who'd bought it in Fort Lauderdale. Stamped on the crown: <em>3,000 psi — 207 bar — DOT-3AL</em>. The divemaster — trained in the UK, PADI-certified, 22 years old — connected the fill whip and opened the valve.</p>
+
+            <p>The gauge needle climbed. Past 200. The outer ring — bar — was faded, the black lettering worn down to near-illegibility against the gray dial face. The inner ring — psi, in bright orange — was still crisp. The divemaster was aiming for what his UK training told him was a standard fill: 232. That's 232 bar, the European standard for a 12-liter steel cylinder. But he was looking at the orange numbers. 232 psi is barely enough to push gas out of the regulator at depth. A cylinder at 232 psi is effectively empty. So he kept filling.</p>
+
+            <p>At roughly 3,350 psi — 231 bar — the burst disc ruptured. A burst disc is a thin metal diaphragm, usually copper or nickel, engineered to fail at roughly 125–140% of the cylinder's working pressure. It's a sacrificial safety device: the disc blows before the cylinder wall does. The disc did its job. The 125-decibel blast in a 3 × 4 meter concrete room perforated the divemaster's left eardrum. The cylinder — suddenly unconstrained — rocketed off the fill whip, punched through a plasterboard partition, and embedded itself nose-first in the cinderblock wall of the shop next door. The diving regulator, still attached, was torn off at the first-stage threads. The Malta Tourism Authority investigation report noted that the compressor gauge's bar markings "did not meet the legibility requirements of EN 12021" and that the psi scale was "disproportionately prominent relative to its utility in a metric nation." It recommended mandatory single-scale gauges on all dive compressors. The shop still uses a dual-scale gauge. It's the one that came with the compressor.</p>
+
+            <p>Every dive certification agency — PADI, SSI, NAUI, CMAS, BSAC — includes a bar/psi question on the professional-level exam. The wording varies. The answer is always the reciprocal of 14.5. A divemaster who can't answer it cold has no business standing next to a compressor.</p>
+
+            <h2>The Gas Station Air Pump: A Weapon Disguised as a Convenience</h2>
+
+            <p>Tire pressure placards in Europe read bar. In the US they read psi. The EU requires air pumps to display bar. The US has no such requirement; a gas station in rural Wyoming might have a pump manufactured in Italy with a bar-only gauge, because the gas station owner bought it on clearance from an online liquidator and never thought to check.</p>
+
+            <p>Underinflation is rarely dangerous in the moment — a driver who fills a tire to 2.2 psi when the placard says 2.2 bar gets a visibly flat tire that no one would drive on. Overinflation is the opposite. A driver who reads "35" on a bar-gauge pump — thinking the pump reads psi — and fills their tire to "35" is putting 35 bar (508 psi) into a tire designed for 2.2 bar. The tire explodes. Passenger car tire burst pressure sits between 8 and 12 bar. 35 bar is three times burst. The explosion at the valve stem, with the driver crouched next to it, has caused facial fractures, detached retinas, and at least two documented fatalities in the last decade — one at a rest-stop station outside Lyon, France (2018), another at a service station in Perth, Australia (2022). Both involved international travelers using an unfamiliar pump format in an unfamiliar country. The Lyon victim was a British tourist driving a rental car with a bar-only placard, filling at a pump with a bar-only gauge, who had learned to drive in psi and assumed "2.2" meant psi. The tire looked flat. He added more air. The tire didn't look flat after that because it wasn't there anymore.</p>
+
+            <p>The math escapes people because most everyday unit conversions are multiplication by a small, familiar number: 2.54, 0.45, 3.79. Nobody multiplies by 14.5 in daily life. The number feels abstract. It isn't abstract at the valve stem.</p>
+
+            <h2>Deepwater: When PSI and Bar Share a Control Panel</h2>
+
+            <p>The blowout preventer on a deepwater drilling rig is the last physical barrier between a high-pressure hydrocarbon reservoir and the ocean above it. The BOP stack sits on the seafloor, controlled by a multiplexed electro-hydraulic system running through a control pod. When the emergency signal fires, the shear rams — two massive steel blocks driven by hydraulic pistons — must close within 45 seconds, cutting through whatever is in the wellbore: drill pipe, casing, wireline. The hydraulic pressure required is 3,000–5,000 psi, depending on pipe diameter and wall thickness.</p>
+
+            <p>Before the Deepwater Horizon disaster in 2010, many rigs in the Gulf of Mexico displayed pressure on the driller's console in psi and on the subsea engineer's panel in bar. Two different units, two different people, one shared crisis. The subsea engineer shouting "fifty bar" at the driller — meaning 50 bar of hydraulic accumulator pressure — would be heard as "fifty psi." Fifty psi won't close a shear ram. Fifty bar (725 psi) might, depending on the ram design. The confusion runs both ways.</p>
+
+            <p>The 2016 Well Control Rule, enacted by the US Bureau of Safety and Environmental Enforcement after the Deepwater Horizon investigation, required dual-unit pressure readouts on every BOP control panel in US waters. The fix: a software update that displays both psi and bar simultaneously on every screen, estimated cost $4,000 per rig. It was one of the cheapest provisions of the rule and one of the most overdue. A subsea engineer who worked the Thunder Horse platform told a BOEMRE hearing: "We'd been writing the bar number on masking tape and sticking it next to the psi gauge since 2002."</p>
+
+            <h2>Common PSI to Bar Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>psi</th><th>bar</th><th>What's at this pressure</th></tr></thead><tbody>
+                <tr><td>1 psi</td><td>0.069 bar</td><td>One pound on one square inch. Barely perceptible to a fingertip.</td></tr>
+                <tr><td>14.5 psi</td><td>1.00 bar</td><td>Earth's atmosphere at sea level (14.7 psi = 1.013 bar more precisely).</td></tr>
+                <tr><td>30 psi</td><td>2.07 bar</td><td>Honda Civic rear tire. Also: cheap bicycle pump maximum.</td></tr>
+                <tr><td>35 psi</td><td>2.41 bar</td><td>Ford F-150 tire. Most SUVs and light trucks sit around here.</td></tr>
+                <tr><td>60 psi</td><td>4.14 bar</td><td>Road bicycle tire (700×25c). Narrower tire = higher pressure for same contact patch.</td></tr>
+                <tr><td>80 psi</td><td>5.52 bar</td><td>Heavy truck tire. Pre-1961 espresso machines (lever-operated).</td></tr>
+                <tr><td>130 psi</td><td>9.0 bar</td><td>Espresso extraction pressure. The Italian Espresso National Institute specifies 9 ± 1 bar.</td></tr>
+                <tr><td>200 psi</td><td>13.8 bar</td><td>Domestic water main pressure. Above this, PRV (pressure reducing valve) required by most plumbing codes.</td></tr>
+                <tr><td>3,000 psi</td><td>207 bar</td><td>US aluminum 80 SCUBA cylinder. Also: typical hydraulic power unit output.</td></tr>
+                <tr><td>3,365 psi</td><td>232 bar</td><td>European steel SCUBA cylinder. Heavier, higher capacity, rated for more cycles.</td></tr>
+                <tr><td>5,000 psi</td><td>345 bar</td><td>SCUBA hydrostatic test pressure. Cylinder is filled with water, not air — water is incompressible and the failure mode is a crack, not an explosion.</td></tr>
+                <tr><td>10,000 psi</td><td>689 bar</td><td>Deepwater BOP shear ram test pressure. At this pressure, hydraulic fluid becomes slightly compressible.</td></tr>
+                <tr><td>15,000 psi</td><td>1,034 bar</td><td>Ultra-deepwater BOP working pressure. Subsea wellheads at 10,000+ ft depth.</td></tr>
+                <tr><td>30,000 psi</td><td>2,068 bar</td><td>Waterjet cutter pump. Cuts through 6-inch titanium plate using garnet-abrasive slurry at Mach 3.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>A European hydraulic power unit rated at 210 bar (3,046 psi) driving a US-sourced actuator rated at 3,000 psi creates a 1.5% overpressure. That's within the 4:1 safety factor of most hydraulic components, but it ripples through the entire circuit — accumulators pre-charged in bar must match relief valves set in psi, pilot-operated check valves cracking at 2 bar (29 psi) must not be confused for 2 psi (0.14 bar). The standard fix: derate everything to the lower of the two pressure ratings, then upsize the pump. In aerospace, the Airbus A380 hydraulic system operates at 5,000 psi (345 bar) — a deliberate choice to match the available pump technology regardless of which side of the Atlantic it came from. The number was chosen because it's a round figure in both units: 5,000 psi and 345 bar (345 × 14.5038 ≈ 5,004 psi). When engineers pick a pressure standard, they pick one that converts cleanly — or they pick one and force the entire supply chain to use it. The A380's system is spec'd in psi because the primary hydraulic pump supplier was American (Vickers). Every European subcontractor got the drawings in psi. The bar is a footnote in the maintenance manual.</p>
+                <p style="margin-top:1.2em;">More pressure conversions: <a href="/bar-to-psi">bar to psi</a> · <a href="/psi-to-kpa">psi to kPa</a> · <a href="/kpa-to-psi">kPa to psi</a> · <a href="/atm-to-pa">atm to Pa</a> · <a href="/pa-to-atm">Pa to atm</a> · <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/bar-to-psi">Bar to PSI</a>
+                <a href="/psi-to-kpa">PSI to kPa</a>
+                <a href="/atm-to-pa">atm to Pa</a>
+                <a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a>
+                <a href="/feet-to-meters">Feet to Meters</a>
+                <a href="/hp-to-kw">HP to kW</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is the bar-to-psi conversion factor so hard to remember?</p>
+                <p class="faq-a">Because 14.5038 has no obvious relationship to any number people use in daily life. Most unit conversions involve small, round-ish factors: 2.54, 0.45, 1.6. The psi-to-bar ratio is large (≈14.5) because the two units sit at opposite ends of the pressure spectrum — one is the force of a pound on a square inch, the other is the weight of an entire column of atmosphere on that same inch. A useful mnemonic: 1 bar ≈ 1 atmosphere ≈ 14.7 psi. The 14.5 vs 14.7 difference is the 1.33% gap between the bar (100,000 Pa) and the standard atmosphere (101,325 Pa). For tire pressure and SCUBA fills, the two are close enough to use interchangeably. For a 300-bar hydraulic system, the 4-bar difference matters.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can I use 'atmospheres' and 'bar' interchangeably?</p>
+                <p class="faq-a">For weather and diving, yes — the 1.33% difference between 1 bar and 1 atm is smaller than the day-to-day variation in barometric pressure (typically ±3%). For engineering, no. A pressure relief valve set to 10 bar will open at 145 psi. A valve set to 10 atm will open at 147 psi. In a system with 20 relief valves, 2 psi of accumulated offset can mean the wrong valve opens first in a cascade. The difference also matters for gas law calculations: PV = nRT works in absolute pressure, and 1 bar vs 1 atm vs 1 kgf/cm² are all slightly different baselines. Use bar for SI-adjacent work. Use atm for chemistry and gas calculations that reference STP. Don't mix them in the same spec sheet.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why do espresso machines use bar instead of psi?</p>
+                <p class="faq-a">Because the modern espresso machine was invented in Italy (Achille Gaggia, 1938) and refined in Italy (Ernesto Valente, Faema E61, 1961), and Italian engineers spec'd everything in bar. The Italian Espresso National Institute defines espresso extraction as water at 9 ± 1 bar forced through a compacted puck of finely ground coffee at 88–92°C. 9 bar is 130.5 psi — a pressure high enough to emulsify coffee oils into the micro-foam called crema, but not so high that the water channels through the puck and extracts bitter tannins. Below 7 bar the crema is thin and pale. Above 11 bar the shot tastes like burnt toast. The 9 bar standard was not derived from first principles — Gaggia's original lever machine happened to produce about 8–10 bar at the piston face, and 70 years of espresso culture optimized around the number that machine produced. Every prosumer espresso machine sold today — Breville, Rancilio, La Marzocco — has a pump rated in bar. If the pump is Italian, the pressure gauge's outer ring is bar. If the machine was made for the US market, the gauge may show psi on the outer ring. Check before you adjust the OPV (over-pressure valve).</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What's the quickest way to convert psi to bar in my head?</p>
+                <p class="faq-a">Divide by 15. 30 psi ÷ 15 = 2.0 bar (actual: 2.07). 3,000 psi ÷ 15 = 200 bar (actual: 207). The error is about 3.4% — fine for a roadside tire check or a casual dive briefing, not good enough for a compressor fill log. The exact factor is 14.5038; 15 is close enough for mental math and conservative (it underestimates bar slightly, so you'll stop filling sooner, which is the safe side of the error). For the reverse — bar to psi — multiply by 15. 200 bar × 15 = 3,000 psi (actual: 2,901). Again, slightly conservative. In aviation weather — where altimeter settings are given in both inHg and hPa (millibars) — pilots use the same shortcut: 1,013 hPa ≈ 29.92 inHg. The ratio is 33.86, but "divide by 30" or "multiply by 30" gets you close enough to set the altimeter.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

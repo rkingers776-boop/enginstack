@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Data Storage Conversion Guide —Why 1 TB —1,000 GB on Your Computer (It's 931 GB, and Here's Why) | EnginStack</title>
+    <meta name="description" content="The definitive engineering guide to data storage units —KB, MB, GB, TB, and the 1000-vs-1024 war. Why your 1 TB hard drive shows 931 GB, why Windows and macOS disagree, the class-action lawsuits against HDD manufacturers, and the 1998 IEC standard that tried to fix everything but nobody adopted.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/data-storage-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/data-storage-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/data-storage-conversion-guide">
+    <meta property="og:title" content="Data Storage Conversion Guide —Why 1 TB —1,000 GB on Your Computer | EnginStack">
+    <meta property="og:description" content="Why your 1 TB hard drive shows 931 GB, why Windows and macOS disagree, the class-action lawsuits against HDD manufacturers, and the 1998 IEC standard nobody adopted.">
+    <meta property="og:url" content="https://enginstack.com/guides/data-storage-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Data Storage Conversion Guide —Why 1 TB Is Actually 931 GB on Your Computer, and the 1000-vs-1024 War",
+  "description": "The definitive engineering guide to data storage units. Covers KB, MB, GB, TB —why two different definitions coexist, the HDD class-action lawsuits, the IEC KiB/MiB/GiB standard nobody adopted, and why Windows and macOS display different sizes for the same file.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/data-storage-conversion-guide",
+  "datePublished": "2026-06-27",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Data Storage Conversion Guide", "item": "https://enginstack.com/guides/data-storage-conversion-guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many MB are in a GB? The simple answer and the full answer.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The simple answer: 1 GB = 1,024 MB —this is the definition your computer uses. The full answer: it depends who's counting. Your Windows PC says 1,024. A hard drive box says 1,000. The SSD on your desk says 1,000 (manufacturer) but Windows reports it as 1,024 MB per GB, so a 500 GB (decimal) SSD shows as 465 GB (binary). When in doubt, use GB to MB for the binary conversion or multiply by 1,000 for the decimal conversion. The difference is one of definition, not of fact. Both numbers are correct under their own definition."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my 1 TB drive show 931 GB instead of 1,024 GB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because binary TB and decimal TB are different quantities. 1 TB (decimal) = 1,000,000,000,000 bytes. 1 TB (binary) = 1,099,511,627,776 bytes. Your drive stores 1,000,000,000,000 bytes. Divide that by what Windows considers 1 GB (1,073,741,824 bytes): 1,000,000,000,000 ÷ 1,073,741,824 = 931.32 GB. The math is exact. You didn't lose anything —1,000,000,000,000 bytes were always on the drive. Windows is just measuring them with a different ruler. Use GB to TB or TB to GB to check the conversion in binary units."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about Mbps and MB/s? Why is my internet speed in bits but my download speed in bytes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network speeds are measured in bits per second (bps), not bytes per second (B/s). The capital B matters: 1 MB/s = 8 Mbps. A \"100 Mbps\" internet connection delivers roughly 12.5 MB/s under ideal conditions —after protocol overhead (TCP/IP headers, packet retransmission, congestion control), real-world throughput is typically 80—0% of that, or about 10—1 MB/s. The convention is historical: telecommunications engineers measure raw signal rate in bits (the fundamental unit of information), while file sizes are measured in bytes (the fundamental unit of addressable storage). The factor-of-8 confusion is responsible for more customer-support calls than any other unit issue in consumer technology."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will data storage units ever be standardized so everyone agrees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard already exists —IEC 80000-13:2008 defines KiB, MiB, GiB, TiB unambiguously. The problem is adoption, not definition. As long as Windows uses KB/MB/GB for binary units, and hard drive boxes use KB/MB/GB for decimal units, and macOS uses KB/MB/GB for decimal units, the ambiguity persists. A universal switch would require Microsoft to either adopt KiB/MiB/GiB labels (confusing 70% of desktop users who have never seen those terms) or switch to decimal (making every existing Windows screenshot and tutorial show \"different\" file sizes overnight). Neither path is politically cost-free. The ambiguity is likely permanent —the nearest analogy is how \"billion\" once meant 1012 in the UK (long scale) and 109 in the US (short scale) until the UK officially adopted the short scale in 1974. That transition took 200 years. The data storage prefix transition, at the current pace, will take at least as long."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use a KB to MB converter or just divide by 1,024 in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a quick estimate, dividing by 1,024 in your head is close enough. 50,000 KB ÷ 1,000 = 50 MB (rough). 50,000 ÷ 1,024 = 48.83 MB (exact). But the error compounds —across five levels of nested folders each rounded by mental approximation, a 2.4% error per level can become a 10% discrepancy. For software installers, system memory reporting, or any situation where an exact byte count matters, use KB to MB for the binary conversion. The converter uses exact integer arithmetic and won't accumulate rounding drift. For hard drive shopping, remember that the box uses decimal —multiply the box number by 0.931 to estimate what Windows will show."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Data Storage Conversion Guide</span></nav>
+
+        <header class="page-header">
+            <h1>KB, MB, GB, TB: Why Your Computer Can't Count to 1,000</h1>
+            <p>Data storage is the only unit system where the number printed on the box and the number on your screen are guaranteed to disagree —by design, by engineering tradition, and by two incompatible definitions of the same four letters. One terabyte on a retail box means one trillion bytes. One terabyte to your Windows PC means 1,099,511,627,776 bytes. The gap is not a rounding error. It's a 66-year-old naming collision between electrical engineers who think in powers of two and marketing departments who think in powers of ten. And it has been litigated, legislated, and standardized —without ever being resolved.</p>
+            <p class="page-meta">~15 min read &nbsp;·&nbsp; Last updated June 2026</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<p>In 2004, a Florida man named Orin Safier filed a class-action lawsuit against Western Digital. He had bought an 80 GB hard drive. His computer reported 74.5 GB. He wanted the missing 5.5 GB —or his money back. The case, <em>Safier v. Western Digital</em>, became the test case for a question that had been irritating computer buyers since the first multi-megabyte hard drives appeared in the 1980s: why does the operating system always report less storage than the box promises?</p>
+
+<p>Western Digital's defense was simple —and legally correct. The drive contained exactly 80,000,000,000 bytes. Western Digital defined "gigabyte" as one billion bytes (10<sup>9</sup>). Microsoft Windows defined "gigabyte" as 1,073,741,824 bytes (2<sup>30</sup>). The drive was truthfully labeled. The operating system was truthfully reporting. The two numbers were both correct —they were just using different dictionaries. Safier's lawsuit was dismissed, but the underlying confusion was not. As of 2026, every person who buys a hard drive and checks the free space still sees two different numbers. This guide explains why —and why nobody has fixed it.</p>
+
+<!-- ══—KEY TAKEAWAYS ══—-->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>Two definitions of KB/MB/GB/TB coexist.</strong> The decimal definition (1 KB = 1,000 bytes) is used by hard drive manufacturers, macOS, and the SI system. The binary definition (1 KB = 1,024 bytes) is used by Windows, Linux server distributions, and computer memory. They are not the same unit.</li>
+        <li><strong>The gap compounds.</strong> At kilobyte scale: 2.4% difference. At megabyte: 4.9%. At gigabyte: 7.4%. At terabyte: 10%. At petabyte: 12.6%. A "1 PB" storage array is 126,000 GB depending on whose petabyte you mean.</li>
+        <li><strong>Nobody is lying.</strong> The hard drive box tells the truth in decimal. The operating system tells the truth in binary. The deception is only that the box rarely explains this, and the OS rarely explains this, and so the consumer is left to discover the discrepancy on their own.</li>
+        <li><strong>KiB, MiB, GiB, TiB were supposed to fix this in 1998.</strong> Almost nobody adopted them. The naming collision persists because the new names sound silly and read unnaturally in technical documentation. "Gibibyte" lost to "gigabyte" by default.</li>
+        <li><strong>When precision matters, count bytes.</strong> A file is 4,294,967,296 bytes. Whether you call that 4.29 GB (decimal) or 4.00 GiB (binary) is a labeling decision. The byte count is unambiguous. Data storage conversions are the one domain where converting to the base unit first —the byte —and then applying the target convention's divisor is the only reliable method.</li>
+    </ul>
+</div>
+
+<!-- ══—QUICK REFERENCE ══—-->
+<h2>Quick Data Storage Conversion Reference</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Unit</th><th>Decimal (SI / HDD boxes)</th><th>Binary (Windows / RAM)</th><th>The gap</th></tr></thead>
+    <tbody>
+        <tr><td>1 KB / KiB</td><td>1,000 bytes (10<sup>3</sup>)</td><td>1,024 bytes (2<sup>10</sup>)</td><td>2.4%</td></tr>
+        <tr><td>1 MB / MiB</td><td>1,000,000 bytes (10<sup>6</sup>)</td><td>1,048,576 bytes (2<sup>20</sup>)</td><td>4.9%</td></tr>
+        <tr><td>1 GB / GiB</td><td>1,000,000,000 bytes (10<sup>9</sup>)</td><td>1,073,741,824 bytes (2<sup>30</sup>)</td><td>7.4%</td></tr>
+        <tr><td>1 TB / TiB</td><td>1,000,000,000,000 bytes (10<sup>12</sup>)</td><td>1,099,511,627,776 bytes (2<sup>40</sup>)</td><td>10.0%</td></tr>
+        <tr><td>1 PB / PiB</td><td>1,000,000,000,000,000 bytes (10<sup>15</sup>)</td><td>1,125,899,906,842,624 bytes (2<sup>50</sup>)</td><td>12.6%</td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══—COMMON CONVERSIONS ══—-->
+<h2>Common Data Storage Conversions —Both Definitions</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Decimal factor</th><th>Binary factor</th><th>Converter</th></tr></thead>
+    <tbody>
+        <tr><td>KB</td><td>MB</td><td>÷ 1,000</td><td>÷ 1,024</td><td><a href="/kb-to-mb">KB to MB —/a></td></tr>
+        <tr><td>MB</td><td>KB</td><td>× 1,000</td><td>× 1,024</td><td><a href="/mb-to-kb">MB to KB —/a></td></tr>
+        <tr><td>MB</td><td>GB</td><td>÷ 1,000</td><td>÷ 1,024</td><td><a href="/mb-to-gb">MB to GB —/a></td></tr>
+        <tr><td>GB</td><td>MB</td><td>× 1,000</td><td>× 1,024</td><td><a href="/gb-to-mb">GB to MB —/a></td></tr>
+        <tr><td>GB</td><td>TB</td><td>÷ 1,000</td><td>÷ 1,024</td><td><a href="/gb-to-tb">GB to TB —/a></td></tr>
+        <tr><td>TB</td><td>GB</td><td>× 1,000</td><td>× 1,024</td><td><a href="/tb-to-gb">TB to GB —/a></td></tr>
+        <tr><td>KB</td><td>GB</td><td>÷ 1,000,000</td><td>÷ 1,048,576</td><td><a href="/kb-to-gb">KB to GB —/a></td></tr>
+        <tr><td>GB</td><td>KB</td><td>× 1,000,000</td><td>× 1,048,576</td><td><a href="/gb-to-kb">GB to KB —/a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══—TOC ══—-->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#why-two-definitions">Why There Are Two Definitions of the Same Four Letters</a></li>
+        <li><a href="#binary-origin">The Electrical Engineer's Instinct: Why Computers Count in 1024</a></li>
+        <li><a href="#iec-1998">1998: The Year the IEC Tried to Fix It (and Nobody Listened)</a></li>
+        <li><a href="#os-wars">Windows vs. macOS vs. Linux: Three Operating Systems, Three Interpretations</a></li>
+        <li><a href="#lawsuits">The Class-Action Lawsuits: Consumers vs. Hard Drive Manufacturers</a></li>
+        <li><a href="#real-cost">When the 7% Gap Becomes Real Money: Cloud Billing, NAS Arrays, and Video Pipelines</a></li>
+        <li><a href="#tools">Every Data Storage Converter on This Site</a></li>
+    </ol>
+</nav>
+
+<!-- ══—TIMELINE ══—-->
+<section class="guide-timeline" aria-label="Data storage unit timeline">
+    <h2>How We Got Here —A 70-Year Timeline of the Same Four Letters</h2>
+    <p>Every confusing label on your screen today traces back to decisions made decades ago by people who could not have imagined terabyte-scale consumer storage. This timeline connects the dots.</p>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-era">1950s</div>
+                <h4>Binary addressing becomes the memory standard</h4>
+                <p>Magnetic core memory and early semiconductor RAM chips are addressed by binary address lines. With <em>n</em> lines, you can address exactly 2<sup>n</sup> locations —never a round decimal number. Engineers adopt "K" (for "kilo") as convenient shorthand for 1,024 = 2<sup>10</sup>. Nobody deliberates this; it emerges as workshop slang among the few hundred people on Earth building computers.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-era">1970s—980s</div>
+                <h4>Hard disks ship in decimal; the split is born</h4>
+                <p>Hard drives store bits on magnetic platters in arbitrary geometries —the capacity is not a clean power of two. Manufacturers label drives using decimal prefixes (1 MB = 1,000,000 bytes) because the numbers they're describing are decimal numbers. Memory sticks continue using binary because they are built around power-of-two addressing. The two storage categories quietly adopt opposite definitions of the same prefix, and the gap is too small at the megabyte scale for consumers to notice.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-era">1998</div>
+                <h4>The IEC introduces KiB, MiB, GiB, TiB</h4>
+                <p>By the mid-1990s, gigabyte-scale drives make the 7.4% gap visible to consumers. IEC 60027-2 Amendment 2 formally creates the binary prefixes —kibi, mebi, gibi, tebi —so that "kilobyte" always means 1,000 and "kibibyte" always means 1,024. The standard is technically correct. The names are widely mocked. Adoption stalls.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-era">2004—007</div>
+                <h4>Consumers sue hard drive makers —and lose</h4>
+                <p>A wave of class-action lawsuits (Safier v. Western Digital, Cho v. Seagate) allege deceptive advertising because operating systems report less capacity than the box says. The courts side with manufacturers: the fine print defines 1 GB = 1,000,000,000 bytes, and that definition is legally sufficient. The lawsuits cement the industry practice of printing a disclaimer on every box —the permanent legal scar tissue of the capacity wars.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-era">2009</div>
+                <h4>macOS switches to decimal —the first major OS to break ranks</h4>
+                <p>Mac OS X 10.6 Snow Leopard redefines file and disk size reporting to use decimal prefixes (1 MB = 1,000,000 bytes). Apple's rationale: consumer expectations should match the box. A 1 TB drive plugged into a Mac reads "1 TB" in Finder. The change is controversial among developers but largely invisible to consumers. Windows stays binary —no toggle, no plan to switch.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-era">Today</div>
+                <h4>Two definitions, three interpretations, zero resolution in sight</h4>
+                <p>Windows (70%+ desktop share) uses binary KB/MB/GB/TB. macOS uses decimal KB/MB/GB/TB. Linux tools are split —some decimal, some binary, depending on the distribution and the specific command. The IEC KiB/MiB/GiB standard exists and is unambiguous. It is used almost nowhere in consumer-facing software. The same file copied across three operating systems shows three different "sizes." The ambiguity is likely permanent.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 1: WHY TWO DEFINITIONS
+     ════════════════════════════════════════════════════ -->
+<section id="why-two-definitions">
+    <h2>1. Why There Are Two Definitions of the Same Four Letters</h2>
+
+    <p>In 1795, the French Academy of Sciences defined "kilo" as one thousand. For 150 years, this was uncontroversial. A kilometer was 1,000 meters. A kilogram was 1,000 grams. A kilowatt was 1,000 watts. "Kilo" meant a thousand, always and everywhere, until computer engineers needed a word for 1,024.</p>
+
+    <p>The problem is that 1,024 is not 1,000. It's close —close enough that early computer engineers used "K" as a shorthand. A 4,096-word magnetic core memory was "4K." 4,096 is 4 × 1,024. Calling it "4K" was a convenient, memorable, and sufficiently accurate label in an era when a "kiloword" of memory cost more than a car and the people buying it were electrical engineers who understood the binary convention implicitly.</p>
+
+    <p>This linguistic borrowing was an accident of history, not a conspiracy. In 1956, when IBM shipped the first hard drive —the RAMAC 305, storing 5 million 7-bit characters on fifty 24-inch platters —the term "megabyte" didn't exist yet. Engineers described storage in "characters" or "words." By the late 1960s, as semiconductor memory became addressable in clean powers of two, "K" and "M" had become standard shorthand among computer architects. Nobody sat down and decided that "kilobyte" would officially mean 1,024 bytes. It happened the way slang happens: a group of practitioners found a convenient shorthand, and it stuck.</p>
+
+    <p>The marketing departments noticed the ambiguity in the 1980s, when hard drives reached capacities large enough for the 2.4% gap to become visible. A drive with 10,000,000 bytes could be labeled "10 MB" (decimal) or "9.5 MB" (binary). The bigger number sold more drives. The binary camp —memory manufacturers, operating system developers, and the IEEE —continued using powers of two because memory chips are physically built around binary addressing. The split was never resolved by authority. It was resolved by inertia: each industry kept doing what it had always done, and consumers were left to notice the discrepancy on their own.</p>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 2: BINARY ORIGIN
+     ════════════════════════════════════════════════════ -->
+<section id="binary-origin">
+    <h2>2. The Electrical Engineer's Instinct: Why Computers Count in 1,024</h2>
+
+    <p>A computer memory chip does not count to ten. It counts to two. Every address line on a memory bus can carry a 0 or a 1. With one address line, you can select exactly two memory locations: address 0 and address 1. With two address lines: four locations (00, 01, 10, 11). Three lines: eight. Four lines: sixteen. The number of addressable locations doubles with each additional line —that's exponential growth, and the base of the exponent is always 2.</p>
+
+    <div class="formula-box">
+        <p><strong>Addressable locations with n address lines = 2<sup>n</sup></strong></p>
+    </div>
+
+    <p>With 10 address lines, you can address exactly 1,024 locations. Not 1,000. If you designed a memory chip with 10 address lines and only used 1,000 of the possible 1,024 addresses, you'd be throwing away 24 perfectly good locations and complicating the address decoder circuitry —adding cost and latency for no engineering benefit. So memory chips use all 2<sup>n</sup> locations. 1,024 was not chosen because it's a nice round number. It was chosen because it's 2<sup>10</sup>, and 2<sup>10</sup> is the inevitable consequence of ten binary address lines.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Address lines</th><th>Addressable space</th><th>Closest SI prefix</th><th>Error if you use SI</th></tr></thead>
+        <tbody>
+            <tr><td>10</td><td>1,024 (2<sup>10</sup>)</td><td>1 kilo = 1,000</td><td>2.4%</td></tr>
+            <tr><td>11</td><td>2,048 (2<sup>11</sup>)</td><td>2 kilo = 2,000</td><td>2.4%</td></tr>
+            <tr><td>16</td><td>65,536 (2<sup>16</sup>)</td><td>65.5 kilo = 65,500</td><td>0.05%</td></tr>
+            <tr><td>20</td><td>1,048,576 (2<sup>20</sup>)</td><td>1 mega = 1,000,000</td><td>4.9%</td></tr>
+            <tr><td>30</td><td>1,073,741,824 (2<sup>30</sup>)</td><td>1 giga = 1,000,000,000</td><td>7.4%</td></tr>
+            <tr><td>40</td><td>1,099,511,627,776 (2<sup>40</sup>)</td><td>1 tera = 1,000,000,000,000</td><td>10.0%</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The table reveals a pattern that is obvious in hindsight: the error grows with each prefix level because the error is multiplicative. At each step from kilo to mega to giga to tera, you multiply by another factor of 1,024 while the SI convention multiplies by 1,000. After four prefix levels (kilo —mega —giga —tera), the cumulative ratio is (1,024/1,000)<sup>4</sup> —1.10 —a 10% gap.</p>
+
+    <p><strong>Why hard drives don't use binary.</strong> A hard drive stores bits on magnetic platters arranged in concentric tracks. The number of bits per track is determined by the physical geometry of the platter and the density of the magnetic coating —not by the number of address lines on a bus. A drive can store 512 bytes per sector, 63 sectors per track, and 16,383 cylinders —producing a capacity of exactly 500,118,528 bytes if the manufacturer chooses those numbers. The capacity is an arbitrary integer, not a power of two. So hard drive manufacturers, from the very beginning, used decimal prefixes because the numbers they were describing were decimal numbers. A 500,118,528-byte drive is "500 MB" in the decimal convention. In binary, it's 476.9 MiB —a number that looks like a defect on the spec sheet. Marketing chose the bigger, rounder number. Engineering could not argue that it was wrong —because the engineering definition was always informal.</p>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 3: IEC 1998
+     ════════════════════════════════════════════════════ -->
+<section id="iec-1998">
+    <h2>3. 1998: The Year the IEC Tried to Fix It (and Nobody Listened)</h2>
+
+    <p>By the mid-1990s, the dual definition had become a genuine problem. Hard drives were shipping in gigabyte capacities, and the gap between decimal and binary gigabytes was 7.4% —enough for consumers to notice and complain. Network engineers specifying "megabit" line rates and storage engineers provisioning "megabyte" arrays were using the same prefixes to mean different quantities. A disk array spec'd at "1 TB" could be 1,000,000,000,000 bytes or 1,099,511,627,776 bytes —a difference of 100 GB, which in 1998 was more storage than most companies owned in total.</p>
+
+    <p>In December 1998, the International Electrotechnical Commission (IEC) published Amendment 2 to IEC 60027-2, introducing a set of binary prefixes that were deliberately distinct from the SI decimal prefixes:</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>SI prefix (decimal)</th><th>Value</th><th>IEC binary prefix</th><th>Value</th></tr></thead>
+        <tbody>
+            <tr><td>kilobyte (KB)</td><td>10<sup>3</sup> = 1,000 bytes</td><td><strong>kibibyte (KiB)</strong></td><td>2<sup>10</sup> = 1,024 bytes</td></tr>
+            <tr><td>megabyte (MB)</td><td>10<sup>6</sup> = 1,000,000 bytes</td><td><strong>mebibyte (MiB)</strong></td><td>2<sup>20</sup> = 1,048,576 bytes</td></tr>
+            <tr><td>gigabyte (GB)</td><td>10<sup>9</sup> = 1,000,000,000 bytes</td><td><strong>gibibyte (GiB)</strong></td><td>2<sup>30</sup> = 1,073,741,824 bytes</td></tr>
+            <tr><td>terabyte (TB)</td><td>10<sup>12</sup> = 1,000,000,000,000 bytes</td><td><strong>tebibyte (TiB)</strong></td><td>2<sup>40</sup> = 1,099,511,627,776 bytes</td></tr>
+            <tr><td>petabyte (PB)</td><td>10<sup>15</sup> bytes</td><td><strong>pebibyte (PiB)</strong></td><td>2<sup>50</sup> = 1,125,899,906,842,624 bytes</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The naming scheme was both elegant and transparent. Take the first two letters of the SI prefix ("ki" from "kilo," "me" from "mega," "gi" from "giga," "te" from "tera") and append "bi" for "binary." The resulting words —kibibyte, mebibyte, gibibyte, tebibyte —were unambiguous. A kibibyte was always 1,024 bytes. A kilobyte was always 1,000 bytes. No more guessing. The standard was incorporated into ISO/IEC 80000-13 in 2008, giving it the weight of the international standards bodies that define the meter, the kilogram, and the second.</p>
+
+    <p><strong>And then almost nobody adopted them.</strong></p>
+
+    <p>In 2026, twenty-eight years after the standard was published, the dominant operating system on the planet —Microsoft Windows —still labels everything in KB, MB, GB, and TB, and still uses the binary definition. File Explorer says "1,024 KB" when it means 1 MiB. Task Manager reports memory in binary GB. The words "kibibyte" and "mebibyte" appear nowhere in the Windows UI. macOS switched to decimal in 2009 —but it still uses the labels KB, MB, GB, not KiB, MiB, GiB. Linux distributions are split: Ubuntu's file manager (Nautilus) uses decimal KB/MB/GB by default, while command-line tools like <code>ls -lh</code> use binary but print "K" and "M" without clarification. The only major software ecosystem that consistently uses KiB/MiB/GiB is the Linux kernel itself —in <code>/proc/meminfo</code>, in driver documentation, and in filesystem tools —and even there, adoption is inconsistent across user-facing utilities.</p>
+
+    <p>Why did the standard fail? Three reasons. First, "gibibyte" sounds ridiculous in English —the doubled "bi" syllable reads as a stutter, and "kibibyte" to an English speaker's ear is baby-talk. Technical documentation writers, who decide what names become canonical through sheer repetition, rejected the new terms on aesthetic grounds. Second, the standard solved a problem that most people had already learned to live with —the 7% gap was annoying but not dangerous, and the workaround (just buy a bigger drive) was cheap. Third, and most fundamentally, the standard asked the entire world to change its vocabulary to resolve an ambiguity that only electrical engineers and IT professionals fully understood. The average computer user has never heard the word "kibibyte" and never will —not because the standard is wrong, but because the standard addressed a precision requirement that only a tiny fraction of users have.</p>
+
+    <p>The IEC tried. The standard exists. It is correct. It just never won. The result in 2026 is that a "gigabyte" can mean either of two numbers 7.4% apart, and you figure out which one from context —or you ask for the byte count directly. Every data storage engineer learns to do this in their first month on the job.</p>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 4: OS WARS
+     ════════════════════════════════════════════════════ -->
+<section id="os-wars">
+    <h2>4. Windows vs. macOS vs. Linux: Three Operating Systems, Three Interpretations</h2>
+
+    <p>The same file, copied onto three different computers, will show three different sizes —not because the file changed, but because the operating systems count differently.</p>
+
+    <div class="example-box">
+        <p><strong>The 1,234,567,890-byte test file</strong></p>
+        <p>Create a file that is exactly 1,234,567,890 bytes. Copy it to three computers. Here's what each reports:</p>
+        <div class="table-scroll">
+        <table>
+            <thead><tr><th>Operating system</th><th>Reported size</th><th>How it computed the label</th></tr></thead>
+            <tbody>
+                <tr><td>Windows 11 (File Explorer)</td><td>1.15 GB</td><td>1,234,567,890 ÷ 1,073,741,824 = 1.1497 GB (binary)</td></tr>
+                <tr><td>macOS 15 (Finder)</td><td>1.23 GB</td><td>1,234,567,890 ÷ 1,000,000,000 = 1.2346 GB (decimal)</td></tr>
+                <tr><td>Ubuntu 24.04 (Nautilus)</td><td>1.2 GB</td><td>1,234,567,890 ÷ 1,000,000,000 = 1.23 GB, rounded; uses decimal</td></tr>
+                <tr><td>Debian 12 (ls -lh)</td><td>1.2G</td><td>1,234,567,890 ÷ 1,073,741,824 = 1.15 GiB, displayed as "G"; uses binary but prints "G"</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>The file never changed. The bytes never moved. Four different labels, all technically "correct" under each system's own convention. The problem is not the file. The problem is that the abbreviation "GB" carries no metadata about which definition was used to compute it.</p>
+    </div>
+
+    <p><strong>Windows.</strong> Microsoft has used binary prefixes internally since MS-DOS. Every version of Windows —95, XP, 7, 10, 11 —defines 1 KB = 1,024 bytes in File Explorer, in disk properties, in <code>dir</code> output, and in every system dialog. Windows Server does the same. This is not documented in a user-facing setting; there is no toggle, no registry key, no Group Policy to switch to decimal. Microsoft's position, stated consistently in its developer documentation since the early 2000s, is that the binary definition is what Windows users expect and a change would cause more confusion than it resolved. Given Windows' roughly 70% desktop market share, this single decision means that a majority of the world's computer users see binary-labeled storage sizes every day —and most of them don't know it.</p>
+
+    <p><strong>macOS.</strong> Apple switched to decimal prefixes in Mac OS X 10.6 Snow Leopard (2009). Every version since —Lion, Mountain Lion, Mavericks, through to Sequoia —reports file and disk sizes in decimal KB/MB/GB/TB. A 1 TB (decimal) hard drive plugged into a Mac will report "1 TB" in Finder —exactly matching the box. This was a deliberate design choice: Apple decided that consumer expectations (matching the box) mattered more than engineering tradition (matching the memory architecture). The decision was controversial among developers at the time but has been largely uncontroversial in the consumer market. Most Mac users have no idea that their file sizes are reported in a different unit than their Windows-using colleagues see for the same file.</p>
+
+    <p><strong>Linux.</strong> The situation is, characteristically, the most complicated. The Linux kernel internally uses binary units and often prints KiB/MiB/GiB in kernel messages —it's one of the few software components that consistently adopted the IEC standard. But user-facing tools are split. GNOME's Nautilus file manager uses decimal (like macOS). KDE's Dolphin uses decimal. The <code>ls -lh</code> command uses binary with single-letter suffixes (K, M, G). The <code>df -h</code> command on some distributions uses binary, on others decimal. The <code>du</code> command's default is binary. You can force consistency with <code>ls --si</code> (decimal) or <code>df -H</code> (decimal), but the defaults vary by distribution and sometimes by package version. If you manage Linux servers and macOS desktops in the same organization, every storage report contains a latent 2.4%—0% discrepancy that is invisible unless you check which convention the reporting tool uses.</p>
+
+    <p><strong>The practical rule.</strong> If you are comparing file sizes or disk usage across operating systems, get the byte count. Every OS can report the raw byte count —it's the one number that is definitionally unambiguous. Windows: right-click —Properties shows "Size: 1,234,567,890 bytes." macOS: Finder —Get Info shows the byte count in parentheses. Linux: <code>ls -l</code> (no -h) prints the byte count directly. Convert from bytes to whatever label you need, but always start from bytes when crossing OS boundaries.</p>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 5: LAWSUITS
+     ════════════════════════════════════════════════════ -->
+<section id="lawsuits">
+    <h2>5. The Consumer Lawsuits: When the 7% Gap Went to Court</h2>
+
+    <p>The gap between decimal and binary gigabytes became a legal question in the early 2000s, when a series of class-action lawsuits were filed against hard drive manufacturers in US federal courts. The plaintiffs argued that consumers were being misled —that a drive labeled "80 GB" should deliver 80 billion bytes as the consumer's operating system counted them, not as the manufacturer defined the term.</p>
+
+    <div class="example-box">
+        <p><strong>Safier v. Western Digital (2004—006)</strong></p>
+        <p>Orin Safier bought an 80 GB Western Digital hard drive. Windows reported 74.5 GB. He sued on behalf of all Western Digital customers, alleging deceptive advertising, unfair business practices, and violation of California's Consumer Legal Remedies Act. The case turned on a single question: what does "gigabyte" mean? Western Digital argued that its packaging defined the term —the fine print on the box stated that "1 GB = 1,000,000,000 bytes." The court agreed. Safier's central claim was that this definition was "inconsistent with the common understanding of the term." But the court found that there was no single "common understanding" —the binary and decimal definitions coexisted in different industries, and Western Digital's definition had been consistent since the company began selling drives. The case was dismissed in 2006. Western Digital did not admit wrongdoing, but offered affected customers a free download of backup software (retail value: ~$30) —not additional storage capacity. The settlement was widely viewed as a win for the manufacturers.</p>
+    </div>
+
+    <div class="example-box">
+        <p><strong>Cho v. Seagate Technology (2005—007)</strong></p>
+        <p>A parallel case against Seagate followed a similar trajectory. The plaintiffs noted that Seagate's packaging said "160 GB" in large type and defined "1 GB = 1,000,000,000 bytes" in much smaller type on the side of the box. The court held that the disclaimer was "conspicuous enough" under California law —it was on the box, it was in English, and a reasonable consumer could read it. The operating system's choice to use a different definition did not make the manufacturer's statement false. Seagate prevailed. The case cemented the legal principle that a hard drive manufacturer's stated capacity definition —if disclosed —is the binding one, even if a majority of consumers use operating systems that define the term differently.</p>
+    </div>
+
+    <p><strong>Did the lawsuits change anything?</strong> Yes —but not in the way the plaintiffs hoped. No court ordered manufacturers to ship more bytes. No court required packaging to use KiB/GiB prefixes. Instead, the lawsuits produced a single, durable industry practice: every hard drive box now carries a disclaimer defining exactly what the manufacturer means by GB or TB. "1 GB = 1,000,000,000 bytes" or "1 TB = 1,000,000,000,000 bytes" appears on the packaging of every major hard drive brand sold in the United States. The disclaimer is the permanent legal scar tissue of the 2004—007 litigation. Consumers still get confused. They just can't sue over it anymore —the disclaimer inoculates the manufacturer. The operating system still reports a smaller number. The box still warns you that this will happen. Nobody is lying. The system works. It's just not the system anyone would design from scratch.</p>
+
+    <p>Flash storage (SSDs, USB drives, SD cards) uses the same decimal convention as hard drives. A "256 GB" SSD is 256,000,000,000 bytes —and Windows will report approximately 238 GB. The gap is identical in percentage terms to a mechanical hard drive, and the same disclaimer appears on the packaging. RAM is the exception: a "16 GB" RAM stick is genuinely 16 × 1,073,741,824 = 17,179,869,184 bytes —approximately 17.2 "decimal GB." RAM manufacturers use binary prefixes because RAM is manufactured in capacities that are powers of two (for the addressing reasons explained in Section 2). The RAM stick's 16 GB label is telling the truth in binary —and Windows, helpfully, agrees with it, because Windows also uses binary. RAM is the one category of computer hardware where the box and the OS display the same number. This accidental consistency —both sides independently chose binary —has probably prevented more consumer confusion than any deliberate standardization effort.</p>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 6: REAL COST
+     ════════════════════════════════════════════════════ -->
+<section id="real-cost">
+    <h2>6. When the 7% Gap Becomes Real Money: Cloud Billing, NAS Arrays, and Video Pipelines</h2>
+
+    <p>For a consumer buying one hard drive, the 7%—0% gap between decimal and binary is an irritation —the difference between 931 GB and 1,000 GB on a $60 drive is about $4 of effective capacity. For a data center operator buying 10,000 drives, it's a budget-line error. For a cloud provider billing customers by the "GB-month," it's a revenue question with nine zeros behind it.</p>
+
+    <h3>6.1 Cloud Storage Billing</h3>
+    <p>Amazon S3, Google Cloud Storage, and Microsoft Azure Blob Storage all bill by the "GB-month" —but each defines the gigabyte differently. AWS defines 1 GB = 1,000,000,000 bytes (decimal). Google Cloud uses the same decimal definition. Azure uses decimal. The consistency is recent —before 2014, several cloud providers used binary GB in their internal metering while displaying decimal GB on customer invoices, producing bills that were systematically 7.4% higher than customers calculated from their own binary-based tools. Organizations that monitored cloud storage with on-premises monitoring software calibrated to binary units routinely over-provisioned by 7% —paying for storage they didn't need because the monitoring tool and the billing system spoke different dialects of the same word.</p>
+
+    <p>The industry has largely converged on decimal for billing —partly to match customer expectations set by hard drive boxes, and partly because decimal numbers are easier for finance departments to audit. But the converged standard is informal. No regulation requires cloud providers to define GB on the invoice. If your organization's internal storage monitoring uses binary GB (as Windows Server and many Linux tools do by default), your monitoring dashboard will systematically under-report costs by 7.4% relative to your cloud bill. The fix is simple —convert everything to bytes before comparing —but the fix is not automatic, and it requires someone to notice the discrepancy first.</p>
+
+    <h3>6.2 NAS and RAID Arrays</h3>
+    <p>A 12-bay NAS populated with 20 TB (decimal) drives advertises "240 TB raw capacity" on the spec sheet. The marketing number is decimal: 240,000,000,000,000 bytes. After RAID-6 (dual parity, losing two drives' worth of capacity to redundancy), the usable decimal capacity is roughly 200 TB. But the NAS operating system —Synology DSM, TrueNAS, QNAP QTS —typically reports usable capacity in binary TiB (though labeled "TB"). A 200 TB decimal array reports as 181 TiB —a 10% drop. Combined with filesystem overhead (typically 2—%), the final usable space visible to the client OS can be 170—75 TiB —29% less than the "240 TB" on the box. The missing storage is not lost. It's the cumulative effect of (a) decimal-to-binary conversion, (b) parity overhead, and (c) filesystem metadata —three independent reductions, each legitimate, each compounding on the previous. Procurement departments that don't account for all three will under-buy storage by a margin that compounds with every array refresh.</p>
+
+    <h3>6.3 Video Production Pipelines</h3>
+    <p>A 1-hour Apple ProRes 422 HQ 4K video file is approximately 750 GB (decimal) —750,000,000,000 bytes. A post-production facility managing 200 hours of raw footage needs about 150 TB of working storage, plus backup. If the facility's Mac-based editorial team sees "1.12 TB" on a backup volume (decimal, like all macOS volumes) and the facility's Linux-based backup server reports the same volume as "1.02 TB" (binary, like many Linux backup tools), the discrepancy looks like data corruption to a producer who doesn't know about the convention split. Post-production schedules have been delayed while technicians verified that the missing 100 GB was not missing data but a measurement-unit mismatch —a single miscommunication that would not have happened if both systems reported in bytes, or if the IEC standard had been adopted universally in 1998.</p>
+
+    <h3>6.4 The Petabyte Problem</h3>
+    <p>At the petabyte scale, the gap is approximately 12.6%. A 1 PB (decimal) storage cluster is 1,000,000,000,000,000 bytes. In binary, it's 0.888 PiB. A data center architect specifying "1 PB of usable storage" who gets 0.888 PiB instead is short by 112 TB —roughly 7—1 enterprise hard drives' worth of capacity. At current (2026) enterprise HDD pricing, that's approximately $2,000—4,000 in missing hardware —per petabyte. A 50 PB deployment is short by roughly $100,000—200,000 of expected capacity if the decimal/binary distinction wasn't clarified in the purchase order. Every hyperscale cloud operator has internal standards that specify storage in bytes precisely for this reason. No Google SRE provisions a cluster in "petabytes" —they provision in bytes, and the tooling converts to whichever prefix the dashboard user prefers. The lesson from data centers is the same as the lesson from file comparisons across operating systems: when it matters, count bytes. The prefixes are a display-layer convenience. The byte is the atomic truth.</p>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 7: TOOLS
+     ════════════════════════════════════════════════════ -->
+<section id="tools">
+    <h2>7. Every Data Storage Converter on This Site</h2>
+
+    <p>Eight converters covering the four prefix levels (kilo through tera) in both directions. Each uses the binary definition (1 KB = 1,024 bytes, 1 MB = 1,048,576 bytes, etc.) —matching what Windows, most Linux tools, and all memory specifications use. If you need the decimal definition (hard drive marketing, macOS Finder, cloud billing), multiply the binary result by the appropriate factor from the Quick Reference table at the top of this page.</p>
+
+    <h3>KB &harr; MB —the everyday pair</h3>
+    <div class="related-tags">
+        <a href="/kb-to-mb">KB to MB</a>
+        <a href="/mb-to-kb">MB to KB</a>
+    </div>
+    <p>Images, documents, small downloads. A 5 MB photo is 5,120 KB. A 500 KB PDF is 0.488 MB. These two converters handle the scale most people work with daily. <strong>1 MB = 1,024 KB.</strong></p>
+
+    <h3>MB &harr; GB —the media and software scale</h3>
+    <div class="related-tags">
+        <a href="/mb-to-gb">MB to GB</a>
+        <a href="/gb-to-mb">GB to MB</a>
+    </div>
+    <p>Software installers, video files, system memory. A 16 GB RAM stick is 16,384 MB. A 250 MB application download is 0.244 GB. <strong>1 GB = 1,024 MB.</strong></p>
+
+    <h3>GB &harr; TB —the drive and backup scale</h3>
+    <div class="related-tags">
+        <a href="/gb-to-tb">GB to TB</a>
+        <a href="/tb-to-gb">TB to GB</a>
+    </div>
+    <p>Hard drives, SSDs, NAS volumes. A 2 TB drive is 2,048 GB in binary. Remember: the box on a "2 TB" drive means 2,000,000,000,000 bytes (decimal), which Windows will report as 1.82 TB. <strong>1 TB = 1,024 GB.</strong></p>
+
+    <h3>KB &harr; GB —crossing three prefix levels</h3>
+    <div class="related-tags">
+        <a href="/kb-to-gb">KB to GB</a>
+        <a href="/gb-to-kb">GB to KB</a>
+    </div>
+    <p>Log files, database dumps, memory dumps. A 1 GB file is 1,048,576 KB. These skip the intermediate MB level —useful when comparing storage at very different scales. <strong>1 GB = 1,048,576 KB.</strong></p>
+</section>
+
+<!-- ══—FAQ ══—-->
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+    <p class="faq-q">How many MB are in a GB? The simple answer and the full answer.</p>
+    <p class="faq-a">The simple answer: <strong>1 GB = 1,024 MB</strong> —this is the definition your computer uses. The full answer: it depends who's counting. Your Windows PC says 1,024. A hard drive box says 1,000. The SSD on your desk says 1,000 (manufacturer) but Windows reports it as 1,024 MB per GB, so a 500 GB (decimal) SSD shows as 465 GB (binary). When in doubt, use <a href="/gb-to-mb">GB to MB</a> for the binary conversion or multiply by 1,000 for the decimal conversion. The difference is one of definition, not of fact. Both numbers are correct under their own definition.</p>
+</div>
+
+<div class="faq-item">
+    <p class="faq-q">Why does my 1 TB drive show 931 GB instead of 1,024 GB?</p>
+    <p class="faq-a">Because binary TB and decimal TB are different quantities. 1 TB (decimal) = 1,000,000,000,000 bytes. 1 TB (binary) = 1,099,511,627,776 bytes. Your drive stores 1,000,000,000,000 bytes. Divide that by what Windows considers 1 GB (1,073,741,824 bytes): 1,000,000,000,000 ÷ 1,073,741,824 = 931.32 GB. The math is exact. You didn't lose anything —1,000,000,000,000 bytes were always on the drive. Windows is just measuring them with a different ruler. Use <a href="/gb-to-tb">GB to TB</a> or <a href="/tb-to-gb">TB to GB</a> to check the conversion in binary units.</p>
+</div>
+
+<div class="faq-item">
+    <p class="faq-q">What about Mbps and MB/s? Why is my internet speed in bits but my download speed in bytes?</p>
+    <p class="faq-a">Network speeds are measured in bits per second (bps), not bytes per second (B/s). The capital B matters: 1 MB/s = 8 Mbps. A "100 Mbps" internet connection delivers roughly 12.5 MB/s under ideal conditions —after protocol overhead (TCP/IP headers, packet retransmission, congestion control), real-world throughput is typically 80—0% of that, or about 10—1 MB/s. The convention is historical: telecommunications engineers measure raw signal rate in bits (the fundamental unit of information), while file sizes are measured in bytes (the fundamental unit of addressable storage). The factor-of-8 confusion is responsible for more customer-support calls than any other unit issue in consumer technology.</p>
+</div>
+
+<div class="faq-item">
+    <p class="faq-q">Will data storage units ever be standardized so everyone agrees?</p>
+    <p class="faq-a">The standard already exists —IEC 80000-13:2008 defines KiB, MiB, GiB, TiB unambiguously. The problem is adoption, not definition. As long as Windows uses KB/MB/GB for binary units, and hard drive boxes use KB/MB/GB for decimal units, and macOS uses KB/MB/GB for decimal units, the ambiguity persists. A universal switch would require Microsoft to either adopt KiB/MiB/GiB labels (confusing 70% of desktop users who have never seen those terms) or switch to decimal (making every existing Windows screenshot and tutorial show "different" file sizes overnight). Neither path is politically cost-free. The ambiguity is likely permanent —the nearest analogy is how "billion" once meant 10<sup>12</sup> in the UK (long scale) and 10<sup>9</sup> in the US (short scale) until the UK officially adopted the short scale in 1974. That transition took 200 years. The data storage prefix transition, at the current pace, will take at least as long.</p>
+</div>
+
+<div class="faq-item">
+    <p class="faq-q">Should I use a KB to MB converter or just divide by 1,024 in my head?</p>
+    <p class="faq-a">For a quick estimate, dividing by 1,024 in your head is close enough. 50,000 KB ÷ 1,000 = 50 MB (rough). 50,000 ÷ 1,024 = 48.83 MB (exact). But the error compounds —across five levels of nested folders each rounded by mental approximation, a 2.4% error per level can become a 10% discrepancy. For software installers, system memory reporting, or any situation where an exact byte count matters, use <a href="/kb-to-mb">KB to MB</a> for the binary conversion. The converter uses exact integer arithmetic and won't accumulate rounding drift. For hard drive shopping, remember that the box uses decimal —multiply the box number by 0.931 to estimate what Windows will show.</p>
+</div>
+
+<!-- ══—References ══—-->
+<section class="eng-context">
+    <h3>Sources and Further Reading</h3>
+    <ul>
+        <li>IEC 60027-2 Amendment 2 (December 1998) —Introduction of binary prefixes kibi, mebi, gibi, tebi</li>
+        <li>ISO/IEC 80000-13:2008 —Quantities and units, Part 13: Information science and technology (formal adoption of binary prefixes into ISO standard)</li>
+        <li>NIST Special Publication 330 —The International System of Units (SI), including guidance on prefix usage for digital information</li>
+        <li><em>Safier v. Western Digital Technologies, Inc.</em>, Case No. C-04-3178 (N.D. Cal. 2004—006) —class-action lawsuit over hard drive capacity labeling</li>
+        <li><em>Cho v. Seagate Technology (US) Holdings, Inc.</em>, Case No. C-05-4375 (N.D. Cal. 2005—007) —parallel class action against Seagate</li>
+        <li>Apple Inc. —Mac OS X Snow Leopard (10.6) Release Notes (2009): "File and disk sizes are now reported in base 10 (1 MB = 1,000,000 bytes) to match storage industry practice"</li>
+        <li>Microsoft Windows Developer Documentation —"Size Reporting in Explorer and Disk Management" (Microsoft Docs, various versions)</li>
+        <li>Linux Kernel Documentation —<code>Documentation/admin-guide/kernel-parameters.txt</code>, <code>/proc/meminfo</code> binary prefix usage</li>
+        <li>IEEE 1541-2002 —Standard for Prefixes for Binary Multiples (IEEE reaffirmation of IEC binary prefixes for electrical engineering contexts)</li>
+        <li>JEDEC Standard 100B.01 (December 2002) —Terms, Definitions, and Letter Symbols for Microcomputers, Microprocessors, and Memory Integrated Circuits (continues to define 1 KB = 1,024 bytes for semiconductor memory)</li>
+        <li>BIPM —The International System of Units (SI), 9th Edition (2019): Section 3, "Decimal multiples and submultiples of SI units" —the SI prefixes are defined as powers of 1,000; binary usage is explicitly outside the SI</li>
+    </ul>
+</section>
+
+<!-- ══—PRACTICAL TAKEAWAYS ══—-->
+<section class="practical-takeaways">
+    <h2>Practical Takeaways: What to Do With All This</h2>
+    <p>This guide covers 70 years of history, two engineering traditions, multiple lawsuits, and a failed international standard. Here is what actually matters when you close this tab and go back to reading file sizes, buying hardware, or writing documentation.</p>
+
+    <div class="takeaway-block">
+        <h3>💿 Buying a hard drive or SSD: the 0.93 rule</h3>
+        <p>Multiply the box number by <strong>0.93</strong> to estimate what Windows will show. A "2 TB" drive —roughly 1.86 TB in File Explorer. A "500 GB" SSD —roughly 465 GB. The drive is not defective. The 7% "missing" is a difference in the definition of GB, not a difference in the number of bytes. If the drive reports significantly less than 93% of the box number, something else is wrong —check for hidden partitions, filesystem overhead, or a genuine defect. But first, verify you didn't just forget to apply the 0.93 rule.</p>
+    </div>
+
+    <div class="takeaway-block">
+        <h3>🖥—Windows vs. macOS showing different sizes: nothing is broken</h3>
+        <p>A file copied from a Mac to a Windows PC appears <strong>larger</strong> on the Mac (decimal GB) and <strong>smaller</strong> on the PC (binary GB). The bytes are identical. Compare byte counts if you need to verify integrity, not the GB/MB label. In Windows: right-click —Properties —look for "Size: X bytes." On macOS: Finder —Get Info —the byte count appears in parentheses after the decimal size. These two numbers will match. The GB labels won't, by design, and that's expected.</p>
+    </div>
+
+    <div class="takeaway-block">
+        <h3>📝 Writing engineering or procurement documentation: when to use GB vs. GiB</h3>
+        <ul>
+            <li><strong>Consumer-facing documents, hard drive specs, cloud bills:</strong> use decimal GB/TB. This matches what the hardware vendor and cloud provider use. If you write "1 TB" in a purchase order and mean 1,099,511,627,776 bytes, you'll get the wrong hardware.</li>
+            <li><strong>Operating system output, memory specs, kernel logs:</strong> these are binary. If you're documenting what <code>ls -lh</code> or Task Manager reports, use the same ambiguous KB/MB/GB/TB the tool uses, but note the convention: "(binary, 1 GB = 2<sup>30</sup> bytes)."</li>
+            <li><strong>Protocol specifications, file formats, APIs, and any context where a 10% error is unacceptable:</strong> specify the count in <strong>bytes</strong>. Not GB, not GiB, not MB —bytes. A file format header that says "max size: 4 GB" is ambiguous. "Max size: 4,294,967,296 bytes (4 GiB)" is not.</li>
+            <li><strong>If you use KiB/MiB/GiB:</strong> you're technically correct per IEC 80000-13:2008. Expect that most readers will not know what these mean. Define them the first time you use them: "1 GiB (gibibyte) = 1,073,741,824 bytes."</li>
+        </ul>
+    </div>
+
+    <div class="takeaway-block">
+        <h3>🔧 Converting data storage units reliably</h3>
+        <p>Every converter linked in <a href="#tools">Section 7</a> uses the binary definition (1 KB = 1,024 bytes). If you need decimal —hard drive shopping, cloud billing comparisons, macOS-style file sizes —multiply the result by the appropriate factor from the Quick Reference table at the top of this page. Or convert to bytes first, then re-divide using the other convention's divisor. A byte is a byte is a byte. The prefixes are the only thing that's ambiguous.</p>
+    </div>
+
+    <div class="takeaway-block">
+        <h3>📊 Estimating at scale: the compounding cheat sheet</h3>
+        <div class="table-scroll">
+        <table>
+            <thead><tr><th>If you buy this (decimal)</th><th>Windows shows ~this (binary)</th><th>Gap</th><th>Enough for—/th></tr></thead>
+            <tbody>
+                <tr><td>256 GB SSD</td><td>238 GB</td><td>18 GB</td><td>~4 HD movies</td></tr>
+                <tr><td>512 GB SSD</td><td>477 GB</td><td>35 GB</td><td>~8 HD movies</td></tr>
+                <tr><td>1 TB HDD/SSD</td><td>931 GB</td><td>69 GB</td><td>~1 AAA game install</td></tr>
+                <tr><td>2 TB drive</td><td>1.82 TB</td><td>0.18 TB</td><td>~36 HD movies</td></tr>
+                <tr><td>4 TB drive</td><td>3.64 TB</td><td>0.36 TB</td><td>~72 HD movies</td></tr>
+                <tr><td>8 TB NAS drive</td><td>7.28 TB</td><td>0.72 TB</td><td>~144 HD movies</td></tr>
+                <tr><td>20 TB enterprise</td><td>18.19 TB</td><td>1.81 TB</td><td>An entire 2 TB drive's worth</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>Notice the last row: at 20 TB, the gap alone is larger than the total capacity of a consumer hard drive from 2010. This is why the prefix ambiguity matters more with every passing year —storage densities grow, and the gap grows with them.</p>
+    </div>
+</section>
+
+        <h3>Related Guides</h3>
+        <div class="related-tags">
+            <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+            <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Guide</a>
+            <a href="/guides/fuel-economy-conversion-guide">Fuel Economy Guide</a>
+            <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+            <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a>
+            <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>
+            <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+            <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Guide</a>
+            <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Guide</a>
+        <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a></div>
+
+        <div class="attribution-box"><p><strong>Reprint & Attribution.</strong> Written by the EnginStack engineering team. Originally appeared June 27, 2026 at <a href="https://enginstack.com/guides/data-storage-conversion-guide">enginstack.com/guides/data-storage-conversion-guide</a>. Quoting, excerpting, and sharing are encouraged with a link back. If you plan to republish the complete article, reach out to <code>rkingers776@gmail.com</code> —no-cost educational and non-commercial licenses are available with proper attribution.</p></div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Byte",
+  "termCode": "byte (B)",
+  "description": "The byte is a digital information unit comprising 8 bits. Its multiples are ambiguous: storage vendors use decimal (1 GB = 10⁹ bytes) while operating systems often report binary (1 GB = 2³⁰ bytes), causing the 931 GB discrepancy.",
+  "url": "https://en.wikipedia.org/wiki/Byte",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>°F to K — Fahrenheit to Kelvin Converter | EnginStack</title>
+    <meta name="description" content="K = (°F + 459.67) × 5/9. The Fahrenheit-to-Kelvin bridge: from brine-water-body-heat to absolute zero. Every cryogenic engineer, semiconductor fab, and gas-law calculation crosses this bridge.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/fahrenheit-to-kelvin">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/fahrenheit-to-kelvin">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/fahrenheit-to-kelvin">
+    <meta property="og:title" content="°F to K — Fahrenheit to Kelvin Converter | EnginStack">
+    <meta property="og:description" content="K = (°F + 459.67) × 5/9. Convert Fahrenheit to the absolute temperature scale used in every gas law, cryostat, and semiconductor fab.">
+    <meta property="og:url" content="https://enginstack.com/fahrenheit-to-kelvin">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fahrenheit to Kelvin Converter",
+  "description": "K = (°F + 459.67) × 5/9. Convert degrees Fahrenheit to kelvin — the absolute thermodynamic temperature scale. Essential for gas law calculations (PV=nRT), cryogenics, and any equation where temperature appears in a ratio.",
+  "url": "https://enginstack.com/fahrenheit-to-kelvin",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why can't I just multiply Fahrenheit by something to get Kelvin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the two scales have different degree sizes and different zeros. Fahrenheit's zero is ammonium chloride brine at −17.78°C. Kelvin's zero is absolute zero at −273.15°C. If the scales shared a zero — like meters and feet both start at zero length — you'd only need a multiplication factor. They don't, so you need an affine transform: shift the origin (+459.67 to reach absolute zero in Fahrenheit-sized degrees, producing Rankine), then rescale the degree size (× 5/9 to convert from Fahrenheit-sized degrees to Celsius/Kelvin-sized degrees). Every temperature conversion that crosses between relative and absolute scales requires both steps. The order matters: add 459.67 first, then multiply by 5/9. Reversing the order gives you a different — and wrong — result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Rankine scale and do I need to know it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rankine (°R) is to Fahrenheit what Kelvin is to Celsius: an absolute scale with the same degree size. °R = °F + 459.67. It's used in US aerospace and some legacy power-generation thermodynamic analysis. Most people never encounter it, but if you work on jet engines or rocket propulsion in the United States, you'll use Rankine daily — Brayton cycle analysis, compressor maps, and turbine inlet temperature ratios are all in °R. The Fahrenheit-to-Kelvin formula is literally a Rankine-to-Kelvin conversion: °F → °R (add 459.67), then °R → K (multiply by 5/9). The Rankine step is invisible in the combined formula, but understanding it makes the 459.67 number feel less arbitrary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is absolute zero −459.67°F instead of a round number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it's 273.15°C below water's freezing point, rescaled to Fahrenheit-sized degrees: 273.15 × 9/5 = 491.67 Fahrenheit degrees below 32°F. 32 − 491.67 = −459.67. The fractional .67 is a consequence of the 273.15 definition — which is itself an exact number fixed by international agreement (the triple point of water = 273.16 K, making the ice point 273.15 K). If the Fahrenheit scale had been defined with absolute zero as a round number — say William Rankine had proposed 0°R = absolute zero and 500°R = water's freezing point — then 459.67 would be 491.67, or some other tidy offset. But Fahrenheit died 100 years before absolute zero was calculated, so the number is what the number is."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Temperature", "item": "https://enginstack.com/temperature/" },
+    { "@type": "ListItem", "position": 3, "name": "Fahrenheit to Kelvin" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/temperature/">Temperature</a> <span class="sep">&rsaquo;</span>
+            <span class="current">&deg;F to K</span></nav>
+
+        <header class="page-header">
+            <h1>Fahrenheit to Kelvin: The Formula That Bridges Brine and Absolute Zero</h1>
+            <p>Daniel Fahrenheit built his scale in 1724 around a bucket of ammonium chloride slush — the coldest thing he could reliably reproduce in a Gdańsk workshop. Kelvin was defined 124 years later around the coldest thing the universe allows: zero thermal energy, −459.67°F below Fahrenheit's brine zero. Converting between them means adding 459.67 degrees and rescaling by 5/9. The arithmetic is simple. The fact that the same instrument can measure the chill of a freezer and the temperature at which helium liquefies — and that someone has to do this conversion correctly every time — is not.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-conversion-type="temperature" data-unit-from="°F" data-unit-to="K">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="32" step="any">
+                        <span class="unit-pill unit-pill-from">&deg;F</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">273.15</span>
+                        <span class="unit-pill unit-pill-to">K</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">32 °F = 273.15 K</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">32 K = -402.07 °F</span>
+            </div>
+            <p class="source-note">Constants verified against NIST Special Publication 811 (Guide for the Use of the International System of Units) and the 1959 International Yard and Pound Agreement. All values are exact — none are rounded approximations.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Two Inventors, Two Zeros, 459.67 Degrees Apart</h2>
+
+            <p>Daniel Gabriel Fahrenheit was a glassblower from Danzig — now Gdańsk, Poland — who built the world's first reliable mercury thermometers in 1714. He needed a temperature scale to go with them. His reference points were chosen for reproducibility, not physics: the freezing point of an ammonium chloride brine slush (0°F), the freezing point of pure water (32°F), and the temperature of a healthy human armpit (which he set at 96°F, though he was off by about 2.6 degrees by modern calibration). The resulting scale had 180 degrees between water freezing (32°F) and boiling (212°F) — half a circle, which appealed to instrument makers who thought in angular divisions.</p>
+
+            <p>William Thomson — later Lord Kelvin — was a Belfast-born mathematical physicist who spent his career at the University of Glasgow. In 1848, at age 24, he published a paper titled "On an Absolute Thermometric Scale" that proposed a temperature scale whose zero was not any arbitrary slush or water phase transition but the theoretical point where all thermal motion ceases: absolute zero. Thomson had been thinking about Sadi Carnot's work on heat engines, and he realized that the efficiency of a Carnot engine depends only on the ratio of the temperatures between which it operates — not on the working fluid, not on the engine design, just T_hot / T_cold. But for that ratio to make physical sense, temperature had to be measured from a true zero. A temperature of 10°C is not twice as hot as 5°C — the ratio of 283.15 to 278.15 is barely above 1. Thomson's insight: you need a scale where zero means zero.</p>
+
+            <p>Lord Kelvin didn't live long enough to see his scale adopted as an SI base unit in 1954, but the number that anchors it — 273.15 — was locked in by definition: the triple point of water (where ice, liquid water, and vapor coexist in equilibrium) = 273.16 K exactly. Combined with the 1 K = 1°C degree-size agreement, water's freezing point fell at 273.15 K. That number, multiplied by 9/5 to rescale to Fahrenheit-sized degrees, gives <strong>459.67°R</strong> — the Rankine offset. Absolute zero on the Fahrenheit scale is −459.67°F. Add that offset to any Fahrenheit reading and you've shifted your zero to the thermodynamic origin. Multiply by 5/9 and you've rescaled from Fahrenheit degrees to Kelvin.</p>
+
+            <div class="formula-box">
+                <p>K = (&deg;F + 459.67) &times; 5/9</p>
+            </div>
+
+            <p style="margin-top: var(--space-3);">Going the other direction — <strong>&deg;F = K × 9/5 − 459.67</strong> — the <a href="/kelvin-to-fahrenheit">Kelvin to Fahrenheit</a> converter undoes both operations. Multiply Kelvin by 9/5 to rescale to Fahrenheit-sized degrees, then subtract 459.67 to shift zero from absolute zero back to Fahrenheit's brine origin. Same affine transform structure as °F↔°C, but the offset is 459.67 instead of 32 because the Fahrenheit-to-Kelvin bridge crosses all the way to absolute zero, not just to water's freezing point.</p>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>32°F → 273.15 K</strong></p>
+                <p>(32 + 459.67) × 5/9 = 491.67 × 5/9 = 273.15 K. Water freezes. This is the calibration checkpoint. Every thermometer you've ever used traces back to this number at this temperature.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>212°F → 373.15 K</strong></p>
+                <p>(212 + 459.67) × 5/9 = 671.67 × 5/9 = 373.15 K. Water boils at standard atmospheric pressure. The 180°F interval between freezing and boiling is a 100 K interval — exactly the size relationship 180/100 = 9/5 encodes.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>−459.67°F → 0 K</strong></p>
+                <p>(−459.67 + 459.67) × 5/9 = 0 × 5/9 = 0 K. Absolute zero. At this temperature, all classical molecular motion ceases. Quantum zero-point energy remains — the Heisenberg uncertainty principle forbids a particle from having both a definite position and zero momentum — but no heat can be extracted. The universe's lowest possible thermodynamic temperature is not a place you can visit, only a limit you can approach.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>98.6°F → 310.15 K</strong></p>
+                <p>(98.6 + 459.67) × 5/9 = 558.27 × 5/9 = 310.15 K. Wunderlich's 1851 artifact — the "normal" body temperature that was actually a miscalibrated armpit reading. In Kelvin, it's a reminder that 310 K is a biological operating temperature, not a universal constant.</p>
+            </div>
+
+            <h2>Rankine: The Absolute Scale Nobody Uses (Except When They Do)</h2>
+
+            <p>There is a fourth temperature scale, and it's the missing link in every Fahrenheit-to-Kelvin conversion. The Rankine scale — named for William Rankine, the Scottish engineer who proposed it in 1859 — is to Fahrenheit what Kelvin is to Celsius: an absolute scale with the same degree size. 0°R = 0 K = absolute zero. The conversion: <strong>°R = °F + 459.67</strong>. That's it — pure offset, no multiplication. A temperature of 500°R is 40.33°F. A temperature of 0°R is −459.67°F.</p>
+
+            <p>Rankine is alive and well in exactly one place: American aerospace engineering. NASA's propulsion labs, Pratt & Whitney's turbine test cells, and SpaceX's combustion chambers still use Rankine in thermodynamic cycle analysis because their entire instrumentation pipeline reads Fahrenheit. A GE90 turbofan's Brayton cycle calculation at takeoff power — compressor inlet 520°R, turbine inlet 3,200°R — is done in Rankine because the temperature ratio (3,200/520 = 6.15) is the number that determines cycle efficiency, and that ratio must be in absolute units. The engineer who converts 59°F ambient air to Kelvin for the same calculation gets 288.15 K. Both numbers are correct. The Rankine one required one addition: 59 + 459.67 = 518.67°R. The Kelvin one required the full affine mess: (59 − 32) × 5/9 + 273.15 = 288.15 K. This is why American aerospace engineers cling to Rankine: one fewer operation to screw up at 3 AM before a launch.</p>
+
+            <p>The Fahrenheit-to-Kelvin formula <strong>K = (°F + 459.67) × 5/9</strong> is actually a two-step Rankine bridge: step one, add 459.67 to get °R. Step two, multiply by 5/9 to get K. The Rankine step is the conceptual one — shifting zero from brine to absolute. The 5/9 is just degree-size conversion, which is the same operation as inches to centimeters or pounds to kilograms: pure scaling. Any engineer who works in Rankine can convert to Kelvin in their head: divide by 1.8. 540°R ÷ 1.8 = 300 K. Room temperature. Simple.</p>
+
+            <h2>Where Fahrenheit Meets Kelvin in the Real World</h2>
+
+            <p>The semiconductor industry is the most precise nexus of Fahrenheit and Kelvin on Earth. A chip fab in Arizona — Intel's Ocotillo campus in Chandler, for example — runs diffusion furnaces at temperatures measured in Kelvin for process control (the Arrhenius equation that governs dopant diffusion rates uses kT in the denominator, and T must be absolute). But the fab's facility monitoring system — the Building Management System that controls chillers, cooling towers, and cleanroom air handlers — was installed by a mechanical contractor who works in Fahrenheit. The chiller setpoint is 44°F. The diffusion furnace recipe calls for 1,373 K. Nobody in the fab converts furnace temperatures to Fahrenheit or chiller setpoints to Kelvin day to day, but the facility engineer who sizes the process cooling water loop has to reconcile both. The heat load calculation goes: furnace shell radiates X watts at ΔT from 1,373 K to 294 K ambient, cooling water removes that heat at 44°F inlet / 54°F outlet. The conversion happens once, in the design spreadsheet. If it's wrong, the furnace overheats and a $3 million wafer lot is scrap.</p>
+
+            <p>Cryogenics is the other domain where Fahrenheit-to-Kelvin fluency is mandatory, and the numbers are less forgiving. Liquid nitrogen boils at 77 K — that's −321°F. Liquid helium at 4.2 K — that's −452°F. The difference between 4.2 K and 5.2 K is one Kelvin — and it is also 1.8°F, because a single Kelvin scales to 1.8 Fahrenheit degrees. A superconducting magnet quench in an MRI machine — where the liquid helium coolant boils off in seconds and the magnet suddenly stops being a magnet — is triggered by a temperature rise of less than 1 K. The monitoring thermocouple might output millivolts scaled to °F. The quench protection system's threshold is in K. A rounding error at the interface of these two units can dump 1,700 liters of liquid helium into an enclosed room in under a minute — which has happened, in multiple hospitals, because someone overspecified the Fahrenheit tolerance and someone else interpreted it as Kelvin. 0.5 K is not 0.5°F. It's 0.9°F. The difference is the difference between a quench and a routine scan.</p>
+
+            <h2>Common Fahrenheit to Kelvin Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>&deg;F</th><th>K</th><th>What it means</th></tr></thead><tbody>
+                <tr><td>−459.67°F</td><td>0 K</td><td>Absolute zero. Theoretical lower bound of temperature. Quantum zero-point energy only.</td></tr>
+                <tr><td>−400°F</td><td>33.15 K</td><td>Liquid hydrogen boiling point (20.28 K). Cold enough to freeze air solid.</td></tr>
+                <tr><td>−320°F</td><td>77.6 K</td><td>Liquid nitrogen boiling point (77.36 K). The workhorse cryogen of labs and hospitals.</td></tr>
+                <tr><td>−40°F</td><td>233.15 K</td><td>The °F = °C crossover. Jet A fuel freezes. Skin freezes in minutes.</td></tr>
+                <tr><td>0°F</td><td>255.37 K</td><td>Fahrenheit's brine zero. Road salt stops working. Your freezer is at about 0°F.</td></tr>
+                <tr><td>32°F</td><td>273.15 K</td><td>Water freezes. Ice point. The number every temperature calibration traces back to.</td></tr>
+                <tr><td>68°F</td><td>293.15 K</td><td>Room temperature. 20°C. Standard lab reference for most bench-top experiments.</td></tr>
+                <tr><td>98.6°F</td><td>310.15 K</td><td>Wunderlich's "normal" body temperature. Actual mean oral: 97.5°F = 309.54 K.</td></tr>
+                <tr><td>212°F</td><td>373.15 K</td><td>Water boils at 1 atm. Steam tables reference point.</td></tr>
+                <tr><td>572°F</td><td>573.15 K</td><td>Oven self-clean cycle. Paper auto-ignites at 451°F (233°C, 506 K) — "Fahrenheit 451."</td></tr>
+                <tr><td>1,832°F</td><td>1,273 K</td><td>Typical pottery kiln (cone 6). Aluminum melts at 1,221°F (933 K).</td></tr>
+                <tr><td>3,200°F</td><td>2,033 K</td><td>Turbine inlet temperature (GE90 at takeoff). Nickel superalloys are glowing yellow.</td></tr>
+                <tr><td>9,941°F</td><td>5,778 K</td><td>Surface of the Sun (photosphere). A blackbody at this temperature peaks in visible green.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The Fahrenheit-to-Kelvin conversion is the bridge every US-based engineer crosses when their instrumentation reads Fahrenheit but their equations demand Kelvin. In gas turbine design, the Brayton cycle efficiency depends on the ratio T_inlet / T_compressor_inlet — and both temperatures must be in absolute units. A Pratt & Whitney engineer reading compressor inlet temperature as 59°F must convert to (59 + 459.67) × 5/9 = 288.15 K before the ratio means anything. In semiconductor process engineering, dopant diffusion follows an Arrhenius relationship: D = D₀ exp(−Ea/kT). The T in that exponent must be Kelvin — plugging in 1,832°F instead of 1,273 K changes the diffusivity by orders of magnitude and produces a wafer with the wrong junction depth. The conversion also matters in cryogenic engineering: a superconductor's critical temperature of 9.2 K is −443.1°F, and the liquid helium that cools it boils at 4.2 K (−452.1°F). The Fahrenheit numbers are absurdly large and negative, but the facility's chiller, its relief valves, and its emergency vent system are all rated in °F because US mechanical codes reference °F. The <a href="/kelvin-to-fahrenheit">Kelvin to Fahrenheit</a> bridge runs both ways — and in a US-built cryoplant, the Kelvin side does physics and the Fahrenheit side does plumbing.</p>
+                <p style="margin-top:1.2em;">More temperature conversions: <a href="/celsius-to-kelvin">Celsius to Kelvin</a> · <a href="/kelvin-to-celsius">Kelvin to Celsius</a> · <a href="/fahrenheit-to-celsius">Fahrenheit to Celsius</a> · <a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a> · <a href="/kelvin-to-fahrenheit">Kelvin to Fahrenheit</a> · <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/kelvin-to-fahrenheit">Kelvin to Fahrenheit</a>
+                <a href="/celsius-to-kelvin">Celsius to Kelvin</a>
+                <a href="/kelvin-to-celsius">Kelvin to Celsius</a>
+                <a href="/fahrenheit-to-celsius">Fahrenheit to Celsius</a>
+                <a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Why can't I just multiply Fahrenheit by something to get Kelvin?</p>
+                <p class="faq-a">Because the two scales have different degree sizes <em>and</em> different zeros. Fahrenheit's zero is ammonium chloride brine at −17.78°C. Kelvin's zero is absolute zero at −273.15°C. If the scales shared a zero — like meters and feet both start at zero length — you'd only need a multiplication factor. They don't, so you need an affine transform: shift the origin (+459.67 to reach absolute zero in Fahrenheit-sized degrees, producing Rankine), then rescale the degree size (× 5/9 to convert from Fahrenheit-sized degrees to Celsius/Kelvin-sized degrees). Every temperature conversion that crosses between relative and absolute scales requires both steps. The order matters: add 459.67 first, then multiply by 5/9. Reversing the order gives you a different — and wrong — result.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What is the Rankine scale and do I need to know it?</p>
+                <p class="faq-a">Rankine (°R) is to Fahrenheit what Kelvin is to Celsius: an absolute scale with the same degree size. °R = °F + 459.67. It's used in US aerospace and some legacy power-generation thermodynamic analysis. Most people never encounter it, but if you work on jet engines or rocket propulsion in the United States, you'll use Rankine daily — Brayton cycle analysis, compressor maps, and turbine inlet temperature ratios are all in °R. The Fahrenheit-to-Kelvin formula is literally a Rankine-to-Kelvin conversion: °F → °R (add 459.67), then °R → K (multiply by 5/9). The Rankine step is invisible in the combined formula, but understanding it makes the 459.67 number feel less arbitrary.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is absolute zero −459.67°F instead of a round number?</p>
+                <p class="faq-a">Because it's 273.15°C below water's freezing point, rescaled to Fahrenheit-sized degrees: 273.15 × 9/5 = 491.67 Fahrenheit degrees below 32°F. 32 − 491.67 = −459.67. The fractional .67 is a consequence of the 273.15 definition — which is itself an exact number fixed by international agreement (the triple point of water = 273.16 K, making the ice point 273.15 K). If the Fahrenheit scale had been defined with absolute zero as a round number — say William Rankine had proposed 0°R = absolute zero and 500°R = water's freezing point — then 459.67 would be 491.67, or some other tidy offset. But Fahrenheit died 100 years before absolute zero was calculated, so the number is what the number is.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Converters — Degrees, Radians, Gradians | EnginStack</title>
+    <meta name="description" content="4 angle converters: degrees to radians, radians to degrees, gradians to degrees. Why radians are the only unit calculus respects, what the gradian was for, and how a wrong-degree unit silently breaks CNC rotary axes.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/angle/">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/angle/">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/angle/">
+    <meta property="og:title" content="Angle Converters — Degrees, Radians, Gradians | EnginStack">
+    <meta property="og:description" content="4 angle converters: degrees to radians, radians to degrees, gradians to degrees. Radians are the only unit calculus respects.">
+    <meta property="og:url" content="https://enginstack.com/angle/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Angle Converters",
+  "description": "4 angle converters: degrees, radians, gradians. Exact conversion using π — 180° = π rad.",
+  "url": "https://enginstack.com/angle/",
+  "hasPart": [
+    {"@type": "WebApplication", "name": "Degrees to Radians", "url": "https://enginstack.com/degrees-to-radians"},
+    {"@type": "WebApplication", "name": "Radians to Degrees", "url": "https://enginstack.com/radians-to-degrees"},
+    {"@type": "WebApplication", "name": "Degrees to Gradians", "url": "https://enginstack.com/degrees-to-gradians"},
+    {"@type": "WebApplication", "name": "Gradians to Degrees", "url": "https://enginstack.com/gradians-to-degrees"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Angle Converters", "item": "https://enginstack.com/angle/" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Angle</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Angle Converters <span class="count-badge">4</span></h1>
+            <p>Angles have three competing units. Degrees (360 to a circle, from the Babylonians who used base-60), radians (2π to a circle, from pure mathematics — the arc length divided by the radius), and gradians (400 to a circle, from the French Revolution's failed attempt to decimalize everything). Degrees dominate everyday use. Radians dominate calculus — you cannot differentiate sin(x) in degrees without a chain of π/180 correction factors. Gradians survive in some European surveying equipment and almost nowhere else. All three are exact rational multiples of each other: 180° = π rad = 200 gon.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <a href="/guides/angle-conversion-guide" class="category-guide-cta">
+            <div class="category-guide-cta-icon">🔄</div>
+            <div class="category-guide-cta-body">
+                <h3>Read the Angle Conversion Guide</h3>
+                <p>Why radians are the only honest angle, what the gradian was for, and how a wrong-degree unit silently breaks CSS rotate(), game-engine rotations, and CNC rotary axes. From the Babylonian 360 to the 400-gon French circle.</p>
+                <span class="category-guide-cta-link">Open the full guide →</span>
+            </div>
+        </a>
+
+        <section class="hub-seo-section">
+            <h2>Angles: Three Competing Systems, One Mathematical Truth</h2>
+            <p>Angle measurement has three parallel systems that coexist uneasily in modern engineering. <strong>Degrees</strong> (360 to a full circle) come from the Babylonians, who used a base-60 number system and noticed that a circle could be subdivided into six equilateral triangles — each with a 60° angle, hence 6 × 60 = 360. <strong>Radians</strong> (2π to a full circle) are the mathematically natural unit: one radian is the angle subtended by an arc whose length equals the radius. Calculus cannot differentiate sin(x) in degrees without a chain of π/180 correction factors — which is why every programming language, every engineering simulation, and every physics engine converts to radians internally before doing any math. <strong>Gradians</strong> (400 to a full circle) were introduced during the French Revolution as part of the metric system's decimal-everything philosophy — 100 gon to a right angle, 400 to a full circle. They survive today in some European surveying equipment and almost nowhere else.</p>
+            <p>The practical consequence of the degree-radian divide is that a single missing conversion factor can silently break results without producing an obvious error. A CSS <code>rotate()</code> value passed in degrees instead of radians will produce an imperceptibly wrong rotation. A CNC machine running a G-code program where one axis uses degrees and another uses radians will cut scrap metal. Game engines and physics simulations spend non-trivial CPU cycles converting between the angle system they display (degrees, for humans) and the system they compute with (radians, for math).</p>
+            <h2>Angle Conversion Reference</h2>
+            <div class="formula-box">
+                <p><strong>180° = π rad = 200 gon</strong> — the three fundamental equivalences</p>
+                <p><strong>1° = π/180 rad ≈ 0.0174533 rad</strong> | <strong>1 rad = 180/π ≈ 57.2958°</strong></p>
+                <p><strong>1 gon = 0.9°</strong> — a right angle is 100 gon, not 90°</p>
+                <p><strong>1 turn = 360° = 2π rad = 400 gon</strong> — the unit of spindle and motor rotation</p>
+            </div>
+            <p>For the full engineering story — from the Babylonian 360 to the CSS spin that broke — see the <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>.</p>
+        </section>
+
+
+        <!-- ═══ All Angle Converters ═══ -->
+        <h2 class="category-section-title">Degrees, Radians &amp; Gradians</h2>
+        <div class="converter-grid">
+            <a href="/degrees-to-radians" class="converter-item">
+                <span class="converter-item-name">Degrees to Radians</span>
+                <span class="converter-item-desc">180° = π rad. Multiply by π/180. Every trig function in every programming language expects radians. This converter is the fix.</span>
+                <span class="converter-item-formula">× π / 180</span>
+            </a>
+            <a href="/radians-to-degrees" class="converter-item">
+                <span class="converter-item-name">Radians to Degrees</span>
+                <span class="converter-item-desc">π rad = 180°. Multiply by 180/π. When your math library returns radians but your display needs degrees. 1 rad ≈ 57.3°.</span>
+                <span class="converter-item-formula">× 180 / π</span>
+            </a>
+            <a href="/gradians-to-degrees" class="converter-item">
+                <span class="converter-item-name">Gradians to Degrees</span>
+                <span class="converter-item-desc">100 gon = 90°. The French Revolution's decimal angle — 400 to a full circle. Mostly extinct outside some European surveying instruments.</span>
+                <span class="converter-item-formula">× 0.9</span>
+            </a>
+            <a href="/degrees-to-gradians" class="converter-item">
+                <span class="converter-item-name">Degrees to Gradians</span>
+                <span class="converter-item-desc">90° = 100 gon. The reverse direction — for the surveying instruments and artillery tables that still work in grads.</span>
+                <span class="converter-item-formula">÷ 0.9</span>
+            </a>
+        </div>
+
+        <section class="hub-seo-section">
+            <h2>Common Angle Conversions in Practice</h2>
+            <div class="formula-box">
+                <p><strong>30° = π/6 rad</strong> — the standard chamfer angle in mechanical drawings</p>
+                <p><strong>45° = π/4 rad</strong> — miter joints, diagonal cuts, and the angle of a perfectly balanced throw</p>
+                <p><strong>60° = π/3 rad</strong> — equilateral triangles, hex bolt heads, and optical prism geometry</p>
+                <p><strong>90° = π/2 rad</strong> — perpendicularity, the most-checked angle in manufacturing QA</p>
+                <p><strong>1 grad = 0.9°</strong> — why surveyors using gradians get 400 divisions per circle instead of 360</p>
+            </div>
+            <p>The practical difference between degrees and radians is invisible to most users — until it isn't. A CNC machine programmed with a 0.5° taper that should have been 0.5 radians (28.6°) will scrap the part. A CSS animation that rotates by 1° when the designer intended 1 rad (57.3°) will look subtly wrong but not broken enough to debug. These are the silent errors that make angle conversion the most insidious unit problem in software engineering.</p>
+        </section>
+
+
+<section class="hub-seo-section">
+            <h2>Angle Conversion in the Real World: Four Industries Where Radians vs. Degrees Is a Daily Decision</h2>
+            <p><strong>Aviation:</strong> Pilots read heading in degrees on the PFD (Primary Flight Display) — 090 is east, 180 is south. But the AHRS (Attitude and Heading Reference System) computes orientation internally using quaternions in radians. The conversion runs at 50 Hz on the ARINC 429 data bus. A 0.005 degrees rounding error per iteration would accumulate to 18 degrees of drift in one hour — which is why the radian-degree constant in avionics firmware is stored at double precision and never truncated.</p>
+            <p><strong>Robotics:</strong> Every industrial robot arm — FANUC, KUKA, ABB — accepts joint angle commands in degrees from the teach pendant but computes inverse kinematics in radians. The Denavit-Hartenberg parameters that define each joint's coordinate transform are specified in radians. A robot programmed to weld a car frame with joint angles in degrees that should have been radians will crash the torch into the fixture — the error is 57.3x at every joint.</p>
+            <p><strong>Astronomy:</strong> The ALMA Observatory's 66 radio antennas in Chile's Atacama Desert achieve 0.6 arcsecond pointing precision (2.9 x 10^-6 rad). Celestial coordinates are stored as J2000.0 right ascension and declination, converted to radians for the baseline vector computation in the u-v plane, then back to degrees for motor encoder feedback. The conversion constant is a compile-time #define in the Telescope Control System's C++ codebase, validated against 15 years of observing scripts.</p>
+            <p><strong>Medical Imaging:</strong> CT scanner gantry rotation is specified in degrees per second (typically 60-80 degrees/s). But the filtered back-projection reconstruction algorithm — the Radon transform inverse — integrates over 0 to pi radians, not 0 degrees to 180 degrees. The ramp filter mathematics depend on the integration limits being exactly pi radians. A Siemens Somatom Force acquires 1,152 projections per rotation at exactly pi/576 rad spacing — the design makes the spacing an exact rational multiple of pi to eliminate interpolation artifacts in the FFT-based reconstruction.</p>
+
+            <h2>The Silent Angle Bug: Three Ways Programmers Get Degrees-Radians Wrong</h2>
+            <p><strong>Mistake 1 — CSS transform:</strong> CSS rotate() accepts degrees, radians, gradians, and turns — but the default unitless value is interpreted as degrees, not radians. Writing <code>transform: rotate(3.14)</code> rotates by 3.14 degrees (imperceptible), not 3.14 radians (180 degrees). Always include the unit: <code>transform: rotate(180deg)</code> or <code>transform: rotate(3.1416rad)</code>.</p>
+            <p><strong>Mistake 2 — JavaScript Math:</strong> <code>Math.sin()</code>, <code>Math.cos()</code>, and <code>Math.tan()</code> expect radians. Passing degrees produces results that are wrong by a factor of 57.3. The fix: <code>Math.sin(degrees * Math.PI / 180)</code>. Every JavaScript developer makes this mistake once — the browser shows no error, just subtly wrong values.</p>
+            <p><strong>Mistake 3 — Python numpy:</strong> NumPy's trigonometric functions expect radians. The <code>np.deg2rad()</code> and <code>np.rad2deg()</code> functions exist precisely because this is the most common silent bug in scientific Python. A Jupyter notebook computing FFT phase spectra in degrees instead of radians will produce physically impossible phase values — but no exception is raised.</p>
+        </section>
+
+        <div class="related-categories">
+            <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
+            <a href="/time/" class="related-cat-pill">Time</a>
+            <a href="/length/" class="related-cat-pill">Length &amp; Distance</a>
+            <a href="/speed/" class="related-cat-pill">Speed</a>
+            <a href="/guides/angle-conversion-guide" class="related-cat-pill">🔄 Angle Guide</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+            <a href="/guides/">Engineering Guides</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>

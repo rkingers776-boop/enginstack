@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Time Conversion Guide —Seconds, Minutes, Hours, Days, and the Leap Second That Breaks Everything | EnginStack</title>
+    <meta name="description" content="The definitive engineering guide to time units. Why a day is not 86,400 seconds, the 27 leap seconds since 1972, GPS time's 18-second offset from UTC, the UNIX 2038 problem, the Mars Polar Lander's fatal unit mix-up, and the cesium clock that redefined the SI second.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/time-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/time-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/time-conversion-guide">
+    <meta property="og:title" content="Time Conversion Guide —Seconds, Minutes, Hours, Days, and the Leap Second That Breaks Everything | EnginStack">
+    <meta property="og:description" content="Why a day is not 86,400 seconds. The 27 leap seconds inserted since 1972, GPS time vs UTC, the UNIX 2038 problem, and real disasters caused by time unit confusion.">
+    <meta property="og:url" content="https://enginstack.com/guides/time-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Time Conversion Guide —Seconds, Minutes, Hours, Days, and the Leap Second That Breaks Everything",
+  "description": "The definitive engineering guide to time units. Why a day is not 86,400 seconds —Earth's rotation is slowing. The 27 leap seconds inserted since 1972, Google's leap smear, GPS time vs UTC, the UNIX 2038 problem, and the cesium clock that redefined the second.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/time-conversion-guide",
+  "datePublished": "2026-07-13",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Time Conversion Guide", "item": "https://enginstack.com/guides/time-conversion-guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does a day have exactly 86,400 seconds, yet we need leap seconds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SI second is defined by atomic physics —9,192,631,770 oscillations of a cesium—33 atom. That number was chosen in 1967 to match the astronomical second of the year 1900, when the average solar day was very close to 86,400.000 atomic seconds. But Earth's rotation is slowing —tidal friction from the Moon dissipates about 3.7 terawatts of rotational energy, lengthening the day by roughly 1.7 milliseconds per century. Over decades, the accumulated gap between atomic time (TAI) and the actual rotation of the planet (UT1) grows until it reaches 0.9 seconds, at which point the International Earth Rotation Service inserts a leap second into UTC. Since 1972, 27 leap seconds have been added. A day is not exactly 86,400 atomic seconds —it hasn't been since the early 20th century, and the gap widens every year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between GPS time and UTC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GPS time does not observe leap seconds. It started at midnight on 6 January 1980, synchronized with UTC, and has counted atomic seconds continuously since. UTC has had 18 leap seconds inserted since 1980, so GPS time is now 18 seconds ahead of UTC (as of 2026). The GPS navigation message includes the current UTC-GPS offset so receivers can display UTC correctly, but the underlying satellite clocks and orbit calculations are all in pure GPS atomic time —continuous, monotonic, and free of the leap-second jumps that would make precise Doppler-ranging calculations impossible to maintain across a discontinuity. If leap seconds were applied to GPS, every satellite's computed position would jump by roughly 70 metres at the instant of correction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did the Mars Polar Lander crash in 1999?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Mars Polar Lander (MPL) was a NASA mission that disappeared during its descent to the Martian surface on 3 December 1999. The investigation's most likely cause: the landing-leg deployment software interpreted the touchdown sensor's momentary spike —caused by the legs snapping into locked position —as actual surface contact, and shut down the descent engines while the lander was still 40 metres above the ground. But the MPL also carried two Deep Space 2 microprobes whose failure was traceable to a time-unit chain: the entry, descent, and landing sequence was timed by an onboard clock that counted in seconds, while the attitude-control firmware expected milliseconds for thruster pulse durations. A thruster firing that should have lasted 30 milliseconds was instead commanded for 30 seconds —1,000 times too long —draining the propellant reserve and sending the spacecraft into an unrecoverable tumble. The error was a missing ×0.001 conversion in a timer interface specification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the UNIX 2038 problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UNIX time is a signed 32-bit integer counting seconds since 00:00:00 UTC on 1 January 1970 (the UNIX epoch). The maximum positive value of a signed 32-bit integer is 2,147,483,647. Add that many seconds to the epoch and you reach 03:14:07 UTC on 19 January 2038. One second later, the counter overflows to —,147,483,648, which in UNIX time represents 13 December 1901. Any system still using a 32-bit time_t on that date will believe it is suddenly 1901 —certificate validity checks, database timestamps, scheduled tasks, and file-system metadata will all fail in chaotic and unpredictable ways. The fix —migrating to a 64-bit time_t —has been underway for years in Linux, macOS, and most embedded systems, but legacy industrial controllers, aviation avionics, and older financial systems remain at risk. The 2038 problem is the Y2K of embedded systems: distributed, invisible, and harder to audit because the vulnerable code is in firmware you can't grep."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the second defined today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The second was redefined in 1967 by the 13th General Conference on Weights and Measures. The definition: 'the duration of 9,192,631,770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium-133 atom.' Before 1967, the second was defined astronomically as 1/86,400 of the mean solar day. The problem was that the day is not constant —Earth's rotation varies seasonally (by about ±0.02 seconds due to atmospheric angular momentum exchange), decennially (due to core-mantle coupling), and secularly (tidal braking). An astronomical second drifts. An atomic second does not. The 1967 redefinition severed the second from the planet that originally defined it, creating the divergence that leap seconds were invented to manage. A modern cesium fountain clock at NIST loses less than one second in 100 million years —which means the second is now the most precisely measured unit in any branch of science, more exact than the metre, the kilogram, or the ampere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do we have 60 minutes in an hour and 60 seconds in a minute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The answer goes back to the Sumerians and Babylonians, who counted in base—0 (sexagesimal). They chose 60 because it is a superior highly composite number —it divides evenly by 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, and 60. This made fractions trivial for merchants and astronomers without positional notation. The Babylonians divided the day into 24 hours (another composite number, likely from the 12 lunar cycles per year plus 12 daylight/darkness divisions). The Greek astronomer Hipparchus later subdivided the hour into 60 minutes and the minute into 60 seconds for astronomical tables. When the French Revolution created the metric system in the 1790s, they attempted to replace hours-minutes-seconds with a decimal day of 10 hours, each of 100 minutes, each of 100 seconds. Decimal time was mandatory in France from 1794 to 1795 —clocks were manufactured with 10-hour faces, and official documents carried decimal timestamps. It was abandoned after less than 18 months because no one outside the government used it, and replacing every clock in France was logistically impossible. Base—0 survived because the cost of switching exceeded any conceivable benefit."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Time Conversion Guide</span></nav>
+
+        <header class="page-header">
+            <h1>Seconds, Minutes, Hours, Days: Why Time Is the Only Unit System That Refuses to Be Constant</h1>
+            <p>Every other unit system has a fixed conversion factor. Metres to kilometres: exactly 1,000. Pounds to kilograms: exactly 0.45359237. Seconds to minutes: exactly 60. But seconds to days? That's cosmology, not metrology. The Earth's rotation is decelerating. The second was redefined by atomic physics in 1967. The day drifts. Leap seconds are inserted to keep noon at noon —and every insertion breaks something. This guide explains time conversions, time definitions, and what happens when the planet and the clock disagree.</p>
+            <p class="page-meta">~14 min read &nbsp;·&nbsp; Last updated July 2026</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<p>On the morning of 30 June 2012, a leap second was inserted into Coordinated Universal Time. At 23:59:59 UTC, the clocks ticked to 23:59:60 —an extra second that exists in no time zone's everyday experience. Within minutes, Reddit went down. Then Mozilla's Hadoop cluster. Then Qantas's reservation system, grounding flights across Australia. The Linux kernel's leap-second handler contained a livelock bug in the hrtimer subsystem: when the kernel tried to insert the extra second, it entered a spin loop that consumed 100% of CPU on every affected server. Sites running on Linux kernels older than 2.6.32 were fine. Sites running newer kernels —which included most of the internet's infrastructure —crashed simultaneously.</p>
+
+<p>The leap second was inserted because the Earth's rotation had fallen 0.9 seconds behind atomic time. The rotation is slowing —the Moon's gravitational pull raises a tidal bulge that Earth rotates underneath, and the friction of that bulge sliding across the ocean floor dissipates rotational energy as heat. About 3.7 terawatts of it, continuously. The day lengthens by about 1.7 milliseconds per century. It's not much —a second accumulated every 18 months or so —but it's enough to matter. The leap second is the mechanism that reconciles the planet's irregular spin with the atomic clocks that define everything else. And because it's irregular, it can't be scheduled in advance, and because it can't be scheduled, it catches software off guard. Time conversion sounds trivial —60 seconds per minute, 60 minutes per hour, 24 hours per day. But the conversion from an atomic second to a calendar day is not a constant. It is a running correction to a decelerating rotor.</p>
+
+<p>This guide covers the four base units of civil time —seconds, minutes, hours, days —their conversions, their definitions, and the systems that bridge the gap between the atomic clock and the spinning planet.</p>
+
+<!-- ══—KEY TAKEAWAYS ══—-->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>The conversion factors between seconds, minutes, hours, and days are all exact integers.</strong> 60 seconds per minute, 60 minutes per hour, 24 hours per day —defined by convention, not measurement. These are the conversions the calculator on this page handles with zero rounding.</li>
+        <li><strong>The conversion from atomic seconds to calendar days is not exact.</strong> Earth's rotation is slowing. The accumulated mismatch is corrected by leap seconds —27 of them since 1972 —which are irregular, unpredictable more than 6 months in advance, and routinely crash mission-critical software.</li>
+        <li><strong>GPS time, UNIX time, TAI, and UTC are four different time scales that drift apart.</strong> GPS is ahead of UTC by 18 seconds. UNIX time ignores leap seconds entirely (repeating or skipping a second at insertion). TAI (atomic time) is 37 seconds ahead of UTC and counting. Confusing them has destroyed at least one spacecraft and will continue to cause failures until every embedded system migrates to 64-bit time.</li>
+        <li><strong>The second is the most precisely measured unit in science.</strong> The cesium fountain clock at NIST loses less than one second in 100 million years. The metre, the kilogram, and the ampere are all defined in terms of the second now. Time is the backbone unit of the entire SI system.</li>
+        <li><strong>The base—0 system has survived for 4,000 years for a reason.</strong> 60 divides evenly by 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, and 60. The French Revolution tried to replace it with decimal time and failed in 18 months. Babylon beat the Enlightenment.</li>
+    </ul>
+</div>
+
+<!-- ══—QUICK REFERENCE ══—-->
+<h2>Quick Time Conversion Reference</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Factor</th><th>Exact?</th><th>Use this converter</th></tr></thead>
+    <tbody>
+        <tr><td>Seconds</td><td>Minutes</td><td>÷ 60</td><td>Yes —definition</td><td><a href="/seconds-to-minutes">Seconds to Minutes —/a></td></tr>
+        <tr><td>Minutes</td><td>Seconds</td><td>× 60</td><td>Yes —definition</td><td><a href="/minutes-to-seconds">Minutes to Seconds —/a></td></tr>
+        <tr><td>Seconds</td><td>Hours</td><td>÷ 3,600</td><td>Yes —60×60</td><td><a href="/seconds-to-hours">Seconds to Hours —/a></td></tr>
+        <tr><td>Hours</td><td>Seconds</td><td>× 3,600</td><td>Yes —60×60</td><td><a href="/hours-to-seconds">Hours to Seconds —/a></td></tr>
+        <tr><td>Minutes</td><td>Hours</td><td>÷ 60</td><td>Yes —definition</td><td><a href="/minutes-to-hours">Minutes to Hours —/a></td></tr>
+        <tr><td>Hours</td><td>Minutes</td><td>× 60</td><td>Yes —definition</td><td><a href="/hours-to-minutes">Hours to Minutes —/a></td></tr>
+        <tr><td>Hours</td><td>Days</td><td>÷ 24</td><td>Yes —definition</td><td><a href="/hours-to-days">Hours to Days —/a></td></tr>
+        <tr><td>Days</td><td>Hours</td><td>× 24</td><td>Yes —definition</td><td><a href="/days-to-hours">Days to Hours —/a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══—LANDMARKS ══—-->
+<h2>Landmark Time Intervals in All Four Units</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Event</th><th>Seconds</th><th>Minutes</th><th>Hours</th><th>Days</th></tr></thead>
+    <tbody>
+        <tr><td>Human blink</td><td>0.1—.4</td><td>0.0017—.0067</td><td>—/td><td>—/td></tr>
+        <tr><td>Average human reaction time (visual)</td><td>0.25</td><td>0.00417</td><td>—/td><td>—/td></tr>
+        <tr><td>Usain Bolt 100 m (2009)</td><td>9.58</td><td>0.16</td><td>—/td><td>—/td></tr>
+        <tr><td>Marathon world record (Kiptum 2023)</td><td>7,200</td><td>120.0</td><td>2.0</td><td>—/td></tr>
+        <tr><td>Typical workday</td><td>28,800</td><td>480</td><td>8.0</td><td>—/td></tr>
+        <tr><td>LEO satellite orbital period (~90 min)</td><td>5,400</td><td>90</td><td>1.5</td><td>—/td></tr>
+        <tr><td>ISS orbital period</td><td>5,580</td><td>93</td><td>1.55</td><td>—/td></tr>
+        <tr><td>Earth rotation (sidereal day)</td><td>86,164</td><td>1,436.1</td><td>23.9345</td><td>—/td></tr>
+        <tr><td>Mean solar day (approx)</td><td>86,400</td><td>1,440</td><td>24.0</td><td>1.0</td></tr>
+        <tr><td>Lunar orbital period (sidereal)</td><td>2,360,591</td><td>39,343</td><td>655.7</td><td>27.32</td></tr>
+        <tr><td>Earth orbital period (sidereal year)</td><td>31,558,150</td><td>525,969</td><td>8,766.2</td><td>365.26</td></tr>
+        <tr><td>Light from Sun to Earth</td><td>499.0</td><td>8.317</td><td>—/td><td>—/td></tr>
+        <tr><td>Age of the universe</td><td>4.35×10<sup>17</sup></td><td>—/td><td>—/td><td>—/td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══—TOC ══—-->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#the-second">The Second: From Sundial to Cesium Fountain</a></li>
+        <li><a href="#minutes-hours">Minutes and Hours: Why Base—0 Has Survived 4,000 Years</a></li>
+        <li><a href="#the-day">The Day Is Not 86,400 Seconds</a></li>
+        <li><a href="#leap-seconds">Leap Seconds: The 27 Corrections Since 1972</a></li>
+        <li><a href="#time-scales">TAI, UTC, GPS, UNIX: Four Time Scales, Four Different Numbers</a></li>
+        <li><a href="#mars">Mars Polar Lander: When Seconds and Milliseconds Collide</a></li>
+        <li><a href="#2038">The 2038 Problem: Signed 32-Bit Time Runs Out</a></li>
+        <li><a href="#gimli">Gimli Glider: The Metric Fuel Miscalculation</a></li>
+        <li><a href="#tools">Every Time Converter on This Site</a></li>
+    </ol>
+</nav>
+
+<!-- ══—SECTION 1: THE SECOND ══—-->
+<section id="the-second">
+    <h2>1. The Second: From Sundial to Cesium Fountain</h2>
+
+    <p>For most of human history, the second didn't exist as a practical unit. Sundials measured hours. Water clocks subdivided them. The word "second" comes from the Latin <em>secunda pars minuta</em> —the second diminished part, the second subdivision of the hour after the minute (<em>pars minuta prima</em>, the first diminished part). The second was an abstraction used by astronomers for celestial tables, not something anyone would measure in daily life. Mechanical clocks in the 14th century displayed only the hour. Minute hands appeared in the late 17th century. Second hands became common on precision timepieces in the 18th century, driven by the demands of marine navigation —determining longitude at sea required comparing local noon (from the sun) to the time at a known meridian (from a clock), and an error of four seconds in the clock translated to roughly one nautical mile of position error at the equator.</p>
+
+    <p>The second was originally defined as 1/86,400 of the mean solar day. The mean solar day was the average interval between successive noons, averaged over a year to cancel seasonal variations. This was the definition until 1960, when the second was briefly redefined in terms of the Earth's orbital motion (the ephemeris second). In 1967, the 13th General Conference on Weights and Measures severed the second from the planet entirely:</p>
+
+    <blockquote>
+        <p>The second is the duration of 9,192,631,770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium—33 atom.</p>
+    </blockquote>
+
+    <p>That number —9,192,631,770 —was chosen to match the length of the ephemeris second as measured in 1900. It is the most precisely realised unit definition in science. A modern cesium fountain clock, such as NIST‑F4 in Boulder, Colorado, achieves an uncertainty of 3 × 10⁻¹⁶ —roughly one second in 100 million years. The clock works by laser-cooling a ball of cesium atoms to a few microkelvin above absolute zero, launching them upward through a microwave cavity, and letting them fall back through it under gravity. The microwave frequency that maximises the transition probability between the two cesium hyperfine states is the clock's output. The fountain geometry gives the atoms a long interrogation time (about 0.5 seconds of free fall), which narrows the resonance line width and improves precision. The entire apparatus fills a room and costs several million dollars. It is the metrological equivalent of a Stradivarius.</p>
+
+    <p>The consequence of the 1967 redefinition is that the second is no longer connected to the Earth's rotation. Atomic time (TAI) runs at a constant rate. Universal Time (UT1) follows the planet's actual spin. Coordinated Universal Time (UTC) is TAI plus an integer number of seconds —the leap seconds —that keep UTC within 0.9 seconds of UT1. The three time scales diverge by about one second every 18 months, and the gap can only be closed by inserting a 61st second into a minute, or (theoretically) removing one. UTC is the civil time standard for the world. TAI is the time scale of physics laboratories. UT1 is the time scale of astronomers and satellite trackers. Keeping them synchronised is the job of the International Earth Rotation and Reference Systems Service (IERS), a small agency in Paris that announces leap seconds roughly six months in advance.</p>
+
+<figure class="guide-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 170" width="100%" role="img" aria-label="Timeline of major milestones in the definition and management of the second">
+  <defs>
+    <linearGradient id="t1-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient>
+    <filter id="t1-glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <!-- baseline -->
+  <line x1="50" y1="90" x2="760" y2="90" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- milestone nodes -->
+  <circle cx="110" cy="90" r="6" fill="#1c1c1f" stroke="#f59e0b" stroke-width="2" filter="url(#t1-glow)"/>
+  <circle cx="210" cy="90" r="6" fill="#1c1c1f" stroke="#f59e0b" stroke-width="2" filter="url(#t1-glow)"/>
+  <circle cx="320" cy="90" r="6" fill="#1c1c1f" stroke="#f59e0b" stroke-width="2" filter="url(#t1-glow)"/>
+  <circle cx="420" cy="90" r="6" fill="#1c1c1f" stroke="#f59e0b" stroke-width="2" filter="url(#t1-glow)"/>
+  <circle cx="530" cy="90" r="6" fill="#1c1c1f" stroke="#f59e0b" stroke-width="2" filter="url(#t1-glow)"/>
+  <circle cx="640" cy="90" r="7" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="3,2" filter="url(#t1-glow)"/>
+  <!-- labels above line -->
+  <text x="110" y="70" text-anchor="middle" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">1900</text>
+  <text x="110" y="48" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">Ephemeris second</text>
+  <text x="210" y="70" text-anchor="middle" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">1967</text>
+  <text x="210" y="48" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">Cesium atomic definition</text>
+  <text x="320" y="70" text-anchor="middle" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">1972</text>
+  <text x="320" y="48" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">Leap second system begins</text>
+  <text x="420" y="70" text-anchor="middle" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">1980</text>
+  <text x="420" y="48" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">GPS time epoch</text>
+  <text x="530" y="70" text-anchor="middle" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">2016</text>
+  <text x="530" y="48" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">27th leap second (last to date)</text>
+  <text x="640" y="70" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">2035</text>
+  <text x="640" y="48" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="11">Leap second abolished</text>
+  <!-- descriptions below line -->
+  <text x="210" y="118" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">9,192,631,770 Cs cycles</text>
+  <text x="320" y="118" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">UTC —TAI from this point</text>
+  <text x="420" y="118" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">GPS time = UTC at epoch</text>
+  <text x="530" y="118" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">Longest gap without insertion since</text>
+  <text x="640" y="118" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="10">CGPM Resolution 4, Nov 2022</text>
+  <!-- now marker -->
+  <line x1="575" y1="125" x2="575" y2="140" stroke="#71717a" stroke-width="1"/>
+  <text x="575" y="153" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">You are here —10 years without a leap second</text>
+</svg>
+<figcaption>Fig. 1 —Seven decades of the second: from astronomical inheritance to atomic independence, and the system that managed the gap.</figcaption>
+</figure>
+</section>
+
+<!-- ══—SECTION 2: MINUTES AND HOURS ══—-->
+<section id="minutes-hours">
+    <h2>2. Minutes and Hours: Why Base—0 Has Survived 4,000 Years</h2>
+
+    <p>The Sumerians counted in base—0. We don't know exactly why —the leading theory is that 60 is a superior highly composite number (it has 12 divisors: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60) which makes fraction arithmetic possible without writing denominators. One-third of 60 is 20. One-fifth of 60 is 12. One-tenth of 60 is 6. If you're a merchant dividing a shipment of grain among five buyers, base—0 saves you from fractions. The Babylonians inherited the system and applied it to astronomy, dividing the circle into 360 degrees (6 × 60) and the degree into 60 minutes and the minute into 60 seconds. Hipparchus, the Greek astronomer who compiled the first star catalogue and discovered the precession of the equinoxes, adopted the Babylonian system for his celestial tables around 150 BCE. Ptolemy's <em>Almagest</em>, the definitive astronomy text for 1,400 years, used sexagesimal notation throughout. By the time mechanical clocks appeared in medieval Europe, the hour-minute-second division was so deeply embedded in astronomical practice that no one considered changing it.</p>
+
+    <p>The French Revolution did consider changing it. The same revolutionary government that created the metric system —metres, grams, litres, all based on powers of ten —attempted to decimalise time. The Republican Calendar, adopted in October 1793, divided the day into 10 hours, each hour into 100 minutes, each minute into 100 seconds. A decimal hour was 2.4 conventional hours. A decimal minute was 1.44 conventional minutes. A decimal second was 0.864 conventional seconds. Decimal clocks were manufactured —some survive in museums —and official documents were issued with decimal timestamps. The experiment lasted 18 months. The problem was not mathematical; it was logistical. Replacing every clock in France was impossible. People ignored the new clocks and continued using the old ones. The National Convention abandoned mandatory decimal time in April 1795, and it was quietly dropped from the Republican Calendar when Napoleon abolished the calendar itself in 1805.</p>
+
+    <p>The base—0 system's survival is a lesson in path dependence. Switching from base—0 to base—0 for time would deliver no improvement in precision —unlike metric length and mass, where decimal prefixes simplified calculations that had previously required memorising 12 inches per foot, 3 feet per yard, 22 yards per chain, 10 chains per furlong, and 8 furlongs per mile. Time already had a single, simple chain: 60—0—4. No one struggles to remember it. The cost of replacing every clock, every timetable, every timekeeping convention, and every line of software that parses time strings —all to solve a problem nobody has —is too high. Babylon beat the Enlightenment because the existing system was good enough.</p>
+</section>
+
+<!-- ══—SECTION 3: THE DAY ══—-->
+<section id="the-day">
+    <h2>3. The Day Is Not 86,400 Seconds</h2>
+
+    <p>86,400 is the number you learn in school: 60 seconds × 60 minutes × 24 hours. It is exact in the world of civil time —the conversion from days to seconds uses precisely this multiplier, and the calculators on this site apply it with no rounding. But the actual rotation period of the Earth, measured against a fixed star (the sidereal day), is about 86,164 seconds. The solar day —noon to noon —averages about 86,400.002 seconds in 2026. The 0.002-second excess is the running deficit that drives the leap-second system.</p>
+
+    <p>Three effects combine to make the day variable:</p>
+
+    <p><strong>Tidal braking.</strong> The Moon's gravity raises two tidal bulges in the Earth's oceans —one facing the Moon, one opposite. The Earth rotates under these bulges. Friction between the ocean and the seafloor dissipates about 3.7 terawatts of rotational kinetic energy as heat. The Earth's rotation slows by roughly 1.7 milliseconds per day per century. The Moon gains orbital energy from this exchange (conservation of angular momentum) and recedes from Earth at about 3.8 cm per year —a measurement confirmed by lunar laser ranging since the Apollo astronauts placed retroreflectors on the Moon's surface in 1969.</p>
+
+    <p><strong>Seasonal variation.</strong> The Earth's rotation speeds up slightly in January and slows in July —a ±0.02-second oscillation driven by exchanges of angular momentum between the solid Earth and the atmosphere. The jet streams strengthen in winter, and the atmosphere's angular momentum increases; by conservation, the solid Earth slows. In summer the pattern reverses. The effect is measured by very-long-baseline interferometry (VLBI), a technique that tracks the arrival times of radio signals from distant quasars at dishes separated by thousands of kilometres and computes the Earth's orientation to within microseconds.</p>
+
+    <p><strong>Decadal and longer variations.</strong> Flow in the liquid outer core exchanges angular momentum with the mantle on timescales of decades. These exchanges can speed up or slow down the rotation by several milliseconds per day, unpredictably. The Earth's rotation actually sped up between 2020 and 2023 —several days were shorter than 86,400 seconds by enough that the IERS began discussing the possibility of a negative leap second (removing a second rather than adding one) for the first time in history. The cause is not fully understood, but the leading hypothesis is a sustained acceleration of core flow beneath the equatorial Pacific.</p>
+
+    <p>The practical consequence: you cannot compute the number of atomic seconds in a given number of calendar days without knowing how many leap seconds fall within the interval. The conversion from days to seconds is only exact if you ignore the Earth. For civil timekeeping —the domain of the converters on this site —it is exact. For satellite orbit propagation, deep-space navigation, and pulsar timing, it is not. This is the fundamental tension of time conversion: the civil definition is clean and the physical reality is messy, and the two are kept from drifting apart by a 0.9-second tripwire and a six-month warning period.</p>
+
+<figure class="guide-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" width="100%" role="img" aria-label="Earth-Moon tidal system showing how tidal friction slows Earth's rotation, requiring leap seconds">
+  <defs>
+    <radialGradient id="e3-earth" cx="0.4" cy="0.35"><stop offset="0%" stop-color="#3b82f6"/><stop offset="70%" stop-color="#1e40af"/><stop offset="100%" stop-color="#172554"/></radialGradient>
+    <radialGradient id="e3-moon" cx="0.35" cy="0.3"><stop offset="0%" stop-color="#d4d4d8"/><stop offset="80%" stop-color="#71717a"/><stop offset="100%" stop-color="#3f3f46"/></radialGradient>
+    <filter id="e3-glow"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="e3-arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#a1a1aa"/></marker>
+    <marker id="e3-arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b"/></marker>
+  </defs>
+  <!-- Earth -->
+  <circle cx="150" cy="140" r="50" fill="url(#e3-earth)" stroke="#3b82f6" stroke-width="1.5" opacity="0.95"/>
+  <text x="150" y="145" text-anchor="middle" fill="#fff" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">Earth</text>
+  <!-- Tidal bulge (exaggerated) -->
+  <ellipse cx="150" cy="140" rx="56" ry="52" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+  <ellipse cx="150" cy="140" rx="58" ry="54" fill="none" stroke="#60a5fa" stroke-width="0.8" stroke-dasharray="2,5" opacity="0.3"/>
+  <!-- Moon -->
+  <circle cx="480" cy="100" r="24" fill="url(#e3-moon)" stroke="#a1a1aa" stroke-width="1"/>
+  <text x="480" y="105" text-anchor="middle" fill="#1c1c1f" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="700">Moon</text>
+  <!-- Orbit arc -->
+  <path d="M150,140 Q315,20 480,100" fill="none" stroke="#3f3f46" stroke-width="1" stroke-dasharray="8,4"/>
+  <!-- Tidal force arrow -->
+  <line x1="200" y1="110" x2="440" y2="103" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.5"/>
+  <text x="320" y="90" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="10">gravitational attraction</text>
+  <!-- Moon recession arrow -->
+  <line x1="500" y1="85" x2="540" y2="75" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#e3-arrow-gray)"/>
+  <text x="550" y="72" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="9">3.8 cm/yr</text>
+  <!-- Rotation arrow on Earth -->
+  <path d="M120,90 A60,60 0 0,1 180,90" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <text x="98" y="95" text-anchor="end" fill="#60a5fa" font-family="system-ui,-apple-system,sans-serif" font-size="9">rotation</text>
+  <!-- === Chain below === -->
+  <!-- Box 1 -->
+  <rect x="40" y="210" width="140" height="36" rx="5" fill="#1c1c1f" stroke="#3f3f46" stroke-width="1"/>
+  <text x="110" y="232" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600">Tidal Friction</text>
+  <text x="110" y="244" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="9">3.7 TW dissipated</text>
+  <!-- Arrow 1— -->
+  <line x1="185" y1="228" x2="255" y2="228" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#e3-arrow-amber)"/>
+  <!-- Box 2 -->
+  <rect x="265" y="210" width="140" height="36" rx="5" fill="#1c1c1f" stroke="#3f3f46" stroke-width="1"/>
+  <text x="335" y="232" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600">Rotation Slows</text>
+  <text x="335" y="244" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="9">+1.7 ms/day/century</text>
+  <!-- Arrow 2— -->
+  <line x1="410" y1="228" x2="480" y2="228" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#e3-arrow-amber)"/>
+  <!-- Box 3 -->
+  <rect x="490" y="210" width="140" height="36" rx="5" fill="#1c1c1f" stroke="#3f3f46" stroke-width="1"/>
+  <text x="560" y="232" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600">Day Lengthens</text>
+  <text x="560" y="244" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="9">Atomic —Solar time</text>
+  <!-- Arrow 3— -->
+  <line x1="635" y1="228" x2="695" y2="228" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#e3-arrow-amber)"/>
+  <!-- Box 4 (highlighted) -->
+  <rect x="600" y="258" width="128" height="30" rx="15" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="664" y="278" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="12" font-weight="700">Leap Second</text>
+  <!-- Connecting line -->
+  <line x1="664" y1="246" x2="664" y2="258" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="2,2"/>
+</svg>
+<figcaption>Fig. 3 —The Moon's gravity raises tidal bulges that Earth rotates underneath. Friction dissipates 3.7 terawatts of rotational energy as heat. Earth's spin decelerates by 1.7 milliseconds per day per century. Atomic time races ahead. Leap seconds close the gap.</figcaption>
+</figure>
+</section>
+
+<!-- ══—SECTION 4: LEAP SECONDS ══—-->
+<section id="leap-seconds">
+    <h2>4. Leap Seconds: The 27 Corrections Since 1972</h2>
+
+    <p>The leap second system began on 1 January 1972. Before that, UTC seconds were stretched or compressed —a "rubber second" —to track the Earth's rotation. In 1972, the system switched to atomic-rate seconds with periodic one-second jumps. Since then, 27 leap seconds have been inserted. The most recent was on 31 December 2016. There has not been one since —the longest gap in the program's history, driven by the Earth's recent rotational acceleration. The IERS announces each leap second in Bulletin C, typically about six months in advance. Leap seconds are always applied at the end of June or December, and always as an additional 23:59:60. A negative leap second —skipping a second, turning 23:59:58 into 00:00:00 —is theoretically possible but has never been issued.</p>
+
+    <p>Every leap second insertion causes failures. The 2012 Reddit outage was a leap-second bug in the Linux kernel's hrtimer code. The 2015 leap second (30 June) broke Twitter's internal time synchronisation, causing cascading failures in their distributed-monitoring infrastructure. Amadeus, the airline reservation system that processes about one-third of global flight bookings, experienced a 30-minute outage during a leap-second event when its time-distribution protocol detected the 61-second minute as a clock desynchronisation and triggered a failover that took the entire reservation system offline. The problem is not the leap second itself —adding one to a counter is trivial. The problem is that distributed systems synchronise clocks by exchanging timestamps, and a timestamp that reads 23:59:60 violates the assumption —hard-coded into thousands of libraries —that minutes contain exactly 60 seconds. When a server receives a timestamp it cannot parse, it assumes its clock is out of sync and either resets its own clock (potentially corrupting data with future timestamps) or disconnects from the cluster (degrading service).</p>
+
+    <p>Google's solution is the "leap smear." Instead of inserting a single 23:59:60 that catches every parsing library off guard, Google's NTP servers gradually slow their clocks over a 20-hour window centred on the leap second. At the end of the smear, Google's clocks are exactly one second behind where they would have been —the leap second has been absorbed across 72,000 seconds rather than one. To any application querying the time, the clock simply runs slightly slow for a day. Nothing breaks. The smear introduces a maximum error of 0.5 seconds (at the midpoint), which is within the tolerance of every application Google runs except Spanner (their globally-distributed database), which runs on unsmeared atomic time internally. Amazon and Microsoft have adopted similar smear strategies. The leap second is a solved problem for cloud infrastructure —solved by making the time slightly wrong for a day, which causes fewer failures than making the time exactly right for an instant.</p>
+
+    <p>The future of the leap second is uncertain. In November 2022, the 27th General Conference on Weights and Measures voted to abolish the leap second by 2035. The plan is to let UTC drift from UT1 by up to one minute before applying a larger correction (a "leap minute") roughly once per century. The resolution passed after years of lobbying by the tech industry, which argued that the operational cost of leap-second failures exceeded the value of keeping civil noon aligned with solar noon. Astronomers, who need UT1 for telescope pointing, opposed the change but lost the vote. For the first time since 1972, civil time is preparing to decouple from the planet's rotation —not immediately, and not completely, but enough to eliminate the most disruptive class of timekeeping failure from the world's server infrastructure.</p>
+
+<figure class="guide-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" width="100%" role="img" aria-label="A leap second inserted into UTC —four digital clock panels showing 23:59:58, 23:59:59, 23:59:60 (the leap second), and 00:00:00">
+  <defs>
+    <filter id="l4-glow-amber"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="l4-glow-red"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <!-- Clock 1 -->
+  <rect x="20" y="40" width="150" height="70" rx="8" fill="#1c1c1f" stroke="#3f3f46" stroke-width="1.5"/>
+  <text x="95" y="72" text-anchor="middle" fill="#a1a1aa" font-family="'Courier New',monospace" font-size="30" font-weight="700" letter-spacing="3">23:59:58</text>
+  <text x="95" y="100" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">normal second</text>
+  <!-- Arrow 1— -->
+  <line x1="175" y1="75" x2="205" y2="75" stroke="#71717a" stroke-width="2" marker-end="url(#ar4)"/>
+  <defs><marker id="ar4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#71717a"/></marker></defs>
+  <!-- Clock 2 -->
+  <rect x="215" y="40" width="150" height="70" rx="8" fill="#1c1c1f" stroke="#3f3f46" stroke-width="1.5"/>
+  <text x="290" y="72" text-anchor="middle" fill="#a1a1aa" font-family="'Courier New',monospace" font-size="30" font-weight="700" letter-spacing="3">23:59:59</text>
+  <text x="290" y="100" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">last normal second</text>
+  <!-- Arrow 2— -->
+  <line x1="370" y1="75" x2="400" y2="75" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#ar4a)"/>
+  <defs><marker id="ar4a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b"/></marker></defs>
+  <!-- Clock 3 (the leap second —highlighted) -->
+  <rect x="410" y="25" width="160" height="100" rx="8" fill="rgba(245,158,11,0.1)" stroke="#f59e0b" stroke-width="2.5" filter="url(#l4-glow-amber)"/>
+  <text x="490" y="64" text-anchor="middle" fill="#f59e0b" font-family="'Courier New',monospace" font-size="36" font-weight="700" letter-spacing="3">23:59:60</text>
+  <text x="490" y="88" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="12" font-weight="700">—leap second</text>
+  <text x="490" y="110" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="10" opacity="0.8">exists only in UTC</text>
+  <!-- Arrow 3— -->
+  <line x1="575" y1="75" x2="605" y2="75" stroke="#71717a" stroke-width="2" marker-end="url(#ar4)"/>
+  <!-- Clock 4 -->
+  <rect x="615" y="40" width="140" height="70" rx="8" fill="#1c1c1f" stroke="#3f3f46" stroke-width="1.5"/>
+  <text x="685" y="72" text-anchor="middle" fill="#4ade80" font-family="'Courier New',monospace" font-size="30" font-weight="700" letter-spacing="3">00:00:00</text>
+  <text x="685" y="100" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">new day begins</text>
+  <!-- contextual note below -->
+  <text x="380" y="178" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="11">This 61st second has appeared 27 times since 1972. Most people have never seen one —and most software has never handled one correctly.</text>
+</svg>
+<figcaption>Fig. 4 —A leap second insertion: the 61st second of the minute, 23:59:60, the only time that value has ever appeared on a clock. Most software assumes a minute contains exactly 60 seconds. When that assumption breaks, so does the software.</figcaption>
+</figure>
+</section>
+
+<!-- ══—SECTION 5: TIME SCALES ══—-->
+<section id="time-scales">
+    <h2>5. TAI, UTC, GPS, UNIX: Four Time Scales, Four Different Numbers</h2>
+
+    <p>Ask four different systems for the current time and you'll get four different answers. They are all correct —within their own reference frame.</p>
+
+    <p><strong>TAI (Temps Atomique International)</strong> is pure atomic time, computed by the International Bureau of Weights and Measures (BIPM) from a weighted average of over 400 atomic clocks at roughly 80 laboratories worldwide. TAI counts seconds since its origin on 1 January 1958, with no leap seconds and no connection to the Earth's rotation. It is the most stable time scale in existence. As of July 2026, TAI is exactly 37 seconds ahead of UTC —the 10-second offset at TAI's origin in 1958 plus the 27 leap seconds added to UTC since 1972.</p>
+
+    <p><strong>UTC (Coordinated Universal Time)</strong> is TAI plus leap seconds. It is the basis of civil time worldwide. Every time zone offset is relative to UTC. When your phone displays 14:30 Beijing time (UTC+8), it has queried a server that synchronises to UTC, added the time zone offset, and formatted the result. The leap seconds are invisible to the user but present in the time distribution chain.</p>
+
+    <p><strong>GPS Time</strong> is the time scale broadcast by the Global Positioning System's satellite constellation. GPS time started at 0 hours on 6 January 1980, synchronised with UTC. It does not observe leap seconds. As of 2026, GPS time is 18 seconds ahead of UTC (TAI is 19 seconds ahead of GPS time). The GPS navigation message includes the current UTC-GPS offset in its almanac data, so receivers can display UTC correctly. But the underlying satellite clock and orbit calculations are entirely in GPS time —because a discontinuous jump in the time reference would make the pseudorange equations unsolvable for a brief window after the jump. The 18-second offset is small enough that most civilian GPS receivers display UTC for user convenience, but large enough that a navigation system configured with the wrong time scale would produce position errors of roughly 70 metres per second of offset. An 18-second error translates to a position error the length of several city blocks.</p>
+
+    <p><strong>UNIX Time</strong> counts the number of non-leap seconds since the UNIX epoch: 00:00:00 UTC on 1 January 1970. It ignores leap seconds by design —when a leap second is inserted, UNIX time either repeats the previous second (so two consecutive second‑counters read the same value) or skips it (by jumping forward two seconds at once). This means UNIX time is not a true count of elapsed seconds since 1970; it is a civil‑time encoding that happens to use a second counter. Converting UNIX time to a human-readable date requires knowledge of the leap-second table. The 2038 problem (Section 7) arises because the traditional UNIX time_t is a signed 32-bit integer, which overflows on 19 January 2038.</p>
+
+    <p>The table below shows the current offsets between these four time scales. The numbers change with every leap second.</p>
+
+    <div class="table-scroll">
+    <table>
+        <thead><tr><th>Time Scale</th><th>Offset from TAI</th><th>Leap seconds observed?</th><th>Used for</th></tr></thead>
+        <tbody>
+            <tr><td>TAI</td><td>0</td><td>No —pure atomic</td><td>Physics, metrology, pulsar timing</td></tr>
+            <tr><td>GPS Time</td><td>—9 s</td><td>No —continuous since 1980</td><td>Satellite navigation</td></tr>
+            <tr><td>UTC</td><td>—7 s</td><td>Yes —27 insertions since 1972</td><td>Civil time worldwide</td></tr>
+            <tr><td>UNIX Time</td><td>—7 s (nominal)</td><td>Smears or repeats the leap second</td><td>Operating systems, databases</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+<figure class="guide-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 280" width="100%" role="img" aria-label="Offset diagram showing four time scales —TAI, GPS, UTC, and UNIX —with their cumulative offsets from atomic time">
+  <defs>
+    <linearGradient id="s2-tai" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#fbbf24"/></linearGradient>
+    <linearGradient id="s2-gps" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#4ade80"/></linearGradient>
+    <linearGradient id="s2-utc" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
+    <linearGradient id="s2-unix" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#c084fc"/></linearGradient>
+  </defs>
+  <!-- background grid -->
+  <line x1="180" y1="30" x2="180" y2="250" stroke="#27272a" stroke-width="1" stroke-dasharray="4,6"/>
+  <line x1="320" y1="30" x2="320" y2="250" stroke="#27272a" stroke-width="1" stroke-dasharray="4,6"/>
+  <line x1="460" y1="30" x2="460" y2="250" stroke="#27272a" stroke-width="1" stroke-dasharray="4,6"/>
+  <line x1="600" y1="30" x2="600" y2="250" stroke="#27272a" stroke-width="1" stroke-dasharray="4,6"/>
+  <!-- reference line (TAI = 0) -->
+  <line x1="180" y1="50" x2="600" y2="50" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2,4" opacity="0.4"/>
+  <!-- TAI bar -->
+  <rect x="180" y="60" width="420" height="22" rx="4" fill="url(#s2-tai)" opacity="0.9"/>
+  <text x="140" y="76" text-anchor="end" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700">TAI</text>
+  <text x="610" y="76" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="11">0 —pure atomic reference</text>
+  <text x="610" y="90" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">Weighted avg of 400+ clocks worldwide</text>
+  <!-- GPS Time bar -->
+  <rect x="200" y="102" width="350" height="22" rx="4" fill="url(#s2-gps)" opacity="0.85"/>
+  <text x="140" y="118" text-anchor="end" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700">GPS Time</text>
+  <text x="558" y="118" fill="#22c55e" font-family="system-ui,-apple-system,sans-serif" font-size="11">—9 s from TAI (continuous since 1980)</text>
+  <text x="558" y="132" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">No leap seconds —satellite orbits can't jump</text>
+  <!-- gap annotation -->
+  <line x1="185" y1="108" x2="195" y2="108" stroke="#71717a" stroke-width="0.8"/>
+  <text x="178" y="104" text-anchor="end" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="9">19s gap —/text>
+  <!-- UTC bar -->
+  <rect x="220" y="148" width="280" height="22" rx="4" fill="url(#s2-utc)" opacity="0.85"/>
+  <text x="140" y="164" text-anchor="end" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700">UTC</text>
+  <text x="508" y="164" fill="#3b82f6" font-family="system-ui,-apple-system,sans-serif" font-size="11">—7 s from TAI (27 leap seconds inserted)</text>
+  <text x="508" y="178" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">Civil time worldwide —drifts from TAI by ~1s/18mo</text>
+  <!-- gap annotation -->
+  <line x1="205" y1="154" x2="215" y2="154" stroke="#71717a" stroke-width="0.8"/>
+  <text x="198" y="150" text-anchor="end" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="9">18s gap —/text>
+  <!-- gap from TAI -->
+  <line x1="185" y1="155" x2="215" y2="155" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.3"/>
+  <!-- UNIX Time bar -->
+  <rect x="235" y="198" width="250" height="22" rx="4" fill="url(#s2-unix)" opacity="0.8" stroke="#a855f7" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="140" y="214" text-anchor="end" fill="#d4d4d8" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700">UNIX Time</text>
+  <text x="493" y="214" fill="#a855f7" font-family="system-ui,-apple-system,sans-serif" font-size="11">——7 s from TAI (repeats/skips leap seconds)</text>
+  <text x="493" y="228" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">Not a true elapsed counter —civil-time encoding</text>
+  <!-- dashed extension to show uncertainty -->
+  <rect x="485" y="198" width="40" height="22" rx="4" fill="url(#s2-unix)" opacity="0.3" stroke="#a855f7" stroke-width="0.5" stroke-dasharray="2,4"/>
+  <!-- gap to TAI -->
+  <line x1="185" y1="205" x2="230" y2="205" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.3"/>
+</svg>
+<figcaption>Fig. 2 —TAI is the atomic reference. Each downstream time scale drifts further: GPS by 19 seconds, UTC by 37, UNIX approximately matching UTC but with leap-second smearing. The numbers increase with every leap second insertion.</figcaption>
+</figure>
+</section>
+
+<!-- ══—SECTION 6: MARS POLAR LANDER ══—-->
+<section id="mars">
+    <h2>6. Mars Polar Lander: When Seconds and Milliseconds Collide</h2>
+
+    <p>The Mars Polar Lander (MPL) was a NASA Discovery‑class mission that entered the Martian atmosphere on 3 December 1999 and was never heard from again. The investigation board's most probable failure scenario involved a sensor-timing chain that misinterpreted milliseconds as seconds —a factor‑of—,000 error in a conversion that was never explicitly specified.</p>
+
+    <p>MPL carried two Deep Space 2 (DS2) microprobes, each about the size of a basketball, designed to separate from the main spacecraft during descent, impact the surface at roughly 200 m/s, and penetrate up to 2 metres into the Martian soil. The probes had to survive a deceleration of about 60,000 g on impact and then transmit soil temperature and water-ice data back to Earth via the Mars Global Surveyor orbiter. The entry, descent, and landing sequence was controlled by an onboard timer that counted seconds from atmospheric entry. The attitude-control firmware —a separate subsystem, built by a different contractor —expected thruster pulse durations in milliseconds. The interface specification between the timer and the attitude controller did not state the unit. The timer sent seconds. The controller read milliseconds. A thruster pulse that was supposed to last 30 milliseconds was commanded for 30 seconds —draining the small probes' cold‑gas propellant reserve and sending them into an unrecoverable tumble.</p>
+
+    <p>The post‑failure review found no single document that specified the unit of time for thruster‑pulse commands. Both seconds and milliseconds appeared in different subsystem specifications. The error survived design review, integration testing, and pre‑launch verification because no end‑to‑end test exercised the full timing chain with the flight‑control loop closed. The DS2 probes were destroyed before they could return data. The main MPL spacecraft likely survived entry but shut down its descent engines 40 metres above the surface when the landing‑leg deployment sensor falsely indicated ground contact. The investigation board identified the thruster‑timing error as one of the two most probable causes for the DS2 failures. The factor of 1,000 was never caught because the specification that should have captured it was never written.</p>
+
+    <p>The MPL incident is a time‑conversion failure, not a distance or mass failure like the Mars Climate Orbiter (which burned up three months earlier due to a pound‑force‑seconds vs newton‑seconds mismatch in the navigation model). But the root cause was the same: an interface between subsystems that assumed a unit without stating it. In the Climate Orbiter case, the assumption was "we use imperial units." In the Polar Lander case, the assumption was "we use seconds." Both assumptions were wrong in the subsystem on the other side of the interface. Both spacecraft were lost. Both failures could have been caught by a single line in an interface control document: "All timing parameters in this module are expressed in milliseconds. Convert inputs as needed."</p>
+
+<figure class="guide-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 240" width="100%" role="img" aria-label="Mars Polar Lander failure chain —the onboard timer output seconds but the attitude controller expected milliseconds, causing a 1000× error that destroyed the probe">
+  <defs>
+    <filter id="m6-glow-red"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <!-- Timer box -->
+  <rect x="40" y="50" width="170" height="70" rx="6" fill="#1c1c1f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="125" y="78" text-anchor="middle" fill="#3b82f6" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">Onboard Timer</text>
+  <text x="125" y="98" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">outputs in</text>
+  <text x="125" y="114" text-anchor="middle" fill="#d4d4d8" font-family="'Courier New',monospace" font-size="15" font-weight="700">seconds</text>
+  <!-- Output arrow -->
+  <line x1="215" y1="85" x2="285" y2="85" stroke="#3b82f6" stroke-width="2" marker-end="url(#m6-arrow)"/>
+  <text x="250" y="78" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="9">interface</text>
+  <defs><marker id="m6-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6"/></marker></defs>
+  <!-- Error amplifier -->
+  <rect x="295" y="35" width="150" height="100" rx="8" fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="370" y="62" text-anchor="middle" fill="#ef4444" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="900" filter="url(#m6-glow-red)">× 1,000</text>
+  <text x="370" y="82" text-anchor="middle" fill="#f87171" font-family="system-ui,-apple-system,sans-serif" font-size="12" font-weight="700">ERROR</text>
+  <text x="370" y="102" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">unit mismatch</text>
+  <text x="370" y="118" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">1 s —1,000 ms</text>
+  <text x="370" y="132" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">30 ms pulse —30 s burn</text>
+  <!-- Output arrow -->
+  <line x1="450" y1="85" x2="520" y2="85" stroke="#ef4444" stroke-width="2" marker-end="url(#m6-arrow-r)"/>
+  <defs><marker id="m6-arrow-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ef4444"/></marker></defs>
+  <!-- Controller box -->
+  <rect x="530" y="50" width="170" height="70" rx="6" fill="#1c1c1f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="615" y="78" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">Attitude Controller</text>
+  <text x="615" y="98" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">expects in</text>
+  <text x="615" y="114" text-anchor="middle" fill="#d4d4d8" font-family="'Courier New',monospace" font-size="15" font-weight="700">milliseconds</text>
+  <!-- Failure result -->
+  <rect x="240" y="168" width="260" height="42" rx="21" fill="rgba(239,68,68,0.12)" stroke="#ef4444" stroke-width="2" filter="url(#m6-glow-red)"/>
+  <text x="370" y="188" text-anchor="middle" fill="#ef4444" font-family="system-ui,-apple-system,sans-serif" font-size="14" font-weight="700">Propellant Exhausted —Probe Lost</text>
+  <text x="370" y="202" text-anchor="middle" fill="#f87171" font-family="system-ui,-apple-system,sans-serif" font-size="10">December 3, 1999 —Mars Polar Lander / Deep Space 2</text>
+  <!-- Dashed line from error to failure -->
+  <line x1="370" y1="135" x2="370" y2="168" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <!-- Small context note -->
+  <text x="370" y="232" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="10">The interface specification that should have stated "milliseconds" was never written. Two subsystems. Two unit assumptions. One outcome.</text>
+</svg>
+<figcaption>Fig. 6 —A 1,000× error in a time-unit handoff destroyed the Deep Space 2 probes aboard the Mars Polar Lander. The timer output seconds. The controller expected milliseconds. Neither document stated the unit. Both teams assumed.</figcaption>
+</figure>
+</section>
+
+<!-- ══—SECTION 7: 2038 ══—-->
+<section id="2038">
+    <h2>7. The 2038 Problem: Signed 32‑Bit Time Runs Out</h2>
+
+    <p>The year—038 problem is structurally identical to the Y2K problem, but harder to fix because the vulnerable code lives in embedded firmware you cannot audit from outside. The C programming language's standard library defines time_t as a signed 32‑bit integer on most 32‑bit and some 64‑bit platforms. Its maximum positive value is 2,147,483,647. Add that many seconds to the UNIX epoch (00:00:00 UTC, 1 January 1970), and you reach 03:14:07 UTC on 19 January 2038. One second later, the integer overflows to —,147,483,648, which represents 20:45:52 UTC on 13 December 1901. Any computation involving time —certificate expiry checks, database record ordering, scheduled‑task triggers, filesystem timestamps —that relies on a 32‑bit time_t will fail at the moment of overflow. Failures will not be simultaneous: systems in time zones ahead of UTC (Asia, Australia) will hit the boundary first. Systems that boot after the overflow and try to validate a certificate issued in 2025 will see an expiry date in 1901 and reject it as expired. Systems that compute a time interval between a pre‑overflow and post‑overflow timestamp will get a negative duration and may hang, crash, or produce garbage output.</p>
+
+    <p>The fix —migrating time_t to a signed 64‑bit integer —extends the range to roughly 292 billion years in both directions. Most modern operating systems (Linux kernel 5.6+, macOS 10.6+, Windows 10 version 1803+) use 64‑bit time internally. The risk is in legacy systems: industrial PLCs controlling factory equipment, avionics computers certified under DO—78C that cannot be patched without re‑certification, embedded Linux routers and IoT devices that have not received a firmware update since they left the factory, financial mainframes running COBOL with 32‑bit C libraries linked in for timestamp formatting. These systems are invisible to network scanners, often unidentifiable by their operators, and will fail silently and unpredictably when their internal time representation wraps around.</p>
+
+    <p>The Y2K problem cost an estimated $300—00 billion worldwide, most of it spent on remediation before the event. The 2038 problem has received a small fraction of that investment, partly because its deadline feels further away and partly because the vulnerable systems are harder to locate. The cost will almost certainly be higher —not because the fix is harder, but because the inventory of affected devices is orders of magnitude larger than it was in 1999. Every smartphone, every smart TV, every car with an infotainment system, every networked thermostat contains a time‑handling library that may or may not be 64‑bit clean. Auditing them all is impossible. Testing them all will begin, in earnest, around 2036.</p>
+
+<figure class="guide-diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" width="100%" role="img" aria-label="The 2038 problem —a signed 32-bit integer timeline showing overflow from 2038 back to 1901">
+  <defs>
+    <linearGradient id="t5-ok" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#4ade80"/></linearGradient>
+    <linearGradient id="t5-warn" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#ef4444"/></linearGradient>
+    <filter id="t5-glow-red"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <!-- Timeline bar —safe zone -->
+  <rect x="30" y="75" width="500" height="12" rx="6" fill="url(#t5-ok)" opacity="0.7"/>
+  <!-- Danger zone extension -->
+  <rect x="530" y="75" width="70" height="12" rx="6" fill="url(#t5-warn)" opacity="0.8"/>
+  <!-- Tick marks -->
+  <line x1="30" y1="92" x2="30" y2="102" stroke="#a1a1aa" stroke-width="1"/>
+  <text x="30" y="115" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="11">1970</text>
+  <text x="30" y="128" text-anchor="middle" fill="#71717a" font-family="system-ui,-apple-system,sans-serif" font-size="9">Epoch</text>
+  <text x="28" y="68" text-anchor="middle" fill="#22c55e" font-family="'Courier New',monospace" font-size="13" font-weight="700">0</text>
+  <!-- Midpoint dots -->
+  <circle cx="290" cy="81" r="2" fill="#a1a1aa"/>
+  <text x="290" y="115" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="10">...</text>
+  <!-- Max value label -->
+  <line x1="530" y1="92" x2="530" y2="102" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="530" y="115" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="12" font-weight="700">2038</text>
+  <text x="530" y="128" text-anchor="middle" fill="#f59e0b" font-family="system-ui,-apple-system,sans-serif" font-size="9">Jan 19 03:14:07</text>
+  <text x="525" y="68" text-anchor="middle" fill="#ef4444" font-family="'Courier New',monospace" font-size="13" font-weight="700">2,147,483,647</text>
+  <!-- Overflow explosion -->
+  <text x="570" y="56" text-anchor="middle" fill="#ef4444" font-family="system-ui,-apple-system,sans-serif" font-size="28" font-weight="900" filter="url(#t5-glow-red)">OVERFLOW</text>
+  <!-- Arrow pointing down -->
+  <path d="M600,65 L600,170 L570,150 M600,170 L630,150" stroke="#ef4444" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="622" y="132" fill="#ef4444" font-family="system-ui,-apple-system,sans-serif" font-size="10">wraps to</text>
+  <!-- Bottom bar —1901 -->
+  <rect x="470" y="175" width="120" height="12" rx="6" fill="#ef4444" opacity="0.5" stroke="#ef4444" stroke-width="1"/>
+  <text x="530" y="200" text-anchor="middle" fill="#ef4444" font-family="system-ui,-apple-system,sans-serif" font-size="12" font-weight="700">1901</text>
+  <text x="525" y="168" text-anchor="middle" fill="#ef4444" font-family="'Courier New',monospace" font-size="12" font-weight="700">—,147,483,648</text>
+  <!-- Context boxes -->
+  <rect x="660" y="50" width="90" height="28" rx="4" fill="#1c1c1f" stroke="#3f3f46" stroke-width="0.8"/>
+  <text x="705" y="68" text-anchor="middle" fill="#a1a1aa" font-family="system-ui,-apple-system,sans-serif" font-size="10">32-bit signed int</text>
+  <rect x="660" y="90" width="90" height="28" rx="4" fill="rgba(34,197,94,0.08)" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="705" y="108" text-anchor="middle" fill="#22c55e" font-family="system-ui,-apple-system,sans-serif" font-size="10">64-bit: safe</text>
+  <text x="705" y="120" text-anchor="middle" fill="#4ade80" font-family="system-ui,-apple-system,sans-serif" font-size="9">292B years</text>
+</svg>
+<figcaption>Fig. 5 —Signed 32-bit time_t maxes out at 2,147,483,647 seconds after the UNIX epoch. One second later, the counter overflows to the most negative value, which maps to 13 December 1901. Any system still using 32-bit time on 19 January 2038 wakes up in the Victorian era.</figcaption>
+</figure>
+</section>
+
+<!-- ══—SECTION 8: GIMLI GLIDER ══—-->
+<section id="gimli">
+    <h2>8. Gimli Glider: The Metric Fuel Miscalculation</h2>
+
+    <p>On 23 July 1983, Air Canada Flight 143 —a Boeing 767—00 —ran out of fuel at 41,000 feet over Red Lake, Ontario. Its two engines flamed out within seconds of each other. The aircraft became a 95‑tonne glider. Captain Robert Pearson, an experienced pilot who also held a glider licence, calculated a descent profile that brought the 767 to a landing at Gimli Industrial Park, a former Royal Canadian Air Force base that had been converted into a drag‑racing strip. No one on board was killed. The aircraft was repaired and returned to service, where it flew for another 25 years under the unofficial nickname "Gimli Glider."</p>
+
+    <p>The cause of the fuel exhaustion was a conversion error —not in time, but in mass. The 767 was Air Canada's first aircraft to use metric units (kilograms and litres) for fuel measurement. The airline's other aircraft used imperial (pounds and gallons). The ground crew, following the old procedure, computed the required fuel load in pounds and converted it to kilograms —but they used the wrong conversion factor. They multiplied the pound figure by 0.45 (the approximate fraction of a kilogram per pound) instead of the correct factor for fuel density. The aircraft departed with roughly half the required fuel. The error was compounded by a failed fuel‑quantity indicator —the cockpit gauge was unserviceable, so the crew relied on the ground crew's drip‑stick measurement and manual calculation. The drip‑stick reading was in centimetres. The conversion table was in inches. By the time the fuel‑exhaustion warning illuminated, the aircraft was over the Canadian Shield with no diversion airports within gliding range.</p>
+
+    <p>The Gimli Glider appears in this guide because it is the quintessential unit‑conversion failure: a chain of unit mismatches —imperial to metric, centimetres to inches, pounds to kilograms, litres to gallons —each individually small, each individually defensible, compounding across a system where no two subsystems spoke the same unit language. The primary error was a mass‑to‑volume conversion that used a density factor for jet fuel in pounds per litre but entered it as kilograms per litre. The secondary error was a length‑unit mismatch in the dipstick reading. The tertiary error was the broken fuel gauge, which would have revealed the discrepancy immediately if it had been working. Accident chains are rarely single‑point failures. They are stacks of individually survivable errors that align. In the Gimli case, three of the four links in the chain were unit conversions applied without cross‑checking the unit.</p>
+</section>
+
+<!-- ══—SECTION 9: TOOLS ══—-->
+<section id="tools">
+    <h2>9. Every Time Converter on This Site</h2>
+
+    <p>All eight time‑conversion tools are listed below. Each uses exact integer factors: 60 for minute‑second, 3,600 for hour‑second, 86,400 for day‑second. These factors are fixed by convention. The only conversion not fully captured by a simple multiplier is the day‑to‑second conversion, which in civil time is exactly 86,400 and in physical time requires adjustment for leap seconds and the Earth's variable rotation. For civil timekeeping —scheduling, billing, elapsed‑time measurement —86,400 is the correct and standard value. For astronomical and satellite applications, see Sections 3—.</p>
+
+    <div class="related-tags" style="margin-top:1.5em;">
+        <a href="/seconds-to-minutes">Seconds to Minutes</a>
+        <a href="/minutes-to-seconds">Minutes to Seconds</a>
+        <a href="/seconds-to-hours">Seconds to Hours</a>
+        <a href="/hours-to-seconds">Hours to Seconds</a>
+        <a href="/minutes-to-hours">Minutes to Hours</a>
+        <a href="/hours-to-minutes">Hours to Minutes</a>
+        <a href="/hours-to-days">Hours to Days</a>
+        <a href="/days-to-hours">Days to Hours</a>
+    </div>
+
+    <p style="margin-top:1.8em;">For readers interested in related temporal reference material: the <a href="https://www.iers.org/IERS/EN/Publications/Bulletins/bulletins.html" rel="external nofollow">IERS Bulletin C</a> publishes leap‑second announcements. The <a href="https://www.bipm.org/en/time-ftp/tai" rel="external nofollow">BIPM's TAI FTP service</a> distributes atomic‑time data. The <a href="https://datatracker.ietf.org/doc/rfc5905/" rel="external nofollow">NTP protocol (RFC 5905)</a> defines how computers synchronise clocks across the leap‑second boundary. The <a href="https://time.is/" rel="external nofollow">time.is</a> service displays the current offset between your system clock and UTC, including the GPS and TAI deltas.</p>
+</section>
+
+        <section id="faq">
+<h2>11. Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<p class="faq-q">Why does a day have exactly 86,400 seconds, yet we need leap seconds?</p>
+<p class="faq-a">The SI second is defined by atomic physics —9,192,631,770 oscillations of a cesium—33 atom. That number was chosen in 1967 to match the astronomical second of the year 1900, when the average solar day was very close to 86,400.000 atomic seconds. But Earth's rotation is slowing —tidal friction from the Moon dissipates about 3.7 terawatts of rotational energy, lengthening the day by roughly 1.7 milliseconds per century. Over decades, the accumulated gap between atomic time (TAI) and the actual rotation of the planet (UT1) grows until it reaches 0.9 seconds, at which point the International Earth Rotation Service inserts a leap second into UTC. Since 1972, 27 leap seconds have been added. A day is not exactly 86,400 atomic seconds —it hasn't been since the early 20th century, and the gap widens every year.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">What is the difference between GPS time and UTC?</p>
+<p class="faq-a">GPS time does not observe leap seconds. It started at midnight on 6 January 1980, synchronized with UTC, and has counted atomic seconds continuously since. UTC has had 18 leap seconds inserted since 1980, so GPS time is now 18 seconds ahead of UTC (as of 2026). The GPS navigation message includes the current UTC-GPS offset so receivers can display UTC correctly, but the underlying satellite clocks and orbit calculations are all in pure GPS atomic time —continuous, monotonic, and free of the leap-second jumps that would make precise Doppler-ranging calculations impossible to maintain across a discontinuity. If leap seconds were applied to GPS, every satellite's computed position would jump by roughly 70 metres at the instant of correction.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">Why did the Mars Polar Lander crash in 1999?</p>
+<p class="faq-a">The Mars Polar Lander (MPL) was a NASA mission that disappeared during its descent to the Martian surface on 3 December 1999. The investigation's most likely cause: the landing-leg deployment software interpreted the touchdown sensor's momentary spike —caused by the legs snapping into locked position —as actual surface contact, and shut down the descent engines while the lander was still 40 metres above the ground. But the MPL also carried two Deep Space 2 microprobes whose failure was traceable to a time-unit chain: the entry, descent, and landing sequence was timed by an onboard clock that counted in seconds, while the attitude-control firmware expected milliseconds for thruster pulse durations. A thruster firing that should have lasted 30 milliseconds was instead commanded for 30 seconds —1,000 times too long —draining the propellant reserve and sending the spacecraft into an unrecoverable tumble. The error was a missing ×0.001 conversion in a timer interface specification.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">What is the UNIX 2038 problem?</p>
+<p class="faq-a">UNIX time is a signed 32-bit integer counting seconds since 00:00:00 UTC on 1 January 1970 (the UNIX epoch). The maximum positive value of a signed 32-bit integer is 2,147,483,647. Add that many seconds to the epoch and you reach 03:14:07 UTC on 19 January 2038. One second later, the counter overflows to —,147,483,648, which in UNIX time represents 13 December 1901. Any system still using a 32-bit time_t on that date will believe it is suddenly 1901 —certificate validity checks, database timestamps, scheduled tasks, and file-system metadata will all fail in chaotic and unpredictable ways. The fix —migrating to a 64-bit time_t —has been underway for years in Linux, macOS, and most embedded systems, but legacy industrial controllers, aviation avionics, and older financial systems remain at risk. The 2038 problem is the Y2K of embedded systems: distributed, invisible, and harder to audit because the vulnerable code is in firmware you can't grep.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">How is the second defined today?</p>
+<p class="faq-a">The second was redefined in 1967 by the 13th General Conference on Weights and Measures. The definition: 'the duration of 9,192,631,770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium-133 atom.' Before 1967, the second was defined astronomically as 1/86,400 of the mean solar day. The problem was that the day is not constant —Earth's rotation varies seasonally (by about ±0.02 seconds due to atmospheric angular momentum exchange), decennially (due to core-mantle coupling), and secularly (tidal braking). An astronomical second drifts. An atomic second does not. The 1967 redefinition severed the second from the planet that originally defined it, creating the divergence that leap seconds were invented to manage. A modern cesium fountain clock at NIST loses less than one second in 100 million years —which means the second is now the most precisely measured unit in any branch of science, more exact than the metre, the kilogram, or the ampere.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">Why do we have 60 minutes in an hour and 60 seconds in a minute?</p>
+<p class="faq-a">The answer goes back to the Sumerians and Babylonians, who counted in base—0 (sexagesimal). They chose 60 because it is a superior highly composite number —it divides evenly by 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, and 60. This made fractions trivial for merchants and astronomers without positional notation. The Babylonians divided the day into 24 hours (another composite number, likely from the 12 lunar cycles per year plus 12 daylight/darkness divisions). The Greek astronomer Hipparchus later subdivided the hour into 60 minutes and the minute into 60 seconds for astronomical tables. When the French Revolution created the metric system in the 1790s, they attempted to replace hours-minutes-seconds with a decimal day of 10 hours, each of 100 minutes, each of 100 seconds. Decimal time was mandatory in France from 1794 to 1795 —clocks were manufactured with 10-hour faces, and official documents carried decimal timestamps. It was abandoned after less than 18 months because no one outside the government used it, and replacing every clock in France was logistically impossible. Base—0 survived because the cost of switching exceeded any conceivable benefit.</p>
+</div>
+
+</section>
+
+</article>
+
+        <h3>Related Guides</h3>
+        <div class="related-tags">
+            <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+            <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>
+            <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Guide</a>
+            <a href="/guides/fuel-economy-conversion-guide">Fuel Economy Guide</a>
+            <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+            <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a>
+            <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>
+            <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+            <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Guide</a>
+            <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Guide</a>
+        <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a></div>
+
+        <div class="attribution-box">
+            <p><strong>Reprint &amp; Attribution.</strong> Commissioned and maintained by the EnginStack engineering team. Original page: <a href="https://enginstack.com/guides/time-conversion-guide">enginstack.com/guides/time-conversion-guide</a>. Link freely, cite freely —we ask only for attribution. Reprint inquiries: <a href="/contact">contact us</a>.</p>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Leap second",
+  "termCode": "leap second",
+  "description": "A leap second is a one-second adjustment inserted into Coordinated Universal Time (UTC) to keep it within 0.9 seconds of astronomical time. Since 1972, 27 leap seconds have been added; the practice is being phased out after 2035.",
+  "url": "https://en.wikipedia.org/wiki/Leap_second",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Angle Conversion Guide — Degrees, Radians, Gradians & Why Your CSS Spin Broke | EnginStack</title>
+    <meta name="description" content="Radians are the only angle unit calculus respects, the gradian is a French-revolution leftover still used in European surveying, and degrees are why your CSS rotate() and your game engine disagree. The definitive engineering guide to degrees, radians, gradians, and turns.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/angle-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/angle-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/angle-conversion-guide">
+    <meta property="og:title" content="Angle Conversion Guide — Degrees, Radians, Gradians & the CSS Spin That Broke | EnginStack">
+    <meta property="og:description" content="Why radians are the only honest angle, what the gradian was for, and how a wrong-degree unit silently breaks CSS, game engines, and CNC rotary axes.">
+    <meta property="og:url" content="https://enginstack.com/guides/angle-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Angle Conversion Guide — Degrees, Radians, Gradians & Why Your CSS Spin Broke",
+  "description": "Radians are the only angle unit calculus respects, the gradian is a French-revolution leftover still used in European surveying, and degrees are why your CSS rotate() and your game engine disagree. The engineering guide to degrees, radians, gradians, and turns.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/angle-conversion-guide",
+  "datePublished": "2026-07-14",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Angle Conversion Guide", "item": "https://enginstack.com/guides/angle-conversion-guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert degrees to radians?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply degrees by π/180 (exactly 0.0174532925199433). The constant π/180 is exact by definition: a full circle is 360° and also 2π radians, so 1° = 2π/360 = π/180 rad. 180° = π rad, 90° = π/2 rad, 45° = π/4 rad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a gradian and why does surveying use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A gradian (\"gon\") divides a right angle into 100 parts, so a full circle is 400 gradians. Proposed during the French Revolution so \"90 degrees\" became \"100 grads.\" It survives in European cadastral surveying and GIS because decimal angles are easy to store. 1 grad = 0.9° exactly; the multiply-by-0.9 is the trap — miss it and a 100-gon bearing imported as 100° points 10° off target."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do engineers prefer radians for calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because radians make the math true. d(sin x)/dx = cos x holds only when x is in radians; in degrees you get a spurious π/180 factor everywhere. Angular velocity, torque, Fourier transforms, and control loops all assume radians. Convert degree input to radians at the calculation boundary, compute, then convert back only for display."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my CSS or game rotation look wrong after a conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because rotate() in CSS, most game engines, and SVG transforms expect degrees by default, while math and physics libraries expect radians, and some CNC controllers expect grads or encoder counts. A 1-radian value rendered where degrees are expected looks like 57° — wrong but plausible. Always confirm the expected unit of the specific API."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Angle Conversion Guide</span></nav>
+
+        <header class="page-header">
+            <h1>Your Calculator Lies About Angles. Radians Are the Only One It Respects.</h1>
+            <p>Degrees are a Babylonian accident. Radians are geometry itself. The gradian is a French-revolution leftover that somehow survived in European land surveying. And the reason your CSS spin, your game-engine rotation, and your CNC rotary axis all disagree is that each one quietly expects a <em>different</em> one of these. This is the guide to converting between them without breaking anything.</p>
+            <p class="page-meta">~10 min read &nbsp;·&nbsp; July 2026</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<p>Start with the fact that trips up everyone: there is no single "angle." There are at least four units in active industrial use — degrees, radians, gradians, and revolutions — and they are not interchangeable by convention. They are convertible by exact constants, but only if you know which API is quietly demanding which one.</p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: WHY RADIANS
+     ═══════════════════════════════════════════ -->
+
+<h2>Radians Are the Only Honest Angle</h2>
+
+<p>A radian is defined by geometry, not by a committee. One radian is the angle subtended at the center of a circle by an arc whose length equals the radius. That single definition makes every circular formula clean: arc length = r&theta;, sector area = &frac12;r&sup2;&theta;, and the angular velocity &omega; in radians per second is literally the tangential speed divided by the radius, with no constant of proportionality.</p>
+
+<p>The cost of ignoring this is everywhere in engineering math. The identity d(sin &theta;)/d&theta; = cos &theta; is <em>false</em> if &theta; is in degrees — you get cos &theta; &times; &pi;/180 instead. Every Taylor series, every Fourier coefficient, every control-loop derivative assumes radians. The discipline that saves you is boring but absolute: <strong>convert degrees (or grads) to radians at the boundary of any calculation, compute in radians, convert back only for display.</strong> Keep degrees inside a numeric integration and the simulation slowly, plausibly, spins apart.</p>
+
+<div class="formula-box">
+    <p><strong>1 rad = 180/&pi; &deg; &approx; 57.2958&deg;</strong> &nbsp;(a full circle is exactly 2&pi; rad)</p>
+</div>
+
+<p>For the pure conversion, the <a href="/degrees-to-radians">degrees to radians</a> and <a href="/radians-to-degrees">radians to degrees</a> tools on this site carry &pi; to full precision so you never round the 0.0174532925&hellip; factor by hand.</p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: DEGREES
+     ═══════════════════════════════════════════ -->
+
+<h2>Degrees: Babylon, Base-60, and the Bearing</h2>
+
+<p>Degrees come from the Babylonians, who liked 60 and its multiples — a circle of 360 is close to the days in a year and factors beautifully (2, 3, 4, 5, 6, 8, 9, 10, 12&hellip;). That divisibility is why we still slice a circle into 360 pieces nobody ever voted for.</p>
+
+<p>Two notations live inside "degrees." <strong>Decimal degrees</strong> (38.8897&deg;) are what a GPS spits out. <strong>Degrees-minutes-seconds (DMS)</strong> (38&deg;53&prime;23&Prime;) is what a pilot or surveyor reads, because base-60 lets you say "53 minutes" the way the Babylonians intended. Converting between them is just &times;60 / &divide;60 — but the off-by-one errors in DMS parsing (is it 0&prime;–59&prime; or 1&prime;–60&prime;?) are a quiet source of coordinate bugs.</p>
+
+<p>Navigation bearings are stated in degrees — clockwise from north, 000&deg; to 359&deg;. This is also why game engines and CSS lean on degrees for rotation: a human can picture "rotate 45 degrees" but not "rotate &pi;/4 radians." The mismatch with the math libraries underneath is the entire subject of the failure section below.</p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3: GRADIANS
+     ═══════════════════════════════════════════ -->
+
+<h2>Gradians: The French Revolution's Forgotten Unit</h2>
+
+<p>The gradian (called "gon" in ISO 80000-3, "grade" in older French texts) divides a <em>right angle</em> into 100 parts, so a full circle is 400 gradians. It was proposed during the French Revolution alongside the metric system, on the appealing logic that "90 degrees" should become the tidier "100 grads" and that all angles should be decimal.</p>
+
+<p>It lost. Degrees kept the sky, the compass, and the classroom. But the gradian survived precisely where decimal angles are useful: European cadastral surveying and GIS. Many national land-registry systems store bearings in gon internally. When you import such a file into CAD, a game engine, or a CSS transform that expects degrees, you must multiply by 0.9. Miss that step and a 100-gon bearing becomes 100&deg; — a 10&deg; error that, at survey distances, misses a property corner by meters.</p>
+
+<div class="formula-box">
+    <p><strong>1 grad = 0.9&deg; = &pi;/200 rad</strong> &nbsp;(exactly; 400 grad = 360&deg;)</p>
+</div>
+
+<p>The practical conversion pair is <a href="/gradians-to-degrees">gradians to degrees</a> (multiply by 0.9) and its reverse. The factor is exact, but the <em>detection</em> of which unit your source file holds is the real hazard — verify the angular-unit column in the coordinate header before you trust any imported bearing.</p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4: REVOLUTIONS / TURNS
+     ═══════════════════════════════════════════ -->
+
+<h2>Revolutions, RPM, and Turns</h2>
+
+<p>A full circle is also exactly one revolution: 360&deg; = 2&pi; rad = 400 gon = 1 turn. Motors and spindles are spec'd in <strong>RPM</strong> (revolutions per minute), but a control loop integrating angular position wants <strong>radians per second</strong>. The bridge is exact: 1 RPM = 2&pi;/60 rad/s &approx; 0.10472 rad/s.</p>
+
+<p>This is where angle conversion meets rotating machinery. A 3,000 RPM spindle is 314.16 rad/s. Feed that number to a controller expecting RPM and you have a 30&times; overspeed; feed RPM to one expecting rad/s and the axis crawls. The unit is the same physical quantity, converted by an exact constant — but the two halves of the system almost never agree on which constant to use, which is why datasheets print both.</p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5: FAILURE CASES
+     ═══════════════════════════════════════════ -->
+
+<h2>Where Angle Conversion Breaks Things</h2>
+
+<p>The failures are rarely arithmetic — the constants are exact. They are <em>expectation</em> failures: one side of the interface assumes degrees, the other assumes radians (or grads, or encoder counts), and nobody wrote the unit down.</p>
+
+<ul>
+    <li><strong>CSS &amp; SVG <code>rotate()</code>:</strong> expects degrees by default (<code>rotate(45deg)</code>). Pass a raw radian number and 1 radian renders as 57&deg; — a spin that looks almost right. Some libraries accept <code>rad</code> only if you write the unit explicitly.</li>
+    <li><strong>Game engines (Unity, Unreal, Godot):</strong> rotation is usually degrees for transforms but radians for physics and math functions. Mixing them is the classic "my turret slowly rotates forever" bug.</li>
+    <li><strong>CNC rotary axes (G-code):</strong> angular moves are in degrees, but the servo controller and encoder may speak counts or radians internally. A post-processor that emits degrees into a radian-expecting controller destroys the part on the first rotary move.</li>
+    <li><strong>Robotics (Denavit–Hartenberg):</strong> joint angles are radians in the math, degrees in the teach pendant. A misread here is a robot through a wall.</li>
+    <li><strong>Astronomy:</strong> right ascension is often given in hours (24h = 360&deg;), a fourth angle unit hiding inside a time word. Convert hours to degrees with &times;15.</li>
+</ul>
+
+<p>None of these is a hard problem. All of them have shipped as shipped bugs. The fix is the same one as every other unit on this site: <strong>declare the unit at every interface, convert once, carry the canonical unit (radians) internally.</strong></p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6: EXACT CONSTANTS
+     ═══════════════════════════════════════════ -->
+
+<h2>The Numbers Themselves: Exact Angle Factors</h2>
+
+<p>Every factor below is exact. Degrees and radians are linked by &pi; (a circle is 360&deg; = 2&pi; rad); degrees and grads by 400/360 = 10/9; radians and grads by 200/&pi;.</p>
+
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Factor</th><th>Exactness</th></tr></thead>
+    <tbody>
+        <tr><td>1&deg;</td><td>rad</td><td>&pi;/180 &approx; 0.01745329252</td><td>exact (&pi;)</td></tr>
+        <tr><td>1 rad</td><td>&deg;</td><td>180/&pi; &approx; 57.29577951</td><td>exact (&pi;)</td></tr>
+        <tr><td>1&deg;</td><td>grad</td><td>10/9 &approx; 1.1111111</td><td>exact</td></tr>
+        <tr><td>1 grad</td><td>&deg;</td><td>0.9</td><td>exact</td></tr>
+        <tr><td>1 rad</td><td>grad</td><td>200/&pi; &approx; 63.661977</td><td>exact (&pi;)</td></tr>
+        <tr><td>1 grad</td><td>rad</td><td>&pi;/200 &approx; 0.015707963</td><td>exact (&pi;)</td></tr>
+        <tr><td>1 rev</td><td>&deg;</td><td>360</td><td>exact (def.)</td></tr>
+        <tr><td>1 rev</td><td>rad</td><td>2&pi; &approx; 6.2831853</td><td>exact (&pi;)</td></tr>
+        <tr><td>1 RPM</td><td>rad/s</td><td>2&pi;/60 &approx; 0.10471976</td><td>exact (&pi;)</td></tr>
+    </tbody>
+</table>
+</div>
+
+<p>Worked examples that are worth memorising: <strong>180&deg; = &pi; rad</strong>, <strong>90&deg; = &pi;/2 rad = 100 grad</strong>, <strong>45&deg; = &pi;/4 rad = 50 grad</strong>, <strong>30&deg; = &pi;/6 rad</strong>. If your conversion doesn't reduce to one of these at the familiar angles, the constant is wrong.</p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 7: CONVERTER DIRECTORY
+     ═══════════════════════════════════════════ -->
+
+<h2>Which Converter to Reach For</h2>
+
+<p>This site carries three angle pairs. Each is exact both ways and carries &pi; to full precision.</p>
+
+<h3>Degrees and radians</h3>
+<div class="related-tags">
+    <a href="/degrees-to-radians">Degrees to Radians</a>
+    <a href="/radians-to-degrees">Radians to Degrees</a>
+</div>
+<p>Use <a href="/degrees-to-radians">degrees to radians</a> when feeding a degree reading into any math, physics, or control library; <a href="/radians-to-degrees">radians to degrees</a> for the display direction.</p>
+
+<h3>Gradians</h3>
+<div class="related-tags">
+    <a href="/gradians-to-degrees">Gradians to Degrees</a>
+</div>
+<p>For European surveying and GIS data: <a href="/gradians-to-degrees">gradians to degrees</a> multiplies by 0.9. Always confirm the source column actually holds gon before you trust the result.</p>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 8: FAQ
+     ═══════════════════════════════════════════ -->
+
+<h2>Questions We Get About Angle Units</h2>
+
+<div class="faq-item">
+    <p class="faq-q">How do I convert degrees to radians?</p>
+    <p class="faq-a">Multiply degrees by &pi;/180 (exactly 0.0174532925199433). The constant &pi;/180 is exact by definition: a full circle is 360&deg; and also 2&pi; radians, so 1&deg; = 2&pi;/360 = &pi;/180 rad. 180&deg; = &pi; rad, 90&deg; = &pi;/2 rad, 45&deg; = &pi;/4 rad.</p>
+</div>
+
+<div class="faq-item">
+    <p class="faq-q">What is a gradian and why does surveying use it?</p>
+    <p class="faq-a">A gradian ("gon") divides a right angle into 100 parts, so a full circle is 400 gradians. Proposed during the French Revolution so "90 degrees" became "100 grads." It survives in European cadastral surveying and GIS because decimal angles are easy to store. 1 grad = 0.9&deg; exactly; the multiply-by-0.9 is the trap — miss it and a 100-gon bearing imported as 100&deg; points 10&deg; off target.</p>
+</div>
+
+<div class="faq-item">
+    <p class="faq-q">Why do engineers prefer radians for calculations?</p>
+    <p class="faq-a">Because radians make the math true. d(sin x)/dx = cos x holds only when x is in radians; in degrees you get a spurious &pi;/180 factor everywhere. Angular velocity, torque, Fourier transforms, and control loops all assume radians. Convert degree input to radians at the calculation boundary, compute, then convert back only for display.</p>
+</div>
+
+<div class="faq-item">
+    <p class="faq-q">Why did my CSS or game rotation look wrong after a conversion?</p>
+    <p class="faq-a">Because rotate() in CSS, most game engines, and SVG transforms expect degrees by default, while math and physics libraries expect radians, and some CNC controllers expect grads or encoder counts. A 1-radian value rendered where degrees are expected looks like 57&deg; — wrong but plausible. Always confirm the expected unit of the specific API.</p>
+</div>
+
+        <h3>Related Guides</h3>
+        <div class="related-tags">
+            <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+            <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+            <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Guide</a>
+            <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a>
+            <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>
+            <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+            <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+            <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Guide</a>
+            <a href="/guides/fuel-economy-conversion-guide">Fuel Economy Guide</a>
+            <a href="/guides/data-storage-conversion-guide">Data Storage Guide</a>
+            <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Guide</a>
+        </div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 9: SOURCES
+     ═══════════════════════════════════════════ -->
+
+<section class="eng-context">
+    <h3>Sources</h3>
+    <ul>
+        <li>ISO 80000-3 — Quantities and units, space and time; "gon" definition for gradian</li>
+        <li>BIPM SI Brochure (9th ed.) — radian as an SI derived unit, 1 rad = 1 m/m</li>
+        <li>NIST SP 811 — Guide for the Use of the International System of Units; angle units</li>
+        <li>W3C CSS Transforms Module — rotate() default unit (degrees)</li>
+        <li>ISO 6709 — Standard representation of geographic point location by coordinates (DMS)</li>
+    </ul>
+</section>
+
+        <div class="attribution-box"><p><strong>Reprint &amp; Attribution.</strong> Originally researched, written, and fact-checked by the EnginStack engineering team. First published July 14, 2026. Permanent link: <a href="https://enginstack.com/guides/angle-conversion-guide">enginstack.com/guides/angle-conversion-guide</a>. Feel free to quote or share — we just ask for a link back. Full-text syndication and commercial reprint requests: <code>rkingers776@gmail.com</code>. Free educational and non-commercial licenses granted with correct attribution.</p></div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Degree",
+  "termCode": "degree (°)",
+  "description": "The degree is a plane angle unit defined as 1/360 of a full revolution. It predates the SI radian and remains standard in navigation, surveying, and everyday geometry.",
+  "url": "https://en.wikipedia.org/wiki/Degree_(angle)",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

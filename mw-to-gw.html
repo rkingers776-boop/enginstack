@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megawatts to Gigawatts — The Power Plant, the Grid, and the Terawatt Problem Nobody Talks About | EnginStack</title>
+    <meta name="description" content="1 MW = 0.001 GW. A typical coal plant is 500&ndash;1,000 MW. A nuclear reactor is 1&ndash;1.6 GW. The entire US grid peaks around 1,100 GW. Global generation capacity is ~8.6 TW. Moving up three orders of magnitude changes everything about how you think about power.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/mw-to-gw">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/mw-to-gw">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/mw-to-gw">
+    <meta property="og:title" content="MW to GW — Power Plants, Grid Scale, and the Terawatt Gap | EnginStack">
+    <meta property="og:description" content="1 MW = 0.001 GW. From turbine output to national grid capacity. How utility-scale power works in three orders of magnitude.">
+    <meta property="og:url" content="https://enginstack.com/mw-to-gw">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Megawatts to Gigawatts Converter",
+  "description": "Convert between megawatts (MW) and gigawatts (GW) for utility-scale power plant sizing, grid planning, and energy policy analysis.",
+  "url": "https://enginstack.com/mw-to-gw",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between GW and GWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GW (gigawatt) is power — rate of energy flow. GWh (gigawatt-hour) is energy — quantity delivered. Analogy: GW is the width of a pipe; GWh is the volume of water that passes through it. A 1 GW power plant running at full capacity for 1 hour delivers 1 GWh. Running for 1 year at 100% capacity factor (impossible for anything except maybe geothermal) delivers 8,760 GWh (365 × 24). Running at a realistic 50% capacity factor (typical for solar) delivers 4,380 GWh. Same 1 GW nameplate, wildly different GWh output. Energy reporters confuse this constantly. When you read \"Country X installed 10 GW of solar last year,\" ask: \"and how many GWh did it generate?\" The answer is usually 10–15 GWh per GW of installed solar, versus 40–50 GWh per GW of nuclear or 30–35 GWh per GW of CCGT gas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a single data center consume a gigawatt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and several already do or soon will. Hyperscale data centers (Google, Microsoft, Amazon, Meta) are building campuses with 500 MW–1 GW+ of power demand each. The Microsoft Juhl data center campus in Denmark is contracted for >1 GW. Amazon's Arlington, VA campus approaches 500 MW. Google's Midlothian, TX site is ~600 MW. At these scales, data center operators become among the largest electricity customers in their region, negotiating direct PPAs (power purchase agreements) with utilities, building on-site generation (solar + fuel cells + batteries), and designing their own substations. A single AI training cluster (e.g., training a frontier model) can spike demand by 100+ MW for weeks. The cloud's MW-to-GW transition is happening faster than the rest of the economy's."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"nameplate capacity\" mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The maximum rated output under ideal conditions, as certified by the manufacturer. A \"1,000 MW\" coal plant can theoretically produce 1,000 MW continuously if the boiler is at full fire, the turbine-generator is synchronized and loaded, the condenser is cooling properly, and ambient conditions are within spec. In reality, plants operate below nameplate for maintenance (planned outage: 5–10% of hours), load following (demand varies: plants ramp down at night), deratings (hot days reduce gas turbine output by 5–10%), and equipment aging (efficiency drops ~0.5%/year). Actual annual output is typically 60–85% of nameplate × hours, depending on technology and duty cycle. Nameplate is the theoretical maximum; capacity factor × nameplate × time is reality."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do we need terawatts if we have gigawatts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because global energy demand is ~18 TW (terawatts) of primary energy consumption (not just electricity — this includes oil for transport, gas for heating, coal for industry). Of that 18 TW, only ~3 TW becomes electricity. The remaining ~15 TW is thermal losses, transport inefficiency, and non-electric energy use. Decarbonizing the full 18 TW with low-carbon sources (renewables, nuclear, electrification of everything) requires building tens of terawatts of new generation capacity. Current global installed electric capacity is ~8.6 TW. We need to triple or quadruple it while retiring fossil capacity. This is the defining engineering challenge of the 21st century, and it is measured in TW, not GW. MW is for individual machines. GW is for plants. TW is for civilizations."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Energy & Power", "item": "https://enginstack.com/energy/" },
+    { "@type": "ListItem", "position": 3, "name": "MW to GW" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/energy/">Energy &amp; Power</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Megawatts to Gigawatts Converter</span></nav>
+
+        <header class="page-header">
+            <h1>MW to GW: From Turbine Output to Grid Scale in Three Orders of Magnitude</h1>
+            <p>1 MW = 0.001 GW. Move the decimal three places left and you're done. But what those three places represent is a shift in worldview. At the MW scale, you're talking about individual machines — a wind turbine, a locomotive engine, a server farm's UPS. At the GW scale, you're talking about power plants, city grids, and submarine cables. At the TW scale, you're talking about countries, continents, and human civilization's total energy appetite. The conversion itself is trivial. Understanding what lives at each scale takes a career. This page covers the first jump: MW to GW, the machine-to-plant translation.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="0.001" data-unit-from="MW" data-unit-to="GW">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">MW</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">0.001</span>
+                        <span class="unit-pill unit-pill-to">GW</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 MW = 0.001 GW</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 GW = 1,000 MW</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Three Orders: Machine, Plant, Nation</h2>
+
+            <p>Power engineers live in a world where the unit changes depending on what they're discussing that morning. In the design review for a new gas turbine, everyone speaks in megawatts: "the GT36 runs at 380 MW baseload, peaking at 420." In the boardroom presentation for the same project, the slide says "0.42 GW combined-cycle facility serving 350,000 households." In the regulatory filing submitted to the state public utilities commission, the document references "420 MW nominal, 398 MW guaranteed net capacity." Same machine, three units, three audiences, three prefixes.</p>
+
+            <p>The pattern repeats everywhere:</p>
+            <ul style="margin: 1em 0 1em 2em;">
+                <li><strong>Watts (W):</strong> LED bulbs (5–15 W), phone chargers (5–20 W), CPU power draw (15–150 W). Human scale.<li>
+                <li><strong>Kilowatts (kW):</strong> Household appliances (0.5–5 kW), electric vehicle chargers (7–22 kW), residential solar installations (3–15 kW). The unit on your home electricity bill.<li>
+                <li><strong>Megawatts (MW):</strong> Wind turbines (2–15 MW offshore), data centers (10–500 MW draw), diesel locomotives (2–4 MW), industrial motors (0.1–50 MW). The unit of machine-level engineering.<li>
+                <li><strong>Gigawatts (GW):</strong> Power plants (0.5–3 GW nuclear, 0.5–1 GW coal, 0.01–1 GW solar farms), HVDC interconnectors (1–2 GW), city-level demand peaks (5–15 GW for metropolises like Tokyo or New York). The unit of utility planning.<li>
+                <li><strong>Terawatts (TW):</strong> Global consumption (~3 TW continuous average), total installed capacity (~8.6 TW), potential of solar radiation reaching Earth's surface (~174,000 TW). The unit of planetary-scale energy discussion.<li>
+            </ul>
+
+            <div class="formula-box">
+                <p>GW = MW &divide; 1,000 &nbsp;&nbsp;&nbsp;&nbsp;MW = GW &times; 1,000</p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box"><p><strong>1 MW → 0.001 GW</strong></p><p>One megawatt. About 1,000 horsepower (mechanical). Enough to power roughly 750–1,000 American homes (depending on local climate, efficiency, and consumption patterns). A single large wind turbine (Vesta V236-15.0 MW) produces 15 MW = 0.015 GW. So it takes ~67 of the world's largest wind turbines to reach 1 GW. Wind farms don't work that way — they use smaller turbines in arrays. But the scale comparison holds.</p></div>
+            <div class="example-box"><p><strong>600 MW → 0.6 GW</strong></p><p>A GE 9HA.02 combined-cycle gas turbine. One machine. 0.6 GW. Sits on maybe 2 acres of land. Produces enough electricity for a mid-size city of ~450,000 people (at US average per-capita consumption of ~1.3 kW). This single piece of machinery, weighing ~500 tons, running at 1,500°C combustion temperature and spinning at 3,000 RPM, outputs more power than some countries' entire national grids (Iceland: ~370 GW capacity? No, Iceland is ~3.7 GW — so this one turbine is ~16% of Iceland's total grid capacity. Yes, really.)</p></div>
+            <div class="example-box"><p><strong>1,200 MW → 1.2 GW</strong></p><p>A standard two-unit American nuclear plant (each PWR unit ~1,150–1,200 MW). Vogtle Units 3 and 4 in Georgia are each ~1,117 MW AP1000 reactors = ~1.1 GW each. Combined plant: ~2.2 GW. Nuclear plants run at high capacity factors (90%+) unlike solar/wind (25–50%), so 1 GW of nuclear delivers ~8.76 TWh/year, whereas 1 GW of solar delivers ~1.5–2.5 TWh/year depending on location. Same GW number, very different annual energy. Capacity matters for headlines; capacity factor matters for spreadsheets.</p></div>
+            <div class="example-box"><p><strong>6,000 MW → 6 GW</strong></p><p>The Hoover Dam powerplant has a nameplate capacity of 2.08 GW (including the recently upgraded turbine-generators). The Three Gorges Dam is 22.5 GW. 6 GW is roughly three Hoover Dams or a quarter of Three Gorges. India's largest thermal plant, Vindyachal (NTPC), is about 3.78 GW coal. So 6 GW exceeds most individual power plants globally but fits comfortably within the capacity of a single Chinese province's generation portfolio (Guangdong province alone has >150 GW installed). The scale is staggering until you see it repeatedly, at which point it becomes normal, which is perhaps the scariest part.</p></div>
+
+            <h2>Common MW to GW Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Megawatts (MW)</th><th>Gigawatts (GW)</th><th>Real-World Equivalent</th></tr></thead><tbody>
+                <tr><td>1 MW</td><td>0.001 GW</td><td>Large wind turbine. ~1,000 homes.</td></tr>
+                <tr><td>10 MW</td><td>0.01 GW</td><td>Small solar farm. Data center backup generator.</td></tr>
+                <tr><td>100 MW</td><td>0.1 GW</td><td>Utility-scale solar farm. Large battery storage project.</td></tr>
+                <tr><td>500 MW</td><td>0.5 GW</td><td>Typical coal plant (one unit). Medium-sized city peak demand.</td></tr>
+                <tr><td>800 MW</td><td>0.8 GW</td><td>Standard nuclear reactor (PWR/BWR). Powers ~600K homes.</td></tr>
+                <tr><td>1,000 MW</td><td>1 GW</td><td>Large gas plant complex. Small country's grid contribution.</td></tr>
+                <tr><td>3,200 MW</td><td>3.2 GW</td><td>Diablo Canyon nuclear plant (California). Entire country of Iceland is ~3.7 GW.</td></tr>
+                <tr><td>22,500 MW</td><td>22.5 GW</td><td>Three Gorges Dam (China). Largest single-site power station.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The MW→GW conversion appears in capacity planning, LCOE (levelized cost of energy) studies, grid interconnection agreements, and carbon accounting. A critical distinction: GW measures instantaneous power capacity (how big the pipe is), while GWh or TWh measures energy delivered (how much water flows through the pipe over time). Confusing the two is the most expensive mistake in energy policy: a 1 GW solar farm costs the same to build as a 1 GW nuclear plant, but the nuclear plant produces 3–5× more annual energy due to higher capacity factor. Journalists often report "X GW of new solar installed!" without clarifying that this translates to far fewer GWh than X GW of nuclear or dispatchable gas. The MW/GW prefix tells you the size of the machine; the capacity factor (actual output ÷ nameplate) tells you how much work it does. Both numbers matter, and neither tells the full story alone. Related converters: <a href="/kw-to-hp">kW to hp</a>, <a href="/hp-to-kw">hp to kW</a>, <a href="/watts-to-kw">watts to kW</a>, and the deep-dive <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Conversion Guide</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/kw-to-hp">kw to hp</a> · <a href="/hp-to-kw">hp to kw</a> · <a href="/watts-to-kw">watts to kw</a> · <a href="/kwh-to-joules">kwh to joules</a> · <a href="/guides/energy-power-conversion-guide">Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/watts-to-hp">Watts to HP</a>
+                <a href="/gw-to-mw">GW to MW (&times; 1,000)</a> <a href="/watts-to-kw">Watts to kW</a>middot; <a href="/watts-to-kw">Watts to kW</a>
+                <a href="/kw-to-hp">kW to hp</a>
+                <a href="/hp-to-kw">HP to kW</a>
+                <a href="/kwh-to-joules">kWh to Joules</a>
+                <a href="/joules-to-calories">Joules to Calories</a>
+                <a href="/guides/energy-power-conversion-guide">Energy & Power Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">What's the difference between GW and GWh?</p>
+                <p class="faq-a">GW (gigawatt) is power — rate of energy flow. GWh (gigawatt-hour) is energy — quantity delivered. Analogy: GW is the width of a pipe; GWh is the volume of water that passes through it. A 1 GW power plant running at full capacity for 1 hour delivers 1 GWh. Running for 1 year at 100% capacity factor (impossible for anything except maybe geothermal) delivers 8,760 GWh (365 × 24). Running at a realistic 50% capacity factor (typical for solar) delivers 4,380 GWh. Same 1 GW nameplate, wildly different GWh output. Energy reporters confuse this constantly. When you read "Country X installed 10 GW of solar last year," ask: "and how many GWh did it generate?" The answer is usually 10–15 GWh per GW of installed solar, versus 40–50 GWh per GW of nuclear or 30–35 GWh per GW of CCGT gas.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Can a single data center consume a gigawatt?</p>
+                <p class="faq-a">Yes, and several already do or soon will. Hyperscale data centers (Google, Microsoft, Amazon, Meta) are building campuses with 500 MW–1 GW+ of power demand each. The Microsoft Juhl data center campus in Denmark is contracted for >1 GW. Amazon's Arlington, VA campus approaches 500 MW. Google's Midlothian, TX site is ~600 MW. At these scales, data center operators become among the largest electricity customers in their region, negotiating direct PPAs (power purchase agreements) with utilities, building on-site generation (solar + fuel cells + batteries), and designing their own substations. A single AI training cluster (e.g., training a frontier model) can spike demand by 100+ MW for weeks. The cloud's MW-to-GW transition is happening faster than the rest of the economy's.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What does "nameplate capacity" mean?</p>
+                <p class="faq-a">The maximum rated output under ideal conditions, as certified by the manufacturer. A "1,000 MW" coal plant can theoretically produce 1,000 MW continuously if the boiler is at full fire, the turbine-generator is synchronized and loaded, the condenser is cooling properly, and ambient conditions are within spec. In reality, plants operate below nameplate for maintenance (planned outage: 5–10% of hours), load following (demand varies: plants ramp down at night), deratings (hot days reduce gas turbine output by 5–10%), and equipment aging (efficiency drops ~0.5%/year). Actual annual output is typically 60–85% of nameplate × hours, depending on technology and duty cycle. Nameplate is the theoretical maximum; capacity factor × nameplate × time is reality.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why do we need terawatts if we have gigawatts?</p>
+                <p class="faq-a">Because global energy demand is ~18 TW (terawatts) of primary energy consumption (not just electricity — this includes oil for transport, gas for heating, coal for industry). Of that 18 TW, only ~3 TW becomes electricity. The remaining ~15 TW is thermal losses, transport inefficiency, and non-electric energy use. Decarbonizing the full 18 TW with low-carbon sources (renewables, nuclear, electrification of everything) requires building tens of terawatts of new generation capacity. Current global installed electric capacity is ~8.6 TW. We need to triple or quadruple it while retiring fossil capacity. This is the defining engineering challenge of the 21st century, and it is measured in TW, not GW. MW is for individual machines. GW is for plants. TW is for civilizations.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

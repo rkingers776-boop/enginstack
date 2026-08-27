@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatts to Megawatts — The Grid Planner's Unit | EnginStack</title>
+    <meta name="description" content="1 GW = 1,000 MW. National grid reports speak in gigawatts. Turbine manufacturers quote in megawatts. Every grid planner, plant developer, and energy analyst lives at the intersection of these two units. Here is the translation layer between them.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/gw-to-mw">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/gw-to-mw">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/gw-to-mw">
+    <meta property="og:title" content="GW to MW — The Grid Planner's Translation Layer | EnginStack">
+    <meta property="og:description" content="1 GW = 1,000 MW. From IEA global reports to individual turbine specs. How grid-scale and machine-scale thinking connect through a single conversion.">
+    <meta property="og:url" content="https://enginstack.com/gw-to-mw">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gigawatts to Megawatts Converter",
+  "description": "Convert between gigawatts (GW) and megawatts (MW) for grid planning, power plant sizing, and translating national energy statistics into engineering-scale numbers.",
+  "url": "https://enginstack.com/gw-to-mw",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "If 1 GW = 1,000 MW, why do grid operators and turbine manufacturers use different units?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is ergonomic, not mathematical. A grid operator managing a 150 GW system processes data that sums to GW-scale totals. Writing those in MW means numbers like 150,000 MW peak demand—human error rates go up with digit count. Turbine manufacturers build machines physically constrained to a few hundred MW. Calling a 571 MW gas turbine 0.571 GW is technically correct but no engineer does it, because the turbine is one object and its MW rating directly communicates what it can do. Each community uses the prefix that keeps core numbers in the 1-to-999 range. The 1,000× conversion is the seam where their worlds stitch together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does 1 GW of generation capacity cost to build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Overnight capital costs per GW as of 2025: utility-scale solar PV, $0.8–$1.1 billion; onshore wind, $1.2–$1.6 billion; offshore wind, $2.5–$4.5 billion; combined-cycle gas, $1.0–$1.3 billion; nuclear (AP1000-style), $6–$10 billion (Vogtle Units 3 and 4 cost roughly $35B for 2.2 GW, or ~$16B/GW, though US first-of-a-kind costs are anomalously high); 4-hour battery storage (1 GW / 4 GWh), $1.5–$2.0 billion. These are overnight capital costs. Levelized cost of energy (LCOE) per MWh depends on capacity factor, fuel, O&M, and financing, producing a different ranking. A $1B/GW solar farm at 25% capacity factor may have similar LCOE to a $1.2B/GW gas plant at 60% capacity factor. The GW capital cost is the first number on the spreadsheet, never the last."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can 1 GW power? How many homes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The US rule of thumb says 1 GW powers roughly 750,000 average American homes (at ~1.3 kW average per-home draw, dominated by air conditioning). In a temperate climate like the UK, with ~0.5 kW per-home draw and minimal AC, 1 GW covers closer to 2 million homes. More rigorously: 1 GW running continuously at 100% capacity factor produces 8,760 GWh per year. At US average consumption of ~10,800 kWh per household per year, that is ~811,000 homes. At a realistic 30% capacity factor for a solar farm, 1 GW nameplate delivers 2,628 GWh per year—roughly 243,000 homes. Same gigawatt. The capacity factor does the real work. The \"homes powered\" metric is deliberately fuzzy; always ask what capacity factor it assumes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do countries actually measure their grids in terawatts yet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet, but China is close. As of 2024, China had ~2,900 GW (2.9 TW) of installed capacity, the only country measured meaningfully in terawatts. India passed 500 GW. The US is at ~1,300 GW (1.3 TW). All of Africa has about 250 GW. Global total capacity: ~8,600 GW (8.6 TW). Terawatts remain a global-scale unit. That will change: China is projected to reach 4–5 TW by 2030, at which point TW becomes the default for Chinese grid statistics. The transition from GW to TW signals that a country's electricity system has crossed into a new order of magnitude. The GW/MW conversion, meanwhile, remains the daily working unit for every grid and every power plant on Earth."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Energy", "item": "https://enginstack.com/energy/" },
+    { "@type": "ListItem", "position": 3, "name": "GW to MW" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/energy/">Energy</a> <span class="sep">&rsaquo;</span>
+            <span class="current">GW to MW Converter</span></nav>
+
+        <header class="page-header">
+            <h1>GW to MW: The Grid Planner&#8217;s Translation Layer</h1>
+            <p>1 GW = 1,000 MW. The math is multiplying by a thousand. What makes the conversion worth a page is that everyone in electricity lives on one side of this decimal or the other, and the translation between them is where decisions get made. National grid reports, IEA outlooks, and capacity market auctions speak in gigawatts. Turbine manufacturers, plant operators, and procurement departments work in megawatts. A grid planner reading that global solar reached 1,600 GW (IRENA, 2024) immediately converts: 1,600,000 MW. A turbine engineer quoting a 571 MW gas turbine wonders why the utility keeps calling it a 0.57 GW interconnection request. Same number. Different language.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="1000" data-unit-from="GW" data-unit-to="MW">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">GW</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1000</span>
+                        <span class="unit-pill unit-pill-to">MW</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 GW = 1,000 MW</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 MW = 0.001 GW</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg). Every decimal place in the factor above is a defined constant, not a measurement.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Why the Grid Speaks in Gigawatts</h2>
+
+            <p>Open any IEA report or national grid assessment. The unit in every headline is GW. Global solar: 1,600 GW. Global wind: 1,010 GW. China added 300 GW of solar in 2024. The US has about 1,300 GW of total installed capacity. The UK peaks around 48 GW in winter. These numbers are written for policymakers and utility executives who think about the system as a whole. A grid is a single synchronous machine spanning a continent, and its vital signs start in gigawatts.</p>
+
+            <p>But the people who build the components that sum to those gigawatts do not work in gigawatts. A gas turbine OEM designs and certifies at 571 MW. A solar developer permits a 150 MW project. A wind farm operator monitors 80 turbines at 6 MW each. A substation transformer is specified at 300 MVA. A day-ahead market bid is 200 MW from 6 AM to 10 PM. Everything downstream of the headline is in megawatts. The GW-to-MW conversion is not an academic exercise. It is the daily operational bridge between national energy policy and the steel, copper, and concrete that delivers it.</p>
+
+            <p>Consider a single utility. The integrated resource plan says: "We need 2 GW of new capacity by 2035." Two floors down, the RFP says: "Seeking proposals between 100 MW and 500 MW." The first person aggregates across the service territory in GW. The second solicits bids in MW because the interconnection queue processes MW increments and banks finance MW-scale assets. Same company. Same goal. Two units. One conversion.</p>
+
+            <div class="formula-box">
+                <p>MW = GW &times; 1,000 &nbsp;&nbsp;&nbsp;&nbsp;GW = MW &divide; 1,000</p>
+            </div>
+
+            <h2>Worked Examples: From National Headlines to Turbine Specifications</h2>
+
+            <div class="example-box"><p><strong>1,600 GW &rarr; 1,600,000 MW</strong></p><p>IRENA&#8217;s 2024 snapshot: global solar PV at 1,600 GW. In MW, that is 1.6 million megawatts. A typical utility-scale solar farm is 150 MW, meaning the global fleet represents roughly 10,700 such projects. Nobody builds 1,600 GW all at once. You build it 150 MW at a time, one substation interconnection at a time, one power purchase agreement at a time. The GW number is the scoreboard. The MW number is the to-do list.</p></div>
+
+            <div class="example-box"><p><strong>1 GW &rarr; 1,000 MW</strong></p><p>One gigawatt. A single AP1000 reactor at Vogtle Units 3 and 4 in Georgia (1,117 MW each, close enough to 1 GW). Roughly two GE 9HA.02 combined-cycle gas turbines at 571 MW each. Sixty-seven Vestas V236-15.0 MW wind turbines, the largest in commercial production. About 2,500 residential solar panels at 400 W each. The three zeros look clean on a calculator. On a construction site, they represent 5&ndash;10 years of development, billions in capital, and acres of regulatory filings.</p></div>
+
+            <div class="example-box"><p><strong>0.2 GW &rarr; 200 MW</strong></p><p>A hyperscale data center campus. When AWS files an interconnection request for a 200 MW facility in northern Virginia, PJM sees a 0.2 GW load addition and runs a system impact study for thermal limits and voltage stability. Meanwhile, the data center team is procuring 200 MW of backup generation and designing a substation from 230 kV down to 13.8 kV. The grid operator speaks GW. The facility engineer speaks MW. The interconnection agreement ties both languages together in a legally binding contract.</p></div>
+
+            <div class="example-box"><p><strong>48 GW &rarr; 48,000 MW</strong></p><p>The UK winter peak of 47.8 GW (January 2025). National Grid ESO publishes a single GW number for a nation of 67 million people. But that 48 GW was met by hundreds of individual power stations bidding in MW: a 500 MW CCGT in Yorkshire, a 1,200 MW nuclear unit at Sizewell B, a 300 MW wind farm off Norfolk. Thousands of MW-denominated bids, cleared through an algorithm, summed to 48 GW. The conversion runs silently, millions of times a day, in the market engine, the SCADA telemetry, and the control room displays.</p></div>
+
+            <div class="example-box"><p><strong>5 GW &rarr; 5,000 MW</strong></p><p>Peak demand of a mid-sized metro area of 3&ndash;5 million people. That is 5,000 MW of simultaneous load from every air conditioner, subway train, server rack, refrigerator, and LED in the region, all at once. The transmission planner says the city needs a new 5 GW import path. The distribution engineer says six 50 MW feeders need upgrading and a 200 MW substation needs adding. Same problem. Same unit conversion. Different career.</p></div>
+
+            <h2>Common GW to MW Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Gigawatts (GW)</th><th>Megawatts (MW)</th><th>Real-World Equivalent</th></tr></thead><tbody>
+                <tr><td>0.001 GW</td><td>1 MW</td><td>Large diesel backup generator. ~1,000 homes.</td></tr>
+                <tr><td>0.01 GW</td><td>10 MW</td><td>Small municipal solar farm. District heating plant.</td></tr>
+                <tr><td>0.1 GW</td><td>100 MW</td><td>Utility-scale battery storage project.</td></tr>
+                <tr><td>0.2 GW</td><td>200 MW</td><td>Hyperscale data center campus.</td></tr>
+                <tr><td>0.5 GW</td><td>500 MW</td><td>Typical coal plant unit. Mid-sized city demand.</td></tr>
+                <tr><td>1 GW</td><td>1,000 MW</td><td>Nuclear reactor. Large CCGT plant. ~750,000 homes.</td></tr>
+                <tr><td>1.6 GW</td><td>1,600 MW</td><td>EPR nuclear reactor. Largest single unit operating.</td></tr>
+                <tr><td>5 GW</td><td>5,000 MW</td><td>Major metro peak zone. HVDC interconnector capacity.</td></tr>
+                <tr><td>22.5 GW</td><td>22,500 MW</td><td>Three Gorges Dam. Largest single-site station.</td></tr>
+                <tr><td>150 GW</td><td>150,000 MW</td><td>PJM Interconnection peak (US East Coast, 65M people).</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>When the Unit Tells You Who You Are Talking To</h3>
+                <p>The choice between GW and MW is rarely about mathematical convenience. It is a sociological marker. Grid operators and ISOs operate in GW because their scope is regional: PJM manages a 150 GW peak across 13 states. The IEA and national energy ministries compile statistics in GW because they aggregate entire countries. Turbine OEMs&mdash;GE Vernova, Siemens Energy, Mitsubishi&mdash;rate their machines in MW because the devices they design, cast, and ship are single physical objects. A 571 MW gas turbine weighs 500 tons and fits on a barge. No engineering document has ever called it a 0.571 GW machine. The unit tells you which side of the supply chain someone works on.</p>
+
+                <p>The distinction deepens around risk tolerance. A grid operator managing 150 GW sees a 1 GW contingency (the sudden loss of a nuclear unit) as a manageable disturbance&mdash;spinning reserves should cover 0.67% of system load. A plant operator managing a 1,000 MW turbine sees a 10 MW deviation as an alarm, a root-cause investigation, and potentially a forced outage report. Same 1,000 MW: 0.67% to the grid operator, 100% to the plant operator. The GW/MW conversion is where these risk frames collide.</p>
+
+                <p>Capacity markets embed the conversion in their design. PJM&#8217;s Base Residual Auction clears in GW of unforced capacity. But every individual resource offers its capability in MW, adjusted by effective load carrying capability (ELCC). A 100 MW solar farm might be accredited at 15&ndash;20 MW of UCAP because winter peak availability is low. Thousands of MW-denominated offers sum to a GW-denominated clearing price. Multiply and divide by 1,000, over and over, in spreadsheets underpinning billions of dollars of transactions. The forward direction is covered at <a href="/mw-to-gw">MW to GW</a>. This page starts at the system scale and decomposes downward. Together they cover the full translation layer.</p>
+
+                <p style="margin-top:1.2em;">More: <a href="/watts-to-kw">watts to kW</a> &middot; <a href="/kw-to-watts">kW to watts</a> &middot; <a href="/watts-to-hp">watts to hp</a> &middot; <a href="/hp-to-watts">hp to watts</a> &middot; <a href="/hp-to-kw">hp to kW</a> &middot; <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/mw-to-gw">MW to GW</a>
+                <a href="/watts-to-kw">Watts to kW</a>
+                <a href="/kw-to-watts">kW to Watts</a>
+                <a href="/watts-to-hp">Watts to HP</a>
+                <a href="/hp-to-watts">HP to Watts</a>
+                <a href="/hp-to-kw">HP to kW</a>
+                <a href="/kw-to-hp">kW to HP</a>
+                <a href="/kwh-to-joules">kWh to Joules</a>
+                <a href="/joules-to-calories">Joules to Calories</a>
+                <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">If 1 GW = 1,000 MW, why do grid operators and turbine manufacturers use different units?</p>
+                <p class="faq-a">It is ergonomic, not mathematical. A grid operator managing a 150 GW system processes data that sums to GW-scale totals. Writing those in MW means numbers like 150,000 MW peak demand&mdash;human error rates go up with digit count. Turbine manufacturers build machines physically constrained to a few hundred MW. Calling a 571 MW gas turbine 0.571 GW is technically correct but no engineer does it, because the turbine is one object and its MW rating directly communicates what it can do. Each community uses the prefix that keeps core numbers in the 1-to-999 range. The 1,000&times; conversion is the seam where their worlds stitch together.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How much does 1 GW of generation capacity cost to build?</p>
+                <p class="faq-a">Overnight capital costs per GW as of 2025: utility-scale solar PV, $0.8&ndash;$1.1 billion; onshore wind, $1.2&ndash;$1.6 billion; offshore wind, $2.5&ndash;$4.5 billion; combined-cycle gas, $1.0&ndash;$1.3 billion; nuclear (AP1000-style), $6&ndash;$10 billion (Vogtle Units 3 and 4 cost roughly $35B for 2.2 GW, or ~$16B/GW, though US first-of-a-kind costs are anomalously high); 4-hour battery storage (1 GW / 4 GWh), $1.5&ndash;$2.0 billion. These are overnight capital costs. Levelized cost of energy (LCOE) per MWh depends on capacity factor, fuel, O&amp;M, and financing, producing a different ranking. A $1B/GW solar farm at 25% capacity factor may have similar LCOE to a $1.2B/GW gas plant at 60% capacity factor. The GW capital cost is the first number on the spreadsheet, never the last.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What can 1 GW power? How many homes?</p>
+                <p class="faq-a">The US rule of thumb says 1 GW powers roughly 750,000 average American homes (at ~1.3 kW average per-home draw, dominated by air conditioning). In a temperate climate like the UK, with ~0.5 kW per-home draw and minimal AC, 1 GW covers closer to 2 million homes. More rigorously: 1 GW running continuously at 100% capacity factor produces 8,760 GWh per year. At US average consumption of ~10,800 kWh per household per year, that is ~811,000 homes. At a realistic 30% capacity factor for a solar farm, 1 GW nameplate delivers 2,628 GWh per year&mdash;roughly 243,000 homes. Same gigawatt. The capacity factor does the real work. The "homes powered" metric is deliberately fuzzy; always ask what capacity factor it assumes.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Do countries actually measure their grids in terawatts yet?</p>
+                <p class="faq-a">Not yet, but China is close. As of 2024, China had ~2,900 GW (2.9 TW) of installed capacity, the only country measured meaningfully in terawatts. India passed 500 GW. The US is at ~1,300 GW (1.3 TW). All of Africa has about 250 GW. Global total capacity: ~8,600 GW (8.6 TW). Terawatts remain a global-scale unit. That will change: China is projected to reach 4&ndash;5 TW by 2030, at which point TW becomes the default for Chinese grid statistics. The transition from GW to TW signals that a country's electricity system has crossed into a new order of magnitude. The GW/MW conversion, meanwhile, remains the daily working unit for every grid and every power plant on Earth.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Amps to Ohms — Sizing the Resistor for a Target Current | EnginStack</title>
+    <meta name="description" content="Convert amps to ohms with Ohm's law: R = V/I. A 20 mA LED at 5 V needs a 250 Ω current-limiting resistor. The designer's calculation — start with the current you want, get the resistance that produces it.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/amps-to-ohms">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/amps-to-ohms">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/amps-to-ohms">
+    <meta property="og:title" content="Amps to Ohms — Sizing the Resistor for a Target Current | EnginStack">
+    <meta property="og:description" content="Convert amps to ohms with Ohm's law: R = V/I. A 20 mA LED at 5 V needs a 250 Ω current-limiting resistor. Start with the current you want, get the resistance.">
+    <meta property="og:url" content="https://enginstack.com/amps-to-ohms">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "amps to ohms Converter",
+      "description": "Convert amps to ohms with Ohm's law: R = V/I. Enter the current you want and the voltage available to get the resistance that produces it. A 20 mA LED at 5 V needs a 250 Ω resistor; a 3 A load at 12 V presents 4 Ω.",
+      "url": "https://enginstack.com/amps-to-ohms",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert amps to ohms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the voltage by the current: resistance (Ω) = voltage (V) ÷ current (A). A 5 V supply pushing 20 mA needs 5 ÷ 0.02 = 250 Ω. Amps alone cannot give ohms — you must also know the voltage that is pushing the current."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What resistor does an LED need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use R = (Vsupply − Vled) ÷ I. A typical red LED drops about 2 V and is happy at 20 mA: on a 5 V supply, R = (5 − 2) ÷ 0.02 = 150 Ω. On 12 V it becomes (12 − 2) ÷ 0.02 = 500 Ω. The LED's own forward drop is subtracted first — that is why the resistor is called current-limiting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does this conversion matter outside electronics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Audio and industrial design use it constantly. A speaker amplifier that must deliver 3 A into its output stage at 12 V sees a 4 Ω equivalent load, and impedance matching questions are the same R = V/I calculation. Shunt resistors for current sensing are sized the same way: pick the resistance that turns your target current into a readable voltage at the meter input."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "amps to ohms Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">amps to ohms Converter</span></nav>
+
+        <header class="page-header">
+            <h1>amps to ohms — sizing the resistor for the current you want</h1>
+            <p>Most Ohm's law questions start with what exists. This one starts with what you want: a 20 mA LED on a 5 V rail, a 3 A load on a 12 V system, a shunt that must read a known current. Decide the current first, and the resistance that produces it falls out of R = V/I. This converter is the electronics starter-kit calculation — the one behind every current-limiting resistor you have ever soldered.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="amps" data-unit-to="ohms" data-ctx-unit="volts" data-formula="v-over-i">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive Ohm's law calculator. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">amps</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="0.02" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">amps</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label" for="ctx-val">volts</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="ctx-input" id="ctx-val" value="5" min="0" step="any">
+                        <span class="unit-pill unit-pill-ctx">volts</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">ohms</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">5 volts ÷ 0.02 amps = 250 ohms</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">250 ohms × 0.02 amps = 5 volts</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide). Ohm's law is a law, not a measurement — the resistance you get is exact for the voltage and current you entered.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Start with the Current, End with a Resistor</h2>
+
+            <p>The design sequence almost never goes voltage-first. It goes: <em>this LED should not see more than 20 mA</em>, or <em>this sensor loop is speced at 4–20 mA</em>, or <em>this motor must not pull more than 3 A</em>. The current is the constraint written in the datasheet; the voltage is whatever rail happens to be there; the resistor is the part you get to choose. Convert the current to a resistance and the standard value you pick off the shelf — 150 Ω, 220 Ω, 470 Ω — is the number this page produces.</p>
+
+            <div class="formula-box"><p><strong>ohms = volts ÷ amps</strong><br>R = V/I<br>Exact, by Ohm's law — pick the current, the resistance follows.</p></div>
+
+            <h2>Design Values That Come Up Constantly</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>target current</th><th>supply volts</th><th>ohms</th><th>Context</th></tr></thead><tbody>
+                <tr><td>20 mA</td><td>5 V</td><td>250 Ω</td><td>LED current limit (before subtracting the LED's ~2 V drop).</td></tr>
+                <tr><td>20 mA</td><td>12 V</td><td>600 Ω</td><td>LED on automotive power (with drop: ~500 Ω).</td></tr>
+                <tr><td>4–20 mA</td><td>24 V</td><td>1.2 kΩ</td><td>Industrial sensor loop — 250 Ω shunt turns the loop into a 1–5 V signal.</td></tr>
+                <tr><td>3 A</td><td>12 V</td><td>4 Ω</td><td>Car accessory load — the equivalent resistance of the whole circuit.</td></tr>
+                <tr><td>0.5 A</td><td>120 V</td><td>240 Ω</td><td>60 W bulb at operating temperature, solved backwards from its current.</td></tr>
+                </tbody></table></div>
+
+            <p>The 4–20 mA row is the one that pays industrial electricians' bills. A 250 Ω precision shunt across a 4–20 mA transmitter output produces 1 V at 4 mA and 5 V at 20 mA — the classic 1–5 V signal that PLC analog inputs expect. The "conversion" is nothing more than R = V/I with the current range fixed and the resistance chosen to land the voltage range. Instrumentation catalogs sell the 250 Ω resistor as a standard part for exactly this reason.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The forward direction of this calculation is the <a href="/ohms-to-amps">ohms to amps</a> converter — resistance known, current found. The same R = V/I relation viewed from the supply side is <a href="/volts-to-ohms">volts to ohms</a>. When the power budget matters rather than the current, the sibling formulas live in <a href="/volts-to-watts">volts to watts</a> (P = V·I) and <a href="/watts-to-amps">watts to amps</a>. Everything above traces back to the <a href="/electric/">electric hub</a>, and the resistor's power rating — how hot the part you just sized will run — is a <a href="/watts-to-amps">watts</a> question: P = I²·R, worth checking before you solder in a 1/8 W part where a 1/2 W belongs.</p>
+                <p style="margin-top:1.2em;">More: <a href="/ohms-to-amps">Ω to A</a> · <a href="/volts-to-ohms">V to Ω</a> · <a href="/volts-to-watts">V to W</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/ohms-to-amps">Ohms To Amps</a>
+                <a href="/volts-to-ohms">Volts To Ohms</a>
+                <a href="/volts-to-amps">Volts To Amps</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert amps to ohms?</p>
+                    <p class="faq-a">Divide the voltage by the current: resistance (Ω) = voltage (V) ÷ current (A). A 5 V supply pushing 20 mA needs 5 ÷ 0.02 = 250 Ω. Amps alone cannot give ohms — you must also know the voltage that is pushing the current.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">What resistor does an LED need?</p>
+                    <p class="faq-a">Use R = (Vsupply − Vled) ÷ I. A typical red LED drops about 2 V and is happy at 20 mA: on a 5 V supply, R = (5 − 2) ÷ 0.02 = 150 Ω. On 12 V it becomes (12 − 2) ÷ 0.02 = 500 Ω. The LED's own forward drop is subtracted first — that is why the resistor is called current-limiting.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why does this conversion matter outside electronics?</p>
+                    <p class="faq-a">Audio and industrial design use it constantly. A speaker amplifier that must deliver 3 A into its output stage at 12 V sees a 4 Ω equivalent load, and impedance matching questions are the same R = V/I calculation. Shunt resistors for current sensing are sized the same way: pick the resistance that turns your target current into a readable voltage at the meter input.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var ctx = card.querySelector('.ctx-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fCtx = card.getAttribute('data-ctx-unit');
+    var fTo = card.getAttribute('data-unit-to');
+    function calc() {
+        var a = parseFloat(main.value), b = parseFloat(ctx.value);
+        if (isNaN(a) || isNaN(b) || a === 0) { out.textContent = '—'; return; }
+        var r = b / a;
+        out.textContent = fmt(r);
+        fwd.textContent = b + ' ' + fCtx + ' ÷ ' + a + ' ' + fMain + ' = ' + fmt(r) + ' ' + fTo;
+        rev.textContent = fmt(r) + ' ' + fTo + ' × ' + a + ' ' + fMain + ' = ' + b + ' ' + fCtx;
+    }
+    main.addEventListener('input', calc);
+    ctx.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Ohm",
+  "termCode": "ohm (Ω)",
+  "description": "The ohm is the SI derived unit of electrical resistance. In Ohm's law, resistance (Ω) equals voltage (V) divided by current (A): R = V/I, the relation this calculator implements.",
+  "url": "https://en.wikipedia.org/wiki/Ohm",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+
+</body>
+</html>

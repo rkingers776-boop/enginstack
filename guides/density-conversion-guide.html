@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Density Conversion Guide — kg/m³, g/cm³, lb/ft³ &amp; the Water Anchor | EnginStack</title>
+    <meta name="description" content="The complete engineering guide to density conversion: why water anchors every unit (1 g/cm³ = 1,000 kg/m³ = 62.4 lb/ft³), the cubed-length trap that triples unit errors, aluminum's double life as 2.7 and 2,700, and the aerospace inch-cubed world. Exact constants from SI and the 1959 yard/pound agreement.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/density-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/density-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/density-conversion-guide">
+    <meta property="og:title" content="Density Conversion Guide — kg/m³, g/cm³, lb/ft³ &amp; the Water Anchor | EnginStack">
+    <meta property="og:description" content="Why water anchors every density unit, the cubed-length trap that triples errors, aluminum as 2.7 and 2,700, and the aerospace inch-cubed world.">
+    <meta property="og:url" content="https://enginstack.com/guides/density-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Density Conversion Guide — kg/m³, g/cm³, lb/ft³ &amp; the Water Anchor | EnginStack">
+    <meta name="twitter:description" content="Why water anchors every density unit, the cubed-length trap, aluminum as 2.7 and 2,700, and aerospace's inch-cubed world.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Density Conversion Guide — kg/m³, g/cm³, lb/ft³ & the Water Anchor",
+  "description": "Definitive engineering reference for density conversion: kilograms per cubic meter, grams per cubic centimeter, pounds per cubic foot, pounds per cubic inch, and grams per liter. Why water anchors every unit, the cubed-length trap that triples unit errors, aluminum's double life as 2.7 and 2,700, and the aerospace inch-cubed world.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/density-conversion-guide",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://enginstack.com/guides/density-conversion-guide"
+  },
+  "datePublished": "2026-08-05",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is density the same as specific gravity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, but they're numerically equal in g/cm³. Density has units (mass per volume); specific gravity is a dimensionless ratio of the material's density to water's. Because water is 1 g/cm³, a material's g/cm³ value equals its specific gravity — aluminum is 2.7 g/cm³ and has a specific gravity of 2.7. The distinction matters when someone asks \"is it heavier than water?\" — that's specific gravity, and the answer is the g/cm³ number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does ice float if it's solid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because solid ice is less dense than liquid water: 0.917 g/cm³ vs 1.000 g/cm³. Water is one of the few substances that expands when it freezes, so ice occupies more volume per unit mass and floats. That 8.3% density gap is why lakes freeze from the surface down, why icebergs hide about 90% of their mass underwater, and why a full bottle of water bursts in the freezer — the expansion is the same physics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert kg/m³ to lb/ft³ in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 16.018, or use 16 for a quick estimate (accurate to 0.1%). 2,400 kg/m³ ÷ 16 = 150 lb/ft³ — the concrete number everyone remembers. 1,000 ÷ 16 = 62.5, close to water's 62.4. For the reverse, multiply lb/ft³ by 16. The kg/m³ to lb/ft³ converter uses the full constant when the estimate isn't enough."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between kg/m³ and g/L?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing numerically — 1 kg/m³ = 1 g/L exactly. A cubic meter holds 1,000 liters and a kilogram is 1,000 grams, so the 1,000s cancel. The units differ in convention: kg/m³ is the SI coherent density, g/L is the solution-chemistry concentration unit. Water is 1,000 in both. The kg/m³ to g/L page exists because the identical numbers still describe different unit systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is density related to the other converters on this site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Density is the ratio of mass to volume, so it sits between the weight & mass and volume families. Mass flows into force through gravity (the force guide's 9.80665), and volume flows into flow rate through time (the speed and frequency families). The density constants on this page — 1,000, 16.018463, 62.427961, 27.679905 — are the bridge between those families, all anchored to the same 1795 cup of water and the same 1959 yard/pound agreement."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Engineering Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Density Conversion Guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Engineering Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Density Conversion Guide</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Density: A Field Guide to the Quantity That Keeps Floating Things Floating</h1>
+            <p>In 1795, the French Academy defined the gram as the mass of one cubic centimeter of water — and accidentally created the most convenient unit conversion in all of engineering. Because water became exactly 1 g/cm³ by construction, it is also exactly 1,000 kg/m³, exactly 62.427961 lb/ft³, and exactly 1 kg/L. Every density unit ever invented is anchored to the same cup of water. This guide is about that anchor, the materials that float or sink against it, and the one trap that makes density conversions fail: the cube.</p>
+            <p class="page-meta">~12 min read &nbsp;·&nbsp; Last updated August 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<!-- ══ KEY TAKEAWAYS ══ -->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>Water is the anchor of every density unit.</strong> 1 g/cm³ = 1,000 kg/m³ = 62.427961 lb/ft³ = 1 kg/L — all the same physical density, all exact.</li>
+        <li><strong>The gram was defined as a cubic centimeter of water.</strong> That 1795 definition is why water is exactly 1 g/cm³ and why specific gravity equals the g/cm³ number.</li>
+        <li><strong>Density conversion cubes its length error.</strong> A 1% unit error becomes a 3% density error, because volume is length cubed. Full-precision constants are mandatory.</li>
+        <li><strong>Aluminum lives a double life.</strong> 2.7 g/cm³ on the datasheet, 2,700 kg/m³ in the FEA model, 168.6 lb/ft³ at the US fabricator, 0.0975 lb/in³ in aerospace. Four numbers, one metal.</li>
+        <li><strong>US construction thinks in 62.4 and 150.</strong> Water is 62.4 lb/ft³, concrete is 150. The metric world thinks in 1,000 and 2,400. The bridge is 16.018463.</li>
+        <li><strong>Aerospace measures density in lb/in³.</strong> The unit matches inch-based CAD geometry, so weight = volume × density in one system.</li>
+    </ul>
+</div>
+
+<!-- ══ QUICK REFERENCE ══ -->
+<h2>Quick Density Conversion Reference</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Factor</th><th>Use this converter</th></tr></thead>
+    <tbody>
+        <tr><td>kg/m³</td><td>g/cm³</td><td>÷ 1,000</td><td><a href="/kg-m3-to-g-cm3">kg/m³ to g/cm³ →</a></td></tr>
+        <tr><td>g/cm³</td><td>kg/m³</td><td>× 1,000</td><td><a href="/g-cm3-to-kg-m3">g/cm³ to kg/m³ →</a></td></tr>
+        <tr><td>kg/m³</td><td>lb/ft³</td><td>÷ 16.018463</td><td><a href="/kg-m3-to-lb-ft3">kg/m³ to lb/ft³ →</a></td></tr>
+        <tr><td>lb/ft³</td><td>kg/m³</td><td>× 16.018463</td><td><a href="/lb-ft3-to-kg-m3">lb/ft³ to kg/m³ →</a></td></tr>
+        <tr><td>g/cm³</td><td>lb/ft³</td><td>× 62.427961</td><td><a href="/g-cm3-to-lb-ft3">g/cm³ to lb/ft³ →</a></td></tr>
+        <tr><td>lb/ft³</td><td>g/cm³</td><td>÷ 62.427961</td><td><a href="/lb-ft3-to-g-cm3">lb/ft³ to g/cm³ →</a></td></tr>
+        <tr><td>kg/m³</td><td>g/L</td><td>1:1 (exact)</td><td><a href="/kg-m3-to-g-l">kg/m³ to g/L →</a></td></tr>
+        <tr><td>g/L</td><td>kg/m³</td><td>1:1 (exact)</td><td><a href="/g-l-to-kg-m3">g/L to kg/m³ →</a></td></tr>
+        <tr><td>g/cm³</td><td>lb/in³</td><td>÷ 27.679905</td><td><a href="/g-cm3-to-lb-in3">g/cm³ to lb/in³ →</a></td></tr>
+        <tr><td>lb/in³</td><td>g/cm³</td><td>× 27.679905</td><td><a href="/lb-in3-to-g-cm3">lb/in³ to g/cm³ →</a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══ TOC ══ -->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#the-cup-of-water">The Cup of Water: How 1795 Defined Every Density Unit</a></li>
+        <li><a href="#the-1000-ladder">The 1,000 Ladder: kg/m³, g/cm³, g/L, and the SI Family</a></li>
+        <li><a href="#the-cubed-trap">The Cubed-Length Trap: Why Density Errors Tripple</a></li>
+        <li><a href="#aluminum-double-life">Aluminum's Double Life: 2.7, 2,700, 168.6, and 0.0975</a></li>
+        <li><a href="#the-us-construction-world">The US Construction World: 62.4, 110, and 150</a></li>
+        <li><a href="#aerospace-inch-cubed">The Aerospace Inch-Cubed World: lb/in³ and the Airframe</a></li>
+        <li><a href="#what-floats">What Floats: Specific Gravity and the Waterline</a></li>
+        <li><a href="#master-table">Master Density Conversion Table</a></li>
+        <li><a href="#tools">Every Density Converter on This Site</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+</nav>
+
+<section id="the-cup-of-water">
+<h2>1. The Cup of Water: How 1795 Defined Every Density Unit</h2>
+<p>In 1795, the French Academy of Sciences set out to create a measurement system free of royal feet and kings' ells. They defined the meter as one ten-millionth of the meridian, the gram as the mass of one cubic centimeter of water at its maximum density, and the liter as one cubic decimeter. The water choice was deliberate — water is everywhere, reproducible, and essential to life — and its consequence was a gift to every engineer who came after: <strong>water is exactly 1 g/cm³ by definition.</strong> No measurement, no calibration, no uncertainty. The unit and the substance were defined to match.</p>
+<p>That single decision cascades through every density unit in use today. Water is 1 g/cm³, which is 1,000 kg/m³ (the SI unit), which is 62.427961 lb/ft³ (the US customary unit), which is 1 kg/L (the solution-chemistry unit). The same cup of water anchors all of them, and the conversions between them are exact because they all trace back to the same 1795 definition plus the 1959 yard/pound agreement and the SI prefixes. This is why the density page on this site can promise exact constants where other families carry measurement uncertainty: density conversion is definitional all the way down.</p>
+</section>
+
+<section id="the-1000-ladder">
+<h2>2. The 1,000 Ladder: kg/m³, g/cm³, g/L, and the SI Family</h2>
+<p>Within the SI system, density conversions are pure powers of ten. The kilogram per cubic meter is the coherent unit — the one that makes derived quantities like force and pressure land in their natural SI magnitudes. The gram per cubic centimeter is the same quantity in smaller dress: a gram is 10⁻³ kg, a cubic centimeter is 10⁻⁶ m³, so 1 g/cm³ = 1,000 kg/m³ exactly. The gram per liter is a 1:1 twin of kg/m³, because a cubic meter holds exactly 1,000 liters and a kilogram is exactly 1,000 grams — the 1,000s cancel to leave identical numbers.</p>
+<p>The practical consequence is that SI density conversions never involve messy constants. Aluminum is 2.7 g/cm³, 2,700 kg/m³, or 2,700 g/L — the same material, three notations, one decimal shift. Water is 1, 1,000, and 1,000. The <a href="/kg-m3-to-g-cm3">kg/m³ to g/cm³</a> and <a href="/g-cm3-to-kg-m3">g/cm³ to kg/m³</a> converters on this site do the 1,000 shift, and the <a href="/kg-m3-to-g-l">kg/m³ to g/L</a> pair handles the 1:1 — which looks like a bug and isn't. The mass side of these conversions lives in the <a href="/weight/">weight &amp; mass</a> family, and the volume side in the <a href="/volume/">volume</a> family; density is their exact ratio.</p>
+</section>
+
+<section id="the-cubed-trap">
+<h2>3. The Cubed-Length Trap: Why Density Errors Tripple</h2>
+<p>Here is the trap that makes density conversions different from every other conversion on this site. Density is mass per unit volume, and volume is a length <em>cubed</em>. When you convert density between systems that use different length units — SI's meter and US customary's foot — the length conversion factor applies not once but three times. A 1% error in a length factor becomes a 3% error in density. A careless rounding of the foot-to-meter constant at the 2% level becomes a 6% density error, which becomes a wrong concrete mix, an overweight airframe, or a hull that sits too low in the water.</p>
+<p>This is why the constants on this page carry full precision. The pound-per-cubic-foot to kg/m³ factor is 16.018463 — the 1959 pound (0.45359237 kg) divided by the 1959 foot cubed (0.3048³ = 0.028316846592 m³). Round it to 16 and you're off by 0.1%, which becomes 0.1% in density — tolerable for an estimate, not for a certified structural calculation. Round it to 16.0 and you've introduced exactly the kind of cubed error this section warns about. The <a href="/kg-m3-to-lb-ft3">kg/m³ to lb/ft³</a> converter applies the full constant so the cube doesn't eat your margin.</p>
+</section>
+
+<section id="aluminum-double-life">
+<h2>4. Aluminum's Double Life: 2.7, 2,700, 168.6, and 0.0975</h2>
+<p>Aluminum is the same metal in four industries, and it wears a different density number in each. The materials datasheet says 2.7 g/cm³ — readable, comparable to water, and one decimal away from specific gravity. The FEA software wants 2,700 kg/m³ — the coherent SI value that makes the model's forces and stresses come out in natural units. The US fabricator estimating plate weight thinks in 168.6 lb/ft³. The aerospace weight engineer auditing an airframe works in 0.0975 lb/in³. All four describe 6061 aluminum, and all four are exact conversions of each other.</p>
+<p>The four-number life of aluminum is the entire density conversion story in miniature. It's why a materials engineer needs the <a href="/g-cm3-to-kg-m3">g/cm³ to kg/m³</a> page when handing a datasheet to a structural analyst, the <a href="/g-cm3-to-lb-ft3">g/cm³ to lb/ft³</a> page when the fabricator asks for plate weight, and the <a href="/g-cm3-to-lb-in3">g/cm³ to lb/in³</a> page when the aerospace buyer checks the airframe estimate. Same metal, same density, four unit systems — and the conversions between them are exact because they all trace to the same water anchor and the same 1959 treaty.</p>
+</section>
+
+<section id="the-us-construction-world">
+<h2>5. The US Construction World: 62.4, 110, and 150</h2>
+<p>Walk onto any US construction site and you'll hear three density numbers, all in pounds per cubic foot. Water is 62.4 — the value every civil engineer memorized in school, exact to 0.04%. Compacted soil is about 110 — the number that goes into retaining-wall and footing design. Normal-weight concrete is 150 — the dead load that every structural frame carries. The metric counterpart speaks 1,000 kg/m³, 1,762 kg/m³, and 2,400 kg/m³. The bridge between the two worlds is 16.018463: divide the metric value by it and you get the US number.</p>
+<p>The 150 lb/ft³ concrete figure is more than a rounding — it's a design assumption with regulatory weight. Concrete's density determines the dead load in the structural model, which determines the footing size, the column count, and the seismic response. A metric spec that says 2,400 kg/m³ is the same concrete at 149.8 lb/ft³, and the conversion is exact. The <a href="/kg-m3-to-lb-ft3">kg/m³ to lb/ft³</a> and <a href="/lb-ft3-to-kg-m3">lb/ft³ to kg/m³</a> converters are how a cross-border concrete spec survives the unit handoff without losing a percentage point of design margin.</p>
+</section>
+
+<section id="aerospace-inch-cubed">
+<h2>6. The Aerospace Inch-Cubed World: lb/in³ and the Airframe</h2>
+<p>Aerospace is the one industry that measures density in pounds per cubic inch, and the reason is geometry. Aircraft CAD models are dimensioned in inches, so a part's volume comes out in cubic inches. Multiplying that volume by a density in lb/in³ gives the part's weight in pounds directly — one unit system, no conversions mid-calculation. The anchors every weight engineer knows: aluminum 6061 at 0.0975 lb/in³, titanium 6Al-4V at 0.160, steel at 0.283, Inconel 718 at 0.296.</p>
+<p>The density numbers matter because airframe weight is audited to fractions of a percent. A bracket switched from aluminum (0.0975) to titanium (0.160) gains 64% in weight — an entire mission profile can shift on such substitutions. The conversion from the materials datasheet's g/cm³ — aluminum 2.70 — to the weight engineer's lb/in³ — 0.0975 — goes through 27.679905, the exact number of g/cm³ in one lb/in³ (the 1959 pound of 453.59237 g over the inch cubed of 16.387064 cm³). The <a href="/lb-in3-to-g-cm3">lb/in³ to g/cm³</a> converter is how a weight audit verifies a materials substitution.</p>
+</section>
+
+<section id="what-floats">
+<h2>7. What Floats: Specific Gravity and the Waterline</h2>
+<p>Every density unit on this page traces to water, which makes the most useful derived quantity nearly free: specific gravity, the ratio of a material's density to water's. Because water is 1 g/cm³, a material's density in g/cm³ <em>is</em> its specific gravity — aluminum is 2.7 in both, steel is 7.85, ice is 0.917. The number tells you instantly whether something floats: less than 1, it rides the surface; more than 1, it sinks. The entire discipline of naval architecture — displacement, buoyancy, waterline — runs on this single comparison.</p>
+<p>It also explains the everyday oddities of density. Ice floats at 0.917 g/cm³, which is why frozen lakes insulate their own depths and why the Titanic sank while its iceberg floated. Oil floats on water at roughly 0.8-0.9 g/cm³, which is why spills spread across the surface instead of sinking — and why the <a href="/guides/volume-cooking-conversion-guide">volume guide's</a> three-gallon problem has a density cousin: three different gallons, three different masses of water. The g/L form of density, 1:1 with kg/m³, is what water chemists use when they measure dissolved solids — and it's the same anchor one decimal down the ladder.</p>
+</section>
+
+<section id="master-table">
+<h2>8. Master Density Conversion Table</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Material</th><th>g/cm³</th><th>kg/m³</th><th>lb/ft³</th><th>lb/in³</th></tr></thead>
+    <tbody>
+        <tr><td>Air (sea level)</td><td>0.001225</td><td>1.225</td><td>0.0765</td><td>—</td></tr>
+        <tr><td>Dry pine wood</td><td>0.60</td><td>600</td><td>37.5</td><td>—</td></tr>
+        <tr><td>Ice</td><td>0.917</td><td>917</td><td>57.2</td><td>—</td></tr>
+        <tr><td><strong>Water (4 °C)</strong></td><td><strong>1.00</strong></td><td><strong>1,000</strong></td><td><strong>62.4</strong></td><td>0.0361</td></tr>
+        <tr><td>Seawater</td><td>1.025</td><td>1,025</td><td>64.0</td><td>0.0370</td></tr>
+        <tr><td>Lightweight concrete</td><td>1.60</td><td>1,600</td><td>99.9</td><td>—</td></tr>
+        <tr><td>Aluminum 6061</td><td>2.70</td><td>2,700</td><td>168.6</td><td>0.0975</td></tr>
+        <tr><td>Titanium 6Al-4V</td><td>4.43</td><td>4,430</td><td>276.5</td><td>0.160</td></tr>
+        <tr><td>Carbon steel</td><td>7.85</td><td>7,850</td><td>490</td><td>0.284</td></tr>
+        <tr><td>Copper</td><td>8.96</td><td>8,960</td><td>559</td><td>0.324</td></tr>
+        <tr><td>Mercury</td><td>13.6</td><td>13,600</td><td>849</td><td>0.491</td></tr>
+        <tr><td>Gold</td><td>19.3</td><td>19,300</td><td>1,205</td><td>0.697</td></tr>
+    </tbody>
+</table>
+</div>
+</section>
+
+<section id="tools">
+<h2>9. Every Density Converter on This Site</h2>
+<p>The <a href="/density/">density hub</a> organizes all ten converters in this family, covering the five density unit systems that actually show up in engineering work:</p>
+<div class="related-tags">
+    <a href="/kg-m3-to-g-cm3">kg/m³ to g/cm³</a>
+    <a href="/g-cm3-to-kg-m3">g/cm³ to kg/m³</a>
+    <a href="/kg-m3-to-lb-ft3">kg/m³ to lb/ft³</a>
+    <a href="/lb-ft3-to-kg-m3">lb/ft³ to kg/m³</a>
+    <a href="/g-cm3-to-lb-ft3">g/cm³ to lb/ft³</a>
+    <a href="/lb-ft3-to-g-cm3">lb/ft³ to g/cm³</a>
+    <a href="/kg-m3-to-g-l">kg/m³ to g/L</a>
+    <a href="/g-l-to-kg-m3">g/L to kg/m³</a>
+    <a href="/g-cm3-to-lb-in3">g/cm³ to lb/in³</a>
+    <a href="/lb-in3-to-g-cm3">lb/in³ to g/cm³</a>
+</div>
+<p style="margin-top:1.2em;">Related families: <a href="/weight/">weight &amp; mass converters</a> (the mass numerator) · <a href="/volume/">volume converters</a> (the volume denominator) · <a href="/guides/force-conversion-guide">force guide</a> (mass × gravity = the force family) · <a href="/guides/torque-conversion-guide">torque guide</a> (force × lever arm, the same constants downstream).</p>
+</section>
+
+<section id="faq">
+<h2>10. Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<p class="faq-q">Is density the same as specific gravity?</p>
+<p class="faq-a">No, but they're numerically equal in g/cm³. Density has units (mass per volume); specific gravity is a dimensionless ratio of the material's density to water's. Because water is 1 g/cm³, a material's g/cm³ value equals its specific gravity — aluminum is 2.7 g/cm³ and has a specific gravity of 2.7. The distinction matters when someone asks "is it heavier than water?" — that's specific gravity, and the answer is the g/cm³ number.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">Why does ice float if it's solid?</p>
+<p class="faq-a">Because solid ice is less dense than liquid water: 0.917 g/cm³ vs 1.000 g/cm³. Water is one of the few substances that expands when it freezes, so ice occupies more volume per unit mass and floats. That 8.3% density gap is why lakes freeze from the surface down, why icebergs hide about 90% of their mass underwater, and why a full bottle of water bursts in the freezer — the expansion is the same physics.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">How do I convert kg/m³ to lb/ft³ in my head?</p>
+<p class="faq-a">Divide by 16.018, or use 16 for a quick estimate (accurate to 0.1%). 2,400 kg/m³ ÷ 16 = 150 lb/ft³ — the concrete number everyone remembers. 1,000 ÷ 16 = 62.5, close to water's 62.4. For the reverse, multiply lb/ft³ by 16. The <a href="/kg-m3-to-lb-ft3">kg/m³ to lb/ft³</a> converter uses the full constant when the estimate isn't enough.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">What's the difference between kg/m³ and g/L?</p>
+<p class="faq-a">Nothing numerically — 1 kg/m³ = 1 g/L exactly. A cubic meter holds 1,000 liters and a kilogram is 1,000 grams, so the 1,000s cancel. The units differ in convention: kg/m³ is the SI coherent density, g/L is the solution-chemistry concentration unit. Water is 1,000 in both. The <a href="/kg-m3-to-g-l">kg/m³ to g/L</a> page exists because the identical numbers still describe different unit systems.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">How is density related to the other converters on this site?</p>
+<p class="faq-a">Density is the ratio of mass to volume, so it sits between the <a href="/weight/">weight &amp; mass</a> and <a href="/volume/">volume</a> families. Mass flows into force through gravity (the <a href="/guides/force-conversion-guide">force guide's</a> 9.80665), and volume flows into flow rate through time (the <a href="/speed/">speed</a> and <a href="/frequency/">frequency</a> families). The density constants on this page — 1,000, 16.018463, 62.427961, 27.679905 — are the bridge between those families, all anchored to the same 1795 cup of water and the same 1959 yard/pound agreement.</p>
+</div>
+</section>
+
+<section class="eng-context">
+<h3>Engineering Context</h3>
+<p>Density conversion is definitional all the way down, which makes it the most exact family on this site. The 1,000 ladder (kg/m³ ↔ g/cm³ ↔ g/L) is pure SI prefix arithmetic; the US customary constants (16.018463, 62.427961) carry the 1959 pound and foot, cubed; the aerospace constant (27.679905) cubes the inch. The same 1959 constants appear in the <a href="/guides/force-conversion-guide">force</a> and <a href="/guides/torque-conversion-guide">torque</a> guides, and the mass side of every density value is one <a href="/weight/">weight-conversion</a> away. When you need the flow side of density — mass per unit time through a pipe — the <a href="/guides/frequency-conversion-guide">frequency guide's</a> RPM crossover and the <a href="/speed/">speed</a> family carry that downstream math. The <a href="/density/">density hub</a> is the center of this cluster.</p>
+<p style="margin-top:1.2em;">More: <a href="/kg-m3-to-g-cm3">kg/m³ to g/cm³</a> · <a href="/kg-m3-to-lb-ft3">kg/m³ to lb/ft³</a> · <a href="/g-cm3-to-lb-ft3">g/cm³ to lb/ft³</a> · <a href="/density/">Density Hub</a></p>
+</section>
+
+<section class="eng-context">
+<h3>Reprint &amp; Attribution</h3>
+<p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the engineering team at EnginStack. It was first published on August 5, 2026 at <a href="https://enginstack.com/guides/density-conversion-guide">enginstack.com/guides/density-conversion-guide</a>. Quote it, share it, translate it — just link back to the original and credit EnginStack. For full-text republication inquiries, please reach us through the <a href="/contact">EnginStack contact page</a>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+</section>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Density",
+  "termCode": "density",
+  "description": "Density is mass per unit volume, measured in kg/m³ (SI) or g/cm³ (common). Water at 4 °C defines the anchor: 1,000 kg/m³ = 1 g/cm³ = 62.42796059 lb/ft³.",
+  "url": "https://en.wikipedia.org/wiki/Density",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

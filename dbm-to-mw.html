@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>dBm to mW — RF Power and the 0 dBm = 1 mW Anchor | EnginStack</title>
+    <meta name="description" content="Convert dBm to milliwatts exactly: P(mW) = 10^(dBm/10). 0 dBm = 1 mW, 10 dBm = 10 mW, 20 dBm = 100 mW. The RF power conversion for signal generators, receivers, and test equipment.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/dbm-to-mw">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/dbm-to-mw">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/dbm-to-mw">
+    <meta property="og:title" content="dBm to mW — RF Power and the 0 dBm = 1 mW Anchor | EnginStack">
+    <meta property="og:description" content="Convert dBm to milliwatts exactly: P(mW) = 10^(dBm/10). 0 dBm = 1 mW, 10 dBm = 10 mW, 20 dBm = 100 mW. The RF power conversion for signal generators, receivers, and test equipment.">
+    <meta property="og:url" content="https://enginstack.com/dbm-to-mw">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "dBm to milliwatts Converter",
+      "description": "Convert dBm to milliwatts exactly: P(mW) = 10^(dBm/10). 0 dBm = 1 mW, 10 dBm = 10 mW, 20 dBm = 100 mW. The RF power conversion for signal generators, receivers, and test equipment.",
+      "url": "https://enginstack.com/dbm-to-mw",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many milliwatts is 0 dBm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 1 milliwatt — that is the definition of dBm. Each 10 dB multiplies the milliwatts by 10: 10 dBm = 10 mW, 20 dBm = 100 mW."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What power does Bluetooth transmit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Class 1 Bluetooth transmits at 20 dBm (100 mW); Class 2 — the common low-power mode — at 4 dBm (2.5 mW). This converter covers both with the same formula."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert dBm to mW by hand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For every 10 dB add a zero: 0 dBm = 1 mW, 10 dBm = 10 mW, 20 dBm = 100 mW. For in-between values use 10^(dBm/10) exactly."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "dBm to milliwatts Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">dBm to milliwatts Converter</span></nav>
+
+        <header class="page-header">
+            <h1>dBm to milliwatts</h1>
+            <p>dBm is defined against the milliwatt, so converting dBm back to milliwatts is the most direct conversion in RF: 0 dBm is exactly 1 mW, 10 dBm is 10 mW, and 20 dBm is 100 mW. A Bluetooth radio at 10 dBm transmits 10 mW; a Wi-Fi card at 20 dBm pushes 100 mW. Signal generators and receiver sensitivity specs live entirely in this range.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="dBm" data-unit-to="milliwatts" data-formula="dbm-to-mw">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">dBm</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="20" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">dBm</span>
+                    </div>
+                </div>
+                <div class="calc-row">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">milliwatts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">—</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">—</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>dBm to milliwatts</h2>
+
+            <p>The formula P(mW) = 10^(dBm/10) is exact — dBm means decibels relative to one milliwatt, so the definition itself is the conversion. The practical range is enormous: receiver sensitivity sits around −90 dBm (a picowatt), while transmitters run +20 to +40 dBm. This calculator handles the transmitter side, where mW is a readable number, and it is the unit most test equipment agrees on.</p>
+
+            <div class="formula-box"><p><strong>milliwatts = 10^(dBm / 10)</strong><br>0 dBm = 1 mW &nbsp;·&nbsp; 10 dBm = 10 mW &nbsp;·&nbsp; 20 dBm = 100 mW<br>The conversion is exact by the definition of dBm.</p></div>
+
+            <h2>Common dBm to milliwatts Values</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>dBm</th><th></th><th>milliwatts</th><th>Context</th></tr></thead><tbody>
+                <tr><td>0 dBm</td><td>—</td><td>1 mW</td><td>The dBm anchor.</td></tr>
+                <tr><td>10 dBm</td><td>—</td><td>10 mW</td><td>Bluetooth Class 1.</td></tr>
+                <tr><td>20 dBm</td><td>—</td><td>100 mW</td><td>Wi-Fi transmit.</td></tr>
+                <tr><td>23 dBm</td><td>—</td><td>200 mW</td><td>Wi-Fi at max.</td></tr>
+                <tr><td>30 dBm</td><td>—</td><td>1,000 mW</td><td>1 W — regulatory limit.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>dBm-to-mW is the tightest pairing on the <a href="/electric/">electric hub</a> — the milliwatt is the definitional base of dBm, so <a href="/mw-to-dbm">mW to dBm</a> and <a href="/dbm-to-watts">dBm to watts</a> are the same number shifted by three decades. The <a href="/energy/">energy</a> family takes over at watt scale.</p>
+                <p style="margin-top:1.2em;">More: <a href="/mw-to-dbm">mW to dBm</a> · <a href="/dbm-to-watts">dBm to W</a> · <a href="/watts-to-dbm">W to dBm</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/mw-to-dbm">Mw To Dbm</a>
+                <a href="/dbm-to-watts">Dbm To Watts</a>
+                <a href="/watts-to-dbm">Watts To Dbm</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How many milliwatts is 0 dBm?</p>
+                    <p class="faq-a">Exactly 1 milliwatt — that is the definition of dBm. Each 10 dB multiplies the milliwatts by 10: 10 dBm = 10 mW, 20 dBm = 100 mW.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">What power does Bluetooth transmit?</p>
+                    <p class="faq-a">Class 1 Bluetooth transmits at 20 dBm (100 mW); Class 2 — the common low-power mode — at 4 dBm (2.5 mW). This converter covers both with the same formula.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert dBm to mW by hand?</p>
+                    <p class="faq-a">For every 10 dB add a zero: 0 dBm = 1 mW, 10 dBm = 10 mW, 20 dBm = 100 mW. For in-between values use 10^(dBm/10) exactly.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fTo = card.getAttribute('data-unit-to');
+    var formula = card.getAttribute('data-formula');
+    function calc() {
+        var a = parseFloat(main.value);
+        if (isNaN(a)) { out.textContent = '—'; return; }
+        var r;
+        if (formula === 'dbm-to-w') { r = Math.pow(10, (a - 30) / 10); }
+        else if (formula === 'w-to-dbm') { r = (a <= 0) ? NaN : 10 * Math.log10(a) + 30; }
+        else if (formula === 'dbm-to-mw') { r = Math.pow(10, a / 10); }
+        else if (formula === 'mw-to-dbm') { r = (a <= 0) ? NaN : 10 * Math.log10(a); }
+        else { r = NaN; }
+        out.textContent = fmt(r);
+        fwd.textContent = main.value + ' ' + fMain + ' = ' + fmt(r) + ' ' + fTo;
+        rev.textContent = fmt(r) + ' ' + fTo + ' = ' + main.value + ' ' + fMain;
+    }
+    main.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+</body>
+</html>

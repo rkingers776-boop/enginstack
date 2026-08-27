@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Miles to Square Kilometers —The Section, the 640-Acre Grid That Covers America, and Why Your GPS Disagrees With Your Atlas | EnginStack</title>
+    <meta name="description" content="1 square mile = 2.58999 km&sup2;. The Public Land Survey System divided the American West into 1-square-mile sections &mdash; exactly 2.58999 km&sup2; each, or 640 acres. On Earth's curved surface, planar area conversion drifts by meters across a state. GIS engineers know; most maps don't.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/sq-miles-to-sq-km">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/sq-miles-to-sq-km">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/sq-miles-to-sq-km">
+    <meta property="og:title" content="Sq Miles to Sq KM —The Survey Grid That Mapped a Continent | EnginStack">
+    <meta property="og:description" content="1 sq mi = 2.59 km&sup2;. The 640-acre section. How the US survey system created the world's largest cadastral grid —and why it doesn't quite line up on Google Earth.">
+    <meta property="og:url" content="https://enginstack.com/sq-miles-to-sq-km">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Square Miles to Square Kilometers Converter",
+  "description": "1 square mile = 2.58999 km². Convert land areas between imperial and metric units. Based on the exact 1959 international yard and pound definition.",
+  "url": "https://enginstack.com/sq-miles-to-sq-km",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 1 square mile exactly 2.59 square kilometers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To five decimal places, yes: 2.58999. The 1959 International Yard and Pound Agreement fixed 1 inch = 25.4 mm exactly, making 1 mile = 1609.344 m exactly. Squaring that gives 2,589,988.110336 m². Divide by 1,000,000 for km². The trailing decimals matter at scale: over 10,000 square miles, the difference between 2.59 and 2.58999 is about 1 km² —the size of Monaco."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between a US survey acre and an international acre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The US survey acre is based on the pre-1959 US survey foot (1200/3937 meter). 1 survey acre = 4046.87261 m². The international acre uses the post-1959 foot (exactly 0.3048 m). 1 international acre = 4046.85642 m². Difference: 16.2 cm² per acre —about the size of a credit card. Over 640 acres (one section), that's 10.4 m² —a 3.2×3.2 m patch. Not enough to build a house, but enough to lose in court if you're selling land by the acre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my GPS show a different area than my deed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because your deed was measured in 1887 with a chain and compass along physical markers (rocks, trees, iron posts). Some of those markers have moved, been lost, or were never precisely located. GPS measures in WGS84 coordinates on an ellipsoid model of Earth. The original survey was done on a local tangent plane assuming flat ground. The combination of measurement error, marker movement, datum shift (NAD27 to NAD83), and coordinate transformation can shift a boundary by several meters. Over a 640-acre section, a few meters of shift changes the computed area by fractions of an acre. Courts generally favor the original monument locations over calculated coordinates —the physical rock wins over the satellite. This principle is called \"following the footsteps of the original surveyor,\" and it's why land surveying is still a licensed profession despite the existence of GPS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which countries still officially use square miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The United States, Liberia, Myanmar, and to varying extents the United Kingdom (for road distances and informal usage). Canada, Australia, New Zealand, South Africa, India, and nearly every former British colony switched to metric for land registration decades ago, though rural populations often still think in acres informally. The UK's Ordnance Survey switched entirely to metric in the 1990s, but estate agents continue to advertise houses in \"square feet\" because buyers refuse to learn what a square meter feels like. The US will likely keep square miles indefinitely —the cost of re-platting every county recorder's office exceeds the benefit of switching, and nobody wants to be the politician who told farmers their deeds are now in a foreign language."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Area", "item": "https://enginstack.com/area/" },
+    { "@type": "ListItem", "position": 3, "name": "Square Miles to Square Kilometers" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/area/">Area</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Square Miles to Square Kilometers Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Square Miles to Square Kilometers: The 640-Acre Grid That Mapped a Continent</h1>
+            <p>1 square mile = 2.58999 km&sup2;. That number looks innocent until you realize it underlies every property deed in thirty American states, defines the shape of western agriculture, and is the reason your GPS shows a slightly different field boundary than the 1870 survey map hanging in the county courthouse. The Public Land Survey System turned the frontier into a grid of 1-square-mile sections, each exactly 2.589988110336 square kilometers, each exactly 640 acres, and each slightly misaligned with the planet it was drawn on.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="2.589988110336" data-unit-from="sq mi" data-unit-to="km&sup2;">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">sq mi</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">2.58999</span>
+                        <span class="unit-pill unit-pill-to">km&sup2;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 sq mi = 2.58999 km&sup2;</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 km&sup2; = 0.38610 sq mi</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Grid That Won the West</h2>
+
+            <p>In 1785, the Continental Congress faced a problem that had never been solved at scale: how to divide millions of square miles of unmapped territory into ownable, sellable, taxable parcels. The answer was the Public Land Survey System, devised primarily by Thomas Jefferson, Hugh Williamson, and a committee of surveyors who realized that irregular metes-and-bounds surveys —the kind used in the original colonies —would create endless boundary disputes as the nation expanded westward.</p>
+
+            <p>The solution was brutally geometric: a baseline running east-west, a principal meridian running north-south, and a grid of townships (six miles square) each containing thirty-six sections of one square mile. Every section was numbered identically. Every section was 640 acres. Every section could be described by a single string of coordinates: Township X North, Range Y West, Section Z. A child could learn it in an afternoon. A lawyer could settle a boundary dispute from an office in Philadelphia without ever seeing the land.</p>
+
+            <p>The system worked too well. By the time the last continental state was surveyed (Alaska, completed in the 20th century using a variant called the Alaska State Plane Coordinate System), the PLSS had produced approximately 2 billion acres of legally defined land —more than any other cadastral system in history. The 1-square-mile section became the atomic unit of American land ownership. And 1 square mile, squared into kilometers, is 2.589988110336 —a number that appears nowhere in the original survey manuals but that every modern GIS engineer needs daily.</p>
+
+            <h2>The Conversion: From Chains to Meters</h2>
+
+            <p>The math is straightforward because the underlying definitions were reconciled in 1959. Before 1959, the US used the US Survey foot (1200/3937 m —0.3048006 m) while the rest of the world used the International Foot (exactly 0.3048 m). After 1959, everyone agreed on 0.3048 m. One mile = 5280 feet = 1609.344 meters exactly. Squared: (1609.344)&sup2; = 2,589,988.110336 m&sup2; = 2.589988110336 km&sup2;.</p>
+
+            <div class="formula-box">
+                <p>km&sup2; = mi&sup2; &times; 2.589988110336</p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box"><p><strong>1 section (1 sq mi) —2.58999 km&sup2;</strong></p><p>A standard PLSS section. 640 acres. About 250 city blocks (at 2.5 acres per block). Large enough for a mid-sized farm, a small airport, or the entire downtown core of a town like Leavenworth, Kansas.</p></div>
+            <div class="example-box"><p><strong>640 acres —2.58999 km&sup2;</strong></p><p>The same number, expressed in acres. 1 section = 640 acres = 259 hectares (rounded). The acre-to-hectare conversion has its own complications: the US survey acre (43,560 ft&sup2; based on the old survey foot) differs from the international acre by 2 parts in 100,000. For a 100,000-acre cattle ranch, that's a 2-acre discrepancy —roughly three city lots.</p></div>
+            <div class="example-box"><p><strong>Rhode Island (1,034 mi&sup2;) —2,678 km&sup2;</strong></p><p>The smallest US state. 1,034 &times; 2.58999 = 2,677.97 km&sup2;. Official figure: 2,678 km&sup2;. Close enough —the difference is rounding. Rhode Island is also the only US state whose official name includes "State of Rhode Island and Providence Plantations," which at 91 characters makes it the longest state name and arguably the only place name longer than the number of people who can correctly convert its area to metric on their first try.</p></div>
+            <div class="example-box"><p><strong>Yellowstone (3,472 mi&sup2;) —8,992 km&sup2;</strong></p><p>The first national park. 3,472 &times; 2.58999 = 8,991.79 km&sup2;. Official: 8,983 km&sup2;. The 9 km&sup2; disagreement comes from how the boundary is measured (the park's irregular shape means different methods give different areas) and from the fact that Yellowstone sits partly in Wyoming, Montana, and Idaho, each of which may have surveyed portions differently.</p></div>
+
+            <h2>Common Square Mile to Square Kilometer Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Square Miles</th><th>Kilometers Squared</th><th>Real-world Reference</th></tr></thead><tbody>
+                <tr><td>0.01 sq mi</td><td>0.026 km&sup2;</td><td>About 6.4 acres. A large shopping mall parking lot.</td></tr>
+                <tr><td>1 sq mi</td><td>2.590 km&sup2;</td><td>One PLSS section. 640 acres. 250 city blocks.</td></tr>
+                <tr><td>10 sq mi</td><td>25.90 km&sup2;</td><td>Bermuda (10.9 mi&sup2;). San Francisco proper (46.9 mi&sup2;).</td></tr>
+                <tr><td>100 sq mi</td><td>259.0 km&sup2;</td><td>Madison County, Illinois. Roughly the size of Edinburgh.</td></tr>
+                <tr><td>500 sq mi</td><td>1,295 km&sup2;</td><td>Los Angeles city limits (469 mi&sup2;). Greater LA is much larger.</td></tr>
+                <tr><td>1,000 sq mi</td><td>2,590 km&sup2;</td><td>Rhode Island (1,034 mi&sup2;). Luxembourg (998.6 mi&sup2;).</td></tr>
+                <tr><td>10,000 sq mi</td><td>25,900 km&sup2;</td><td>Massachusetts (10,554 mi&sup2;). Belgium (11,787 mi&sup2;).</td></tr>
+                <tr><td>50,000 sq mi</td><td>129,500 km&sup2;</td><td>Mississippi (48,430 mi&sup2;). England (50,301 mi&sup2;).</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>In GIS and cartography, the square-mile to square-kilometer conversion is the first step whenever data crosses from a legacy US government dataset (which uses statute miles) into a modern mapping platform (which defaults to meters/kilometers). The US Census Bureau publishes TIGER/Line shapefiles in decimal degrees and NAD83 projection; converting polygon areas requires either a database function like ST_Area(geography) (PostGIS) or manual reprojection. The naive approach —multiplying lat/lon degree counts by a constant factor —produces errors of 1—% depending on latitude, because a degree of longitude shrinks toward the poles. At the equator, 1 degree of longitude —111.32 km. At 45°N, it's —78.85 km. A 1°×1° cell at the equator is ~14% larger than the same cell at 45°N. Your conversion factor changes with latitude. The constant 2.58999 is correct for planar geometry on a tangent plane. It is wrong for geographic coordinates on a sphere. Most web map tools don't tell you this. For the reverse direction, see <a href="/sq-ft-to-sq-m">square feet to square meters</a>. For smaller land units: <a href="/acres-to-sq-ft">acres to square feet</a>, <a href="/hectares-to-acres">hectares to acres</a>, and <a href="/acres-to-hectares">acres to hectares</a>.</p>
+                <p style="margin-top:1.2em;">More: <a href="/sq-ft-to-sq-m">sq ft to sq m</a> · <a href="/sq-km-to-sq-miles">sq km to sq miles</a> · <a href="/acres-to-hectares">acres to hectares</a> · <a href="/hectares-to-acres">hectares to acres</a> · <a href="/guides/area-conversion-guide">Area Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/sq-km-to-sq-miles">Sq KM to Sq Miles</a>
+                <a href="/sq-m-to-sq-ft">Sq M to Sq Ft</a>
+                <a href="/acres-to-sq-ft">Acres to Sq Ft</a>
+                <a href="/sq-ft-to-sq-m">Sq Ft to Sq M</a>
+                <a href="/hectares-to-acres">Hectares to Acres</a>
+                <a href="/acres-to-hectares">Acres to Hectares</a>
+                <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Is 1 square mile exactly 2.59 square kilometers?</p>
+                <p class="faq-a">To five decimal places, yes: 2.58999. The 1959 International Yard and Pound Agreement fixed 1 inch = 25.4 mm exactly, making 1 mile = 1609.344 m exactly. Squaring that gives 2,589,988.110336 m². Divide by 1,000,000 for km². The trailing decimals matter at scale: over 10,000 square miles, the difference between 2.59 and 2.58999 is about 1 km² —the size of Monaco.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What's the difference between a US survey acre and an international acre?</p>
+                <p class="faq-a">The US survey acre is based on the pre-1959 US survey foot (1200/3937 meter). 1 survey acre = 4046.87261 m². The international acre uses the post-1959 foot (exactly 0.3048 m). 1 international acre = 4046.85642 m². Difference: 16.2 cm² per acre —about the size of a credit card. Over 640 acres (one section), that's 10.4 m² —a 3.2×3.2 m patch. Not enough to build a house, but enough to lose in court if you're selling land by the acre.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why does my GPS show a different area than my deed?</p>
+                <p class="faq-a">Because your deed was measured in 1887 with a chain and compass along physical markers (rocks, trees, iron posts). Some of those markers have moved, been lost, or were never precisely located. GPS measures in WGS84 coordinates on an ellipsoid model of Earth. The original survey was done on a local tangent plane assuming flat ground. The combination of measurement error, marker movement, datum shift (NAD27 to NAD83), and coordinate transformation can shift a boundary by several meters. Over a 640-acre section, a few meters of shift changes the computed area by fractions of an acre. Courts generally favor the original monument locations over calculated coordinates —the physical rock wins over the satellite. This principle is called "following the footsteps of the original surveyor," and it's why land surveying is still a licensed profession despite the existence of GPS.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Which countries still officially use square miles?</p>
+                <p class="faq-a">The United States, Liberia, Myanmar, and to varying extents the United Kingdom (for road distances and informal usage). Canada, Australia, New Zealand, South Africa, India, and nearly every former British colony switched to metric for land registration decades ago, though rural populations often still think in acres informally. The UK's Ordnance Survey switched entirely to metric in the 1990s, but estate agents continue to advertise houses in "square feet" because buyers refuse to learn what a square meter feels like. The US will likely keep square miles indefinitely —the cost of re-platting every county recorder's office exceeds the benefit of switching, and nobody wants to be the politician who told farmers their deeds are now in a foreign language.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Cloudflare Pages 本地缓存（可能含账号信息）
+.wrangler/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# Claude 本地配置
+.claude/
+
+# 一次性审计/修复临时脚本与产物
+_audit2.ps1
+_audit2.txt
+_validate2.ps1
+_validate2.txt
+_temp_files.txt
+_urls_for_bing.txt
+_fix_ld_entities.py
+_validate_new12.py
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store

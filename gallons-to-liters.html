@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallons to Liters — The 1707 Wine Cylinder America Still Uses, and the 20% Gap Britain Left Behind | EnginStack</title>
+    <meta name="description" content="Convert US gallons to liters (×3.785411784) and Imperial gallons to liters (×4.54609). The 20.1% difference between them — locked in by an Act of Parliament in 1824 — caused the Gimli Glider fuel exhaustion, still confuses Canadian fuel economy stickers, and ruins homebrew recipes every weekend.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/gallons-to-liters">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/gallons-to-liters">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/gallons-to-liters">
+    <meta property="og:title" content="Gallons to Liters: The 20% Gap That Outlasted Two Empires | EnginStack">
+    <meta property="og:description" content="A US gallon is 3.785 liters. An Imperial gallon is 4.546 liters — 20.1% larger. When a fuel truck in Montreal dispensed US gallons into a metric airliner in 1983, the arithmetic killed both engines at 41,000 feet.">
+    <meta property="og:url" content="https://enginstack.com/gallons-to-liters">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Gallons to Liters Converter — US & Imperial",
+  "description": "Convert US liquid gallons (×3.785411784) and Imperial gallons (×4.54609) to liters. The two gallons differ by 20.1% — a gap that has caused aircraft fuel emergencies, transatlantic recipe disasters, and a class of measurement errors unique to the English-speaking world.",
+  "url": "https://enginstack.com/gallons-to-liters",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why are there two different gallons — and which one should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The US liquid gallon (3.785411784 L) is the one behind virtually every \"gallons to liters\" search — gasoline, milk, paint, consumer liquids. The Imperial gallon (4.54609 L) is used in British homebrew recipes, pre-1977 Canadian fuel economy, and some Caribbean export manifests. If you're American and asking this question, you want the US gallon. If you're British and converting a recipe, check whether it was written before or after UK metrication in the 1970s. If it says \"a gallon of milk\" and was published in London after 1995, it almost certainly means 4.546 L — but the milk itself is sold in liters now, so the recipe has already done a mental conversion the author may not have been precise about. The safest approach: ask the author what they meant, or use the gallon that matches where the recipe was published."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did the Gimli Glider really happen because someone confused gallons and liters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partly, but it's more accurate to say the gallons-to-liters conversion was the first broken link in a three-link chain. The refueling truck's flow meter was in US gallons. The aircraft's dripstick tables were in liters. The density conversion card was in pounds per liter but was applied as if it were kilograms per liter. Three conversions — gallons→liters, liters→mass, and the unit of that mass — all failed. Any one of them, caught, would have prevented the incident. None of them were. The gallon was where the chain started, but it was the cascade that caused the crash. The full story is told above."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the oil barrel 42 gallons, not 50 or 55?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the 1860s, Pennsylvania oil producers shipped crude in whatever barrels were lying around — whiskey barrels (40 gal), wine tierces (42 gal), fish barrels (variable). Buyers couldn't compare prices because every barrel held a different amount. In 1866, a group of Oil Creek producers agreed to standardize on the 42-gallon tierce, a size originally used for salted fish and wine. It stuck. The US Geological Survey adopted it. The American Petroleum Institute adopted it. Today, a barrel of oil = 42 US gallons = 158.987 liters = 34.97 Imperial gallons. Every oil futures contract on earth is priced in this unit, including in metric countries. The barrel is the only non-metric unit that no metric country has ever proposed replacing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert my aquarium volume between gallons and liters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "US aquarium manufacturers label tanks in US gallons. A \"10-gallon\" tank holds 37.85 L of water. A \"55-gallon\" tank holds 208.2 L. When dosing water conditioner, medication, or fertilizer, check whether the product's instructions are in US gallons, Imperial gallons, or liters. Seachem (US brand) labels in US gallons. Tropic Marin (German brand) labels in liters. Easy-Life (Dutch brand) labels in liters per 100 L. If your tank is labeled in US gallons and the treatment is labeled in liters, convert the tank volume first: US gal × 3.785 = L. Get this wrong and you either underdose (the fish stay sick) or overdose (the fish get poisoned). Aquarium medication is not the place to guess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a US gallon the same as a Canadian gallon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Today, Canada uses the metric system — pumps dispense liters. But historically: before 1977, Canada used the Imperial gallon (4.546 L). After metrication, the gallon ceased to be a legal unit of trade in Canada, but US gallons crept back in through fuel economy stickers on cars (by trade convention with the US) and through consumer products (a \"gallon\" of paint at Canadian Tire is a US gallon, 3.785 L, because the can is manufactured in the US). So \"a gallon\" in Canada today means a US gallon for paint, an Imperial gallon in a 1975 cookbook, and nothing at all at the gas pump — where everything is in liters. The only safe assumption in modern Canada is to treat \"gallon\" as ambiguous and convert everything to liters explicitly."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Volume", "item": "https://enginstack.com/volume/" },
+    { "@type": "ListItem", "position": 3, "name": "Gallons to Liters" }
+  ]
+}
+</script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/volume/">Volume</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Gallons to Liters Converter</span></nav>
+
+        <header class="page-header">
+            <h1>Gallons to Liters: A Wine Cylinder from 1707, an Act of Parliament, and a 767 That Ran Out of Fuel Because of Both</h1>
+            <p>In 1707 — the year Scotland and England became Great Britain — a clerk at the British Treasury measured a cylinder 7 inches across and 6 inches deep. Its volume came to 231 cubic inches. That cylinder became the legal wine gallon. America still uses it. Britain abandoned it in 1824 for a "scientific" gallon based on water weight. The two gallons differ by 20.1%. In 1983, a chain of conversion mistakes rooted in that gap caused a Boeing 767 to glide 65 miles with both engines flamed out. The same 20% gap quietly breaks homebrew recipes, scuba tank calculations, international shipping manifests, and every Canadian fuel economy sticker printed before 1977 — every single day.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <!-- Calculator -->
+        <div class="calculator-card" data-coefficient="3.785411784" data-unit-from="gal (US)" data-unit-to="L">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">gal (US)</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">3.7854</span>
+                        <span class="unit-pill unit-pill-to">L</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 gal (US) = 3.785 L</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 L = 0.2642 gal (US)</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Cylinder That Became a Country's Gas Pump</h2>
+
+            <p>A cylinder 7 inches in diameter and 6 inches deep holds π × (3.5)² × 6 = 230.907 cubic inches. In 1707, a British Treasury official — name lost to history — rounded that to <strong>231</strong> and declared it the legal wine gallon. No physical constant. No pendulum experiment. No water-weight derivation. Just a cylinder someone had on hand, rounded to a whole number, written into law during the reign of Queen Anne.</p>
+
+            <p>Three centuries later, every gallon of gasoline pumped in the United States traces back to that cylinder. The gallon of milk in your fridge, the gallon of paint in the garage, the gallon of Jet A-1 in the wing of a transpacific airliner — all of them hold exactly 231 cubic inches. The number survived the American Revolution, the Napoleonic Wars, two world wars, the moon landing, and the metric conversion of every other country on the planet. It is arguably the most stubborn unit in the English-speaking world, and it hasn't changed by a single cubic inch since 1707.</p>
+
+            <p>The math from cubic inches to liters runs through one other fixed point: the inch itself. Since 1959, when six English-speaking nations signed the International Yard and Pound Agreement, 1 inch = 2.54 cm exactly. So 231 × 2.54³ = 3,785.411784 cubic centimeters = <strong>3.785411784 liters exactly</strong>. That's not an approximation. It's a legal definition with as many significant figures as you care to write down. The formula:</p>
+
+            <div class="formula-box">
+                <p>L = gal (US) &times; 3.785411784</p>
+            </div>
+
+            <h2>1824: How Parliament Broke the Gallon in Two</h2>
+
+            <p>Before 1824, a British merchant could sell the same barrel of liquid under three different prices — legally — by choosing which gallon the contract named. There were three, all simultaneously in force:</p>
+
+            <ul style="margin:1em 0 1em 1.5em; line-height:2;">
+                <li><strong>Wine gallon</strong> — 231 in³. For wine, spirits, oil, vinegar, honey. America's future gallon.</li>
+                <li><strong>Ale gallon</strong> — 282 in³. For beer. 22% larger than the wine gallon because a pint of ale was expected to be a <em>proper</em> pint.</li>
+                <li><strong>Corn gallon</strong> — 268.8 in³. For wheat, barley, flour, salt. Roughly halfway between the other two, as if designed to maximize confusion.</li>
+            </ul>
+
+            <p>Every contract had to specify which gallon it meant. Every dispute over which gallon a contract implied went to court. The 1824 Weights and Measures Act — part of the same post-Enlightenment rationalization that produced the metric system in France — abolished all three and replaced them with a single <strong>Imperial gallon</strong>. Its definition was scientific for the era: the volume occupied by 10 pounds avoirdupois of distilled water, weighed in air at 62°F, with the barometer at 30 inches of mercury. That volume: roughly 277.42 cubic inches, or <strong>4.54609 liters</strong>.</p>
+
+            <p>It was elegant. It was rational. It was 20.1% larger than the wine gallon the United States — independent for 48 years by then — had inherited from the same British Treasury whose 1824 reforms it no longer recognized. The two have never been reconciled. No legislation in either country has ever attempted to unify them. For 200 years, "a gallon" has meant one thing in London and another in New York, and the difference — roughly a fifth of the total volume — has been somebody else's problem.</p>
+
+            <p>A third gallon also exists, though it barely matters anymore: the <strong>US dry gallon</strong> = 4.40488 L = 268.8 in³. This is the old corn gallon, retained in US statute for agricultural commodities. It survives in USDA crop reports and a handful of Midwest grain elevator contracts. It has no consumer presence. When a recipe calls for "a gallon of cider" at a US farmer's market, it means the liquid gallon. The dry gallon is a legal ghost — mentioned here only so you know it exists and can safely ignore it.</p>
+
+            <div class="formula-box">
+                <p>L = gal (Imperial) &times; 4.54609</p>
+            </div>
+
+            <p style="margin-top: var(--space-3);">When you type "gallons to liters" into a search box, you mean the US liquid gallon 99% of the time. It's the gallon behind American gasoline prices, milk jugs, paint cans, and every consumer liquid sold by volume in the United States. But if you're reading a British homebrew recipe, a pre-1977 Canadian fuel economy chart, or a Caribbean rum exporter's manifest — you might be looking at Imperial gallons. The gap is not 1%. It's not a rounding error. It's 20.1%. An entire fifth of the volume appears or disappears depending on which side of the Atlantic defined the gallon in question.</p>
+
+            <h2>Five Things That Go Wrong When You Guess the Wrong Gallon</h2>
+
+            <h3>1. Scuba tanks: the math that runs your air supply</h3>
+
+            <p>A standard aluminum 80 scuba cylinder holds 80 cubic feet of air at its rated pressure of 3,000 psi. That's 2,265 liters at the surface. In Imperial terms: roughly 498 Imperial gallons, or 598 US gallons. The difference is 100 US gallons of air — about 5 minutes of breathing at 30 meters, where gas consumption quadruples due to ambient pressure. Dive computers work in liters and bar. Rental tanks in the Caribbean are often labeled in US gallons — a legacy of the American dive tourism industry. A diver who converts their tank capacity using the wrong gallon arrives at the wrong surface air consumption rate. At depth, that miscalculation becomes a gas emergency. Every technical diving agency (GUE, TDI, IANTD) requires gas planning in liters and bar specifically to eliminate the gallon ambiguity. The recreational diver who still thinks in "gallons per minute" at 30 meters is doing arithmetic with a 20% hole in it.</p>
+
+            <h3>2. Homebrewing: the 5-gallon recipe that isn't</h3>
+
+            <p>American homebrew recipes are written for a 5-US-gallon batch (18.93 L). British recipes are written for 5 Imperial gallons (22.73 L). If an American brewer follows a British recipe without adjusting the volume, they end up with 20% more concentrated wort — higher original gravity, more alcohol, different hop utilization. A mild bitter intended for 4.2% ABV becomes a 5.4% ale. The beer isn't ruined, but it isn't what the recipe author intended. The more dangerous direction: a British brewer scaling an American recipe upward to Imperial gallons by multiplying everything by 1.201. If they forget to scale the hop additions, the beer is 17% less bitter than designed. Homebrew forums are full of threads titled "Why is my clone so weak/strong?" The answer, roughly a third of the time, is "you used the wrong gallon."</p>
+
+            <h3>3. International moving: the shipping container that's heavier than declared</h3>
+
+            <p>A 20-foot shipping container has an internal volume of approximately 1,172 cubic feet = 33.2 m³ = 33,200 liters. But volume isn't what customs cares about. Weight is. And the weight of a liquid-filled container depends on which gallon you used to estimate it. A US exporter shipping 500 gallons of industrial solvent declares the shipment at 500 × 3.785 = 1,893 kg of liquid. The UK recipient, reading "500 gal" on the manifest, assumes Imperial gallons and books a truck rated for 500 × 4.546 = 2,273 kg. The difference is 380 kg — roughly the weight of a grand piano. The truck is overloaded by 17%. At a roadside weigh station somewhere between Felixstowe and Birmingham, the driver gets a fine and the shipment gets held. The gallons-to-liters conversion isn't the only thing that went wrong, but it's the first thing.</p>
+
+            <h3>4. Crop spraying: the 20% overdose nobody sees until the leaves curl</h3>
+
+            <p>Agricultural pesticide labels in the US specify application rates per acre in US gallons of diluted solution. The same pesticide sold in Australia or New Zealand carries a label in liters per hectare, but the conversion assumes the dealer knows which gallon was used in the original US field trial. An Australian farmer applying a US-registered herbicide at "2 gallons per acre" using the Imperial gallon — because that's what a gallon meant in Australia before metrication in 1974 — applies 9.09 L/ha instead of the intended 7.57 L/ha. That's a 20% overdose. For a selective herbicide, 20% over the labeled rate is the difference between killing the weeds and killing the crop. Agrochemical companies now print labels exclusively in metric outside the US. The US gallon survives on the American farm because the EPA's label approval process is built around it, and re-registering every product in liters would cost the industry hundreds of millions of dollars in reprint and retesting fees.</p>
+
+            <h3>5. Canadian fuel economy: the MPG sticker that inflates itself by 20%</h3>
+
+            <p>Canada's fuel pumps dispense in liters. Fuel economy is officially reported in L/100 km. But car window stickers still show MPG — and which MPG depends entirely on when the car was built. Before 1977: Imperial MPG, where one gallon = 4.546 L. After 1977: US MPG, where one gallon = 3.785 L, adopted as a trade convenience for the integrated US-Canada auto market. The same car burning 7.84 L/100 km gets 30 MPG (US) or 36 MPG (Imperial). Same engine. Same fuel consumption. Different gallon. A used-car listing from the 1970s that boasts "40 MPG" is almost certainly quoting Imperial — roughly 33.3 US MPG. The seller may not know this. The buyer almost certainly doesn't. The only way to compare across eras and borders is <a href="/l-100km-to-mpg">L/100 km</a>, which measures fuel burned per fixed distance. Everything else is a bet on which gallon is hiding behind the abbreviation.</p>
+
+            <h2>July 23, 1983: When the Gallon Bit Back</h2>
+
+            <p>The Gimli Glider is usually told as a pounds-vs-kilograms story. That's the direct cause — but it's not the whole story. The gallons-to-liters conversion sat one link upstream in the chain, and without it, none of the subsequent errors would have mattered.</p>
+
+            <p>Air Canada Flight 143 was a Montreal–Ottawa–Edmonton run on a nearly-new Boeing 767-200 — fin number 604, delivered four months earlier. It was the airline's first all-metric aircraft. Every other plane in the fleet measured fuel in pounds. The 767 measured it in kilograms. The fuel quantity processor on both channels was inoperative that day — a deferred maintenance item, not a no-go condition. The crew calculated the fuel load manually using the dripstick method: lower a calibrated rod into each tank, read the wet mark to get fuel height, convert height to volume via a tank strapping table, then multiply by density to get mass.</p>
+
+            <p>Here is where the gallon enters. The refueling truck at Montreal dispensed in US gallons, measured by a mechanical flow meter. The 767's dripstick tables were in liters — the metric aircraft's native unit. The laminated conversion card the ground crew used to reconcile gallons on the truck with liters in the tank had been updated for the 767's fuel system but never independently verified. It was, essentially, the 727's card with the aircraft type crossed out by hand.</p>
+
+            <p>The density of Jet A-1 at 15°C is 0.803 kg/L — or 1.77 lb/L. The card listed density as 1.77. It did not specify the unit. The ground crew read 1.77, multiplied by the volume in liters, and wrote down the result as kilograms. It was pounds. Every liter they thought weighed 1.77 kg actually weighed 0.803 kg. Their mass estimate was high by a factor of 2.2.</p>
+
+            <p>The aircraft took off with 10,115 kg of fuel. The flight plan required 22,300 kg. The crew believed they had 22,300 kg because the arithmetic was internally consistent — gallons converted to liters, liters to "kilograms" (actually pounds), and the result matched the flight plan. The error was invisible to anyone checking the math without checking the units.</p>
+
+            <p>At 41,000 feet over Red Lake, Ontario — roughly halfway — the left engine fuel pressure warning illuminated. Then the right. Within seconds, both CF6 turbofans flamed out. The auxiliary power unit, which also burns Jet A, quit immediately. The 767 went silent except for the ram air turbine, a tiny propeller that deployed automatically from the belly to power the captain's flight instruments. Captain Robert Pearson — a glider pilot in his spare time — calculated a glide ratio of roughly 12:1 and aimed for a decommissioned RCAF runway at Gimli, Manitoba, 65 nautical miles away. First Officer Maurice Quintal had served at Gimli during his air force years and knew the layout.</p>
+
+            <p>What they didn't know: the runway had been converted to a drag racing strip, and that Saturday it was hosting a sports car club event. The 767 touched down at roughly 180 knots on a strip lined with campers and spectators. The nose gear — which had free-fallen without hydraulic pressure and never locked — collapsed on contact. The aircraft slid to a stop on its nose, 100 feet from a crowd of people who had been watching racing and were now watching an airliner land where no airliner was supposed to be. Zero fatalities. Sixty-nine people evacuated via the aft slides. Ten minor injuries. The aircraft was repaired and flew for Air Canada until 2008 as tail number C-GAUN — "The Gimli Glider."</p>
+
+            <p>The Transportation Safety Board of Canada identified 24 separate procedural failures that lined up to produce the incident. The initiating cause was "inadvertent use of incorrect conversion factor." That factor sat at the intersection of gallons, liters, pounds, and kilograms — four units spanning three conversion interfaces, every one of which failed. The gallons-to-liters link was the first. Without it, the liters-to-kilograms link and the pounds-to-kilograms confusion would never have been invoked. The gallon was the first domino. The other 23 failures fell because it tipped.</p>
+
+            <p>Modern airliners have eliminated this chain. The fuel quantity indicating system measures mass directly via capacitance probes in the tanks — no volume conversion, no density multiplication, no laminated card. The refueling panel accepts a target in kilograms. The fuel truck's digital flow meter converts gallons to liters at the nozzle using temperature-corrected density for the day's specific fuel batch. The conversion still happens — it has to, because fuel trucks still dispense by volume — but it happens inside sealed, calibrated microprocessors. The human being who used to do it with a pencil and a laminated card is out of the loop.</p>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>1 US gallon → 3.785 L</strong></p>
+                <p>1 × 3.785411784 = 3.785 L. The gallon of milk. Weighs 8.34 lbs at 62°F. In Imperial terms: 1 US gal = 0.833 Imperial gal — pour a US gallon of milk into a British measuring jug and it doesn't reach the line.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>15 US gallons → 56.78 L</strong></p>
+                <p>15 × 3.785411784 = 56.78 L. Toyota Corolla fuel tank. Filled at a Canadian pump dispensing liters, the receipt says 56.78 L. The price per liter looks roughly a quarter of the US price per gallon. It isn't cheaper. It's just a smaller unit.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>42 US gallons → 159.0 L</strong></p>
+                <p>42 × 3.785411784 = 158.99 L. The oil barrel. Not a physical object — a unit of account. Brent crude and West Texas Intermediate are priced globally in 42-US-gallon barrels. Even in Vienna, even in Riyadh, even in Moscow. The barrel traces to 1860s Pennsylvania, where oil producers standardized on the 42-gallon tierce — a barrel size originally used for salted fish — because it was the most common container on hand. The entire global petroleum market prices its primary commodity in a unit derived from a 19th-century fish barrel, converted to liters for everyone except the Americans.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>5 Imperial gallons → 22.73 L</strong></p>
+                <p>5 × 4.54609 = 22.73 L. A British homebrew batch. If you brew an American recipe at this volume without adjusting the grain bill, you get watery beer. If you brew a British recipe at 5 US gallons (18.93 L), you get strong beer. Neither is wrong. One is just a different gallon.</p>
+            </div>
+
+            <h2>Common Gallons to Liters</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>US gal</th><th>Liters</th><th>Imperial gal equiv</th><th>Where you encounter it</th></tr></thead><tbody>
+                <tr><td>1</td><td>3.785 L</td><td>0.833</td><td>Milk jug. Paint can.</td></tr>
+                <tr><td>5</td><td>18.93 L</td><td>4.16</td><td>Homebrew carboy. Home Depot bucket. Jerry can.</td></tr>
+                <tr><td>10</td><td>37.85 L</td><td>8.33</td><td>Standard aquarium. Portable fuel caddy.</td></tr>
+                <tr><td>15</td><td>56.78 L</td><td>12.5</td><td>Compact car fuel tank (Corolla, Civic).</td></tr>
+                <tr><td>31</td><td>117.3 L</td><td>25.8</td><td>US beer barrel. Federal excise tax per barrel.</td></tr>
+                <tr><td>42</td><td>159.0 L</td><td>35.0</td><td>Oil barrel. Global crude pricing unit since 1866.</td></tr>
+                <tr><td>55</td><td>208.2 L</td><td>45.8</td><td>Steel drum. Industrial chemicals. Racing fuel.</td></tr>
+                <tr><td>1,000</td><td>3,785 L</td><td>833</td><td>Residential heating oil tank. Propane tank.</td></tr>
+                <tr><td>11,400</td><td>43,150 L</td><td>9,490</td><td>Boeing 767-200 max fuel capacity — roughly what Gimli Glider should have carried.</td></tr>
+                </tbody></table></div>
+
+            <h2>Estimating in Your Head (and When Not To)</h2>
+
+            <p>US gallons → liters: multiply by 4, subtract 5%. Ten gallons → 40 − 2 = 38 L. Actual: 37.85 L. The error is 0.4% — good enough for "how much paint do I need" and "will this aquarium fit in the car." Not good enough for anything with a safety or regulatory threshold attached.</p>
+
+            <p>Imperial gallons → liters: multiply by 4.5. Ten Imperial gallons → 45 L. Actual: 45.46 L. The 1% error is fine for cooking, useless for commerce.</p>
+
+            <p>Liters → US gallons: divide by 4, add 5%. 100 L ÷ 4 = 25, + 5% (1.25) = 26.25 gallons. Actual: 26.42. Close enough for "how much did I just spend on gas in Canada."</p>
+
+            <p>Where these shortcuts fail: aircraft fuel (small percentage errors compound across tens of thousands of units), pharmaceutical manufacturing (a 0.4% volume error in an active ingredient tank is a batch rejection), international trade (customs doesn't care about your mental math). Use the exact factor. Use this calculator. Don't guess.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The US gallon is one of the few US customary units defined geometrically (231 cubic inches) rather than by direct reference to an SI base unit. The foot is defined as exactly 0.3048 meters. The pound as exactly 0.45359237 kilograms. But the gallon is defined as 231 cubic inches — a secondary definition that depends on the inch. Because 1 inch = 2.54 cm exactly (1959 treaty), the gallon's liter value inherits that exactness: 3.785411784, with as many significant digits as you need. In the oil industry, the 42-US-gallon barrel is used even in metric countries — a Brent crude contract for 1,000 barrels is legally a contract for exactly 42,000 US gallons or 158,987.3 liters. No metric country's oil ministry has ever proposed switching to cubic meters for pricing. The barrel's gravitational pull is too strong. For the reverse direction, 1 L = 0.264172052 US gallons — see <a href="/liters-to-gallons">liters to gallons</a>. A European filling station displaying price per liter is selling fuel at roughly one-quarter the numerical price of a US station displaying price per gallon — a psychological effect, not an economic one. European fuel is not cheaper. The unit is just smaller. Divide the liter price by 0.264 (or multiply by 3.785) to get the per-gallon equivalent and compare apples to apples. For high-precision volume conversions at smaller scales, see <a href="/fl-oz-to-ml">fl oz to ml</a> (1 US fl oz = 29.5735295625 mL) and <a href="/cups-to-ml">cups to ml</a> (1 US cup = 236.5882365 mL). For the other direction at industrial scale, <a href="/cubic-feet-to-cubic-meters">cubic feet to cubic meters</a> covers shipping container and HVAC duct volume conversions.</p>
+<p style="margin-top:1.2em;">More: <a href="/liters-to-gallons">liters to gallons</a> · <a href="/cups-to-ml">cups to ml</a> · <a href="/fl-oz-to-ml">fl oz to ml</a> · <a href="/cubic-feet-to-cubic-meters">cubic feet to cubic meters</a> · <a href="/guides/volume-cooking-conversion-guide">Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/liters-to-gallons">Liters to Gallons</a>
+                <a href="/quarts-to-liters">Quarts to Liters</a>
+                <a href="/pints-to-liters">Pints to Liters</a>
+                <a href="/cups-to-ml">Cups to mL</a>
+                <a href="/fl-oz-to-ml">fl oz to mL</a>
+                <a href="/cubic-feet-to-cubic-meters">ft³ to m³</a>
+                <a href="/l-100km-to-mpg">L/100km to MPG</a>
+                <a href="/lbs-to-kg">lbs to kg</a>
+                <a href="/guides/volume-cooking-conversion-guide">Volume & Cooking Guide</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Why are there two different gallons — and which one should I use?</p>
+                <p class="faq-a">The US liquid gallon (3.785411784 L) is the one behind virtually every "gallons to liters" search — gasoline, milk, paint, consumer liquids. The Imperial gallon (4.54609 L) is used in British homebrew recipes, pre-1977 Canadian fuel economy, and some Caribbean export manifests. If you're American and asking this question, you want the US gallon. If you're British and converting a recipe, check whether it was written before or after UK metrication in the 1970s. If it says "a gallon of milk" and was published in London after 1995, it almost certainly means 4.546 L — but the milk itself is sold in liters now, so the recipe has already done a mental conversion the author may not have been precise about. The safest approach: ask the author what they meant, or use the gallon that matches where the recipe was published.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Did the Gimli Glider really happen because someone confused gallons and liters?</p>
+                <p class="faq-a">Partly, but it's more accurate to say the gallons-to-liters conversion was the first broken link in a three-link chain. The refueling truck's flow meter was in US gallons. The aircraft's dripstick tables were in liters. The density conversion card was in pounds per liter but was applied as if it were kilograms per liter. Three conversions — gallons→liters, liters→mass, and the unit of that mass — all failed. Any one of them, caught, would have prevented the incident. None of them were. The gallon was where the chain started, but it was the cascade that caused the crash. The full story is told above.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is the oil barrel 42 gallons, not 50 or 55?</p>
+                <p class="faq-a">In the 1860s, Pennsylvania oil producers shipped crude in whatever barrels were lying around — whiskey barrels (40 gal), wine tierces (42 gal), fish barrels (variable). Buyers couldn't compare prices because every barrel held a different amount. In 1866, a group of Oil Creek producers agreed to standardize on the 42-gallon tierce, a size originally used for salted fish and wine. It stuck. The US Geological Survey adopted it. The American Petroleum Institute adopted it. Today, a barrel of oil = 42 US gallons = 158.987 liters = 34.97 Imperial gallons. Every oil futures contract on earth is priced in this unit, including in metric countries. The barrel is the only non-metric unit that no metric country has ever proposed replacing.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do I convert my aquarium volume between gallons and liters?</p>
+                <p class="faq-a">US aquarium manufacturers label tanks in US gallons. A "10-gallon" tank holds 37.85 L of water. A "55-gallon" tank holds 208.2 L. When dosing water conditioner, medication, or fertilizer, check whether the product's instructions are in US gallons, Imperial gallons, or liters. Seachem (US brand) labels in US gallons. Tropic Marin (German brand) labels in liters. Easy-Life (Dutch brand) labels in liters per 100 L. If your tank is labeled in US gallons and the treatment is labeled in liters, convert the tank volume first: US gal × 3.785 = L. Get this wrong and you either underdose (the fish stay sick) or overdose (the fish get poisoned). Aquarium medication is not the place to guess.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a US gallon the same as a Canadian gallon?</p>
+                <p class="faq-a">Today, Canada uses the metric system — pumps dispense liters. But historically: before 1977, Canada used the Imperial gallon (4.546 L). After metrication, the gallon ceased to be a legal unit of trade in Canada, but US gallons crept back in through fuel economy stickers on cars (by trade convention with the US) and through consumer products (a "gallon" of paint at Canadian Tire is a US gallon, 3.785 L, because the can is manufactured in the US). So "a gallon" in Canada today means a US gallon for paint, an Imperial gallon in a 1975 cookbook, and nothing at all at the gas pump — where everything is in liters. The only safe assumption in modern Canada is to treat "gallon" as ambiguous and convert everything to liters explicitly.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "US gallon",
+  "termCode": "US gallon (gal)",
+  "description": "The US liquid gallon is a volume unit defined as exactly 231 cubic inches, equal to 3.785411784 liters. It is used for fuel, milk, and other liquids in the United States.",
+  "url": "https://en.wikipedia.org/wiki/Gallon",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

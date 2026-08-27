@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Frequency Conversion Guide — Hz, kHz, MHz, GHz &amp; RPM | EnginStack</title>
+    <meta name="description" content="The complete engineering guide to frequency conversion: hertz, kilohertz, megahertz, gigahertz, and RPM. Why 1 Hz = 60 RPM, why the hertz is the only unit where every SI prefix conversion is exact, the 440-Hz tuning standard, the 50/60 Hz grid divide, and the Wi-Fi bands that run on powers of ten.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/frequency-conversion-guide">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/frequency-conversion-guide">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/frequency-conversion-guide">
+    <meta property="og:title" content="Frequency Conversion Guide — Hz, kHz, MHz, GHz &amp; RPM | EnginStack">
+    <meta property="og:description" content="Why 1 Hz = 60 RPM, why every SI prefix conversion is exact, the 440-Hz standard, the 50/60 Hz grid divide, and the Wi-Fi bands on powers of ten.">
+    <meta property="og:url" content="https://enginstack.com/guides/frequency-conversion-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Frequency Conversion Guide — Hz, kHz, MHz, GHz &amp; RPM | EnginStack">
+    <meta name="twitter:description" content="The hertz, the 60 in Hz↔RPM, the 440-Hz standard, the 50/60 Hz grid divide, and the Wi-Fi bands on powers of ten.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Frequency Conversion Guide — Hz, kHz, MHz, GHz & RPM",
+  "description": "Definitive engineering reference for frequency conversion: hertz through gigahertz plus the RPM crossover. Why every SI-prefix conversion is exact, why the Hz↔RPM pair is the only factor-of-60 in the family, the 440-Hz tuning standard, the 50/60 Hz grid divide that splits the world's motors, and the Wi-Fi bands built on powers of ten.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/frequency-conversion-guide",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://enginstack.com/guides/frequency-conversion-guide"
+  },
+  "datePublished": "2026-08-02",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 1 kHz the same as 1,000 cycles per second?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, exactly. A hertz is one cycle per second by definition, and the kilo- prefix multiplies by exactly 1,000. So 1 kHz = 1,000 cycles per second. The older term \"cycles per second\" (cps) was the pre-1930 name for the hertz and still appears in vintage equipment manuals. The conversion is exact — no measurement, no rounding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert RPM to Hz for vibration analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide RPM by 60. A machine running at 3,600 RPM produces a 1× running-speed vibration peak at 60 Hz; an 1,800 RPM machine peaks at 30 Hz. Bearing defect frequencies are usually expressed as multiples of running speed, so converting shaft RPM to Hz is the first step of every vibration spectrum analysis. The RPM to Hz page does the conversion with the exact factor of 60."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my router show 2.4 GHz but the channel list uses MHz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convention and display readability. The 2.4 GHz band is marketed in gigahertz because it's a short, memorable label; the engineering channel plan is written in MHz because channel numbers map to whole MHz frequencies — channel 1 is 2,412 MHz, channel 6 is 2,437 MHz, channel 11 is 2,462 MHz. Both are correct, and the conversion between them is exact: 2,412 MHz = 2.412 GHz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between kHz and kbps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "kHz is frequency — cycles per second, a signal property. kbps is data rate — thousands of bits per second, a throughput property. An MP3 encoded at 128 kbps might represent audio sampled at 44.1 kHz. They're related but not convertible: the sample rate sets how often the signal is measured; the bit rate sets how much data is stored per second. The data storage converters handle the kbps/Mbps side."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 400 Hz aircraft power special?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — aircraft generators produce 400 Hz (24,000 RPM for a 2-pole machine) specifically to save weight. Electrical machine size scales down as frequency goes up: a 400 Hz transformer has roughly 1/8 the core volume of a 60 Hz one for the same power. The Hz↔RPM conversion for that generator is 400 × 60 = 24,000 RPM, and the weight savings are why aircraft electrical systems stayed at 400 Hz while the ground grid settled on 50 or 60."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Engineering Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Frequency Conversion Guide" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Engineering Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Frequency Conversion Guide</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Frequency: A Field Guide to the Unit That Runs on Powers of Ten</h1>
+            <p>In 1965, the Beatles' song "Yesterday" was recorded with a tape machine running slightly fast. When the tape was played back at the correct speed, Paul McCartney's voice was a touch flat — and the studio liked it enough to keep it. The song's pitch, and the entire pop-music catalog of the 1960s, is measured in hertz: cycles per second, named for the man who proved radio waves exist. This guide is about that unit and its three companions — the kilohertz, the megahertz, the gigahertz, and the RPM that rotating machinery insists on using instead — and why converting between them is the easiest math on this site, except for the one place where it isn't.</p>
+            <p class="page-meta">~12 min read &nbsp;·&nbsp; Last updated August 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section guide-content">
+
+<!-- ══ KEY TAKEAWAYS ══ -->
+<div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
+    <h4>Key Takeaways</h4>
+    <ul>
+        <li><strong>Every SI-prefix frequency conversion is exact.</strong> 1 kHz = 1,000 Hz, 1 MHz = 1,000,000 Hz, 1 GHz = 1,000,000,000 Hz — by definition. No constants, no rounding, no measurement uncertainty.</li>
+        <li><strong>Hz↔RPM is the one non-power-of-ten in the family, and it's still exact.</strong> 1 Hz = 60 RPM, because a hertz counts per second and an RPM counts per minute.</li>
+        <li><strong>A motor's shaft speed needs the pole count.</strong> Synchronous RPM = 120 × Hz ÷ poles. 60 Hz gives 3,600 (2-pole), 1,800 (4-pole), or 1,200 (6-pole) RPM; 50 Hz gives 3,000, 1,500, or 1,000.</li>
+        <li><strong>Audio lives between 0.02 and 20 kHz.</strong> Concert A is 440 Hz = 0.44 kHz. CD audio samples at 44.1 kHz; professional video audio at 48 kHz.</li>
+        <li><strong>The radio ladder climbs exact decades.</strong> AM band: 530-1,700 kHz. FM: 88-108 MHz. Wi-Fi: 2.4 GHz and 5 GHz. Every rung is ×1,000 from the last.</li>
+        <li><strong>The 50/60 Hz grid divide is a 20% speed gap.</strong> A 4-pole motor on US 60 Hz spins at 1,800 RPM; on European 50 Hz it spins at 1,500 — 17% slower, with proportionally less flow and head from any attached pump.</li>
+    </ul>
+</div>
+
+<!-- ══ QUICK REFERENCE ══ -->
+<h2>Quick Frequency Conversion Reference</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>From</th><th>To</th><th>Factor</th><th>Use this converter</th></tr></thead>
+    <tbody>
+        <tr><td>Hertz</td><td>Kilohertz</td><td>÷ 1,000</td><td><a href="/hz-to-khz">Hz to kHz →</a></td></tr>
+        <tr><td>Kilohertz</td><td>Hertz</td><td>× 1,000</td><td><a href="/khz-to-hz">kHz to Hz →</a></td></tr>
+        <tr><td>Kilohertz</td><td>Megahertz</td><td>÷ 1,000</td><td><a href="/khz-to-mhz">kHz to MHz →</a></td></tr>
+        <tr><td>Megahertz</td><td>Kilohertz</td><td>× 1,000</td><td><a href="/mhz-to-khz">MHz to kHz →</a></td></tr>
+        <tr><td>Megahertz</td><td>Gigahertz</td><td>÷ 1,000</td><td><a href="/mhz-to-ghz">MHz to GHz →</a></td></tr>
+        <tr><td>Gigahertz</td><td>Megahertz</td><td>× 1,000</td><td><a href="/ghz-to-mhz">GHz to MHz →</a></td></tr>
+        <tr><td>Hertz</td><td>RPM</td><td>× 60</td><td><a href="/hz-to-rpm">Hz to RPM →</a></td></tr>
+        <tr><td>RPM</td><td>Hertz</td><td>÷ 60</td><td><a href="/rpm-to-hz">RPM to Hz →</a></td></tr>
+    </tbody>
+</table>
+</div>
+
+<!-- ══ TOC ══ -->
+<nav class="guide-toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#the-man-and-his-unit">The Man and His Unit: Hertz, the Waves, and the Name That Won</a></li>
+        <li><a href="#the-easiest-math">The Easiest Math on This Site: Why Every Prefix Conversion Is Exact</a></li>
+        <li><a href="#the-ear">The Ear: 0.02 to 20 kHz and the 440-Hz Question</a></li>
+        <li><a href="#the-grid">The Grid: 50 Hz vs 60 Hz and the 20% Speed Gap</a></li>
+        <li><a href="#the-spinning-shaft">The Spinning Shaft: Hz↔RPM and the Pole-Count Complication</a></li>
+        <li><a href="#the-dial">The Dial: AM, FM, and the Radio Ladder</a></li>
+        <li><a href="#the-wireless-world">The Wireless World: Wi-Fi, 5G, and the ISM Band</a></li>
+        <li><a href="#master-table">Master Frequency Conversion Table</a></li>
+        <li><a href="#tools">Every Frequency Converter on This Site</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+</nav>
+
+<section id="the-man-and-his-unit">
+<h2>1. The Man and His Unit: Hertz, the Waves, and the Name That Won</h2>
+<p>Heinrich Hertz didn't measure sound. In 1887, in a Karlsruhe lab, he generated sparks across a gap and detected the same oscillation a few meters away — proving that electromagnetic waves existed, traveled, and could be measured. He was 31. He died seven years later, and the unit named for him — one cycle per second — was adopted by the IEC in 1930 and folded into SI in 1960. The hertz's genius is its human scale: a heartbeat is about 1.2 Hz, a musical tone is tens to thousands of hertz, and the entire audible world fits between 20 and 20,000. The kilohertz, megahertz, and gigahertz exist so you don't have to write zeros when discussing cymbals, radio stations, or processors.</p>
+<p>Before the hertz, engineers said "cycles per second" — cps — and the term survives in old equipment manuals ("60 cps" mains in a 1960s amplifier is 60 Hz). The rename mattered because "cycles per second" invites the question "cycles of what?" while "hertz" is a pure count of repetitions per unit time, applicable to sound waves, AC current, radio carriers, and motor shafts alike. That universality is why this single unit spans the whole guide: the same number describes a guitar string and a Wi-Fi router, separated by nine orders of magnitude and linked by exact powers of ten.</p>
+</section>
+
+<section id="the-easiest-math">
+<h2>2. The Easiest Math on This Site: Why Every Prefix Conversion Is Exact</h2>
+<p>Compare frequency conversion to the rest of this site. The <a href="/guides/force-conversion-guide">force guide</a> wrestles with 4.4482216153. The <a href="/guides/pressure-conversion-guide">pressure guide</a> carries 6.89476. The <a href="/guides/energy-power-conversion-guide">energy guide</a> deals with the kW/kWh distinction. Frequency, by contrast, is the one quantity where every SI-prefix conversion is exact by definition: kilo- is 1,000, mega- is 1,000,000, giga- is 1,000,000,000 — not 1,024, not 999.997, not "approximately." A kilohertz is 1,000 hertz the way a kilometer is 1,000 meters, and converting between them is moving a decimal point.</p>
+<p>The exception that proves the rule is the RPM crossover. RPM counts revolutions per <em>minute</em>; hertz counts cycles per <em>second</em>. The bridge is the 60 seconds in a minute — exact, universal, and the reason 1 Hz = 60 RPM. It's the only non-power-of-ten in the family, and it's the one that trips up motor engineers and vibration analysts daily, which is why it gets its own section below.</p>
+</section>
+
+<section id="the-ear">
+<h2>3. The Ear: 0.02 to 20 kHz and the 440-Hz Question</h2>
+<p>The entire human auditory experience fits between 20 Hz and 20 kHz — 0.02 to 20 kHz in the prefix notation. A kick drum thumps near 0.05 kHz. A cymbal sizzles past 10 kHz. Speech fundamentals sit between 85 Hz (male) and 255 Hz (female), with harmonics climbing into the kilohertz range. And the A string of every properly tuned guitar in the world vibrates at exactly 440 Hz — 0.44 kHz — because of ISO 16, a standard adopted in 1955 after decades of international bickering about where concert pitch should live.</p>
+<p>The 440-Hz story is a frequency-conversion lesson wearing a music-history costume. French orchestras tuned to 435 Hz; some European opera houses pushed 450 Hz for a brighter sound; a "sharp" orchestra tuning to 442 or 443 Hz still exists today. In kilohertz: 0.435, 0.45, 0.442, 0.443. The differences are audible to trained ears and invisible on a tuner display in kHz — which is why musicians think in Hz and audio engineers in kHz, and why the <a href="/hz-to-khz">Hz to kHz</a> converter exists. Digital audio adds another layer: CD sampling at 44.1 kHz captures frequencies up to 22.05 kHz (the Nyquist limit), just above the 20 kHz hearing ceiling, and professional video audio samples at 48 kHz. Every one of those numbers converts to hertz by multiplying by 1,000.</p>
+</section>
+
+<section id="the-grid">
+<h2>4. The Grid: 50 Hz vs 60 Hz and the 20% Speed Gap</h2>
+<p>Stand under a power line in North America and the current alternates 60 times per second. In Europe, Japan's eastern half, and most of Asia, it alternates 50 times. The divide is historical — early generators were built around the frequencies that their engineers' mechanical designs favored, and by the time standardization mattered, two incompatible grids had already been installed. The 50/60 Hz split is now a permanent feature of the electrical world, and its practical consequence is a 20% speed difference in every motor connected to it.</p>
+<p>A US-designed pump with a 4-pole motor runs at 1,800 RPM on 60 Hz. Ship it to a 50 Hz country and connect it directly: 1,500 RPM — 17% slower, with proportionally less flow and head. The engineer either accepts the derating, installs a variable frequency drive to synthesize 60 Hz from the 50 Hz supply, or rewinds the motor. The conversion that frames the decision is the <a href="/hz-to-rpm">Hz to RPM</a> pair, and the 60 in it is the same 60 in both grids. A VFD makes the hertz a dial you can turn — 30, 45, 60 Hz — and the shaft speed follows, one multiplication away.</p>
+</section>
+
+<section id="the-spinning-shaft">
+<h2>5. The Spinning Shaft: Hz↔RPM and the Pole-Count Complication</h2>
+<p>The pure Hz↔RPM conversion — multiply by 60 — answers the question "how many revolutions per minute is this frequency?" But a motor's shaft doesn't complete one revolution per electrical cycle. It completes one revolution per <em>pole pair</em> of electrical cycles. The formula that actually matters on a motor nameplate is: <strong>synchronous RPM = 120 × frequency ÷ number of poles</strong>. The 120 is the 60 (seconds per minute) doubled, because a pole pair is two poles.</p>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Poles</th><th>60 Hz (US)</th><th>50 Hz (Europe)</th><th>Common use</th></tr></thead>
+    <tbody>
+        <tr><td>2</td><td>3,600 RPM</td><td>3,000 RPM</td><td>High-speed fans, small generators</td></tr>
+        <tr><td>4</td><td>1,800 RPM</td><td>1,500 RPM</td><td>The workhorse — pumps, compressors, conveyors</td></tr>
+        <tr><td>6</td><td>1,200 RPM</td><td>1,000 RPM</td><td>Larger pumps, low-speed blowers</td></tr>
+        <tr><td>8</td><td>900 RPM</td><td>750 RPM</td><td>Heavy machinery, crushers</td></tr>
+    </tbody>
+</table>
+</div>
+<p>Real induction motors run 1-5% below these synchronous speeds under load — an 1,800 RPM 4-pole motor typically delivers 1,740-1,780 RPM — due to slip. Vibration analysts live on this crossover: a pump at 1,780 RPM produces a 1× running-speed vibration peak at 29.67 Hz, and every spectral peak becomes a multiple of that number. The <a href="/rpm-to-hz">RPM to Hz</a> conversion — divide by 60 — is the first arithmetic step of every vibration diagnosis on a rotating machine.</p>
+</section>
+
+<section id="the-dial">
+<h2>6. The Dial: AM, FM, and the Radio Ladder</h2>
+<p>Turn a radio dial and you cross this guide's territory without noticing. The AM band spans 530-1,700 kHz — small enough that kilohertz reads naturally. The FM band spans 88-108 MHz — a hundred times higher, where megahertz is the readable prefix. Between them, the shortwave (HF) bands run 3-30 MHz, and ham radio operators are fluent in both notations because their equipment displays either depending on the band. The ladder is exact: 1,000 kHz = 1 MHz, every rung a power of ten.</p>
+<p>The band assignments are historical accidents with modern consequences. AM got the low, long-range frequencies in the 1930s; FM was assigned higher, less crowded spectrum in the 1940s precisely because its better sound quality could afford the wider channels. The regulatory tables, the receiver displays, and the engineering documents each use whatever notation suits their range — and the conversions between them are the same decimal shifts this guide has been running all along. A spectrum analyzer set to a 100 MHz center frequency with a 200 kHz resolution bandwidth is doing both conversions on every measurement.</p>
+</section>
+
+<section id="the-wireless-world">
+<h2>7. The Wireless World: Wi-Fi, 5G, and the ISM Band</h2>
+<p>In 1947, at the ITU's Atlantic City conference, the world's spectrum regulators set aside bands for Industrial, Scientific, and Medical equipment — frequencies where devices could transmit without individual licenses, subject to power limits. One of those bands, 2,400-2,500 MHz, was intended for microwave ovens (which heat food at 2,450 MHz) and industrial heating. Nobody in 1947 predicted that half a century later this "junk" spectrum would carry Wi-Fi, Bluetooth, Zigbee, and a thousand other unlicensed devices — all of them crowded into 2.4-2.5 GHz.</p>
+<p>The wireless ladder keeps climbing. Wi-Fi's 5 GHz band spans 5,150-5,875 MHz — 5.15-5.875 GHz, roughly twice the frequency of 2.4 GHz, with shorter wavelength, less wall penetration, but far less interference. 5G cellular adds bands at 3.5 GHz (3,500 MHz) and 28 GHz (28,000 MHz) — the millimeter-wave region, so called because the wavelength at 30 GHz is about 10 mm. A router label says "2.4/5 GHz"; the regulatory filing lists MHz; the RF engineer's spectrum analyzer can display either. The <a href="/mhz-to-ghz">MHz to GHz</a> and <a href="/ghz-to-mhz">GHz to MHz</a> converters are the bridge, and every crossing is exact.</p>
+</section>
+
+<section id="master-table">
+<h2>8. Master Frequency Conversion Table</h2>
+<div class="table-scroll">
+<table>
+    <thead><tr><th>Frequency</th><th>kHz</th><th>MHz</th><th>GHz</th><th>Where you'd see this</th></tr></thead>
+    <tbody>
+        <tr><td>1.2 Hz</td><td>0.0012 kHz</td><td>—</td><td>—</td><td>A resting human heartbeat.</td></tr>
+        <tr><td>60 Hz</td><td>0.06 kHz</td><td>—</td><td>—</td><td>US AC mains. The studio hum.</td></tr>
+        <tr><td>440 Hz</td><td>0.44 kHz</td><td>—</td><td>—</td><td>Concert A — ISO 16 tuning standard.</td></tr>
+        <tr><td>20 kHz</td><td>20 kHz</td><td>0.02 MHz</td><td>—</td><td>Nominal human hearing limit.</td></tr>
+        <tr><td>44.1 kHz</td><td>44.1 kHz</td><td>0.0441 MHz</td><td>—</td><td>CD audio sampling rate.</td></tr>
+        <tr><td>640 kHz</td><td>640 kHz</td><td>0.64 MHz</td><td>—</td><td>A classic AM radio station.</td></tr>
+        <tr><td>100 MHz</td><td>100,000 kHz</td><td>100 MHz</td><td>0.1 GHz</td><td>FM broadcast mid-band.</td></tr>
+        <tr><td>2,412 MHz</td><td>2,412,000 kHz</td><td>2,412 MHz</td><td>2.412 GHz</td><td>Wi-Fi 2.4 GHz channel 1.</td></tr>
+        <tr><td>3,500 MHz</td><td>3,500,000 kHz</td><td>3,500 MHz</td><td>3.5 GHz</td><td>5G mid-band cellular.</td></tr>
+        <tr><td>5,180 MHz</td><td>5,180,000 kHz</td><td>5,180 MHz</td><td>5.18 GHz</td><td>Wi-Fi 5 GHz channel 36.</td></tr>
+        <tr><td>28,000 MHz</td><td>28,000,000 kHz</td><td>28,000 MHz</td><td>28 GHz</td><td>5G millimeter wave.</td></tr>
+    </tbody>
+</table>
+</div>
+</section>
+
+<section id="tools">
+<h2>9. Every Frequency Converter on This Site</h2>
+<p>The <a href="/frequency/">frequency hub</a> organizes all eight converters in this family. The SI-prefix pairs are exact decimal shifts; the Hz↔RPM pair carries the factor of 60:</p>
+<div class="related-tags">
+    <a href="/hz-to-khz">Hertz to Kilohertz</a>
+    <a href="/khz-to-hz">Kilohertz to Hertz</a>
+    <a href="/khz-to-mhz">Kilohertz to Megahertz</a>
+    <a href="/mhz-to-khz">Megahertz to Kilohertz</a>
+    <a href="/hz-to-rpm">Hertz to RPM</a>
+    <a href="/rpm-to-hz">RPM to Hertz</a>
+    <a href="/mhz-to-ghz">Megahertz to Gigahertz</a>
+    <a href="/ghz-to-mhz">Gigahertz to Megahertz</a>
+</div>
+<p style="margin-top:1.2em;">Related families: <a href="/data-storage/">data storage converters</a> (the Mbps/Gbps data rates these signals carry) · <a href="/speed/">speed converters</a> (the linear velocities a rotating shaft produces at a known radius) · <a href="/time/">time converters</a> (the 60 seconds per minute that defines the Hz↔RPM bridge) · <a href="/guides/force-conversion-guide">force guide</a> (the other new engineering family on this site).</p>
+</section>
+
+<section id="faq">
+<h2>10. Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<p class="faq-q">Is 1 kHz the same as 1,000 cycles per second?</p>
+<p class="faq-a">Yes, exactly. A hertz is one cycle per second by definition, and the kilo- prefix multiplies by exactly 1,000. So 1 kHz = 1,000 cycles per second. The older term "cycles per second" (cps) was the pre-1930 name for the hertz and still appears in vintage equipment manuals. The conversion is exact — no measurement, no rounding.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">How do I convert RPM to Hz for vibration analysis?</p>
+<p class="faq-a">Divide RPM by 60. A machine running at 3,600 RPM produces a 1× running-speed vibration peak at 60 Hz; an 1,800 RPM machine peaks at 30 Hz. Bearing defect frequencies are usually expressed as multiples of running speed, so converting shaft RPM to Hz is the first step of every vibration spectrum analysis. The <a href="/rpm-to-hz">RPM to Hz</a> page does the conversion with the exact factor of 60.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">Why does my router show 2.4 GHz but the channel list uses MHz?</p>
+<p class="faq-a">Convention and display readability. The 2.4 GHz band is marketed in gigahertz because it's a short, memorable label; the engineering channel plan is written in MHz because channel numbers map to whole MHz frequencies — channel 1 is 2,412 MHz, channel 6 is 2,437 MHz, channel 11 is 2,462 MHz. Both are correct, and the conversion between them is exact: 2,412 MHz = 2.412 GHz.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">What's the difference between kHz and kbps?</p>
+<p class="faq-a">kHz is frequency — cycles per second, a signal property. kbps is data rate — thousands of bits per second, a throughput property. An MP3 encoded at 128 kbps might represent audio sampled at 44.1 kHz. They're related but not convertible: the sample rate sets how often the signal is measured; the bit rate sets how much data is stored per second. The <a href="/data-storage/">data storage</a> converters handle the kbps/Mbps side.</p>
+</div>
+
+<div class="faq-item">
+<p class="faq-q">Is 400 Hz aircraft power special?</p>
+<p class="faq-a">Yes — aircraft generators produce 400 Hz (24,000 RPM for a 2-pole machine) specifically to save weight. Electrical machine size scales down as frequency goes up: a 400 Hz transformer has roughly 1/8 the core volume of a 60 Hz one for the same power. The Hz↔RPM conversion for that generator is 400 × 60 = 24,000 RPM, and the weight savings are why aircraft electrical systems stayed at 400 Hz while the ground grid settled on 50 or 60.</p>
+</div>
+</section>
+
+<section class="eng-context">
+<h3>Engineering Context</h3>
+<p>Frequency conversions between SI-prefixed units are exact by definition — the kilo-, mega-, and giga- prefixes are fixed powers of ten. This makes the Hz↔kHz↔MHz↔GHz family the only group on this site with zero conversion uncertainty, in sharp contrast to the <a href="/guides/force-conversion-guide">force</a> and <a href="/ft-lbs-to-nm">torque</a> families, which carry treaty-derived constants. The one crossover — Hz↔RPM — is exact too, a factor of 60 from the clock, not from physics. When you need the data rates that these frequencies carry, the <a href="/data-storage/">data storage</a> hub's Mbps/Gbps converters use the same SI-prefix logic. And when a rotating shaft's speed matters in linear terms — a 200 mm pulley at 1,800 RPM drives belt at 18.85 m/s — the <a href="/speed/">speed</a> hub closes the loop.</p>
+<p style="margin-top:1.2em;">More: <a href="/hz-to-khz">Hz to kHz</a> · <a href="/hz-to-rpm">Hz to RPM</a> · <a href="/mhz-to-ghz">MHz to GHz</a> · <a href="/frequency/">Frequency Hub</a></p>
+</section>
+
+<section class="eng-context">
+<h3>Reprint &amp; Attribution</h3>
+<p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the engineering team at EnginStack. It was first published on August 2, 2026 at <a href="https://enginstack.com/guides/frequency-conversion-guide">enginstack.com/guides/frequency-conversion-guide</a>. Quote it, share it, translate it — just link back to the original and credit EnginStack. For full-text republication inquiries, please reach us through the <a href="/contact">EnginStack contact page</a>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+</section>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Frequency",
+  "termCode": "frequency (Hz)",
+  "description": "Frequency is the rate at which a periodic event repeats, measured in hertz (cycles per second). It spans from power-line 50/60 Hz through audio kHz to radio MHz and wireless GHz.",
+  "url": "https://en.wikipedia.org/wiki/Frequency",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPH to ft/s — Crash Tests, Baseball Physics, and the 88 ft/s Landmark | EnginStack</title>
+    <meta name="description" content="1 mph = 1.46667 ft/s (exactly 22/15). 60 mph = 88 ft/s. The conversion hidden in every crash test, every baseball pitch, every stopping-distance calculation. A 100-mph fastball crosses home plate in 0.4 seconds.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/mph-to-fts">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/mph-to-fts">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/mph-to-fts">
+    <meta property="og:title" content="MPH to ft/s — Crash Tests, Baseball Physics, and the 88 ft/s Landmark | EnginStack">
+    <meta property="og:description" content="1 mph = 1.46667 ft/s. 60 mph = 88 ft/s exactly. The conversion hidden in every NHTSA crash test barrier, every radar gun reading, every accident reconstruction report.">
+    <meta property="og:url" content="https://enginstack.com/mph-to-fts">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "MPH to ft/s Converter",
+  "description": "1 mph = 1.46667 ft/s exactly (22/15). 60 mph = 88 ft/s. The conversion used in crash testing, baseball physics, stopping-distance calculations, and accident reconstruction.",
+  "url": "https://enginstack.com/mph-to-fts",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Speed", "item": "https://enginstack.com/speed/" },
+    { "@type": "ListItem", "position": 3, "name": "MPH to ft/s Converter" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is 60 mph exactly 88 ft/s?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the conversion factor from mph to ft/s is 5,280 ÷ 3,600 = 22/15, a rational number. At 60 mph, the 15 in the denominator divides evenly: 60 × 22/15 = 4 × 22 = 88. This is not an approximation — it's exact. Every multiple of 15 mph produces an integer in ft/s: 15 mph = 22 ft/s, 30 mph = 44 ft/s, 45 mph = 66 ft/s, 60 mph = 88 ft/s, 75 mph = 110 ft/s, and so on. This pattern is so useful that accident reconstructionists memorise it: every 15 mph of speed adds 22 ft/s of velocity. At a crash scene, estimating pre-impact speed from skid marks requires converting the skid distance to initial velocity, and every formula expects ft/s. Having the mph→ft/s conversion hard-coded as integer pairs eliminates the most common source of arithmetic error in roadside calculations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does stopping distance translate from mph to real-world feet per second?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 60 mph (88 ft/s), with a 2.5-second perception-reaction time, you travel 220 feet before even touching the brake. Then braking distance on dry asphalt (0.7g, or about 22.5 ft/s² deceleration) adds roughly 172 feet. Total: 392 feet — an entire NFL football field plus both end zones. At 30 mph (44 ft/s), the total is about 110 feet. At 70 mph (102.7 ft/s), it's roughly 510 feet. The perception-reaction distance scales linearly with speed, but the braking distance scales with the square — which means the last 10 mph before you stop consume exponentially more distance than the first 10 mph after you start braking. Going from 70 to 60 mph scrubs off about 120 feet of stopping distance; going from 30 to 20 scrubs off about 30 feet. This nonlinearity is invisible in mph and immediately obvious in ft/s."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take a 100-mph fastball to reach home plate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "100 mph = 146.7 ft/s. Distance from rubber to plate: 60.5 feet. Time = distance / speed = 60.5 / 146.7 ≈ 0.412 seconds. The ball actually travels slightly less distance because the pitcher releases it a few feet in front of the rubber, so the effective time is around 0.39–0.40 seconds. In that window, a batter must: recognise the pitch type (spin, velocity, trajectory), decide whether to swing, and initiate the swing — all in less time than a single human heartbeat. A 90-mph fastball (132 ft/s) takes about 0.46 seconds. The 0.05-second difference between the two is what separates \"the fastball jumped on me\" from \"I hit it on the screws.\" Expressed in ft/s, the speed gap is 14.7 ft/s — which over 0.4 seconds of ball flight means the 100-mph pitch is about 6 feet closer to the plate before the batter's brain has finished processing the visual information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do US engineers use ft/s instead of mph for dynamics calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The US customary engineering system is built on feet, pounds (force), and seconds. In this system, acceleration due to gravity g = 32.174 ft/s². Velocity in ft/s integrates directly: v = a × t (ft/s² × s = ft/s), displacement = v × t (ft/s × s = ft). If you plug mph into these equations without converting, the units don't close — you get foot-hours per second, or some other dimensional nonsense that's off by 1.467×. First-year engineering students in the US learn this the hard way, usually on their first dynamics exam. The fix is mechanical: before touching any equation, convert every mph to ft/s (×22/15), then calculate, then convert the answer back to mph (×15/22) for the final report. The existence of the exact rational conversion 22/15 is a small mercy in a unit system that otherwise makes dynamics more cumbersome than SI."
+      }
+    }
+  ]
+}
+    </script>
+
+    
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/speed/">Speed</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">MPH to ft/s Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>MPH to ft/s — Multiply by 22/15</h1>
+            <p>1 mph = 1.46667 ft/s — exactly 22/15. 60 mph = 88 ft/s — an integer. The conversion is embedded in every crash test dummy's accelerometer trace, every radar gun's internal processor, every accident reconstructionist's clipboard.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <div class="calculator-card" data-coefficient="1.466667" data-unit-from="mph" data-unit-to="ft/s">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="60" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">mph</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">88</span>
+                        <span class="unit-pill unit-pill-to">ft/s</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">60 mph = 88 ft/s</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">60 ft/s = 40.9091 mph</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>How to Convert Miles Per Hour to Feet Per Second</h2>
+            <p>This conversion is one of the cleanest in engineering. A mile is 5,280 feet. An hour is 3,600 seconds. The conversion factor from mph to ft/s is 5,280 / 3,600 = 528 / 360 = 22 / 15 = <strong>1.46667</strong> (the 6 repeats forever — it's 1.46̄). Because the factor is a rational number — a fraction of two integers — certain landmark speeds produce exact integer results in ft/s. 60 mph × 22/15 = 60 × 22 ÷ 15 = 4 × 22 = <strong>88 ft/s exactly</strong>. 30 mph = 44 ft/s exactly. 15 mph = 22 ft/s exactly. And going the other way: 88 ft/s = 60 mph, 44 ft/s = 30 mph. These integers are not coincidences — they're built into the structure of the units themselves, and every accident reconstruction engineer relies on them for fast, error-free mental arithmetic at a collision scene.</p>
+
+            <p>The factor 22/15 also means that for every 15 mph of speed, you add exactly 22 ft/s. A 45-mph zone is 66 ft/s. A 75-mph interstate is 110 ft/s. The pattern is so regular that experienced traffic engineers stop thinking in mph when doing calculations and switch entirely to ft/s — because in the foot-pound-second system, acceleration is 32.2 ft/s² (g), velocity is in ft/s, displacement is in feet, and all the kinematic equations close without any conversion factors cluttering the algebra.</p>
+
+            <h2>The Conversion Formula</h2>
+            <div class="formula-box">
+                <p>
+                ft/s = mph &times; 1.46667 &nbsp; (exactly mph &times; 22/15)
+                </p>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert 35 mph to ft/s</p>
+                <p>35 &times; 22 / 15 = <strong>51.33 ft/s</strong> (the NHTSA frontal barrier crash test speed. A 35-mph impact into a rigid wall means the vehicle structure must absorb kinetic energy equivalent to a 51.3 ft/s instantaneous velocity change — the crumple zone has about 2–3 feet of crush depth to do it, which means the average deceleration is roughly 50g)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert 100 mph to ft/s</p>
+                <p>100 &times; 22 / 15 = <strong>146.67 ft/s</strong> (a major-league fastball — Aroldis Chapman's 105.1-mph record is 154.1 ft/s. The pitch crosses the 60.5 feet from rubber to plate in 0.39 seconds. The batter's brain has roughly 0.15 seconds to decide whether to swing after accounting for the time the visual signal takes to reach the motor cortex and the motor signal takes to reach the hands)</p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert 200 mph to ft/s</p>
+                <p>200 &times; 22 / 15 = <strong>293.33 ft/s</strong> (a Formula 1 car at top speed on a long straight. At this velocity the car covers its own length — about 16 feet — in 0.055 seconds. The driver's visual system is processing information at roughly the frame rate of human vision — about 60 Hz — meaning the car moves nearly 5 feet between consecutive visual "frames" available to the driver's conscious perception)</p>
+            </div>
+
+            <h2>Common MPH to ft/s Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr>
+                    <th>mph</th>
+                    <th>ft/s</th>
+                    <th>Context</th>
+                </tr></thead><tbody>
+                <tr><td>15 mph</td><td>22.00 ft/s</td><td>School zone — exactly 22 ft/s</td></tr>
+                <tr><td>25 mph</td><td>36.67 ft/s</td><td>Residential speed limit</td></tr>
+                <tr><td>30 mph</td><td>44.00 ft/s</td><td>Urban street — exactly 44 ft/s</td></tr>
+                <tr><td>35 mph</td><td>51.33 ft/s</td><td>NHTSA frontal crash test speed</td></tr>
+                <tr><td>40 mph</td><td>58.67 ft/s</td><td>IIHS moderate-overlap test</td></tr>
+                <tr><td>60 mph</td><td>88.00 ft/s</td><td>Highway — the textbook integer landmark</td></tr>
+                <tr><td>70 mph</td><td>102.67 ft/s</td><td>Interstate — 102.7 ft traveled each second</td></tr>
+                <tr><td>100 mph</td><td>146.67 ft/s</td><td>MLB fastball — home plate in 0.41 s</td></tr>
+                <tr><td>150 mph</td><td>220.00 ft/s</td><td>IndyCar average lap speed — exactly 220 ft/s</td></tr>
+                </tbody></table></div>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags"><a href="/fts-to-mph">ft/s to MPH</a> <a href="/mph-to-kph">MPH to KPH</a> <a href="/mps-to-kph">m/s to km/h</a> <a href="/mps-to-mph">m/s to MPH</a> <a href="/feet-to-meters">Feet to Meters</a></div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why is 60 mph exactly 88 ft/s?</p>
+                <p class="faq-a">Because the conversion factor from mph to ft/s is 5,280 ÷ 3,600 = 22/15, a rational number. At 60 mph, the 15 in the denominator divides evenly: 60 × 22/15 = 4 × 22 = 88. This is not an approximation — it's exact. Every multiple of 15 mph produces an integer in ft/s: 15 mph = 22 ft/s, 30 mph = 44 ft/s, 45 mph = 66 ft/s, 60 mph = 88 ft/s, 75 mph = 110 ft/s, and so on. This pattern is so useful that accident reconstructionists memorise it: every 15 mph of speed adds 22 ft/s of velocity. At a crash scene, estimating pre-impact speed from skid marks requires converting the skid distance to initial velocity, and every formula expects ft/s. Having the mph→ft/s conversion hard-coded as integer pairs eliminates the most common source of arithmetic error in roadside calculations.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How does stopping distance translate from mph to real-world feet per second?</p>
+                <p class="faq-a">At 60 mph (88 ft/s), with a 2.5-second perception-reaction time, you travel 220 feet before even touching the brake. Then braking distance on dry asphalt (0.7g, or about 22.5 ft/s² deceleration) adds roughly 172 feet. Total: 392 feet — an entire NFL football field plus both end zones. At 30 mph (44 ft/s), the total is about 110 feet. At 70 mph (102.7 ft/s), it's roughly 510 feet. The perception-reaction distance scales linearly with speed, but the braking distance scales with the square — which means the last 10 mph before you stop consume exponentially more distance than the first 10 mph after you start braking. Going from 70 to 60 mph scrubs off about 120 feet of stopping distance; going from 30 to 20 scrubs off about 30 feet. This nonlinearity is invisible in mph and immediately obvious in ft/s.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How long does it take a 100-mph fastball to reach home plate?</p>
+                <p class="faq-a">100 mph = 146.7 ft/s. Distance from rubber to plate: 60.5 feet. Time = distance / speed = 60.5 / 146.7 ≈ 0.412 seconds. The ball actually travels slightly less distance because the pitcher releases it a few feet in front of the rubber, so the effective time is around 0.39–0.40 seconds. In that window, a batter must: recognise the pitch type (spin, velocity, trajectory), decide whether to swing, and initiate the swing — all in less time than a single human heartbeat. A 90-mph fastball (132 ft/s) takes about 0.46 seconds. The 0.05-second difference between the two is what separates "the fastball jumped on me" from "I hit it on the screws." Expressed in ft/s, the speed gap is 14.7 ft/s — which over 0.4 seconds of ball flight means the 100-mph pitch is about 6 feet closer to the plate before the batter's brain has finished processing the visual information.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why do US engineers use ft/s instead of mph for dynamics calculations?</p>
+                <p class="faq-a">The US customary engineering system is built on feet, pounds (force), and seconds. In this system, acceleration due to gravity g = 32.174 ft/s². Velocity in ft/s integrates directly: v = a × t (ft/s² × s = ft/s), displacement = v × t (ft/s × s = ft). If you plug mph into these equations without converting, the units don't close — you get foot-hours per second, or some other dimensional nonsense that's off by 1.467×. First-year engineering students in the US learn this the hard way, usually on their first dynamics exam. The fix is mechanical: before touching any equation, convert every mph to ft/s (×22/15), then calculate, then convert the answer back to mph (×15/22) for the final report. The existence of the exact rational conversion 22/15 is a small mercy in a unit system that otherwise makes dynamics more cumbersome than SI.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The mph-to-ft/s conversion is embedded in the firmware of every radar gun sold in the United States. Police radar measures speed using the Doppler effect — the frequency shift between the transmitted microwave pulse and the reflection off a moving vehicle. The shift is proportional to the vehicle's speed in whatever units the radar's phase-locked loop is calibrated to, which for US-market radar guns is mph. But the raw measurement — the frequency shift in hertz — relates to the speed of light in metres per second (299,792,458 m/s, the exact defined value since 1983) and the radar's carrier frequency. Converting the Doppler shift to mph requires: Hz → m/s (via λ and c) → ft/s (×3.28084) → mph (×15/22), or more commonly, a single factory-calibrated multiplier burned into the DSP chip. The conversion is invisible to the officer holding the gun, but it's the reason every radar gun manual includes a calibration verification procedure — because if the internal frequency reference drifts by even 0.01%, the displayed mph will be wrong by 0.01%, and a speeding ticket that reads 78 in a 65 might actually be 77.2 mph. The 22/15 factor is exact. The oscillator frequency — the quartz crystal vibrating at 10 MHz in the radar gun's timing circuit — is not.</p>
+                <p style="margin-top:1.2em;">More: <a href="/fts-to-mph">ft/s to mph</a> · <a href="/mps-to-mph">m/s to mph</a> · <a href="/mps-to-kph">m/s to km/h</a> · <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

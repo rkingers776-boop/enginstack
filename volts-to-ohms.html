@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Volts to Ohms — LED Resistors and R = V/I | EnginStack</title>
+    <meta name="description" content="Convert volts to ohms with Ohm's law: R = V/I. Enter voltage and current to get resistance. A 120 V circuit at 15 A has 8 Ω. The resistor-selection calculation for LEDs and sensors.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/volts-to-ohms">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/volts-to-ohms">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/volts-to-ohms">
+    <meta property="og:title" content="Volts to Ohms — LED Resistors and R = V/I | EnginStack">
+    <meta property="og:description" content="Convert volts to ohms with Ohm's law: R = V/I. Enter voltage and current to get resistance. A 120 V circuit at 15 A has 8 Ω. The resistor-selection calculation for LEDs and sensors.">
+    <meta property="og:url" content="https://enginstack.com/volts-to-ohms">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "volts to ohms Converter",
+      "description": "Convert volts to ohms with Ohm's law: R = V/I. Enter voltage and current to get resistance. A 120 V circuit at 15 A has 8 Ω. The resistor-selection calculation for LEDs and sensors.",
+      "url": "https://enginstack.com/volts-to-ohms",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert volts to ohms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide volts by amps: R = V/I. A 5 V circuit pushing 20 mA has an effective resistance of 250 Ω. If you know watts instead, R = V²/P."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose an LED resistor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subtract the LED's forward voltage (about 2 V for red, 3 V for white) from your supply, then divide by the desired current. For 5 V and 20 mA: (5 − 2) / 0.02 = 150 Ω."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Ohm's law called a law?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it is exact for ohmic materials (resistors, wire, heating elements) at a fixed temperature: current through them is precisely proportional to voltage. That proportionality is the law, and R = V/I is its statement."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Electric", "item": "https://enginstack.com/electric/" },
+        { "@type": "ListItem", "position": 3, "name": "volts to ohms Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/electric/">Electric</a> <span class="sep">&rsaquo;</span>
+            <span class="current">volts to ohms Converter</span></nav>
+
+        <header class="page-header">
+            <h1>volts to ohms</h1>
+            <p>Resistance is what a voltage pushes against: R = V/I. An LED running on 5 V at 20 mA needs a series resistor — and choosing it is exactly this conversion. The same calculation sizes the resistance of heating elements, sensor dividers, and every load that converts voltage into current.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1" data-unit-from="volts" data-unit-to="ohms" data-ctx-unit="amps" data-formula="v/a">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive Ohm's law calculator. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">volts</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="5" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">volts</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label" for="ctx-val">amps</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="ctx-input" id="ctx-val" value="0.02" min="0" step="any">
+                        <span class="unit-pill unit-pill-ctx">amps</span>
+                    </div>
+                </div>
+                <div class="calc-row" style="margin-top:8px;">
+                    <label class="calc-label">Result</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">—</span>
+                        <span class="unit-pill unit-pill-to">ohms</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">—</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">—</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>volts to ohms</h2>
+
+            <p>The resistor question is the most common Ohm's law task in electronics: given a supply voltage and a desired current, what resistance limits the current to that value? For an LED, subtract the LED's forward voltage first (roughly 2 V for red, 3 V for white), then apply R = V/I to the remaining voltage. The result for 5 V minus 2 V at 20 mA is 150 Ω — the classic LED resistor. The same math runs heating elements, where resistance is fixed and current follows the voltage applied.</p>
+
+            <div class="formula-box"><p><strong>ohms = volts ÷ amps</strong><br>R = V/I<br>Exact Ohm's law — the ratio of the voltage and current you provide.</p></div>
+
+            <h2>Common volts to ohms Values</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>volts</th><th>amps</th><th>ohms</th><th>Context</th></tr></thead><tbody>
+                <tr><td>5 V</td><td>0.02 A</td><td>250 Ω</td><td>LED resistor at 5 V (minus 2 V forward = 150 Ω).</td></tr>
+                <tr><td>12 V</td><td>0.02 A</td><td>600 Ω</td><td>LED resistor at 12 V.</td></tr>
+                <tr><td>120 V</td><td>15 A</td><td>8 Ω</td><td>US branch circuit load.</td></tr>
+                <tr><td>240 V</td><td>10 A</td><td>24 Ω</td><td>Dryer heating element.</td></tr>
+                <tr><td>3.3 V</td><td>0.005 A</td><td>660 Ω</td><td>Sensor pull-up at 3.3 V.</td></tr>
+                </tbody></table></div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Volts-to-ohms is one corner of the four-way Ohm's law family with <a href="/volts-to-amps">volts to amps</a> and <a href="/amps-to-volts">amps to volts</a>. The LED resistor angle connects to the <a href="/electric/">electric hub</a>'s current pages, and the heating-element angle connects to the <a href="/energy/">energy</a> family — resistance at fixed voltage is how a heater's wattage is determined.</p>
+                <p style="margin-top:1.2em;">More: <a href="/ohms-to-volts">Ω to V</a> · <a href="/volts-to-amps">V to A</a> · <a href="/amps-to-volts">A to V</a> · <a href="/electric/">Electric Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/ohms-to-volts">Ohms To Volts</a>
+                <a href="/volts-to-amps">Volts To Amps</a>
+                <a href="/amps-to-volts">Amps To Volts</a>
+                <a href="/electric/">Electric Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert volts to ohms?</p>
+                    <p class="faq-a">Divide volts by amps: R = V/I. A 5 V circuit pushing 20 mA has an effective resistance of 250 Ω. If you know watts instead, R = V²/P.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">How do I choose an LED resistor?</p>
+                    <p class="faq-a">Subtract the LED's forward voltage (about 2 V for red, 3 V for white) from your supply, then divide by the desired current. For 5 V and 20 mA: (5 − 2) / 0.02 = 150 Ω.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why is Ohm's law called a law?</p>
+                    <p class="faq-a">Because it is exact for ohmic materials (resistors, wire, heating elements) at a fixed temperature: current through them is precisely proportional to voltage. That proportionality is the law, and R = V/I is its statement.</p>
+                </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var fmt = function (v) {
+        if (!isFinite(v)) return '—';
+        var fixed = parseFloat(v.toFixed(8));
+        if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
+            return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    };
+    var card = document.querySelector('.calculator-card');
+    var main = card.querySelector('.unit-input');
+    var ctx = card.querySelector('.ctx-input');
+    var out = card.querySelector('.result-value');
+    var fwd = card.querySelector('.forward-res');
+    var rev = card.querySelector('.reverse-res');
+    var fMain = card.getAttribute('data-unit-from');
+    var fCtx = card.getAttribute('data-ctx-unit');
+    var fTo = card.getAttribute('data-unit-to');
+    var formula = card.getAttribute('data-formula');
+    function calc() {
+        var a = parseFloat(main.value), b = parseFloat(ctx.value);
+        if (isNaN(a) || isNaN(b)) { out.textContent = '—'; return; }
+        var r;
+        switch (formula) {
+            case 'v*i': r = a * b; break;
+            case 'p/i': r = (b === 0) ? NaN : a / b; break;
+            case 'p/v': r = (b === 0) ? NaN : a / b; break;
+            case 'v/r': r = (b === 0) ? NaN : a / b; break;
+            case 'v/a': r = (b === 0) ? NaN : a / b; break;
+            case 'i*r': r = a * b; break;
+            case 'p/a': r = (b === 0) ? NaN : a / b; break;
+            case 'a*v': r = a * b; break;
+            default: r = NaN;
+        }
+        out.textContent = fmt(r);
+        fwd.textContent = main.value + ' ' + fMain + ' × ' + ctx.value + ' ' + fCtx + ' = ' + fmt(r) + ' ' + fTo;
+        rev.textContent = fmt(r) + ' ' + fTo + ' = ' + main.value + ' ' + fMain + ' × ' + ctx.value + ' ' + fCtx;
+    }
+    main.addEventListener('input', calc);
+    ctx.addEventListener('input', calc);
+    calc();
+});
+</script>
+
+</body>
+</html>

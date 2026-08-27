@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>ft·lb to N·m — Why Every US Mechanic's Torque Wrench Is Wrong in Europe | EnginStack</title>
+    <meta name="description" content="1 ft·lbf = 1.3558 N·m exactly. The conversion factor is not arbitrary — it is the product of three international treaty constants: 0.3048 (1959 yard), 0.45359237 (1959 pound), and 9.80665 (1901 standard gravity). Every torque spec on a European car makes an American torque wrench read wrong by 35.6%. Here's why, and here's the math.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/ft-lbs-to-nm">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/ft-lbs-to-nm">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/ft-lbs-to-nm">
+    <meta property="og:title" content="ft·lb to N·m — Why Every US Mechanic's Torque Wrench Is Wrong in Europe | EnginStack">
+    <meta property="og:description" content="1 ft·lbf = 1.3558 N·m. The factor is built from three treaty constants. A US torque wrench in a German shop is 35.6% wrong — unless you run this conversion first.">
+    <meta property="og:url" content="https://enginstack.com/ft-lbs-to-nm">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Foot-Pounds to Newton-Meters Converter",
+      "description": "Convert foot-pounds of torque (ft·lbf) to newton-meters (N·m) by multiplying by 1.3558179483. The exact constant derives from the 1959 International Yard and Pound Agreement and 1901 standard gravity — three treaty values multiplied together. Every US mechanic working on a European car needs this number.",
+      "url": "https://enginstack.com/ft-lbs-to-nm",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is ft·lb the same as lb·ft?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Dimensionally identical. Torque is force × distance; multiplication commutes. In physics textbooks, the convention is lb·ft (force first, then lever arm). In SAE service manuals, on torque wrench scales, and on every American engine spec sheet since roughly 1950, the convention is ft·lb. You will never need to convert between them because they are the same quantity written in a different order. If you see \"lb·ft\" in an old engineering textbook and \"ft·lb\" on a torque wrench, they mean exactly the same thing. The convention is stylistic, not mathematical. The only place the order matters is when the abbreviation includes the \"f\" subscript: ft·lbf and lbf·ft are the same quantity, but ft·lbf is the more common notation because it reads naturally as \"foot-pound force.\""
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why don't my torque wrench's N·m and ft·lb scales line up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because 1.356 is not a round number. If the ratio were exactly 3:2, every third ft·lb mark would align with every second N·m mark. It isn't. On a click-type torque wrench, the N·m scale is etched by converting the ft·lb positions through 1.3558179483. The result is a set of N·m marks that land between ft·lb marks and drift relative to them across the scale. At 10 N·m the mark sits at approximately 7.4 ft·lb. At 100 N·m it sits at 73.8 ft·lb. The drift is about 0.7 ft·lb per 10 N·m. It's the conversion factor made visible — a physical artifact of the fact that the foot and the meter, the pound and the kilogram, were defined by different civilizations at different times. The dual-scale markings are a compromise. Neither scale is wrong. They just don't align because the math that connects them is not an integer ratio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I just multiply by 1.36 in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For bench-racing — yes. A 400 ft·lb engine \"makes about 540 N·m.\" The error is 2 N·m, and nobody at a car meet is going to call you on it. For a cylinder head bolt sequence with three torque-to-yield passes, do not approximate. Your torque wrench's calibration is ±4% on its best day. Adding a 0.3% conversion error on top of that isn't going to be the difference between a sealed head gasket and a blown one — the wrench's calibration error dominates. But if the spec says 25 ft·lb and you're converting because the wrench is in N·m, use the exact factor. The error from 1.36 versus 1.3558 on a 25 ft·lb bolt is 0.1 N·m — invisible on any torque wrench ever made. The error on a 500 ft·lb flange bolt is 2 N·m — also invisible on a hydraulic torque tool. So the practical answer is: it almost never matters. Use the exact factor anyway. It's one line in a calculator. It costs nothing. And the one time it does matter — the one bolt in a million at the edge of a tolerance stack — you'll have been right by reflex."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I torque a bolt in ft·lb when the spec is in N·m?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You undertorque it by 26.3%. A bolt spec'd at 100 N·m tightened to \"100\" on an ft·lb wrench receives 100 ft·lb = 135.6 N·m — you've overtorqued it by 35.6%. Which direction the error goes depends on which unit the wrench is in and which unit the spec is in. If the spec is 100 N·m and the wrench reads ft·lb, and you set it to 100, you've applied 100 ft·lb = 135.6 N·m — an overtorque. If the spec is 100 ft·lb and the wrench reads N·m, and you set it to 100, you've applied 100 N·m = 73.8 ft·lb — an undertorque. The direction flips, but the magnitude is always the same ratio. The bolt doesn't know what units you were thinking in. The bolt knows the clamping load. And a 26-36% error on clamping load is the difference between a properly seated gasket and a leak, between a wheel that stays on and a wheel that walks off its studs, between an engine that runs for 200,000 miles and one that blows a head gasket at 20,000."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Torque", "item": "https://enginstack.com/torque/" },
+        { "@type": "ListItem", "position": 3, "name": "Foot-Pounds to Newton-Meters Converter" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "rkingers776@gmail.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/torque/">Torque</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Foot-Pounds to Newton-Meters Converter</span></nav>
+
+        <header class="page-header">
+            <h1>ft·lb to N·m: Three Treaty Constants, One Conversion, and a Torque Wrench That's 35.6% Wrong</h1>
+            <p>One foot-pound is the torque required to hang a 1-pound weight at the end of a 1-foot lever arm. That number — 1 ft·lbf — becomes 1.3558179483 N·m. Not 1.35. Not 1.36. Exactly 1.3558179483. The number is built from three pieces of international law: the 1959 yard (0.3048 m), the 1959 pound (0.45359237 kg), and the 1901 standard gravity (9.80665 m/s²). Multiply them together and you get the conversion factor that every torque wrench manufacturer, every SAE specification, and every aircraft maintenance manual relies on. A US mechanic grabbing a torque wrench calibrated in ft·lb to tighten a BMW wheel bolt spec'd at 140 N·m will undertorque it by 35.6% if they read the number without converting. That's not a rounding error. That's a wheel coming off at highway speed.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="1.3558179483" data-unit-from="ft·lbf" data-unit-to="N·m">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="1" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">ft·lbf</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1.3558</span>
+                        <span class="unit-pill unit-pill-to">N·m</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">1 ft·lbf = 1.3558 N·m</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 N·m = 0.7376 ft·lbf</span>
+            </div>
+            <p class="source-note">Authority: NIST SP 811 (SI usage guide) and the 1959 International Yard and Pound Agreement. The coefficient above is a defined value — it does not come from measurement and carries no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Why 1.3558179483 Is an Exact Number</h2>
+
+            <p>Most unit conversions are round numbers by design. There are exactly 1,000 millimeters in a meter. Exactly 60 seconds in a minute. Exactly 1,000 grams in a kilogram. These are round because the units were built as multiples of each other. The foot-pound to newton-meter conversion is not one of these. It's the output of a multiplication chain where none of the inputs are round — and yet every single input is exact by international treaty.</p>
+
+            <p>The 1959 International Yard and Pound Agreement, signed by the United States, United Kingdom, Canada, Australia, New Zealand, and South Africa, did something unprecedented: it redefined the yard and the pound in terms of the meter and the kilogram. Before 1959, the US used the Mendenhall Order definitions (1 yard = 3600/3937 meter, from 1893) and the UK used the Weights and Measures Act definitions (1 yard = 0.9143992 meter, from 1878). The difference between the US yard and the UK yard was 2 parts per million — irrelevant for carpentry, catastrophic for precision gage blocks. The 1959 agreement settled it: 1 yard = 0.9144 meter exactly, and therefore 1 foot = 0.3048 meter exactly. 1 pound = 0.45359237 kilogram exactly.</p>
+
+            <p>The third number — standard gravity — was defined at the 3rd General Conference on Weights and Measures (CGPM) in 1901: g₀ = 9.80665 m/s² exactly. This is not actual gravity at any specific point on Earth; it is a conventional value chosen because it matched the gravity at the International Bureau of Weights and Measures in Sevres, France, at the latitude of 45°.</p>
+
+            <p>Now put them together. Torque is force × distance. In foot-pounds, that's pounds-force × feet. A pound-force is the gravitational force on one pound of mass at standard gravity: 1 lbf = 1 lb × g₀. Convert to SI: 1 ft = 0.3048 m. 1 lb = 0.45359237 kg. The force is 0.45359237 kg × 9.80665 m/s² = 4.4482216152605 N. The torque is 4.4482216152605 N × 0.3048 m = <strong>1.3558179483314004 N·m</strong>. Round to 10 significant digits: <strong>1.355817948 N·m</strong>. Every digit is pinned to an international standard. There is no measurement uncertainty in this number. It is definitional.</p>
+
+            <p>If you trace it backward: the 1901 CGPM defined g₀. The 1959 treaty defined the foot and the pound. The 1960 CGPM defined the newton (1 N = 1 kg·m/s²). Three conferences, six countries, 59 years of international metrology — all collapsed into one multiplication you do in a fraction of a second when converting a torque spec.</p>
+
+            <div class="formula-box"><p><strong>N·m = ft·lbf × 1.3558179483</strong><br>where 1.3558179483 = 0.3048 m/ft × 0.45359237 kg/lb × 9.80665 m/s²<br>All three multipliers are exact by international treaty.</p></div>
+
+            <h2>The Torque Wrench Problem</h2>
+
+            <p>Walk into any auto parts store in the United States. The torque wrenches on the wall display two scales. The primary scale — the one with the larger numbers — reads in foot-pounds. The secondary scale, printed smaller and usually in a different color, reads in newton-meters. The graduations on the two scales do not align. They cannot align. The ratio between them is 1.3558179483, and that is not a fraction that divides cleanly into the teeth on a micrometer adjustment ring.</p>
+
+            <p>A click-type torque wrench works by preloading a spring against a pivot block. When the applied torque exceeds the spring force, the block tilts and produces an audible click. The spring is compressed by turning the handle, which drives a threaded rod. The threads on that rod are cut to a specific pitch — typically 20 or 24 threads per inch on American-made wrenches. Because the conversion factor is not a round number, the thread pitch that produces evenly-spaced ft·lb graduations produces unevenly-spaced N·m graduations. The manufacturer picks one scale to prioritize and the other one is approximate. On a wrench sold in the US market, the ft·lb scale is primary. The N·m scale is a conversion — and sometimes a lazy one.</p>
+
+            <p>Digital torque wrenches don't have this problem. The strain gauge outputs a voltage proportional to the applied torque. The microcontroller converts that voltage to the selected unit mathematically. A digital wrench displaying 100.0 N·m in metric mode and 73.8 ft·lb in imperial mode is using the exact factor internally. There is no mechanical constraint forcing a compromise. But the digital wrenches cost three to ten times what a click-type wrench costs, and most mechanics still use click-type wrenches. The dual-scale markings on those wrenches are the most common place the conversion factor shows up in the physical world — and the least precise place it appears.</p>
+
+            <p>CDI (a Snap-on brand), Precision Instruments, and Norbar all manufacture dual-scale wrenches. CDI marks N·m graduations at the mathematically correct interval for the conversion factor, meaning the spacing between marks is not uniform when viewed against the ft·lb scale. On a 1/2-inch drive CDI wrench with a 30-250 ft·lb range, the N·m scale reads 40 to 340 N·m — but the 50 N·m mark does not land exactly between two ft·lb marks. It lands at 36.9 ft·lb. The next mark, 55 N·m, lands at 40.6 ft·lb. The marks drift by approximately 0.7 ft·lb per 5 N·m increment. Over the full range of the wrench, that drift accumulates to about 5 ft·lb — visible to the naked eye if you hold the two scales side by side.</p>
+
+            <h2>Common ft·lbf to N·m Conversions</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>ft·lbf</th><th>N·m</th><th>Where you'd see this</th></tr></thead><tbody>
+                <tr><td>1 ft·lbf</td><td>1.36 N·m</td><td>The definitional value. A 1 lb weight on a 1 ft lever.</td></tr>
+                <tr><td>5 ft·lbf</td><td>6.78 N·m</td><td>Bicycle stem bolt. Small component torque.</td></tr>
+                <tr><td>10 ft·lbf</td><td>13.56 N·m</td><td>Valve cover bolt on an American V8. Oil pan bolt.</td></tr>
+                <tr><td>18 ft·lbf</td><td>24.4 N·m</td><td>Spark plug in an aluminum cylinder head (Ford specification).</td></tr>
+                <tr><td>25 ft·lbf</td><td>33.9 N·m</td><td>Cylinder head bolt — initial pass on many engines.</td></tr>
+                <tr><td>30 ft·lbf</td><td>40.7 N·m</td><td>Water pump bolts. Intake manifold bolt torque.</td></tr>
+                <tr><td>50 ft·lbf</td><td>67.8 N·m</td><td>Crankshaft pulley bolt (small-displacement engines).</td></tr>
+                <tr><td>80 ft·lbf</td><td>108.5 N·m</td><td>Brake caliper bracket bolts. Suspension control arm.</td></tr>
+                <tr><td>90 ft·lbf</td><td>122.0 N·m</td><td>Passenger car lug nut — the car's most commonly torqued fastener.</td></tr>
+                <tr><td>140 ft·lbf</td><td>189.8 N·m</td><td>Truck lug nut. Axle nut on a half-ton pickup.</td></tr>
+                <tr><td>250 ft·lbf</td><td>339.0 N·m</td><td>Crankshaft bolt on a GM LS engine. Requires a torque multiplier.</td></tr>
+                <tr><td>500 ft·lbf</td><td>677.9 N·m</td><td>Hydraulic torque multiplier output. Pipeline flange bolt.</td></tr>
+                </tbody></table></div>
+
+            <h2>Worked Examples</h2>
+
+            <div class="example-box">
+                <p><strong>Lug nut at 90 ft·lb → 122.0 N·m</strong></p>
+                <p>90 × 1.3558179483 = 122.02 N·m. The Honda Accord owner's manual specifies 80 ft·lb (108 N·m). The BMW 3 Series owner's manual specifies 140 N·m (103 ft·lb). A technician at a tire shop in Des Moines who only owns an ft·lb torque wrench and tightens every car to "90 ft·lb" is undertorquing a BMW by 35% and overtorquing a Honda by 12%. The BMW's lug bolts are seated on a conical collar that requires the full clamping load to center the wheel. Undertorque it and the wheel develops runout — a vibration at 60 mph that the alignment rack can't find because the alignment was perfect. It was the lug torque the whole time. Lug bolts that walk loose are the failure mode of a torque spec nobody converted.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Cylinder head bolt at 25 ft·lb → 33.9 N·m</strong></p>
+                <p>25 × 1.3558179483 = 33.90 N·m. The first pass on a small-block Chevrolet cylinder head is 25 ft·lb. On a Subaru EJ25 boxer engine, the first pass is 29 N·m (21.4 ft·lb). The Chevy mechanic who moves to a Subaru shop and torques the head bolts to 25 ft·lb thinking "roughly the same" is applying 33.9 N·m — 17% over the Subaru spec. The EJ25 has an open-deck aluminum block. The head bolt threads are cut directly into the aluminum case, not into steel inserts. Overtorque them by 17% and the threads yield. The head gasket leaks combustion gas into the coolant jacket. The repair is an engine-out job. The cause is a conversion that wasn't done.</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>500 ft·lb hydraulic torque multiplier → 677.9 N·m</strong></p>
+                <p>500 × 1.3558179483 = 677.91 N·m. On an API 6A wellhead flange, the stud bolts require 500 to 800 ft·lb depending on the pressure rating and flange size. A hydraulic torque wrench — essentially a hydraulic cylinder driving a ratchet mechanism through a reaction arm — multiplies the operator's input force by a factor of 16:1 to 64:1. The tool is set in ft·lb in North American oilfields and in N·m in North Sea and Middle Eastern operations. A 500 ft·lb setting on a US-sourced torque tool, used by a crew in the Norwegian sector who reads the spec sheet in N·m, must become 678 N·m. The conversion is done on a clipboard in the tool crib. It is done once per job. If it's done wrong — if someone multiplies by 1.35 instead of 1.3558 — every stud on the flange is off by 2.9 N·m. Over 24 studs, that's the cumulative torque error of an entire bolt. In subsea service, where a leaking flange means a $500,000 ROV intervention, the conversion on the clipboard matters.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The foot-pound to newton-meter conversion is the most frequently performed torque unit conversion in the world because it sits at the intersection of two enormous industrial ecosystems: the US customary system (which still specifies torque in ft·lb across automotive, oilfield, and aerospace maintenance) and the SI system (which specifies torque in N·m across European automotive, global wind energy, and international pipeline standards). In oilfield applications, API 6A and API 6B flanges on wellheads and Christmas trees are torqued to values that originated in ft·lb from Texas field manuals but are now specified in N·m on North Sea and Middle Eastern projects. A single mis-converted flange bolt on a 15,000 psi wellhead is a blowout risk. In wind turbine construction, the root bolts that secure each 50-meter blade to the hub are torqued to values in the 3,000–5,000 N·m range — which is 2,200–3,700 ft·lb. The turbine was designed in Denmark (N·m), manufactured in China (N·m), and often installed in the US by crews who think in ft·lb. The hydraulic tensioning tools used for these bolts have digital readouts that switch units with a button press. The button works perfectly. The question is whether the technician presses it. For the reverse conversion, see <a href="/nm-to-ft-lbs">N·m to ft·lb</a>. When fastener torque drops below 10 ft·lb, the unit shifts to inch-pounds — <a href="/ft-lbs-to-inch-lbs">ft·lb to in·lb</a> and <a href="/inch-lbs-to-ft-lbs">in·lb to ft·lb</a> cover the small-fastener range used in bicycles, electronics, and firearms. The kilogram-force-meter (kgf·m) is the legacy metric torque unit still printed on Japanese and Korean service manuals — convert between them at <a href="/kg-m-to-ft-lbs">kg·m to ft·lb</a> and <a href="/ft-lbs-to-kg-m">ft·lb to kg·m</a>. For the most common industrial crossover, the <a href="/inch-lbs-to-nm">in·lb to N·m</a> page handles the US-to-SI crossing below the ft·lb threshold. Every one of these conversions traces back to the same 1.3558179483 factor — scaled by 12 for inch-pounds, or divided through by g₀ for kilogram-meters.</p>
+                <p style="margin-top:1.2em;">More: <a href="/nm-to-ft-lbs">N·m to ft·lb</a> · <a href="/inch-lbs-to-ft-lbs">in·lb to ft·lb</a> · <a href="/kg-m-to-ft-lbs">kg·m to ft·lb</a> · <a href="/ft-lbs-to-kg-m">ft·lb to kg·m</a> · <a href="/torque/">Torque Guide</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/nm-to-ft-lbs">N·m to ft·lb</a>
+                <a href="/inch-lbs-to-ft-lbs">in·lb to ft·lb</a>
+                <a href="/kg-m-to-ft-lbs">kg·m to ft·lb</a>
+                <a href="/ft-lbs-to-kg-m">ft·lb to kg·m</a>
+                <a href="/inch-lbs-to-nm">in·lb to N·m</a>
+                <a href="/torque/">Torque Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Is ft·lb the same as lb·ft?</p>
+                <p class="faq-a">Yes. Dimensionally identical. Torque is force × distance; multiplication commutes. In physics textbooks, the convention is lb·ft (force first, then lever arm). In SAE service manuals, on torque wrench scales, and on every American engine spec sheet since roughly 1950, the convention is ft·lb. You will never need to convert between them because they are the same quantity written in a different order. If you see "lb·ft" in an old engineering textbook and "ft·lb" on a torque wrench, they mean exactly the same thing. The convention is stylistic, not mathematical. The only place the order matters is when the abbreviation includes the "f" subscript: ft·lbf and lbf·ft are the same quantity, but ft·lbf is the more common notation because it reads naturally as "foot-pound force."</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why don't my torque wrench's N·m and ft·lb scales line up?</p>
+                <p class="faq-a">Because 1.356 is not a round number. If the ratio were exactly 3:2, every third ft·lb mark would align with every second N·m mark. It isn't. On a click-type torque wrench, the N·m scale is etched by converting the ft·lb positions through 1.3558179483. The result is a set of N·m marks that land between ft·lb marks and drift relative to them across the scale. At 10 N·m the mark sits at approximately 7.4 ft·lb. At 100 N·m it sits at 73.8 ft·lb. The drift is about 0.7 ft·lb per 10 N·m. It's the conversion factor made visible — a physical artifact of the fact that the foot and the meter, the pound and the kilogram, were defined by different civilizations at different times. The dual-scale markings are a compromise. Neither scale is wrong. They just don't align because the math that connects them is not an integer ratio.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can I just multiply by 1.36 in my head?</p>
+                <p class="faq-a">For bench-racing — yes. A 400 ft·lb engine "makes about 540 N·m." The error is 2 N·m, and nobody at a car meet is going to call you on it. For a cylinder head bolt sequence with three torque-to-yield passes, do not approximate. Your torque wrench's calibration is ±4% on its best day. Adding a 0.3% conversion error on top of that isn't going to be the difference between a sealed head gasket and a blown one — the wrench's calibration error dominates. But if the spec says 25 ft·lb and you're converting because the wrench is in N·m, use the exact factor. The error from 1.36 versus 1.3558 on a 25 ft·lb bolt is 0.1 N·m — invisible on any torque wrench ever made. The error on a 500 ft·lb flange bolt is 2 N·m — also invisible on a hydraulic torque tool. So the practical answer is: it almost never matters. Use the exact factor anyway. It's one line in a calculator. It costs nothing. And the one time it does matter — the one bolt in a million at the edge of a tolerance stack — you'll have been right by reflex.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What happens if I torque a bolt in ft·lb when the spec is in N·m?</p>
+                <p class="faq-a">You undertorque it by 26.3%. A bolt spec'd at 100 N·m tightened to "100" on an ft·lb wrench receives 100 ft·lb = 135.6 N·m — you've overtorqued it by 35.6%. Which direction the error goes depends on which unit the wrench is in and which unit the spec is in. If the spec is 100 N·m and the wrench reads ft·lb, and you set it to 100, you've applied 100 ft·lb = 135.6 N·m — an overtorque. If the spec is 100 ft·lb and the wrench reads N·m, and you set it to 100, you've applied 100 N·m = 73.8 ft·lb — an undertorque. The direction flips, but the magnitude is always the same ratio. The bolt doesn't know what units you were thinking in. The bolt knows the clamping load. And a 26-36% error on clamping load is the difference between a properly seated gasket and a leak, between a wheel that stays on and a wheel that walks off its studs, between an engine that runs for 200,000 miles and one that blows a head gasket at 20,000.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Newton-meter",
+  "termCode": "newton-meter (N·m)",
+  "description": "The newton-meter is the SI derived unit of torque, defined as one newton of force applied at a one-meter lever arm. It is dimensionally identical to the joule but measures rotational effect, not energy.",
+  "url": "https://en.wikipedia.org/wiki/Newton-metre",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</script>
+</body>
+</html>

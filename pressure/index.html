@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pressure Converters — Bar, PSI, kPa, Atm, Pa, mmHg | EnginStack</title>
+    <meta name="description" content="8 pressure converters: bar to psi, kPa to psi, atm to pascal, mmHg to pascal, and reverse. Pressure is the unit most likely to kill you — Deepwater Horizon, Apollo 1, SCUBA cascades all trace back to pressure conversion errors.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/pressure/">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/pressure/">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/pressure/">
+    <meta property="og:title" content="Pressure Converters — Bar, PSI, kPa, Atm, Pa, mmHg | EnginStack">
+    <meta property="og:description" content="8 pressure converters: bar, psi, kPa, atm, pascal, mmHg. Exact constants — pressure errors kill.">
+    <meta property="og:url" content="https://enginstack.com/pressure/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Pressure Converters",
+  "description": "20 pressure converters: bar, psi, kPa, atm, pascal, mmHg. Exact conversion constants — pressure is a safety-critical unit.",
+  "url": "https://enginstack.com/pressure/",
+  "hasPart": [
+    {"@type": "WebApplication", "name": "Bar to PSI", "url": "https://enginstack.com/bar-to-psi"},
+    {"@type": "WebApplication", "name": "PSI to Bar", "url": "https://enginstack.com/psi-to-bar"},
+    {"@type": "WebApplication", "name": "kPa to PSI", "url": "https://enginstack.com/kpa-to-psi"},
+    {"@type": "WebApplication", "name": "PSI to kPa", "url": "https://enginstack.com/psi-to-kpa"},
+    {"@type": "WebApplication", "name": "Atm to Pa", "url": "https://enginstack.com/atm-to-pa"},
+    {"@type": "WebApplication", "name": "Pa to Atm", "url": "https://enginstack.com/pa-to-atm"},
+    {"@type": "WebApplication", "name": "mmHg to Pa", "url": "https://enginstack.com/mmhg-to-pa"},
+    {"@type": "WebApplication", "name": "Pa to mmHg", "url": "https://enginstack.com/pa-to-mmhg"},
+    {"@type": "WebApplication", "name": "mmHg to kPa", "url": "https://enginstack.com/mmhg-to-kpa"},
+    {"@type": "WebApplication", "name": "kPa to mmHg", "url": "https://enginstack.com/kpa-to-mmhg"},
+    {"@type": "WebApplication", "name": "Bar to kPa", "url": "https://enginstack.com/bar-to-kpa"},
+    {"@type": "WebApplication", "name": "kPa to Bar", "url": "https://enginstack.com/kpa-to-bar"},
+    {"@type": "WebApplication", "name": "PSI to mmHg", "url": "https://enginstack.com/psi-to-mmhg"},
+    {"@type": "WebApplication", "name": "mmHg to PSI", "url": "https://enginstack.com/mmhg-to-psi"},
+    {"@type": "WebApplication", "name": "Atm to kPa", "url": "https://enginstack.com/atm-to-kpa"},
+    {"@type": "WebApplication", "name": "kPa to Atm", "url": "https://enginstack.com/kpa-to-atm"},
+    {"@type": "WebApplication", "name": "Torr to Pa", "url": "https://enginstack.com/torr-to-pa"},
+    {"@type": "WebApplication", "name": "Pa to Torr", "url": "https://enginstack.com/pa-to-torr"},
+    {"@type": "WebApplication", "name": "PSI to Atm", "url": "https://enginstack.com/psi-to-atm"},
+    {"@type": "WebApplication", "name": "Atm to PSI", "url": "https://enginstack.com/atm-to-psi"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Pressure Converters", "item": "https://enginstack.com/pressure/" }
+  ]
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Pressure</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Pressure Converters <span class="count-badge">8</span></h1>
+            <p>Pressure is the unit most likely to kill you. Six units are in common use — pascal, bar, psi, atmosphere, kPa, mmHg (Torr) — and converting between them under time pressure has caused blowouts, cabin depressurizations, and the worst oil spill in US history. These 8 converters use exact constants. Triple-check your work.</p>
+        </header>
+
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <a href="/guides/pressure-conversion-guide" class="category-guide-cta">
+            <div class="category-guide-cta-icon">💥</div>
+            <div class="category-guide-cta-body">
+                <h3>Read the Pressure Conversion Guide</h3>
+                <p>Every pressure unit — pascal, bar, psi, atm, torr — their origins and exact conversions. Deepwater Horizon, SCUBA cascade failures, Apollo 1, and why pressure errors are among the most dangerous in engineering.</p>
+                <span class="category-guide-cta-link">Open the full guide →</span>
+            </div>
+        </a>
+
+        <section class="hub-seo-section">
+            <h2>Pressure: The Unit Most Likely to Kill You</h2>
+            <p>Pressure conversion errors have killed more people than any other unit mistake in engineering history. The Deepwater Horizon blowout (2010, 11 fatalities) involved a cascade of pressure interpretation failures — the crew misinterpreted a negative-pressure test, failed to recognize a kick in the wellbore, and methane gas reached the surface at explosive concentrations. The Apollo 1 fire (1967, 3 astronauts) was exacerbated by a pure-oxygen atmosphere at 16.7 psi above ambient — a pressure decision made without fully understanding the combustion kinetics of materials in a 100% O₂ environment. SCUBA diving deaths routinely trace back to divers confusing bar, atm, and psi when planning decompression stops.</p>
+            <p>Pressure units proliferate because different industries inherited different conventions: automotive uses psi (pounds per square inch) and bar; meteorology uses millibar and hectopascal; medicine uses mmHg (millimeters of mercury) for blood pressure; vacuum science uses torr; industrial hydraulics uses MPa. Every one of these has a precise definition that traces back to the pascal (1 Pa = 1 N/m²), the SI base unit.</p>
+            <h2>Pressure Unit Reference</h2>
+            <div class="formula-box">
+                <p><strong>1 bar = 100,000 Pa</strong> (not SI, but accepted — approximately 1 atmosphere)</p>
+                <p><strong>1 atm = 101,325 Pa</strong> (standard atmospheric pressure at sea level)</p>
+                <p><strong>1 psi = 6,894.757293168 Pa</strong> (1 pound-force per square inch)</p>
+                <p><strong>1 torr = 133.322368421 Pa</strong> (1/760 atm, named after Evangelista Torricelli)</p>
+                <p><strong>1 mmHg = 133.322387415 Pa</strong> (slightly different from 1 torr due to temperature corrections)</p>
+            </div>
+            <p>For the engineering stories behind these numbers — Deepwater Horizon, Apollo 1, and SCUBA cascade failures — read the <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a>.</p>
+        </section>
+
+        <section class="hub-seo-section">
+            <h2>Pressure in Everyday Life — The Numbers You Already Know</h2>
+            <p>Most people interact with at least four pressure scales daily without recognizing them as conversions. A car tyre at 32 psi (2.2 bar, 220 kPa). A blood pressure reading of 120/80 mmHg (16.0/10.7 kPa). A weather forecast of 1,013 millibar (101.3 kPa, 1 atm). A soda can at 2-3 atm of internal pressure. A SCUBA tank at 200 bar (2,900 psi, 20 MPa). Every one of these numbers crosses a unit boundary when it moves between the device that measures it and the person who reads it.</p>
+            <p>The automobile tyre is the most common pressure translation failure. European cars specify tyre pressure in bar; US pumps read in psi; Japanese and Korean cars use kPa. A driver inflating a European-spec tyre to "32" on a US pump (thinking bar) puts in 32 psi instead of 2.2 bar — the tyre is at 32 psi instead of 32 psi? No: 2.2 bar = 32 psi. The numbers happen to coincide for one common pressure — and that coincidence has prevented thousands of blowouts while simultaneously masking how dangerous the bar/psi confusion could be at higher pressures. A truck tyre at 8 bar (116 psi) inflated to "8 psi" by a confused operator is dangerously underinflated. At 8 bar × 14.5 = 116 psi, the numbers no longer accidentally align.</p>
+            <h2>Industrial Hydraulics: MPa, Bar, and the 10× Error</h2>
+            <div class="formula-box">
+                <p><strong>1 MPa = 10 bar = 145.038 psi</strong> — the hydraulic engineer's triple-scale reference</p>
+                <p><strong>Common hydraulic system pressures:</strong> 21 MPa (210 bar, 3,045 psi) — typical excavator</p>
+                <p><strong>Aircraft hydraulic system:</strong> 20.7 MPa (207 bar, 3,000 psi) — Boeing 737 primary system</p>
+                <p><strong>Water jet cutter:</strong> 415 MPa (4,150 bar, 60,000 psi) — cuts steel with water and garnet</p>
+            </div>
+            <p>Hydraulic systems are designed in MPa, built with bar-rated components, and tested with psi-gauged equipment. The factor-of-10 relationship between MPa and bar (1 MPa = 10 bar exactly) is the one pressure conversion that never causes errors — it's a decimal shift. But the MPa-to-psi step (× 145.038) is the one that does: a hydraulic hose rated for 21 MPa (3,045 psi) connected to a system that momentarily spikes to 25 MPa (3,626 psi) sees a 19% overpressure — and the hose label, printed in MPa, won't warn the psi-reading technician.</p>
+        </section>
+
+
+        <!-- ═══ Bar ⇄ PSI ═══ -->
+        <h2 class="category-section-title">Bar &harr; PSI</h2>
+        <div class="converter-grid">
+            <a href="/bar-to-psi" class="converter-item">
+                <span class="converter-item-name">Bar to PSI</span>
+                <span class="converter-item-desc">1 bar = 14.5038 psi. Tire pressure, SCUBA tanks, compressed air systems. European equipment specs read by US mechanics.</span>
+                <span class="converter-item-formula">× 14.5038</span>
+            </a>
+            <a href="/psi-to-bar" class="converter-item">
+                <span class="converter-item-name">PSI to Bar</span>
+                <span class="converter-item-desc">1 psi ≈ 0.06895 bar. US tire gauges to European specs. A car tire at 32 psi is about 2.2 bar. Every mechanic knows this.</span>
+                <span class="converter-item-formula">÷ 14.5038</span>
+            </a>
+        </div>
+
+        <!-- ═══ kPa ⇄ PSI ═══ -->
+        <h2 class="category-section-title">Kilopascal &harr; PSI</h2>
+        <div class="converter-grid">
+            <a href="/kpa-to-psi" class="converter-item">
+                <span class="converter-item-name">kPa to PSI</span>
+                <span class="converter-item-desc">1 kPa ≈ 0.145 psi. Metric tire pressure (often in kPa) to US psi. 220 kPa ≈ 32 psi — the common passenger car number.</span>
+                <span class="converter-item-formula">× 0.145038</span>
+            </a>
+            <a href="/psi-to-kpa" class="converter-item">
+                <span class="converter-item-name">PSI to kPa</span>
+                <span class="converter-item-desc">1 psi ≈ 6.895 kPa. US pressure readings to SI. HVAC, hydraulic systems, tire pressure for metric markets.</span>
+                <span class="converter-item-formula">× 6.89476</span>
+            </a>
+        </div>
+
+        <!-- ═══ Atm ⇄ Pa ═══ -->
+        <h2 class="category-section-title">Atmosphere &harr; Pascal</h2>
+        <div class="converter-grid">
+            <a href="/atm-to-pa" class="converter-item">
+                <span class="converter-item-name">Atmospheres to Pascals</span>
+                <span class="converter-item-desc">1 atm = 101,325 Pa. Standard atmospheric pressure at sea level. Defined, not measured — this is the convention since 1954.</span>
+                <span class="converter-item-formula">× 101,325</span>
+            </a>
+            <a href="/pa-to-atm" class="converter-item">
+                <span class="converter-item-name">Pascals to Atmospheres</span>
+                <span class="converter-item-desc">1 Pa = 9.869 × 10⁻⁶ atm. Laboratory vacuum work, high-altitude calculations. The pascal is tiny — 100,000 of them make a bar.</span>
+                <span class="converter-item-formula">÷ 101,325</span>
+            </a>
+        </div>
+
+        <!-- ═══ mmHg ⇄ Pa ═══ -->
+        <h2 class="category-section-title">mmHg (Torr) &harr; Pascal</h2>
+        <div class="converter-grid">
+            <a href="/mmhg-to-pa" class="converter-item">
+                <span class="converter-item-name">mmHg to Pa</span>
+                <span class="converter-item-desc">1 mmHg = 133.322 Pa. The clinical and barometric standard since Torricelli's 1643 mercury barometer. Blood pressure, weather, vacuum.</span>
+                <span class="converter-item-formula">× 133.322</span>
+            </a>
+            <a href="/pa-to-mmhg" class="converter-item">
+                <span class="converter-item-name">Pa to mmHg</span>
+                <span class="converter-item-desc">1 Pa = 0.00750062 mmHg. When a lab sensor outputs pascals and the spec sheet or analog gauge reads in mercury. Vacuum chambers, altitude sims.</span>
+                <span class="converter-item-formula">÷ 133.322</span>
+            </a>
+            <a href="/mmhg-to-kpa" class="converter-item">
+                <span class="converter-item-name">mmHg to kPa</span>
+                <span class="converter-item-desc">1 mmHg = 0.133322 kPa. Blood pressure 120/80 becomes 16.0/10.7 — the US-to-European chart bridge.</span>
+                <span class="converter-item-formula">× 0.133322</span>
+            </a>
+            <a href="/kpa-to-mmhg" class="converter-item">
+                <span class="converter-item-name">kPa to mmHg</span>
+                <span class="converter-item-desc">1 kPa = 7.500616 mmHg. Standard atmosphere 101.325 kPa = 760 mmHg exactly. Weather and vacuum.</span>
+                <span class="converter-item-formula">× 7.500616</span>
+            </a>
+        </div>
+
+                <!-- ═══ New: Torr &harr; Pa ═══ -->
+        <h2 class="category-section-title">Torr &amp; Pascals — Vacuum Science</h2>
+        <div class="converter-grid">
+            <a href="/torr-to-pa" class="converter-item">
+                <span class="converter-item-name">Torr to Pascals</span>
+                <span class="converter-item-desc">1 torr = 133.322 Pa. Standard atmosphere is 760 torr = 101,325 Pa. Exact definition.</span>
+                <span class="converter-item-formula">× 133.322</span>
+            </a>
+            <a href="/pa-to-torr" class="converter-item">
+                <span class="converter-item-name">Pascals to Torr</span>
+                <span class="converter-item-desc">1 Pa = 0.0075 torr. A 1 Pa vacuum chamber is 7.5 millitorr. Exact reciprocal.</span>
+                <span class="converter-item-formula">× 0.0075</span>
+            </a>
+        </div>
+
+        <!-- ═══ New: PSI &harr; Atm ═══ -->
+        <h2 class="category-section-title">PSI &amp; Atmospheres — Diving &amp; Tires</h2>
+        <div class="converter-grid">
+            <a href="/psi-to-atm" class="converter-item">
+                <span class="converter-item-name">PSI to Atmospheres</span>
+                <span class="converter-item-desc">1 psi = 0.06805 atm. 30 psi is 2.04 atm. From 101,325 Pa vs 6,894.757 Pa.</span>
+                <span class="converter-item-formula">× 0.06805</span>
+            </a>
+            <a href="/atm-to-psi" class="converter-item">
+                <span class="converter-item-name">Atmospheres to PSI</span>
+                <span class="converter-item-desc">1 atm = 14.696 psi. A diver at 33 ft feels 2 atm = 29.4 psi. Exact anchor.</span>
+                <span class="converter-item-formula">× 14.696</span>
+            </a>
+        </div>
+
+        <!-- ═══ Bar ↔ kPa, Atm ↔ kPa, PSI ↔ mmHg ═══ -->
+        <h2 class="category-section-title">Bar, Atmosphere &amp; Cross-Scale — Europe, Weather &amp; Vacuum</h2>
+        <div class="converter-grid">
+            <a href="/bar-to-kpa" class="converter-item">
+                <span class="converter-item-name">Bar to kPa</span>
+                <span class="converter-item-desc">1 bar = 100 kPa exactly. A 2.5 bar tire is 250 kPa. The European industrial standard.</span>
+                <span class="converter-item-formula">× 100</span>
+            </a>
+            <a href="/kpa-to-bar" class="converter-item">
+                <span class="converter-item-name">kPa to Bar</span>
+                <span class="converter-item-desc">1 bar = 100 kPa exactly. 250 kPa is 2.5 bar. SI down to atmosphere scale.</span>
+                <span class="converter-item-formula">÷ 100</span>
+            </a>
+            <a href="/atm-to-kpa" class="converter-item">
+                <span class="converter-item-name">Atm to kPa</span>
+                <span class="converter-item-desc">1 atm = 101.325 kPa exactly. A diver at 2 atm feels 202.65 kPa. The standard atmosphere in SI.</span>
+                <span class="converter-item-formula">× 101.325</span>
+            </a>
+            <a href="/kpa-to-atm" class="converter-item">
+                <span class="converter-item-name">kPa to Atm</span>
+                <span class="converter-item-desc">1 atm = 101.325 kPa. 1013 hPa is 1 atm; a 250 kPa tire is 2.47 atm.</span>
+                <span class="converter-item-formula">÷ 101.325</span>
+            </a>
+            <a href="/psi-to-mmhg" class="converter-item">
+                <span class="converter-item-name">PSI to mmHg</span>
+                <span class="converter-item-desc">1 psi = 51.7149 mmHg. One atmosphere is 14.696 psi or 760 mmHg. Vacuum gauges and mercury columns.</span>
+                <span class="converter-item-formula">× 51.7149</span>
+            </a>
+            <a href="/mmhg-to-psi" class="converter-item">
+                <span class="converter-item-name">mmHg to PSI</span>
+                <span class="converter-item-desc">1 mmHg = 0.019337 psi. 120/80 blood pressure is 2.32/1.55 psi. The gauge-scale reading.</span>
+                <span class="converter-item-formula">× 0.019337</span>
+            </a>
+        </div>
+
+        <div class="related-categories">
+            <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
+            <a href="/temperature/" class="related-cat-pill">Temperature</a>
+            <a href="/volume/" class="related-cat-pill">Volume</a>
+            <a href="/energy/" class="related-cat-pill">Energy &amp; Power</a>
+            <a href="/guides/pressure-conversion-guide" class="related-cat-pill">💥 Pressure Guide</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+            <a href="/guides/">Engineering Guides</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>

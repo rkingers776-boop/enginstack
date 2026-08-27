@@ -1,0 +1,58 @@
+# EnginStack
+
+> Engineering unit converters built on verified international metrology constants. 310+ precision conversion tools across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 25 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
+
+## Converters by category
+
+- [Length & Distance](https://enginstack.com/length/): 44 converters — inches, cm, meters, feet, miles, km, nautical miles. Flagship: [inches-to-cm](https://enginstack.com/inches-to-cm) (1 in = 2.54 cm exactly)
+- [Weight & Mass](https://enginstack.com/weight/): 17 converters — pounds, kilograms, ounces, grams, tons. Flagship: [lbs-to-kg](https://enginstack.com/lbs-to-kg) (1 lb = 0.45359237 kg exactly)
+- [Temperature](https://enginstack.com/temperature/): 6 converters — °F, °C, Kelvin. Flagship: [fahrenheit-to-celsius](https://enginstack.com/fahrenheit-to-celsius) (°F = °C × 9/5 + 32)
+- [Speed](https://enginstack.com/speed/): 14 converters — mph, km/h, m/s, knots, ft/s. Flagship: [mph-to-kph](https://enginstack.com/mph-to-kph) (1 mph = 1.609344 km/h exactly)
+- [Pressure](https://enginstack.com/pressure/): 20 converters — bar, psi, kPa, atm, Pa, mmHg, torr. Flagship: [psi-to-kpa](https://enginstack.com/psi-to-kpa) (1 psi = 6.894757293 kPa)
+- [Area](https://enginstack.com/area/): 8 converters — sq ft, sq meters, acres, hectares, sq miles. Flagship: [sq-m-to-acres](https://enginstack.com/sq-m-to-acres) (1 acre = 4046.8564224 m²)
+- [Volume](https://enginstack.com/volume/): 24 converters — gallons, liters, quarts, pints, cups, cubic feet, mL. Flagship: [gallons-to-liters](https://enginstack.com/gallons-to-liters) (1 US gal = 3.785411784 L exactly)
+- [Time](https://enginstack.com/time/): 14 converters — seconds, minutes, hours, days, weeks, months, milliseconds
+- [Data Storage](https://enginstack.com/data-storage/): 12 converters — KB, MB, GB, TB, Kbps, Mbps, Gbps
+- [Energy & Power](https://enginstack.com/energy/): 20 converters — watts, kW, HP, joules, calories, kWh, BTU. Flagship: [btu-to-kwh](https://enginstack.com/btu-to-kwh) (1 kWh = 3412.141633 BTU)
+- [Angle](https://enginstack.com/angle/): 4 converters — degrees, radians, gradians
+- [Torque](https://enginstack.com/torque/): 10 converters — ft·lb, N·m, kg·m, in·lb. Flagship: [nm-to-ft-lbs](https://enginstack.com/nm-to-ft-lbs) (1 N·m = 0.7375621493 ft·lb)
+- [Fuel Economy](https://enginstack.com/fuel-economy/): 4 converters — MPG, km/L, L/100km. Flagship: [mpg-to-l-100km](https://enginstack.com/mpg-to-l-100km) (1 mpg = 235.215 L/100km)
+- [Force](https://enginstack.com/force/): 8 converters — newtons, pound-force, kilogram-force, dynes. Flagship: [newtons-to-lbs](https://enginstack.com/newtons-to-lbs) (1 lbf = 4.4482216153 N exactly)
+- [Frequency](https://enginstack.com/frequency/): 8 converters — Hz, kHz, MHz, GHz, RPM. Flagship: [hz-to-rpm](https://enginstack.com/hz-to-rpm) (1 Hz = 60 RPM, motors)
+- [Density](https://enginstack.com/density/): 10 converters — kg/m³, g/cm³, lb/ft³, lb/in³, g/L. Flagship: [kg-m3-to-g-cm3](https://enginstack.com/kg-m3-to-g-cm3) (1 g/cm³ = 1000 kg/m³)
+- [Flow Rate](https://enginstack.com/flow-rate/): 10 converters — L/min, GPM, m³/h, CFM, L/s. Flagship: [l-min-to-gpm](https://enginstack.com/l-min-to-gpm) (1 US GPM = 3.785411784 L/min)
+- [Electric](https://enginstack.com/electric/): 22 tools — volts, amps, ohms, watts (Ohm's law calculators), dBm, AWG wire gauge, kVA/kW & power factor, battery Wh/Ah, voltage drop. Flagship: [volts-to-amps](https://enginstack.com/volts-to-amps) (I = V/R, Ohm's law)
+
+## Guides
+
+- [Why America Doesn't Use the Metric System](https://enginstack.com/guides/why-america-doesnt-use-metric-system): the 130-year history — Mendenhall Order 1893, 1959 agreement, 1975 Act, 1988 reversal
+- [The 1893 Photocopy](https://enginstack.com/guides/the-1893-photocopy): how America's inch became a metric copy (Meter No. 27, 3600/3937 yard)
+- [The Cost of Retooling](https://enginstack.com/guides/the-cost-of-retooling): rail gauge, Whitworth thread, leadscrews, gage blocks — why conversion math never closes
+- [The 1975 Metric Conversion Act](https://enginstack.com/guides/the-1975-metric-conversion-act): the board that converted nothing, anatomy of a voluntary failure
+- [Force Conversion Guide](https://enginstack.com/guides/force-conversion-guide): newtons, pound-force, kgf, dynes — the 4.4482216153 anchor
+- [Frequency Conversion Guide](https://enginstack.com/guides/frequency-conversion-guide): Hz to GHz by scale — ear, grid, shaft, radio, wireless
+- [Torque Conversion Guide](https://enginstack.com/guides/torque-conversion-guide): N·m, ft·lb, in·lb, kgf·m — the fatal multiples (12×, 9.8×, 1.36×)
+- [Density Conversion Guide](https://enginstack.com/guides/density-conversion-guide): the water anchor — 1795 gram definition to aviation lb/in³
+- [Flow Rate Conversion Guide](https://enginstack.com/guides/flow-rate-conversion-guide): L/min, GPM, m³/h, CFM, L/s — the five dialects of moving fluid
+- [Electric Conversion Guide](https://enginstack.com/guides/electric-conversion-guide): Ohm's & Watt's laws, dBm, AWG wire gauge
+- [Length Conversion Guide](https://enginstack.com/guides/length-conversion-guide): engineering reference
+- [Weight & Mass Conversion Guide](https://enginstack.com/guides/weight-mass-conversion-guide): engineering reference
+- [Temperature Conversion Guide](https://enginstack.com/guides/temperature-conversion-guide): Fahrenheit, Celsius, Kelvin
+- [Speed Conversion Guide](https://enginstack.com/guides/speed-conversion-guide): m/s, km/h, mph, knots, ft/s, nautical mile
+- [Pressure Conversion Guide](https://enginstack.com/guides/pressure-conversion-guide): from vacuum to gigapascals
+- [Area Conversion Guide](https://enginstack.com/guides/area-conversion-guide): the acre, the hectare
+- [Volume & Cooking Conversion Guide](https://enginstack.com/guides/volume-cooking-conversion-guide): the three-gallon problem
+- [Time Conversion Guide](https://enginstack.com/guides/time-conversion-guide): seconds to leap seconds
+- [Data Storage Conversion Guide](https://enginstack.com/guides/data-storage-conversion-guide): why 1 TB = 931 GB
+- [Energy & Power Conversion Guide](https://enginstack.com/guides/energy-power-conversion-guide): watts, horsepower, joules
+- [Fuel Economy Conversion Guide](https://enginstack.com/guides/fuel-economy-conversion-guide): MPG, L/100km, km/L
+- [Angle Conversion Guide](https://enginstack.com/guides/angle-conversion-guide): degrees, radians, gradians
+- [Engine Displacement Conversion Guide](https://enginstack.com/guides/engine-displacement-conversion-guide): cubic inches to liters, the Ford 5.0 myth
+- [The 8 Most Expensive Unit Conversion Mistakes](https://enginstack.com/guides/engineering-unit-conversion-mistakes): Mars Climate Orbiter and others
+- [The Year 2038 Problem](https://enginstack.com/guides/year-2038-problem): when the Unix timestamp's 32-bit second counter overflows to 1901
+
+## About
+
+- [About EnginStack](https://enginstack.com/about): mission and methodology — every constant verified against NIST SP 811 and BIPM
+- [All converters index](https://enginstack.com/): full category grid
+- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (312 pages)

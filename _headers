@@ -1,0 +1,42 @@
+# Cloudflare Pages _headers — v1.2
+# Applied at build time; controls per-route HTTP headers
+# NOTE: URLs on this site are extensionless (e.g. /watts-to-hp not /watts-to-hp.html)
+# Cloudflare Pages resolves them internally; the /*.html glob matches the internal file path.
+
+# ── HTML pages (short cache — revalidate every 5 min)
+/*
+  Cache-Control: public, max-age=300, must-revalidate
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.googletagmanager.com; img-src 'self' data: https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# ── Service Worker (revalidate every 5 min — must stay fresh)
+/sw.js
+  Cache-Control: public, max-age=300
+
+# ── CSS (cache 1 hour, stale-while-revalidate 1 day)
+/*.css
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# ── JS — except sw.js (cache 1 hour, stale-while-revalidate 1 day)
+/*.js
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# ── SVG images (cache 7 days)
+/*.svg
+  Cache-Control: public, max-age=604800
+
+# ── Sitemap (revalidate hourly)
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+# ── Robots (revalidate hourly)
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+# ── LLMs.txt (AI assistant index — revalidate hourly)
+/llms.txt
+  Cache-Control: public, max-age=3600

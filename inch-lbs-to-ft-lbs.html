@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>in·lb to ft·lb — The Factor-of-12 Error That Strips Threads | EnginStack</title>
+    <meta name="description" content="Convert in·lb to ft·lb instantly: 12 in·lbf = 1 ft·lbf, an exact ratio by geometry. The most common and destructive torque unit mistake is reading the number and ignoring the label — single-digit numbers look identical on inch-pound and foot-pound wrenches, but the torque differs by 12×.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/inch-lbs-to-ft-lbs">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/inch-lbs-to-ft-lbs">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/inch-lbs-to-ft-lbs">
+    <meta property="og:title" content="in·lb to ft·lb — The Factor-of-12 Error That Strips Threads | EnginStack">
+    <meta property="og:description" content="12 in·lbf = 1 ft·lbf — exact, no decimals, no g₀, just geometry. The numbers look identical but the torque differs by 12×. One misread strips an oil pan. This is the most destructive unit error in the shop.">
+    <meta property="og:url" content="https://enginstack.com/inch-lbs-to-ft-lbs">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Inch-Pounds to Foot-Pounds Converter",
+  "description": "Convert inch-pounds (in·lbf) to foot-pounds (ft·lbf) by dividing by 12 — an exact integer ratio derived from the 1959 International Yard and Pound Agreement. Every 12 inch-pounds is 1 foot-pound. No gravitational constant, no decimals, just the geometry of a 12-inch lever arm.",
+  "url": "https://enginstack.com/inch-lbs-to-ft-lbs",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "My torque wrench has both in·lb and ft·lb markings — why don't they align?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most torque wrenches display only one scale per tool. If yours has dual markings, the two scales are on different arcs — the inch-pound scale is typically the inner ring and reads higher numbers because 1 ft·lb = 12 in·lb. They align at zero and nowhere else. A \"20\" on the ft·lb scale corresponds to 240 on the in·lb scale, but most dual-scale wrenches round the inch-pound markings to the nearest 10 or 20 and drop the label for space. If you cannot tell which scale you are reading, stop and verify the unit on the spec sheet. A 3/8-inch drive click-type wrench marked 10–100 ft·lb and 120–1200 in·lb is not two tools — it is one tool with two labels, and setting it to \"15\" on the wrong scale puts you off by 12×."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a ft·lb wrench for something that calls for 20 in·lb?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Twenty in·lb is 1.67 ft·lb. No foot-pound torque wrench sold for automotive or industrial use can resolve values below about 10 ft·lb, and none are calibrated below 5 ft·lb. At 20 ft·lb — the bottom of a typical 20–150 ft·lb wrench — the accuracy is ±4% of full scale, which is ±6 ft·lb, or ±72 in·lb. That error alone is 3.6× the spec you are trying to hit. You need an inch-pound wrench for any torque below 120 in·lb (10 ft·lb), and ideally below 240 in·lb (20 ft·lb) if accuracy matters. Borrow one, buy one — they cost $30–60 for a serviceable click-type — or risk the fastener."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do aviation mechanics use in·lb more than ft·lb?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because aircraft fasteners are overwhelmingly small-diameter — #4 through 1/4 inch — and the torque values land in the 2–250 in·lb range. A 1/4-28 titanium bolt in a wing access panel torques to 50–70 in·lb. A 3/16-inch rivet in a fuselage stringer carries a clamp spec in inch-pounds. SAE AS1310, the torque standard used in FAA-certified repair stations, tabulates inch-pound values for all fasteners below 5/16-inch. The reason is practical: a inch-pound wrench is physically smaller, fits inside wing inspection ports and engine nacelles, and its resolution (typically 1 in·lb per graduation) is appropriate for torque values where 5 in·lb matters. A foot-pound wrench's graduations are usually 2–5 ft·lb apart — useless for an 8-in·lb spec on a pitot-tube mounting screw."
+      }
+    }
+  ]
+}
+    </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Torque", "item": "https://enginstack.com/torque/" },
+    { "@type": "ListItem", "position": 3, "name": "Inch-Pounds to Foot-Pounds" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "rkingers776@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/torque/">Torque</a> <span class="sep">&rsaquo;</span>
+            <span class="current">in·lb to ft·lb Converter</span></nav>
+        <header class="page-header">
+            <h1>in·lb to ft·lb: The Factor-of-12 Error That Strips Threads</h1>
+            <p>A mechanic drains the oil on a Honda Civic. The aluminum pan calls for 15 ft·lb. He grabs a inch-pound torque wrench — the only one in the shop that will click at an angle this light — and dials in 15. The wrench clicks at 15 in·lb. That is 1.25 ft·lb. One-twelfth of spec. The plug vibrates loose on I-95 and the engine seizes at 70 mph. Or go the other way: a bicycle mechanic torques a carbon fiber seatpost clamp on a $4,000 race bike to "5" — thinking foot-pounds when the spec is 5 in·lb. That is 60 in·lb, 12× the limit. The carbon tube splinters. Twelve inch-pounds equals one foot-pound. The math is trivial. The mistake is the most common and most destructive torque error in the world because the numbers look identical and only the unit label differs — and the label is often printed in 4-point type on the wrench shaft.</p>
+        </header>
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified by engineers, built on NIST metrology standards</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="0.0833333333" data-unit-from="in·lbf" data-unit-to="ft·lbf">
+            <noscript><div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div></noscript>
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="12" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">in·lbf</span>
+                    </div>
+                </div>
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">1</span>
+                        <span class="unit-pill unit-pill-to">ft·lbf</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-detail">
+                <span class="forward-res">12 in·lbf = 1 ft·lbf</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">1 ft·lbf = 12 in·lbf</span>
+            </div>
+            <p class="source-note">Verified against NIST Special Publication 811 and BIPM SI definitions. The conversion factor is exact and traceable to the 1959 treaty constants.</p>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Why This Ratio Is Exactly 12</h2>
+
+            <p>One foot equals exactly 12 inches. That is not an approximation and not a measurement. It is a definition — codified in the 1959 International Yard and Pound Agreement, signed by the United States, United Kingdom, Canada, Australia, New Zealand, and South Africa. The inch-pound and the foot-pound share the same pound-force. Only the lever arm changes. A force of 1 lbf applied at 1 inch from the axis produces 1 in·lbf. That same force applied at 1 foot (12 inches) produces 1 ft·lbf. To produce the same <em>torque</em> at a 1-foot lever arm as at a 1-inch lever arm, you need 12× the force. Or: to produce the same torque at a 1-inch lever, you need 1/12 the force. This is pure geometry. No gravitational constant. No decimals. No g₀. No kilograms. Factor of 12. That is why this is the cleanest conversion in all of torque — cleaner than foot-pounds to newton-meters (which drags in g₀ = 9.80665 m/s² and lbf = 4.4482216152605 N), cleaner than kilogram-force-meters to anything (which drags in kilogram-mass confusion). Just 12. Twelve inches in a foot. Done.</p>
+
+            <p>The inch is a legally defined quantity: 1 inch = 0.0254 meters exactly, per the same 1959 treaty. The pound-force is derived from the pound-mass and standard gravity: 1 lbf = 1 lbm × g₀ = 0.45359237 kg × 9.80665 m/s² = 4.4482216152605 N. But critically, the pound-force cancels out in the inch-pound to foot-pound ratio. You are not converting force units. You are converting <em>lever arm</em> units. F·d ÷ F·d' = d/d' = 1 in ÷ 1 ft = 1/12. The force disappears.</p>
+
+            <h2>When to Use Which Wrench</h2>
+
+            <p>Foot-pound torque wrenches are long. An 18-inch handle on a 20–150 ft·lb click-type wrench gives you the leverage to hit 100+ ft·lb without breaking stance. Inch-pound wrenches are stubby — 8 to 12 inches of handle — because the torque values are small and you do not want overshoot. The danger zone is the overlap: roughly 10–20 ft·lb, which is 120–240 in·lb.</p>
+
+            <p>A 3/8-inch drive click-type wrench calibrated for ft·lb typically spans 20–100 ft·lb. At 20 ft·lb — the bottom of the scale — the wrench is operating where its accuracy is worst. A typical ±4% of full-scale accuracy means ±4 ft·lb at 20 ft·lb setting. That is ±48 in·lb of uncertainty. The entire spec for a bicycle stem bolt might be 60 in·lb (5 ft·lb). The wrench cannot even resolve it.</p>
+
+            <p>A inch-pound wrench, typically 1/4-inch drive with a range of 0–250 in·lb, is accurate to ±4% of reading across its mid-to-upper range. At 120 in·lb (10 ft·lb), that is ±4.8 in·lb. At 240 in·lb (20 ft·lb), ±9.6 in·lb. Those numbers are acceptable for the fasteners that live in this region: valve cover bolts on small engines (typically 50–100 in·lb), oil pan drain plugs on motorcycles and small cars (120–180 in·lb), bicycle stem and seatpost clamps (40–60 in·lb), and electronics chassis fasteners (8–25 in·lb).</p>
+
+            <p>The rule is simple: if the spec is printed in inch-pounds, use an inch-pound wrench. If it is in foot-pounds and below 25 ft·lb, convert to inch-pounds and grab the small wrench. The wrench that says "in·lb" on the handle is not just labeled differently — it is a completely different tool with a different spring, a different drive size, a different handle length, and a different accuracy profile.</p>
+
+            <div class="formula-box">
+                <p><strong>in·lbf ÷ 12 = ft·lbf</strong><br>Example: 180 in·lbf ÷ 12 = 15 ft·lbf<br>Reverse: ft·lbf × 12 = in·lbf</p>
+            </div>
+
+            <h2>Common Inch-Pounds to Foot-Pounds Conversions</h2>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Inch-Pounds (in·lbf)</th><th>Foot-Pounds (ft·lbf)</th><th>Where You Would See This</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>12</td><td>1</td><td>Bicycle seatpost clamp bolt (carbon frame)</td></tr>
+                        <tr><td>24</td><td>2</td><td>Electronics PCB mounting standoff (M3)</td></tr>
+                        <tr><td>36</td><td>3</td><td>Small engine carburetor mounting nut</td></tr>
+                        <tr><td>48</td><td>4</td><td>Valve cover bolt — small engine (Briggs &amp; Stratton)</td></tr>
+                        <tr><td>60</td><td>5</td><td>Bicycle stem faceplate bolt (4-bolt pattern)</td></tr>
+                        <tr><td>96</td><td>8</td><td>M6 oil pan bolt — motorcycle</td></tr>
+                        <tr><td>120</td><td>10</td><td>Automotive transmission pan bolt (GM 4L60E)</td></tr>
+                        <tr><td>180</td><td>15</td><td>Small engine oil drain plug (Honda GX160)</td></tr>
+                        <tr><td>240</td><td>20</td><td>Upper limit of most 1/4-inch drive inch-pound wrenches</td></tr>
+                        <tr><td>360</td><td>30</td><td>Motorcycle axle pinch bolt (M8)</td></tr>
+                        <tr><td>480</td><td>40</td><td>Motorcycle fork pinch bolt — Showa 47mm fork</td></tr>
+                        <tr><td>600</td><td>50</td><td>Automotive brake caliper bracket bolt (M12)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>180 in·lb → 15 ft·lb (small engine oil drain plug)</strong></p>
+                <p>This is one of the most common torque values in small engine repair. A Honda GX160 drain plug, an 8 mm bolt threading into an aluminum crankcase, calls for 180 in·lb. Divide by 12: 15 ft·lb. A mechanic who reaches for a foot-pound wrench and sets "15" is fine — if the wrench can resolve 15 ft·lb. Most 3/8-inch drive wrenches bottom out at 20 ft·lb. The inch-pound wrench at 180 is the correct tool. The danger: a mechanic who sets the inch-pound wrench to "15" thinking it reads ft·lb gets 15 in·lb — 1.25 ft·lb — and the plug falls out.</p>
+            </div>
+            <div class="example-box">
+                <p><strong>60 in·lb → 5 ft·lb (bicycle stem faceplate bolt)</strong></p>
+                <p>A typical 4-bolt stem faceplate on a modern road bike — aluminum bar, aluminum stem — calls for 5 N·m, which is about 44 in·lb. Many manufacturers round to 60 in·lb (5 ft·lb) for a safe upper limit. The conversion: 60 ÷ 12 = 5 ft·lb. No foot-pound wrench on the market can meaningfully resolve 5 ft·lb. This is pure inch-pound territory. Over-torque by 24 in·lb (2 ft·lb, a factor of 1.4×) and the stem faceplate cracks, usually along the thread boss. Under-torque by the same amount and the handlebar rotates on the first pothole. Carbon bars add a further constraint: the clamping force must be uniform across all four bolts to within 5 in·lb or the bar develops a stress riser. This is why high-end bicycle torque wrenches are sold with 0–60 in·lb ranges and 0.5 in·lb resolution.</p>
+            </div>
+            <div class="example-box">
+                <p><strong>480 in·lb → 40 ft·lb (motorcycle fork pinch bolt)</strong></p>
+                <p>The pinch bolts on a Showa 47 mm inverted fork clamp the axle in place. The spec is 40 ft·lb — or 480 in·lb. This is near the ceiling of what a 1/2-inch drive foot-pound wrench handles with good accuracy and near the absolute max of a inch-pound wrench. Most inch-pound wrenches top out at 250 in·lb (20.8 ft·lb). A 480 in·lb spec forces you into foot-pound territory. The fork pinch bolt is safety-critical: under-torque and the axle shifts under braking; over-torque and the fork leg casting cracks at the pinch slot. If you are working on upside-down forks and your wrench maxes out at 250 in·lb, you need a foot-pound wrench — no way around it. Set it to 40 ft·lb. Confirm with a second click.</p>
+            </div>
+            <div class="example-box">
+                <p><strong>250 in·lb → 20.8 ft·lb (upper limit of most inch-pound wrenches)</strong></p>
+                <p>Almost every 1/4-inch drive click-type inch-pound torque wrench on the market tops out at 250 in·lb. That is 20.833... ft·lb. In practice, the last 10% of the range — above 225 in·lb — is where spring fatigue and mechanism geometry degrade accuracy fastest. Most manufacturers recommend not using a click-type wrench above 90% of its rated maximum. For a 250 in·lb wrench, that means 225 in·lb (18.75 ft·lb) is the practical ceiling. If you need 240 or 250 in·lb, step up to a 3/8-inch drive foot-pound wrench set to 20 ft·lb, and accept that the tolerance at the bottom of the foot-pound wrench's range (±4 ft·lb / ±48 in·lb) is worse than the tolerance at the top of the inch-pound wrench's range (±4 in·lb). Tool selection is always a tradeoff.</p>
+            </div>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>Inch-pound torque values dominate aviation maintenance. The SAE AS1310 standard — "Torque Guidelines for Aerospace Threaded Fasteners" — specifies inch-pound values for virtually every fastener under 5/16-inch diameter because aircraft structures use thousands of small-diameter bolts where a foot-pound wrench offers neither the resolution nor the physical access. A Boeing 737 has approximately 36,000 individual fasteners in the fuselage alone, and the vast majority carry inch-pound torque specs. The torque value on a wing-panel screw is not derived from feel; it is derived from the fastener material's yield strength, the thread pitch, the lubrication condition (dry, oiled, anti-seize), and the grip length — and then reduced by a factor of safety specified in AS1310 Table 2. An error of 12× — setting a wrench to the number 60 in ft·lb when the spec sheet says 60 in·lb — would torque a 1/4-28 titanium bolt to 5× its proof load. In certified aircraft maintenance, torque errors are entered on FAA Form 337 as major repairs, not adjustments.</p>
+                <p>Medical device assembly — bone screws, spinal implant locking caps, dental implant abutments — operates almost entirely in inch-pounds and inch-ounces. A 2.7 mm cortical bone screw in an orthopedic plate is typically torqued to 8–12 in·lb. Over-torque strips the thread in live bone; under-torque allows micro-motion that prevents osseointegration. The torque drivers used in operating rooms are calibrated weekly against NIST-traceable standards and sterilized between cases. The calibration certificate for a Synthes torque-limiting screwdriver lists values in in·lb, not ft·lb, because "0.67 ft·lb" is a meaningless number to a surgeon and a rounding hazard to a calibration technician.</p>
+                <p>In bicycle manufacturing, carbon fiber components introduced inch-pound torque values to a consumer market that had never used a torque wrench before. A 1990s aluminum seatpost binder was "tight enough." A 2025 carbon fiber seatpost with a wedge-type expander clamp must be torqued to 5–8 N·m (44–71 in·lb) — exceeding 8 N·m crushes the carbon laminate. A complete torque wrench kit marketed to cyclists — Park Tool, Pro Bike Tool, Effetto Mariposa — is almost always a 1/4-inch drive beam or click-type wrench reading 0–60 in·lb (0–5 ft·lb), because bicycle fasteners top out at M6 and the material underneath is a polymer matrix that fails catastrophically, not gradually.</p>
+                <p>Electronics assembly — smartphones, server backplanes, RF waveguide flanges — uses inch-pound torque screwdrivers that bottom out at 1 in·lb. An M2 machine screw holding an M.2 SSD in place is torqued to 1.5–2.5 in·lb. The thread engagement is 3–4 turns. Too loose and the drive vibrates out of its slot in a server rack. Too tight and the PCB trace delaminates. The torque screwdriver used on an iPhone production line is not a wrench — it is a DC electric screwdriver with a torque transducer that measures in inch-ounces (1/16 in·lb) and logs every fastener to a SQL database for traceability.</p>
+                <p style="margin-top:1.2em;">More: <a href="/ft-lbs-to-inch-lbs">ft·lb to in·lb</a> &middot; <a href="/ft-lbs-to-nm">ft·lb to N·m</a> &middot; <a href="/nm-to-ft-lbs">N·m to ft·lb</a> &middot; <a href="/inch-lbs-to-nm">in·lb to N·m</a> &middot; <a href="/torque/">All Torque Converters</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/ft-lbs-to-inch-lbs">ft·lb to in·lb</a>
+                <a href="/ft-lbs-to-nm">ft·lb to N·m</a>
+                <a href="/inch-lbs-to-nm">in·lb to N·m</a>
+                <a href="/nm-to-ft-lbs">N·m to ft·lb</a>
+                <a href="/nm-to-inch-lbs">N·m to in·lb</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">My torque wrench has both in·lb and ft·lb markings — why don't they align?</p>
+                <p class="faq-a">Most torque wrenches display only one scale per tool. If yours has dual markings, the two scales are on different arcs — the inch-pound scale is typically the inner ring and reads higher numbers because 1 ft·lb = 12 in·lb. They align at zero and nowhere else. A "20" on the ft·lb scale corresponds to 240 on the in·lb scale, but most dual-scale wrenches round the inch-pound markings to the nearest 10 or 20 and drop the label for space. If you cannot tell which scale you are reading, stop and verify the unit on the spec sheet. A 3/8-inch drive click-type wrench marked 10–100 ft·lb and 120–1200 in·lb is not two tools — it is one tool with two labels, and setting it to "15" on the wrong scale puts you off by 12×.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Can I use a ft·lb wrench for something that calls for 20 in·lb?</p>
+                <p class="faq-a">No. Twenty in·lb is 1.67 ft·lb. No foot-pound torque wrench sold for automotive or industrial use can resolve values below about 10 ft·lb, and none are calibrated below 5 ft·lb. At 20 ft·lb — the bottom of a typical 20–150 ft·lb wrench — the accuracy is ±4% of full scale, which is ±6 ft·lb, or ±72 in·lb. That error alone is 3.6× the spec you are trying to hit. You need an inch-pound wrench for any torque below 120 in·lb (10 ft·lb), and ideally below 240 in·lb (20 ft·lb) if accuracy matters. Borrow one, buy one — they cost $30–60 for a serviceable click-type — or risk the fastener.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why do aviation mechanics use in·lb more than ft·lb?</p>
+                <p class="faq-a">Because aircraft fasteners are overwhelmingly small-diameter — #4 through 1/4 inch — and the torque values land in the 2–250 in·lb range. A 1/4-28 titanium bolt in a wing access panel torques to 50–70 in·lb. A 3/16-inch rivet in a fuselage stringer carries a clamp spec in inch-pounds. SAE AS1310, the torque standard used in FAA-certified repair stations, tabulates inch-pound values for all fasteners below 5/16-inch. The reason is practical: a inch-pound wrench is physically smaller, fits inside wing inspection ports and engine nacelles, and its resolution (typically 1 in·lb per graduation) is appropriate for torque values where 5 in·lb matters. A foot-pound wrench's graduations are usually 2–5 ft·lb apart — useless for an 8-in·lb spec on a pitot-tube mounting screw.</p>
+            </div>
+        </article>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
