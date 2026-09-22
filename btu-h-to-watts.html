@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>BTU/h to Watts — Air Conditioner Power in Real Watts | EnginStack</title>
+    <meta name="description" content="1 BTU/h = 0.2930710702 W exactly. Convert BTU/h to watts — the air conditioner's cooling rate as thermal power. A 12,000 BTU/h AC moves 3,516.85 W of heat (but only draws ~1,200 W — the COP gap).">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/btu-h-to-watts">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/btu-h-to-watts">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/btu-h-to-watts">
+    <meta property="og:title" content="BTU/h to Watts — Air Conditioner Power in Real Watts | EnginStack">
+    <meta property="og:description" content="1 BTU/h = 0.2930710702 W. A 12,000 BTU/h AC moves 3,516.85 W of heat but only draws ~1,200 W — the COP gap explained.">
+    <meta property="og:url" content="https://enginstack.com/btu-h-to-watts">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BTU/h to Watts Converter",
+      "description": "Convert BTU/h to watts: 1 BTU/h = 0.2930710702 W exactly. A 12,000 BTU/h air conditioner moves 3,516.85 W of heat, though it draws only about a third of that as electrical power. The cooling-rate-to-SI-power translation.",
+      "url": "https://enginstack.com/btu-h-to-watts",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many watts is a 12,000 BTU air conditioner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Thermally, 12,000 BTU/h equals 3,516.85 watts of cooling — that is the heat it removes per second. Electrically, it draws far less, usually 1,000 to 1,500 watts, because an air conditioner is a heat pump: it moves heat rather than creating it, and its coefficient of performance (COP) is roughly 2.5 to 3.5. Never read the BTU-to-watts number off a nameplate as the electrical load."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BTU/h the same as watts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They measure the same thing — power, or energy per unit time — in different units. One BTU/h is exactly 0.2930710702 watts. The difference is only convention: North American HVAC uses BTU/h, the SI world uses watts, and 3,412.141633 BTU/h make one kilowatt. The conversion is a fixed constant, not a measurement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my 12,000 BTU AC not draw 3,516 watts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because 3,516 watts is the rate of heat the unit removes, not the electricity it consumes. An air conditioner transfers heat from indoors to outdoors using a compressor and refrigerant; it takes roughly one watt of electricity to move three watts of heat. That ratio is the coefficient of performance. The electrical draw lives on a separate label, in amps or watts, and is always a third of the BTU/h figure or less."
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Energy", "item": "https://enginstack.com/energy/" },
+        { "@type": "ListItem", "position": 3, "name": "BTU/h to Watts Converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@enginstack.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/energy/">Energy</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">BTU/h to Watts Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>BTU/h to watts — the cooling rate, translated into real power</h1>
+            <p>A window unit says "12,000 BTU," a mini-split says "9,000," a central system says "3 ton" — and every one of those is a <em>rate</em>, a quantity of heat moved per hour, not an amount. The bridge to SI power is exact: 1 BTU/h = 0.2930710702 W, straight from the IT calorie's definition and the length of an hour. A 12,000 BTU/h machine moves 3,516.85 W of heat — and that number, tempting as it is, is <strong>not</strong> what it draws from the wall.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="calculator-card" data-coefficient="0.2930710701722222" data-unit-from="BTU/h" data-unit-to="W">
+            <noscript>
+                <div class="noscript-warning">JavaScript is required for the interactive unit converter. Please enable JavaScript in your browser.</div>
+            </noscript>
+
+            <div class="calc-body">
+                <div class="calc-row">
+                    <label class="calc-label" for="unit-val">From</label>
+                    <div class="input-pill-group">
+                        <input type="number" class="unit-input" id="unit-val" value="12000" min="0" step="any">
+                        <span class="unit-pill unit-pill-from">BTU/h</span>
+                    </div>
+                </div>
+
+                <button class="btn-swap" aria-label="Swap conversion direction" title="Swap units">
+                    <svg class="swap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <polyline points="19 12 12 19 5 12"/>
+                    </svg>
+                </button>
+
+                <div class="calc-row">
+                    <label class="calc-label">To</label>
+                    <div class="input-pill-group">
+                        <span class="result-value">3,516.85284207</span>
+                        <span class="unit-pill unit-pill-to">W</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-detail">
+                <span class="forward-res">12000 BTU/h = 3,516.85284207 W</span>
+                <span class="detail-sep" aria-hidden="true">|</span>
+                <span class="reverse-res">12000 W = 40,945.69959754 BTU/h</span>
+            </div>
+            <p class="source-note">Source: NIST SP 811 and ISO 31-4. 1 BTU (IT) = 1,055.05585262 J is defined, so 1 BTU/h = 1055.05585262 ÷ 3600 = 0.2930710702 W exactly — no uncertainty.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>The Number on the Box Is a Rate, Not a Draw</h2>
+            <p>The most useful thing this conversion does is also the easiest to misread. When a box says 12,000 BTU, it is promising to remove 12,000 British thermal units of heat every hour — that is 3,516.85 watts of <em>cooling</em>, a thermal power. It is not promising to consume 3,516.85 watts. The electrical draw sits on a different label, printed in amps or watts, and for a modern unit it is usually a third of the BTU/h figure or less. The gap between the two numbers is the machine's coefficient of performance, and it is the reason an air conditioner can move three watts of heat for every watt it burns.</p>
+
+            <div class="formula-box"><p><strong>watts = BTU/h × 0.2930710702</strong><br>1 BTU/h = 0.2930710702 W<br>The factor is exact: 1,055.05585262 J (one IT BTU) ÷ 3,600 s (one hour).</p></div>
+
+            <h2>Common Air Conditioner Sizes in Watts</h2>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>AC rating</th><th>thermal power</th><th>typical electrical draw</th></tr></thead><tbody>
+                <tr><td>5,000 BTU/h</td><td>1,465 W</td><td>~500–600 W</td></tr>
+                <tr><td>8,000 BTU/h</td><td>2,345 W</td><td>~750–900 W</td></tr>
+                <tr><td>12,000 BTU/h</td><td>3,517 W</td><td>~1,000–1,500 W</td></tr>
+                <tr><td>18,000 BTU/h</td><td>5,275 W</td><td>~1,800–2,200 W</td></tr>
+                <tr><td>24,000 BTU/h</td><td>7,034 W</td><td>~2,400–3,000 W</td></tr>
+                </tbody></table></div>
+
+            <p>The split between the two columns is where most "how many watts is my AC" searches go wrong. The thermal column is a fixed constant times the rating; the electrical column varies with the machine's efficiency (SEER/EER), the outdoor temperature, and the age of the compressor. No converter can tell you the second column from the first — you need the nameplate's amp rating and the supply voltage, which is where <a href="/watts-to-amps">watts to amps</a> picks up the job.</p>
+
+            <section class="eng-context">
+                <h3>Engineering Context</h3>
+                <p>The same cooling rate in kilowatts is <a href="/btu-h-to-kw">BTU/h to kW</a>, and in the HVAC industry's own trade unit it is <a href="/btu-h-to-ton">BTU/h to ton</a> (with the reverse at <a href="/ton-to-btu-h">ton to BTU/h</a>). For the energy dimension rather than the power dimension — how much heat total, not how fast — the bridge is <a href="/btu-to-kwh">BTU to kWh</a> and <a href="/btu-to-joules">BTU to joules</a>. When the electrical draw itself is the question, <a href="/watts-to-kw">watts to kW</a> sizes the circuit and <a href="/watts-to-amps">watts to amps</a> sizes the breaker.</p>
+                <p style="margin-top:1.2em;">More: <a href="/btu-h-to-kw">BTU/h to kW</a> · <a href="/btu-h-to-ton">BTU/h to ton</a> · <a href="/btu-to-kwh">BTU to kWh</a> · <a href="/energy/">Energy Hub</a></p>
+            </section>
+
+            <h2>Related Unit Converters</h2>
+            <div class="related-tags">
+                <a href="/btu-h-to-kw">BTU/h To kW</a>
+                <a href="/btu-h-to-ton">BTU/h To Ton</a>
+                <a href="/ton-to-btu-h">Ton To BTU/h</a>
+                <a href="/btu-to-kwh">BTU To kWh</a>
+                <a href="/watts-to-kw">Watts To kW</a>
+                <a href="/energy/">Energy Converters</a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item"><p class="faq-q">How many watts is a 12,000 BTU air conditioner?</p><p class="faq-a">Thermally, 12,000 BTU/h equals 3,516.85 watts of cooling — that is the heat it removes per second. Electrically, it draws far less, usually 1,000 to 1,500 watts, because an air conditioner is a heat pump: it moves heat rather than creating it, and its coefficient of performance (COP) is roughly 2.5 to 3.5. Never read the BTU-to-watts number off a nameplate as the electrical load.</p></div>
+            <div class="faq-item"><p class="faq-q">Is BTU/h the same as watts?</p><p class="faq-a">They measure the same thing — power, or energy per unit time — in different units. One BTU/h is exactly 0.2930710702 watts. The difference is only convention: North American HVAC uses BTU/h, the SI world uses watts, and 3,412.141633 BTU/h make one kilowatt. The conversion is a fixed constant, not a measurement.</p></div>
+            <div class="faq-item"><p class="faq-q">Why does my 12,000 BTU AC not draw 3,516 watts?</p><p class="faq-a">Because 3,516 watts is the rate of heat the unit removes, not the electricity it consumes. An air conditioner transfers heat from indoors to outdoors using a compressor and refrigerant; it takes roughly one watt of electricity to move three watts of heat. That ratio is the coefficient of performance. The electrical draw lives on a separate label, in amps or watts, and is always a third of the BTU/h figure or less.</p></div>
+            <p style="margin-top:1.2em;">More: <a href="/btu-h-to-kw">btu/h to kw</a> · <a href="/btu-h-to-ton">btu/h to ton</a> · <a href="/btu-to-kwh">btu to kwh</a> · <a href="/energy/">Energy Hub</a></p>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "British thermal unit per hour",
+  "termCode": "BTU/h",
+  "description": "The British thermal unit per hour is a unit of power — heat moved per unit time — equal to exactly 0.2930710702 watts, derived from the IT definition of the BTU (1,055.05585262 joules) divided by one hour (3,600 seconds). It is the standard rating unit for North American air conditioners and furnaces.",
+  "url": "https://en.wikipedia.org/wiki/British_thermal_unit",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+
+</body>
+</html>

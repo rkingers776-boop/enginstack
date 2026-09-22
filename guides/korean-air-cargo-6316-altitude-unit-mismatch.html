@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Korean Air Cargo 6316: When 1,500 Meters Became 1,500 Feet | EnginStack</title>
+    <meta name="description" content="April 15, 1999. An MD-11 freighter leaves Shanghai. ATC clears it to 1,500 meters. The first officer hears 1,500 feet. Three minutes later, eight people are dead. The full story of the unit mismatch that crashed Korean Air Cargo Flight 6316 — with root-cause analysis, the meters-vs-feet divide in aviation, and lessons for engineers.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch">
+    <meta property="og:title" content="Korean Air Cargo 6316: When 1,500 Meters Became 1,500 Feet | EnginStack">
+    <meta property="og:description" content="An MD-11 freighter, a 1,500-meter clearance misheard as 1,500 feet, and eight deaths. The full story of the unit mismatch that crashed Korean Air Cargo Flight 6316 over Shanghai in 1999.">
+    <meta property="og:url" content="https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Korean Air Cargo 6316: When 1,500 Meters Became 1,500 Feet">
+    <meta name="twitter:description" content="An MD-11 freighter, a 1,500-meter clearance misheard as 1,500 feet, and eight deaths. The full story of the unit mismatch that crashed Korean Air Cargo 6316.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Korean Air Cargo 6316: When 1,500 Meters Became 1,500 Feet",
+      "description": "The full story of the April 15, 1999 crash of Korean Air Cargo Flight 6316 in Shanghai — an MD-11 freighter lost when the first officer relayed a 1,500-meter altitude clearance as 1,500 feet. Root-cause analysis, the meters-vs-feet divide in aviation, and engineering lessons.",
+      "author": { "@type": "Organization", "name": "EnginStack" },
+      "publisher": { "@type": "Organization", "name": "EnginStack" },
+      "url": "https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch"
+      },
+      "datePublished": "2026-08-31",
+      "inLanguage": "en"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Korean Air Cargo 6316 Altitude Unit Mismatch", "item": "https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@enginstack.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/guides/">Guides</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Aviation Unit Disasters</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Korean Air Cargo 6316: When 1,500 Meters Became 1,500 Feet</h1>
+            <p>April 15, 1999. Shanghai Hongqiao Airport. A McDonnell Douglas MD-11 freighter carrying 68 tons of cargo lifts off runway 18. Air traffic control clears it to climb to 1,500 meters. The first officer turns to the captain and says "1,500 feet." Three minutes later, the aircraft impacts a construction site in the Xinzhuang district at a steep dive angle. Eight people are dead. The aircraft was not brought down by a bomb, an engine failure, or a weather event. It was brought down by a unit — and by everything that happened after the unit was wrong.</p>
+            <p class="page-meta">~18 min read &nbsp;·&nbsp; Published August 31, 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified against the joint Sino-Korean investigation report and CVR/radar data</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="seo-section guide-content">
+
+            <!-- ═══════════════════════════════════════════════════════
+                 INTRO
+                 ═══════════════════════════════════════════════════════ -->
+            <p>There is a moment in every aviation accident where the disaster stops being an accident and becomes a decision. For Korean Air Cargo Flight 6316, that moment came at 4,500 feet above Shanghai. The aircraft was climbing normally. The engines were healthy. The weather was clear. The only thing wrong was the number in the first officer's head — and the fact that nobody in the cockpit thought to question it.</p>
+
+            <p>1,500 meters is 4,921 feet. 1,500 feet is 457 meters. The difference between them is not a rounding error or a minor discrepancy. It is a factor of 3.28 — the exact ratio between a foot and a meter, the same ratio defined by the 1959 International Yard and Pound Agreement that fixed one foot at exactly 0.3048 meters. When that ratio is ignored in a cockpit, the result is not a wrong answer on a test. It is a 200-ton aircraft pointed at the ground.</p>
+
+            <p>This is the story of that flight. It is also the story of why aviation still uses feet in most of the world and meters in a handful of countries, why that divide exists, and what happens when a crew trained on one system flies into the airspace of another. The math is trivial. The human factors are not.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE FLIGHT
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>The Departure</h2>
+
+            <p>At 16:01 local time on April 15, 1999, Korean Air Cargo Flight 6316 — an MD-11F freighter registered HL7373 — began its takeoff roll from Shanghai Hongqiao International Airport. The destination was Seoul, a flight of just under two hours. The aircraft was carrying approximately 68 tons of general cargo, much of it consolidated freight pallets loaded in the forward and aft cargo holds.</p>
+
+            <p>The crew consisted of three men. Captain Hong Sung-sil, 53, had accumulated nearly 13,000 flight hours over a career that included military service and decades of airline flying. He was, by every conventional measure, an experienced airman. First Officer Park Bong-seok, 35, held approximately 1,800 hours — qualified, but still relatively junior by wide-body freighter standards. The flight engineer completed the three-person cockpit crew standard for the MD-11.</p>
+
+            <p>What happened in the next three minutes was reconstructed from the cockpit voice recorder (CVR), the flight data recorder (FDR), and Shanghai approach control's primary radar. The data tells a story that is, in retrospect, almost unbearably clear — and at the time, completely invisible to the people living it.</p>
+
+            <h3>The First Misunderstanding</h3>
+
+            <p>Immediately after takeoff, Shanghai departure control issued the standard clearance for the NHW-1A departure: climb and maintain 900 meters, then expect further clearance to 1,500 meters. The first officer, responsible for radio communications, acknowledged the instruction. But on the CVR, his readback is not "900 meters." It is "900 feet."</p>
+
+            <p>This was the first unit mismatch of the flight, and it passed without correction. 900 meters is 2,953 feet. 900 feet is 274 meters. The controller, speaking in English as required for international flights, had said "meters." The first officer had heard and repeated "feet." Neither the controller nor the captain flagged the discrepancy. In the noise of a departure — gear retraction, flap retraction, after-takeoff checklist, frequency changes — a single word in a readback can slide past unnoticed. This one did.</p>
+
+            <p>The aircraft continued climbing. At this point, the discrepancy was still survivable. The aircraft was below both 900 meters and 900 feet in the initial climb, and the actual altitude was increasing. The mismatch would only become fatal when the aircraft approached the next clearance limit — 1,500 meters — and the crew's understanding of that number diverged from reality by a factor of 3.28.</p>
+
+            <h3>The Fatal Number</h3>
+
+            <p>As the aircraft passed through approximately 3,000 feet (914 meters), the controller issued the next clearance: climb and maintain 1,500 meters. Again, the first officer acknowledged. Again, the word that came out of his mouth was not "meters." It was "feet."</p>
+
+            <p>On the flight deck, the captain was flying. The first officer was monitoring and communicating. The altitude on the primary flight display was increasing — 3,500 feet, 4,000 feet, 4,300 feet. To the captain, who had heard "1,500 feet" from his first officer, this was deeply wrong. The aircraft was already nearly three times the assigned altitude and still climbing. To the first officer, who had made the error, the altitude was also wrong — but for the opposite reason. He believed the target was 1,500 feet and that they had blown past it.</p>
+
+            <p>What neither man realized was that the actual assigned altitude — 1,500 meters, or 4,921 feet — was only about 400 feet above them. They were nearly at the correct altitude. A normal level-off would have been appropriate. Instead, the captain, believing he was 3,000 feet above his clearance, did what a captain does when he thinks his aircraft is busting an altitude: he pushed the nose down.</p>
+
+            <h3>The Dive</h3>
+
+            <p>The CVR captures the moment. The captain asks, roughly, what altitude they were cleared to. The first officer responds: "1,500 feet." The captain's response is not a question or a verification. It is an action. He pushes the control column forward, aggressively, commanding the aircraft from a climb into a descent.</p>
+
+            <p>The MD-11 is not a small aircraft. At this weight, it masses approximately 200 tons. When the nose drops, the speed builds. The rate of descent increases — from a normal 500 feet per minute to 2,000, then 4,000, then beyond. The ground proximity warning system (GPWS) begins to sound. "Sink rate. Pull up. Sink rate. Pull up." The warning repeats, urgent and automated, as the aircraft descends through 3,000 feet, 2,000 feet, 1,500 feet — the altitude the first officer had believed was the target.</p>
+
+            <p>But by now, the aircraft was not in a controlled descent. It was in an upset. The rapid pitch-over had generated negative g-forces — the kind that lift cargo pallets from their floor tracks and press them against the ceiling of the cargo hold. In a freighter carrying 68 tons of consolidated cargo, a negative-g event is not just uncomfortable. It is catastrophic. Pallets that had been secured for normal flight loads were now subject to forces in the opposite direction. Some broke free. The cargo shifted. The center of gravity moved. The aircraft, already in a steep dive, became unrecoverable.</p>
+
+            <p>Radar data shows the aircraft reaching a maximum descent angle of approximately 35 to 45 degrees below horizontal. At 16:04:35 — three minutes after takeoff — the MD-11 struck the ground in the Xinzhuang area of Shanghai's Minhang District, impacting a construction site and several residential buildings. The aircraft was destroyed. All three crew members were killed. On the ground, five people died and at least 36 were injured, four seriously. The impact registered as a minor seismic event.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE UNIT DIVIDE
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Why Aviation Has Two Altitude Systems</h2>
+
+            <p>To understand how this happens, you have to understand why the number was ambiguous in the first place. In almost every country in the world — the United States, the United Kingdom, Japan, Germany, France, Brazil, Australia, and nearly every ICAO member state — aircraft altitudes are spoken and flown in feet. Flight levels are expressed in hundreds of feet (FL350 means 35,000 feet). Altimeter settings are given in inches of mercury or hectopascals, but the altitude itself is feet.</p>
+
+            <p>There is a small group of exceptions. China. Russia. North Korea. Mongolia. Several former Soviet Central Asian states. In these countries, air traffic control issues altitude clearances in meters. The aircraft's altimeter — almost universally built to display feet, because that is what the global fleet uses — must be mentally converted by the crew. A controller says "1,500 meters." The pilot looks at an altimeter showing feet. The pilot must know that 1,500 meters is approximately 4,900 feet and level off accordingly.</p>
+
+            <p>This conversion is not difficult mathematically. One meter equals 3.28084 feet — a number derived from the 1959 agreement that fixed the international yard at exactly 0.9144 meters, making the foot exactly 0.3048 meters. You can <a href="/meters-to-feet">convert meters to feet</a> by multiplying by 3.28084, or <a href="/feet-to-meters">convert feet to meters</a> by dividing by the same number. 1,500 meters × 3.28084 = 4,921.26 feet. That is the number the captain should have been aiming for.</p>
+
+            <p>But mathematical simplicity and operational simplicity are not the same thing. In a cockpit during departure — with the gear coming up, the flaps coming up, the after-takeoff checklist running, the frequency changing, the controller talking, and the aircraft accelerating through 250 knots — a mental conversion that takes three seconds on the ground can take thirty seconds in the air, or not happen at all. And when the person responsible for the conversion is the first officer, and the person flying is the captain, and neither one verifies the other's number, the conversion becomes a single point of failure.</p>
+
+            <p>China's use of meters dates to its adoption of the metric system in the early 20th century and its subsequent standardization under the People's Republic. Russia's use of meters dates to the Soviet era. Both countries have, at various times, considered transitioning to feet for aviation to align with the global standard — and both have found the transition too disruptive to implement. The result is a permanent seam in the global airspace system: fly from Seoul to Shanghai, and the altitude unit changes mid-flight. Fly from Helsinki to Moscow, and it changes again. Every international crew operating into these countries carries, in effect, a unit-conversion problem as part of their normal workload.</p>
+
+            <p>For Korean Air crews in 1999, this was a daily reality. Korean airspace uses feet. Chinese airspace uses meters. A flight from Seoul to Shanghai requires the crew to switch mental frameworks on departure and arrival. The first officer on Flight 6316 had limited experience on Chinese routes. His automatic default — the unit that came to his lips without thinking — was feet. When the controller said "meters," his brain substituted the word he expected. It was not a translation error. It was a perception error: he heard the number 1,500 and attached the unit he was most familiar with.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE FULL ACCIDENT CHAIN
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>It Was Never Just the Unit</h2>
+
+            <p>The official investigation, conducted jointly by the Civil Aviation Administration of China (CAAC) and South Korea's Ministry of Construction and Transportation, concluded in June 2001 that the probable cause was "the flight crew's loss of altitude situational awareness resulting from altitude clearance wrongly relayed by the first officer and the crew's overreaction with abrupt flight control inputs." That phrasing is careful — and it contains two distinct failures, not one.</p>
+
+            <p>The first failure was the unit mismatch itself. The first officer heard "1,500 meters" and repeated "1,500 feet." This is the error that every retelling of the accident leads with, and it is real. But a unit mismatch alone does not crash an airplane. Aircraft exceed assigned altitudes every day. The standard response is a controlled descent or climb back to the correct altitude, a report to ATC, and a filing with the airline's safety department. It is a paperwork event, not a crash.</p>
+
+            <p>The second failure is what turned a paperwork event into a disaster: the captain's overreaction. When he believed he was 3,000 feet above his assigned altitude, he did not reduce power, lower the nose gently, and descend at a controlled 1,000 feet per minute. He pushed the control column forward with enough force to drive the aircraft into a 35-to-45-degree dive, generating negative g-forces that broke cargo pallets free and made the aircraft unrecoverable. The investigation's use of the word "overreaction" is not accidental. It is the technical description of a control input that was disproportionate to the situation.</p>
+
+            <p>Why would a 13,000-hour captain overreact? The answer lies in the cockpit culture of Korean Air in the late 1990s — a culture that was, by any objective measure, in crisis. Between 1970 and 1999, Korean Air suffered a series of fatal accidents that earned it the worst safety record of any major airline in the developed world. The causes were repeatedly traced to the same underlying factor: a rigid hierarchical cockpit culture in which junior officers were reluctant to question captains, and captains were accustomed to giving commands without challenge. This culture was not unique to Korean Air — it was documented in several Asian airlines of the era — but it was particularly acute at Korean Air, and it was repeatedly cited in accident reports.</p>
+
+            <p>On Flight 6316, this culture manifested in two ways. First, the first officer did not verify his own readback. He said "1,500 feet" and did not cross-check it against the controller's instruction or the published departure procedure. Second, when the captain asked what altitude they were cleared to, the first officer repeated "1,500 feet" with confidence, and the captain did not question it. There was no challenge, no verification, no moment where either man said "wait — did the controller say meters or feet?" In a cockpit with a stronger safety culture, that question would have been asked. In this cockpit, it was not.</p>
+
+            <p>The cargo shift was the final link in the chain. The MD-11F, like all freighters, carries its payload in palletized form, secured by nets and floor locks designed for normal flight loads — typically +2.5g to -1g. A rapid pitch-over generating negative g beyond the design limit can overcome those restraints. The investigation found that the aircraft's center of gravity shifted aft during the dive, consistent with cargo breaking free and moving toward the tail. This shift would have made the aircraft more stable in pitch — but in the wrong direction, deepening the dive and making recovery impossible. By the time the GPWS was screaming and the captain attempted to pull up, the aircraft's nose was too far down and the ground was too close.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE AFTERMATH
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>The Aftermath</h2>
+
+            <p>The crash of Flight 6316 was not an isolated event for Korean Air. It was part of a pattern. In 1997, Korean Air Flight 801 — a Boeing 747 — crashed into a hillside on approach to Guam, killing 228 of the 254 people on board. The cause was again a combination of pilot error, inadequate crew resource management, and a failure to verify altitude. In 1998, Korean Air Flight 8702 — another 747 — skidded off the runway in Seoul. In 1999, within months of the Shanghai crash, another Korean Air freighter — a Boeing 747 — crashed in London Stansted after takeoff, killing all four crew. The pattern was impossible to ignore.</p>
+
+            <p>In December 1999, Delta Air Lines and Air France — both SkyTeam partners — suspended their code-sharing agreements with Korean Air, citing safety concerns. The South Korean government launched a comprehensive audit of the airline. Korean Air responded with a sweeping safety overhaul: it brought in consultants from Boeing and Delta, retrained its entire pilot corps in crew resource management (CRM), revised its cockpit culture protocols, and began a decades-long process of rebuilding its safety reputation. By the 2010s, Korean Air's safety record had improved to the point where it was no longer an outlier among major airlines. But the cost of that improvement — measured in lives and aircraft — was enormous.</p>
+
+            <p>For the specific issue of altitude unit mismatch, the aviation industry's response was more incremental. China and Russia continued to use meters. International crews continued to convert. Some airlines introduced mandatory "altitude callouts" in both meters and feet when operating into metric airspace. Some required the first officer to verbally confirm the converted altitude before level-off. But the fundamental seam — the fact that two altitude systems coexist in global aviation — remains. Every day, thousands of pilots make the same mental conversion that the first officer of Flight 6316 got wrong. Most of them get it right. The system relies on them getting it right.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 LESSONS FOR ENGINEERS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>What This Accident Teaches Engineers</h2>
+
+            <p>The temptation, when reading about this accident, is to see it as an aviation problem — something that happens in cockpits, to pilots, in a domain most engineers will never enter. That is a mistake. The failure chain of Flight 6316 is identical, in structure, to failure chains in software engineering, mechanical engineering, manufacturing, and every other discipline where numbers cross interfaces. The units change. The labels are missing. The receiver trusts the sender. The sender trusts the receiver. Nobody verifies. And when the error is finally detected, the response is disproportionate because the person detecting it has lost situational awareness.</p>
+
+            <p>There are specific lessons here, and they are not abstract.</p>
+
+            <h3>1. A Number Without a Unit Is an Incomplete Number</h3>
+
+            <p>The controller said "1,500 meters." The first officer heard "1,500." The unit was the most important word in the sentence, and it was the one that got lost. In software, this is the equivalent of an API that returns a number without specifying whether it is in milliseconds or seconds, pounds or kilograms, Celsius or Fahrenheit. The Mars Climate Orbiter — lost the same year, in a strikingly similar unit mismatch between pound-force-seconds and newton-seconds — is the canonical software example. Flight 6316 is the aviation example. The lesson is the same: every number that crosses an interface must carry its unit, explicitly, in a form that cannot be dropped or misread. If your function returns a duration, return it as a Duration object, not a long. If your config file specifies a weight, require the unit as a separate field. Do not rely on convention. Convention is what the first officer relied on, and convention killed eight people.</p>
+
+            <h3>2. Readbacks Are Verification, Not Formality</h3>
+
+            <p>In aviation, a readback is supposed to be a verification mechanism: the receiver repeats the instruction back to the sender, and the sender confirms or corrects it. On Flight 6316, the readback was wrong — "900 feet" instead of "900 meters" — and the controller did not correct it. The readback had become a formality, a ritualized exchange that both parties performed without actually listening to the content. In engineering, the equivalent is the code review where the reviewer says "looks good" without reading the code, or the design review where the presenter's assumptions are accepted without challenge. Verification mechanisms only work if they are treated as verification. If a readback, a review, or a test is being performed as a formality, it is not protecting you. It is giving you false confidence.</p>
+
+            <h3>3. Situational Awareness Is the First Casualty of a Wrong Number</h3>
+
+            <p>The captain of Flight 6316 was not incompetent. He was a 13,000-hour pilot. But when he believed his aircraft was at 4,500 feet when it was supposed to be at 1,500 feet, he lost situational awareness. He could no longer trust his instruments, his first officer, or his own judgment. His response — an aggressive push-over — was the response of a man who believed he was in a much more serious situation than he actually was. The aircraft was, in reality, 400 feet below its target altitude and climbing normally. A gentle level-off would have solved everything. But the captain could not see that, because the number in his head was wrong.</p>
+
+            <p>In engineering, this is the equivalent of debugging from a false premise. If you believe the database is returning the wrong value when actually the unit conversion in your code is wrong, you will chase the wrong problem and make changes that make things worse. The first step in any anomaly response is to verify the premise. Before you push the nose down — before you restart the server, before you roll back the deployment, before you page the on-call engineer — ask: is the number I'm looking at in the unit I think it's in? On Flight 6316, nobody asked that question. The cost was eight lives.</p>
+
+            <h3>4. Overreaction Is a Failure Mode</h3>
+
+            <p>The investigation's use of the word "overreaction" is significant because it identifies a failure mode that engineers rarely discuss: the response to an error can be more damaging than the error itself. A unit mismatch is recoverable. A 45-degree dive at low altitude is not. In software, the equivalent is the engineer who, upon discovering a bug in production, force-pushes a fix without testing, takes down the entire site, and turns a minor issue into a major outage. In operations, it is the on-call engineer who restarts a database cluster without draining connections first, causing a cascading failure. The correct response to an anomaly is always proportional: assess, verify, then act with the minimum force necessary. The captain of Flight 6316 skipped the first two steps. Do not be that captain.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 CLOSING
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>The Number That Remains</h2>
+
+            <p>On a clear afternoon in April 1999, a 200-ton aircraft left Shanghai and flew for three minutes. In those three minutes, a controller said a number with a unit. A first officer repeated the number with a different unit. A captain trusted his first officer. The aircraft climbed. The captain looked at his altimeter and saw a number that did not match the number in his head. He pushed the nose down. The cargo shifted. The aircraft dove. Eight people died.</p>
+
+            <p>The number that remains, after all the analysis and all the reports and all the safety overhauls, is 3.28084. That is the number of feet in a meter. It is a defined constant, exact to the last digit, fixed by international treaty in 1959. It is also the number that the first officer of Flight 6316 failed to apply when he converted 1,500 meters to 1,500 feet instead of 4,921 feet. The math was always there. The conversion was always possible. The unit was always the most important word. It was just the word that nobody checked.</p>
+
+            <p>For engineers, the lesson is not "be careful with units." That is too vague, and it implies that care alone is sufficient. The lesson is more specific: design systems in which a unit cannot be dropped, cannot be misread, and cannot be assumed. Make the unit part of the type, part of the interface, part of the contract. Make it impossible to say "1,500" without also saying "meters" or "feet." And when something looks wrong — when the number on the screen does not match the number in your head — before you act, verify the unit. It may be the only thing standing between you and the ground.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 RELATED CONVERTERS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Related Converters</h2>
+            <p>The altitude unit mismatch at the heart of this accident comes down to a single conversion factor. These are the tools for getting it right:</p>
+            <ul>
+                <li><a href="/meters-to-feet">Meters to Feet</a> — the conversion the first officer should have performed: 1,500 m = 4,921 ft</li>
+                <li><a href="/feet-to-meters">Feet to Meters</a> — the reverse: 1,500 ft = 457 m, the altitude the crew mistakenly targeted</li>
+                <li><a href="/length/">Length &amp; Distance</a> — all length and distance converters in one place</li>
+                <li><a href="/speed/">Speed</a> — aviation speed units: knots, km/h, mph, m/s</li>
+            </ul>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 RELATED GUIDES
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Related Guides</h2>
+            <ul>
+                <li><a href="/guides/engineering-unit-conversion-mistakes">The 8 Most Expensive Unit Conversion Mistakes in Engineering History</a> — the Mars Climate Orbiter, Gimli Glider, Patriot Missile, and more. Flight 6316 belongs on that list.</li>
+                <li><a href="/guides/why-america-doesnt-use-metric-system">Why America Doesn't Use the Metric System</a> — the historical and political reasons the United States still uses feet, pounds, and Fahrenheit, and why the global aviation system is split between metric and imperial.</li>
+                <li><a href="/guides/the-1893-photocopy">The 1893 Photocopy</a> — how America's inch became a metric copy, and why the 1959 International Yard and Pound Agreement matters to every altitude conversion.</li>
+            </ul>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 SOURCES
+                 ═══════════════════════════════════════════════════════ -->
+                        <h2>Frequently Asked Questions</h2>
+            <p class="faq-q">Was the crash really caused by a meters-to-feet confusion?</p>
+            <p class="faq-a">Yes. The joint Sino-Korean investigation concluded the first officer relayed the 1,500-meter clearance as 1,500 feet, and the captain — believing the aircraft was 3,000 feet too high — pushed the nose down into an unrecoverable dive. The official probable cause was "loss of altitude situational awareness resulting from altitude clearance wrongly relayed by the first officer and the crew's overreaction with abrupt flight control inputs."</p>
+            <p class="faq-q">How many people died in the crash?</p>
+            <p class="faq-a">Eight — all three crew members and five people on the ground. At least 36 others were injured, four seriously. The aircraft was destroyed and several nearby buildings were damaged.</p>
+            <p class="faq-q">Why does aviation still use both meters and feet?</p>
+            <p class="faq-a">Almost every ICAO member state flies in feet (flight levels like FL350). China, Russia, North Korea, Mongolia, and several former Soviet states issue altitude clearances in meters. The aircraft's altimeter is built for feet, so crews flying into metric airspace must convert mentally — which is exactly where Flight 6316 failed.</p>
+            <p class="faq-q">What should engineers take from this accident?</p>
+            <p class="faq-a">The failure chain mirrors software unit bugs: a number crossing an interface without its unit, a readback that was never verified, and a disproportionate response. The lesson is to make the unit part of the type, the interface, and the contract — so a number can never be transmitted without its unit.</p>
+
+            <h2>Sources</h2>
+            <p>This account is based on the following primary and secondary sources:</p>
+            <ul>
+                <li>Joint Sino-Korean Investigation Report, Korean Air Cargo Flight KE 6316 Accident, June 2001 (CAAC / South Korea Ministry of Construction and Transportation)</li>
+                <li>Cockpit Voice Recorder (CVR) and Flight Data Recorder (FDR) transcripts, as cited in the investigation report</li>
+                <li>Shanghai Hongqiao Airport approach control radar data, April 15, 1999</li>
+                <li>Aviation Safety Network accident database, HL7373, April 15, 1999</li>
+                <li>NTSB and ICAO documentation on altitude unit conventions in international aviation</li>
+                <li>1959 International Yard and Pound Agreement, defining 1 foot = 0.3048 meters exactly</li>
+            </ul>
+
+        </article>
+    </main>
+
+    <script src="/main.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was the crash really caused by a meters-to-feet confusion?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The joint Sino-Korean investigation concluded the first officer relayed the 1,500-meter clearance as 1,500 feet, and the captain — believing the aircraft was 3,000 feet too high — pushed the nose down into an unrecoverable dive. The official probable cause was \"loss of altitude situational awareness resulting from altitude clearance wrongly relayed by the first officer and the crew's overreaction with abrupt flight control inputs.\"" }
+        },
+        {
+          "@type": "Question",
+          "name": "How many people died in the crash?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Eight — all three crew members and five people on the ground. At least 36 others were injured, four seriously. The aircraft was destroyed and several nearby buildings were damaged." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does aviation still use both meters and feet?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Almost every ICAO member state flies in feet (flight levels like FL350). China, Russia, North Korea, Mongolia, and several former Soviet states issue altitude clearances in meters. The aircraft's altimeter is built for feet, so crews flying into metric airspace must convert mentally — which is exactly where Flight 6316 failed." }
+        },
+        {
+          "@type": "Question",
+          "name": "What should engineers take from this accident?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The failure chain mirrors software unit bugs: a number crossing an interface without its unit, a readback that was never verified, and a disproportionate response. The lesson is to make the unit part of the type, the interface, and the contract — so a number can never be transmitted without its unit." }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "Foot (unit)",
+      "termCode": "foot (ft)",
+      "description": "The foot is a unit of length defined as exactly 0.3048 metres by the 1959 International Yard and Pound Agreement. It remains the standard unit for aircraft altitude in most of the world. This article explains the 1999 crash caused when a 1,500-metre clearance was misread as 1,500 feet.",
+      "url": "https://en.wikipedia.org/wiki/Foot_(unit)",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "EnginStack Engineering Units",
+        "url": "https://enginstack.com/"
+      }
+    }
+    </script>
+
+</body>
+</html>

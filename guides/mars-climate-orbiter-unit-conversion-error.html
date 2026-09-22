@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s | EnginStack</title>
+    <meta name="description" content="Mars Climate Orbiter's unit conversion error: pound-force-seconds (lbf·s) written where newton-seconds (N·s) were required, understating every thruster firing by 4.4482216152605× — and the spacecraft arrived at 57 km instead of 226 km.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error">
+    <meta property="og:title" content="Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s | EnginStack">
+    <meta property="og:description" content="Each system was internally consistent. The contract between them was not — and a $327.6 million mission flew 169 km too low.">
+    <meta property="og:url" content="https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s">
+    <meta name="twitter:description" content="Mars Climate Orbiter: a correct number in the wrong unit, an interface with no unit field, and 169 km of missing altitude.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s",
+      "description": "The full story of NASA's Mars Climate Orbiter, lost on September 23, 1999 — how Lockheed Martin's SM_FORCES ground software wrote thruster impulse in pound-force-seconds into a file whose interface specification required newton-seconds, why the 4.4482216152605× underestimate stayed invisible to Doppler tracking for nine and a half months, and the four months in which end-to-end testing would have caught it.",
+      "author": { "@type": "Organization", "name": "EnginStack" },
+      "publisher": { "@type": "Organization", "name": "EnginStack" },
+      "url": "https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error"
+      },
+      "datePublished": "2026-09-20",
+      "inLanguage": "en"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Mars Climate Orbiter Unit Conversion Error", "item": "https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@enginstack.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/guides/">Guides</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Unit Disasters</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s</h1>
+            <p>September 23, 1999. At 09:00:46 UTC a spacecraft the size of a washing machine fired its main engine behind the planet Mars, beginning a sixteen-minute burn meant to slow it into orbit. Four minutes of telemetry arrived, then Mars blocked the signal — forty-nine seconds earlier than predicted. The blackout was expected to last twenty-one minutes; the deep-space antennas in California, Australia and Spain waited out all twenty-one and heard nothing. The Mars Climate Orbiter had been flying for nine and a half months toward a point 226 kilometres above the Martian surface. It arrived at 57.</p>
+            <p class="page-meta">~16 min read &nbsp;·&nbsp; Published September 20, 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified against the NASA Mishap Investigation Board Phase I report and JPL navigation analyses</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="seo-section guide-content">
+
+            <p>Nothing broke. That is the part worth sitting with. There was no failed bearing, no cracked tank, no software crash, no leak, no dead sensor. Every component of the mission did precisely what it was built to do, and both systems either side of the failed interface produced numbers that were internally consistent: real pound-force-seconds on one side, a correct reading of newton-seconds on the other. What neither satisfied was the contract joining them. The loss happened in the space between two teams who each believed they were speaking the same language, and the word they disagreed about was not a word at all — it was the unit attached to it.</p>
+
+            <p>This is the accident that made "unit error" a phrase spacecraft engineers say out loud, and it is a strict sibling to the <a href="/guides/gimli-glider-kg-lb-fuel-error">Gimli Glider</a> sixteen years earlier: the same failure shape, a right number carrying a wrong unit, in a machine with no way to complain. But the Gimli Glider at least had a human holding a pencil who could have caught it. The Mars Climate Orbiter had a file. The file contained no unit field. And the error it carried was not 2.2× but 4.4482216152605×, applied not once but hundreds of times, in a direction that no instrument on Earth could observe.</p>
+
+            <div style="background:#f0f7ff; border:1px solid #bfdbfe; border-radius:10px; padding:1em 1.25em; margin:1.6em 0;">
+                <p style="margin:0; font-weight:700; color:#1e40af;">Quick answer</p>
+                <p style="margin:0.4em 0 0;">The ground software <strong>SM_FORCES</strong>, supplied by Lockheed Martin, wrote its thruster-impulse results in <strong>pound-force-seconds (lbf·s)</strong> instead of the <strong>newton-seconds (N·s)</strong> required by the project's Software Interface Specification. The navigation software reading that file assumed N·s, so the modelled impulse of every AMD (angular momentum desaturation) thruster firing was <strong>underestimated by a factor of 4.4482216152605</strong>. Across nine and a half months the trajectory error accumulated until the orbiter reached an altitude of <strong>57 km</strong> instead of 226 km, well below the 80 km at which it could survive.</p>
+                <div class="table-scroll" style="margin-top:0.9em;">
+                <table style="margin:0; font-size:0.86em;">
+                    <tbody>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Failure</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">Unit mismatch in a ground trajectory model — and no unit field in the data file to expose it</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Unit written</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">lbf·s — pound-force-seconds (US customary)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Unit required</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">N·s — newton-seconds (SI), per the Software Interface Specification</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Factor</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">4.4482216152605 — exact, from 0.45359237 kg × 9.80665 m/s²</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Target periapsis</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">226 km — set by Trajectory Correction Maneuver 4, executed 15 September 1999</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Actual periapsis</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">57 km — reconstructed after loss; survival threshold about 80 km</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Failure boundary</strong></td>
+                            <td style="padding:0.32em 0;">SM_FORCES → AMD file → navigation software</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE CONVERSION
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>The Conversion That Was Never Performed</h2>
+
+            <p>Start with the number, because the number is where most retellings of this story go soft. The Mars Climate Orbiter Mishap Investigation Board, in its Phase I report of 10 November 1999, described the effect as "a factor of 4.45." That figure has been quoted ever since, and it is close enough for a headline — but it is not the value any engineer would type into a calculator, and the gap between the two is itself instructive.</p>
+
+            <p>Pound-force is defined by two other definitions stacked together: the international avoirdupois pound of the <a href="/guides/why-america-doesnt-use-metric-system">1959 Yard and Pound Agreement</a>, fixed at exactly <strong>0.45359237 kilograms</strong>, multiplied by <a href="/newtons-to-kgf">standard gravity</a>, fixed at exactly <strong>9.80665 m/s²</strong>. Multiply those and you get the exact conversion:</p>
+
+            <p><strong>0.45359237 kg × 9.80665 m/s² = 4.4482216152605 N</strong> &nbsp;&nbsp;(exact, by definition)</p>
+
+            <p>The seconds cancel. This is the technical point that almost every popular account of the Mars Climate Orbiter skips, and it matters because it is the reason the error is so easy to mislabel. The unit that was written wrongly was not "pounds" — it was <em>pound-force-seconds</em>, a unit of <strong>impulse</strong>, not of force. A second of pound-force and a second of newton-force both last one second; the second is identical on both sides. What differed was the force being multiplied by it. So the conversion factor for the impulse is exactly the conversion factor for the force, and it is 4.4482216152605:</p>
+
+            <p><strong>1 lbf·s = 4.4482216152605 N·s</strong> &nbsp;&nbsp;&nbsp; <strong>1 N·s = 0.2248089431 lbf·s</strong></p>
+
+            <p>Which makes the board's "4.45" a rounding to three significant figures — a value <strong>0.040%</strong> above the exact factor. That rounding has cost the accident a certain amount of clarity over the years, because it invites the wrong lesson. Nobody chose 4.45 over 4.4482216152605. Nobody chose anything. The factor was never applied at all. The error is not a precision problem that better rounding would have fixed; it is a <strong>missing multiplication</strong>, the most complete kind of error there is, sitting at a boundary where no one was checking.</p>
+
+            <h3>What the file actually said</h3>
+            <p>The Mars Climate Orbiter Mishap Investigation Board was unambiguous about where the failure lived. Root cause: "the failure to use metric units in the coding of a ground software file, 'Small Forces,' used in trajectory models." The program was called <strong>SM_FORCES</strong>. Its output was written into another file, the <strong>AMD file</strong> — angular momentum desaturation — which the JPL navigation team then read as input to its trajectory model. The Software Interface Specification (SIS) governing that file defined both its format and its units, and it called for newton-seconds.</p>
+
+            <p>SM_FORCES wrote pound-force-seconds. The SIS was not followed. And here is the detail that turns a coding mistake into a systems failure: <strong>the file carried no unit field</strong>. It was a column of numbers with a header describing their arrangement, not their meaning. The navigation software had no way to test what it was reading, and no reason to doubt it. It applied those numbers as newton-seconds and updated the spacecraft's predicted position — hundreds of times — understating the impulse of each firing by a factor of 4.4482216152605.</p>
+
+            <figure style="margin:1.6em 0;">
+                <svg viewBox="0 0 680 470" role="img" aria-label="Diagram of the Mars Climate Orbiter unit error: two correct software systems meeting at a file with no unit field" style="display:block; width:100%; height:auto;">
+                    <text x="20" y="30" font-family="Georgia, serif" font-size="19" font-weight="bold" fill="#111827">Two correct programs, one wrong interface</text>
+
+                    <!-- top: AMD file -->
+                    <rect x="200" y="52" width="280" height="66" rx="10" fill="#1f2937"/>
+                    <text x="340" y="78" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">AMD file</text>
+                    <text x="340" y="99" font-family="Arial, sans-serif" font-size="12" fill="#fca5a5" text-anchor="middle">numbers only — no unit field</text>
+
+                    <!-- left branch: spec -->
+                    <line x1="270" y1="118" x2="270" y2="150" stroke="#2563eb" stroke-width="2"/>
+                    <rect x="60" y="150" width="230" height="86" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+                    <text x="175" y="174" font-family="Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#1e40af" text-anchor="middle">WHAT THE SPEC SAID</text>
+                    <text x="175" y="196" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">SIS requires N·s</text>
+                    <text x="175" y="216" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">newton-seconds (SI)</text>
+
+                    <!-- right branch: what was written -->
+                    <line x1="410" y1="118" x2="410" y2="150" stroke="#c81e1e" stroke-width="2"/>
+                    <rect x="390" y="150" width="230" height="86" rx="8" fill="#fdecea" stroke="#c81e1e" stroke-width="1.5"/>
+                    <text x="505" y="174" font-family="Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#b91c1c" text-anchor="middle">WHAT SM_FORCES WROTE</text>
+                    <text x="505" y="196" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">lbf·s</text>
+                    <text x="505" y="216" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">pound-force-seconds</text>
+
+                    <!-- converge -->
+                    <line x1="175" y1="236" x2="175" y2="262" stroke="#cbd5e1" stroke-width="2"/>
+                    <line x1="505" y1="236" x2="505" y2="262" stroke="#cbd5e1" stroke-width="2"/>
+                    <line x1="175" y1="262" x2="505" y2="262" stroke="#cbd5e1" stroke-width="2"/>
+                    <line x1="340" y1="262" x2="340" y2="290" stroke="#c81e1e" stroke-width="2"/>
+
+                    <rect x="140" y="290" width="400" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+                    <text x="340" y="314" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1f2937" text-anchor="middle">NAVIGATION SOFTWARE</text>
+                    <text x="340" y="334" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">reads every value as N·s — as the spec required</text>
+
+                    <line x1="340" y1="350" x2="340" y2="378" stroke="#c81e1e" stroke-width="2"/>
+                    <rect x="110" y="378" width="460" height="66" rx="8" fill="#b91c1c"/>
+                    <text x="340" y="403" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">TRAJECTORY EFFECT UNDERSTATED 4.4482216152605×</text>
+                    <text x="340" y="426" font-family="Arial, sans-serif" font-size="12.5" fill="#fecaca" text-anchor="middle">226 km targeted → 57 km actual</text>
+
+                    <text x="20" y="462" font-family="Arial, sans-serif" font-size="12.5" fill="#4b5563">The spacecraft's own AMD software used metric units and was correct. The mismatch existed on the ground only.</text>
+                </svg>
+            </figure>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 IMPULSE
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Impulse Is Not Force: Why a Thruster Is Rated in N·s</h2>
+
+            <p>To see why this particular quantity was so fragile, you have to understand what the spacecraft was doing out there, and it was not firing its engine. The orbiter carried reaction wheels — heavy discs spun by electric motors to point the spacecraft without burning propellant. Push a wheel one way and the body turns the other, which is how a satellite changes attitude without wasting fuel. But a wheel can only spin so fast, and once it saturates it stops providing torque. The stored momentum has to be dumped, and the only way to dump it in vacuum is to fire small thrusters and let them carry the momentum away. Engineers call this <strong>angular momentum desaturation</strong>, or AMD.</p>
+
+            <p>An AMD event is not a steady burn. It is a burst of short pulses from small attitude thrusters, some of them firing in tens of milliseconds. For each pulse the flight team's trajectory model needs a number called the <strong>impulse bit</strong> — the momentum one minimum-length firing delivers, supplied by the thruster manufacturer. With that and the firing count you can compute the velocity change the spacecraft actually received:</p>
+
+            <p><strong>Δv = (impulse bit × number of pulses) ÷ spacecraft mass</strong></p>
+
+            <p>Run that in <a href="/newtons-to-lbs">newtons</a> and you get metres per second. Run it with a pound-force-second silently substituted for a newton-second and your Δv comes out 4.4482216152605 times too small — not wrong in arithmetic, wrong in meaning. The NASA board phrased it precisely: "Immediately after the thruster firing, the velocity change (Δv) is computed using an impulse bit and thruster firing time for each of the thrusters." The impulse bit is where the unit lived. It is a single scalar in a table, and it was the only place in the chain where the error needed to hide.</p>
+
+            <p>What made this lethal rather than merely embarrassing was the <strong>rate</strong>. Pre-flight analysis predicted AMD events would be needed about once a week during cruise. The solar array was mounted asymmetrically relative to the spacecraft body, shifting the centre of pressure away from the centre of mass, and sunlight pushing on that offset produced steady torque that filled the wheels far faster than planned. The actual rate was <strong>10 to 20 events per week</strong> — an order of magnitude more than designed for. A daily 180° spacecraft rotation had originally been scheduled, which would have swung the solar pressure torque back and forth and largely cancelled the momentum buildup; those daily turns were deleted from the operations plan before launch. So the one mechanism that would have suppressed the AMD rate was removed, and the effect that was being modelled with the wrong unit was multiplied by ten.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 INVISIBILITY
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>The Error Nothing Could See</h2>
+
+            <p>Here is the part of the investigation that deserves more attention than it gets. The navigation team was not flying blind. JPL tracked the orbiter continuously using the Deep Space Network, measuring the <a href="/mhz-to-ghz">Doppler shift</a> of the radio carrier and the round-trip light time to determine where the spacecraft was and how fast it was moving. They had good data. They simply could not see this particular effect in it.</p>
+
+            <p>Two geometric facts conspired. First, thrust during an AMD event pointed mostly <strong>perpendicular to the line of sight</strong> between Earth and spacecraft. Doppler tracking is exquisitely sensitive to motion along the line of sight and nearly blind to motion across it — so the component of thrust that was mis-modelled was the component the tracking could least resolve. Second, the thrust was also mostly <strong>perpendicular to the spacecraft's flight path</strong>. A sideways push on a trajectory does not change speed much; it changes the shape and the altitude of the resulting orbit. The error therefore did not show up as a velocity anomaly. It showed up, much later, as the spacecraft arriving at the wrong height.</p>
+
+            <p>The navigators did notice something was off. Approaching Mars they ran orbit determination three ways — Doppler data only, range data only, and both together — and compared the answers for consistency. The three did not agree. The Doppler-only solutions consistently indicated a <strong>closer</strong> approach to the planet; the range-only solutions indicated a <strong>more distant</strong> one. That disagreement is the signature of a systematic error rather than random noise, and it was recorded. But the AMD data, once it was usable at all, had been assigned relatively large error bars in the orbit determination because its quality was already known to be poor. The uncertainty was acknowledged and then absorbed. The real error was larger than the error bar that was supposed to contain it.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE FOUR MONTHS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Four Months of Warning That Arrived Too Late</h2>
+
+            <p>The AMD files were not even usable for the first four months of cruise. Multiple file-format errors and incorrect quaternion specifications — quaternions carry the spacecraft's attitude data — meant the navigation team could not process them at all. Instead they received emails from the contractor telling them when an AMD event had occurred, and tried to model the trajectory perturbation themselves from timing alone. Four months went into fixing the files. It was not until <strong>April 1999</strong> that the correctly formatted AMD files could be used.</p>
+
+            <p>Within about a week of finally running them, it became apparent that the files contained anomalous data suggesting the desaturation events were being underestimated. The root cause was now one focused investigation away — and it was not found. The board noted that the early file-format problems had themselves contributed to the mission's loss, by burning the time the team would have needed to chase the anomaly down properly.</p>
+
+            <p>At least two navigators raised concerns about the discrepancy between calculated and measured position. Their concerns were <strong>dismissed because they had not filled out the correct form</strong> to document them. NASA's own report is that dry about it. The organisation had a procedure for raising a technical concern, the concern did not travel through the procedure, and so the concern did not travel at all.</p>
+
+            <p>A meeting was then convened — trajectory software engineers, navigators, propulsion engineers, managers — to consider executing <strong>Trajectory Correction Maneuver 5</strong>, a contingency burn that was already in the plan and could have raised the arrival altitude. Attendees remember agreeing to do it. TCM-5 was never performed. The reasons given were schedule risk, the effect on the Mars Polar Lander relay sequence, and the fact that the procedures for the maneuver had never been developed in advance. The board later concluded that executing it might have saved the spacecraft.</p>
+
+            <p>Edward Weiler, NASA's associate administrator for space science, put the finding where it belonged: "People sometimes make errors. The problem here was not the error, it was the failure of NASA's systems engineering, and the checks and balances in our processes to detect the error. That's why we lost the spacecraft." The board's chief investigator, Arthur Stephenson, was more specific: "Had we done end-to-end testing, we believe this error would have been caught."</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE NUMBERS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>226, 170, 110, 57</h2>
+
+            <p>Four numbers tell the whole descent, and they arrived in sequence over the last two weeks of the mission's life.</p>
+
+            <figure style="margin:1.6em 0;">
+                <svg viewBox="0 0 680 430" role="img" aria-label="Chart of the Mars Climate Orbiter's predicted arrival altitude falling from 226 km to 57 km" style="display:block; width:100%; height:auto;">
+                    <text x="20" y="30" font-family="Georgia, serif" font-size="19" font-weight="bold" fill="#111827">Targeted 226 km. Arrived 57 km.</text>
+                    <text x="20" y="52" font-family="Arial, sans-serif" font-size="12.5" fill="#6b7280">each bar length is proportional to altitude above the Martian surface</text>
+
+                    <!-- survival line 80 km -->
+                    <line x1="120" y1="66" x2="120" y2="336" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="5 4"/>
+                    <text x="128" y="366" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#b91c1c">80 km — minimum survivable altitude</text>
+
+                    <!-- 226 -->
+                    <text x="110" y="96" font-family="Arial, sans-serif" font-size="12.5" fill="#374151" text-anchor="end">TCM-4 target</text>
+                    <rect x="120" y="82" width="471" height="26" rx="4" fill="#1d4ed8"/>
+                    <text x="601" y="100" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1e40af">226 km</text>
+
+                    <!-- 150-170 -->
+                    <text x="110" y="146" font-family="Arial, sans-serif" font-size="12.5" fill="#374151" text-anchor="end">1 week after TCM-4</text>
+                    <rect x="120" y="132" width="354" height="26" rx="4" fill="#3b82f6"/>
+                    <rect x="474" y="132" width="42" height="26" rx="4" fill="#93c5fd"/>
+                    <text x="526" y="150" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1e40af">150–170 km</text>
+
+                    <!-- 110 -->
+                    <text x="110" y="196" font-family="Arial, sans-serif" font-size="12.5" fill="#374151" text-anchor="end">24 h before arrival</text>
+                    <rect x="120" y="182" width="229" height="26" rx="4" fill="#f59e0b"/>
+                    <text x="359" y="200" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#b45309">110 km</text>
+
+                    <!-- 57 -->
+                    <text x="110" y="246" font-family="Arial, sans-serif" font-size="12.5" fill="#374151" text-anchor="end">actual (post-loss)</text>
+                    <rect x="120" y="232" width="119" height="26" rx="4" fill="#b91c1c"/>
+                    <text x="249" y="250" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#b91c1c">57 km</text>
+                    <line x1="239" y1="232" x2="239" y2="310" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+                    <rect x="120" y="284" width="471" height="26" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+                    <text x="132" y="302" font-family="Arial, sans-serif" font-size="12.5" fill="#7f1d1d">169 km below target — and 23 km below the line at which the spacecraft could survive</text>
+
+                    <text x="20" y="396" font-family="Arial, sans-serif" font-size="12.5" fill="#4b5563">Every step downward was explained away in real time. Only the last one was measured after the fact.</text>
+                    <text x="20" y="416" font-family="Arial, sans-serif" font-size="12.5" fill="#4b5563">The gap between 110 km and 57 km is the modelling error the tracking data could not resolve.</text>
+                </svg>
+            </figure>
+
+            <p><strong>226 km</strong> was the target. Trajectory Correction Maneuver 4 was computed on 8 September 1999 and executed on 15 September, aimed at putting the orbiter at that altitude for the orbit insertion burn on the 23rd. 226 km is <a href="/km-to-miles">140 miles</a> — close enough to Mars for the burn to capture the spacecraft, high enough to stay clear of the atmosphere it was supposed to skim through for weeks of aerobraking.</p>
+
+            <p><strong>150 to 170 km</strong> is where the prediction went during the week after TCM-4. The navigation team saw the modelled arrival altitude dropping and flagged it. The response was not to suspect a systematic error in the thrust model, because the thrust model's numbers were all internally consistent, and the AMD data had already been assigned wide error bars. The response was that a trajectory correction might be needed.</p>
+
+            <p><strong>110 km</strong> is where the solution stood twenty-four hours before arrival, once Mars's gravity began dominating the dynamics and the orbit fits sharpened. That was thirty kilometres above the 80 km the spacecraft was believed able to survive during the passage. It was uncomfortably tight and, according to the engineers' own models, still survivable.</p>
+
+            <p><strong>57 km</strong> is where it actually was. That number could only be computed after the fact, using the last telemetry received plus corrected AMD data, and it is the honest measure of how wrong the trajectory model had been. At 57 km, atmospheric density would have been far higher than the orbiter was designed to withstand. The board's reconstruction concluded the spacecraft either broke up from aerodynamic stress, or skipped violently off the upper atmosphere and was thrown back into a solar orbit — lost either way. The signal was lost at 09:04:52 UTC on 23 September 1999, when Mars rose between the spacecraft and Earth. It never came back. NASA searched for forty-eight hours and declared the orbiter lost on 25 September.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 COST
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>What the Loss Actually Cost — and Why the Figure Keeps Changing</h2>
+
+            <p>The number most often attached to this accident is $327.6 million, and it is accurate, but it is answering a different question than people think. That figure covers the whole <strong>Mars Surveyor '98</strong> programme, which funded two spacecraft: the Climate Orbiter and the Mars Polar Lander. NASA's breakdown is $193.1 million for spacecraft development, $91.7 million for launch, and $42.8 million for mission operations. If you want the orbiter alone, the figure usually cited is around <strong>$125 million</strong>.</p>
+
+            <p>The distinction matters more than a footnote usually would, because the Mars Polar Lander was also lost — on 3 December 1999, ten weeks later — and it is routinely folded into the same story. It should not be. The Polar Lander failed for an unrelated reason: spurious signals from its landing-leg sensors during descent were interpreted as touchdown, shutting the engines off while the spacecraft was still high above the surface. No unit error was involved. Two missions, two failures, two entirely separate causes — but one shared programme budget, one shared "faster, better, cheaper" management philosophy, and one shared inquiry culture that people have been merging into a single narrative ever since. Ranking these mistakes by cost requires knowing which pot of money you are dividing.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 LESSONS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>What the Orbiter Teaches Engineers</h2>
+
+            <p>The Mars Climate Orbiter is the standard example in every talk about unit discipline, usually reduced to "label your units." That advice is correct and also too small, because everyone involved in this mission did label their units — in the specification, in the requirements documents, in the review packages. The labels existed. The failure was that the labels were not <em>in the data</em>.</p>
+
+            <p>The first lesson is therefore about interfaces rather than arithmetic. A file format that transmits numbers without transmitting their units is an incomplete contract, and a contract with a missing term cannot be tested. Neither SM_FORCES nor the navigation software did anything wrong in isolation. Each was correct by its own internal standard, and the interface between them had no way to express disagreement. When two correct systems can be wrong together, the defect is in the boundary, and it belongs to whoever owns the boundary — which in practice means the systems engineer, not the coder. The board's Phase I report lists eight contributing causes, and the first is not "someone used the wrong unit." It is that no verification step was checking the physical units of the data being consumed, only its numeric plausibility.</p>
+
+            <p>The second lesson is about where unit errors are invisible, and this is the one worth carrying into your own work. The 4.4482216152605 factor was applied in a direction that the measuring instruments could not see: perpendicular to the line of sight, perpendicular to the flight path. If the same error had occurred in the main engine burn, Doppler tracking would have screamed on the first maneuver, because that thrust is aimed along the direction being measured. The general rule that falls out of this accident is uncomfortable. <strong>A unit error is most likely to survive when it hides in the component of the physics you are least capable of observing</strong> — the cross-track component, the off-axis term, the small correction you apply for housekeeping, the loss factor nobody measures directly. If you are going to be sloppy with units anywhere, that is where it will go undetected. Do the opposite: that is exactly where the unit needs to be checked hardest.</p>
+
+            <p>The third lesson is that disagreement between independent measurements is evidence, not noise. The Doppler-only orbit solution and the range-only orbit solution disagreed about how close the spacecraft would pass to Mars, and both were plotted and compared — that comparison was built into the process. What was missing was the next step: asking why two independent methods would differ in a consistent direction. A consistent disagreement in a consistent direction is the fingerprint of a systematic error, and a systematic error that is not in your measurement equipment is in your model. The team treated the spread as uncertainty to be carried forward. It was information to be chased down.</p>
+
+            <p>And the fourth lesson is that the window for catching this was open for months and closed only gradually. Four months were lost to unusable files. In April 1999 the anomaly was visible within a week of the data becoming readable. Two navigators raised concerns and were blocked by a form. A meeting agreed on a corrective burn and no burn occurred. Every one of these was a survivable failure on its own; lined up in sequence, they guaranteed the outcome. The board counted eight contributing causes for a reason — the shape of this accident is not a single missing multiplication but a series of organisations declining, one after another, to act on information they already had.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 RELATED CONVERTERS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Related Converters</h2>
+            <p>The whole accident turns on one conversion between two units of impulse. These are the tools for working it out precisely:</p>
+            <ul>
+                <li><a href="/newtons-to-lbs">Newtons to lbs</a> — 4.4482216152605 N is exactly 1 lbf; the factor the ground software omitted</li>
+                <li><a href="/lbs-to-newtons">lbs to Newtons</a> — the reverse direction: 1 lbf = 4.4482216152605 N; apply it for one second and you have the newton-second</li>
+                <li><a href="/newtons-to-kgf">Newtons to kgf</a> — standard gravity 9.80665 m/s², the second half of the pound-force definition</li>
+                <li><a href="/kgf-to-lbf">kgf to lbf</a> — the two "gravitational" force units, and why both depend on the same constant</li>
+                <li><a href="/force/">Force</a> — newtons, pound-force, kilogram-force and dynes in one place</li>
+                <li><a href="/kg-to-lbs">kg to lbs</a> — 0.45359237 exactly, the definition this entire failure traces back to</li>
+                <li><a href="/km-to-miles">km to miles</a> — the 226 km target (140 mi) and the 57 km the orbiter actually reached (35 mi)</li>
+                <li><a href="/mhz-to-ghz">MHz to GHz</a> — the X-band downlink the Deep Space Network used to watch a spacecraft it could not see go sideways</li>
+            </ul>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 RELATED GUIDES
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Related Guides</h2>
+            <ul>
+                <li><a href="/guides/force-conversion-guide">Force Conversion Guide</a> — the anchor constants behind newtons, pound-force and kilogram-force, including the 4.4482216153 value at the centre of this accident.</li>
+                <li><a href="/guides/gimli-glider-kg-lb-fuel-error">Gimli Glider: The 22,300 kg That Arrived as 22,300 lb</a> — the same failure shape sixteen years earlier, and the reason a right number with a wrong unit is more dangerous than a wrong number.</li>
+                <li><a href="/guides/engineering-unit-conversion-mistakes">The 8 Most Expensive Unit Conversion Mistakes in Engineering History</a> — the Mars Climate Orbiter alongside the Patriot Missile, the Vasa, Deepwater Horizon and four more.</li>
+                <li><a href="/guides/korean-air-cargo-6316-altitude-unit-mismatch">Korean Air Cargo 6316: When 1,500 Meters Became 1,500 Feet</a> — the same class of altitude confusion, in an aircraft on approach rather than a spacecraft on arrival.</li>
+                <li><a href="/guides/concorde-4590-titanium-strip">Concorde 4590: The 43 cm of Titanium That Grounded Mach 2</a> — how a centimetre-scale measurement error removed an aircraft from service.</li>
+            </ul>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 FAQ
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Frequently Asked Questions</h2>
+
+            <p class="faq-q">What caused the loss of the Mars Climate Orbiter?</p>
+            <p class="faq-a">A ground software program called SM_FORCES, written by Lockheed Martin, wrote thruster-impulse values in pound-force-seconds (lbf·s) into the AMD file. The project's Software Interface Specification required newton-seconds (N·s), and the JPL navigation software read them as N·s. The modelled impulse of every angular momentum desaturation firing was therefore underestimated by a factor of 4.4482216152605, and the accumulated trajectory error brought the spacecraft to 57 km instead of the targeted 226 km, below the 80 km it could survive.</p>
+
+            <p class="faq-q">Is 1 lbf·s exactly 4.4482216152605 N·s?</p>
+            <p class="faq-a">Yes, and it is exact by definition rather than measurement. Pound-force is the weight of one international avoirdupois pound under standard gravity, so it equals 0.45359237 kg × 9.80665 m/s² = 4.4482216152605 newtons. Because the "per second" is identical on both sides, the same factor converts pound-force-seconds to newton-seconds. Going the other way, 1 N·s = 0.2248089431 lbf·s.</p>
+
+            <p class="faq-q">Why do reports say the error was a factor of 4.45 and not 4.4482216152605?</p>
+            <p class="faq-a">The Mishap Investigation Board's Phase I report rounded the conversion to three significant figures, writing "a factor of 4.45." The exact value is 4.4482216152605, so the reported figure is about 0.040% high. The rounding does not affect the conclusion — the real problem was not precision but the complete absence of the multiplication.</p>
+
+            <p class="faq-q">Why didn't the navigation team notice the trajectory was wrong?</p>
+            <p class="faq-a">The mis-modelled thrust pointed mostly perpendicular to the Earth-spacecraft line of sight, so Doppler tracking — which measures motion along that line — could barely see it. It was also perpendicular to the flight path, so it changed the arrival altitude rather than the speed. The team did detect an inconsistency between Doppler-only and range-only orbit solutions, but the AMD data already carried wide error bars, and the discrepancy was absorbed as uncertainty instead of being investigated as a systematic error.</p>
+
+            <p class="faq-q">How much did the Mars Climate Orbiter cost?</p>
+            <p class="faq-a">NASA's $327.6 million figure covers the entire Mars Surveyor '98 programme, which included both the Climate Orbiter and the Mars Polar Lander: $193.1 million for spacecraft development, $91.7 million for launch, and $42.8 million for mission operations. The orbiter alone is usually cited at about $125 million. The Polar Lander was lost ten weeks later for a completely unrelated reason, so the two failures share a budget but not a cause.</p>
+
+            <p class="faq-q">Could the mission have been saved?</p>
+            <p class="faq-a">The Mishap Investigation Board concluded that executing Trajectory Correction Maneuver 5 before arrival might have raised the periapsis altitude enough to save the spacecraft. A meeting of engineers and managers agreed to perform it, and it was never carried out — procedural planning for the maneuver had not been done in advance, and there were concerns about risk and about disrupting the Mars Polar Lander relay sequence.</p>
+
+            <h2>Sources</h2>
+            <p><strong>Primary sources</strong></p>
+            <ul>
+                <li>NASA, <a href="https://llis.nasa.gov/llis_lib/pdf/1009464main1_0641-mr.pdf" rel="noopener">Mars Climate Orbiter Mishap Investigation Board Phase I Report</a> (10 November 1999) — root cause, the SM_FORCES/AMD file finding, the eight contributing causes, and the geometry that kept the error invisible</li>
+                <li>NASA Jet Propulsion Laboratory, <em>The Evolution of Deep Space Navigation: 1989–1999</em> (AAS 08-311) — AMD event rates, TCM-4 and the TCM-5 contingency, and the post-loss reconstruction of the 57 km periapsis</li>
+                <li>NASA Jet Propulsion Laboratory, <a href="https://www.jpl.nasa.gov/news/mars-climate-orbiter-team-finds-likely-cause-of-loss/" rel="noopener">Mars Climate Orbiter Team Finds Likely Cause of Loss</a> (1999) — the agency's contemporaneous statement of cause</li>
+            </ul>
+            <p><strong>Secondary references</strong></p>
+            <ul>
+                <li>IEEE Spectrum, "Why the Mars Probe Went Off Course" (1999) — interviews with the mission team and NASA management</li>
+                <li>1959 International Yard and Pound Agreement (1 lb = 0.45359237 kg) and the CGPM standard gravity of 9.80665 m/s², the two definitions behind the exact 4.4482216152605 factor</li>
+            </ul>
+
+        </article>
+    </main>
+
+    <script src="/main.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What caused the loss of the Mars Climate Orbiter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A ground software program called SM_FORCES, written by Lockheed Martin, wrote thruster-impulse values in pound-force-seconds (lbf·s) into the AMD file. The project's Software Interface Specification required newton-seconds (N·s), and the JPL navigation software read them as N·s. The modelled impulse of every angular momentum desaturation firing was therefore underestimated by a factor of 4.4482216152605, and the accumulated trajectory error brought the spacecraft to 57 km instead of the targeted 226 km, below the 80 km it could survive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 1 lbf·s exactly 4.4482216152605 N·s?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is exact by definition rather than measurement. Pound-force is the weight of one international avoirdupois pound under standard gravity, so it equals 0.45359237 kg × 9.80665 m/s² = 4.4482216152605 newtons. Because the \"per second\" is identical on both sides, the same factor converts pound-force-seconds to newton-seconds. Going the other way, 1 N·s = 0.2248089431 lbf·s."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do reports say the error was a factor of 4.45 and not 4.4482216152605?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Mishap Investigation Board's Phase I report rounded the conversion to three significant figures, writing \"a factor of 4.45.\" The exact value is 4.4482216152605, so the reported figure is about 0.040% high. The rounding does not affect the conclusion — the real problem was not precision but the complete absence of the multiplication."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why didn't the navigation team notice the trajectory was wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The mis-modelled thrust pointed mostly perpendicular to the Earth-spacecraft line of sight, so Doppler tracking — which measures motion along that line — could barely see it. It was also perpendicular to the flight path, so it changed the arrival altitude rather than the speed. The team did detect an inconsistency between Doppler-only and range-only orbit solutions, but the AMD data already carried wide error bars, and the discrepancy was absorbed as uncertainty instead of being investigated as a systematic error."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much did the Mars Climate Orbiter cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NASA's $327.6 million figure covers the entire Mars Surveyor '98 programme, which included both the Climate Orbiter and the Mars Polar Lander: $193.1 million for spacecraft development, $91.7 million for launch, and $42.8 million for mission operations. The orbiter alone is usually cited at about $125 million. The Polar Lander was lost ten weeks later for a completely unrelated reason, so the two failures share a budget but not a cause."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Could the mission have been saved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Mishap Investigation Board concluded that executing Trajectory Correction Maneuver 5 before arrival might have raised the periapsis altitude enough to save the spacecraft. A meeting of engineers and managers agreed to perform it, and it was never carried out — procedural planning for the maneuver had not been done in advance, and there were concerns about risk and about disrupting the Mars Polar Lander relay sequence."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "Pound-force-second (lbf·s)",
+      "termCode": "lbf·s",
+      "description": "A unit of impulse in US customary units, equal to exactly 4.4482216152605 newton-seconds. It is derived from the international avoirdupois pound (0.45359237 kg) multiplied by standard gravity (9.80665 m/s²), since impulse is force multiplied by time and the time term is identical in both unit systems. On the Mars Climate Orbiter, thruster impulse bits were written into the AMD file in pound-force-seconds where the Software Interface Specification required newton-seconds, understating every trajectory perturbation by a factor of 4.4482216152605.",
+      "url": "https://en.wikipedia.org/wiki/Pound-second",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "EnginStack Engineering Units",
+        "url": "https://enginstack.com/"
+      }
+    }
+    </script>
+
+</body>
+</html>

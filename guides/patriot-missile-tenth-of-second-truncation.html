@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Patriot Missile at Dhahran: When 0.1 Seconds Was Not 0.1 Seconds | EnginStack</title>
+    <meta name="description" content="Dhahran, 25 February 1991: 100 hours of uptime left the Patriot's clock 0.3433 seconds wrong. The range gate shifted 687 metres, the Scud was never engaged, and 28 soldiers died.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation">
+    <meta property="og:title" content="Patriot Missile at Dhahran: When 0.1 Seconds Was Not 0.1 Seconds | EnginStack">
+    <meta property="og:description" content="The radar detected the Scud and then deleted it as a spurious track. A tenth of a second that a 24-bit register could not hold, multiplied by 100 hours of uptime, is the distance between a tracked target and a dead barracks.">
+    <meta property="og:url" content="https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:title" content="Patriot Missile at Dhahran: When 0.1 Seconds Was Not 0.1 Seconds">
+    <meta name="twitter:description" content="No unit was confused at Dhahran. The clock counted tenths of a second, the arithmetic could not hold a tenth of a second, and 100 hours later the radar was looking in the wrong place.">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Patriot Missile at Dhahran: When 0.1 Seconds Was Not 0.1 Seconds",
+      "description": "The full story of the Patriot battery at Dhahran on 25 February 1991 — how a weapons control computer kept time in tenths of a second, stored the conversion to seconds in a 24-bit register that could not hold the value exactly, and turned a one-part-in-a-million rounding error into 0.3433 seconds of accumulated time after 100 hours of continuous operation. Includes the GAO's published truncation table, the reason an incomplete software patch stopped the error from cancelling, and the evidence on what the correct software would and would not have changed.",
+      "author": { "@type": "Organization", "name": "EnginStack" },
+      "publisher": { "@type": "Organization", "name": "EnginStack" },
+      "url": "https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation"
+      },
+      "datePublished": "2026-09-22",
+      "inLanguage": "en"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Patriot Missile Tenth-of-a-Second Truncation", "item": "https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EnginStack",
+      "url": "https://enginstack.com/",
+      "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@enginstack.com",
+        "contactType": "customer support"
+      }
+    }
+    </script>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/guides/">Guides</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Unit Disasters</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Patriot Missile at Dhahran: When 0.1 Seconds Was Not 0.1 Seconds</h1>
+            <p>February 25, 1991, 20:40 local time. An Iraqi Al Hussein ballistic missile — a modified Scud re-entering at roughly Mach 5 — came in over the Gulf toward the coalition logistics base at Dhahran, Saudi Arabia. The Patriot battery defending the base had been running continuously for more than a hundred hours. Its radar picked the missile up. Then, in the seconds that mattered, the battery searched for the Scud where the Scud was not, found nothing, and discarded the contact as a spurious track. No interceptor was launched. The missile came down on a warehouse that had been converted into a barracks for the U.S. Army's 14th Quartermaster Detachment: 28 soldiers killed, 99 wounded, the single deadliest Scud strike of the war.</p>
+            <p class="page-meta">~19 min read &nbsp;·&nbsp; Published September 22, 2026</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span>Verified against GAO/IMTEC-92-26 and the GAO's published truncation table</span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="seo-section guide-content">
+
+            <p>This is the sixth accident in this series, and it is the only one where nobody used the wrong unit. Every other case here follows the same shape: a correct number carrying an incorrect unit, through a machine with no way to complain. At <a href="/guides/gimli-glider-kg-lb-fuel-error">Gimli</a> the number 22,300 was right and the unit behind it was wrong. On the <a href="/guides/mars-climate-orbiter-unit-conversion-error">Mars Climate Orbiter</a> the impulse values were arithmetically perfect and silently denominated in pound-force-seconds. At Dhahran, the unit was right on both sides of the calculation. The gunner's system and the weapon both knew what a second was. What failed was narrower and stranger: a computer that could not hold a tenth of a second in its memory, and a software patch that was applied to some of the places that needed it and not the others.</p>
+
+            <p>That makes this the hardest case in the series to reduce to advice, and the one with the clearest lesson. A wrong label is a clerical problem: fix the label, add a check, move on. Dhahran is not a clerical problem. It is a case where the arithmetic itself degraded in proportion to how long the machine had been switched on, and where the people who knew that had fifteen days to act and did not manage it. The <a href="/guides/engineering-unit-conversion-mistakes">roundup of eight cases</a> gives Dhahran four paragraphs. The problem deserves a great deal more, because the mechanism is not a curiosity of 1991 hardware — it is the same mechanism that decides whether your own timestamp arithmetic is safe.</p>
+
+            <div style="background:#f0f7ff; border:1px solid #bfdbfe; border-radius:10px; padding:1em 1.25em; margin:1.6em 0;">
+                <p style="margin:0; font-weight:700; color:#1e40af;">Quick answer</p>
+                <p style="margin:0.4em 0 0;">The Patriot's weapons control computer kept elapsed time as an integer count of <strong>tenths of a second</strong>, and converted that count to seconds by multiplying by <strong>0.1</strong> held in a <strong>24-bit register</strong>. A tenth has no finite binary expansion, so the stored multiplier was short by one part in 1,048,576 — about <strong>0.0000954%</strong>. The error was proportional to uptime, so it grew without bound: <strong>0.0034 s</strong> after one hour, <strong>0.3433 s</strong> after 100 hours. The radar predicts where a missile will next appear from its velocity and the time since the last detection, so the accumulated error displaced the <strong>range gate</strong> — the patch of sky the radar looks in next — by roughly <strong>687 metres</strong>. On 25 February 1991 the battery at Dhahran had been running <strong>more than 100 hours</strong>. It detected the Scud, looked in the wrong place, and dropped the track. Twenty-eight soldiers were killed and 99 wounded. The software that fixed the drift reached Dhahran on <strong>26 February 1991</strong> — the day after the attack.</p>
+                <div class="table-scroll" style="margin-top:0.9em;">
+                <table style="margin:0; font-size:0.86em;">
+                    <tbody>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Failure</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">Truncation in a 24-bit fixed-point conversion of elapsed time — made lethal by a patch applied at some call sites but not all</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Quantity</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">Elapsed time since system start, held as an integer count of tenths of a second</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Stored value</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">0.1 × (1 − 1/1,048,576) — a relative error of 2 to the −20, or 0.0000954%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Error per tick</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">About 0.0000000954 seconds per tenth-of-a-second tick</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Accumulated</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">0.0034 s at 1 hour · 0.0687 s at 20 hours · 0.3433 s at 100 hours</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Range-gate shift</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">About 687 m at 100 hours on the GAO's own figures; 575 m at the 1,676 m/s Scud speed</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Tracking limit</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">A 50% range-gate shift — reached after about 20 hours of continuous operation</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; border-bottom:1px solid #dbeafe; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Uptime at attack</strong></td>
+                            <td style="padding:0.32em 0; border-bottom:1px solid #dbeafe;">Over 100 consecutive hours — more than 4 days without a restart</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.32em 0.75em 0.32em 0; vertical-align:top; white-space:nowrap; color:#1e40af;"><strong>Casualties</strong></td>
+                            <td style="padding:0.32em 0;">28 killed, 99 wounded; 13 of the dead were from the 14th Quartermaster Detachment, which lost 81% of its strength killed or wounded</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE NUMBER THE REGISTER COULD NOT HOLD
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>The Number the Register Could Not Hold</h2>
+
+            <p>Start with the unit, because the unit is not the problem — the representation of the unit is. A tenth of a second is a perfectly well defined quantity: 100 milliseconds, one ten-thousandth of an hour, the standard granularity of decimal timekeeping. Human beings chose to divide the second into ten because we count in ten. Computer registers do not.</p>
+
+            <p>A binary fraction can represent a half, a quarter, an eighth, a sixteenth, and any sum of those. It cannot represent a tenth, because 0.1 in base two is a repeating fraction:</p>
+
+            <p><strong>0.1<sub>10</sub> = 0.0001100110011001100110011001100…<sub>2</sub></strong></p>
+
+            <p>That pattern of <code>0011</code> never terminates, for exactly the reason that one third never terminates in decimal: the base does not divide the denominator. Ten is two times five, and five has no place in a binary register. So a machine that wants to hold a tenth must hold something close to a tenth, and the closeness is set by how many bits it is willing to spend.</p>
+
+            <p>The Patriot's weapons control computer, as the General Accounting Office described it in February 1992, was a 1970s design with limited capacity for high-precision calculation, and its registers were <strong>24 bits long</strong>. Truncate the expansion above to fit, and the value the machine actually stored was <strong>0.1 × (1 − 1/1,048,576)</strong>. The shortfall is one part in 2 to the 20 — one part in <strong>1,048,576</strong>, or <strong>0.0000954%</strong>. Applied to a single tenth of a second, that is an error of about <strong>0.0000000954 seconds</strong>.</p>
+
+            <p>Now multiply by time, which is the step that turns a curiosity into an accident. The clock did not keep one tenth of a second; it kept every tenth of a second since the system was started, counting them. After one hour the system had counted 36,000 of them. After 100 hours it had counted <strong>3,600,000</strong>. One part in a million, multiplied 3.6 million times, is no longer one part in anything:</p>
+
+            <p><strong>0.0000000954 s × 3,600,000 = 0.3433 s</strong></p>
+
+            <p>The GAO's own table, reproduced further down this page, runs the whole curve: 0.0034 seconds of error after an hour, 0.0275 seconds after eight hours, 0.1648 after two days, 0.3433 after four. Nothing in that progression is surprising once you see it, and nothing in it is visible from the operator's console either. The Patriot displayed a track and a range gate like it always did. It had no independent way to know that its own arithmetic had been quietly losing a ten-millionth of a second every tenth of a second, forever.</p>
+
+            <h3>What was <em>not</em> wrong</h3>
+            <p>Two descriptions of this accident circulate widely, and both are wrong in ways that matter for anyone trying to learn from it.</p>
+
+            <p>The first is that the Patriot's clock drifted. It did not. A drifting clock runs fast or slow because its oscillator does — a real physical fault in a real physical component. The Patriot's clock counted tenths of a second exactly and continuously, and the GAO is careful with its language: the loss of precision was in <em>the conversion of time from an integer to a real number</em>. Mislabel this and you learn the wrong lesson, which is that you need a better clock. You do not. You need arithmetic that does not silently round.</p>
+
+            <p>The second is that the failure was a floating-point bug of the kind described in modern IEEE 754 terms. The Dhahran computer was not doing IEEE 754 arithmetic; that standard was published in 1985 and this design predates it. What the GAO describes is the older and simpler problem of a <strong>24-bit fixed-point</strong> register, which is the reading Robert Skeel drew from the GAO's own table: an integer count of ticks, multiplied by a truncated fractional constant. The distinction matters because fixed-point truncation is a live hazard today in embedded systems, DSPs, flight computers and timers, where floating point is avoided deliberately — for determinism, for speed, or because there is no floating-point unit to spare. The Dhahran failure was not an obsolete mistake. It was a mistake in a technique that is still in use, and still worth checking.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE RANGE GATE
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>How a Time Error Becomes a Hole in the Sky</h2>
+
+            <p>To understand why 0.3433 seconds mattered, you have to know what the Patriot's radar was doing with the time. It was not continuously staring at the Scud. Like every pulse-Doppler radar, it sent out pulses and listened for returns, and between returns it had to guess where to listen next. The GAO's description of that guess is worth reading closely, because it is the entire mechanism of the accident in one paragraph:</p>
+
+            <blockquote style="margin:1.4em 0; padding:0.9em 1.2em; border-left:3px solid #bfdbfe; background:#f8fafc; color:#374151;">
+                <p style="margin:0 0 0.6em;">"After the Patriot's radar detects an airborne object that has the characteristics of a Scud, the range gate — an electronic detection device within the radar system — calculates an area in the air space where the system should next look for it."</p>
+                <p style="margin:0 0 0.6em;">"Velocity is a real number that can be expressed as a whole number and a decimal (e.g., 3750.2563… miles per hour). Time is kept continuously by the system's internal clock in tenths of seconds but is expressed as an integer or whole number (e.g., 32, 33, 34…)."</p>
+                <p style="margin:0;">"The effect of this inaccuracy on the range gate's calculation is directly proportional to the target's velocity and the length of time the system has been running."</p>
+                <p style="margin:0.7em 0 0; font-size:0.88em; color:#6b7280;">— GAO/IMTEC-92-26, <em>Patriot Missile Defense: Software Problem Led to System Failure at Dhahran, Saudi Arabia</em>, February 1992</p>
+            </blockquote>
+
+            <p>Two details in that passage are easy to skim past and are the crux of the case. The first is the units: velocity is quoted in miles per hour against a clock counting tenths of seconds, so the range gate is a place in the sky computed from a multiplication of two numbers in unrelated units, one of which had a representation error baked into it. The second is the phrase <em>directly proportional</em>. The error is not a fixed offset that an operator could learn to allow for. It grows with uptime, which means that a battery that was accurate at breakfast was outside its own tracking envelope by the afternoon, without any change in configuration, calibration or hardware.</p>
+
+            <p>And because the stored multiplier was slightly <em>small</em>, the computed elapsed time was slightly shorter than the true elapsed time. The system therefore believed less time had passed than really had, which in turn means the range gate was placed <strong>behind</strong> the missile — where the Scud had been, not where it was going. The radar looked, found empty sky, and drew the only conclusion available to it.</p>
+
+            <p>What that conclusion cost is worth stating precisely, because the GAO's account is more specific than most retellings. Six Patriot batteries were protecting the airfields around Dhahran. Alpha Battery, the one with the engagement, detected the Scud but could not hold it long enough to confirm that it was an incoming ballistic missile; it classified the contact as a false positive and did not fire. A battery further along the missile's flight path had tracked the Scud as it passed on its way to Dhahran. The operators at Alpha saw no indication of the missile on their displays — not because the radar never found it, but because the arithmetic had moved the place it was looking.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 THE PATCH
+                 ═══════════════════════════════════════════════════ -->
+            <h2>The Patch That Removed the Cancellation</h2>
+
+            <p>Here is the part of the Dhahran investigation that a reader can actually take to work, and it is not the rounding. On its own, a constant fractional error in a clock reading is nearly harmless to a tracking radar, for a reason that Robert Skeel set out in SIAM News in July 1992. What a tracking radar needs is not the absolute time; it is the <strong>elapsed time between two radar pulses</strong>. Subtract one timestamp from another, and a fractional error that shortens both by the same proportion largely cancels out of the difference. The residual error in the interval would have been about 0.0001% of the interval — physically irrelevant.</p>
+
+            <p>That is what should have happened. What actually happened is that the software had been modified for the Gulf deployment, repeatedly, to cope with targets far faster than the Patriot had been designed against. One of those modifications added a subroutine that converted clock time to a real number <em>more accurately</em>. The subroutine was needed in roughly half a dozen places in the program, and the call to it was not inserted at every place it was needed.</p>
+
+            <p>The consequence is the whole accident. One of the two timestamps being subtracted was now converted accurately; the other was still converted by the truncated 24-bit multiply. The error stopped cancelling. Instead of a 0.0001% error in the interval, the system had the full accumulated error of the less accurate conversion sitting inside a subtraction — and at 100 hours of uptime that error was 0.3433 seconds.</p>
+
+            <figure style="margin:1.6em 0;">
+                <svg viewBox="0 0 680 400" role="img" aria-label="Diagram showing that a partial software fix stopped the truncation error from cancelling between two radar timestamps" style="display:block; width:100%; height:auto;">
+                    <text x="20" y="30" font-family="Georgia, serif" font-size="19" font-weight="bold" fill="#111827">Why patching half the call sites made it worse</text>
+                    <text x="20" y="52" font-family="Arial, sans-serif" font-size="12.5" fill="#6b7280">the error cancels in the subtraction only when both timestamps are converted the same way</text>
+
+                    <rect x="34" y="74" width="280" height="86" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+                    <text x="174" y="98" font-family="Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#1e40af" text-anchor="middle">PULSE 1 TIMESTAMP</text>
+                    <text x="174" y="121" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">converted by the accurate</text>
+                    <text x="174" y="141" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">subroutine — error 0</text>
+
+                    <rect x="366" y="74" width="280" height="86" rx="8" fill="#fdecea" stroke="#c81e1e" stroke-width="1.5"/>
+                    <text x="506" y="98" font-family="Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#b91c1c" text-anchor="middle">PULSE 2 TIMESTAMP</text>
+                    <text x="506" y="121" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">converted by the truncated</text>
+                    <text x="506" y="141" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="middle">24-bit multiply — error 0.3433 s</text>
+
+                    <line x1="174" y1="160" x2="174" y2="196" stroke="#cbd5e1" stroke-width="2"/>
+                    <line x1="506" y1="160" x2="506" y2="196" stroke="#cbd5e1" stroke-width="2"/>
+                    <line x1="174" y1="196" x2="506" y2="196" stroke="#cbd5e1" stroke-width="2"/>
+                    <line x1="340" y1="196" x2="340" y2="220" stroke="#c81e1e" stroke-width="2"/>
+
+                    <rect x="120" y="220" width="440" height="58" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+                    <text x="340" y="244" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1f2937" text-anchor="middle">ELAPSED TIME = PULSE 2 MINUS PULSE 1</text>
+                    <text x="340" y="265" font-family="Arial, sans-serif" font-size="12" fill="#4b5563" text-anchor="middle">the two errors no longer cancel</text>
+
+                    <line x1="340" y1="278" x2="340" y2="306" stroke="#c81e1e" stroke-width="2"/>
+
+                    <rect x="90" y="306" width="500" height="64" rx="8" fill="#b91c1c"/>
+                    <text x="340" y="332" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">RANGE GATE PLACED 575 METRES SHORT</text>
+                    <text x="340" y="354" font-family="Arial, sans-serif" font-size="12.5" fill="#fecaca" text-anchor="middle">the radar looks where the Scud already was</text>
+
+                    <text x="20" y="392" font-family="Arial, sans-serif" font-size="12.5" fill="#4b5563">The accurate conversion existed and worked. It was simply missing from one of the two terms being subtracted.</text>
+                </svg>
+            </figure>
+
+            <p>The general rule is uncomfortable and it is worth stating flatly, because it inverts the normal instinct about software fixes. <strong>An error that is common to both terms of a subtraction cancels; make it a property of only one term and it stops cancelling.</strong> A partial fix to a cancelling error is therefore not a partial improvement — it is a new defect, and a worse one than the condition it was written to address. The safest version of the Dhahran software was not the patched version. It was the unpatched version, which was uniformly wrong and therefore, for the purposes of measuring an interval, right.</p>
+
+            <p>The testable form of that rule is simple and rarely followed: when you change a conversion used in more than one place, verify the <em>difference</em> of two converted values, not the values. Checking that each timestamp is individually close to correct tells you nothing about whether they are close to correct <em>in the same direction</em>.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 TWENTY HOURS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Twenty Hours Was the Line, and Everyone Had the Data</h2>
+
+            <p>The most damning fact in the GAO report is not the arithmetic. It is the timeline. The Army did not learn about this failure on 25 February 1991; it learned about it on <strong>11 February</strong>, two weeks earlier, when the Patriot Project Office received Israeli data identifying a <strong>20% shift in the radar range gate after eight consecutive hours</strong> of operation. Israeli forces had been reporting degraded accuracy after long runs, and had done the work of quantifying it.</p>
+
+            <p>A 20% shift matters because the tracking geometry has no slack. The GAO's account is specific: the target needs to be centred in the range gate for the highest probability of tracking, and <em>the Patriot will not track a Scud when there is a range gate shift of 50% or more</em>. Since the shift is proportional to uptime, a 20% shift at eight hours extrapolates directly to a <strong>50% shift at about twenty hours</strong>. Twenty hours was the number at which the system stopped being able to do its job, and it was derivable on 11 February with a pencil.</p>
+
+            <p>Set that against the two facts that determine the outcome. On 25 February, the battery at Dhahran — <strong>Alpha Battery</strong> — had been in operation for <strong>over 100 consecutive hours</strong>, five times past the line at which it could no longer track a Scud. And the corrected software, developed in response to the Israeli data, <strong>did not reach Dhahran until 26 February 1991 — the day after the attack</strong>. Between those two dates sit fifteen days in which the system's degradation was known, quantified, documented and understood, and in which the battery stayed switched on.</p>
+
+            <p>The GAO's table is the clearest artefact of the whole investigation, because it is short enough to read in one glance and complete enough to be used.</p>
+
+            <div class="table-scroll" style="margin:1.4em 0;">
+            <table style="font-size:0.88em; width:100%; border-collapse:collapse;">
+                <thead>
+                    <tr>
+                        <th style="text-align:right; padding:0.5em 0.6em; border-bottom:2px solid #cbd5e1; color:#1e40af;">Hours running</th>
+                        <th style="text-align:right; padding:0.5em 0.6em; border-bottom:2px solid #cbd5e1; color:#1e40af;">Seconds elapsed</th>
+                        <th style="text-align:right; padding:0.5em 0.6em; border-bottom:2px solid #cbd5e1; color:#1e40af;">Calculated time (s)</th>
+                        <th style="text-align:right; padding:0.5em 0.6em; border-bottom:2px solid #cbd5e1; color:#1e40af;">Inaccuracy (s)</th>
+                        <th style="text-align:right; padding:0.5em 0.6em; border-bottom:2px solid #cbd5e1; color:#1e40af;">Range-gate shift (m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">1</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">3,600</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">3,599.9966</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0.0034</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">7</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">8</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">28,800</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">28,799.9725</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0.0275</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">55</td>
+                    </tr>
+                    <tr style="background:#fffbeb;">
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb; font-weight:700; color:#b45309;">20</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb; font-weight:700; color:#b45309;">72,000</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb; font-weight:700; color:#b45309;">71,999.9313</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb; font-weight:700; color:#b45309;">0.0687</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb; font-weight:700; color:#b45309;">137</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">48</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">172,800</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">172,799.8352</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0.1648</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">330</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">72</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">259,200</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">259,199.7528</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">0.2472</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; border-bottom:1px solid #e5e7eb;">494</td>
+                    </tr>
+                    <tr style="background:#fef2f2;">
+                        <td style="text-align:right; padding:0.45em 0.6em; font-weight:700; color:#b91c1c;">100</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; font-weight:700; color:#b91c1c;">360,000</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; font-weight:700; color:#b91c1c;">359,999.6667</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; font-weight:700; color:#b91c1c;">0.3433</td>
+                        <td style="text-align:right; padding:0.45em 0.6em; font-weight:700; color:#b91c1c;">687</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <p style="font-size:0.86em; color:#6b7280; margin-top:-0.6em;">Table as published in GAO/IMTEC-92-26 (February 1992). The 20-hour row is the point at which the GAO states the target falls outside the range gate; the 100-hour row is Alpha Battery's state at Dhahran on 25 February 1991.</p>
+
+            <figure style="margin:1.6em 0;">
+                <svg viewBox="0 0 680 420" role="img" aria-label="Chart of Patriot clock error and range gate shift growing with uptime from 0 to 100 hours" style="display:block; width:100%; height:auto;">
+                    <text x="20" y="30" font-family="Georgia, serif" font-size="19" font-weight="bold" fill="#111827">0.3433 seconds after 100 hours</text>
+                    <text x="20" y="52" font-family="Arial, sans-serif" font-size="12.5" fill="#6b7280">the clock error is proportional to uptime, so the range-gate shift is too</text>
+
+                    <text x="232" y="74" font-family="Arial, sans-serif" font-size="11.5" fill="#b45309">50% shift — the tracking threshold</text>
+
+                    <text x="140" y="105" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="end">1 h</text>
+                    <rect x="150" y="88" width="4" height="24" rx="2" fill="#93c5fd"/>
+                    <text x="164" y="105" font-family="Arial, sans-serif" font-size="11.5" fill="#374151">0.0034 s · 7 m</text>
+
+                    <text x="140" y="147" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="end">8 h</text>
+                    <rect x="150" y="130" width="30" height="24" rx="4" fill="#60a5fa"/>
+                    <text x="190" y="147" font-family="Arial, sans-serif" font-size="11.5" fill="#374151">0.0275 s · 55 m</text>
+
+                    <text x="140" y="189" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#b45309" text-anchor="end">20 h</text>
+                    <rect x="150" y="172" width="76" height="24" rx="4" fill="#f59e0b"/>
+                    <text x="236" y="189" font-family="Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#b45309">0.0687 s · 137 m</text>
+
+                    <text x="140" y="231" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="end">48 h</text>
+                    <rect x="150" y="214" width="183" height="24" rx="4" fill="#3b82f6"/>
+                    <text x="343" y="231" font-family="Arial, sans-serif" font-size="11.5" fill="#374151">0.1648 s · 330 m</text>
+
+                    <text x="140" y="273" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="end">72 h</text>
+                    <rect x="150" y="256" width="273" height="24" rx="4" fill="#2563eb"/>
+                    <text x="433" y="273" font-family="Arial, sans-serif" font-size="11.5" fill="#374151">0.2472 s · 494 m</text>
+
+                    <text x="140" y="315" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#b91c1c" text-anchor="end">100 h</text>
+                    <rect x="150" y="298" width="380" height="24" rx="4" fill="#b91c1c"/>
+                    <text x="540" y="315" font-family="Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#b91c1c">0.3433 s · 687 m</text>
+
+                    <line x1="226" y1="80" x2="226" y2="330" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+                    <text x="20" y="356" font-family="Arial, sans-serif" font-size="12.5" fill="#4b5563">The 20-hour mark is the GAO's own extrapolation: a 20% shift at 8 hours, 50% at about 20.</text>
+                    <text x="20" y="376" font-family="Arial, sans-serif" font-size="12.5" fill="#4b5563">Alpha Battery was past 100 hours. The corrected software arrived on 26 February 1991.</text>
+                    <text x="20" y="396" font-family="Arial, sans-serif" font-size="12.5" fill="#4b5563">The metres column is the GAO's, and implies a Scud at roughly 2,000 m/s rather than 1,676.</text>
+                </svg>
+            </figure>
+
+            <p>Two honest footnotes to the GAO's numbers, because the site's habit is to show where the figures come from rather than smooth them over. First, the inaccuracy column is exactly what the arithmetic predicts: every value is 2 to the minus 20 of the elapsed seconds, to four decimal places. The 100-hour row is 360,000 × 0.0000009537 = 0.3433. That is the great virtue of a proportional error — it is completely predictable, and entirely invisible without arithmetic.</p>
+
+            <p>Second, the metres column and the commonly quoted miss distance do not agree, and it is worth knowing why. Dividing 687 metres by 0.3433 seconds gives a missile speed of about 2,000 m/s. The figure usually quoted for an Al Hussein on re-entry is 1,676 m/s — Mach 5 — which over the same 0.3433 seconds gives <strong>575 metres</strong>. The GAO's shift column is a range-gate displacement, not a miss distance, and the two are not the same quantity; both numbers are in circulation and both trace back to the same report. If you need one figure for the geometry of the failure, use 0.3433 seconds, which is not an estimate of anything: it is the arithmetic.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 WHY IT WAS RUNNING
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Why Nobody Had Restarted It</h2>
+
+            <p>The natural question is why a system with a known, time-dependent accuracy problem had been left running for four days. The GAO answers it, and the answer is not negligence at the console.</p>
+
+            <p>The Patriot was designed to be mobile, and — in the GAO's words — <em>to operate for only a few hours at one location</em>. Its threat model was Soviet medium- and high-altitude aircraft and cruise missiles in Europe, travelling at up to about Mach 2, and its survival strategy was to shoot and move. Continuous operation was never a design case; there was no requirement that said the system should stay accurate indefinitely, because nobody expected it to be asked. In Saudi Arabia it sat on a fixed site through weeks of nightly alerts while ballistic missiles arrived at unpredictable intervals. There is no natural moment in that duty cycle to power down the air-defence system protecting a barracks, and nobody had written down a rule saying when to.</p>
+
+            <p>That absence is the organisational failure underneath the arithmetic, and the timeline is worth setting out because almost nothing in it is ambiguous. On <strong>11 February 1991</strong> the Patriot Project Office received Israeli data quantifying a 20% range-gate shift after eight consecutive hours. On <strong>16 February</strong> a corrected software version was released. On <strong>21 February</strong> Patriot users were notified about the range-gate shift and told that an update was on the way — but they were not told how long a battery could safely run before the shift became significant. The Army's later explanation for that omission was that it had assumed deployed batteries would not run long enough for the inaccuracy to matter, and had never gathered real data on how long they actually ran. As an immediate workaround, Israeli forces recommended restarting the system's computers periodically, because the error resets with the counter; the advice never became a restart schedule that anyone owned. The update itself left MacGuire Air Force Base in New York on <strong>23 February</strong> and reached Riyadh on <strong>24 February</strong> without the highest delivery priority. It arrived in Dhahran on <strong>26 February</strong>, the day after the attack, and the GAO attributes the delay to the time it took to arrange air and ground transportation in a wartime environment.</p>
+
+            <p>So the crews had twice been told that a fix was coming, and had not been told the number that mattered: that tracking degraded past the point of usefulness after about twenty hours, so a battery that had been up for a hundred was not merely imprecise but out of specification, in a way its own display did not show. The information was inside the Army on 11 February. It reached the people who could act on it in the wrong form — a notification that something was being done, rather than a threshold they could count against.</p>
+
+            <p>The 14th Quartermaster Detachment had arrived in Dhahran six days before the attack — a water-purification unit from Greensburg, Pennsylvania, mobilised in January, quartered in a converted warehouse while it waited for its equipment. Of its 69 soldiers, 13 were killed and 43 wounded: 81% of the unit, the heaviest proportional loss of any coalition unit in the war. Field interviews recorded by the Department of Defense ten years later describe the sirens as routine, the Scuds as something soldiers stood outside to watch, and the week of 25 February as the week the launches resumed after a month of quiet. None of that is a critique of anyone at the console. It is what makes the case worth studying: the people with the least information were the people in the position to act, and the people with the most information were two weeks and one airlift away from them. Casualty figures for the strike are given as 99 wounded in the Department of Defense account and 98 in others; the count of the dead, 28, is the same in every source.</p>
+
+            <p>There is a coda that explains why the investigation was as laborious as it was. The Patriot battery at Dhahran had no embedded data recorder, and no Patriot system did. Across 26 batteries in Saudi Arabia and Israel the Army had 14 portable recorders, several installed weeks into the war and some never, and in Saudi Arabia commanders did not permit their use. The post-mortem therefore rested on assembly-language analysis and interviews rather than recorded telemetry — which is the same lesson as the arithmetic, one level up: a system you cannot measure is a system you cannot diagnose.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 WAS IT THE WHOLE STORY
+                 ═══════════════════════════════════════════════════ -->
+            <h2>Was the Software the Whole Story?</h2>
+
+            <p>The GAO's conclusion is precise: the battery <em>failed to track and intercept</em> the Scud because of a software problem in the weapons control computer, and the inaccuracy was serious enough to cause the system to look in the wrong place. That is a finding about why the engagement did not happen. It is often reported as though it were a finding that a correct clock would have saved the barracks, and that is a different claim, resting on different evidence, which the report does not make.</p>
+
+            <p>The distinction is not pedantry. The Patriot's ability to destroy a re-entering Scud was a live controversy before Dhahran and remains one, and the software error sits inside a wider picture that is unfavourable to the system. The Patriot had been designed against aircraft and cruise missiles; the PAC-2 interceptor and its blast-fragmentation warhead were being used against a target class travelling at roughly Mach 5. Al Hussein missiles were structurally fragile and frequently broke apart during re-entry, arriving as a cloud of debris that a radar must discriminate from a warhead. And the public claims made during the war were, on the later evidence, overstated: President Bush told a Raytheon plant on 15 February 1991 that the Patriot was "41 for 42," a success rate above 97%. In April 1992 Theodore Postol of MIT and Reuven Pedatzur of Tel Aviv University testified to a House committee that the true intercept rate was under 10% and possibly zero, a conclusion Peter Zimmerman and Charles Zraket disputed on methodological grounds. A House Government Operations Committee investigation that year settled on roughly 9%. The Army's own later assessments acknowledged confirmed kills only in a single-digit percentage of engagements. Even the first engagement of the war, on 18 January 1991, which was widely reported as the first ballistic-missile interception in history, turned out to have been a computer glitch: no Scud had been fired at Saudi Arabia that day.</p>
+
+            <p>Set beside all that, the Dhahran software error explains something narrower and quite unambiguous. The battery detected the Scud, computed a range gate that did not contain it, concluded the contact was spurious, and never fired. Not "fired and missed" — never fired. That is the event the GAO investigated and the event the arithmetic explains exactly. Whether a PAC-2 launched at that Scud would have destroyed the warhead is a question the record cannot answer, because the launch never happened; and given the interceptor's record against Scud-class targets, the honest answer is that it might well not have. Two things are true at once. The clock error is why the engagement did not occur, and the engagement's absence is not the same as a saved barracks. Keeping those apart is the difference between quoting this accident and learning from it.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 LESSONS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>What This Case Teaches That the Other Five Cannot</h2>
+
+            <p>The five earlier accidents in this series are all versions of one failure: a quantity written in the wrong unit. They teach labelling, interfaces, and the discipline of checking that the number you received means what you think it means. Dhahran teaches something the others structurally cannot, because at Dhahran every unit was correct and the number was still wrong in the only way that mattered.</p>
+
+            <p><strong>Choose a counting unit your hardware can hold.</strong> This is the deepest and most transferable point. The Patriot counted time in tenths of a second, which forced a division by ten — the single most awkward divisor in a binary machine, because ten is two times five and five cannot be expressed in bits. A designer who instead counted ticks, integer milliseconds, or any power of two would have had no representation error at all, because those units convert to each other by shifting a register. The choice of counting unit is a conversion decision, and it is made once, early, and paid for forever. It is the same class of decision as the one behind the <a href="/guides/year-2038-problem">Year 2038 problem</a>, where a 32-bit counter of seconds overflows in 2038: in both cases the fatal property is the unit the system counts in rather than the arithmetic performed on it.</p>
+
+            <p><strong>A partial fix to a cancelling error is a new defect.</strong> The unpatched Patriot was uniformly inaccurate, and a uniform inaccuracy cancels when you subtract one timestamp from another. Patching one of the two terms destroyed the cancellation. If you change a conversion that appears in more than one place, the only meaningful test is on a difference, and the only safe assumption is that you have not found every call site.</p>
+
+            <p><strong>Uptime is an input to accuracy, and therefore belongs in the manual.</strong> Any system whose error grows with runtime needs that fact written down in three places: the test plan, which must exercise the maximum expected runtime rather than a comfortable one; the operating procedure, which must say when to restart and why; and the operator's checklist, in the form of a number the crew can act on. The Army had the number — about twenty hours — and it stayed inside the project office. The battery went to a hundred.</p>
+
+            <p>And a fourth, which is really a habit rather than a rule: the error was proportional, documented and predictable, and that is exactly why it was dangerous. Errors that grow smoothly with a variable nobody is watching — hours of uptime, number of restarts, days since calibration, megabytes of log — do not announce themselves at the moment they cross the threshold at which the system stops working. They announce themselves afterwards, in a report with a table in it. If you want the <a href="/guides/time-conversion-guide">units of time</a> themselves — the second, the leap second, and the two ways international timekeeping already corrects for clocks that do not agree — that guide is the companion to this one.</p>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 RELATED CONVERTERS
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Related Converters</h2>
+            <p>Every number in this accident is a conversion between time units, or between the speed of a missile and the distance it covers while a computer is wrong. These are the tools for working them out precisely:</p>
+            <ul>
+                <li><a href="/seconds-to-milliseconds">Seconds to milliseconds</a> — a tenth of a second is 100 ms, the unit the Patriot counted in</li>
+                <li><a href="/milliseconds-to-seconds">Milliseconds to seconds</a> — the reverse direction, and the conversion the truncated register performed badly</li>
+                <li><a href="/hours-to-seconds">Hours to seconds</a> — 100 hours is exactly 360,000 seconds, and 3,600,000 tenths of a second</li>
+                <li><a href="/seconds-to-hours">Seconds to hours</a> — where the accumulated error sits relative to total runtime</li>
+                <li><a href="/minutes-to-seconds">Minutes to seconds</a> — the interval scale in which the range gate was computed</li>
+                <li><a href="/hours-to-days">Hours to days</a> — 100 hours is 4.17 days: the battery had not been restarted in four days</li>
+                <li><a href="/mps-to-mph">Meters per second to mph</a> — 1,676 m/s is about 3,749 mph, the "Mach 5" of the Scud</li>
+                <li><a href="/kph-to-mph">km/h to mph</a> — 6,034 km/h against the GAO's quoted velocities in miles per hour</li>
+                <li><a href="/meters-to-feet">Meters to feet</a> — 687 m of range-gate shift is 2,254 ft; 575 m is 1,886 ft</li>
+                <li><a href="/km-to-miles">km to miles</a> — the same distances in the unit the GAO used for velocity</li>
+                <li><a href="/time/">Time converters</a> — seconds, minutes, hours, days, weeks and months in one place</li>
+            </ul>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 RELATED GUIDES
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Related Guides</h2>
+            <ul>
+                <li><a href="/guides/engineering-unit-conversion-mistakes">The 8 Most Expensive Unit Conversion Mistakes in Engineering History</a> — the roundup that places Dhahran alongside the Vasa, the Gimli Glider, Deepwater Horizon and four more.</li>
+                <li><a href="/guides/time-conversion-guide">Time Conversion Guide</a> — the second, the leap second, TAI and UTC, and the offset arithmetic that keeps the world's clocks in agreement.</li>
+                <li><a href="/guides/year-2038-problem">The Year 2038 Problem</a> — the other way a machine breaks time: a 32-bit counter of seconds running out of room, the same family as a 24-bit register that cannot hold a tenth.</li>
+                <li><a href="/guides/mars-climate-orbiter-unit-conversion-error">Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s</a> — the newest case in the series, and the one closest in spirit: a system that was internally consistent and still wrong, with no way for the machine to notice.</li>
+                <li><a href="/guides/gimli-glider-kg-lb-fuel-error">Gimli Glider: The 22,300 kg That Arrived as 22,300 lb</a> — a right number carrying a wrong unit, and a machine with no way to complain.</li>
+                <li><a href="/guides/speed-conversion-guide">Speed Conversion Guide</a> — m/s, km/h, mph, knots and Mach: the units in which a Scud's speed is stated, and why the Mach number changes with altitude.</li>
+            </ul>
+
+            <!-- ═══════════════════════════════════════════════════════
+                 FAQ
+                 ═══════════════════════════════════════════════════════ -->
+            <h2>Frequently Asked Questions</h2>
+
+            <p class="faq-q">What caused the Patriot failure at Dhahran?</p>
+            <p class="faq-a">The weapons control computer kept elapsed time as an integer count of tenths of a second and converted that count to seconds by multiplying by 0.1 held in a 24-bit register. Because 0.1 has no finite binary expansion, the stored multiplier was short by one part in 1,048,576, an error of 0.0000954% that grew in proportion to how long the system had been running. After 100 hours of continuous operation the clock was effectively 0.3433 seconds slow, which shifted the radar's range gate by an amount large enough to place the incoming Scud outside it. The battery detected the missile, found nothing where it looked, treated the contact as spurious, and never launched an interceptor.</p>
+
+            <p class="faq-q">Why can a computer not store one tenth of a second exactly?</p>
+            <p class="faq-a">Because 0.1 in binary is a repeating fraction: 0.0001100110011001100110011001100… with no terminating end, for the same reason that one third never terminates in decimal. A binary register can hold one half, one quarter, one eighth and sums of those, but a tenth requires dividing by five, which has no representation in base two. A 24-bit register therefore stores something very slightly less than 0.1 — specifically 0.1 multiplied by one minus 1/1,048,576. The error is one part in a million, which sounds negligible until you multiply it by every tenth of a second in a hundred hours of uptime.</p>
+
+            <p class="faq-q">How fast did the Patriot's timing error grow?</p>
+            <p class="faq-a">The error was directly proportional to uptime, at one part in 1,048,576 of the elapsed time. The GAO's published table gives 0.0034 seconds after one hour, 0.0275 seconds after eight hours, 0.0687 seconds after twenty hours, 0.1648 seconds after 48 hours, 0.2472 seconds after 72 hours, and 0.3433 seconds after 100 hours. The Patriot Project Office said the system will not track a Scud once the range-gate shift reaches 50%, which the same proportionality places at about twenty hours of continuous operation.</p>
+
+            <p class="faq-q">Did the Patriot's radar detect the Scud at Dhahran?</p>
+            <p class="faq-a">Yes. The radar detected the incoming missile and the range gate computed an area of sky in which to look for it next, but the accumulated timing error placed that area behind the missile rather than around it. The follow-up search found no target, so the system concluded that the original detection had been a spurious track and removed it. No interceptor was launched — this was a failure to engage, not a launch that missed.</p>
+
+            <p class="faq-q">Why was the software fix not installed in time?</p>
+            <p class="faq-a">Army officials received Israeli data on 11 February 1991 showing a 20% range-gate shift after eight consecutive hours of operation, and released a corrected software version on 16 February. Users were notified on 21 February that an update was coming, but were not told how long a battery could safely run. The update left MacGuire Air Force Base in New York on 23 February and reached Riyadh on 24 February; it did not reach Dhahran until 26 February 1991 — the day after the attack, which killed 28 soldiers on 25 February. The GAO attributes the delay to the time needed to arrange air and ground transportation in a wartime environment, and records that Israeli forces had recommended periodic restarts as an immediate workaround.</p>
+
+            <p class="faq-q">Would the Patriot have shot down the Scud if the software had been correct?</p>
+            <p class="faq-a">That question cannot be answered from the record, and it should not be assumed. The software error explains why the engagement never happened: the battery detected the Scud and then dropped the track, so no interceptor was fired. Whether a PAC-2 would have destroyed the warhead is a separate matter, and the evidence there is unfavourable — the interceptor was designed against aircraft and cruise missiles rather than Mach 5 ballistic targets, Scuds frequently broke up during re-entry into debris that confused tracking, and later congressional and academic analyses of the war put the Patriot's confirmed intercept rate in the single digits.</p>
+
+            <h2>Sources</h2>
+            <p><strong>Primary sources</strong></p>
+            <ul>
+                <li>U.S. General Accounting Office, <a href="https://www.gao.gov/products/imtec-92-26" rel="noopener">GAO/IMTEC-92-26, <em>Patriot Missile Defense: Software Problem Led to System Failure at Dhahran, Saudi Arabia</em></a> (B-247094, 4 February 1992) — the range-gate mechanism, the 24-bit register finding, the Israeli 20% data of 11 February, the 50% tracking limit at about 20 hours, the published truncation table, and the arrival of the modified software on 26 February 1991</li>
+                <li>Robert Skeel, <a href="https://www.ima.umn.edu/~arnold/disasters/Patriot-dharan-skeel-siam.pdf" rel="noopener">"Roundoff Error and the Patriot Missile"</a> (SIAM News, July 1992) — the analysis showing that the relevant radar quantity is the interval between pulses rather than absolute clock time, and the incompletely applied accurate-conversion subroutine that stopped the error from cancelling</li>
+                <li>U.S. Department of Defense, <a href="https://www.dvidshub.net/news/525747/scud-alert-after-blast" rel="noopener">"Scud Alert: After the Blast"</a> (DVIDS, 2001) — the casualty figures for the 14th Quartermaster Detachment, and first-hand accounts from the soldiers in the barracks</li>
+            </ul>
+            <p><strong>Secondary references</strong></p>
+            <ul>
+                <li>U.S. House Committee on Government Operations investigation, 1992 — the estimate that Patriot missiles destroyed about 9% of the Scuds engaged</li>
+                <li>Testimony of Theodore Postol (MIT) and Reuven Pedatzur (Tel Aviv University) before the House Committee on Government Operations, 7 April 1992, and the rebuttal by Peter Zimmerman and Charles Zraket — the dispute over the Patriot's Desert Storm intercept rate</li>
+                <li>Al Hussein airframe specifications, and the GAO's note that the Patriot's weapons control computer used in Desert Storm was a 1970s design with limited high-precision calculation capability</li>
+            </ul>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What caused the Patriot failure at Dhahran?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The weapons control computer kept elapsed time as an integer count of tenths of a second and converted that count to seconds by multiplying by 0.1 held in a 24-bit register. Because 0.1 has no finite binary expansion, the stored multiplier was short by one part in 1,048,576, an error of 0.0000954% that grew in proportion to how long the system had been running. After 100 hours of continuous operation the clock was effectively 0.3433 seconds slow, which shifted the radar's range gate by an amount large enough to place the incoming Scud outside it. The battery detected the missile, found nothing where it looked, treated the contact as spurious, and never launched an interceptor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can a computer not store one tenth of a second exactly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because 0.1 in binary is a repeating fraction: 0.0001100110011001100110011001100… with no terminating end, for the same reason that one third never terminates in decimal. A binary register can hold one half, one quarter, one eighth and sums of those, but a tenth requires dividing by five, which has no representation in base two. A 24-bit register therefore stores something very slightly less than 0.1 — specifically 0.1 multiplied by one minus 1/1,048,576. The error is one part in a million, which sounds negligible until you multiply it by every tenth of a second in a hundred hours of uptime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast did the Patriot's timing error grow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The error was directly proportional to uptime, at one part in 1,048,576 of the elapsed time. The GAO's published table gives 0.0034 seconds after one hour, 0.0275 seconds after eight hours, 0.0687 seconds after twenty hours, 0.1648 seconds after 48 hours, 0.2472 seconds after 72 hours, and 0.3433 seconds after 100 hours. The Patriot Project Office said the system will not track a Scud once the range-gate shift reaches 50%, which the same proportionality places at about twenty hours of continuous operation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Did the Patriot's radar detect the Scud at Dhahran?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The radar detected the incoming missile and the range gate computed an area of sky in which to look for it next, but the accumulated timing error placed that area behind the missile rather than around it. The follow-up search found no target, so the system concluded that the original detection had been a spurious track and removed it. No interceptor was launched — this was a failure to engage, not a launch that missed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why was the software fix not installed in time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Army officials received Israeli data on 11 February 1991 showing a 20% range-gate shift after eight consecutive hours of operation, and released a corrected software version on 16 February. Users were notified on 21 February that an update was coming, but were not told how long a battery could safely run. The update left MacGuire Air Force Base in New York on 23 February and reached Riyadh on 24 February; it did not reach Dhahran until 26 February 1991 — the day after the attack, which killed 28 soldiers on 25 February. The GAO attributes the delay to the time needed to arrange air and ground transportation in a wartime environment, and records that Israeli forces had recommended periodic restarts as an immediate workaround."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Would the Patriot have shot down the Scud if the software had been correct?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That question cannot be answered from the record, and it should not be assumed. The software error explains why the engagement never happened: the battery detected the Scud and then dropped the track, so no interceptor was fired. Whether a PAC-2 would have destroyed the warhead is a separate matter, and the evidence there is unfavourable — the interceptor was designed against aircraft and cruise missiles rather than Mach 5 ballistic targets, Scuds frequently broke up during re-entry into debris that confused tracking, and later congressional and academic analyses of the war put the Patriot's confirmed intercept rate in the single digits."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTerm",
+      "name": "Tenth of a second",
+      "termCode": "0.1 s",
+      "description": "A decimal subunit of time equal to 100 milliseconds. Its binary expansion is non-terminating — 0.0001100110011001100110011001100… — so no binary register can hold it exactly. The Patriot's weapons control computer counted elapsed time in tenths of a second and converted to seconds with a 24-bit fixed-point multiply, storing 0.1 multiplied by one minus 1/1,048,576: a relative error of one part in 1,048,576, about 0.0000954%. Because the error was proportional to uptime it reached 0.3433 seconds after 100 hours of continuous operation, displacing the radar range gate far enough that the incoming Scud at Dhahran was never engaged on 25 February 1991.",
+      "url": "https://en.wikipedia.org/wiki/Fixed-point_arithmetic",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "EnginStack Engineering Units",
+        "url": "https://enginstack.com/"
+      }
+    }
+    </script>
+
+</body>
+</html>
