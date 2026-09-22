@@ -18,6 +18,10 @@ _urls_for_bing.txt
 _fix_ld_entities.py
 _validate_new12.py
 
+# 上传/截图等一次性产物（不入库）
+_upload_screenshot.png
+_crlf_backup_*/
+
 # 系统文件
 Thumbs.db
 Desktop.ini

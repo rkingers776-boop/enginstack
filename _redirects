@@ -1,7 +1,55 @@
 # Cloudflare Pages _redirects
-# Force .html → clean URL (301 permanent redirect)
+#
+# ── 内部文件面：一律不对外提供（301 → /）────────────────────────────────
+# 站点目录同时是 git 工作区，用控制台拖目录上传会把工作区里的内部文件
+# 一起发布出去：.git 仓库（390 个文件 / 192 个 loose object）、.wrangler
+# CLI 缓存（内含 account id 与账号邮箱）、审计脚本、审计输出、策略文档。
+# 它们没有任何站内链接（孤岛），也不在 sitemap 里，但 `/.git/config`、
+# `/.wrangler/cache/wrangler-account.json` 这类路径是自动化扫描器的常规
+# 探测目标，被扫到即整仓/账号信息泄露。
+# 用 301 而非 404：_redirects 不支持 404 状态码（写了会被静默丢弃），
+# 且 301 能直接盖掉边缘已缓存的旧副本，不必等 max-age 到期。
+#
+# 排序要求：所有静态（精确匹配）规则必须排在动态（含 * 或 :）规则之前。
+# 下面的分组顺序即为此：静态文件 → 静态目录 → 动态通配 → 站点级规则。
+#
+# ── 内部文件（静态精确匹配）────────────────────────────────────────────
+# 审计脚本 / 审计输出
+/_audit_full.py / 301
+/_svg_textcheck.py / 301
+/_fix_ld_entities.py / 301
+/_validate_new12.py / 301
+/_sync_faq.py / 301
+/_audit2.txt / 301
+/_audit2.ps1 / 301
+/_validate2.txt / 301
+/_validate2.ps1 / 301
+/_temp_files.txt / 301
+/_urls_for_bing.txt / 301
+/_upload_screenshot.png / 301
+
+# 内部文档 / 外链草稿 / 仓库忽略表
+/README.md / 301
+/AI-citation-monitor.md / 301
+/GSC-submission-guide.md / 301
+/DEV-engine-displacement.md / 301
+/data-storage-devto.md / 301
+/year-2038-devto.md / 301
+/.gitignore / 301
+
+# 内部目录的根路径（目录本身无索引，但显式兜住更稳）
+/.git / 301
+/.wrangler / 301
+/__pycache__ / 301
+
+# ── 内部目录（动态通配，必须排在全部静态规则之后）───────────────────────
+/.git/* / 301
+/.wrangler/* / 301
+/__pycache__/* / 301
+
+# ── Force .html → clean URL (301 permanent redirect) ─────────────────────
 # Single-segment + nested: /*.html already catches everything including /guides/*.html
 /*.html /:splat 301
 
-# Force www → non-www
+# ── Force www → non-www ─────────────────────────────────────────────────
 www.enginstack.com/* https://enginstack.com/:splat 301
