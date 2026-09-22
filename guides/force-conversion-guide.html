@@ -109,11 +109,11 @@
   "@type": "Organization",
   "name": "EnginStack",
   "url": "https://enginstack.com/",
-  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
   "foundingDate": "2025",
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "rkingers776@gmail.com",
+    "email": "support@enginstack.com",
     "contactType": "customer support"
   }
 }
@@ -136,9 +136,9 @@
         </header>
 
         <div class="author-byline">
-            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Verified by engineers, built on NIST metrology standards</span>
+            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <article class="seo-section guide-content">
@@ -193,8 +193,8 @@
 
 <section id="the-missing-multiplication">
 <h2>1. The Missing Multiplication: How $327.6 Million Burned Up Over Mars</h2>
-<p>The Mars Climate Orbiter launched in December 1998 with a straightforward job: circle Mars, study the climate, relay data from the lander that would follow. It did its job for nine months of interplanetary cruise. Then, on September 23, 1999, it fired its main engine for the orbit insertion burn — and vanished behind the planet 49 seconds earlier than the flight plan allowed. It never came back out. The review board later determined the spacecraft had entered the atmosphere at an altitude of about 57 km instead of the planned 140-150 km. At 57 km, aerodynamic forces tore it apart.</p>
-<p>The cause was not a sensor failure, a software crash, or a math error in a single calculation. It was an interface gap. Lockheed Martin's ground software, which computed the spacecraft's momentum change from thruster firings, produced values in pound-seconds — the US customary unit the company's engineers grew up with. NASA's navigation software, written by JPL, consumed those values as newton-seconds. The difference is the 4.4482216153 we've been converting all along. Neither team wrote the unit down in the interface document; both wrote "impulse." So the factor was applied by neither team. Over a series of small trajectory-correction burns, each one slightly wrong, the error compounded into a 57-km miss.</p>
+<p>The Mars Climate Orbiter launched in December 1998 with a straightforward job: circle Mars, study the climate, relay data from the lander that would follow. It did its job for nine months of interplanetary cruise. Then, on September 23, 1999, it fired its main engine for the orbit insertion burn — and vanished behind the planet 49 seconds earlier than the flight plan allowed. It never came back out. The review board's reconstruction later placed the spacecraft at about 57 km above the surface instead of the 226 km the final trajectory correction had targeted. At 57 km, aerodynamic forces tore it apart.</p>
+<p>The cause was not a sensor failure, a software crash, or a math error in a single calculation. It was an interface gap. On board, the spacecraft computed thruster performance in metric units and was correct. On the ground, Lockheed Martin's SM_FORCES software wrote its impulse values in pound-force-seconds — the US customary unit the company's engineers grew up with — while the Software Interface Specification governing that file required newton-seconds. JPL's navigation software consumed those values as newton-seconds, precisely as the spec demanded. The difference is the 4.4482216153 we've been converting all along. What nobody could see was that the file itself carried no unit field: a column of numbers with a header describing their arrangement, not their meaning, so neither side could detect the disagreement. The factor was applied by neither team — and because the thrusters fired 10 to 20 times a week instead of the once a week that was planned, the error was multiplied across hundreds of firings until the arrival altitude came out 169 km below target. The full anatomy of the failure, including why Doppler tracking was structurally blind to it, is in <a href="/guides/mars-climate-orbiter-unit-conversion-error">Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s</a>.</p>
 <p>The report's most-quoted line is "the root cause was the failure to use metric units." That's shorthand. The real root cause is that force has more than one unit, the units are named in ways that invite confusion, and the conversion between them is a single number that fits on a sticky note — so everyone assumed someone else had done it. This guide exists so that on your project, the someone is you.</p>
 </section>
 
@@ -319,7 +319,7 @@
 
 <section class="eng-context">
 <h3>Reprint &amp; Attribution</h3>
-<p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the engineering team at EnginStack. It was first published on August 2, 2026 at <a href="https://enginstack.com/guides/force-conversion-guide">enginstack.com/guides/force-conversion-guide</a>. Quote it, share it, translate it — just link back to the original and credit EnginStack. For full-text republication inquiries, please reach us through the <a href="/contact">EnginStack contact page</a>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+<p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the EnginStack Editorial Team. It was first published on August 2, 2026 at <a href="https://enginstack.com/guides/force-conversion-guide">enginstack.com/guides/force-conversion-guide</a>. Quote it, share it, translate it — just link back to the original and credit EnginStack. For full-text republication inquiries, please reach us through the <a href="/contact">EnginStack contact page</a>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
 </section>
     </main>
 

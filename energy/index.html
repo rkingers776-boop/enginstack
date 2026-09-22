@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energy & Power Converters — Watts, kW, HP, Joules, Calories, kWh, MW, GW | EnginStack</title>
-    <meta name="description" content="12 energy and power converters: watts to hp, kW to hp, joules to calories, kWh to joules, MW to GW, and reverse. Confusing kW and kWh is the most expensive unit mistake in engineering — one is a rate, the other is a quantity.">
+    <meta name="description" content="24 energy and power converters: watts to hp, kW to hp, joules to calories, kWh to joules, BTU/h to watts, BTU/h to tons of cooling, MW to GW, and reverse. Confusing kW and kWh is the most expensive unit mistake in engineering — one is a rate, the other is a quantity.">
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="/manifest.json">
@@ -12,7 +12,7 @@
     <link rel="alternate" hreflang="en" href="https://enginstack.com/energy/">
     <link rel="alternate" hreflang="x-default" href="https://enginstack.com/energy/">
     <meta property="og:title" content="Energy & Power Converters — Watts, kW, HP, Joules, Calories, kWh, MW, GW | EnginStack">
-    <meta property="og:description" content="12 energy and power converters: watts to hp, kW to hp, joules to calories, kWh to joules, MW to GW. kW is a rate, kWh is a quantity — confusing them is expensive.">
+    <meta property="og:description" content="24 energy and power converters: watts to hp, kW to hp, joules to calories, kWh to joules, BTU/h to watts, BTU/h to tons of cooling, MW to GW. kW is a rate, kWh is a quantity — confusing them is expensive.">
     <meta property="og:url" content="https://enginstack.com/energy/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://enginstack.com/og-image.png">
@@ -26,7 +26,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Energy & Power Converters",
-  "description": "20 energy and power converters: watts, kW, hp, joules, calories, kWh, BTU, MW, GW. Exact conversion constants.",
+  "description": "24 energy and power converters: watts, kW, hp, joules, calories, kWh, BTU, BTU/h, tons of cooling, MW, GW. Exact conversion constants.",
   "url": "https://enginstack.com/energy/",
   "hasPart": [
     {"@type": "WebApplication", "name": "Watts to HP", "url": "https://enginstack.com/watts-to-hp"},
@@ -48,7 +48,11 @@
     {"@type": "WebApplication", "name": "Watt Hours to KWH", "url": "https://enginstack.com/wh-to-kwh"},
     {"@type": "WebApplication", "name": "KWH to Watt Hours", "url": "https://enginstack.com/kwh-to-wh"},
     {"@type": "WebApplication", "name": "Watt Hours to Joules", "url": "https://enginstack.com/wh-to-joules"},
-    {"@type": "WebApplication", "name": "Joules to Watt Hours", "url": "https://enginstack.com/joules-to-wh"}
+    {"@type": "WebApplication", "name": "Joules to Watt Hours", "url": "https://enginstack.com/joules-to-wh"},
+    {"@type": "WebApplication", "name": "BTU/h to Watts", "url": "https://enginstack.com/btu-h-to-watts"},
+    {"@type": "WebApplication", "name": "BTU/h to KW", "url": "https://enginstack.com/btu-h-to-kw"},
+    {"@type": "WebApplication", "name": "BTU/h to Ton", "url": "https://enginstack.com/btu-h-to-ton"},
+    {"@type": "WebApplication", "name": "Ton to BTU/h", "url": "https://enginstack.com/ton-to-btu-h"}
   ]
 }
 </script>
@@ -71,11 +75,11 @@
   "@type": "Organization",
   "name": "EnginStack",
   "url": "https://enginstack.com/",
-  "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
   "foundingDate": "2025",
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "rkingers776@gmail.com",
+    "email": "support@enginstack.com",
     "contactType": "customer support"
   }
 }
@@ -93,15 +97,15 @@
         </nav>
 
         <header class="page-header">
-            <h1>Energy &amp; Power Converters <span class="count-badge">12</span></h1>
+            <h1>Energy &amp; Power Converters <span class="count-badge">24</span></h1>
             <p>The most expensive unit mistake in engineering: confusing kW (a rate — 1,000 joules per second) with kWh (a quantity — 3,600,000 joules). Your electric bill charges for kWh, your EV motor is rated in kW, and your solar panels produce kW at peak. James Watt invented the horsepower in 1782 as a marketing trick to sell steam engines to mine owners who used horses. It worked. We still use it. One mechanical horsepower is exactly 745.69987158227022 watts — a number so awkward it proves Watt made it up to match a typical draft horse, not any systematic definition.</p>
         </header>
 
 
         <div class="author-byline">
-            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Verified by engineers, built on NIST metrology standards</span>
+            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/energy-power-conversion-guide" class="category-guide-cta">
@@ -228,6 +232,31 @@
                 <span class="converter-item-name">Joules to BTU</span>
                 <span class="converter-item-desc">1 J = 0.000947817 BTU. 1 MJ ≈ 948 BTU — the heat-load study meets the furnace catalog.</span>
                 <span class="converter-item-formula">× 0.000947817</span>
+            </a>
+        </div>
+
+        <!-- ═══ New: BTU/h & Tons — Air Conditioner Sizing ═══ -->
+        <h2 class="category-section-title">BTU/h &amp; Tons — Air Conditioner Sizing</h2>
+        <div class="converter-grid">
+            <a href="/btu-h-to-watts" class="converter-item">
+                <span class="converter-item-name">BTU/h to Watts</span>
+                <span class="converter-item-desc">1 BTU/h = 0.2930710702 W exactly. A 12,000 BTU/h AC moves 3,517 W of heat — but only draws ~1,200 W from the wall (the COP gap).</span>
+                <span class="converter-item-formula">× 0.293071</span>
+            </a>
+            <a href="/btu-h-to-kw" class="converter-item">
+                <span class="converter-item-name">BTU/h to Kilowatts</span>
+                <span class="converter-item-desc">1 BTU/h = 0.000293071 kW. A 24,000 BTU/h central unit is 7.03 kW of cooling. The cooling rate in SI.</span>
+                <span class="converter-item-formula">× 0.000293071</span>
+            </a>
+            <a href="/btu-h-to-ton" class="converter-item">
+                <span class="converter-item-name">BTU/h to Tons</span>
+                <span class="converter-item-desc">1 ton of cooling = 12,000 BTU/h. A "3 ton" central air system is 36,000 BTU/h — the HVAC trade's own unit.</span>
+                <span class="converter-item-formula">÷ 12,000</span>
+            </a>
+            <a href="/ton-to-btu-h" class="converter-item">
+                <span class="converter-item-name">Tons to BTU/h</span>
+                <span class="converter-item-desc">1 ton = 12,000 BTU/h, from melting one short ton of ice per day. A 2.5 ton unit is 30,000 BTU/h — sizing a house.</span>
+                <span class="converter-item-formula">× 12,000</span>
             </a>
         </div>
 

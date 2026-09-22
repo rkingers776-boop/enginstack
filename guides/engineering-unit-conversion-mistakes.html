@@ -60,11 +60,11 @@
       "@type": "Organization",
       "name": "EnginStack",
       "url": "https://enginstack.com/",
-      "description": "Precision unit converters verified by an engineering team. Every constant traceable to NIST and international metrology standards — built by engineers who use these conversions professionally.",
+      "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
       "foundingDate": "2025",
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "rkingers776@gmail.com",
+        "email": "support@enginstack.com",
         "contactType": "customer support"
       }
     }
@@ -90,9 +90,9 @@
         </header>
 
         <div class="author-byline">
-            <span>By <strong class="author-name">EnginStack Engineering Team</strong></span>
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Verified by engineers, built on NIST metrology standards</span>
+            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -170,8 +170,8 @@
                         <rect x="45" y="152" width="276" height="58" rx="10" fill="url(#gimli-loaded)" opacity="0.92" filter="url(#gimli-glow-red)"/>
                         <text x="70" y="180" fill="#fff" font-size="16" font-family="system-ui, sans-serif" font-weight="700">ACTUAL FUEL LOADED</text>
                         <text x="70" y="198" fill="rgba(255,255,255,0.7)" font-size="11" font-family="system-ui, sans-serif">Density factor: lb/L used instead of kg/L</text>
-                        <text x="340" y="186" text-anchor="end" fill="#fca5a5" font-size="21" font-family="system-ui, sans-serif" font-weight="800">10,115 kg</text>
-                        <text x="342" y="140" fill="#f59e0b" font-size="11" font-family="system-ui, sans-serif" font-weight="600">22,300 lbs</text>
+                        <text x="630" y="186" text-anchor="end" fill="#fca5a5" font-size="21" font-family="system-ui, sans-serif" font-weight="800">10,115 kg</text>
+                        <text x="342" y="147" fill="#f59e0b" font-size="11" font-family="system-ui, sans-serif" font-weight="600">22,300 lbs</text>
                         <!-- Gap indicator -->
                         <rect x="322" y="155" width="4" height="52" rx="2" fill="#f59e0b" opacity="0.9"/>
                         <text x="355" y="172" fill="#f59e0b" font-size="12" font-family="system-ui, sans-serif" font-weight="700">54.6% SHORTFALL</text>
@@ -201,7 +201,7 @@
                         <line x1="90" y1="358" x2="650" y2="358" stroke="#2a303c" stroke-width="0.8" stroke-dasharray="4,4"/>
                         <text x="85" y="362" fill="#5b6473" font-size="9" font-family="monospace">12:1 glide ratio — 100 mi range</text>
                         <line x1="90" y1="386" x2="650" y2="386" stroke="#38bdf8" stroke-width="1"/>
-                        <text x="85" y="390" fill="#38bdf8" font-size="9" font-family="monospace">Gimli runway — touchdown</text>
+                        <text x="650" y="380" text-anchor="end" fill="#38bdf8" font-size="9" font-family="monospace">Gimli runway — touchdown</text>
                         <!-- Glide trajectory -->
                         <path d="M 540 336 Q 400 340 280 350 Q 200 358 150 386" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,3"/>
                         <!-- Plane icon on trajectory -->
@@ -216,6 +216,8 @@
 
             <p>Canadian aviation shifted to metric fuel procedures in the wake of the incident, but the deeper problem wasn't the unit system. It was the transition. During a metrication project, every interface between two groups — pilots and ground crew, old manuals and new procedures, litres and gallons, pounds and kilograms — becomes a potential failure point. The Gimli Glider wasn't a kilogram-to-pound error. It was a "we just changed the system and not everyone got the memo" error. For any weight-critical calculation, run it through <a href="/kg-to-lbs">kg to lbs</a> and <a href="/lbs-to-kg">lbs to kg</a> in both directions. If the numbers don't agree within 0.1%, you've got a unit label problem, not a math problem.</p>
 
+<p>The accident is examined in full — the FQIS failure chain, the two independent wrong measurements, and the density value that carried the error — in <a href="/guides/gimli-glider-kg-lb-fuel-error">Gimli Glider: The 22,300 kg That Arrived as 22,300 lb</a>.</p>
+
 
             <!-- ═══════════════════════════════════════════════════════
                  DISASTER 3: PATRIOT MISSILE (1991)
@@ -226,13 +228,13 @@
 
             <p>The MIM-104 Patriot missile system tracks incoming targets — aircraft, cruise missiles, and tactical ballistic missiles — using a phased-array radar. The radar scans the sky, and the fire-control computer predicts where the target will be when the interceptor arrives. That prediction depends on knowing exactly when the radar echo returned. Time is measured by the system's internal clock, which increments in tenths of a second. Programmers stored this value as an integer: 1/10th of a second, 2/10ths, 3/10ths, and so on.</p>
 
-            <p>But the internal clock doesn't actually tick in tenths of a second. It ticks at roughly 100 Hz — a frequency generated by an oscillator on the system board. When the software needs to know the elapsed time, it multiplies the tick count by 0.1 to convert from ticks to seconds. The problem is that 0.1 cannot be represented exactly in binary floating-point. Just as 1/3 = 0.333333... in decimal, 1/10 = 0.00011001100110011... in binary — a repeating fraction with no finite representation. Every multiplication introduced a tiny truncation error: about 0.000000095 seconds per tick.</p>
+            <p>The clock counts and the software converts. Every time the system needs an elapsed time it takes the clock's running integer count of tenths of a second and multiplies by 0.1 to obtain seconds, which is where the truncation enters. The problem is that 0.1 cannot be represented exactly in a 24-bit binary register. Just as 1/3 = 0.333333... in decimal, 1/10 = 0.00011001100110011... in binary — a repeating fraction with no finite representation. Every multiplication introduced a tiny truncation error: about 0.000000095 seconds per tick.</p>
 
-            <p>After one hour, the accumulated timing error was about 0.0034 seconds. Negligible. After 100 hours — roughly four days — the error was 0.34 seconds. A Scud missile travels at about 1,676 meters per second (Mach 5). In 0.34 seconds, it moves 570 meters. The Patriot's radar beam is about 500 meters wide at engagement range. The accumulated timing error shifted the radar's range gate by roughly the width of the beam. The system was looking in the wrong place for the incoming missile.</p>
+            <p>After one hour, the accumulated timing error was about 0.0034 seconds. Negligible. After eight hours it was 0.0275 seconds — and the Patriot Project Office already had field data, supplied by Israeli forces, showing that an eight-hour run displaced the radar's range gate by 20%, enough to stop the target sitting at the centre of the gate where it needs to be. Since the error is directly proportional to uptime, the same data put the shift at 50% — the level at which, the GAO reports, the system will not track a Scud at all — after about <strong>twenty hours</strong>. By 100 hours, roughly four days, the error was 0.3433 seconds. A Scud travels at about 1,676 meters per second (Mach 5), so in that time it moves 575 meters. The system was looking in the wrong place for the incoming missile.</p>
 
-            <p>On the night of February 25, 1991, an Iraqi Al-Hussein Scud missile was fired at the coalition logistics base in Dhahran. The Patriot battery defending the base had been running continuously for over 100 hours. Its clock had drifted by 0.343 seconds. The radar searched for the incoming missile in the wrong range window, found nothing, and reported "no track." The missile hit a warehouse being used as a temporary barracks for the U.S. Army's 14th Quartermaster Detachment. Twenty-eight soldiers were killed. One hundred more were wounded. It was the single deadliest Scud strike of the Gulf War.</p>
+            <p>On the night of February 25, 1991, an Iraqi Al-Hussein Scud missile was fired at the coalition logistics base in Dhahran. The Patriot battery defending the base had been running continuously for over 100 hours. Its clock had drifted by 0.343 seconds. The radar searched for the incoming missile in the wrong range window, found nothing, and reported "no track." The missile hit a warehouse being used as a temporary barracks for the U.S. Army's 14th Quartermaster Detachment. Twenty-eight soldiers were killed and 99 were wounded. It was the single deadliest Scud strike of the Gulf War.</p>
 
-            <p>The software fix had already been written. Two weeks earlier, the Patriot project office had sent updated software to the units in Saudi Arabia that corrected the floating-point accumulation. But the update was still en route — being distributed on 3.5-inch floppy disks by military courier — when the Scud hit Dhahran. The soldiers who died never knew that the fix for the radar protecting them had already been coded, tested, and burned onto a diskette. It just hadn't arrived yet.</p>
+            <p>The software fix had already been written. A corrected version was released on 16 February 1991, and on 21 February Patriot users were notified about the range-gate shift and told that an update was on its way — but not told how long a battery could safely run before the shift became significant. The Army's later explanation was that it had assumed deployed batteries would not run long enough for the inaccuracy to matter. The update left MacGuire Air Force Base in New York on 23 February and reached Riyadh on 24 February, without the highest delivery priority. It arrived in Dhahran on 26 February, the day after the Scud. The GAO attributes the delay to the time it took to arrange air and ground transportation in a wartime environment. The soldiers who died never knew that the fix for the radar protecting them had already been coded, tested and shipped. It simply lost a race with a ballistic missile.</p>
 
                 <figure class="guide-figure" style="max-width:700px">
                     <svg viewBox="0 0 700 370" xmlns="http://www.w3.org/2000/svg">
@@ -253,53 +255,56 @@
                         <!-- Header -->
                         <rect x="0" y="0" width="700" height="52" rx="10" fill="#1f2530"/>
                         <rect x="0" y="42" width="700" height="10" fill="#1f2530"/>
-                        <text x="350" y="34" text-anchor="middle" fill="#edf0f5" font-size="15" font-family="system-ui, sans-serif" font-weight="700">Patriot Missile — Binary Floating-Point Timing Error Accumulation</text>
+                        <text x="350" y="34" text-anchor="middle" fill="#edf0f5" font-size="15" font-family="system-ui, sans-serif" font-weight="700">Patriot Missile — 24-Bit Fixed-Point Timing Error Accumulation</text>
                         <!-- Explanation row -->
-                        <rect x="45" y="70" width="610" height="38" rx="6" fill="#141820" stroke="#2a303c" stroke-width="1"/>
-                        <text x="350" y="86" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="monospace">System clock: ~100 Hz tick × 0.1 multiplier → 0.000000095s truncation per tick (IEEE 754: 0.1₁₀ = 0.0001100110011...₂)</text>
-                        <text x="350" y="100" text-anchor="middle" fill="#5b6473" font-size="10" font-family="monospace">Scud speed: 1,676 m/s (Mach 5) · Radar range gate width: ~500 m · Drift after 100h: 0.343s → 575 m miss → blind</text>
+                        <rect x="45" y="62" width="610" height="68" rx="6" fill="#141820" stroke="#2a303c" stroke-width="1"/>
+                        <text x="350" y="80" text-anchor="middle" fill="#a1a9b6" font-size="10" font-family="monospace">System clock: ~100 Hz tick × 0.1 multiplier → truncation error 0.000000095 s per tick</text>
+                        <text x="350" y="98" text-anchor="middle" fill="#a1a9b6" font-size="10" font-family="monospace">24-bit fixed point: 0.1₁₀ = 0.0001100110011…₂ — no finite binary representation</text>
+                        <text x="350" y="116" text-anchor="middle" fill="#5b6473" font-size="10" font-family="monospace">Scud speed 1,676 m/s (Mach 5) · 20% range-gate shift at 8 h · 0.3433 s and 575 m at 100 h</text>
                         <!-- Timeline bar -->
-                        <rect x="45" y="118" width="610" height="24" rx="12" fill="#292e38" filter="url(#pat-shadow)"/>
-                        <rect x="45" y="118" width="610" height="24" rx="12" fill="url(#pat-time)" opacity="0.7"/>
-                        <line x1="45" y1="122" x2="45" y2="150" stroke="#788290" stroke-width="1.5"/><text x="45" y="164" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">0h</text>
-                        <line x1="167" y1="122" x2="167" y2="150" stroke="#788290" stroke-width="1.5"/><text x="167" y="164" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">20h</text>
-                        <line x1="290" y1="122" x2="290" y2="150" stroke="#788290" stroke-width="1.5"/><text x="290" y="164" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">40h</text>
-                        <line x1="412" y1="122" x2="412" y2="150" stroke="#788290" stroke-width="1.5"/><text x="412" y="164" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">60h</text>
-                        <line x1="533" y1="122" x2="533" y2="155" stroke="#f59e0b" stroke-width="1.5"/><text x="533" y="164" text-anchor="middle" fill="#f59e0b" font-size="10" font-family="monospace" font-weight="600">80h</text>
-                        <line x1="655" y1="122" x2="655" y2="155" stroke="#ef4444" stroke-width="2"/><text x="655" y="164" text-anchor="middle" fill="#ef4444" font-size="10" font-family="monospace" font-weight="700">100h+</text>
+                        <rect x="45" y="142" width="610" height="24" rx="12" fill="#292e38" filter="url(#pat-shadow)"/>
+                        <rect x="45" y="142" width="610" height="24" rx="12" fill="url(#pat-time)" opacity="0.7"/>
+                        <line x1="45" y1="146" x2="45" y2="174" stroke="#788290" stroke-width="1.5"/><text x="45" y="188" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">0h</text>
+                        <line x1="167" y1="146" x2="167" y2="174" stroke="#788290" stroke-width="1.5"/><text x="167" y="188" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">20h</text>
+                        <line x1="290" y1="146" x2="290" y2="174" stroke="#788290" stroke-width="1.5"/><text x="290" y="188" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">40h</text>
+                        <line x1="412" y1="146" x2="412" y2="174" stroke="#788290" stroke-width="1.5"/><text x="412" y="188" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace" font-weight="600">60h</text>
+                        <line x1="533" y1="146" x2="533" y2="179" stroke="#f59e0b" stroke-width="1.5"/><text x="533" y="188" text-anchor="middle" fill="#f59e0b" font-size="10" font-family="monospace" font-weight="600">80h</text>
+                        <line x1="655" y1="146" x2="655" y2="179" stroke="#ef4444" stroke-width="2"/><text x="655" y="188" text-anchor="middle" fill="#ef4444" font-size="10" font-family="monospace" font-weight="700">100h+</text>
                         <!-- Stage cards -->
-                        <rect x="30" y="182" width="153" height="68" rx="8" fill="#1f2530" stroke="#38bdf8" stroke-width="1.5" filter="url(#pat-shadow)"/>
-                        <text x="106" y="204" text-anchor="middle" fill="#38bdf8" font-size="12" font-family="system-ui, sans-serif" font-weight="700">✓ TRACKING OK</text>
-                        <text x="106" y="223" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="monospace">Error ±0.09s</text>
-                        <text x="106" y="240" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace">Miss ±151m · in beam</text>
-                        <rect x="198" y="182" width="153" height="68" rx="8" fill="#1f2530" stroke="#f59e0b" stroke-width="1.5" filter="url(#pat-shadow)"/>
-                        <text x="274" y="204" text-anchor="middle" fill="#f59e0b" font-size="12" font-family="system-ui, sans-serif" font-weight="700">⚠ DEGRADING</text>
-                        <text x="274" y="223" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="monospace">Error ±0.26s</text>
-                        <text x="274" y="240" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace">Miss ±435m · edge</text>
-                        <rect x="366" y="182" width="153" height="68" rx="8" fill="#1f2530" stroke="#ef4444" stroke-width="1.5" filter="url(#pat-shadow)"/>
-                        <text x="442" y="204" text-anchor="middle" fill="#ef4444" font-size="12" font-family="system-ui, sans-serif" font-weight="700">✕ BLIND</text>
-                        <text x="442" y="223" text-anchor="middle" fill="#ef4444" font-size="11" font-family="monospace">Error ±0.34s</text>
-                        <text x="442" y="240" text-anchor="middle" fill="#ef4444" font-size="10" font-family="monospace" font-weight="700">Miss ±570m · FATAL</text>
+                        <rect x="30" y="198" width="153" height="68" rx="8" fill="#1f2530" stroke="#38bdf8" stroke-width="1.5" filter="url(#pat-shadow)"/>
+                        <text x="106" y="220" text-anchor="middle" fill="#38bdf8" font-size="12" font-family="system-ui, sans-serif" font-weight="700">✓ TRACKING OK</text>
+                        <text x="106" y="239" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="monospace">Error ±0.0034s</text>
+                        <text x="106" y="256" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace">Shift 7m · in gate</text>
+                        <rect x="198" y="198" width="153" height="68" rx="8" fill="#1f2530" stroke="#f59e0b" stroke-width="1.5" filter="url(#pat-shadow)"/>
+                        <text x="274" y="220" text-anchor="middle" fill="#f59e0b" font-size="12" font-family="system-ui, sans-serif" font-weight="700">⚠ DEGRADING</text>
+                        <text x="274" y="239" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="monospace">Error ±0.0275s</text>
+                        <text x="274" y="256" text-anchor="middle" fill="#788290" font-size="10" font-family="monospace">Shift 55m · off-centre</text>
+                        <rect x="366" y="198" width="153" height="68" rx="8" fill="#1f2530" stroke="#ef4444" stroke-width="1.5" filter="url(#pat-shadow)"/>
+                        <text x="442" y="220" text-anchor="middle" fill="#ef4444" font-size="12" font-family="system-ui, sans-serif" font-weight="700">✕ BLIND</text>
+                        <text x="442" y="239" text-anchor="middle" fill="#ef4444" font-size="11" font-family="monospace">Error ±0.3433s</text>
+                        <text x="442" y="256" text-anchor="middle" fill="#ef4444" font-size="10" font-family="monospace" font-weight="700">Shift 687m · FATAL</text>
                         <!-- Arrows -->
-                        <line x1="183" y1="216" x2="195" y2="216" stroke="#5b6473" stroke-width="1.5"/><polygon points="194,212 198,216 194,220" fill="#5b6473"/>
-                        <line x1="351" y1="216" x2="363" y2="216" stroke="#5b6473" stroke-width="1.5"/><polygon points="362,212 366,216 362,220" fill="#5b6473"/>
+                        <line x1="183" y1="232" x2="195" y2="232" stroke="#5b6473" stroke-width="1.5"/><polygon points="194,228 198,232 194,236" fill="#5b6473"/>
+                        <line x1="351" y1="232" x2="363" y2="232" stroke="#5b6473" stroke-width="1.5"/><polygon points="362,228 366,232 362,236" fill="#5b6473"/>
                         <!-- 28 dead box -->
-                        <rect x="535" y="182" width="120" height="68" rx="8" fill="#1a0a0a" stroke="#ef4444" stroke-width="2" filter="url(#pat-red)"/>
-                        <text x="595" y="204" text-anchor="middle" fill="#ef4444" font-size="13" font-family="system-ui, sans-serif" font-weight="800">28 DEAD</text>
-                        <text x="595" y="222" text-anchor="middle" fill="#a1a9b6" font-size="9" font-family="monospace">100 wounded</text>
-                        <text x="595" y="240" text-anchor="middle" fill="#f59e0b" font-size="9" font-family="system-ui, sans-serif">Fix already written</text>
+                        <rect x="535" y="198" width="120" height="68" rx="8" fill="#1a0a0a" stroke="#ef4444" stroke-width="2" filter="url(#pat-red)"/>
+                        <text x="595" y="220" text-anchor="middle" fill="#ef4444" font-size="13" font-family="system-ui, sans-serif" font-weight="800">28 DEAD</text>
+                        <text x="595" y="238" text-anchor="middle" fill="#a1a9b6" font-size="9" font-family="monospace">100 wounded</text>
+                        <text x="595" y="256" text-anchor="middle" fill="#f59e0b" font-size="9" font-family="system-ui, sans-serif">Fix already written</text>
                         <!-- Bottom narrative -->
-                        <rect x="45" y="268" width="610" height="80" rx="8" fill="#141820" stroke="#2a303c" stroke-width="1"/>
-                        <text x="70" y="292" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">February 25, 1991 · Dhahran, Saudi Arabia · Iraqi Al-Hussein Scud struck barracks</text>
-                        <circle cx="60" cy="298" r="4" fill="#ef4444"/><text x="70" y="314" fill="#788290" font-size="11" font-family="system-ui, sans-serif">Patriot battery running</text>
-                        <text x="238" y="314" fill="#ef4444" font-size="11" font-family="monospace" font-weight="700">100+ hours without reboot</text>
-                        <text x="420" y="314" fill="#788290" font-size="11" font-family="system-ui, sans-serif">· clock drift 0.343s · radar searched wrong range window · reported "no track"</text>
-                        <text x="70" y="336" fill="#788290" font-size="11" font-family="system-ui, sans-serif">Software correction had been coded, tested, and burned onto 3.5" floppy disks — but the disks were still in transit by military courier.</text>
+                        <rect x="45" y="282" width="610" height="80" rx="8" fill="#141820" stroke="#2a303c" stroke-width="1"/>
+                        <text x="70" y="306" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">February 25, 1991 · Dhahran, Saudi Arabia · Iraqi Al-Hussein Scud struck the barracks</text>
+                        <circle cx="60" cy="324" r="4" fill="#ef4444"/><text x="70" y="328" fill="#788290" font-size="11" font-family="system-ui, sans-serif">Patriot battery ran</text>
+                        <text x="190" y="328" fill="#ef4444" font-size="11" font-family="monospace" font-weight="700">100+ hours without reboot</text>
+                        <text x="368" y="328" fill="#788290" font-size="11" font-family="system-ui, sans-serif">· drift 0.343 s · 575 m radar miss</text>
+                        <text x="70" y="348" fill="#788290" font-size="11" font-family="system-ui, sans-serif">Corrected software shipped 23 Feb, reached Dhahran 26 Feb — one day late.</text>
                     </svg>
-                    <figcaption><strong>Fig 2:</strong> Patriot missile timing error accumulation over 100 hours. Root cause: IEEE 754 binary representation cannot store 0.1 exactly (0.0001100110011...₂ repeating). Each 0.1× multiplication introduced 0.000000095s of error. The fix was on a diskette, en route.</figcaption>
+                    <figcaption><strong>Fig 2:</strong> Patriot missile timing error accumulation over 100 hours. Root cause: a 24-bit fixed-point representation cannot store 0.1 exactly (0.0001100110011...₂ repeating), so each 0.1× multiplication introduced about 0.000000095s of error and the total grew in proportion to uptime. The corrected software, shipped on 23 February, reached Dhahran on 26 February — the day after the attack.</figcaption>
                 </figure>
 
             <p>The Patriot error is taught in computer science courses as a floating-point precision case study, but it's really a conversion error: the conversion between a binary fraction and a decimal human-readable time value. The same mechanism — a repeating binary fraction that never terminates — underlies every <a href="/seconds-to-milliseconds">seconds to milliseconds</a> conversion done on a computer. The error per operation is microscopic. The error after 100 hours of continuous operation is a hole in a warehouse roof in Saudi Arabia.</p>
+
+            <p>The full case study — the GAO's own truncation table, Robert Skeel's finding that the accurate conversion was added to one of the two timestamps but not the other, and the evidence on what correct software would and would not have changed — is documented in <a href="/guides/patriot-missile-tenth-of-second-truncation">Patriot Missile at Dhahran: When 0.1 Seconds Was Not 0.1 Seconds</a>.</p>
 
 
             <!-- ═══════════════════════════════════════════════════════
@@ -349,34 +354,32 @@
                         <!-- Atmosphere layers -->
                         <line x1="135" y1="100" x2="135" y2="350" stroke="#38bdf8" stroke-width="0.7" stroke-dasharray="2,6"/>
                         <text x="140" y="96" fill="#38bdf8" font-size="8" font-family="monospace">atmosphere top ~200 km</text>
+                        <!-- Zone legend — altitudes keyed to the bands below -->
+                        <rect x="313" y="68" width="10" height="10" rx="2" fill="#22c55e" opacity="0.35"/>
+                        <text x="331" y="77" fill="#22c55e" font-size="8" font-family="monospace">SAFE: 140–150 km</text>
+                        <rect x="313" y="86" width="10" height="10" rx="2" fill="#ef4444" opacity="0.6"/>
+                        <text x="331" y="95" fill="#ef4444" font-size="8" font-family="monospace">MIN SURVIVABLE: 80 km</text>
+                        <rect x="313" y="104" width="10" height="10" rx="2" fill="#ef4444" opacity="0.3"/>
+                        <text x="331" y="113" fill="#ef4444" font-size="8" font-family="monospace">BURN-UP · 57 km IMPACT</text>
                         <!-- Safe zone band -->
                         <rect x="140" y="118" width="290" height="35" rx="4" fill="#22c55e" opacity="0.08" stroke="#22c55e" stroke-width="0.5" stroke-dasharray="3,4"/>
-                        <text x="435" y="135" text-anchor="end" fill="#22c55e" font-size="8" font-family="monospace">SAFE: 140–150 km</text>
                         <!-- Danger zone band -->
                         <rect x="140" y="158" width="290" height="30" rx="4" fill="#ef4444" opacity="0.10" stroke="#ef4444" stroke-width="0.8" stroke-dasharray="5,5"/>
-                        <text x="435" y="175" text-anchor="end" fill="#ef4444" font-size="8" font-family="monospace">MIN SURVIVABLE: 80 km</text>
                         <!-- Death zone band -->
                         <rect x="140" y="193" width="290" height="62" rx="4" fill="#ef4444" opacity="0.04" stroke="#ef4444" stroke-width="0.4"/>
-                        <text x="435" y="225" text-anchor="end" fill="#ef4444" font-size="7" font-family="monospace">BURN-UP</text>
                         <!-- Planned trajectory -->
                         <path d="M 450 134 Q 300 125 135 128" fill="none" stroke="#38bdf8" stroke-width="3"/>
                         <!-- Actual trajectory -->
                         <path d="M 450 175 Q 300 165 135 195" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="12,4"/>
                         <!-- Trajectory labels -->
-                        <circle cx="370" cy="142" r="4" fill="#38bdf8"/>
-                        <text x="380" y="140" fill="#38bdf8" font-size="10" font-family="system-ui, sans-serif" font-weight="700">PLANNED</text>
-                        <circle cx="370" cy="174" r="5" fill="#ef4444"/>
-                        <text x="380" y="178" fill="#ef4444" font-size="10" font-family="system-ui, sans-serif" font-weight="700">ACTUAL</text>
+                        <circle cx="355" cy="142" r="4" fill="#38bdf8"/>
+                        <text x="365" y="145" fill="#38bdf8" font-size="10" font-family="system-ui, sans-serif" font-weight="700">PLANNED</text>
+                        <circle cx="355" cy="176" r="5" fill="#ef4444"/>
+                        <text x="365" y="183" fill="#ef4444" font-size="10" font-family="system-ui, sans-serif" font-weight="700">ACTUAL</text>
                         <!-- Impact X -->
                         <circle cx="135" cy="195" r="8" fill="none" stroke="#ef4444" stroke-width="2.5" filter="url(#mco-red)"/>
                         <text x="135" y="199" text-anchor="middle" fill="#ef4444" font-size="14" font-family="monospace" font-weight="800">✕</text>
                         <text x="125" y="218" text-anchor="end" fill="#ef4444" font-size="9" font-family="system-ui, sans-serif" font-weight="700">57 km — DISINTEGRATION</text>
-                        <!-- Altitude scale -->
-                        <line x1="425" y1="100" x2="425" y2="290" stroke="#5b6473" stroke-width="0.5"/>
-                        <text x="445" y="106" fill="#5b6473" font-size="8" font-family="monospace">200 km</text>
-                        <text x="445" y="140" fill="#5b6473" font-size="8" font-family="monospace">150 km</text>
-                        <text x="445" y="180" fill="#5b6473" font-size="8" font-family="monospace">80 km</text>
-                        <text x="445" y="260" fill="#5b6473" font-size="8" font-family="monospace">0 km</text>
                         <!-- Side panel: unit mismatch -->
                         <rect x="460" y="62" width="220" height="290" rx="8" fill="#1f2530" stroke="#2a303c" stroke-width="1"/>
                         <text x="570" y="87" text-anchor="middle" fill="#f59e0b" font-size="12" font-family="system-ui, sans-serif" font-weight="700">THE UNIT MISMATCH</text>
@@ -394,7 +397,7 @@
                         <text x="570" y="253" text-anchor="middle" fill="#38bdf8" font-size="12" font-family="monospace" font-weight="700">N·s (SI units)</text>
                         <!-- Factor box -->
                         <rect x="490" y="278" width="160" height="44" rx="6" fill="#141820" stroke="#f59e0b" stroke-width="1.5"/>
-                        <text x="570" y="295" text-anchor="middle" fill="#f59e0b" font-size="14" font-family="monospace" font-weight="800">1 lbf·s = 4.44822 N·s</text>
+                        <text x="570" y="295" text-anchor="middle" fill="#f59e0b" font-size="13" font-family="monospace" font-weight="800">1 lbf·s = 4.44822 N·s</text>
                         <text x="570" y="312" text-anchor="middle" fill="#f59e0b" font-size="9" font-family="system-ui, sans-serif">4.45× error per correction</text>
                         <!-- Bottom summary -->
                         <rect x="20" y="366" width="660" height="28" rx="6" fill="#292e38" filter="url(#mco-shadow)"/>
@@ -410,6 +413,8 @@
             <p>The investigation identified three separate failures that, together, created the conditions for the disaster. First: the project's software interface specification did not mandate metric units — it said "use SI" in the requirements but never enforced it in the code review process. Second: Lockheed Martin's trajectory modeling team was using a legacy software system — the same codebase that had been used for the Mars Observer mission in 1992 — which output impulse data in English units as a matter of institutional habit, not conscious decision. Nobody questioned it because nobody had ever questioned it. Third: the navigation team at JPL noticed small discrepancies in the trajectory during the cruise phase — the Orbiter was consistently arriving slightly off its predicted position after each thruster burn — but these discrepancies were attributed to solar radiation pressure or minor venting from the spacecraft, not to a systematic 4.45× error in the underlying data. The error was invisible because it was consistent. A consistently wrong answer looks exactly like a right answer with a slight bias.</p>
 
             <p>The fix, in the aftermath, was both simple and maddening: JPL now requires all incoming data files from external contractors to carry explicit unit declarations in the file header. A single line of metadata — <code>units: N·s</code> — would have saved $327.6 million. Today, for any conversion between force, mass, and acceleration, <a href="/feet-to-meters">feet to meters</a> and <a href="/lbs-to-kg">lbs to kg</a> should be run in both directions with independent verification. The Orbiter didn't fail because the math was hard. It failed because nobody thought to ask which math was being used.</p>
+
+<p>Two hundred and twenty-six kilometres was the target; fifty-seven was the arrival. The full anatomy of that gap — the AMD impulse bits, the file with no unit field, the four months of unusable data, and why Doppler tracking was structurally blind to the error — is documented in <a href="/guides/mars-climate-orbiter-unit-conversion-error">Mars Climate Orbiter: When 1 N·s Was Read as 1 lbf·s</a>. For the conversion itself, <a href="/newtons-to-lbs">newtons to lbs</a> and <a href="/lbs-to-newtons">lbs to newtons</a> give the exact 4.4482216152605 in both directions.</p>
 
 
             <!-- ═══════════════════════════════════════════════════════
@@ -446,7 +451,7 @@
                         <rect x="45" y="155" width="610" height="10" fill="#141820"/>
                         <!-- River -->
                         <rect x="45" y="165" width="610" height="110" rx="0" fill="#0a1628"/>
-                        <text x="350" y="295" text-anchor="middle" fill="#1a3050" font-size="14" font-family="system-ui, sans-serif" font-weight="700">RHINE RIVER</text>
+                        <text x="350" y="253" text-anchor="middle" fill="#1a3050" font-size="14" font-family="system-ui, sans-serif" font-weight="700">RHINE RIVER</text>
                         <!-- Water surface effects -->
                         <line x1="120" y1="190" x2="250" y2="190" stroke="#38bdf8" stroke-width="0.5" opacity="0.1"/>
                         <line x1="380" y1="200" x2="520" y2="200" stroke="#38bdf8" stroke-width="0.5" opacity="0.1"/>
@@ -464,7 +469,7 @@
                         <text x="270" y="145" text-anchor="middle" fill="#38bdf8" font-size="10" font-family="monospace" font-weight="700">+0.00m (North Sea)</text>
                         <!-- Swiss bridge half -->
                         <rect x="340" y="139" width="160" height="14" rx="3" fill="#f59e0b" opacity="0.85" filter="url(#lauf-shadow)"/>
-                        <text x="420" y="135" text-anchor="middle" fill="#f59e0b" font-size="10" font-family="monospace" font-weight="700">+0.54m (Mediterranean)</text>
+                        <text x="385" y="129" text-anchor="middle" fill="#f59e0b" font-size="10" font-family="monospace" font-weight="700">+0.54m (Mediterranean)</text>
                         <!-- Gap highlight -->
                         <rect x="348" y="133" width="8" height="34" rx="3" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="2"/>
                         <!-- Vertical gap measure -->
@@ -483,17 +488,16 @@
                         <text x="505" y="227" fill="#f59e0b" font-size="8" font-family="monospace">  Repère Pierre du Niton</text>
                         <!-- Bottom explainer row -->
                         <rect x="45" y="290" width="610" height="44" rx="8" fill="#292e38" filter="url(#lauf-shadow)"/>
-                        <text x="350" y="313" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">Both sides used identical plans, same steel specs, same construction techniques. Every document abbreviated to "</text>
-                        <text x="540" y="313" text-anchor="middle" fill="#ef4444" font-size="11" font-family="system-ui, sans-serif" font-weight="700">meters above sea level</text>
-                        <text x="418" y="330" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">" — neither side asked which sea.</text>
+                        <text x="350" y="310" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">Both sides used identical plans, the same steel specs, the same construction techniques.</text>
+                        <text x="350" y="327" text-anchor="middle" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">Every document abbreviated this to <tspan fill="#ef4444" font-weight="700">"meters above sea level"</tspan> — neither side asked which sea.</text>
                         <!-- Software analogy -->
-                        <rect x="45" y="348" width="610" height="52" rx="8" fill="#141820" stroke="#f59e0b" stroke-width="1"/>
-                        <text x="70" y="370" fill="#f59e0b" font-size="12" font-family="system-ui, sans-serif" font-weight="700">Dev Equivalent:</text>
-                        <text x="175" y="370" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">Two microservices both accept</text>
-                        <text x="400" y="370" fill="#a1a9b6" font-size="11" font-family="monospace">"height": number</text>
-                        <text x="550" y="370" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">— one assumes meters, one assumes feet.</text>
-                        <text x="70" y="390" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">Both are correct. The system fails. Cost: CHF 6 million. Fix: explicit contract —</text>
-                        <text x="540" y="390" fill="#22c55e" font-size="11" font-family="monospace" font-weight="700">"height_cm": number</text>
+                        <rect x="45" y="348" width="610" height="64" rx="8" fill="#141820" stroke="#f59e0b" stroke-width="1"/>
+                        <text x="70" y="368" fill="#f59e0b" font-size="12" font-family="system-ui, sans-serif" font-weight="700">Dev Equivalent:</text>
+                        <text x="180" y="368" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">two microservices both accept a bare</text>
+                        <text x="378" y="368" fill="#a1a9b6" font-size="11" font-family="monospace">"height": number</text>
+                        <text x="70" y="386" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">— one assumes meters, the other feet. Both implementations are correct. The system fails.</text>
+                        <text x="70" y="404" fill="#a1a9b6" font-size="11" font-family="system-ui, sans-serif">Cost: CHF 6 million. Fix: an explicit contract — </text>
+                        <text x="400" y="404" fill="#22c55e" font-size="11" font-family="monospace" font-weight="700">"height_cm": number</text>
                     </svg>
                     <figcaption><strong>Fig 4:</strong> Laufenburg Bridge datum mismatch. Germany builds to the North Sea reference; Switzerland to the Mediterranean. The 54 cm gap was discovered only as the two halves approached each other — months after all plans were approved. The software equivalent: two APIs that both accept <code>height</code> without a unit, each assuming a different one.</figcaption>
                 </figure>
@@ -531,6 +535,8 @@
             <p>The well-control calculations that should have caught the anomaly involved converting between ppg (mud weight), psi (gauge readings), and vertical depth (feet), using the 0.052 conversion factor that is the industry standard — but only if the units are ppg, psi, and feet. Change any of those units (to kg/m³, to bar, to meters) and the conversion factor changes with it. In the investigation's final report, the National Commission noted that the mud log — the real-time record of drilling parameters — showed clear signs of a kick that were not acted upon. Some of those signs were obscured by the mental arithmetic of converting between incompatible unit systems in the heat of an unfolding emergency.</p>
 
             <p>The pressure units used in the oilfield (ppg, psi, bar, atm) are a conversion minefield even at a desk in daylight. In a control room at 10 PM with alarms going off, they are deadly. For any pressure conversion — especially between <a href="/psi-to-bar">psi to bar</a> and <a href="/psi-to-kpa">psi to kPa</a> — run the numbers in both directions with a verified calculator. Mental arithmetic at 2:1 pressure ratios will get you killed. Mental arithmetic at 14.5:1 ratios — the psi-to-bar gap — will do it faster.</p>
+
+<p>The complete pressure story behind the blowout — the 0.2 ppg margin, the negative-pressure test, and how ppg converts through psi, bar and atm — is in <a href="/guides/deepwater-horizon-ppg-mud-weight">Deepwater Horizon: The 0.2 ppg That Broke the Gulf</a>.</p>
 
 
             <!-- ═══════════════════════════════════════════════════════
@@ -577,7 +583,7 @@
             <h2>The Cost of a Missing Label</h2>
 
                 <figure class="guide-figure" style="max-width:700px">
-                    <svg viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 700 580" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="cost-bg" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="0%" stop-color="#1c2028"/>
@@ -587,7 +593,7 @@
                             <filter id="cost-red"><feDropShadow dx="2" dy="0" stdDeviation="6" flood-color="#ef4444" flood-opacity="0.25"/></filter>
                             <filter id="cost-amber"><feDropShadow dx="2" dy="0" stdDeviation="6" flood-color="#f59e0b" flood-opacity="0.25"/></filter>
                         </defs>
-                        <rect width="700" height="560" rx="10" fill="url(#cost-bg)" stroke="#2a303c" stroke-width="1"/>
+                        <rect width="700" height="580" rx="10" fill="url(#cost-bg)" stroke="#2a303c" stroke-width="1"/>
                         <!-- Header -->
                         <rect x="0" y="0" width="700" height="52" rx="10" fill="#1f2530"/>
                         <rect x="0" y="42" width="700" height="10" fill="#1f2530"/>
@@ -611,20 +617,20 @@
                         <text x="175" y="247" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">2004–2013 · tunnel gauge mismatch</text>
                         <rect x="185" y="219" width="245" height="36" rx="6" fill="#f59e0b" opacity="0.9" filter="url(#cost-amber)"/>
                         <text x="195" y="242" fill="#1a1e26" font-size="13" font-family="system-ui, sans-serif" font-weight="700">€258,000,000</text>
-                        <text x="443" y="242" text-anchor="end" fill="#fcd34d" font-size="9" font-family="system-ui, sans-serif">31 trains · never delivered · contract canceled</text>
+                        <text x="443" y="242" text-anchor="end" fill="#fcd34d" font-size="9" font-family="system-ui, sans-serif">31 trains · never delivered</text>
                         <!-- Bar 4: Patriot -->
                         <text x="175" y="294" text-anchor="end" fill="#edf0f5" font-size="12" font-family="system-ui, sans-serif" font-weight="700">4. Patriot Missile Dhahran</text>
-                        <text x="175" y="309" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">1991 · IEEE 754 binary 0.1 bug</text>
+                        <text x="175" y="309" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">1991 · 24-bit fixed-point bug</text>
                         <rect x="185" y="281" width="125" height="36" rx="6" fill="#ef4444" opacity="0.9" filter="url(#cost-red)"/>
                         <text x="195" y="304" fill="#fff" font-size="13" font-family="system-ui, sans-serif" font-weight="700">$50,000,000</text>
                         <text x="320" y="304" fill="#ef4444" font-size="11" font-family="system-ui, sans-serif" font-weight="700">28 soldiers killed · 100 wounded</text>
-                        <text x="550" y="304" fill="#788290" font-size="9" font-family="system-ui, sans-serif">Fix: already on 3.5" floppy disk, in transit</text>
+                        <text x="530" y="304" fill="#788290" font-size="9" font-family="system-ui, sans-serif">Fix arrived 26 Feb — one day late</text>
                         <!-- Bar 5: Laufenburg -->
                         <text x="175" y="356" text-anchor="end" fill="#edf0f5" font-size="12" font-family="system-ui, sans-serif" font-weight="700">5. Laufenburg Bridge</text>
-                        <text x="175" y="371" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">2003 · North Sea ≠ Mediterranean Sea</text>
+                        <text x="175" y="371" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">2003 · vertical datum mismatch</text>
                         <rect x="185" y="343" width="75" height="36" rx="6" fill="#38bdf8" opacity="0.85"/>
                         <text x="195" y="366" fill="#fff" font-size="13" font-family="system-ui, sans-serif" font-weight="700">CHF 6,000,000</text>
-                        <text x="270" y="366" fill="#7dd3fc" font-size="9" font-family="system-ui, sans-serif">54 cm gap · fix: lowered Swiss approach ramp</text>
+                        <text x="300" y="366" fill="#7dd3fc" font-size="9" font-family="system-ui, sans-serif">54 cm gap · fix: lowered Swiss approach ramp</text>
                         <!-- Bar 6: Barcelona Gas -->
                         <text x="175" y="418" text-anchor="end" fill="#edf0f5" font-size="12" font-family="system-ui, sans-serif" font-weight="700">6. Barcelona Gas Explosion</text>
                         <text x="175" y="433" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">1972 · bar vs kg/cm² gauge</text>
@@ -633,13 +639,13 @@
                         <text x="250" y="428" fill="#fcd34d" font-size="9" font-family="system-ui, sans-serif">1 dead · 4-story building leveled · 2% invisible error</text>
                         <!-- Bar 7: Gimli -->
                         <text x="175" y="480" text-anchor="end" fill="#edf0f5" font-size="12" font-family="system-ui, sans-serif" font-weight="700">7. Gimli Glider</text>
-                        <text x="175" y="495" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">1983 · Canada metrication transition</text>
+                        <text x="175" y="495" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">1983 · metrication transition</text>
                         <rect x="185" y="467" width="30" height="36" rx="6" fill="#38bdf8" opacity="0.65"/>
                         <text x="195" y="490" fill="#fff" font-size="13" font-family="system-ui, sans-serif" font-weight="700">~$1M</text>
-                        <text x="225" y="490" fill="#7dd3fc" font-size="9" font-family="system-ui, sans-serif">Repair cost · 0 fatalities · aircraft flew 25 more years</text>
+                        <text x="240" y="490" fill="#7dd3fc" font-size="9" font-family="system-ui, sans-serif">Repair cost · 0 fatalities · 25 more years in service</text>
                         <!-- Bar 8: Vasa -->
                         <text x="175" y="542" text-anchor="end" fill="#edf0f5" font-size="12" font-family="system-ui, sans-serif" font-weight="700">8. Vasa Warship</text>
-                        <text x="175" y="557" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">1628 · 4 foot standards on same hull</text>
+                        <text x="175" y="557" text-anchor="end" fill="#788290" font-size="9" font-family="monospace">1628 · four foot standards</text>
                         <rect x="185" y="529" width="18" height="36" rx="6" fill="#5b6473" opacity="0.7"/>
                         <text x="195" y="552" fill="#a1a9b6" font-size="10" font-family="system-ui, sans-serif">? — 50 sailors · Swedish empire prestige · 333 years underwater</text>
                     </svg>
@@ -698,7 +704,7 @@
                 <ul>
                     <li>NASA Jet Propulsion Laboratory — <em>Mars Climate Orbiter Mishap Investigation Board Phase I Report</em> (November 1999). NASA Technical Report. The definitive source for the lbf·s / N·s mismatch, the trajectory error accumulation, and the contract specification failure.</li>
                     <li>Canadian Aviation Safety Board — <em>Aviation Occurrence Report: Air Canada Flight 143, Boeing 767-233, C-GAUN, Gimli, Manitoba, 23 July 1983</em>. CASB Report No. 83-002. Covers the fuel loading calculation, the metrication transition, and the crew's gliding approach.</li>
-                    <li>United States General Accounting Office — <em>Patriot Missile Defense: Software Problem Led to System Failure at Dhahran, Saudi Arabia</em> (GAO/IMTEC-92-26, February 1992). The official U.S. government report on the floating-point timing error, the 0.34-second drift, and the software update timeline.</li>
+                    <li>United States General Accounting Office — <em>Patriot Missile Defense: Software Problem Led to System Failure at Dhahran, Saudi Arabia</em> (GAO/IMTEC-92-26, February 1992). The official U.S. government report on the fixed-point timing error, the 0.3433-second drift, and the software update timeline.</li>
                     <li>Cederlund, C.O. — <em>Vasa I: The Archaeology of a Swedish Warship of 1628</em> (Statens Maritima Museer, 2006). The definitive archaeological analysis of the Vasa's hull, including the discovery of multiple foot standards used in construction.</li>
                     <li>International Yard and Pound Agreement (1959) — Federal Register Notice 24 FR 5347, July 1, 1959. The treaty that standardized the international foot at 304.8 mm and the pound at 0.45359237 kg exactly, unifying the divergent definitions that caused problems like the Vasa's four-foot hull.</li>
                     <li>National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling — <em>Deep Water: The Gulf Oil Disaster and the Future of Offshore Drilling</em> (Report to the President, January 2011). Covers the negative pressure test misinterpretation, the ppg-psi conversion issues, and the operational timeline of the Macondo well blowout.</li>
@@ -717,7 +723,7 @@
              ATTRIBUTION
              ═══════════════════════════════════════════════════════ -->
         <div class="attribution-box">
-            <p>This article is published by <strong>EnginStack</strong> as part of our engineering reference library. Republication is permitted with an attribution link to the original URL at <code>https://enginstack.com/guides/engineering-unit-conversion-mistakes</code>. For corrections, additional sources, or to suggest a disaster that belongs on this list, <a href="/contact">contact the EnginStack engineering team</a>.</p>
+            <p>This article is published by <strong>EnginStack</strong> as part of our engineering reference library. Republication is permitted with an attribution link to the original URL at <code>https://enginstack.com/guides/engineering-unit-conversion-mistakes</code>. For corrections, additional sources, or to suggest a disaster that belongs on this list, <a href="/contact">contact the EnginStack Editorial Team</a>.</p>
         </div>
 
     </main>

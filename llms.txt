@@ -1,6 +1,6 @@
 # EnginStack
 
-> Engineering unit converters built on verified international metrology constants. 310+ precision conversion tools across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 25 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
+> Engineering unit converters built on verified international metrology constants. 310+ precision conversion tools across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 32 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
 
 ## Converters by category
 
@@ -13,7 +13,7 @@
 - [Volume](https://enginstack.com/volume/): 24 converters — gallons, liters, quarts, pints, cups, cubic feet, mL. Flagship: [gallons-to-liters](https://enginstack.com/gallons-to-liters) (1 US gal = 3.785411784 L exactly)
 - [Time](https://enginstack.com/time/): 14 converters — seconds, minutes, hours, days, weeks, months, milliseconds
 - [Data Storage](https://enginstack.com/data-storage/): 12 converters — KB, MB, GB, TB, Kbps, Mbps, Gbps
-- [Energy & Power](https://enginstack.com/energy/): 20 converters — watts, kW, HP, joules, calories, kWh, BTU. Flagship: [btu-to-kwh](https://enginstack.com/btu-to-kwh) (1 kWh = 3412.141633 BTU)
+- [Energy & Power](https://enginstack.com/energy/): 24 converters — watts, kW, HP, joules, calories, kWh, BTU, BTU/h, tons of cooling. Flagship: [btu-to-kwh](https://enginstack.com/btu-to-kwh) (1 kWh = 3412.141633 BTU)
 - [Angle](https://enginstack.com/angle/): 4 converters — degrees, radians, gradians
 - [Torque](https://enginstack.com/torque/): 10 converters — ft·lb, N·m, kg·m, in·lb. Flagship: [nm-to-ft-lbs](https://enginstack.com/nm-to-ft-lbs) (1 N·m = 0.7375621493 ft·lb)
 - [Fuel Economy](https://enginstack.com/fuel-economy/): 4 converters — MPG, km/L, L/100km. Flagship: [mpg-to-l-100km](https://enginstack.com/mpg-to-l-100km) (1 mpg = 235.215 L/100km)
@@ -50,9 +50,16 @@
 - [Engine Displacement Conversion Guide](https://enginstack.com/guides/engine-displacement-conversion-guide): cubic inches to liters, the Ford 5.0 myth
 - [The 8 Most Expensive Unit Conversion Mistakes](https://enginstack.com/guides/engineering-unit-conversion-mistakes): Mars Climate Orbiter and others
 - [The Year 2038 Problem](https://enginstack.com/guides/year-2038-problem): when the Unix timestamp's 32-bit second counter overflows to 1901
+- [Korean Air Cargo 6316](https://enginstack.com/guides/korean-air-cargo-6316-altitude-unit-mismatch): when 1,500 meters was misread as 1,500 feet over Shanghai
+- [Deepwater Horizon](https://enginstack.com/guides/deepwater-horizon-ppg-mud-weight): the 0.2 ppg margin and the ppg density unit that failed in the Gulf
+- [Concorde 4590](https://enginstack.com/guides/concorde-4590-titanium-strip): the 43 cm strip of titanium that should have been steel — the only fatal Concorde crash and the Mach unit
+- [Air Conditioner Ton & BTU Sizing](https://enginstack.com/guides/air-conditioner-btu-ton-guide): why a "ton" of cooling is 12,000 BTU/h of melted ice, not a weight
+- [Gimli Glider](https://enginstack.com/guides/gimli-glider-kg-lb-fuel-error): when 22,300 kg of fuel was loaded as 22,300 lb — the purest unit error, and a 17-minute dead-stick glide
+- [Mars Climate Orbiter](https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error): pound-force-seconds written where newton-seconds were specified — 4.4482216152605×, invisible to Doppler tracking, 226 km targeted and 57 km reached
+- [Patriot Missile at Dhahran](https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation): a 24-bit register that could not hold a tenth of a second — 0.3433 s of accumulated error after 100 hours, and a Scud the radar tracked and then threw away
 
 ## About
 
 - [About EnginStack](https://enginstack.com/about): mission and methodology — every constant verified against NIST SP 811 and BIPM
 - [All converters index](https://enginstack.com/): full category grid
-- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (312 pages)
+- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (324 pages)
