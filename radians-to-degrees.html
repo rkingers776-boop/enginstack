@@ -77,7 +77,7 @@
       "name": "How do I convert radians to degrees?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Multiply radians by 180/π (approximately 57.2958). Formula: ° = rad × 180 / π. For a quick estimate, 1 rad — 7.3°. Divide radians by 0.01745 for a more precise conversion."
+        "text": "Multiply radians by 180/π (approximately 57.2958). Formula: ° = rad × 180 / π. For a quick estimate, 1 rad ≈ 57.3°. Divide radians by 0.01745 for a more precise conversion."
       }
     },
     {
@@ -85,7 +85,7 @@
       "name": "Why do engineers prefer degrees for display but radians for computation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Degrees are intuitive — 60° divides cleanly by 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, etc., making them ideal for human communication. But calculus requires radians: the small-angle approximation sin θ —— (with less than 1% error for θ < 0.24 rad — 4°) fails if θ is in degrees. Every control system, DSP algorithm, and physics simulation computes in radians internally, then converts to degrees only at the final display layer."
+        "text": "Degrees are intuitive — 60° divides cleanly by 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, etc., making them ideal for human communication. But calculus requires radians: the small-angle approximation sin θ ≈ θ (with less than 1% error for θ < 0.24 rad ≈ 14°) fails if θ is in degrees. Every control system, DSP algorithm, and physics simulation computes in radians internally, then converts to degrees only at the final display layer."
       }
     },
     {
@@ -191,27 +191,27 @@
                         <th>Degrees</th>
                     </tr></thead><tbody>
                     <tr>
-                        <td>π/6 —.5236 rad</td>
+                        <td>π/6 ≈ 0.5236 rad</td>
                         <td>30°</td>
                     </tr>
                     <tr>
-                        <td>π/4 —.7854 rad</td>
+                        <td>π/4 ≈ 0.7854 rad</td>
                         <td>45°</td>
                     </tr>
                     <tr>
-                        <td>π/3 —.0472 rad</td>
+                        <td>π/3 ≈ 1.0472 rad</td>
                         <td>60°</td>
                     </tr>
                     <tr>
-                        <td>π/2 —.5708 rad</td>
+                        <td>π/2 ≈ 1.5708 rad</td>
                         <td>90°</td>
                     </tr>
                     <tr>
-                        <td>π —.1416 rad</td>
+                        <td>π ≈ 3.1416 rad</td>
                         <td>180°</td>
                     </tr>
                     <tr>
-                        <td>2π —.2832 rad</td>
+                        <td>2π ≈ 6.2832 rad</td>
                         <td>360°</td>
                     </tr>
                     </tbody></table></div>
@@ -220,11 +220,11 @@
                 <h2>Frequently Asked Questions</h2>
                 <div class="faq-item">
                     <p class="faq-q">How do I convert radians to degrees?</p>
-                    <p class="faq-a">Multiply radians by 180/π (approximately 57.2958). Formula: <strong>° = rad × 180 / π</strong>. For a quick estimate, 1 rad — 7.3°. Divide radians by 0.01745 for a more precise conversion.</p>
+                    <p class="faq-a">Multiply radians by 180/π (approximately 57.2958). Formula: <strong>° = rad × 180 / π</strong>. For a quick estimate, 1 rad ≈ 57.3°. Divide radians by 0.01745 for a more precise conversion.</p>
                 </div>
                 <div class="faq-item">
                     <p class="faq-q">Why do engineers prefer degrees for display but radians for computation?</p>
-                    <p class="faq-a">Degrees are intuitive — 60° divides cleanly by 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, etc., making them ideal for human communication. But calculus requires radians: the small-angle approximation sin θ —— (with less than 1% error for θ < 0.24 rad — 4°) fails if θ is in degrees. Every control system, DSP algorithm, and physics simulation computes in radians internally, then converts to degrees only at the final display layer.</p>
+                    <p class="faq-a">Degrees are intuitive — 60° divides cleanly by 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, etc., making them ideal for human communication. But calculus requires radians: the small-angle approximation sin θ ≈ θ (with less than 1% error for θ < 0.24 rad ≈ 14°) fails if θ is in degrees. Every control system, DSP algorithm, and physics simulation computes in radians internally, then converts to degrees only at the final display layer.</p>
                 </div>
                 <div class="faq-item">
                     <p class="faq-q">What is the origin of 360 degrees in a circle?</p>
@@ -232,7 +232,7 @@
                 </div>
                 <section class="eng-context">
                     <h3>Engineering Context</h3>
-                    <p>The radian-to-degree conversion is the final transform in every system where the machine computes in radians but the human reads in degrees — which is nearly every engineered system with a display. In aerospace, an AHRS (Attitude and Heading Reference System) fuses 9-axis IMU data (accelerometer + gyroscope + magnetometer) through a Mahony or Madgwick filter that computes quaternion orientation entirely in radians internally, but the PFD (Primary Flight Display) renders pitch and bank in degrees — the conversion runs at 50 Hz on an ARINC 429 bus, and a rounding error of 0.005° per iteration would accumulate to 18° of drift in one hour if the radian-to-degree conversion weren't exact. Boeing's 737 MAX MCAS investigation highlighted how a single AOA (Angle of Attack) sensor discrepancy of 0.55° (0.0096 rad) could trigger repeated nose-down trim — the AOA vane transducer outputs a voltage linearized to degrees, the FCC (Flight Control Computer) converts to radians for the stability augmentation algorithm, and the trim command converts back to degrees for actuator displacement; all three conversions must use identical precision or the feedback loop accumulates error. In radio astronomy, the Very Large Array (VLA) in New Mexico specifies antenna pointing accuracy of 10 arcseconds (1/360° = 4.85 × 10⁻⁵ rad) — achieved by converting celestial coordinates (J2000.0 right ascension in hours-minutes-seconds, declination in degrees-minutes-seconds) to radians for the baseline vector computation in the u-v plane, then back to degrees for the motor encoder feedback. ALMA's 66 antennas in the Atacama Desert achieve 0.6 arcsecond pointing (2.9 × 10⁻⁶ rad) — the radian-to-degree conversion constant is stored as a 64-bit compile-time constant in the TCS (Telescope Control System) C++ codebase, and changing it would invalidate 15 years of validated observing scripts. In medical imaging, CT scanner gantry rotation is specified in degrees/sec (typically 1— rotations/sec = 360— 80°/s), but the filtered back-projection reconstruction algorithm — the Radon transform inverse — integrates over 0 to π radians, not 0° to 180°. The ramp filter |ω| in the frequency domain is derived from the Jacobian of polar-to-Cartesian coordinate conversion, and its mathematical validity depends on the integration limits being exactly π radians. A Siemens Somatom Force CT scanner acquires 1,152 projections per rotation (0.3125° or 0.00545 rad spacing), and each projection's sinogram bin is indexed by radian angle; the 0.3125° spacing corresponds to exactly π/576 rad — the design choice to make the spacing an exact rational multiple of π eliminates interpolation artifacts in the FFT-based reconstruction. In audio DSP, the phase response of an IIR filter is computed by angle(H(e^{jω})) where ω is the normalized radian frequency (0 to π rad/sample) — but plugin GUIs display phase in degrees. Every parametric EQ, every loudspeaker crossover, every phased-array beam-steering system converts arctan(Im/Re) from radians to degrees before drawing the phase plot. The conversion is so pervasive that Intel's x87 FPU included the FLDPI instruction (load π into ST(0)) primarily to accelerate radian-degree conversions in engineering and CAD workloads — the instruction was present from the 8087 in 1980 through the last x87-compatible processor, a 40-year architectural commitment to one constant for one conversion.</p>
+                    <p>The radian-to-degree conversion is the final transform in every system where the machine computes in radians but the human reads in degrees — which is nearly every engineered system with a display. In aerospace, an AHRS (Attitude and Heading Reference System) fuses 9-axis IMU data (accelerometer + gyroscope + magnetometer) through a Mahony or Madgwick filter that computes quaternion orientation entirely in radians internally, but the PFD (Primary Flight Display) renders pitch and bank in degrees — the conversion runs at 50 Hz on an ARINC 429 bus, and a rounding error of 0.005° per iteration would accumulate to 18° of drift in one hour if the radian-to-degree conversion weren't exact. Boeing's 737 MAX MCAS investigation highlighted how a single AOA (Angle of Attack) sensor discrepancy of 0.55° (0.0096 rad) could trigger repeated nose-down trim — the AOA vane transducer outputs a voltage linearized to degrees, the FCC (Flight Control Computer) converts to radians for the stability augmentation algorithm, and the trim command converts back to degrees for actuator displacement; all three conversions must use identical precision or the feedback loop accumulates error. In radio astronomy, the Very Large Array (VLA) in New Mexico specifies antenna pointing accuracy of 10 arcseconds (1/360° = 4.85 × 10⁻⁵ rad) — achieved by converting celestial coordinates (J2000.0 right ascension in hours-minutes-seconds, declination in degrees-minutes-seconds) to radians for the baseline vector computation in the u-v plane, then back to degrees for the motor encoder feedback. ALMA's 66 antennas in the Atacama Desert achieve 0.6 arcsecond pointing (2.9 × 10⁻⁶ rad) — the radian-to-degree conversion constant is stored as a 64-bit compile-time constant in the TCS (Telescope Control System) C++ codebase, and changing it would invalidate 15 years of validated observing scripts. In medical imaging, CT scanner gantry rotation is specified in degrees/sec (typically 1–3 rotations/sec = 360–1,080°/s), but the filtered back-projection reconstruction algorithm — the Radon transform inverse — integrates over 0 to π radians, not 0° to 180°. The ramp filter |ω| in the frequency domain is derived from the Jacobian of polar-to-Cartesian coordinate conversion, and its mathematical validity depends on the integration limits being exactly π radians. A Siemens Somatom Force CT scanner acquires 1,152 projections per rotation (0.3125° or 0.00545 rad spacing), and each projection's sinogram bin is indexed by radian angle; the 0.3125° spacing corresponds to exactly π/576 rad — the design choice to make the spacing an exact rational multiple of π eliminates interpolation artifacts in the FFT-based reconstruction. In audio DSP, the phase response of an IIR filter is computed by angle(H(e^{jω})) where ω is the normalized radian frequency (0 to π rad/sample) — but plugin GUIs display phase in degrees. Every parametric EQ, every loudspeaker crossover, every phased-array beam-steering system converts arctan(Im/Re) from radians to degrees before drawing the phase plot. The conversion is so pervasive that Intel's x87 FPU included the FLDPI instruction (load π into ST(0)) primarily to accelerate radian-degree conversions in engineering and CAD workloads — the instruction was present from the 8087 in 1980 through the last x87-compatible processor, a 40-year architectural commitment to one constant for one conversion.</p>
 <p style="margin-top:1.2em;">More: <a href="/degrees-to-radians">degrees to radians</a> · <a href="/guides/angle-conversion-guide">Angle Guide</a></p>
                 </section>
 

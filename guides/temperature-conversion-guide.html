@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
-    <title>Temperature Conversion Guide —Fahrenheit, Celsius, Kelvin, and the 150-Year-Old Body Temperature Lie | EnginStack</title>
-    <meta name="description" content="The definitive engineering guide to temperature units —Fahrenheit, Celsius, Kelvin. Why temperature is the only affine conversion most people use, the brine-and-armpit origin of °F, why Celsius ran backwards until Linnaeus flipped it, and the 1851 body temperature myth that survived 141 years.">
+    <title>Temperature Conversion Guide — Fahrenheit, Celsius, Kelvin, and the 150-Year-Old Body Temperature Lie | EnginStack</title>
+    <meta name="description" content="The definitive engineering guide to temperature units — Fahrenheit, Celsius, Kelvin. Why temperature is the only affine conversion most people use, the brine-and-armpit origin of °F, why Celsius ran backwards until Linnaeus flipped it, and the 1851 body temperature myth that survived 141 years.">
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="/manifest.json">
     <link rel="canonical" href="https://enginstack.com/guides/temperature-conversion-guide">
     <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/temperature-conversion-guide">
     <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/temperature-conversion-guide">
-    <meta property="og:title" content="Temperature Conversion Guide —°F, °C, K, and the 150-Year-Old Body Temperature Lie | EnginStack">
+    <meta property="og:title" content="Temperature Conversion Guide — °F, °C, K, and the 150-Year-Old Body Temperature Lie | EnginStack">
     <meta property="og:description" content="Why temperature is the only affine conversion most people use. Fahrenheit's brine-and-armpit origin, why Celsius ran backwards until Linnaeus flipped it, the 1851 body temperature myth that survived 141 years, and why Kelvin sits inside every engineering data pipeline.">
     <meta property="og:url" content="https://enginstack.com/guides/temperature-conversion-guide">
     <meta property="og:type" content="article">
@@ -26,8 +26,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Temperature Conversion Guide —Fahrenheit, Celsius, Kelvin, and the 150-Year-Old Body Temperature Lie",
-  "description": "The definitive engineering guide to temperature units. Covers Fahrenheit, Celsius, and Kelvin —exact conversion formulas, historical origins, the brine-and-armpit origin story, the 1851 body temperature myth, and real accidents caused by temperature unit confusion.",
+  "headline": "Temperature Conversion Guide — Fahrenheit, Celsius, Kelvin, and the 150-Year-Old Body Temperature Lie",
+  "description": "The definitive engineering guide to temperature units. Covers Fahrenheit, Celsius, and Kelvin — exact conversion formulas, historical origins, the brine-and-armpit origin story, the 1851 body temperature myth, and real accidents caused by temperature unit confusion.",
   "author": { "@type": "Organization", "name": "EnginStack" },
   "publisher": { "@type": "Organization", "name": "EnginStack" },
   "url": "https://enginstack.com/guides/temperature-conversion-guide",
@@ -58,7 +58,7 @@
       "name": "What is the quickest mental shortcut for °F to °C?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Subtract 30 and halve it. 86°F —86 —30 = 56, ÷ 2 = 28°C (actual: 30°C). 50°F —50 —30 = 20, ÷ 2 = 10°C (exact). The error is about ±2°C in the 0—00°F range. The reverse shortcut for °C to °F: double and add 30. 20°C —40 + 30 = 70°F (actual: 68°F). These shortcuts work because 5/9 —0.5 and 32 —30 —close enough for weather and cooking. Do not use them for sterilization cycles, vaccine storage, or clinical fever assessment."
+        "text": "Subtract 30 and halve it. 86°F → 86 − 30 = 56, ÷ 2 = 28°C (actual: 30°C). 50°F → 50 − 30 = 20, ÷ 2 = 10°C (exact). The error is about ±2°C in the 0–100°F range. The reverse shortcut for °C to °F: double and add 30. 20°C → 40 + 30 = 70°F (actual: 68°F). These shortcuts work because 5/9 ≈ 0.5 and 32 ≈ 30 — close enough for weather and cooking. Do not use them for sterilization cycles, vaccine storage, or clinical fever assessment."
       }
     },
     {
@@ -66,7 +66,7 @@
       "name": "Why does the US still use Fahrenheit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Inertia and granularity. The US Metric Conversion Act of 1975 made metric the \"preferred system\" but explicitly made conversion voluntary. Weather broadcasters, oven manufacturers, and thermostat makers stayed with Fahrenheit because customers understood it and because a 1°F change is small enough to be useful without decimals —the 0—00°F range maps roughly to the outdoor temperature range in temperate latitudes where most Americans live. The Metric Board was abolished in 1982. Celsius is used internally by every US science classroom, hospital lab, and military logistics system. Fahrenheit is a consumer-facing legacy layer that persists because no political constituency is motivated enough to change it."
+        "text": "Inertia and granularity. The US Metric Conversion Act of 1975 made metric the \"preferred system\" but explicitly made conversion voluntary. Weather broadcasters, oven manufacturers, and thermostat makers stayed with Fahrenheit because customers understood it and because a 1°F change is small enough to be useful without decimals — the 0–100°F range maps roughly to the outdoor temperature range in temperate latitudes where most Americans live. The Metric Board was abolished in 1982. Celsius is used internally by every US science classroom, hospital lab, and military logistics system. Fahrenheit is a consumer-facing legacy layer that persists because no political constituency is motivated enough to change it."
       }
     },
     {
@@ -74,7 +74,7 @@
       "name": "Is 100°C exactly the boiling point of water everywhere?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. 100°C is the boiling point of pure water at exactly 1 standard atmosphere (101.325 kPa) —sea level under standard conditions. At 5,000 feet (1,524 m) elevation —Denver, Colorado —water boils at about 95°C (203°F). At 10,000 feet (3,048 m), roughly 90°C (194°F). Every 150 meters of elevation gain drops the boiling point by about 0.5°C. High-altitude cooking instructions compensate for this —pasta boiled at 10,000 feet takes roughly twice as long. The boiling point also depends on dissolved substances: seawater (3.5% salt) boils at about 100.6°C, which is why salt added to pasta water doesn't meaningfully affect cooking temperature but does affect flavor. The barometric pressure on the day matters too: a deep low-pressure storm system can drop the boiling point by up to 1°C relative to a high-pressure clear day."
+        "text": "No. 100°C is the boiling point of pure water at exactly 1 standard atmosphere (101.325 kPa) — sea level under standard conditions. At 5,000 feet (1,524 m) elevation — Denver, Colorado — water boils at about 95°C (203°F). At 10,000 feet (3,048 m), roughly 90°C (194°F). Every 150 meters of elevation gain drops the boiling point by about 0.5°C. High-altitude cooking instructions compensate for this — pasta boiled at 10,000 feet takes roughly twice as long. The boiling point also depends on dissolved substances: seawater (3.5% salt) boils at about 100.6°C, which is why salt added to pasta water doesn't meaningfully affect cooking temperature but does affect flavor. The barometric pressure on the day matters too: a deep low-pressure storm system can drop the boiling point by up to 1°C relative to a high-pressure clear day."
       }
     },
     {
@@ -90,7 +90,7 @@
       "name": "Is there a temperature scale where water freezes at 0 and boils at 100 that isn't Celsius?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes —centigrade. Before 1948, \"centigrade\" was the universal name for the scale with 0° at water freezing and 100° at water boiling. The name was changed to \"Celsius\" by the 9th CGPM to honor Anders Celsius and to resolve a naming conflict with the \"grade\" (also called \"centigrade\") —a now-obsolete metric unit of angular measurement where a right angle is divided into 100 grades instead of 90 degrees. If you see \"centigrade\" in a pre-1948 document, it means Celsius —same scale, same degree size, different name."
+        "text": "Yes — centigrade. Before 1948, \"centigrade\" was the universal name for the scale with 0° at water freezing and 100° at water boiling. The name was changed to \"Celsius\" by the 9th CGPM to honor Anders Celsius and to resolve a naming conflict with the \"grade\" (also called \"centigrade\") — a now-obsolete metric unit of angular measurement where a right angle is divided into 100 grades instead of 90 degrees. If you see \"centigrade\" in a pre-1948 document, it means Celsius — same scale, same degree size, different name."
       }
     }
   ]
@@ -124,7 +124,7 @@
 
         <header class="page-header">
             <h1>Fahrenheit, Celsius, Kelvin: A Field Guide to Temperature Units</h1>
-            <p>Temperature is the only affine unit conversion most people ever use. Inches to centimeters is multiplication. Pounds to kilograms is multiplication. Fahrenheit to Celsius is subtraction <em>and then</em> multiplication —because two men in the 1720s and 1740s disagreed about where zero lives. One picked an ammonium chloride brine slush. The other picked water freezing. Then the second man died, and a botanist flipped his scale upside down. The consequences persist in every kitchen thermometer and hospital chart on Earth.</p>
+            <p>Temperature is the only affine unit conversion most people ever use. Inches to centimeters is multiplication. Pounds to kilograms is multiplication. Fahrenheit to Celsius is subtraction <em>and then</em> multiplication — because two men in the 1720s and 1740s disagreed about where zero lives. One picked an ammonium chloride brine slush. The other picked water freezing. Then the second man died, and a botanist flipped his scale upside down. The consequences persist in every kitchen thermometer and hospital chart on Earth.</p>
             <p class="page-meta">~14 min read &nbsp;·&nbsp; Last updated June 2026</p>
         </header>
 
@@ -137,18 +137,18 @@
         </div>
         <article class="seo-section guide-content">
 
-<p>In 1999, a UK pharmaceutical facility ran a sterilization autoclave at 121°F instead of 121°C. The correct cycle —121°C for 15 minutes at 2.1 bar —kills every bacterial spore known to medicine. At 121°F (49°C), the cycle is a warm bath. Surviving spores contaminated a batch of injectable saline. The recall covered 22 hospitals. The post-incident investigation found that the autoclave's temperature controller had a °F/°C toggle switch on the front panel, accessible to anyone, with no lockout and no confirmation dialog. An operator had bumped it while cleaning. The switch was about the size of a fingernail. The batch was worth roughly £200,000. The recall cost ten times that.</p>
+<p>In 1999, a UK pharmaceutical facility ran a sterilization autoclave at 121°F instead of 121°C. The correct cycle — 121°C for 15 minutes at 2.1 bar — kills every bacterial spore known to medicine. At 121°F (49°C), the cycle is a warm bath. Surviving spores contaminated a batch of injectable saline. The recall covered 22 hospitals. The post-incident investigation found that the autoclave's temperature controller had a °F/°C toggle switch on the front panel, accessible to anyone, with no lockout and no confirmation dialog. An operator had bumped it while cleaning. The switch was about the size of a fingernail. The batch was worth roughly £200,000. The recall cost ten times that.</p>
 
-<p>Temperature conversion is not hard math. Subtract 32, multiply by 5/9. Or multiply by 9/5, add 32. The problem is not the arithmetic. The problem is that temperature is the only unit system where the zero point is arbitrary —chosen by a glassblower in Danzig and an astronomer in Uppsala, neither of whom could have imagined a world where a nurse in Manila uses a thermometer purchased in Miami to read a fever in a patient from London. Every other unit mistake is a factor-of-X error. Temperature mistakes add an offset on top of the factor. A 38°C fever mistakenly recorded as 38°F is not off by a percentage. It is off by an entire clinical category —hypothermia instead of infection. The patient gets blankets, not antibiotics. This guide is about why temperature is different, how it got that way, and what happens when the difference is ignored.</p>
+<p>Temperature conversion is not hard math. Subtract 32, multiply by 5/9. Or multiply by 9/5, add 32. The problem is not the arithmetic. The problem is that temperature is the only unit system where the zero point is arbitrary — chosen by a glassblower in Danzig and an astronomer in Uppsala, neither of whom could have imagined a world where a nurse in Manila uses a thermometer purchased in Miami to read a fever in a patient from London. Every other unit mistake is a factor-of-X error. Temperature mistakes add an offset on top of the factor. A 38°C fever mistakenly recorded as 38°F is not off by a percentage. It is off by an entire clinical category — hypothermia instead of infection. The patient gets blankets, not antibiotics. This guide is about why temperature is different, how it got that way, and what happens when the difference is ignored.</p>
 
 <!-- ══—KEY TAKEAWAYS ══—-->
 <div class="callout" style="border-left-color: var(--primary); background: var(--card-raised);">
     <h4>Key Takeaways</h4>
     <ul>
         <li><strong>Temperature is an affine transform, not a multiplication.</strong> Subtract 32 to align zero points, then multiply by 5/9 to match degree sizes. Skip the subtraction and you are off by 32 Fahrenheit degrees every time.</li>
-        <li><strong>Fahrenheit set body temperature at 96°F.</strong> He was off by 2.6 degrees —his wife may have had a fever, his thermometer may have been miscalibrated, or both. The 98.6°F number came later, from a different man with a different instrument in a different century.</li>
+        <li><strong>Fahrenheit set body temperature at 96°F.</strong> He was off by 2.6 degrees — his wife may have had a fever, his thermometer may have been miscalibrated, or both. The 98.6°F number came later, from a different man with a different instrument in a different century.</li>
         <li><strong>Celsius originally ran backwards.</strong> 0° = boiling water, 100° = freezing water. Carl Linnaeus flipped it in 1746. The scale was called "centigrade" until 1948.</li>
-        <li><strong>—0° is the only temperature where °F = °C.</strong> Jet A-1 aviation fuel freezes at exactly —0°, so pilots crossing the North Atlantic never need to convert this particular number.</li>
+        <li><strong>−40° is the only temperature where °F = °C.</strong> Jet A-1 aviation fuel freezes at exactly −40°, so pilots crossing the North Atlantic never need to convert this particular number.</li>
         <li><strong>Every engineering pipeline should convert temperature to Kelvin on ingestion.</strong> Compute in Kelvin. Convert to display units at the output layer. Anything else risks an unconverted offset passing through the arithmetic.</li>
     </ul>
 </div>
@@ -159,16 +159,16 @@
 <table>
     <thead><tr><th>Temperature</th><th>°F</th><th>°C</th><th>K</th><th>Significance</th></tr></thead>
     <tbody>
-        <tr><td>Absolute zero</td><td>—59.67°F</td><td>—73.15°C</td><td>0 K</td><td>Zero thermal energy. Unreachable in practice; approachable to billionths of a kelvin in laser-cooled Bose-Einstein condensates.</td></tr>
-        <tr><td>Fahrenheit's brine zero</td><td>0°F</td><td>—7.78°C</td><td>255.37 K</td><td>Water + ice + ammonium chloride slush. The coldest thing Fahrenheit could make in a bucket in 1724.</td></tr>
-        <tr><td>Scales intersect</td><td>—0°F</td><td>—0°C</td><td>233.15 K</td><td>Jet A fuel freezing point. Exposed skin freezes in 2— minutes with wind.</td></tr>
-        <tr><td>Aircraft de-icing threshold</td><td>23°F</td><td>—°C</td><td>268.15 K</td><td>Type I de-icing fluid holdover time chart starts here. Below this, active frost is forming on the wing.</td></tr>
-        <tr><td>Water freezes</td><td>32°F</td><td>0°C</td><td>273.15 K</td><td>Road salt loses effectiveness below 15°F (—°C). Concrete won't cure properly.</td></tr>
+        <tr><td>Absolute zero</td><td>−459.67°F</td><td>−273.15°C</td><td>0 K</td><td>Zero thermal energy. Unreachable in practice; approachable to billionths of a kelvin in laser-cooled Bose-Einstein condensates.</td></tr>
+        <tr><td>Fahrenheit's brine zero</td><td>0°F</td><td>−17.78°C</td><td>255.37 K</td><td>Water + ice + ammonium chloride slush. The coldest thing Fahrenheit could make in a bucket in 1724.</td></tr>
+        <tr><td>Scales intersect</td><td>−40°F</td><td>−40°C</td><td>233.15 K</td><td>Jet A fuel freezing point. Exposed skin freezes in 2–5 minutes with wind.</td></tr>
+        <tr><td>Aircraft de-icing threshold</td><td>23°F</td><td>−5°C</td><td>268.15 K</td><td>Type I de-icing fluid holdover time chart starts here. Below this, active frost is forming on the wing.</td></tr>
+        <tr><td>Water freezes</td><td>32°F</td><td>0°C</td><td>273.15 K</td><td>Road salt loses effectiveness below 15°F (−9°C). Concrete won't cure properly.</td></tr>
         <tr><td>Refrigerator target</td><td>40°F</td><td>4.4°C</td><td>277.6 K</td><td>FDA food safety: below 40°F (4.4°C) inhibits bacterial growth. Above this, food spoilage rate doubles every ~5°F.</td></tr>
         <tr><td>Room temperature</td><td>68°F</td><td>20°C</td><td>293.15 K</td><td>ASHRAE Standard 55 thermal comfort baseline. ±3.5°C is the 80% acceptability band for seated occupants.</td></tr>
-        <tr><td>Body temperature (actual)</td><td>97.5°F</td><td>36.4°C</td><td>309.5 K</td><td>Mackowiak 1992, Obermeyer 2017. Not 98.6°F —that was a miscalibrated 1851 thermometer.</td></tr>
+        <tr><td>Body temperature (actual)</td><td>97.5°F</td><td>36.4°C</td><td>309.5 K</td><td>Mackowiak 1992, Obermeyer 2017. Not 98.6°F — that was a miscalibrated 1851 thermometer.</td></tr>
         <tr><td>Body temperature (Wunderlich artifact)</td><td>98.6°F</td><td>37.0°C</td><td>310.15 K</td><td>Still printed on thermometer boxes. Wrong for 98% of the population at any given time of day.</td></tr>
-        <tr><td>Clinical fever threshold</td><td>100.4°F</td><td>38.0°C</td><td>311.15 K</td><td>But a 70-year-old at 37.5°C may already be febrile —the fever threshold drops with age.</td></tr>
+        <tr><td>Clinical fever threshold</td><td>100.4°F</td><td>38.0°C</td><td>311.15 K</td><td>But a 70-year-old at 37.5°C may already be febrile — the fever threshold drops with age.</td></tr>
         <tr><td>Water boils (1 atm)</td><td>212°F</td><td>100°C</td><td>373.15 K</td><td>At 5,000 ft elevation: about 203°F (95°C). Adjust cooking times accordingly.</td></tr>
         <tr><td>Autoclave sterilization</td><td>250°F</td><td>121°C</td><td>394.15 K</td><td>121°C for 15 min at 2.1 bar kills all bacterial spores. 121°F (49°C) kills nothing. The difference is one toggle switch.</td></tr>
     </tbody>
@@ -181,12 +181,12 @@
 <table>
     <thead><tr><th>From</th><th>To</th><th>Formula</th><th>Use this converter</th></tr></thead>
     <tbody>
-        <tr><td>°F</td><td>°C</td><td>°C = (°F —32) × 5/9</td><td><a href="/fahrenheit-to-celsius">°F to °C —/a></td></tr>
-        <tr><td>°C</td><td>°F</td><td>°F = °C × 9/5 + 32</td><td><a href="/celsius-to-fahrenheit">°C to °F —/a></td></tr>
-        <tr><td>°C</td><td>K</td><td>K = °C + 273.15</td><td><a href="/celsius-to-kelvin">°C to K —/a></td></tr>
-        <tr><td>K</td><td>°C</td><td>°C = K —273.15</td><td><a href="/celsius-to-kelvin">K to °C —/a></td></tr>
-        <tr><td>°F</td><td>K</td><td>K = (°F + 459.67) × 5/9</td><td><a href="/fahrenheit-to-celsius">°F to °C —/a> then +273.15</td></tr>
-        <tr><td>K</td><td>°F</td><td>°F = K × 9/5 —459.67</td><td><a href="/celsius-to-fahrenheit">°C to °F —/a> after —73.15</td></tr>
+        <tr><td>°F</td><td>°C</td><td>°C = (°F − 32) × 5/9</td><td><a href="/fahrenheit-to-celsius">°F to °C</a></td></tr>
+        <tr><td>°C</td><td>°F</td><td>°F = °C × 9/5 + 32</td><td><a href="/celsius-to-fahrenheit">°C to °F</a></td></tr>
+        <tr><td>°C</td><td>K</td><td>K = °C + 273.15</td><td><a href="/celsius-to-kelvin">°C to K</a></td></tr>
+        <tr><td>K</td><td>°C</td><td>°C = K − 273.15</td><td><a href="/celsius-to-kelvin">K to °C</a></td></tr>
+        <tr><td>°F</td><td>K</td><td>K = (°F + 459.67) × 5/9</td><td><a href="/fahrenheit-to-celsius">°F to °C</a> then +273.15</td></tr>
+        <tr><td>K</td><td>°F</td><td>°F = K × 9/5 − 459.67</td><td><a href="/celsius-to-fahrenheit">°C to °F</a> after −273.15</td></tr>
     </tbody>
 </table>
 </div>
@@ -200,7 +200,7 @@
         <li><a href="#celsius">The Astronomer Who Got It Backwards: Celsius, Linnaeus, and the 1948 Rename</a></li>
         <li><a href="#kelvin">Kelvin: The Scale That Fixed Everything by Starting at Absolute Zero</a></li>
         <li><a href="#body-temp">The 150-Year-Old Body Temperature Lie: Wunderlich's Miscalibrated Million Readings</a></li>
-        <li><a href="#minus-40">—0°: The One Temperature Where No Converter Is Needed</a></li>
+        <li><a href="#minus-40">−40°: The One Temperature Where No Converter Is Needed</a></li>
         <li><a href="#disasters">When Temperature Units Go Wrong: Medical, Aviation, and Industrial Failures</a></li>
         <li><a href="#tools">Every Temperature Converter on This Site</a></li>
     </ol>
@@ -212,11 +212,11 @@
 <section id="why-different">
     <h2>1. Why Temperature Is the Only Affine Conversion You Use</h2>
 
-    <p>Almost every unit conversion in your life is a multiplication. Inches to centimeters: multiply by 2.54. Pounds to kilograms: multiply by 0.45359237. Miles to kilometers: multiply by 1.609344. Even the more obscure ones —acres to hectares, gallons to liters, horsepower to kilowatts —are all proportional. The scales share a zero point. One inch is 2.54 centimeters. Zero inches is zero centimeters. The math is y = kx.</p>
+    <p>Almost every unit conversion in your life is a multiplication. Inches to centimeters: multiply by 2.54. Pounds to kilograms: multiply by 0.45359237. Miles to kilometers: multiply by 1.609344. Even the more obscure ones — acres to hectares, gallons to liters, horsepower to kilowatts — are all proportional. The scales share a zero point. One inch is 2.54 centimeters. Zero inches is zero centimeters. The math is y = kx.</p>
 
-    <p>Temperature is different because two men in the 18th century independently chose different physical phenomena as their zero reference. Fahrenheit picked the coldest thing he could make in a bucket: ammonium chloride brine at about —7.78°C. Celsius picked the freezing point of pure water. Neither was wrong —they just made different choices, and neither man had a reason to coordinate with the other. The result is a conversion formula of the form <strong>y = m(x —b)</strong> —an affine transform —which is algebraically one small step harder than multiplication but conceptually a much bigger leap for anyone who hasn't taken linear algebra.</p>
+    <p>Temperature is different because two men in the 18th century independently chose different physical phenomena as their zero reference. Fahrenheit picked the coldest thing he could make in a bucket: ammonium chloride brine at about −17.78°C. Celsius picked the freezing point of pure water. Neither was wrong — they just made different choices, and neither man had a reason to coordinate with the other. The result is a conversion formula of the form <strong>y = m(x — b)</strong> — an affine transform — which is algebraically one small step harder than multiplication but conceptually a much bigger leap for anyone who hasn't taken linear algebra.</p>
 
-    <p>The affine nature of temperature conversion has a concrete consequence that trips up engineers and laypeople alike: <strong>temperature differences convert differently than temperature points.</strong> If the temperature goes up by 5°C, that's a 9°F rise —multiply by 1.8, done. No offset. Because the offset cancels: Δ°C = (°C——°C— = (°F——32) × 5/9 —(°F——32) × 5/9 = (°F——°F— × 5/9. The 32's subtract out. But if the specification says "operating temperature 5°C," that's a point, not a difference, and converting it to Fahrenheit requires the full affine formula: 5 × 9/5 + 32 = 41°F. A data pipeline that treats a setpoint as a difference will produce 9°F instead of 41°F —an error of 32 Fahrenheit degrees that no amount of downstream precision can fix.</p>
+    <p>The affine nature of temperature conversion has a concrete consequence that trips up engineers and laypeople alike: <strong>temperature differences convert differently than temperature points.</strong> If the temperature goes up by 5°C, that's a 9°F rise — multiply by 1.8, done. No offset. Because the offset cancels: Δ°C = (°C₁ − °C₂) = (°F₁ − 32) × 5/9 − (°F₂ − 32) × 5/9 = (°F₁ − °F₂) × 5/9. The 32's subtract out. But if the specification says "operating temperature 5°C," that's a point, not a difference, and converting it to Fahrenheit requires the full affine formula: 5 × 9/5 + 32 = 41°F. A data pipeline that treats a setpoint as a difference will produce 9°F instead of 41°F — an error of 32 Fahrenheit degrees that no amount of downstream precision can fix.</p>
 
     <p>This is why every responsible engineering data pipeline ingests temperature as Kelvin, computes in Kelvin, and converts to display units only at the final output layer. Kelvin has a true zero. Kelvin differences and Kelvin points are the same thing. An offset error cannot occur if all internal computation is done in a scale where offset doesn't exist. More on Kelvin in Section 4.</p>
 </section>
@@ -227,17 +227,17 @@
 <section id="fahrenheit">
     <h2>2. The Glassblower from Danzig: Fahrenheit's Brine, Armpit, and Arithmetic Mistake</h2>
 
-    <p>Daniel Gabriel Fahrenheit was born in Danzig (now Gdańsk, Poland) in 1686 to a merchant family. His parents died from mushroom poisoning when he was 15. He was sent to Amsterdam to learn bookkeeping. Instead, he learned glassblowing. By his early 30s, Fahrenheit was making the finest mercury thermometers in northern Europe —uniform-bore glass tubes that no other instrument maker could replicate. Before Fahrenheit, thermometers used alcohol or water, which expanded nonlinearly with heat and boiled or froze inside the tube at common ambient temperatures. Mercury solved the range problem but demanded glass tubes with perfectly uniform inner diameters. Fahrenheit figured out how to make them. His thermometers were the first instruments that could reliably produce the same reading from two identically constructed devices.</p>
+    <p>Daniel Gabriel Fahrenheit was born in Danzig (now Gdańsk, Poland) in 1686 to a merchant family. His parents died from mushroom poisoning when he was 15. He was sent to Amsterdam to learn bookkeeping. Instead, he learned glassblowing. By his early 30s, Fahrenheit was making the finest mercury thermometers in northern Europe — uniform-bore glass tubes that no other instrument maker could replicate. Before Fahrenheit, thermometers used alcohol or water, which expanded nonlinearly with heat and boiled or froze inside the tube at common ambient temperatures. Mercury solved the range problem but demanded glass tubes with perfectly uniform inner diameters. Fahrenheit figured out how to make them. His thermometers were the first instruments that could reliably produce the same reading from two identically constructed devices.</p>
 
     <p>A thermometer without a scale is just a fancy glass straw. So Fahrenheit needed numbers. In 1724, he published a paper in the <em>Philosophical Transactions of the Royal Society</em> describing his scale, anchored on three reference points he could reproduce in his workshop:</p>
 
-    <p><strong>0°F.</strong> The temperature of a slush made from water, ice, and ammonium chloride (sal ammoniac). This brine mixture stabilizes at about —7.78°C —the coldest thing Fahrenheit could reliably produce with the materials available to an 18th-century instrument maker. Not absolute zero. Not even the coldest temperature in Danzig in winter. Just the coldest bucket his lab could make.</p>
+    <p><strong>0°F.</strong> The temperature of a slush made from water, ice, and ammonium chloride (sal ammoniac). This brine mixture stabilizes at about −17.78°C — the coldest thing Fahrenheit could reliably produce with the materials available to an 18th-century instrument maker. Not absolute zero. Not even the coldest temperature in Danzig in winter. Just the coldest bucket his lab could make.</p>
 
-    <p><strong>32°F.</strong> The freezing point of pure water. Why 32? Because Fahrenheit had already defined his degree size from the brine-to-body-temperature span (96 of his degrees), and from brine-zero to water-freezing spanned exactly 32 of those degrees. The 32 wasn't chosen —it fell out of the geometry of a scale that started at brine slush and peaked at armpit.</p>
+    <p><strong>32°F.</strong> The freezing point of pure water. Why 32? Because Fahrenheit had already defined his degree size from the brine-to-body-temperature span (96 of his degrees), and from brine-zero to water-freezing spanned exactly 32 of those degrees. The 32 wasn't chosen — it fell out of the geometry of a scale that started at brine slush and peaked at armpit.</p>
 
-    <p><strong>96°F.</strong> Human body temperature. Fahrenheit calibrated this by placing a mercury thermometer under his wife's arm (or, some historians argue, a "healthy man's" armpit —the primary sources are ambiguous). He marked that reading as 96. From brine zero to armpit spanned exactly 96 degrees. Each degree was, by construction, 1/96 of the temperature range a human body could generate —an elegant, anthropocentric definition.</p>
+    <p><strong>96°F.</strong> Human body temperature. Fahrenheit calibrated this by placing a mercury thermometer under his wife's arm (or, some historians argue, a "healthy man's" armpit — the primary sources are ambiguous). He marked that reading as 96. From brine zero to armpit spanned exactly 96 degrees. Each degree was, by construction, 1/96 of the temperature range a human body could generate — an elegant, anthropocentric definition.</p>
 
-    <p>It was also wrong. Fahrenheit's body temperature anchor was off by roughly 2.6°F —his wife may have had a fever, his thermometer may have been slightly miscalibrated, or the armpit he measured may simply have been warmer than average. Fahrenheit later re-anchored his scale to make water freeze at exactly 32°F and boil at exactly 212°F —an interval of 180 degrees, half a circle, satisfying the angular logic of an era that measured everything in degrees of arc. The body temperature anchor drifted from 96°F to 98.6°F not because Fahrenheit corrected it but because later scientists recalibrated against the new freezing/boiling anchors. Fahrenheit died in 1736, believing he had measured the temperature of the human body at exactly 96°F on his own scale. He was wrong by 2.6 degrees, and his error was not discovered until after he was dead.</p>
+    <p>It was also wrong. Fahrenheit's body temperature anchor was off by roughly 2.6°F — his wife may have had a fever, his thermometer may have been slightly miscalibrated, or the armpit he measured may simply have been warmer than average. Fahrenheit later re-anchored his scale to make water freeze at exactly 32°F and boil at exactly 212°F — an interval of 180 degrees, half a circle, satisfying the angular logic of an era that measured everything in degrees of arc. The body temperature anchor drifted from 96°F to 98.6°F not because Fahrenheit corrected it but because later scientists recalibrated against the new freezing/boiling anchors. Fahrenheit died in 1736, believing he had measured the temperature of the human body at exactly 96°F on his own scale. He was wrong by 2.6 degrees, and his error was not discovered until after he was dead.</p>
 
     <p>Fahrenheit's scale persists today in the United States, the Bahamas, Belize, the Cayman Islands, and Palau. Everywhere else uses Celsius. The split traces back to two decisions: Fahrenheit's choice of ammonium chloride brine as zero (1724), and the US Congress's choice to make metric conversion voluntary (1975). Nearly 250 years separate the two decisions. Their combined effect is that an American tourist reading a weather forecast in Paris, and a French tourist reading a weather forecast in Miami, are both doing mental arithmetic that hasn't changed since an 18th-century glassblower put a mercury tube under his wife's arm.</p>
 </section>
@@ -248,15 +248,15 @@
 <section id="celsius">
     <h2>3. The Astronomer Who Got It Backwards: Celsius, Linnaeus, and the 1948 Rename</h2>
 
-    <p>Anders Celsius was a Swedish astronomer, physicist, and mathematician —not a thermometer maker. Born in Uppsala in 1701, he was the son of an astronomy professor and the grandson of another. He went on to become the first to measure the relationship between the aurora borealis and changes in Earth's magnetic field, and he participated in the 1736 French expedition to Lapland that confirmed Newton's prediction that the Earth bulges at the equator. The temperature scale that bears his name was almost an afterthought —a two-page paper published in 1742, two years before his death from tuberculosis at the age of 42.</p>
+    <p>Anders Celsius was a Swedish astronomer, physicist, and mathematician — not a thermometer maker. Born in Uppsala in 1701, he was the son of an astronomy professor and the grandson of another. He went on to become the first to measure the relationship between the aurora borealis and changes in Earth's magnetic field, and he participated in the 1736 French expedition to Lapland that confirmed Newton's prediction that the Earth bulges at the equator. The temperature scale that bears his name was almost an afterthought — a two-page paper published in 1742, two years before his death from tuberculosis at the age of 42.</p>
 
     <p>And his scale ran backwards.</p>
 
-    <p>Celsius set <strong>0° as the boiling point of water</strong> and <strong>100° as the freezing point of water</strong>. The numbers increased as the temperature dropped. A warm spring day might register "85 degrees Celsius." A freezing winter morning would read "0 degrees Celsius." Why? The historical record is frustratingly thin —Celsius published his scale in a short paper to the Royal Swedish Academy of Sciences and died before elaborating. The most plausible explanation comes from his identity as an astronomer: celestial altitude is measured in degrees above the horizon. Zero is at the top of the sky (the zenith is 90°). Higher terrain is at lower angular altitude, and the number increases as you descend toward the horizon. An astronomer accustomed to "zero at the top, increasing downward" might find it natural that the hottest thing (boiling water) gets the lowest number. That, or he simply didn't think it through —and the scale was designed for laboratory convenience, where the boiling point is the most reproducible and accessible calibration point.</p>
+    <p>Celsius set <strong>0° as the boiling point of water</strong> and <strong>100° as the freezing point of water</strong>. The numbers increased as the temperature dropped. A warm spring day might register "85 degrees Celsius." A freezing winter morning would read "0 degrees Celsius." Why? The historical record is frustratingly thin — Celsius published his scale in a short paper to the Royal Swedish Academy of Sciences and died before elaborating. The most plausible explanation comes from his identity as an astronomer: celestial altitude is measured in degrees above the horizon. Zero is at the top of the sky (the zenith is 90°). Higher terrain is at lower angular altitude, and the number increases as you descend toward the horizon. An astronomer accustomed to "zero at the top, increasing downward" might find it natural that the hottest thing (boiling water) gets the lowest number. That, or he simply didn't think it through — and the scale was designed for laboratory convenience, where the boiling point is the most reproducible and accessible calibration point.</p>
 
-    <p>Two years after Celsius's death, Carl Linnaeus —the great Swedish botanist who invented the binomial nomenclature still used to name every living organism —ordered a thermometer from the instrument maker Daniel Ekström for use in Linnaeus's Uppsala greenhouse. Linnaeus specified that the scale be reversed: 0° at freezing, 100° at boiling. The surviving thermometer, still preserved in Uppsala's Museum Gustavianum, has "0" at the bottom of the scale and "100" at the top. It was the first Celsius-scale thermometer the right way up.</p>
+    <p>Two years after Celsius's death, Carl Linnaeus — the great Swedish botanist who invented the binomial nomenclature still used to name every living organism — ordered a thermometer from the instrument maker Daniel Ekström for use in Linnaeus's Uppsala greenhouse. Linnaeus specified that the scale be reversed: 0° at freezing, 100° at boiling. The surviving thermometer, still preserved in Uppsala's Museum Gustavianum, has "0" at the bottom of the scale and "100" at the top. It was the first Celsius-scale thermometer the right way up.</p>
 
-    <p>For the next 202 years, the scale was called "centigrade" —from the Latin <em>centum</em> (hundred) and <em>gradus</em> (step). The name "Celsius" was not officially adopted until 1948, when the 9th General Conference on Weights and Measures (CGPM) decided that the scale deserved the name of its originator —204 years after his death. The decision was partly political: the French delegation wanted to avoid confusion with the "grade" or "gon" —the metric angular unit dividing a right angle into 100 parts, also called "centigrade" in some contexts. A temperature scale and an angle unit sharing the same name was causing confusion in French technical documents. Renaming the temperature scale to "Celsius" fixed the ambiguity. Anders Celsius was dead for two centuries and suddenly became a household word.</p>
+    <p>For the next 202 years, the scale was called "centigrade" — from the Latin <em>centum</em> (hundred) and <em>gradus</em> (step). The name "Celsius" was not officially adopted until 1948, when the 9th General Conference on Weights and Measures (CGPM) decided that the scale deserved the name of its originator — 204 years after his death. The decision was partly political: the French delegation wanted to avoid confusion with the "grade" or "gon" — the metric angular unit dividing a right angle into 100 parts, also called "centigrade" in some contexts. A temperature scale and an angle unit sharing the same name was causing confusion in French technical documents. Renaming the temperature scale to "Celsius" fixed the ambiguity. Anders Celsius was dead for two centuries and suddenly became a household word.</p>
 
     <p>Today Celsius is the standard temperature scale for everyday use in every country except the handful that still use Fahrenheit. It is the scale of weather reports, cooking instructions, and medical thermometers worldwide. The UK abandoned Fahrenheit for weather in 1962. Canada followed in 1975. Liberia switched in the 1990s. Myanmar adopted Celsius officially in 2013 but still uses Fahrenheit informally. The transition is slow, but it is moving in one direction only.</p>
 </section>
@@ -267,13 +267,13 @@
 <section id="kelvin">
     <h2>4. Kelvin: The Scale That Fixed Everything by Starting at Absolute Zero</h2>
 
-    <p>William Thomson —ennobled in 1892 as Baron Kelvin of Largs —was a 24-year-old professor of natural philosophy at the University of Glasgow when he proposed, in an 1848 paper, a temperature scale that started at absolute zero. The idea was simple: if you cool a gas at constant volume, its pressure drops linearly with temperature. Extrapolate the line below the freezing point of water, past the point where the gas would liquefy, past the point where classical physics breaks down, all the way to the temperature where pressure would theoretically hit zero —where molecular motion ceases entirely. That temperature, Thomson calculated, was approximately —73°C. His paper's title said it plainly: <em>On an Absolute Thermometric Scale Founded on Carnot's Theory of the Motive Power of Heat</em>.</p>
+    <p>William Thomson — ennobled in 1892 as Baron Kelvin of Largs — was a 24-year-old professor of natural philosophy at the University of Glasgow when he proposed, in an 1848 paper, a temperature scale that started at absolute zero. The idea was simple: if you cool a gas at constant volume, its pressure drops linearly with temperature. Extrapolate the line below the freezing point of water, past the point where the gas would liquefy, past the point where classical physics breaks down, all the way to the temperature where pressure would theoretically hit zero — where molecular motion ceases entirely. That temperature, Thomson calculated, was approximately −273°C. His paper's title said it plainly: <em>On an Absolute Thermometric Scale Founded on Carnot's Theory of the Motive Power of Heat</em>.</p>
 
-    <p>Thomson's key insight was that a temperature scale with a true zero —not a chosen reference like brine slush or water freezing, but an actual physical floor —would make thermodynamics vastly cleaner. The efficiency of a heat engine depends on the ratio of temperatures: Thot/Tcold. If Tcold is measured from an arbitrary zero, the ratio is wrong. If Tcold is measured from absolute zero, the ratio is correct. The difference between 300 K and 200 K is a ratio of 3:2 —meaningful. The difference between 27°C and —3°C is not obviously meaningful at all, even though they represent the same physical state.</p>
+    <p>Thomson's key insight was that a temperature scale with a true zero — not a chosen reference like brine slush or water freezing, but an actual physical floor — would make thermodynamics vastly cleaner. The efficiency of a heat engine depends on the ratio of temperatures: Thot/Tcold. If Tcold is measured from an arbitrary zero, the ratio is wrong. If Tcold is measured from absolute zero, the ratio is correct. The difference between 300 K and 200 K is a ratio of 3:2 — meaningful. The difference between 27°C and −3°C is not obviously meaningful at all, even though they represent the same physical state.</p>
 
-    <p>The kelvin (lowercase k; the symbol is K, no degree sign) was adopted as the SI base unit of thermodynamic temperature in 1954. Its definition has been refined several times since. From 1954 to 2019, the kelvin was defined by the triple point of water —exactly 273.16 K, where water, ice, and vapor coexist in equilibrium at precisely 611.657 pascals. In 2019, the CGPM redefined the kelvin by fixing the Boltzmann constant at exactly 1.380649 × 10⁻²—joules per kelvin. Now the kelvin —like the kilogram, the meter, and the second —is defined in terms of a fundamental constant, not a physical artifact or a specific substance. Zero kelvin is absolute zero. The rest of the scale is defined by how much energy a particle has at a given temperature, expressed through the Boltzmann constant.</p>
+    <p>The kelvin (lowercase k; the symbol is K, no degree sign) was adopted as the SI base unit of thermodynamic temperature in 1954. Its definition has been refined several times since. From 1954 to 2019, the kelvin was defined by the triple point of water — exactly 273.16 K, where water, ice, and vapor coexist in equilibrium at precisely 611.657 pascals. In 2019, the CGPM redefined the kelvin by fixing the Boltzmann constant at exactly 1.380649 × 10⁻²³ joules per kelvin. Now the kelvin — like the kilogram, the meter, and the second — is defined in terms of a fundamental constant, not a physical artifact or a specific substance. Zero kelvin is absolute zero. The rest of the scale is defined by how much energy a particle has at a given temperature, expressed through the Boltzmann constant.</p>
 
-    <p><strong>Why engineering pipelines use Kelvin internally.</strong> A specification that says "ΔT = 5°C" is unambiguous —it means a 5-kelvin difference, which equals a 9°F difference. But a specification that says "operating temperature 5°C" is a point. If you store that as 5 in a database and a downstream component interprets it as 5°F, you're off by approximately 15°C —that's the difference between a refrigerator and a freezer. If you store it as 278.15 K (5 + 273.15), there's no ambiguity: add or subtract 273.15 to get Celsius, apply the affine formula to get Fahrenheit, but the stored value is the thermodynamic truth. Every temperature sensor, every PID controller, every SCADA historian that works across international borders should ingest, store, and compute in Kelvin. Convert at the edges. Any other approach, at scale, will eventually produce an unconverted offset.</p>
+    <p><strong>Why engineering pipelines use Kelvin internally.</strong> A specification that says "ΔT = 5°C" is unambiguous — it means a 5-kelvin difference, which equals a 9°F difference. But a specification that says "operating temperature 5°C" is a point. If you store that as 5 in a database and a downstream component interprets it as 5°F, you're off by approximately 15°C — that's the difference between a refrigerator and a freezer. If you store it as 278.15 K (5 + 273.15), there's no ambiguity: add or subtract 273.15 to get Celsius, apply the affine formula to get Fahrenheit, but the stored value is the thermodynamic truth. Every temperature sensor, every PID controller, every SCADA historian that works across international borders should ingest, store, and compute in Kelvin. Convert at the edges. Any other approach, at scale, will eventually produce an unconverted offset.</p>
 </section>
 
 <!-- ════════════════════════════════════════════════════
@@ -282,43 +282,43 @@
 <section id="body-temp">
     <h2>5. The 150-Year-Old Body Temperature Lie: Wunderlich's Miscalibrated Million Readings</h2>
 
-    <p>In 1851, Carl Reinhold August Wunderlich —a German physician at Leipzig University —published <em>Das Verhalten der Eigenwärme in Krankheiten</em> (The Behavior of Body Heat in Illnesses). The book was the result of a massive data collection effort: over one million axillary (armpit) temperature readings from approximately 25,000 patients, taken with a 22-centimeter mercury thermometer over the course of roughly 16 years. Wunderlich's conclusion: the mean normal human body temperature was 37.0°C. Convert that to Fahrenheit —37 × 9/5 + 32 —and you get 98.6. The number that every American learns as the definition of "normal."</p>
+    <p>In 1851, Carl Reinhold August Wunderlich — a German physician at Leipzig University — published <em>Das Verhalten der Eigenwärme in Krankheiten</em> (The Behavior of Body Heat in Illnesses). The book was the result of a massive data collection effort: over one million axillary (armpit) temperature readings from approximately 25,000 patients, taken with a 22-centimeter mercury thermometer over the course of roughly 16 years. Wunderlich's conclusion: the mean normal human body temperature was 37.0°C. Convert that to Fahrenheit — 37 × 9/5 + 32 — and you get 98.6. The number that every American learns as the definition of "normal."</p>
 
     <p>There were two problems, and neither was small.</p>
 
-    <p><strong>Problem one: the thermometer.</strong> Wunderlich's 22-cm mercury thermometer was calibrated against a reference that was itself roughly 1.5°C warmer than the true thermodynamic temperature. Every reading in his million-point dataset was systematically high. His "37°C" was, in modern terms, about 35.5°C —which is not normal body temperature but mild hypothermia. But accurate temperature standards did not exist in 1851 outside a handful of national metrology laboratories, and Wunderlich was a working clinician, not a metrologist. He used the best instrument available. It wasn't good enough.</p>
+    <p><strong>Problem one: the thermometer.</strong> Wunderlich's 22-cm mercury thermometer was calibrated against a reference that was itself roughly 1.5°C warmer than the true thermodynamic temperature. Every reading in his million-point dataset was systematically high. His "37°C" was, in modern terms, about 35.5°C — which is not normal body temperature but mild hypothermia. But accurate temperature standards did not exist in 1851 outside a handful of national metrology laboratories, and Wunderlich was a working clinician, not a metrologist. He used the best instrument available. It wasn't good enough.</p>
 
     <p><strong>Problem two: the measurement site.</strong> Wunderlich measured armpit temperatures exclusively. Axillary readings run 0.3°C to 0.6°C cooler than oral readings, and oral readings run about 0.3°C to 0.5°C cooler than rectal (core) temperature. The variation depends on ambient temperature, how tightly the arm is held against the body, recent physical activity, and about a dozen other variables Wunderlich didn't systematically control. A single axillary reading in a drafty Leipzig hospital ward in January is not the same as an oral reading in a climate-controlled American clinic in July.</p>
 
     <p>Nobody checked Wunderlich's number for 141 years. "37°C = 98.6°F" went into every medical textbook published in the English-speaking world across four generations of physicians. It was printed on glass mercury thermometers manufactured by the millions. It was taught to every nursing student as a canonical fact, like the boiling point of water or the speed of light.</p>
 
-    <p>In 1992, Philip Mackowiak and colleagues at the University of Maryland finally re-measured it. They took oral temperatures from 148 healthy adults, three times a day for three days, using calibrated modern thermometers. The mean: <strong>36.4°C —97.5°F</strong>, not 98.6°F. The range across all subjects and all times of day was 35.8°C to 37.2°C (96.4°F to 98.9°F). A JAMA editorial published alongside the study read: "The 98.6°F standard is a 19th-century artifact, not a 20th-century norm."</p>
+    <p>In 1992, Philip Mackowiak and colleagues at the University of Maryland finally re-measured it. They took oral temperatures from 148 healthy adults, three times a day for three days, using calibrated modern thermometers. The mean: <strong>36.4°C → 97.5°F</strong>, not 98.6°F. The range across all subjects and all times of day was 35.8°C to 37.2°C (96.4°F to 98.9°F). A JAMA editorial published alongside the study read: "The 98.6°F standard is a 19th-century artifact, not a 20th-century norm."</p>
 
-    <p>It gets worse with age. A 2017 study in the <em>British Medical Journal</em> led by Ziad Obermeyer tracked body temperatures across 35,000 patients and found that normal oral temperature drops roughly 0.02°C per year of adult life. A 70-year-old with a 37.0°C reading may be running a 0.6°C fever by their own baseline. A 90-year-old with "normal" 37.0°C could have a serious underlying infection —the fever is masked by the age-related baseline drop. The clinical fever threshold of 38°C (100.4°F) is a population average, not an individual diagnostic. For elderly patients, a temperature of 37.3°C with other signs of infection is enough to trigger a sepsis workup in a modern emergency department.</p>
+    <p>It gets worse with age. A 2017 study in the <em>British Medical Journal</em> led by Ziad Obermeyer tracked body temperatures across 35,000 patients and found that normal oral temperature drops roughly 0.02°C per year of adult life. A 70-year-old with a 37.0°C reading may be running a 0.6°C fever by their own baseline. A 90-year-old with "normal" 37.0°C could have a serious underlying infection — the fever is masked by the age-related baseline drop. The clinical fever threshold of 38°C (100.4°F) is a population average, not an individual diagnostic. For elderly patients, a temperature of 37.3°C with other signs of infection is enough to trigger a sepsis workup in a modern emergency department.</p>
 
-    <p>Wunderlich was not a fraud. His million data points were the first systematic medical thermometry in history, and his observation that body temperature varies with disease, time of day, and individual physiology was genuinely novel and correct. The single number "37°C" that survived was the statistical mean —contaminated by a calibration error he had no way to detect. Every American who has ever panicked at a 99°F reading is reacting to an artifact of an 1851 armpit. Wunderlich has been dead since 1877. His thermometer was off by 1.5°C. The error outlived him by 115 years.</p>
+    <p>Wunderlich was not a fraud. His million data points were the first systematic medical thermometry in history, and his observation that body temperature varies with disease, time of day, and individual physiology was genuinely novel and correct. The single number "37°C" that survived was the statistical mean — contaminated by a calibration error he had no way to detect. Every American who has ever panicked at a 99°F reading is reacting to an artifact of an 1851 armpit. Wunderlich has been dead since 1877. His thermometer was off by 1.5°C. The error outlived him by 115 years.</p>
 </section>
 
 <!-- ════════════════════════════════════════════════════
      SECTION 6: -40°
      ════════════════════════════════════════════════════ -->
 <section id="minus-40">
-    <h2>6. —0°: The One Temperature Where No Converter Is Needed</h2>
+    <h2>6. −40°: The One Temperature Where No Converter Is Needed</h2>
 
     <p>Set °C equal to °F and solve:</p>
 
     <p style="text-align:center; font-family:Georgia,serif; font-size:1.05em; margin:1.5em 0;">
-        x = (x —32) × 5/9<br>
-        9x = 5x —160<br>
-        4x = —60<br>
-        x = —0
+        x = (x − 32) × 5/9<br>
+        9x = 5x − 160<br>
+        4x = −60<br>
+        x = −40
     </p>
 
-    <p>There is exactly one solution. No other pair of linear temperature scales can have more than one crossing point —it's a consequence of the affine form y = mx + b where m —1. If m = 1, the lines are parallel and never cross. If b = 0, the scales share a zero and cross only at zero. With the Fahrenheit-to-Celsius conversion, m = 5/9 and b = —60/9, so the lines cross precisely once. That crossing, by mathematical coincidence, lands at —0.</p>
+    <p>There is exactly one solution. No other pair of linear temperature scales can have more than one crossing point — it's a consequence of the affine form y = mx + b where m ≠ 1. If m = 1, the lines are parallel and never cross. If b = 0, the scales share a zero and cross only at zero. With the Fahrenheit-to-Celsius conversion, m = 5/9 and b = −160/9, so the lines cross precisely once. That crossing, by mathematical coincidence, lands at −40.</p>
 
-    <p>This is not just a curiosity. Jet A-1 aviation fuel has a freezing point specification of —0°C —which also reads —0°F. Pilots crossing the North Atlantic never need to convert this particular number; the fuel is spec'd identically in both scales. The U.S. military's cold-weather gear is tested at —0° because it's the one temperature that reads the same on American and NATO thermometers. Weather stations in Yakutsk, Siberia and Snag, Yukon (where the temperature hit —3°C / —1°F in February 1947) routinely record winter lows below the crossing point. At —0°, wind chill freezes exposed skin in 2 to 5 minutes depending on wind speed. When you're at —0°, the last thing you want to be doing is arithmetic.</p>
+    <p>This is not just a curiosity. Jet A-1 aviation fuel has a freezing point specification of −40°C — which also reads −40°F. Pilots crossing the North Atlantic never need to convert this particular number; the fuel is spec'd identically in both scales. The U.S. military's cold-weather gear is tested at −40° because it's the one temperature that reads the same on American and NATO thermometers. Weather stations in Yakutsk, Siberia and Snag, Yukon (where the temperature hit −63°C / −81°F in February 1947) routinely record winter lows below the crossing point. At −40°, wind chill freezes exposed skin in 2 to 5 minutes depending on wind speed. When you're at −40°, the last thing you want to be doing is arithmetic.</p>
 
-    <p>The fact that the crossing lands on a round negative number is a coincidence —a consequence of the specific numbers Fahrenheit and Celsius chose for their reference points. If Fahrenheit had set brine zero at a slightly different temperature, the crossing might have landed at —7.2° or —2.8°. But he didn't. He picked ammonium chloride brine, and ammonium chloride brine stabilizes at —7.78°C, and 32 Fahrenheit degrees above that is water freezing, and so on. Every choice in 1724 cascaded forward to produce —0 as the unique solution. It is one of the few clean numbers in a thoroughly unclean unit system, and it is genuinely useful.</p>
+    <p>The fact that the crossing lands on a round negative number is a coincidence — a consequence of the specific numbers Fahrenheit and Celsius chose for their reference points. If Fahrenheit had set brine zero at a slightly different temperature, the crossing might have landed at −7.2° or −2.8°. But he didn't. He picked ammonium chloride brine, and ammonium chloride brine stabilizes at −17.78°C, and 32 Fahrenheit degrees above that is water freezing, and so on. Every choice in 1724 cascaded forward to produce −40 as the unique solution. It is one of the few clean numbers in a thoroughly unclean unit system, and it is genuinely useful.</p>
 </section>
 
 <!-- ════════════════════════════════════════════════════
@@ -327,26 +327,26 @@
 <section id="disasters">
     <h2>7. When Temperature Units Go Wrong: Medical, Aviation, and Industrial Failures</h2>
 
-    <p>Temperature conversion errors are among the most dangerous unit mistakes because they can invert a clinical or engineering decision. A factor-of-2.2 mass error gives you half the fuel you need. A temperature error can tell you the patient is freezing when they're burning up with fever. The response is not just wrong —it is the opposite of correct.</p>
+    <p>Temperature conversion errors are among the most dangerous unit mistakes because they can invert a clinical or engineering decision. A factor-of-2.2 mass error gives you half the fuel you need. A temperature error can tell you the patient is freezing when they're burning up with fever. The response is not just wrong — it is the opposite of correct.</p>
 
     <div class="example-box">
-        <p><strong>UK Injectable Saline Sterilization Failure (1999) —°F/°C toggle switch, 0 fatalities, nationwide recall</strong></p>
-        <p>A pharmaceutical facility in the UK ran a sterilization autoclave cycle at 121°F (49°C) instead of 121°C (250°F). The correct cycle —121°C for 15 minutes at 2.1 bar of saturated steam —kills every bacterial endospore known to medicine, including <em>Clostridium botulinum</em> and <em>Bacillus stearothermophilus</em>. At 49°C, a bacterial spore is comfortably warm. The surviving spores contaminated a batch of injectable 0.9% saline. The recall covered 22 hospitals. The post-incident investigation found that the autoclave's temperature controller had a °F/°C toggle switch on the front panel —no lockout, no software confirmation, no physical guard. An operator had bumped the switch while wiping down the control panel during routine cleaning. The switch was roughly the size of a fingernail. The batch was worth about £200,000. The total cost of the recall, investigation, and corrective actions exceeded £2.5 million. No patient deaths were reported, but the investigation concluded that the absence of fatalities was luck, not safety margin.</p>
+        <p><strong>UK Injectable Saline Sterilization Failure (1999) — °F/°C toggle switch, 0 fatalities, nationwide recall</strong></p>
+        <p>A pharmaceutical facility in the UK ran a sterilization autoclave cycle at 121°F (49°C) instead of 121°C (250°F). The correct cycle — 121°C for 15 minutes at 2.1 bar of saturated steam — kills every bacterial endospore known to medicine, including <em>Clostridium botulinum</em> and <em>Bacillus stearothermophilus</em>. At 49°C, a bacterial spore is comfortably warm. The surviving spores contaminated a batch of injectable 0.9% saline. The recall covered 22 hospitals. The post-incident investigation found that the autoclave's temperature controller had a °F/°C toggle switch on the front panel — no lockout, no software confirmation, no physical guard. An operator had bumped the switch while wiping down the control panel during routine cleaning. The switch was roughly the size of a fingernail. The batch was worth about £200,000. The total cost of the recall, investigation, and corrective actions exceeded £2.5 million. No patient deaths were reported, but the investigation concluded that the absence of fatalities was luck, not safety margin.</p>
     </div>
 
     <div class="example-box">
-        <p><strong>Vaccine Cold Chain Failures —the WHO's $200—00 Million Annual Estimate</strong></p>
-        <p>The World Health Organization estimates that temperature-related vaccine damage costs $200—00 million annually —a significant fraction from Fahrenheit/Celsius confusion in cold-chain logistics between US-supplied and internationally-supplied equipment. A vaccine refrigerator procured in the US may display its setpoint in Fahrenheit; the same model shipped to a WHO-funded clinic in sub-Saharan Africa may display Celsius. A health worker trained in one system, using a refrigerator labeled in the other, can mis-set the temperature by 28 degrees —the difference between 4°C and 4°F (—5.6°C). Frozen vaccines lose potency through ice crystal damage to the antigen. The damaged batch looks normal in the vial. It is administered. The patient is not immunized. The disease outbreak that follows is not traced back to a temperature unit conversion error because nobody checks the refrigerator's °F/°C switch during the outbreak investigation.</p>
+        <p><strong>Vaccine Cold Chain Failures — the WHO's $200–400 Million Annual Estimate</strong></p>
+        <p>The World Health Organization estimates that temperature-related vaccine damage costs $200–400 million annually — a significant fraction from Fahrenheit/Celsius confusion in cold-chain logistics between US-supplied and internationally-supplied equipment. A vaccine refrigerator procured in the US may display its setpoint in Fahrenheit; the same model shipped to a WHO-funded clinic in sub-Saharan Africa may display Celsius. A health worker trained in one system, using a refrigerator labeled in the other, can mis-set the temperature by 28 degrees — the difference between 4°C and 4°F (−15.6°C). Frozen vaccines lose potency through ice crystal damage to the antigen. The damaged batch looks normal in the vial. It is administered. The patient is not immunized. The disease outbreak that follows is not traced back to a temperature unit conversion error because nobody checks the refrigerator's °F/°C switch during the outbreak investigation.</p>
     </div>
 
     <div class="example-box">
-        <p><strong>Pediatric Fever Triage —when 38°C becomes 38°F</strong></p>
-        <p>Emergency department triage protocols use temperature thresholds to assign clinical priority. A child under 3 months with a rectal temperature of 38°C (100.4°F) triggers a full sepsis workup —blood cultures, urine culture, lumbar puncture, IV antibiotics within one hour. The same child with a temperature of 38°F (3.3°C) triggers a hypothermia protocol —warming blankets, radiant warmer, possibly an incubator. The two conditions are clinical opposites. A nurse trained in Manila (Celsius) using a thermometer purchased in Miami (Fahrenheit) can misread a 38°C fever as 38°F hypothermia. The child gets warmed, not tested for infection. A fever of 38°C in a neonate has a roughly 3% probability of serious bacterial infection —meningitis, bacteremia, urinary tract infection. Untreated, bacterial meningitis in a neonate has a mortality rate above 20%. The Joint Commission's Sentinel Event database records temperature unit confusion as a contributing factor in an estimated 1— serious pediatric adverse events per year in US hospitals. The true rate is likely higher because unit errors are rarely self-reported unless a death or permanent harm results.</p>
+        <p><strong>Pediatric Fever Triage — when 38°C becomes 38°F</strong></p>
+        <p>Emergency department triage protocols use temperature thresholds to assign clinical priority. A child under 3 months with a rectal temperature of 38°C (100.4°F) triggers a full sepsis workup — blood cultures, urine culture, lumbar puncture, IV antibiotics within one hour. The same child with a temperature of 38°F (3.3°C) triggers a hypothermia protocol — warming blankets, radiant warmer, possibly an incubator. The two conditions are clinical opposites. A nurse trained in Manila (Celsius) using a thermometer purchased in Miami (Fahrenheit) can misread a 38°C fever as 38°F hypothermia. The child gets warmed, not tested for infection. A fever of 38°C in a neonate has a roughly 3% probability of serious bacterial infection — meningitis, bacteremia, urinary tract infection. Untreated, bacterial meningitis in a neonate has a mortality rate above 20%. The Joint Commission's Sentinel Event database records temperature unit confusion as a contributing factor in an estimated 1–2 serious pediatric adverse events per year in US hospitals. The true rate is likely higher because unit errors are rarely self-reported unless a death or permanent harm results.</p>
     </div>
 
     <div class="example-box">
-        <p><strong>Aviation Density Altitude —when °C becomes °F in the takeoff calculation</strong></p>
-        <p>METAR weather reports worldwide use Celsius for temperature and dew point. An ATIS broadcast at Chicago O'Hare might say "temperature eight five" —85°F (29.4°C) —but the METAR reads "29/17" in degrees Celsius. A pilot who hears "eight five" on the ATIS, mentally registers "85°C," and plugs that value into the aircraft performance computer will get a density altitude roughly 17,000 feet higher than reality. The takeoff roll will be calculated for an air density that does not exist. The aircraft will depart the runway with far less margin than the pilot expects. In hot-and-high conditions (Denver in July: 32°C / 90°F at 5,434 ft elevation, corrected density altitude ~9,000 ft), a Celsius-Fahrenheit confusion in the temperature input can make the difference between a normal takeoff and an overrun. The FAA's Aviation Safety Reporting System contains multiple crew-submitted reports of near-overruns traced to mental arithmetic errors in °F/°C conversion during preflight calculations. The reports follow a pattern: the crew catches the error before V1 (takeoff decision speed) and aborts, or doesn't catch it at all and notices only after departure when the climb rate is degraded.</p>
+        <p><strong>Aviation Density Altitude — when °C becomes °F in the takeoff calculation</strong></p>
+        <p>METAR weather reports worldwide use Celsius for temperature and dew point. An ATIS broadcast at Chicago O'Hare might say "temperature eight five" — 85°F (29.4°C) — but the METAR reads "29/17" in degrees Celsius. A pilot who hears "eight five" on the ATIS, mentally registers "85°C," and plugs that value into the aircraft performance computer will get a density altitude roughly 17,000 feet higher than reality. The takeoff roll will be calculated for an air density that does not exist. The aircraft will depart the runway with far less margin than the pilot expects. In hot-and-high conditions (Denver in July: 32°C / 90°F at 5,434 ft elevation, corrected density altitude ~9,000 ft), a Celsius-Fahrenheit confusion in the temperature input can make the difference between a normal takeoff and an overrun. The FAA's Aviation Safety Reporting System contains multiple crew-submitted reports of near-overruns traced to mental arithmetic errors in °F/°C conversion during preflight calculations. The reports follow a pattern: the crew catches the error before V1 (takeoff decision speed) and aborts, or doesn't catch it at all and notices only after departure when the climb rate is degraded.</p>
     </div>
 
 </section>
@@ -357,23 +357,23 @@
 <section id="tools">
     <h2>8. Every Temperature Converter on This Site</h2>
 
-    <p>Three converters covering the temperature units that working engineers, clinicians, and travelers deal with daily. Every one uses the exact affine formulas from Section 1. No rounding shortcuts, no approximations, no "divide by 2 and add 30" hacks —those live in the FAQ below.</p>
+    <p>Three converters covering the temperature units that working engineers, clinicians, and travelers deal with daily. Every one uses the exact affine formulas from Section 1. No rounding shortcuts, no approximations, no "divide by 2 and add 30" hacks — those live in the FAQ below.</p>
 
-    <h3>°F &harr; °C —the transatlantic pair</h3>
+    <h3>°F &harr; °C — the transatlantic pair</h3>
     <div class="related-tags">
         <a href="/fahrenheit-to-celsius">°F to °C</a>
         <a href="/celsius-to-fahrenheit">°C to °F</a>
     </div>
-    <p>The one you use every time an American weather forecast (in °F) meets a European brain (in °C). <strong>°C = (°F —32) × 5/9.</strong> The reverse: <strong>°F = °C × 9/5 + 32.</strong> Both formulas are exact by definition.</p>
+    <p>The one you use every time an American weather forecast (in °F) meets a European brain (in °C). <strong>°C = (°F − 32) × 5/9.</strong> The reverse: <strong>°F = °C × 9/5 + 32.</strong> Both formulas are exact by definition.</p>
 
-    <h3>°C &harr; K —the science and engineering pair</h3>
+    <h3>°C &harr; K — the science and engineering pair</h3>
     <div class="related-tags">
         <a href="/celsius-to-kelvin">°C to K</a>
         <a href="/kelvin-to-celsius">K to °C</a>
     </div>
-    <p>The simplest conversion in temperature metrology: <strong>K = °C + 273.15.</strong> No multiplication, no factor —just an offset. 273.15 is exact (it's the definition of the kelvin-to-Celsius offset). The reverse direction subtracts the same constant.</p>
+    <p>The simplest conversion in temperature metrology: <strong>K = °C + 273.15.</strong> No multiplication, no factor — just an offset. 273.15 is exact (it's the definition of the kelvin-to-Celsius offset). The reverse direction subtracts the same constant.</p>
 
-    <p style="margin-top:1.5em;">All three converters handle negative values natively (temperature is the only conversion category on this site where negative inputs are physically valid). Swap any converter direction with the —button in the calculator card.</p>
+    <p style="margin-top:1.5em;">All three converters handle negative values natively (temperature is the only conversion category on this site where negative inputs are physically valid). Swap any converter direction with the — button in the calculator card.</p>
 </section>
 
 <!-- ══—FAQ ══—-->
@@ -381,17 +381,17 @@
 
 <div class="faq-item">
     <p class="faq-q">What is the quickest mental shortcut for °F to °C?</p>
-    <p class="faq-a">Subtract 30 and halve it. 86°F —86 —30 = 56, ÷ 2 = 28°C (actual: 30°C). 50°F —50 —30 = 20, ÷ 2 = 10°C (exact). The error is about ±2°C in the 0—00°F range. The reverse shortcut for <strong>°C to °F: double and add 30.</strong> 20°C —40 + 30 = 70°F (actual: 68°F). These shortcuts work because 5/9 —0.5 and 32 —30 —close enough for weather and cooking. Do not use them for sterilization cycles, vaccine storage, or clinical fever assessment.</p>
+    <p class="faq-a">Subtract 30 and halve it. 86°F → 86 − 30 = 56, ÷ 2 = 28°C (actual: 30°C). 50°F → 50 − 30 = 20, ÷ 2 = 10°C (exact). The error is about ±2°C in the 0–100°F range. The reverse shortcut for <strong>°C to °F: double and add 30.</strong> 20°C → 40 + 30 = 70°F (actual: 68°F). These shortcuts work because 5/9 ≈ 0.5 and 32 ≈ 30 — close enough for weather and cooking. Do not use them for sterilization cycles, vaccine storage, or clinical fever assessment.</p>
 </div>
 
 <div class="faq-item">
     <p class="faq-q">Why does the US still use Fahrenheit?</p>
-    <p class="faq-a">Inertia and granularity. The US Metric Conversion Act of 1975 made metric the "preferred system" but explicitly made conversion voluntary. Weather broadcasters, oven manufacturers, and thermostat makers stayed with Fahrenheit because customers understood it and because a 1°F change is small enough to be useful without decimals —the 0—00°F range maps roughly to the outdoor temperature range in temperate latitudes where most Americans live. The Metric Board was abolished in 1982. Celsius is used internally by every US science classroom, hospital lab, and military logistics system. Fahrenheit is a consumer-facing legacy layer that persists because no political constituency is motivated enough to change it.</p>
+    <p class="faq-a">Inertia and granularity. The US Metric Conversion Act of 1975 made metric the "preferred system" but explicitly made conversion voluntary. Weather broadcasters, oven manufacturers, and thermostat makers stayed with Fahrenheit because customers understood it and because a 1°F change is small enough to be useful without decimals — the 0–100°F range maps roughly to the outdoor temperature range in temperate latitudes where most Americans live. The Metric Board was abolished in 1982. Celsius is used internally by every US science classroom, hospital lab, and military logistics system. Fahrenheit is a consumer-facing legacy layer that persists because no political constituency is motivated enough to change it.</p>
 </div>
 
 <div class="faq-item">
     <p class="faq-q">Is 100°C exactly the boiling point of water everywhere?</p>
-    <p class="faq-a">No. 100°C is the boiling point of pure water at exactly 1 standard atmosphere (101.325 kPa) —sea level under standard conditions. At 5,000 feet (1,524 m) elevation —Denver, Colorado —water boils at about 95°C (203°F). At 10,000 feet (3,048 m), roughly 90°C (194°F). Every 150 meters of elevation gain drops the boiling point by about 0.5°C. High-altitude cooking instructions compensate for this —pasta boiled at 10,000 feet takes roughly twice as long. The boiling point also depends on dissolved substances: seawater (3.5% salt) boils at about 100.6°C, which is why salt added to pasta water doesn't meaningfully affect cooking temperature but does affect flavor. The barometric pressure on the day matters too: a deep low-pressure storm system can drop the boiling point by up to 1°C relative to a high-pressure clear day.</p>
+    <p class="faq-a">No. 100°C is the boiling point of pure water at exactly 1 standard atmosphere (101.325 kPa) — sea level under standard conditions. At 5,000 feet (1,524 m) elevation — Denver, Colorado — water boils at about 95°C (203°F). At 10,000 feet (3,048 m), roughly 90°C (194°F). Every 150 meters of elevation gain drops the boiling point by about 0.5°C. High-altitude cooking instructions compensate for this — pasta boiled at 10,000 feet takes roughly twice as long. The boiling point also depends on dissolved substances: seawater (3.5% salt) boils at about 100.6°C, which is why salt added to pasta water doesn't meaningfully affect cooking temperature but does affect flavor. The barometric pressure on the day matters too: a deep low-pressure storm system can drop the boiling point by up to 1°C relative to a high-pressure clear day.</p>
 </div>
 
 <div class="faq-item">
@@ -401,26 +401,26 @@
 
 <div class="faq-item">
     <p class="faq-q">Is there a temperature scale where water freezes at 0 and boils at 100 that isn't Celsius?</p>
-    <p class="faq-a">Yes —<strong>centigrade.</strong> Before 1948, "centigrade" was the universal name for the scale with 0° at water freezing and 100° at water boiling. The name was changed to "Celsius" by the 9th CGPM to honor Anders Celsius and to resolve a naming conflict with the "grade" (also called "centigrade") —a now-obsolete metric unit of angular measurement where a right angle is divided into 100 grades instead of 90 degrees. If you see "centigrade" in a pre-1948 document, it means Celsius —same scale, same degree size, different name.</p>
+    <p class="faq-a">Yes — <strong>centigrade.</strong> Before 1948, "centigrade" was the universal name for the scale with 0° at water freezing and 100° at water boiling. The name was changed to "Celsius" by the 9th CGPM to honor Anders Celsius and to resolve a naming conflict with the "grade" (also called "centigrade") — a now-obsolete metric unit of angular measurement where a right angle is divided into 100 grades instead of 90 degrees. If you see "centigrade" in a pre-1948 document, it means Celsius — same scale, same degree size, different name.</p>
 </div>
 
 <!-- ══—References ══—-->
 <section class="eng-context">
     <h3>Sources and Further Reading</h3>
     <ul>
-        <li>Fahrenheit, D.G. —<em>Experimenta et Observationes de Congelatione Aquae in Vacuo</em>, Philosophical Transactions of the Royal Society (1724), Vol. 33, pp. 78—4</li>
-        <li>Celsius, A. —<em>Observationer om twänne beständiga grader på en thermometer</em>, Kungliga Svenska Vetenskapsakademiens Handlingar (1742), Vol. 3, pp. 171—80</li>
-        <li>Linnaeus, C. —Correspondence with Daniel Ekström (1744—746), Uppsala University Library, Linnaean Manuscript Collection</li>
-        <li>Thomson, W. (Lord Kelvin) —<em>On an Absolute Thermometric Scale Founded on Carnot's Theory of the Motive Power of Heat</em>, Proceedings of the Cambridge Philosophical Society (1848)</li>
-        <li>Wunderlich, C.R.A. —<em>Das Verhalten der Eigenwärme in Krankheiten</em>, Otto Wigand, Leipzig (1851); English translation by Woodman & Tilton, New Sydenham Society (1871)</li>
-        <li>Mackowiak, P.A., Wasserman, S.S., Levine, M.M. —<em>A Critical Appraisal of 98.6°F, the Upper Limit of the Normal Body Temperature, and Other Legacies of Carl Reinhold August Wunderlich</em>, JAMA (1992), Vol. 268, No. 12, pp. 1578—580</li>
-        <li>Obermeyer, Z., Samra, J.K., Mullainathan, S. —<em>Individual differences in normal body temperature: longitudinal big data analysis of patient records</em>, BMJ (2017), Vol. 359, j5468</li>
-        <li>BIPM —The International System of Units (SI), 9th Edition (2019): definition of kelvin via Boltzmann constant k = 1.380649 × 10⁻²—J/K</li>
-        <li>9th CGPM Resolution 2 (1948) —Adoption of "degree Celsius" in place of "degree centigrade"</li>
-        <li>International Yard and Pound Agreement (1959) —Federal Register Notice 24 FR 5347, defining 1 inch = 2.54 cm, from which the exact metric values of °F and °C follow</li>
-        <li>UK Medicines and Healthcare products Regulatory Agency —Device Alert DA 1999(04): Autoclave Temperature Controller °F/°C Toggle Switch Hazard</li>
-        <li>WHO —<em>Immunization supply chain and logistics: temperature monitoring study</em> (2015), WHO/IVB/15.05</li>
-        <li>FAA Aviation Safety Reporting System —ASRS Database, query: "temperature unit" / "Fahrenheit Celsius," 1990—025</li>
+        <li>Fahrenheit, D.G. — <em>Experimenta et Observationes de Congelatione Aquae in Vacuo</em>, Philosophical Transactions of the Royal Society (1724), Vol. 33, pp. 78–84</li>
+        <li>Celsius, A. — <em>Observationer om twänne beständiga grader på en thermometer</em>, Kungliga Svenska Vetenskapsakademiens Handlingar (1742), Vol. 3, pp. 171–180</li>
+        <li>Linnaeus, C. — Correspondence with Daniel Ekström (1744–1746), Uppsala University Library, Linnaean Manuscript Collection</li>
+        <li>Thomson, W. (Lord Kelvin) — <em>On an Absolute Thermometric Scale Founded on Carnot's Theory of the Motive Power of Heat</em>, Proceedings of the Cambridge Philosophical Society (1848)</li>
+        <li>Wunderlich, C.R.A. — <em>Das Verhalten der Eigenwärme in Krankheiten</em>, Otto Wigand, Leipzig (1851); English translation by Woodman & Tilton, New Sydenham Society (1871)</li>
+        <li>Mackowiak, P.A., Wasserman, S.S., Levine, M.M. — <em>A Critical Appraisal of 98.6°F, the Upper Limit of the Normal Body Temperature, and Other Legacies of Carl Reinhold August Wunderlich</em>, JAMA (1992), Vol. 268, No. 12, pp. 1578–1580</li>
+        <li>Obermeyer, Z., Samra, J.K., Mullainathan, S. — <em>Individual differences in normal body temperature: longitudinal big data analysis of patient records</em>, BMJ (2017), Vol. 359, j5468</li>
+        <li>BIPM — The International System of Units (SI), 9th Edition (2019): definition of kelvin via Boltzmann constant k = 1.380649 × 10⁻²³ J/K</li>
+        <li>9th CGPM Resolution 2 (1948) — Adoption of "degree Celsius" in place of "degree centigrade"</li>
+        <li>International Yard and Pound Agreement (1959) — Federal Register Notice 24 FR 5347, defining 1 inch = 2.54 cm, from which the exact metric values of °F and °C follow</li>
+        <li>UK Medicines and Healthcare products Regulatory Agency — Device Alert DA 1999(04): Autoclave Temperature Controller °F/°C Toggle Switch Hazard</li>
+        <li>WHO — <em>Immunization supply chain and logistics: temperature monitoring study</em> (2015), WHO/IVB/15.05</li>
+        <li>FAA Aviation Safety Reporting System — ASRS Database, query: "temperature unit" / "Fahrenheit Celsius," 1990–2005</li>
     </ul>
 </section>
 
@@ -438,7 +438,7 @@
             <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Guide</a>
         <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a></div>
 
-        <div class="attribution-box"><p><strong>Reprint & Attribution.</strong> Written by the EnginStack Editorial Team. Originally appeared June 27, 2026 at <a href="https://enginstack.com/guides/temperature-conversion-guide">enginstack.com/guides/temperature-conversion-guide</a>. Quoting, excerpting, and sharing are encouraged with a link back. If you plan to republish the complete article, reach out to <code>support@enginstack.com</code> —no-cost educational and non-commercial licenses are available with proper attribution.</p></div>
+        <div class="attribution-box"><p><strong>Reprint & Attribution.</strong> Written by the EnginStack Editorial Team. Originally appeared June 27, 2026 at <a href="https://enginstack.com/guides/temperature-conversion-guide">enginstack.com/guides/temperature-conversion-guide</a>. Quoting, excerpting, and sharing are encouraged with a link back. If you plan to republish the complete article, reach out to <code>support@enginstack.com</code> — no-cost educational and non-commercial licenses are available with proper attribution.</p></div>
 
         </article>
     </main>
@@ -452,7 +452,7 @@
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
 
-    <script src="/main.js">
+    <script src="/main.js"></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -468,6 +468,5 @@
   }
 }
     </script>
-</script>
 </body>
 </html>
