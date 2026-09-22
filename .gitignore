@@ -1,26 +1,35 @@
-# Cloudflare Pages 本地缓存（可能含账号信息）
-.wrangler/
+# ─────────────────────────────────────────────────────────────
+# EnginStack 仓库忽略规则（模式化 —— 新增内部文件无需再改本文件）
+#
+# 公开面（必须入库）：
+#   *.html  *.js  *.css  *.png  *.svg
+#   sitemap.xml  robots.txt  llms.txt  BingSiteAuth.xml
+#   _headers  _redirects  .gitignore
+#
+# 内部面（一律不入库）：
+#   *.md 设计/运营文档、*.py 审计与修复脚本、下划线前缀的本地工作文件
+# ─────────────────────────────────────────────────────────────
 
-# Python 缓存
+# 内部文档与工具脚本
+*.md
+*.py
+*.ps1
+*.bat
+*.sh
 __pycache__/
 *.pyc
 
-# Claude 本地配置
+# 下划线前缀 = 本地工作文件（审计脚本 / 修复分片 / 临时报告 / 备份目录）
+# 默认全部忽略；将来若要公开某个下划线资源，在下面追加 ! 白名单
+_*
+# …但 Cloudflare Pages 的两个配置文件属于公开面，必须保持可提交
+!_headers
+!_redirects
+
+# Cloudflare / CLI 本地缓存
+# （.wrangler/cache/wrangler-account.json 含 account id 与账号邮箱，绝不入库）
+.wrangler/
 .claude/
-
-# 一次性审计/修复临时脚本与产物
-_audit2.ps1
-_audit2.txt
-_validate2.ps1
-_validate2.txt
-_temp_files.txt
-_urls_for_bing.txt
-_fix_ld_entities.py
-_validate_new12.py
-
-# 上传/截图等一次性产物（不入库）
-_upload_screenshot.png
-_crlf_backup_*/
 
 # 系统文件
 Thumbs.db
