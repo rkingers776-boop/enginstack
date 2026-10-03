@@ -1,6 +1,6 @@
 # EnginStack
 
-> Engineering unit converters built on verified international metrology constants. 310+ precision conversion tools across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 32 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
+> Engineering unit converters built on verified international metrology constants. 310+ precision conversion tools across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 33 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
 
 ## Converters by category
 
@@ -57,9 +57,10 @@
 - [Gimli Glider](https://enginstack.com/guides/gimli-glider-kg-lb-fuel-error): when 22,300 kg of fuel was loaded as 22,300 lb — the purest unit error, and a 17-minute dead-stick glide
 - [Mars Climate Orbiter](https://enginstack.com/guides/mars-climate-orbiter-unit-conversion-error): pound-force-seconds written where newton-seconds were specified — 4.4482216152605×, invisible to Doppler tracking, 226 km targeted and 57 km reached
 - [Patriot Missile at Dhahran](https://enginstack.com/guides/patriot-missile-tenth-of-second-truncation): a 24-bit register that could not hold a tenth of a second — 0.3433 s of accumulated error after 100 hours, and a Scud the radar tracked and then threw away
+- [S-81 Isaac Peral](https://enginstack.com/guides/isaac-peral-submarine-decimal-point-error): a weight calculation one power of ten from its true size — 75 to 100 tonnes of excess against a buoyancy ceiling fixed the day the hull was welded, and a ten-metre hull extension at €7.5 million per metre
 
 ## About
 
 - [About EnginStack](https://enginstack.com/about): mission and methodology — every constant verified against NIST SP 811 and BIPM
 - [All converters index](https://enginstack.com/): full category grid
-- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (324 pages)
+- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (325 pages)
