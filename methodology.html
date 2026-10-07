@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology — How EnginStack Verifies Conversion Constants | EnginStack</title>
+    <meta name="description" content="Where every EnginStack conversion constant comes from: the metrology sources it is traced to, the two-way calculator check, the source register, and what this site does not claim.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/methodology">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/methodology">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/methodology">
+    <meta property="og:title" content="Methodology — How EnginStack Verifies Conversion Constants">
+    <meta property="og:description" content="The metrology sources behind every EnginStack constant, the verification procedure, the full source register, and an explicit statement of what this site is not.">
+    <meta property="og:url" content="https://enginstack.com/methodology">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Methodology" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who verifies the conversion constants on EnginStack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EnginStack is written and maintained by the EnginStack Editorial Team, a small independent editorial operation. There is no separate engineering department and nobody is described as an engineer unless that is verifiable. The verification is a procedure, not a credential: each constant is traced to the document that defines it, and the page that uses it links back to that document."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a conversion constant have to satisfy before it goes on a page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things. It must appear in a primary metrology source: the BIPM SI Brochure, a NIST publication, a national weights-and-measures statute, or the treaty that created it. Its exact decimal value must be used rather than a rounded approximation, unless the page says otherwise on its face. And the calculator's coefficient must reproduce the inverse conversion to within IEEE 754 double-precision limits when the two directions are multiplied together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some pages show a factor like 0.45359237 while others show 16.018463?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the number of digits a factor needs depends on how it was derived. A factor that comes straight from a legal definition, such as one pound = 0.45359237 kilograms, is shown at full precision because that is its complete value. A factor that is a combination of several definitions, such as one pound per cubic foot in kilograms per cubic meter, is printed to the precision needed to keep the round trip exact, and the page states what it is derived from."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a published standard changes after a page is written?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metrology is not static. The kilogram was redefined in 2019, the US survey foot was retired at the end of 2022, and the SI Brochure itself is reissued. When a change reaches a constant used on this site, the affected pages are updated and the change is recorded on the corrections page with its date and reason. Where two sources disagree, the page states the disagreement and gives the range rather than picking the more popular figure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is EnginStack affiliated with NIST, BIPM, ISO or any standards body?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. EnginStack is not affiliated with, endorsed by or sponsored by NIST, BIPM, ISO, IEC, IAU, IERS or any other standards organisation. Those bodies publish the documents this site reads. The references are cited so that a reader can check the work, not to imply a relationship that does not exist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these conversions in a design, a dosage calculation or a legal document?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The arithmetic is exact, but this site is a reference, not a substitute for the controlling document. If a conversion feeds a safety, medical, regulatory or contractual decision, check the number against the primary standard for that domain and against the authority that governs it. Where the consequences of an error are serious, a reference site is the wrong last line of defence."
+      }
+    }
+  ]
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Methodology</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Methodology: Where Every Constant Comes From</h1>
+            <p>Every conversion constant on EnginStack is traced to the document that defines it, and the link to that document is published. This page is the audit trail: the sources, the checks, and the limits.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+        <article class="seo-section">
+            <p>Every conversion on this site is arithmetic wrapped around a definition. This page sets out which definitions, where they come from, how the arithmetic is checked, and what this site is not. It exists so that a reader, an editor or a search engine can audit the work without taking anything on trust.</p>
+
+            <h2>What EnginStack Is Not</h2>
+            <p>It is easier to state the limits first, because they are the part most reference sites leave out.</p>
+            <ul>
+                <li><strong>Not a laboratory.</strong> No measurement is performed here. Every number on this site is computed from a published definition, and the definition is what carries the authority, not this site.</li>
+                <li><strong>Not affiliated with any standards body.</strong> NIST, BIPM, ISO, IEC, IAU and IERS publish the documents cited below. None of them endorses, sponsors or reviews this site.</li>
+                <li><strong>Not a source of professional advice.</strong> A conversion that feeds a safety, medical, regulatory or contractual decision should be checked against the controlling standard for that domain. This site is a reference, and a reference is never the last line of defence.</li>
+                <li><strong>Not a staffed organisation.</strong> EnginStack is a small independent editorial operation. It does not claim professional credentials, a committee seat or a roster of engineers. What it offers instead is a method, published in full, and a source list that can be checked line by line.</li>
+            </ul>
+
+            <h2>The Four Sources a Constant Can Come From</h2>
+            <p>Every factor on this site traces to one of four places, in this order of preference.</p>
+            <ol>
+                <li><strong>A treaty or statute.</strong> The strongest case, because the number is law rather than measurement. One pound is 0.45359237 kilograms because six nations signed the International Yard and Pound Agreement in 1959, and that agreement is why the figure has no uncertainty attached to it. One US liquid gallon is 231 cubic inches because a statute says so.</li>
+                <li><strong>An SI definition or a fixed constant.</strong> The 2019 redefinition of the SI fixed the numerical values of five fundamental constants, so a joule, a kelvin and a mole are now exact multiples of them. Anything derived from those constants inherits their exactness.</li>
+                <li><strong>A published conversion factor.</strong> Where a unit falls outside the SI, NIST SP 811 Appendix B or the equivalent national publication supplies the accepted factor, and the page states the precision being used.</li>
+                <li><strong>Derived arithmetic.</strong> Many factors on this site are products and powers of the above. One pound per cubic foot in kilograms per cubic meter is the pound divided by the cube of the foot, and the page shows the chain rather than only the result.</li>
+            </ol>
+
+            <h2>How a Page Is Checked Before Publication</h2>
+            <p>Each conversion page goes through the same three passes.</p>
+            <ul>
+                <li><strong>Trace.</strong> The constant is followed back to the document that defines it. If the trail ends at a summary of a summary rather than at the definition, the page says so instead of implying a source it does not have.</li>
+                <li><strong>Compute both ways.</strong> The calculator's stored coefficient is applied forward and the reciprocal is applied back. The two results must return the original value within double-precision limits. A factor that only works in one direction is a typo, not a conversion.</li>
+                <li><strong>Reconcile the page against itself.</strong> The formula shown in the box, the factor in the data attribute, the numbers in the worked examples, the table of common values and the structured data served to search engines are all generated from the same source and checked against one another. When they disagree, the page has a defect, and the defect is found by machine rather than by a reader.</li>
+            </ul>
+
+            <h2>History and Case Studies</h2>
+            <p>The engineering case studies on this site are researched against the primary investigation record: the mishap investigation board reports, the transport safety board findings, the government accountability reports and the official inquiries, not against other people's retellings of them. Where the primary record and the popular version differ, the difference is stated on the page. Where an official investigation never established a cause and the widely repeated explanation is an inference, the page says that too.</p>
+
+            <h2>Source Register</h2>
+            <p>The documents this site reads, with a link to each. This list is the evidence behind the phrase that appears under every byline on the site.</p>
+            <div class="table-scroll">
+            <table>
+                <thead><tr><th>Reference</th><th>What it governs here</th><th>Source</th></tr></thead>
+                <tbody>
+                    <tr><td>BIPM SI Brochure, 9th edition (2019, updated 2026)</td><td>The definition of every SI unit, prefix and accepted non-SI unit used on this site.</td><td><a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>NIST SP 330, The International System of Units (SI), 2019 edition</td><td>The US restatement of the SI, including the 2019 redefinition of the base units.</td><td><a href="https://www.nist.gov/pml/special-publication-330" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>NIST SP 811, Guide for the Use of the International System of Units (SI)</td><td>Conversion factors (Appendix B) and the rounding and significant-figure conventions followed here.</td><td><a href="https://www.nist.gov/pml/special-publication-811" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>NIST Handbook 44, Specifications, Tolerances and Other Technical Requirements for Weighing and Measuring Devices</td><td>The legal definitions used for commercial measuring devices, including the US liquid gallon and the pound.</td><td><a href="https://www.nist.gov/publications/nist-handbook-44-specifications-tolerances-and-other-technical-requirements-weighing-18" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>NIST CODATA Fundamental Physical Constants</td><td>The numerical values of the Planck constant, the speed of light, the Boltzmann constant, the elementary charge and the Avogadro constant that the SI is now built on.</td><td><a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>NIST Office of Weights and Measures</td><td>The US weights-and-measures authority, including the 1959 yard and pound factors and the 2023 retirement of the survey foot.</td><td><a href="https://www.nist.gov/pml/owm" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>NIST revised unit conversion factors for the survey foot</td><td>The exact 1959 yard and pound definitions and their survey variants, stated to full precision.</td><td><a href="https://www.nist.gov/pml/us-surveyfoot/revised-unit-conversion-factors" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>NIST Time and Frequency Division; leap seconds</td><td>The definition of the UTC timescale and the current leap-second policy.</td><td><a href="https://www.nist.gov/pml/time-and-frequency-division/time-realization/leap-seconds" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>BIPM Time Department</td><td>International Atomic Time and the UTC minus TAI offset.</td><td><a href="https://www.bipm.org/en/time-ftp" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>IERS Bulletin C</td><td>The semi-annual announcement of whether a leap second will be inserted, and the authoritative UTC minus TAI value.</td><td><a href="https://datacenter.iers.org/data/latestVersion/bulletinC.txt" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                    <tr><td>RFC 5905, Network Time Protocol Version 4</td><td>The protocol that carries UTC across the internet, which is why a seconds conversion has a distributed-systems dimension.</td><td><a href="https://datatracker.ietf.org/doc/rfc5905/" target="_blank" rel="noopener nofollow">Source</a></td></tr>
+                </tbody></table></div>
+
+            <h2>Corrections</h2>
+            <p>Metrology changes and mistakes happen, and both are recorded in public. Every correction to this site is logged with its date, the page affected and the reason, on the <a href="/corrections">corrections page</a>. If you believe a constant, a formula or a historical claim here is wrong, the fastest route is to name the number, name the standard you are checking it against, and send it to <a href="mailto:support@enginstack.com">support@enginstack.com</a>.</p>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Who verifies the conversion constants on EnginStack?</p>
+                <p class="faq-a">EnginStack is written and maintained by the EnginStack Editorial Team, a small independent editorial operation. There is no separate engineering department and nobody is described as an engineer unless that is verifiable. The verification is a procedure, not a credential: each constant is traced to the document that defines it, and the page that uses it links back to that document.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What does a conversion constant have to satisfy before it goes on a page?</p>
+                <p class="faq-a">Three things. It must appear in a primary metrology source: the BIPM SI Brochure, a NIST publication, a national weights-and-measures statute, or the treaty that created it. Its exact decimal value must be used rather than a rounded approximation, unless the page says otherwise on its face. And the calculator's coefficient must reproduce the inverse conversion to within IEEE 754 double-precision limits when the two directions are multiplied together.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why do some pages show a factor like 0.45359237 while others show 16.018463?</p>
+                <p class="faq-a">Because the number of digits a factor needs depends on how it was derived. A factor that comes straight from a legal definition, such as one pound = 0.45359237 kilograms, is shown at full precision because that is its complete value. A factor that is a combination of several definitions, such as one pound per cubic foot in kilograms per cubic meter, is printed to the precision needed to keep the round trip exact, and the page states what it is derived from.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What if a published standard changes after a page is written?</p>
+                <p class="faq-a">Metrology is not static. The kilogram was redefined in 2019, the US survey foot was retired at the end of 2022, and the SI Brochure itself is reissued. When a change reaches a constant used on this site, the affected pages are updated and the change is recorded on the corrections page with its date and reason. Where two sources disagree, the page states the disagreement and gives the range rather than picking the more popular figure.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Is EnginStack affiliated with NIST, BIPM, ISO or any standards body?</p>
+                <p class="faq-a">No. EnginStack is not affiliated with, endorsed by or sponsored by NIST, BIPM, ISO, IEC, IAU, IERS or any other standards organisation. Those bodies publish the documents this site reads. The references are cited so that a reader can check the work, not to imply a relationship that does not exist.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Can I use these conversions in a design, a dosage calculation or a legal document?</p>
+                <p class="faq-a">The arithmetic is exact, but this site is a reference, not a substitute for the controlling document. If a conversion feeds a safety, medical, regulatory or contractual decision, check the number against the primary standard for that domain and against the authority that governs it. Where the consequences of an error are serious, a reference site is the wrong last line of defence.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
