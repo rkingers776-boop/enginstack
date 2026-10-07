@@ -1,6 +1,6 @@
 # EnginStack
 
-> Engineering unit converters built on verified international metrology constants. 310+ precision conversion tools across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 33 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
+> Engineering unit converters built on verified international metrology constants. 269 precision unit converters across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 33 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
 
 ## Converters by category
 
@@ -9,8 +9,8 @@
 - [Temperature](https://enginstack.com/temperature/): 6 converters — °F, °C, Kelvin. Flagship: [fahrenheit-to-celsius](https://enginstack.com/fahrenheit-to-celsius) (°F = °C × 9/5 + 32)
 - [Speed](https://enginstack.com/speed/): 14 converters — mph, km/h, m/s, knots, ft/s. Flagship: [mph-to-kph](https://enginstack.com/mph-to-kph) (1 mph = 1.609344 km/h exactly)
 - [Pressure](https://enginstack.com/pressure/): 20 converters — bar, psi, kPa, atm, Pa, mmHg, torr. Flagship: [psi-to-kpa](https://enginstack.com/psi-to-kpa) (1 psi = 6.894757293 kPa)
-- [Area](https://enginstack.com/area/): 8 converters — sq ft, sq meters, acres, hectares, sq miles. Flagship: [sq-m-to-acres](https://enginstack.com/sq-m-to-acres) (1 acre = 4046.8564224 m²)
-- [Volume](https://enginstack.com/volume/): 24 converters — gallons, liters, quarts, pints, cups, cubic feet, mL. Flagship: [gallons-to-liters](https://enginstack.com/gallons-to-liters) (1 US gal = 3.785411784 L exactly)
+- [Area](https://enginstack.com/area/): 12 converters — sq ft, sq meters, acres, hectares, sq miles. Flagship: [sq-m-to-acres](https://enginstack.com/sq-m-to-acres) (1 acre = 4046.8564224 m²)
+- [Volume](https://enginstack.com/volume/): 30 converters — gallons, liters, quarts, pints, cups, cubic feet, mL. Flagship: [gallons-to-liters](https://enginstack.com/gallons-to-liters) (1 US gal = 3.785411784 L exactly)
 - [Time](https://enginstack.com/time/): 14 converters — seconds, minutes, hours, days, weeks, months, milliseconds
 - [Data Storage](https://enginstack.com/data-storage/): 12 converters — KB, MB, GB, TB, Kbps, Mbps, Gbps
 - [Energy & Power](https://enginstack.com/energy/): 24 converters — watts, kW, HP, joules, calories, kWh, BTU, BTU/h, tons of cooling. Flagship: [btu-to-kwh](https://enginstack.com/btu-to-kwh) (1 kWh = 3412.141633 BTU)
