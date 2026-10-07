@@ -157,6 +157,19 @@
 
             <div class="formula-box"><p><strong>volts = ohms × amps</strong><br>V = I·R<br>Exact Ohm's law — the product of the resistance and current you provide.</p></div>
 
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Read 15 A through an 8 Ω load</p>
+                <p>15 &times; 8 = <strong>120 V</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert a 250 Ω sensor at 20 mA</p>
+                <p>0.02 &times; 250 = <strong>5 V</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert a 1,000 Ω divider at 5 mA</p>
+                <p>0.005 &times; 1,000 = <strong>5 V</strong></p>
+            </div>
             <h2>Common ohms to volts Values</h2>
             <div class="table-scroll">
             <table>
@@ -171,6 +184,7 @@
             <section class="eng-context">
                 <h3>Engineering Context</h3>
                 <p>Ohms-to-volts completes the four-way Ohm's law family with <a href="/volts-to-ohms">volts to ohms</a>, <a href="/volts-to-amps">volts to amps</a>, and <a href="/amps-to-volts">amps to volts</a>. The voltage-drop angle connects to wire sizing on <a href="/awg-to-mm2">AWG to mm²</a>, and the sensor angle connects to the broader <a href="/electric/">electric hub</a>.</p>
+                <p>Turning a resistance into a voltage is how most industrial sensors speak, and the standard idiom is the four to twenty milliampere current loop. A transmitter varies its current between 4 and 20 milliamperes to represent zero to full scale, and a two hundred and fifty ohm precision resistor in the receiving circuit converts that into one to five volts, which is exactly the range most analogue inputs accept. That is why 250 ohms is a standard value and why the live zero of four milliamperes exists: a broken wire reads zero milliamperes, which is distinguishable from a genuine minimum reading, so the loop can detect its own failure.</p>
                 <p style="margin-top:1.2em;">More: <a href="/volts-to-ohms">V to Ω</a> · <a href="/volts-to-amps">V to A</a> · <a href="/amps-to-volts">A to V</a> · <a href="/electric/">Electric Hub</a></p>
             </section>
 

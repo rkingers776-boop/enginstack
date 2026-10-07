@@ -150,6 +150,19 @@
 
             <div class="formula-box"><p><strong>mm² = π/4 × (0.127 × 92^((36 − AWG)/39))²</strong><br>12 AWG = 3.31 mm² &nbsp;·&nbsp; 14 AWG = 2.08 mm² &nbsp;·&nbsp; 10 AWG = 5.26 mm²<br>The formula reproduces the 1857 AWG definition exactly.</p></div>
 
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert 12 AWG household circuit wire</p>
+                <p>0.127 &times; 92^((36 − 12)/39) = 2.053 mm → <strong>3.31 mm²</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert 14 AWG lighting wire</p>
+                <p>0.127 &times; 92^((36 − 14)/39) = 1.628 mm → <strong>2.08 mm²</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert 10 AWG wire</p>
+                <p>0.127 &times; 92^((36 − 10)/39) = 2.588 mm → <strong>5.26 mm²</strong></p>
+            </div>
             <h2>Common AWG to mm² Values</h2>
             <div class="table-scroll">
             <table>
@@ -164,6 +177,7 @@
             <section class="eng-context">
                 <h3>Engineering Context</h3>
                 <p>AWG-to-mm² is the wire-sizing bridge between the <a href="/electric/">electric hub</a> and the metric wire world. The current ratings connect to <a href="/watts-to-amps">watts to amps</a> — a 15 A breaker is what 12 AWG protects at 120 V — and the reverse conversion lives on <a href="/mm2-to-awg">mm² to AWG</a>. Voltage-drop calculations on the same wire use the <a href="/ohms-to-volts">ohms to volts</a> page.</p>
+                <p>American wire gauge runs backwards and is logarithmic, which surprises everyone the first time. A larger number means a thinner conductor, and the series is defined as a geometric progression of diameters in which thirty-nine steps span a ratio of ninety-two to one, fixed in 1857 and still the standard. Because the numbering is geometric, equal gauge steps are equal percentage changes in area, which is why ampacity does not fall linearly along the table. Ampacity itself depends on the insulation temperature rating, the ambient temperature and how the cable is installed, so the same 12 AWG conductor may be rated for twenty amperes in one table and twenty-five in another, and the cross-section alone does not determine the answer.</p>
                 <p style="margin-top:1.2em;">More: <a href="/mm2-to-awg">mm² to AWG</a> · <a href="/watts-to-amps">W to A</a> · <a href="/ohms-to-volts">Ω to V</a> · <a href="/electric/">Electric Hub</a></p>
             </section>
 

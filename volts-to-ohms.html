@@ -157,6 +157,19 @@
 
             <div class="formula-box"><p><strong>ohms = volts ÷ amps</strong><br>R = V/I<br>Exact Ohm's law — the ratio of the voltage and current you provide.</p></div>
 
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Size a series resistor for an LED at 5 V, 20 mA</p>
+                <p>5 &divide; 0.02 = <strong>250 Ω</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Find the resistance of a 12 V, 20 mA path</p>
+                <p>12 &divide; 0.02 = <strong>600 Ω</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Find the resistance of a 240 V, 10 A heater</p>
+                <p>240 &divide; 10 = <strong>24 Ω</strong></p>
+            </div>
             <h2>Common volts to ohms Values</h2>
             <div class="table-scroll">
             <table>
@@ -171,6 +184,7 @@
             <section class="eng-context">
                 <h3>Engineering Context</h3>
                 <p>Volts-to-ohms is one corner of the four-way Ohm's law family with <a href="/volts-to-amps">volts to amps</a> and <a href="/amps-to-volts">amps to volts</a>. The LED resistor angle connects to the <a href="/electric/">electric hub</a>'s current pages, and the heating-element angle connects to the <a href="/energy/">energy</a> family — resistance at fixed voltage is how a heater's wattage is determined.</p>
+                <p>Choosing an LED series resistor is the classic use of this division, and the classic mistake is to divide the whole supply voltage by the target current. A diode holds a roughly constant forward voltage while it conducts, so the resistor only sees the difference between the supply and that forward drop. For a red indicator with a forward voltage near two volts, run from five volts at twenty milliamperes, the correct resistor is five minus two, divided by 0.02, which is one hundred and fifty ohms, not two hundred and fifty. Using the supply voltage directly under-runs the diode and can push the current past its rating, which is how indicators fail in the field.</p>
                 <p style="margin-top:1.2em;">More: <a href="/ohms-to-volts">Ω to V</a> · <a href="/volts-to-amps">V to A</a> · <a href="/amps-to-volts">A to V</a> · <a href="/electric/">Electric Hub</a></p>
             </section>
 

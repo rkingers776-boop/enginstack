@@ -150,6 +150,19 @@
 
             <div class="formula-box"><p><strong>watts = 10^((dBm − 30) / 10)</strong><br>30 dBm = 1 W &nbsp;·&nbsp; 20 dBm = 0.1 W &nbsp;·&nbsp; 0 dBm = 1 mW<br>The conversion is exact — dBm is dB relative to 1 milliwatt.</p></div>
 
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert a 30 dBm transmitter</p>
+                <p>10^((30 − 30)/10) = <strong>1 W</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert a 20 dBm access point</p>
+                <p>10^((20 − 30)/10) = 10⁻¹ = <strong>0.1 W</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert a 40 dBm amateur transmitter</p>
+                <p>10^((40 − 30)/10) = 10¹ = <strong>10 W</strong></p>
+            </div>
             <h2>Common dBm to watts Values</h2>
             <div class="table-scroll">
             <table>
@@ -164,6 +177,7 @@
             <section class="eng-context">
                 <h3>Engineering Context</h3>
                 <p>dBm-to-watts is the power-side companion to <a href="/watts-to-dbm">watts to dBm</a>, and both live at the junction of the <a href="/electric/">electric hub</a> and the <a href="/energy/">energy</a> family — the watt is the shared unit. Link budgets that add and subtract dBm connect to the frequency world via the <a href="/frequency/">frequency hub</a> (Wi-Fi at 2.4/5 GHz).</p>
+                <p>The anchor to memorise is thirty decibel milliwatts equals one watt, and almost every other value on this page can be reached from it by adding or subtracting three decibels for a doubling or halving of power. Radio equipment, spectrum regulators and safety assessments all work in this pair, because radiated power spans an enormous range and a linear scale would need ten digits to hold it. The same arithmetic runs a link budget: transmitted power in decibel milliwatts, minus path loss, plus antenna gains, must exceed the receiver sensitivity in decibel milliwatts, and the margin is the difference between a usable link and an intermittent one.</p>
                 <p style="margin-top:1.2em;">More: <a href="/watts-to-dbm">W to dBm</a> · <a href="/dbm-to-mw">dBm to mW</a> · <a href="/watts-to-kw">W to kW</a> · <a href="/electric/">Electric Hub</a></p>
             </section>
 

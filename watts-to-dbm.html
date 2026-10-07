@@ -150,6 +150,19 @@
 
             <div class="formula-box"><p><strong>dBm = 10 × log10(watts × 1000)</strong><br>1 W = 30 dBm &nbsp;·&nbsp; 0.1 W = 20 dBm &nbsp;·&nbsp; 10 W = 40 dBm<br>The conversion is exact — dBm is dB relative to 1 milliwatt.</p></div>
 
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Convert a 1 W phone transmitter</p>
+                <p>10 &times; log10(1,000) = <strong>30 dBm</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Convert a 10 W amateur radio transmitter</p>
+                <p>10 &times; log10(10,000) = <strong>40 dBm</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Convert a 0.1 W access point</p>
+                <p>10 &times; log10(100) = <strong>20 dBm</strong></p>
+            </div>
             <h2>Common watts to dBm Values</h2>
             <div class="table-scroll">
             <table>
@@ -164,6 +177,7 @@
             <section class="eng-context">
                 <h3>Engineering Context</h3>
                 <p>Watts-to-dBm pairs with <a href="/dbm-to-watts">dBm to watts</a>, and both bridge the <a href="/electric/">electric hub</a> and the <a href="/energy/">energy</a> family. The watts input connects to <a href="/watts-to-kw">watts to kW</a> for large transmitters, and the RF context connects to the <a href="/frequency/">frequency hub</a> where signal power meets spectrum.</p>
+                <p>Transmitter power is regulated in watts and specified in decibels, so this conversion sits at the boundary between an engineering desk and a compliance filing. The distinction that decides whether a product is legal is between conducted power, measured at the antenna connector, and effective isotropic radiated power, measured as if the antenna radiated equally in all directions. Antenna gain adds to conducted power in decibels, so a twenty decibel milliwatt radio feeding a six decibel gain antenna radiates twenty-six decibel milliwatts, or 0.4 watts, and may exceed a limit that measures radiated rather than conducted power. Confirm which quantity a limit refers to before converting anything.</p>
                 <p style="margin-top:1.2em;">More: <a href="/dbm-to-watts">dBm to W</a> · <a href="/dbm-to-mw">dBm to mW</a> · <a href="/watts-to-kw">W to kW</a> · <a href="/electric/">Electric Hub</a></p>
             </section>
 

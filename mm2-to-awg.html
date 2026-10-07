@@ -150,6 +150,19 @@
 
             <div class="formula-box"><p><strong>AWG = 36 − 39 × log92( √(4A/π) / 0.127 )</strong><br>2.5 mm² ≈ 13 AWG &nbsp;·&nbsp; 1.5 mm² ≈ 15 AWG &nbsp;·&nbsp; 4 mm² ≈ 11 AWG<br>The formula inverts the 1857 AWG definition exactly.</p></div>
 
+            <h2>Worked Examples</h2>
+            <div class="example-box">
+                <p><strong>Example 1:</strong> Match a 2.5 mm² European power circuit</p>
+                <p>√(4 &times; 2.5 / π) = 1.784 mm → <strong>13 AWG</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 2:</strong> Match a 1.5 mm² lighting circuit</p>
+                <p>√(4 &times; 1.5 / π) = 1.382 mm → <strong>15 AWG</strong></p>
+            </div>
+            <div class="example-box">
+                <p><strong>Example 3:</strong> Match a 4 mm² circuit</p>
+                <p>√(4 &times; 4 / π) = 2.257 mm → <strong>11 AWG</strong></p>
+            </div>
             <h2>Common mm² to AWG Values</h2>
             <div class="table-scroll">
             <table>
@@ -164,6 +177,7 @@
             <section class="eng-context">
                 <h3>Engineering Context</h3>
                 <p>mm²-to-AWG is the reverse of <a href="/awg-to-mm2">AWG to mm²</a> and the same bridge from the metric side. The ampacity implications connect to <a href="/watts-to-amps">watts to amps</a> — a 2.5 mm² circuit is typically protected at 16–20 A in Europe — and the <a href="/electric/">electric hub</a> collects the full wire story.</p>
+                <p>The answer on this page is almost never an exact gauge, and that is the point to carry away. Metric conductor sizes do not land on the American wire gauge series, so 2.5 square millimetres converts to 13.2 AWG and is called 13 AWG for convenience; the nearest standard sizes are 12 and 14. A designer matching a metric cable to a US terminal, connector or ampacity table should therefore treat the result as a band and choose the larger conductor if the current is near a limit, never the smaller. Ampacity is also set by insulation temperature rating and installation method rather than by cross-section alone, which is why the same wire carries different current in the National Electrical Code and in IEC practice.</p>
                 <p style="margin-top:1.2em;">More: <a href="/awg-to-mm2">AWG to mm²</a> · <a href="/watts-to-amps">W to A</a> · <a href="/volts-to-amps">V to A</a> · <a href="/electric/">Electric Hub</a></p>
             </section>
 
