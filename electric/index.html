@@ -83,6 +83,46 @@
     }
     </script>
     <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is a kilowatt not the same as a kilovolt-ampere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because one measures real power and the other apparent power. A load with reactance draws more current than its watts alone suggest, and the ratio between the two is the power factor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert watt-hours to amp-hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by the voltage. A 500 Wh battery at 12 V holds 41.67 Ah, and the same pack at 24 V holds 20.83 Ah. Watt-hours compare batteries across voltages, amp-hours do not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many watts is one horsepower?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 745.7 for mechanical horsepower, which is 550 foot-pounds per second, and about 735.5 for metric horsepower, which is 75 kilogram-force metres per second. The two differ by about 1.4 per cent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does dBm actually measure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Power relative to one milliwatt on a logarithmic scale. Zero dBm is exactly 1 mW, 10 dBm is 10 mW and 30 dBm is 1 W. Because it is logarithmic, adding decibels multiplies the underlying powers."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -95,6 +135,13 @@
             <h1>Electric Converters</h1>
             <p>Electricity has four fundamental quantities — volts, amps, ohms, and watts — and two laws that tie them together: Ohm's law (V = I·R) and watt's law (P = V·I). This hub collects the four-way conversion family those laws define, plus the two specialty conversions every electrician and RF engineer needs: dBm power (the language of radio) and AWG wire gauge (the language of US wire). All of it is exact — the laws are laws, the dBm scale is a definition, and the AWG scale is a geometric formula from 1857 that has never changed.</p>
         </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
 
         <!-- ═══ Ohm's Law Family ═══ -->
         <h2 class="category-section-title">Ohm's Law &amp; Watt's Law — V, A, Ω, W</h2>
@@ -226,7 +273,64 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Electrical units are linked by laws rather than by single factors, so half of this category is not a conversion at all. The table gives the genuine conversions and the definitional constants that the formulas depend on.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 kilowatt-hour</td><td>joules</td><td>3,600,000</td><td>Exact, 1,000 W for 3,600 s</td></tr>
+                        <tr><td>1 watt-hour</td><td>joules</td><td>3,600</td><td>Exact, 3,600 J</td></tr>
+                        <tr><td>1 amp-hour</td><td>coulombs</td><td>3,600</td><td>Exact, one ampere for 3,600 seconds</td></tr>
+                        <tr><td>1 mechanical horsepower</td><td>watts</td><td>745.699871582</td><td>Exact, 550 ft·lbf per second</td></tr>
+                        <tr><td>1 metric horsepower</td><td>watts</td><td>735.49875</td><td>Exact, 75 kgf·m per second</td></tr>
+                        <tr><td>1 kilowatt</td><td>mechanical horsepower</td><td>1.3410220896</td><td>Derived, 1.3410220896</td></tr>
+                        <tr><td>1 kilowatt-hour</td><td>watt-hours</td><td>1,000</td><td>Exact, SI prefix</td></tr>
+                        <tr><td>1 kilowatt</td><td>volt-amperes at power factor 1</td><td>1,000</td><td>Only equal when the load is purely resistive</td></tr>
+                        <tr><td>1 kilowatt-hour at 12 V</td><td>amp-hours</td><td>0.0833333333333</td><td>Split by voltage: amp-hours equals watt-hours divided by volts</td></tr>
+                        <tr><td>1 kilowatt-hour at 48 V</td><td>amp-hours</td><td>0.0208333333333</td><td>The same energy at a higher voltage</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Defining values and exact constants</h2>
+            <ul>
+                <li>Voltage, current, resistance and power are linked by three equations rather than one factor: V = I × R, P = V × I and P = I² × R. Any conversion between them needs the third quantity as an input.</li>
+                <li>Apparent power in volt-amperes exceeds real power in watts whenever the load has reactance. The ratio is the power factor, typically 0.8 to 0.95 for motors.</li>
+                <li>One kilovolt-ampere at a power factor of 0.8 delivers 0.8 kW. Sizing a generator by kilowatts alone under-sizes it, which is why standby sets are rated in kVA.</li>
+                <li>A kilowatt-hour is 3.6 MJ exactly. Dividing it by the pack voltage gives amp-hours, so a 500 Wh battery is 41.67 Ah at 12 V and 20.83 Ah at 24 V.</li>
+                <li>The dBm scale is a power ratio referred to one milliwatt. Adding decibels multiplies power, so 0 dBm is 1 mW and 30 dBm is 1 W, a factor of a thousand.</li>
+            </ul>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is a kilowatt not the same as a kilovolt-ampere?</p>
+                <p class="faq-a">Because one measures real power and the other apparent power. A load with reactance draws more current than its watts alone suggest, and the ratio between the two is the power factor.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert watt-hours to amp-hours?</p>
+                <p class="faq-a">Divide by the voltage. A 500 Wh battery at 12 V holds 41.67 Ah, and the same pack at 24 V holds 20.83 Ah. Watt-hours compare batteries across voltages, amp-hours do not.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many watts is one horsepower?</p>
+                <p class="faq-a">About 745.7 for mechanical horsepower, which is 550 foot-pounds per second, and about 735.5 for metric horsepower, which is 75 kilogram-force metres per second. The two differ by about 1.4 per cent.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What does dBm actually measure?</p>
+                <p class="faq-a">Power relative to one milliwatt on a logarithmic scale. Zero dBm is exactly 1 mW, 10 dBm is 10 mW and 30 dBm is 1 W. Because it is logarithmic, adding decibels multiplies the underlying powers.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/energy/">Energy Converters</a>
             <a href="/frequency/">Frequency Converters</a>
@@ -240,7 +344,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

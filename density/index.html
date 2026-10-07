@@ -71,6 +71,46 @@
     }
     </script>
     <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 1 g/cm³ the same as 1 kg/m³?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, it is a thousand times larger. A cubic metre holds a million cubic centimetres and a kilogram is a thousand grams, so the two thousands cancel and leave a factor of 1,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is 1 g/L equal to 1 kg/m³?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because both conversions are factors of a thousand pointing in opposite directions. A thousand grams is one kilogram and a thousand litres is one cubic metre, so the ratio is unchanged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert lb/ft³ to kg/m³?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 16.018463374. Water at 62.4 lb/ft³ is 999.6 kg/m³. The factor is one pound in kilograms divided by one cubic foot in cubic metres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does density change with temperature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, typically by a few tenths of a per cent per ten degrees for liquids and much more for gases. Water is densest at 4 °C, which is why ice floats on the water it came from."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -90,7 +130,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -180,10 +220,67 @@
             <h2>What's on this page</h2>
             <p>Ten converters covering the five density unit families that actually show up in engineering work — kilograms per cubic meter (SI), grams per cubic centimeter (materials science shorthand), pounds per cubic foot (US construction), pounds per cubic inch (aerospace and metals), and grams per liter (water chemistry and solutions). Every factor is exact. The anchors to remember: <strong>1 g/cm³ = 1,000 kg/m³</strong> (a factor of 1,000 — the cube of 10), <strong>1 lb/ft³ = 16.018463 kg/m³</strong> (the 1959 pound over the 1959 foot, cubed), and <strong>1 g/cm³ = 62.427961 lb/ft³</strong>. Everything else on this page derives from those three. For the mass side of the ratio, see the <a href="/weight/">weight &amp; mass</a> converters; for the volume side, the <a href="/volume/">volume</a> page; for density in a moving fluid, the <a href="/speed/">speed</a> and <a href="/frequency/">frequency</a> families handle the flow side.</p>
         </section>
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Density is the category with the friendliest metric behaviour and the least friendly imperial one. Within SI the factors are powers of a thousand; between the systems every factor is built from the pound and the foot.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 gram per cubic centimetre</td><td>kg per cubic metre</td><td>1,000</td><td>Exact, both are SI</td></tr>
+                        <tr><td>1 gram per litre</td><td>kg per cubic metre</td><td>1</td><td>Exact, the thousands cancel</td></tr>
+                        <tr><td>1 kilogram per cubic metre</td><td>grams per litre</td><td>1</td><td>Exact</td></tr>
+                        <tr><td>1 pound per cubic foot</td><td>kg per cubic metre</td><td>16.018463374</td><td>Exact, 0.45359237 divided by 0.028316846592</td></tr>
+                        <tr><td>1 pound per cubic inch</td><td>kg per cubic metre</td><td>27,679.9047102</td><td>Exact</td></tr>
+                        <tr><td>1 kg per cubic metre</td><td>pounds per cubic foot</td><td>0.0624279605761</td><td>Derived, 0.0624279605761</td></tr>
+                        <tr><td>1 pound per cubic foot</td><td>grams per cubic centimetre</td><td>0.016018463374</td><td>Derived, 0.016018463374</td></tr>
+                        <tr><td>1 gram per cubic centimetre</td><td>pounds per cubic foot</td><td>62.4279605761</td><td>Derived, 62.4279605761</td></tr>
+                        <tr><td>1 pound per cubic inch</td><td>grams per cubic centimetre</td><td>27.6799047102</td><td>Derived, 27.6799047102</td></tr>
+                        <tr><td>1 tonne per cubic metre</td><td>kg per cubic metre</td><td>1,000</td><td>Exact, SI prefix</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Defining values and exact constants</h2>
+            <ul>
+                <li>Water is close to 1,000 kg/m³ by construction. The litre was defined as the volume of one kilogram of water at 4 °C, and the modern value is 999.97 kg/m³ at 20 °C.</li>
+                <li>Within SI, density needs no factors at all: 1 g/cm³ is 1,000 kg/m³ and 1 g/L is 1 kg/m³, because a cubic metre is a thousand litres and a kilogram a thousand grams.</li>
+                <li>One pound per cubic foot is 16.01846337396014 kg/m³. That is 0.45359237 divided by 0.028316846592, both exact definitions.</li>
+                <li>One pound per cubic inch is 27,679.904710203 kg/m³, the unit US handbooks use for steel and aluminium sections.</li>
+                <li>Handbook values worth memorising: steel about 7,850 kg/m³, aluminium 2,700, copper 8,960, lead 11,340 and mercury 13,534.</li>
+            </ul>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Is 1 g/cm³ the same as 1 kg/m³?</p>
+                <p class="faq-a">No, it is a thousand times larger. A cubic metre holds a million cubic centimetres and a kilogram is a thousand grams, so the two thousands cancel and leave a factor of 1,000.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is 1 g/L equal to 1 kg/m³?</p>
+                <p class="faq-a">Because both conversions are factors of a thousand pointing in opposite directions. A thousand grams is one kilogram and a thousand litres is one cubic metre, so the ratio is unchanged.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert lb/ft³ to kg/m³?</p>
+                <p class="faq-a">Multiply by 16.018463374. Water at 62.4 lb/ft³ is 999.6 kg/m³. The factor is one pound in kilograms divided by one cubic foot in cubic metres.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Does density change with temperature?</p>
+                <p class="faq-a">Yes, typically by a few tenths of a per cent per ten degrees for liquids and much more for gases. Water is densest at 4 °C, which is why ice floats on the water it came from.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

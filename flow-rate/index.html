@@ -71,6 +71,46 @@
     }
     </script>
     <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert GPM to L/min?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 3.785411784. A 5 gpm pump delivers 18.93 litres per minute. The factor is the exact size of a US gallon, so it is a definition rather than a measurement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is CFM in litres per second?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One CFM is 0.4719474432 L/s. It follows from one cubic foot being 28.316846592 litres and one minute being 60 seconds, and both of those are exact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do HVAC engineers use CFM and plumbers use GPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the two trades reference different volumes. Air flow is derived from a cubic foot, water flow from a gallon, and the two volumes were fixed independently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is one cubic metre per hour the same as one litre per minute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, one cubic metre per hour is 16.667 litres per minute. A cubic metre is 1,000 litres and an hour is 60 minutes, so the hourly unit moves more than sixteen times as much water per minute."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -83,6 +123,13 @@
             <h1>Flow Rate Converters</h1>
             <p>Flow rate is volume divided by time — the number that decides whether a pump works, a pipe is big enough, or an HVAC system moves enough air. The units split along the same two axes as the <a href="/volume/">volume</a> and <a href="/time/">time</a> families behind them: the metric world flows in liters per minute and cubic meters per hour, the American world in gallons per minute and cubic feet per minute. Every factor on this page is exact — the US gallon is 231 in³ by definition, the foot is 0.3048 m by the 1959 agreement, and the liter is a cubic decimeter. None of the constants here is rounded, and all of them chain back to the same anchors the rest of the site uses.</p>
         </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
 
         <!-- ═══ L/min &harr; GPM ═══ -->
         <h2 class="category-section-title">Liters per Minute &amp; Gallons per Minute — Pumps &amp; Fixtures</h2>
@@ -159,7 +206,64 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Flow rate mixes a volume unit with a time unit, and the two traditions differ about both. The table gives the exact factors for the five units that appear on pump curves and air-handling schedules.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 US gallon per minute</td><td>litres per minute</td><td>3.785411784</td><td>Exact, the size of a US gallon</td></tr>
+                        <tr><td>1 US gallon per minute</td><td>cubic metres per hour</td><td>0.22712470704</td><td>Exact, 3.785411784 litres × 60 ÷ 1,000</td></tr>
+                        <tr><td>1 US gallon per minute</td><td>cubic feet per minute</td><td>0.133680555556</td><td>Exact, 231 divided by 1,728</td></tr>
+                        <tr><td>1 cubic foot per minute</td><td>litres per second</td><td>0.4719474432</td><td>Exact, 28.316846592 litres ÷ 60</td></tr>
+                        <tr><td>1 cubic foot per minute</td><td>cubic metres per hour</td><td>1.69901079552</td><td>Exact, 0.3048 cubed × 60</td></tr>
+                        <tr><td>1 litre per second</td><td>litres per minute</td><td>60</td><td>Exact</td></tr>
+                        <tr><td>1 cubic metre per hour</td><td>litres per minute</td><td>16.6666666667</td><td>Exact, 16.6666666667</td></tr>
+                        <tr><td>1 US gallon per minute</td><td>litres per second</td><td>0.0630901964</td><td>Derived, 0.0630901964</td></tr>
+                        <tr><td>1 cubic foot per minute</td><td>US gallons per minute</td><td>7.48051948052</td><td>Derived, 7.480519480519</td></tr>
+                        <tr><td>1 litre per minute</td><td>cubic metres per hour</td><td>0.06</td><td>Exact, 0.06</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Defining values and exact constants</h2>
+            <ul>
+                <li>One US gallon per minute is 3.785411784 L/min and 0.22712470704 m³/h. Pumps are quoted in all three on the same datasheet, and the conversion is one factor.</li>
+                <li>One cubic foot per minute is exactly 7.4805194805 US gallons per minute, because a cubic foot holds 1,728 cubic inches and a US gallon holds 231.</li>
+                <li>One cubic foot per minute is 1.69901079552 m³/h. The figure is 0.3048 cubed and then multiplied by 60, both exact.</li>
+                <li>One litre per second is 15.8503231415 US gallons per minute, the conversion needed when a European plumbing specification meets an American one.</li>
+                <li>A shower head limited to 2.5 gpm delivers 9.46 L/min, while a European head rated at 6 L/min is 1.585 gpm, a difference of about 36 per cent in water used.</li>
+            </ul>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert GPM to L/min?</p>
+                <p class="faq-a">Multiply by 3.785411784. A 5 gpm pump delivers 18.93 litres per minute. The factor is the exact size of a US gallon, so it is a definition rather than a measurement.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What is CFM in litres per second?</p>
+                <p class="faq-a">One CFM is 0.4719474432 L/s. It follows from one cubic foot being 28.316846592 litres and one minute being 60 seconds, and both of those are exact.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why do HVAC engineers use CFM and plumbers use GPM?</p>
+                <p class="faq-a">Because the two trades reference different volumes. Air flow is derived from a cubic foot, water flow from a gallon, and the two volumes were fixed independently.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is one cubic metre per hour the same as one litre per minute?</p>
+                <p class="faq-a">No, one cubic metre per hour is 16.667 litres per minute. A cubic metre is 1,000 litres and an hour is 60 minutes, so the hourly unit moves more than sixteen times as much water per minute.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/volume/">Volume Converters</a>
             <a href="/time/">Time Converters</a>
@@ -174,7 +278,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

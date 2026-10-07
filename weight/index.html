@@ -78,6 +78,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many kilograms is a pound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 0.45359237. Ten pounds is 4.5359237 kg and 100 pounds is 45.359237 kg. The number is a treaty value rather than a measurement, so it carries no uncertainty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a metric ton the same as a US ton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A metric tonne is 1,000 kg, a US short ton is 907.18474 kg and a UK long ton is 1,016.0469088 kg. A shipment described only as 100 tons can differ by 11 per cent depending on which ton is meant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is an ounce not one twelfth of a pound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the avoirdupois pound is divided into 16 ounces. The twelfths belong to the troy system, which uses a heavier ounce of 31.1034768 g and is reserved for precious metals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a kilogram weigh the same everywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The mass does and the weight does not. One kilogram of mass weighs about 9.80665 newtons at sea level and slightly less at altitude, because weight is a force and depends on local gravity."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -98,7 +138,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/weight-mass-conversion-guide" class="category-guide-cta">
@@ -245,7 +285,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Mass is the one everyday category where the imperial units are defined by the metric ones rather than the reverse. The table lists the exact treaty values alongside the tonne, which is often confused with the ton.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 pound</td><td>kilograms</td><td>0.45359237</td><td>Exact, 1959 International Yard and Pound Agreement</td></tr>
+                        <tr><td>1 ounce</td><td>grams</td><td>28.349523125</td><td>Exact, one sixteenth of a pound</td></tr>
+                        <tr><td>1 kilogram</td><td>pounds</td><td>2.20462262185</td><td>Derived from 1 lb = 0.45359237 kg</td></tr>
+                        <tr><td>1 stone</td><td>kilograms</td><td>6.35029318</td><td>Exact, 14 pounds</td></tr>
+                        <tr><td>1 short ton</td><td>kilograms</td><td>907.18474</td><td>Exact, 2,000 pounds, United States</td></tr>
+                        <tr><td>1 long ton</td><td>kilograms</td><td>1,016.0469088</td><td>Exact, 2,240 pounds, United Kingdom</td></tr>
+                        <tr><td>1 tonne</td><td>kilograms</td><td>1,000</td><td>Exact, SI megagram</td></tr>
+                        <tr><td>1 troy ounce</td><td>grams</td><td>31.1034768</td><td>Exact, 480 grains, used for precious metals</td></tr>
+                        <tr><td>1 grain</td><td>milligrams</td><td>64.79891</td><td>Exact, one seven-thousandth of a pound</td></tr>
+                        <tr><td>1 tonne</td><td>pounds</td><td>2,204.62262185</td><td>Derived, 1 tonne = 1,000 kg exactly</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many kilograms is a pound?</p>
+                <p class="faq-a">Exactly 0.45359237. Ten pounds is 4.5359237 kg and 100 pounds is 45.359237 kg. The number is a treaty value rather than a measurement, so it carries no uncertainty.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a metric ton the same as a US ton?</p>
+                <p class="faq-a">No. A metric tonne is 1,000 kg, a US short ton is 907.18474 kg and a UK long ton is 1,016.0469088 kg. A shipment described only as 100 tons can differ by 11 per cent depending on which ton is meant.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is an ounce not one twelfth of a pound?</p>
+                <p class="faq-a">Because the avoirdupois pound is divided into 16 ounces. The twelfths belong to the troy system, which uses a heavier ounce of 31.1034768 g and is reserved for precious metals.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Does a kilogram weigh the same everywhere?</p>
+                <p class="faq-a">The mass does and the weight does not. One kilogram of mass weighs about 9.80665 newtons at sea level and slightly less at altitude, because weight is a force and depends on local gravity.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/volume/" class="related-cat-pill">Volume</a>
             <a href="/energy/" class="related-cat-pill">Energy &amp; Power</a>
@@ -258,6 +346,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

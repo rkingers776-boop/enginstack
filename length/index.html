@@ -105,6 +105,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many centimetres are in an inch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 2.54. That is a definition rather than a measurement, so 10 inches is 25.4 cm and 100 inches is exactly 254 cm with no rounding at any point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a nautical mile different from a statute mile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A nautical mile is 1,852 metres and tracks latitude, while a statute mile is 1,609.344 metres and tracks land survey. One minute of latitude equals one nautical mile, which is what makes chart work possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the US survey foot the same as a foot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost. The survey foot was 1200/3937 m, two parts per million longer than the international foot of 0.3048 m. That is 0.01 feet per mile, and the unit was retired at the end of 2022."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many feet are in a metre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3.280839895, which is the reciprocal of 0.3048. Ten metres is 32.8084 feet and 100 metres is 328.084 feet, because the whole range scales by one fixed factor."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -125,7 +165,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/length-conversion-guide" class="category-guide-cta">
@@ -388,7 +428,64 @@
         </div>
 
         <!-- Related categories -->
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Every ordinary length conversion traces back to one treaty and one geometric definition. The table gives the exact factors rather than rounded approximations, because a rounded factor is the thing that shows up as a discrepancy downstream.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 inch</td><td>centimetres</td><td>2.54</td><td>Exact, 1959 International Yard and Pound Agreement</td></tr>
+                        <tr><td>1 foot</td><td>metres</td><td>0.3048</td><td>Exact, same agreement</td></tr>
+                        <tr><td>1 yard</td><td>metres</td><td>0.9144</td><td>Exact, 3 feet</td></tr>
+                        <tr><td>1 mile</td><td>kilometres</td><td>1.609344</td><td>Exact, 5,280 feet</td></tr>
+                        <tr><td>1 nautical mile</td><td>kilometres</td><td>1.852</td><td>Exact, 1929 International Hydrographic Conference</td></tr>
+                        <tr><td>1 metre</td><td>feet</td><td>3.28083989501</td><td>Derived from 1 ft = 0.3048 m</td></tr>
+                        <tr><td>1 kilometre</td><td>miles</td><td>0.621371192237</td><td>Derived from 1 mile = 1.609344 km</td></tr>
+                        <tr><td>1 millimetre</td><td>inches</td><td>0.0393700787402</td><td>Derived, 1 in = 25.4 mm</td></tr>
+                        <tr><td>1 astronomical unit</td><td>kilometres</td><td>149,597,870.7</td><td>Exact, IAU 2012 definition of the astronomical unit</td></tr>
+                        <tr><td>1 light-year</td><td>kilometres</td><td>9,460,730,472,580.8</td><td>Exact, c times one Julian year of 365.25 days</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Defining values and exact constants</h2>
+            <ul>
+                <li>One inch is exactly 2.54 centimetres and one foot exactly 0.3048 metres. The 1959 International Yard and Pound Agreement replaced two slightly different national definitions with a single number.</li>
+                <li>A nautical mile is 1,852 metres exactly, which is one minute of latitude. That is why aviation and marine navigation still use it: distance and angular position are the same measurement.</li>
+                <li>A light-year is 9,460,730,472,580.8 km exactly. Both terms are defined, the speed of light and the length of a Julian year, so the figure carries no uncertainty.</li>
+                <li>The US survey foot was 1200/3937 m, about 2 parts per million longer than the international foot. It was retired on 31 December 2022 and federal surveys now use 0.3048 m.</li>
+                <li>The 1,609.344 m mile is a statute mile. A US survey mile of 5,280 survey feet was 1,609.347 m, which is why old American property deeds drift from modern maps.</li>
+            </ul>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many centimetres are in an inch?</p>
+                <p class="faq-a">Exactly 2.54. That is a definition rather than a measurement, so 10 inches is 25.4 cm and 100 inches is exactly 254 cm with no rounding at any point.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is a nautical mile different from a statute mile?</p>
+                <p class="faq-a">A nautical mile is 1,852 metres and tracks latitude, while a statute mile is 1,609.344 metres and tracks land survey. One minute of latitude equals one nautical mile, which is what makes chart work possible.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is the US survey foot the same as a foot?</p>
+                <p class="faq-a">Almost. The survey foot was 1200/3937 m, two parts per million longer than the international foot of 0.3048 m. That is 0.01 feet per mile, and the unit was retired at the end of 2022.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many feet are in a metre?</p>
+                <p class="faq-a">3.280839895, which is the reciprocal of 0.3048. Ten metres is 32.8084 feet and 100 metres is 328.084 feet, because the whole range scales by one fixed factor.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/speed/" class="related-cat-pill">Speed</a>
             <a href="/area/" class="related-cat-pill">Area</a>
@@ -402,6 +499,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

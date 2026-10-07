@@ -106,13 +106,14 @@
 
         <header class="page-header">
             <h1>voltage drop — the volts the wire eats before the load sees them</h1>
+            <p class="direct-answer"><strong>V(drop) = I × R(conductor).</strong> The loss along a cable run is a resistance calculation rather than a unit conversion: 15 A through 0.3176 Ω drops 4.764 V. In practice that resistance comes from conductor resistivity, length and cross-section.</p>
             <p>Every foot of wire is a resistor, and every amp of load pays its toll. A 15 A circuit run 100 ft of 12 AWG copper loses 4.76 V to the wire alone — nearly 4% of a 120 V circuit, gone as heat before the outlet. NEC guidance holds branch circuits to 3% drop; beyond that motors overheat and lights dim. This calculator finds the toll: Vdrop = I × R, the number behind every 'why is my 12 V light so dim' question.</p>
         </header>
 
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -203,7 +204,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

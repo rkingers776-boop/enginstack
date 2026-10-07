@@ -107,6 +107,7 @@
 
         <header class="page-header">
             <h1>Kilometers to Meters: Your Phone Computes in Meters. Always. Even When It Shows You Kilometers.</h1>
+            <p class="direct-answer"><strong>1 km = 1,000 m</strong>, and 1 m = 0.001 km. One fixed factor covers the whole range: multiply km by 1,000. Worked: 10 km = 10,000 m; 100 km = 100,000 m.</p>
             <p>Open any mapping app. It says "5.2 km to destination." That 5.2 is a lie — or rather, a translation. Inside the app, your position is stored as meters. The GPS receiver trilaterated your location to an XYZ coordinate in meters. The route was computed in meters. The distance-to-destination is a floating-point number in meters, updated 10 times per second. The "km" on the screen is just the final display layer — meters multiplied by 0.001, for humans who don't want to read "5,200 m." Every kilometer you see on a screen is meters underneath. The conversion runs billions of times a day across every phone on Earth.</p>
         </header>
 
@@ -114,7 +115,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <div class="calculator-card" data-coefficient="1000" data-unit-from="km" data-unit-to="m">
@@ -203,7 +204,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

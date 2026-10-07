@@ -73,6 +73,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does a one terabyte drive show as 931 gigabytes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the drive holds 10 to the twelfth bytes and the operating system displays binary units. That total is 931.32 gibibytes. Nothing is missing; the two sides use different definitions of the same prefix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a kilobyte 1,000 or 1,024 bytes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both, depending on the context. Storage and networking use 1,000 following the SI convention, while memory and operating systems traditionally used 1,024, which the IEC now calls a kibibyte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many megabytes per second is a gigabit connection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "125, because network speed is quoted in bits and file size in bytes. Multiply the gigabit figure by 1,000 and divide by 8, which gives 125 megabytes per second."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a gibibyte and a gigabyte?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "7.37 per cent. A gibibyte is 2 to the thirtieth power, or 1,073,741,824 bytes, while a gigabyte is 10 to the ninth, or 1,000,000,000 bytes. At the terabyte level the gap grows to about 10 per cent."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -93,7 +133,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/data-storage-conversion-guide" class="category-guide-cta">
@@ -203,7 +243,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Data storage is the one category where the same prefix means two different numbers. Hardware is sold in decimal units and reported by operating systems in binary ones, and the table shows both families in full.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 byte</td><td>bits</td><td>8</td><td>Exact, the definition of a byte</td></tr>
+                        <tr><td>1 kibibyte</td><td>bytes</td><td>1,024</td><td>Exact, 2 to the tenth power</td></tr>
+                        <tr><td>1 kilobyte</td><td>bytes</td><td>1,000</td><td>Exact, the SI decimal prefix</td></tr>
+                        <tr><td>1 mebibyte</td><td>bytes</td><td>1,048,576</td><td>Exact, 2 to the twentieth power</td></tr>
+                        <tr><td>1 gibibyte</td><td>bytes</td><td>1,073,741,824</td><td>Exact, 2 to the thirtieth power</td></tr>
+                        <tr><td>1 tebibyte</td><td>bytes</td><td>1,099,511,627,776</td><td>Exact, 2 to the fortieth power</td></tr>
+                        <tr><td>1 gigabyte</td><td>bytes</td><td>1,000,000,000</td><td>Exact, the SI decimal prefix</td></tr>
+                        <tr><td>1 kibibyte</td><td>kilobytes</td><td>1.024</td><td>Derived, 1.024</td></tr>
+                        <tr><td>1 mebibyte</td><td>megabytes</td><td>1.048576</td><td>Derived, 1.048576</td></tr>
+                        <tr><td>1 gibibyte</td><td>gigabytes</td><td>1.073741824</td><td>Derived, 1.073741824</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does a one terabyte drive show as 931 gigabytes?</p>
+                <p class="faq-a">Because the drive holds 10 to the twelfth bytes and the operating system displays binary units. That total is 931.32 gibibytes. Nothing is missing; the two sides use different definitions of the same prefix.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a kilobyte 1,000 or 1,024 bytes?</p>
+                <p class="faq-a">Both, depending on the context. Storage and networking use 1,000 following the SI convention, while memory and operating systems traditionally used 1,024, which the IEC now calls a kibibyte.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many megabytes per second is a gigabit connection?</p>
+                <p class="faq-a">125, because network speed is quoted in bits and file size in bytes. Multiply the gigabit figure by 1,000 and divide by 8, which gives 125 megabytes per second.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What is the difference between a gibibyte and a gigabyte?</p>
+                <p class="faq-a">7.37 per cent. A gibibyte is 2 to the thirtieth power, or 1,073,741,824 bytes, while a gigabyte is 10 to the ninth, or 1,000,000,000 bytes. At the terabyte level the gap grows to about 10 per cent.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/time/" class="related-cat-pill">Time</a>
             <a href="/energy/" class="related-cat-pill">Energy &amp; Power</a>
@@ -215,6 +303,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

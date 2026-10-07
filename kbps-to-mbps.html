@@ -107,6 +107,7 @@
 
         <header class="page-header">
             <h1>Kbps to Mbps — the conversion you only need when the small stuff adds up</h1>
+            <p class="direct-answer"><strong>1 Kbps = 0.001 Mbps</strong>, and 1 Mbps = 1,000 Kbps. The conversion is a single fixed factor: multiply Kbps by 0.001. Worked: 100 Kbps = 0.1 Mbps; 1,000 Kbps = 1 Mbps.</p>
             <p>Nobody sits down to convert kilobits to megabits for fun. You do it because a datasheet for a Zigbee module says 250 Kbps and the network architect asks "how many of these can share a 100 Mbps backhaul?" Or because a T1 circuit is specified at 1,544 Kbps and the WAN dashboard reads in Mbps. Or because a voice codec is 64 Kbps per call and you need to know how many calls fit in the 10 Mbps of QoS you reserved. Kbps-to-Mbps is aggregation math — the step from one device to many. <strong>÷1,000</strong>. That's all.</p>
         </header>
 
@@ -114,7 +115,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <div class="calculator-card" data-coefficient="0.001" data-unit-from="Kbps" data-unit-to="Mbps">
@@ -208,7 +209,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

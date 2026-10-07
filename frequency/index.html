@@ -69,6 +69,46 @@
     }
     </script>
     <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert RPM to Hz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 60. A 1,500 RPM shaft is 25 Hz. The factor is exact, because there are exactly 60 seconds in a minute and no rounding enters the calculation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a hertz the same as a cycle per second?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The hertz replaced the phrase cycles per second in 1960 and names exactly the same quantity. Older radio documentation may still write kc for kilohertz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is one gigahertz not 1,024 megahertz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because SI prefixes are decimal. One gigahertz is 10 to the ninth hertz and one megahertz is 10 to the sixth, so the ratio is exactly 1,000. The 1,024 factor belongs to binary data units such as the kibibyte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many radians per second is one RPM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "0.10471975512. One revolution is 2π radians and one minute is 60 seconds, so the conversion is 2π divided by 60, the same route as RPM to hertz with π inserted."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -88,7 +128,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -162,10 +202,67 @@
             <p>Eight converters covering the frequency range from a heartbeat (1.2 Hz) to a 5 GHz Wi-Fi band — plus the RPM crossover that links frequency to rotating machinery. Every conversion here is exact: no measured constants, no rounding, no approximation. The kHz/MHz/GHz steps are powers of ten; the Hz↔RPM pair uses the exact factor of 60. If you're converting signal frequencies, the <a href="/data-storage/">data storage</a> hub has the related data-rate converters (Mbps, Gbps) for network speeds. If you're converting motor speeds, the <a href="/speed/">speed</a> hub covers the linear velocities those rotations produce.</p>
             <p style="margin-top:1.2em;">Deep dive: read the <a href="/guides/frequency-conversion-guide">Frequency Conversion Guide</a> — the 440-Hz standard, the 50/60 Hz grid divide, and why the hertz is the easiest unit on this site except for the RPM crossover.</p>
         </section>
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Frequency conversions are decimal at every step except one: the hertz to RPM conversion, which depends on the number of seconds in a minute. The table gives both, with the angular form that equations usually need.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 kilohertz</td><td>hertz</td><td>1,000</td><td>Exact, SI decimal prefix</td></tr>
+                        <tr><td>1 megahertz</td><td>hertz</td><td>1,000,000</td><td>Exact</td></tr>
+                        <tr><td>1 gigahertz</td><td>hertz</td><td>1,000,000,000</td><td>Exact</td></tr>
+                        <tr><td>1 gigahertz</td><td>megahertz</td><td>1,000</td><td>Exact, both prefixes are decimal</td></tr>
+                        <tr><td>1 hertz</td><td>revolutions per minute</td><td>60</td><td>Exact, 60 seconds in a minute</td></tr>
+                        <tr><td>1 revolution per minute</td><td>hertz</td><td>0.0166666666667</td><td>Exact reciprocal, 0.0166666666667</td></tr>
+                        <tr><td>1 revolution per minute</td><td>radians per second</td><td>0.10471975512</td><td>Derived, 0.10471975512</td></tr>
+                        <tr><td>1 hertz</td><td>radians per second</td><td>6.28318530718</td><td>Exact, one full cycle in radians</td></tr>
+                        <tr><td>1 megahertz</td><td>kilohertz</td><td>1,000</td><td>Exact</td></tr>
+                        <tr><td>1 revolution per second</td><td>hertz</td><td>1</td><td>Exact by definition</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Defining values and exact constants</h2>
+            <ul>
+                <li>One hertz is one cycle per second, so frequency and period are reciprocals. A 50 Hz supply has a period of 20 ms, and a 60 Hz supply has a period of 16.67 ms.</li>
+                <li>SI prefixes on the hertz are strictly decimal. One gigahertz is 10 to the ninth hertz, not 2 to the thirtieth, which is why clock speeds use the same numbers as radio bands.</li>
+                <li>One revolution per minute is 1/60 Hz exactly. A 3,000 RPM shaft turns at 50 Hz, which is what lets a synchronous motor lock to the mains frequency.</li>
+                <li>One RPM is 0.10471975512 rad/s. Multiply by 2π and divide by 60 whenever an equation needs angular velocity rather than frequency.</li>
+                <li>Audible sound spans roughly 20 Hz to 20 kHz, FM broadcast 88 to 108 MHz, and Wi-Fi at 2.4 and 5 GHz. Each band sits a thousandfold above the previous one.</li>
+            </ul>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert RPM to Hz?</p>
+                <p class="faq-a">Divide by 60. A 1,500 RPM shaft is 25 Hz. The factor is exact, because there are exactly 60 seconds in a minute and no rounding enters the calculation.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a hertz the same as a cycle per second?</p>
+                <p class="faq-a">Yes. The hertz replaced the phrase cycles per second in 1960 and names exactly the same quantity. Older radio documentation may still write kc for kilohertz.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is one gigahertz not 1,024 megahertz?</p>
+                <p class="faq-a">Because SI prefixes are decimal. One gigahertz is 10 to the ninth hertz and one megahertz is 10 to the sixth, so the ratio is exactly 1,000. The 1,024 factor belongs to binary data units such as the kibibyte.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many radians per second is one RPM?</p>
+                <p class="faq-a">0.10471975512. One revolution is 2π radians and one minute is 60 seconds, so the conversion is 2π divided by 60, the same route as RPM to hertz with π inserted.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

@@ -73,6 +73,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many square feet are in an acre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exactly 43,560. That is 4,840 square yards, or a square 208.71 feet on a side. The figure descends from the chain and furlong rather than from any metric conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a hectare bigger than an acre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, about 2.471 times bigger. A hectare is 10,000 square metres and an acre is 4,046.86 square metres, so 100 hectares is roughly 247 acres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is one square metre not 3.28084 square feet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the factor has to be squared. One metre is 3.28084 feet, so one square metre is 3.28084 times 3.28084, which is 10.7639 square feet. Cubic units need the factor cubed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the practical difference between an acre and a hectare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Little on the ground, a lot on paper. Land registries, subsidy schemes and yield figures are quoted in hectares in most countries and in acres in the United States, so contracts must state which."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -93,7 +133,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/area-conversion-guide" class="category-guide-cta">
@@ -219,7 +259,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Area factors are length factors squared, and the squaring is where most errors come from. The table gives the exact values so a squared factor never has to be reconstructed by hand.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 acre</td><td>square metres</td><td>4,046.8564224</td><td>Exact, 4,840 square yards</td></tr>
+                        <tr><td>1 hectare</td><td>square metres</td><td>10,000</td><td>Exact, a square 100 m on each side</td></tr>
+                        <tr><td>1 square foot</td><td>square metres</td><td>0.09290304</td><td>Exact from 1 ft = 0.3048 m</td></tr>
+                        <tr><td>1 square inch</td><td>square centimetres</td><td>6.4516</td><td>Exact from 1 in = 2.54 cm</td></tr>
+                        <tr><td>1 square yard</td><td>square metres</td><td>0.83612736</td><td>Exact, 9 square feet</td></tr>
+                        <tr><td>1 square mile</td><td>square kilometres</td><td>2.58998811034</td><td>From 1 mile = 1.609344 km, squared</td></tr>
+                        <tr><td>1 acre</td><td>hectares</td><td>0.40468564224</td><td>Exact ratio of the two definitions</td></tr>
+                        <tr><td>1 square metre</td><td>square feet</td><td>10.7639104167</td><td>Derived, squared factor</td></tr>
+                        <tr><td>1 hectare</td><td>acres</td><td>2.47105381467</td><td>Derived from the exact definitions</td></tr>
+                        <tr><td>1 acre</td><td>square feet</td><td>43,560</td><td>Exact, 43,560 by definition</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many square feet are in an acre?</p>
+                <p class="faq-a">Exactly 43,560. That is 4,840 square yards, or a square 208.71 feet on a side. The figure descends from the chain and furlong rather than from any metric conversion.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a hectare bigger than an acre?</p>
+                <p class="faq-a">Yes, about 2.471 times bigger. A hectare is 10,000 square metres and an acre is 4,046.86 square metres, so 100 hectares is roughly 247 acres.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is one square metre not 3.28084 square feet?</p>
+                <p class="faq-a">Because the factor has to be squared. One metre is 3.28084 feet, so one square metre is 3.28084 times 3.28084, which is 10.7639 square feet. Cubic units need the factor cubed.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What is the practical difference between an acre and a hectare?</p>
+                <p class="faq-a">Little on the ground, a lot on paper. Land registries, subsidy schemes and yield figures are quoted in hectares in most countries and in acres in the United States, so contracts must state which.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/length/" class="related-cat-pill">Length &amp; Distance</a>
             <a href="/volume/" class="related-cat-pill">Volume</a>
@@ -231,6 +319,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

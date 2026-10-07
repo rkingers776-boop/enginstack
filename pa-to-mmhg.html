@@ -112,6 +112,7 @@
 
         <header class="page-header">
             <h1>Pa to mmHg — the transducer reads Pa. The spec sheet says mmHg. Here's the 0.0075 that translates.</h1>
+            <p class="direct-answer"><strong>1 Pa = 0.00750062 mmHg</strong>, and 1 mmHg = 133.322 Pa. One fixed factor covers the whole range: multiply Pa by 0.00750062. Worked: 100 Pa = 0.750062 mmHg; 1,000 Pa = 7.50062 mmHg.</p>
             <p>A modern vacuum sensor outputs pressure in pascals. It's clean. It's SI. It's what the datasheet promises. Then you walk over to the analog gauge on the chamber wall and it's marked in millimeters of mercury — because that gauge was designed 40 years ago, or because the process engineer who wrote the SOP trained on mercury manometers in 1985. Pa-to-mmHg is the translation: <strong>divide by 133.322</strong>, and the SI number becomes the legacy number the equipment understands.</p>
         </header>
 
@@ -119,7 +120,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <div class="calculator-card" data-coefficient="0.00750062" data-unit-from="Pa" data-unit-to="mmHg">
@@ -219,6 +220,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
         </div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>

@@ -65,6 +65,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many degrees is a radian?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "57.2957795131, which is 180 divided by π. The figure is irrational, so any decimal answer is a truncation. A right angle is π/2 radians, or 1.57079632679."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are there 360 degrees in a circle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The number comes from Babylonian astronomy, which used base-60 arithmetic and divided the circle into 360 parts. Nothing geometric requires it: 400 gradians and 6,400 mils describe the same turn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a mil in artillery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A NATO mil is one six-thousand-four-hundredth of a turn, about 0.05625 degrees. It was chosen so that one mil subtends roughly one metre at one kilometre, which makes range corrections trivial for a gunner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert degrees to radians?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by π and divide by 180. Thirty degrees is π/6, or 0.523598775598 radians. Where π is not available, multiply by 0.0174532925199 instead."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -85,7 +125,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/angle-conversion-guide" class="category-guide-cta">
@@ -163,7 +203,55 @@
             <p><strong>Mistake 3 — Python numpy:</strong> NumPy's trigonometric functions expect radians. The <code>np.deg2rad()</code> and <code>np.rad2deg()</code> functions exist precisely because this is the most common silent bug in scientific Python. A Jupyter notebook computing FFT phase spectra in degrees instead of radians will produce physically impossible phase values — but no exception is raised.</p>
         </section>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Every angle unit is an arbitrary division of the same turn. The table gives the exact relationships, including the two that matter in engineering practice: the radian that calculus needs and the mil that artillery uses.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 full turn</td><td>degrees</td><td>360</td><td>Exact by convention</td></tr>
+                        <tr><td>1 radian</td><td>degrees</td><td>57.2957795131</td><td>Derived, 57.2957795131</td></tr>
+                        <tr><td>1 degree</td><td>radians</td><td>0.0174532925199</td><td>Derived, 0.0174532925199</td></tr>
+                        <tr><td>1 degree</td><td>arcminutes</td><td>60</td><td>Exact, the sexagesimal split</td></tr>
+                        <tr><td>1 arcminute</td><td>arcseconds</td><td>60</td><td>Exact</td></tr>
+                        <tr><td>1 gradian</td><td>degrees</td><td>0.9</td><td>Exact, 400 gradians per turn</td></tr>
+                        <tr><td>1 degree</td><td>gradians</td><td>1.11111111111</td><td>Derived, 1.11111111111</td></tr>
+                        <tr><td>1 NATO mil</td><td>degrees</td><td>0.05625</td><td>Exact, 6,400 mils per turn</td></tr>
+                        <tr><td>1 full turn</td><td>radians</td><td>6.28318530718</td><td>Exact, 6.28318530718</td></tr>
+                        <tr><td>1 right angle</td><td>degrees</td><td>90</td><td>Exact, a quarter turn</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many degrees is a radian?</p>
+                <p class="faq-a">57.2957795131, which is 180 divided by π. The figure is irrational, so any decimal answer is a truncation. A right angle is π/2 radians, or 1.57079632679.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why are there 360 degrees in a circle?</p>
+                <p class="faq-a">The number comes from Babylonian astronomy, which used base-60 arithmetic and divided the circle into 360 parts. Nothing geometric requires it: 400 gradians and 6,400 mils describe the same turn.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What is a mil in artillery?</p>
+                <p class="faq-a">A NATO mil is one six-thousand-four-hundredth of a turn, about 0.05625 degrees. It was chosen so that one mil subtends roughly one metre at one kilometre, which makes range corrections trivial for a gunner.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert degrees to radians?</p>
+                <p class="faq-a">Multiply by π and divide by 180. Thirty degrees is π/6, or 0.523598775598 radians. Where π is not available, multiply by 0.0174532925199 instead.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/time/" class="related-cat-pill">Time</a>
             <a href="/length/" class="related-cat-pill">Length &amp; Distance</a>
@@ -176,6 +264,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

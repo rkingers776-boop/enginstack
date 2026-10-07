@@ -71,6 +71,46 @@
     }
     </script>
     <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a foot-pound the same as a pound-foot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and neither is the foot-pound of energy. When a specification says 80 ft·lbf it means torque. The shared name survives because both quantities are a force multiplied by a distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert N·m to ft·lbf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 0.737562149277. A 100 N·m fastener setting is 73.76 ft·lbf. The factor is the reciprocal of 1.3558179483, which is one pound-force acting on a one foot lever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does 1 kgf·m equal 9.80665 N·m exactly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the kilogram-force is defined as the weight of one kilogram at standard gravity, 9.80665 m/s². Multiplying by a one metre lever arm leaves that number unchanged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can torque be converted the same way as energy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numerically yes, physically no. A newton metre of torque converts to a joule by the same factor of one, but torque does no work unless the object actually rotates, because it is a vector cross product."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -90,7 +130,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -205,12 +245,70 @@
             </div>
         </section>
 
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Torque shares its units with energy and its name with nothing else. The table gives the exact factors for the four units that appear on wrenches, motor datasheets and gearbox specifications.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 foot-pound force</td><td>newton metres</td><td>1.35581794833</td><td>Exact from 1 lbf and 1 ft</td></tr>
+                        <tr><td>1 newton metre</td><td>foot-pounds force</td><td>0.737562149277</td><td>Derived, 0.737562149277</td></tr>
+                        <tr><td>1 inch-pound force</td><td>newton metres</td><td>0.112984829028</td><td>Exact, one twelfth of a ft·lbf</td></tr>
+                        <tr><td>1 newton metre</td><td>inch-pounds force</td><td>8.85074579133</td><td>Derived, 8.85074579133</td></tr>
+                        <tr><td>1 kilogram-force metre</td><td>newton metres</td><td>9.80665</td><td>Exact, 1 kgf at a one metre lever</td></tr>
+                        <tr><td>1 newton metre</td><td>kilogram-force metres</td><td>0.101971621298</td><td>Derived, 0.101971621298</td></tr>
+                        <tr><td>1 foot-pound force</td><td>inch-pounds force</td><td>12</td><td>Exact</td></tr>
+                        <tr><td>1 kilogram-force metre</td><td>foot-pounds force</td><td>7.23301385121</td><td>Derived, 7.23301385121</td></tr>
+                        <tr><td>1 newton metre</td><td>newton centimetres</td><td>100</td><td>Exact, SI prefix</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Defining values and exact constants</h2>
+            <ul>
+                <li>One foot-pound of torque is 1.3558179483314004 N·m. The name is shared with the foot-pound of energy, which is why engineering documents often write lbf·ft to make the intent unambiguous.</li>
+                <li>Torque and energy reduce to the same base units but are different quantities. Torque is a cross product of a force and a lever arm; energy is a dot product of a force and a displacement.</li>
+                <li>One kilogram-force metre is 9.80665 N·m exactly, because the kilogram-force is defined as the weight of one kilogram at standard gravity.</li>
+                <li>A foot-pound is 12 inch-pounds exactly, and a newton metre is 8.85074579133 inch-pounds. Wrench specifications tend to sit between 20 and 250 ft·lbf.</li>
+                <li>An engine rated at 200 N·m produces 147.5 ft·lbf at the same point on the curve. The factor is the reciprocal of 1.3558179483.</li>
+            </ul>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a foot-pound the same as a pound-foot?</p>
+                <p class="faq-a">Yes, and neither is the foot-pound of energy. When a specification says 80 ft·lbf it means torque. The shared name survives because both quantities are a force multiplied by a distance.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert N·m to ft·lbf?</p>
+                <p class="faq-a">Multiply by 0.737562149277. A 100 N·m fastener setting is 73.76 ft·lbf. The factor is the reciprocal of 1.3558179483, which is one pound-force acting on a one foot lever.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does 1 kgf·m equal 9.80665 N·m exactly?</p>
+                <p class="faq-a">Because the kilogram-force is defined as the weight of one kilogram at standard gravity, 9.80665 m/s². Multiplying by a one metre lever arm leaves that number unchanged.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can torque be converted the same way as energy?</p>
+                <p class="faq-a">Numerically yes, physically no. A newton metre of torque converts to a joule by the same factor of one, but torque does no work unless the object actually rotates, because it is a vector cross product.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
         </div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>

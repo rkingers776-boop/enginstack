@@ -75,6 +75,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many seconds are in a day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "86,400 exactly, which is 24 times 60 times 60. That is the mean solar day. An individual day can be a millisecond longer or shorter, which is why leap seconds are occasionally needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many days are in a month on average?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "30.4375 if you divide a Julian year of 365.25 days by 12, which is the convention behind most amortisation schedules. A Gregorian calendar month averages 30.436875 days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a sidereal day shorter than a solar day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By about 3 minutes 56 seconds. Earth rotates once relative to the stars in 23 hours 56 minutes 4 seconds, but it has also advanced along its orbit, so it must turn a little more before the Sun returns to the meridian."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many weeks are in a year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "52 weeks and one day, or two days in a leap year. That is why a fixed date drifts by one weekday each year, and why the ISO 8601 standard allows some years to have 53 numbered weeks."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -95,7 +135,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/time-conversion-guide" class="category-guide-cta">
@@ -207,7 +247,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Time conversions look trivial until a project schedule or a lease runs into the difference between a calendar month and a mean month. The table separates defined intervals from averages.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 minute</td><td>seconds</td><td>60</td><td>Exact</td></tr>
+                        <tr><td>1 hour</td><td>seconds</td><td>3,600</td><td>Exact, 60 minutes</td></tr>
+                        <tr><td>1 day</td><td>seconds</td><td>86,400</td><td>Exact, the mean solar day</td></tr>
+                        <tr><td>1 week</td><td>days</td><td>7</td><td>Exact</td></tr>
+                        <tr><td>1 Julian year</td><td>days</td><td>365.25</td><td>Exact, the basis of the light-year</td></tr>
+                        <tr><td>1 Gregorian year</td><td>days</td><td>365.2425</td><td>Exact, the calendar average</td></tr>
+                        <tr><td>1 mean month</td><td>days</td><td>30.4375</td><td>A Julian year divided by 12, used for amortisation</td></tr>
+                        <tr><td>1 Julian year</td><td>seconds</td><td>31,557,600</td><td>Exact, 365.25 times 86,400</td></tr>
+                        <tr><td>1 sidereal day</td><td>seconds</td><td>86,164.0905</td><td>Mean sidereal day, about 3 minutes 56 seconds short of a solar day</td></tr>
+                        <tr><td>1 hour</td><td>minutes</td><td>60</td><td>Exact</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many seconds are in a day?</p>
+                <p class="faq-a">86,400 exactly, which is 24 times 60 times 60. That is the mean solar day. An individual day can be a millisecond longer or shorter, which is why leap seconds are occasionally needed.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many days are in a month on average?</p>
+                <p class="faq-a">30.4375 if you divide a Julian year of 365.25 days by 12, which is the convention behind most amortisation schedules. A Gregorian calendar month averages 30.436875 days.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is a sidereal day shorter than a solar day?</p>
+                <p class="faq-a">By about 3 minutes 56 seconds. Earth rotates once relative to the stars in 23 hours 56 minutes 4 seconds, but it has also advanced along its orbit, so it must turn a little more before the Sun returns to the meridian.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many weeks are in a year?</p>
+                <p class="faq-a">52 weeks and one day, or two days in a leap year. That is why a fixed date drifts by one weekday each year, and why the ISO 8601 standard allows some years to have 53 numbered weeks.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/speed/" class="related-cat-pill">Speed</a>
             <a href="/angle/" class="related-cat-pill">Angle</a>
@@ -220,6 +308,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

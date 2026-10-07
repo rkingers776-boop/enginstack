@@ -69,6 +69,46 @@
     }
     </script>
     <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a pound the same as a pound-force?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A pound is a mass of 0.45359237 kg, while a pound-force is the weight of that mass at standard gravity, 4.4482216152605 N. Bathroom scales measure the second and print the first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many newtons does one kilogram of weight exert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "9.80665 at standard gravity, which is the definition of the kilogram-force. The real figure is about 9.78 N at the equator and 9.83 N at the poles because gravity varies with latitude."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the pound-force not an SI unit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the SI unit of force is the newton, defined as one kilogram metre per second squared. The pound-force is defined in terms of SI quantities, so it is a derived unit rather than a base one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many dynes are in a newton?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "100,000. The dyne accelerates one gram at one centimetre per second squared, and both factors are a hundred times smaller than their SI equivalents, so the ratio is ten to the fifth power."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -88,7 +128,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -171,10 +211,67 @@
             <p>Eight converters covering the four force unit families that actually show up in engineering work — the newton (SI), the pound-force (US customary), the kilogram-force (legacy metric, still everywhere in Japanese and European maintenance manuals), and the dyne (CGS, for lab and surface-science work). Every factor on this page is exact — none of them is rounded, none of them is an approximation, and all of them are derived from the same three treaty constants: 0.45359237 (lb→kg), 0.3048 (ft→m), and 9.80665 (standard gravity). If you're looking for the weight side of these conversions — how many kilograms a 180-lb person is — that's mass, and it lives on the <a href="/weight/">Weight &amp; Mass</a> page. Force is what happens when that mass accelerates.</p>
             <p style="margin-top:1.2em;">Deep dive: read the <a href="/guides/force-conversion-guide">Force Conversion Guide</a> — the full story of the missing 4.448 that cost NASA $327.6 million, the lbf-vs-lb trap, and why kgf nameplates never left the shop floor.</p>
         </section>
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Force is where mass and weight get confused most often. Every imperial and gravitational unit here is defined through standard gravity, so the factors are exact even when the everyday reading on a scale is not.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 pound-force</td><td>newtons</td><td>4.44822161526</td><td>Exact, 0.45359237 kg at 9.80665 m/s²</td></tr>
+                        <tr><td>1 newton</td><td>pounds-force</td><td>0.2248089431</td><td>Derived, 0.2248089431</td></tr>
+                        <tr><td>1 kilogram-force</td><td>newtons</td><td>9.80665</td><td>Exact, 1 kg at standard gravity</td></tr>
+                        <tr><td>1 dyne</td><td>newtons</td><td>1 &times; 10<sup>&minus;5</sup></td><td>Exact, the CGS unit of force</td></tr>
+                        <tr><td>1 ounce-force</td><td>newtons</td><td>0.278013850954</td><td>Exact, one sixteenth of a pound-force</td></tr>
+                        <tr><td>1 kilonewton</td><td>pounds-force</td><td>224.8089431</td><td>Derived, 224.8089431</td></tr>
+                        <tr><td>1 kilogram-force</td><td>pounds-force</td><td>2.20462262185</td><td>Derived, 2.20462262185</td></tr>
+                        <tr><td>1 newton</td><td>dynes</td><td>100,000</td><td>Exact, 10 to the fifth power</td></tr>
+                        <tr><td>1 pound-force</td><td>ounce-force</td><td>16</td><td>Exact</td></tr>
+                        <tr><td>1 kilonewton</td><td>kilogram-force</td><td>101.971621298</td><td>Derived, 101.971621298</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Defining values and exact constants</h2>
+            <ul>
+                <li>One pound-force is 0.45359237 kg times 9.80665 m/s², which is 4.4482216152605 N. Both inputs are defined, so the result carries no uncertainty.</li>
+                <li>Standard gravity is 9.80665 m/s² exactly by definition. Real gravity varies from about 9.78 m/s² at the equator to 9.83 m/s² at the poles.</li>
+                <li>A dyne is 10 to the minus 5 newtons exactly, the CGS unit of force. It survives in surface tension data and older physics texts.</li>
+                <li>Mass and force differ by the acceleration: a 10 kg mass weighs 98.0665 N at standard gravity, and the same mass would weigh 16.5 N on the Moon.</li>
+                <li>A bathroom scale measures force and is labelled in mass units. Moving it to a different latitude changes the reading, which is why the kilogram-force exists as a defined unit at all.</li>
+            </ul>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a pound the same as a pound-force?</p>
+                <p class="faq-a">No. A pound is a mass of 0.45359237 kg, while a pound-force is the weight of that mass at standard gravity, 4.4482216152605 N. Bathroom scales measure the second and print the first.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many newtons does one kilogram of weight exert?</p>
+                <p class="faq-a">9.80665 at standard gravity, which is the definition of the kilogram-force. The real figure is about 9.78 N at the equator and 9.83 N at the poles because gravity varies with latitude.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is the pound-force not an SI unit?</p>
+                <p class="faq-a">Because the SI unit of force is the newton, defined as one kilogram metre per second squared. The pound-force is defined in terms of SI quantities, so it is a derived unit rather than a base one.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many dynes are in a newton?</p>
+                <p class="faq-a">100,000. The dyne accelerates one gram at one centimetre per second squared, and both factors are a hundred times smaller than their SI equivalents, so the ratio is ten to the fifth power.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

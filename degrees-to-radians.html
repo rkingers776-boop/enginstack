@@ -123,6 +123,7 @@
 
         <header class="page-header">
             <h1>Degrees to Radians: π, the Babylonians, and the One-Line Bug That Has Been Breaking Spacecraft for 40 Years</h1>
+            <p class="direct-answer"><strong>1 degree = 0.01745329252 radians</strong>, and 1 radian = 57.2958 degrees. The conversion is a single fixed factor: multiply degrees by 0.01745329252. Worked: 10 degrees = 0.17453293 radians; 100 degrees = 1.74532925 radians.</p>
             <p>The conversion is a single multiplication: radians = degrees × π / 180. The factor is roughly 0.01745. It is the simplest conversion in engineering — one irrational constant divided by one round number. Every Math.sin() call in every program you have ever written depends on it being correct. And yet, at least once every five years, an aerospace contractor passes degrees to a function that expects radians, a guidance loop shifts by a factor of 57.3, and a $300 million spacecraft either dies, spins out, or never deploys its main antenna. The math is trivial. The failure mode is permanent.</p>
         </header>
 
@@ -130,7 +131,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <div class="calculator-card" data-coefficient="0.01745329252" data-unit-from="degrees" data-unit-to="radians">
@@ -296,7 +297,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

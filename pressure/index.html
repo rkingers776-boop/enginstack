@@ -81,6 +81,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a bar the same as an atmosphere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and they differ by about 1.3 per cent. One bar is 100,000 Pa and one atmosphere is 101,325 Pa, so 1 atm is 1.01325 bar. Weather services report the bar-derived hectopascal while divers speak in atmospheres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is psi such an awkward number in pascals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it is built from three definitions that are all round in imperial units. One pound-force is 0.45359237 kg times 9.80665 m/s², and one square inch is 0.00064516 m², so the ratio comes out at 6,894.757293168 Pa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a torr and a millimetre of mercury?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About one part in seven million. The torr is exactly 1/760 atm, or 133.322368421 Pa, while the conventional millimetre of mercury is 133.322387415 Pa. Vacuum specifications treat them as interchangeable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert psi to bar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 0.06894757293168. A tyre at 32 psi is 2.206 bar, and a 3 bar fuel system is 43.5 psi. The factor is simply the ratio of the two exact definitions."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -101,7 +141,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/pressure-conversion-guide" class="category-guide-cta">
@@ -278,7 +318,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Pressure units come from three different traditions: the pascal from SI, the bar from meteorology and the psi from imperial engineering. The table gives the exact bridges between them.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 atmosphere</td><td>pascals</td><td>101,325</td><td>Exact, the definition of the standard atmosphere</td></tr>
+                        <tr><td>1 bar</td><td>pascals</td><td>100,000</td><td>Exact, 100,000 Pa</td></tr>
+                        <tr><td>1 psi</td><td>pascals</td><td>6,894.75729317</td><td>Exact, 1 lbf per square inch</td></tr>
+                        <tr><td>1 torr</td><td>pascals</td><td>133.322368421</td><td>Exact, one seven-hundred-and-sixtieth of an atmosphere</td></tr>
+                        <tr><td>1 millimetre of mercury</td><td>pascals</td><td>133.322387415</td><td>Conventional value at 0 °C and standard gravity</td></tr>
+                        <tr><td>1 kilopascal</td><td>psi</td><td>0.14503773773</td><td>Derived, 0.14503773773</td></tr>
+                        <tr><td>1 bar</td><td>psi</td><td>14.503773773</td><td>Derived, 14.503773773</td></tr>
+                        <tr><td>1 atmosphere</td><td>psi</td><td>14.6959487755</td><td>Derived, 14.6959487755</td></tr>
+                        <tr><td>1 megapascal</td><td>psi</td><td>145.03773773</td><td>Derived, 145.03773773</td></tr>
+                        <tr><td>1 inch of mercury</td><td>pascals</td><td>3,386.38864034</td><td>Conventional value at 0 °C, the aviation altimeter unit</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a bar the same as an atmosphere?</p>
+                <p class="faq-a">No, and they differ by about 1.3 per cent. One bar is 100,000 Pa and one atmosphere is 101,325 Pa, so 1 atm is 1.01325 bar. Weather services report the bar-derived hectopascal while divers speak in atmospheres.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is psi such an awkward number in pascals?</p>
+                <p class="faq-a">Because it is built from three definitions that are all round in imperial units. One pound-force is 0.45359237 kg times 9.80665 m/s², and one square inch is 0.00064516 m², so the ratio comes out at 6,894.757293168 Pa.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What is the difference between a torr and a millimetre of mercury?</p>
+                <p class="faq-a">About one part in seven million. The torr is exactly 1/760 atm, or 133.322368421 Pa, while the conventional millimetre of mercury is 133.322387415 Pa. Vacuum specifications treat them as interchangeable.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert psi to bar?</p>
+                <p class="faq-a">Multiply by 0.06894757293168. A tyre at 32 psi is 2.206 bar, and a 3 bar fuel system is 43.5 psi. The factor is simply the ratio of the two exact definitions.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/temperature/" class="related-cat-pill">Temperature</a>
             <a href="/volume/" class="related-cat-pill">Volume</a>
@@ -291,6 +379,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

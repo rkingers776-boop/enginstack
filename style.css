@@ -2205,3 +2205,95 @@ strong { color: var(--text-heading); font-weight: var(--weight-semibold); }
         width: 100%;
     }
 }
+
+/* ── 25. CATEGORY HUB SECTION ─────────────────────────── */
+/* Category reference hubs have always used .hub-seo-section, but the class was
+   never defined, so those sections rendered as bare text inside a full-width
+   block. These rules give the hubs the same card treatment as converter pages. */
+.hub-seo-section {
+    background: var(--card);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    margin-top: var(--space-8);
+}
+
+.hub-seo-section h2 {
+    font-size: var(--text-xl);
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-3);
+    padding-left: var(--space-4);
+    border-left: 3px solid var(--primary);
+}
+
+.hub-seo-section h2:first-of-type { margin-top: 0; }
+
+.hub-seo-section h3 {
+    font-size: var(--text-lg);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-2);
+}
+
+.hub-seo-section p { color: var(--text-body); line-height: 1.7; }
+
+.hub-seo-section ul,
+.hub-seo-section ol {
+    color: var(--text-body);
+    line-height: 1.7;
+    padding-left: var(--space-6);
+    margin: var(--space-3) 0;
+}
+
+.hub-seo-section li { margin-bottom: var(--space-2); }
+
+.hub-seo-section a { color: var(--accent); font-weight: var(--weight-medium); }
+.hub-seo-section a:hover { text-decoration: underline; }
+
+.hub-seo-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-4) 0;
+    font-size: var(--text-sm);
+}
+
+.hub-seo-section thead th {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 2px solid var(--border);
+    color: var(--text-heading);
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    background: var(--code-bg);
+}
+
+.hub-seo-section tbody td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-body);
+    font-variant-numeric: tabular-nums;
+}
+
+.hub-seo-section tbody tr:nth-child(even) td { background: var(--code-bg); }
+.hub-seo-section tbody tr:hover td { background: var(--border-subtle); }
+
+/* ── 26. DIRECT ANSWER (answer-first lead block) ──────── */
+/* A 40 to 60 word self-contained answer placed immediately under the H1, so a
+   featured-snippet extractor or an AI overview has something liftable that does
+   not depend on the surrounding prose. Specificity beats ".page-header p". */
+.page-header .direct-answer {
+    font-size: var(--text-lg);
+    color: var(--text-heading);
+    max-width: 640px;
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: var(--space-3) var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.page-header .direct-answer strong {
+    color: var(--accent);
+    font-weight: var(--weight-semibold);
+}

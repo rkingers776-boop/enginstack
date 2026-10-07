@@ -85,6 +85,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many joules are in a kilowatt-hour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3,600,000 exactly. One watt is one joule per second and one hour is 3,600 seconds, so a kilowatt-hour is 1,000 times 3,600 watt-seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a calorie the same as a Calorie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A small calorie is 4.184 J, and the food Calorie written with a capital C is a kilocalorie, or 4,184 J. Nutrition labels imply the capital C even when they do not print it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are there two BTU definitions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the BTU is anchored to the heat capacity of water, which was measured in more than one way. The IT BTU is 1,055.05585262 J and the thermochemical BTU about 1,054.35 J, a difference of 0.07 per cent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert BTU to kWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by 0.000293071 or divide by 3,412.141633. A 12,000 BTU per hour air conditioner is about 3.5 kW of cooling, which contractors call a three-ton unit."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -105,7 +145,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/energy-power-conversion-guide" class="category-guide-cta">
@@ -285,7 +325,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Energy has more unit names than any other category, and every one of them reduces to the joule. The table lists the exact factors, including the two calorie and two BTU conventions that cause most of the confusion.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 kilowatt-hour</td><td>joules</td><td>3,600,000</td><td>Exact, 1,000 W for 3,600 s</td></tr>
+                        <tr><td>1 watt-hour</td><td>joules</td><td>3,600</td><td>Exact, one watt for one hour</td></tr>
+                        <tr><td>1 thermochemical calorie</td><td>joules</td><td>4.184</td><td>Exact in the thermochemical convention</td></tr>
+                        <tr><td>1 kilocalorie</td><td>joules</td><td>4,184</td><td>Exact, the food Calorie</td></tr>
+                        <tr><td>1 BTU (IT)</td><td>joules</td><td>1,055.05585262</td><td>ISO 31-4 and NIST SP 811</td></tr>
+                        <tr><td>1 foot-pound force</td><td>joules</td><td>1.35581794833</td><td>Exact from 1 lbf and 1 ft</td></tr>
+                        <tr><td>1 electronvolt</td><td>joules</td><td>1.60218 &times; 10<sup>&minus;19</sup></td><td>Exact since the 2019 SI redefinition</td></tr>
+                        <tr><td>1 kilowatt-hour</td><td>BTU (IT)</td><td>3,412.14163313</td><td>Derived, 3,412.141633</td></tr>
+                        <tr><td>1 therm</td><td>joules</td><td>105,505,585.262</td><td>Exact, 100,000 BTU</td></tr>
+                        <tr><td>1 kilowatt-hour</td><td>kilocalories</td><td>860.420650096</td><td>Derived, 860.420650096</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many joules are in a kilowatt-hour?</p>
+                <p class="faq-a">3,600,000 exactly. One watt is one joule per second and one hour is 3,600 seconds, so a kilowatt-hour is 1,000 times 3,600 watt-seconds.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a calorie the same as a Calorie?</p>
+                <p class="faq-a">No. A small calorie is 4.184 J, and the food Calorie written with a capital C is a kilocalorie, or 4,184 J. Nutrition labels imply the capital C even when they do not print it.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why are there two BTU definitions?</p>
+                <p class="faq-a">Because the BTU is anchored to the heat capacity of water, which was measured in more than one way. The IT BTU is 1,055.05585262 J and the thermochemical BTU about 1,054.35 J, a difference of 0.07 per cent.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert BTU to kWh?</p>
+                <p class="faq-a">Multiply by 0.000293071 or divide by 3,412.141633. A 12,000 BTU per hour air conditioner is about 3.5 kW of cooling, which contractors call a three-ton unit.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/temperature/" class="related-cat-pill">Temperature</a>
             <a href="/time/" class="related-cat-pill">Time</a>
@@ -298,6 +386,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

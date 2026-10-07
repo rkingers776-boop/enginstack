@@ -107,12 +107,13 @@
         <header class="page-header">
             <h1>dBm to milliwatts</h1>
             <p>dBm is defined against the milliwatt, so converting dBm back to milliwatts is the most direct conversion in RF: 0 dBm is exactly 1 mW, 10 dBm is 10 mW, and 20 dBm is 100 mW. A Bluetooth radio at 10 dBm transmits 10 mW; a Wi-Fi card at 20 dBm pushes 100 mW. Signal generators and receiver sensitivity specs live entirely in this range.</p>
+            <p class="direct-answer"><strong>mW = 10^(dBm ÷ 10).</strong> The decibel scale is anchored at one milliwatt, so 0 dBm is exactly 1 mW, 10 dBm is 10 mW and 30 dBm is 1 W. Powers multiply while decibels add.</p>
         </header>
 
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -208,7 +209,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

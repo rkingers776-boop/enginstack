@@ -107,12 +107,13 @@
         <header class="page-header">
             <h1>dBm to watts</h1>
             <p>dBm is the unit RF engineers actually use — the decibel value of power relative to one milliwatt. The anchor is easy: 30 dBm is exactly 1 W, 20 dBm is 100 mW, and 0 dBm is 1 mW. A Wi-Fi access point transmits around 20–23 dBm; a phone about 23–27 dBm; a licensed radio up to 40 dBm (10 W). This calculator converts the dBm on your equipment label into the watts that feed your transmitter math.</p>
+            <p class="direct-answer"><strong>W = 10^((dBm − 30) ÷ 10).</strong> dBm is a logarithmic power ratio referenced to one milliwatt: 0 dBm = 1 mW, 20 dBm = 0.1 W and 30 dBm = 1 W. Every 10 dB is a factor of ten; every 3 dB is roughly a doubling.</p>
         </header>
 
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
 
@@ -208,7 +209,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a></div>
+        <div class="footer-links"><a href="/about">About Us</a><a href="/privacy">Privacy Policy</a><a href="/methodology">Methodology</a><a href="/corrections">Corrections</a><a href="/contact">Contact</a></div>
         <p class="footer-copy">&copy; 2026 EnginStack</p>
     </footer>
     <script src="main.js"></script>

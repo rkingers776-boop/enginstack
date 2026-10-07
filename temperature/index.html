@@ -67,6 +67,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the formula for Fahrenheit to Celsius?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subtract 32 and then multiply by 5/9. For example 68 °F is (68 − 32) × 5/9 = 20 °C. The subtraction comes first because the two scales disagree about where zero is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 1 °C the same as 1 K?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As an interval, yes. A rise of one degree Celsius is a rise of one kelvin. The scales differ only in where zero sits, since 0 °C is 273.15 K."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does −40 appear on both scales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because two different linear scales cross exactly once. −40 °C and −40 °F name the same physical temperature, which makes it a convenient sanity check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a temperature go below 0 K?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in ordinary thermodynamics. Kelvin starts at absolute zero, the point of minimal thermal motion, so a negative kelvin value has no physical meaning for a normal system."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -87,7 +127,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/temperature-conversion-guide" class="category-guide-cta">
@@ -175,7 +215,54 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Temperature is the only category here that is not a matter of a single factor. Celsius, Fahrenheit and Kelvin are affine scales: they disagree about zero as well as about step size, so every conversion combines a multiplication with an offset.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0 °C</td><td>32 °F</td><td>°F = °C × 9/5 + 32</td><td>Fixed point: water freezes at one atmosphere</td></tr>
+                        <tr><td>100 °C</td><td>212 °F</td><td>°F = °C × 9/5 + 32</td><td>Fixed point: water boils at one atmosphere</td></tr>
+                        <tr><td>0 °C</td><td>273.15 K</td><td>K = °C + 273.15</td><td>Exact offset, no scaling</td></tr>
+                        <tr><td>0 K</td><td>−273.15 °C</td><td>°C = K − 273.15</td><td>Absolute zero, exact by SI definition</td></tr>
+                        <tr><td>1 K</td><td>1 °C</td><td>1</td><td>One kelvin is the same size as one degree Celsius</td></tr>
+                        <tr><td>1 °C</td><td>1.8 °F</td><td>1.8</td><td>Scale ratio only, the offset is separate</td></tr>
+                        <tr><td>37 °C</td><td>98.6 °F</td><td>°F = °C × 9/5 + 32</td><td>Human core temperature</td></tr>
+                        <tr><td>−40</td><td>−40</td><td>°C = °F</td><td>The one point where both scales read the same</td></tr>
+                        <tr><td>0 °F</td><td>−17.7777778 °C</td><td>°C = (°F − 32) × 5/9</td><td>Fahrenheit zero is a brine bath</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">What is the formula for Fahrenheit to Celsius?</p>
+                <p class="faq-a">Subtract 32 and then multiply by 5/9. For example 68 °F is (68 − 32) × 5/9 = 20 °C. The subtraction comes first because the two scales disagree about where zero is.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is 1 °C the same as 1 K?</p>
+                <p class="faq-a">As an interval, yes. A rise of one degree Celsius is a rise of one kelvin. The scales differ only in where zero sits, since 0 °C is 273.15 K.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does −40 appear on both scales?</p>
+                <p class="faq-a">Because two different linear scales cross exactly once. −40 °C and −40 °F name the same physical temperature, which makes it a convenient sanity check.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can a temperature go below 0 K?</p>
+                <p class="faq-a">Not in ordinary thermodynamics. Kelvin starts at absolute zero, the point of minimal thermal motion, so a negative kelvin value has no physical meaning for a normal system.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/energy/" class="related-cat-pill">Energy &amp; Power</a>
             <a href="/speed/" class="related-cat-pill">Speed</a>
@@ -188,6 +275,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

@@ -75,6 +75,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert km/h to m/s?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide by 3.6. Sixty km/h is 16.67 m/s. The factor is exact because an hour is 3,600 seconds and a kilometre is 1,000 metres, so nothing is rounded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a knot in kilometres per hour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1.852 exactly, because a knot is one nautical mile per hour and a nautical mile is 1,852 metres. A 30 knot wind is 55.6 km/h."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is mph the same as km/h?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and the gap is large. One mile per hour is 1.609344 km/h, so 60 mph is 96.6 km/h. The two are close enough at a glance to cause real speeding problems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast is Mach 1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 340.29 m/s at sea level in a standard atmosphere, or 1,225 km/h. The figure depends on air temperature rather than altitude, so it drops as the air cools."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -95,7 +135,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/speed-conversion-guide" class="category-guide-cta">
@@ -225,7 +265,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Speed conversions are all built from two lengths and one time unit, so every factor here is exact. The table gives both directions, because the reciprocal of a speed factor is not the number most people guess.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 mile per hour</td><td>kilometres per hour</td><td>1.609344</td><td>Exact, from 1 mile = 1.609344 km</td></tr>
+                        <tr><td>1 kilometre per hour</td><td>miles per hour</td><td>0.621371192237</td><td>Derived, 0.621371192237</td></tr>
+                        <tr><td>1 metre per second</td><td>kilometres per hour</td><td>3.6</td><td>Exact by definition of the units</td></tr>
+                        <tr><td>1 kilometre per hour</td><td>metres per second</td><td>0.277777777778</td><td>Exact reciprocal, 0.277777777778</td></tr>
+                        <tr><td>1 knot</td><td>kilometres per hour</td><td>1.852</td><td>Exact, one nautical mile per hour</td></tr>
+                        <tr><td>1 knot</td><td>metres per second</td><td>0.514444444444</td><td>Exact, 0.514444444444</td></tr>
+                        <tr><td>1 foot per second</td><td>metres per second</td><td>0.3048</td><td>Exact, 1 ft = 0.3048 m</td></tr>
+                        <tr><td>1 mile per hour</td><td>metres per second</td><td>0.44704</td><td>Exact, 0.44704</td></tr>
+                        <tr><td>1 kilometre per hour</td><td>knots</td><td>0.539956803456</td><td>Derived, 0.539956803456</td></tr>
+                        <tr><td>1 metre per second</td><td>miles per hour</td><td>2.23693629205</td><td>Derived, 2.23693629205</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert km/h to m/s?</p>
+                <p class="faq-a">Divide by 3.6. Sixty km/h is 16.67 m/s. The factor is exact because an hour is 3,600 seconds and a kilometre is 1,000 metres, so nothing is rounded.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What is a knot in kilometres per hour?</p>
+                <p class="faq-a">1.852 exactly, because a knot is one nautical mile per hour and a nautical mile is 1,852 metres. A 30 knot wind is 55.6 km/h.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is mph the same as km/h?</p>
+                <p class="faq-a">No, and the gap is large. One mile per hour is 1.609344 km/h, so 60 mph is 96.6 km/h. The two are close enough at a glance to cause real speeding problems.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How fast is Mach 1?</p>
+                <p class="faq-a">About 340.29 m/s at sea level in a standard atmosphere, or 1,225 km/h. The figure depends on air temperature rather than altitude, so it drops as the air cools.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/length/" class="related-cat-pill">Length &amp; Distance</a>
             <a href="/time/" class="related-cat-pill">Time</a>
@@ -238,6 +326,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

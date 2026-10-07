@@ -65,6 +65,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you convert MPG to L/100km?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide 235.214583 by the MPG figure. Thirty US MPG is 7.84 L/100km. The relationship is inverse, so no multiplier works across the range."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is UK MPG higher than US MPG for the same car?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because an imperial gallon is 4.54609 litres and a US gallon is 3.785411784, about 20 per cent larger. The same car covers more miles on an imperial gallon, so the UK figure is about 20 per cent higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is lower L/100km better?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Litres per 100 km measures fuel burned per distance, so smaller is better, while MPG measures distance per fuel, so larger is better. They move in opposite directions, which is the trap in every comparison."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does averaging MPG overestimate fuel savings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the relationship is inverse. A car going from 15 to 20 MPG saves far more fuel than one going from 40 to 45 MPG, even though both gain 5 MPG. Comparing L/100km makes the difference visible."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -85,7 +125,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/fuel-economy-conversion-guide" class="category-guide-cta">
@@ -170,7 +210,55 @@
             <p><strong>If you're comparing cars across continents:</strong> Use km/L as the neutral middle ground. Unlike MPG (which depends on gallon definition) and L/100km (where lower is better), km/L is unambiguous — 1 km/L = 1,000 meters per liter, always. Japan, Korea, and several Asian markets already use km/L. 15 km/L = 35.3 MPG (US) = 42.4 MPG (Imperial) = 6.67 L/100km.</p>
         </section>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Fuel economy is the one category in this set that is inverse rather than proportional. Consumption and distance per volume move in opposite directions, so the operation is a division and there is no single multiplier that works across the range.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 US MPG</td><td>L/100km</td><td>235.214583 ÷ MPG</td><td>Inverse, 100 times 3.785411784 divided by 1.609344</td></tr>
+                        <tr><td>1 imperial MPG</td><td>L/100km</td><td>282.480936 ÷ MPG</td><td>Inverse, 100 times 4.54609 divided by 1.609344</td></tr>
+                        <tr><td>1 L/100km</td><td>US MPG</td><td>235.214583 ÷ (L/100km)</td><td>Inverse, the same constant reversed</td></tr>
+                        <tr><td>1 km per litre</td><td>L/100km</td><td>100 ÷ (km/L)</td><td>Inverse, litres per 100 km is 100 divided by km/L</td></tr>
+                        <tr><td>1 L/100km</td><td>km per litre</td><td>100 ÷ (L/100km)</td><td>Inverse</td></tr>
+                        <tr><td>1 US MPG</td><td>km per litre</td><td>0.42514370743</td><td>Exact, 1.609344 km divided by 3.785411784 L</td></tr>
+                        <tr><td>1 km per litre</td><td>US MPG</td><td>2.35214583333</td><td>Derived, 2.352145833</td></tr>
+                        <tr><td>1 imperial MPG</td><td>US MPG</td><td>0.832674184629</td><td>Derived, 0.8326741846 because a US gallon is smaller</td></tr>
+                        <tr><td>1 US MPG</td><td>imperial MPG</td><td>1.2009499255</td><td>Derived, 1.2009499255</td></tr>
+                        <tr><td>1 L/100km</td><td>miles per imperial gallon</td><td>282.480936 ÷ (L/100km)</td><td>Inverse</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How do you convert MPG to L/100km?</p>
+                <p class="faq-a">Divide 235.214583 by the MPG figure. Thirty US MPG is 7.84 L/100km. The relationship is inverse, so no multiplier works across the range.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is UK MPG higher than US MPG for the same car?</p>
+                <p class="faq-a">Because an imperial gallon is 4.54609 litres and a US gallon is 3.785411784, about 20 per cent larger. The same car covers more miles on an imperial gallon, so the UK figure is about 20 per cent higher.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is lower L/100km better?</p>
+                <p class="faq-a">Yes. Litres per 100 km measures fuel burned per distance, so smaller is better, while MPG measures distance per fuel, so larger is better. They move in opposite directions, which is the trap in every comparison.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does averaging MPG overestimate fuel savings?</p>
+                <p class="faq-a">Because the relationship is inverse. A car going from 15 to 20 MPG saves far more fuel than one going from 40 to 45 MPG, even though both gain 5 MPG. Comparing L/100km makes the difference visible.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/volume/" class="related-cat-pill">Volume</a>
             <a href="/length/" class="related-cat-pill">Length &amp; Distance</a>
@@ -182,6 +270,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>

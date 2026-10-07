@@ -91,6 +91,46 @@
 }
 </script>
 <script defer src="/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many millilitres are in a US cup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "236.5882365 exactly, which is 8 US fluid ounces. A metric cup is 250 mL, so following a US recipe with metric measures adds about 5 per cent to every cup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a US gallon different from a UK gallon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Different ancestors. The US gallon is the 231 cubic inch wine gallon, while the imperial gallon of 1824 was built around 10 pounds of water and measures 4.54609 litres, about 20 per cent larger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many litres are in a cubic foot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "28.316846592 exactly. That is 0.3048 cubed and then multiplied by 1,000, because a cubic metre holds exactly a thousand litres."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a fluid ounce a unit of weight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, it is a volume. The confusion comes from water, where one US fluid ounce weighs about 1.04 avoirdupois ounces. That near match is why a kitchen scale cannot stand in for a measuring jug."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <div id="site-header"></div>
@@ -111,7 +151,7 @@
         <div class="author-byline">
             <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
             <span class="author-sep">|</span>
-            <span>Reviewed against NIST, BIPM and primary-source documentation</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
             <a href="/about" class="author-link">About &rarr;</a>
         </div>
         <a href="/guides/volume-cooking-conversion-guide" class="category-guide-cta">
@@ -357,7 +397,55 @@
             </a>
         </div>
 
-        <div class="related-categories">
+        <!-- Category reference: exact factors, key constants, FAQ -->
+        <section class="hub-seo-section">
+            <h2>Exact conversion factors</h2>
+            <p>Volume has the widest gap between units that share a name. A US gallon and an imperial gallon differ by a fifth, and the fluid ounces differ in the opposite direction, so the table names the system explicitly on every row.</p>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>From</th><th>To</th><th>Exact factor</th><th>Basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 US gallon</td><td>litres</td><td>3.785411784</td><td>Exact, 231 cubic inches</td></tr>
+                        <tr><td>1 imperial gallon</td><td>litres</td><td>4.54609</td><td>Exact, 10 pounds of water at 62 °F</td></tr>
+                        <tr><td>1 litre</td><td>US gallons</td><td>0.264172052358</td><td>Derived from 1 US gal = 3.785411784 L</td></tr>
+                        <tr><td>1 cubic foot</td><td>litres</td><td>28.316846592</td><td>Exact from 1 ft = 0.3048 m</td></tr>
+                        <tr><td>1 cubic inch</td><td>cubic centimetres</td><td>16.387064</td><td>Exact from 1 in = 2.54 cm</td></tr>
+                        <tr><td>1 US fluid ounce</td><td>millilitres</td><td>29.5735295625</td><td>Exact, one 128th of a US gallon</td></tr>
+                        <tr><td>1 imperial fluid ounce</td><td>millilitres</td><td>28.4130625</td><td>Exact, one 160th of an imperial gallon</td></tr>
+                        <tr><td>1 US cup</td><td>millilitres</td><td>236.5882365</td><td>Exact, 8 US fluid ounces</td></tr>
+                        <tr><td>1 barrel of oil</td><td>litres</td><td>158.987294928</td><td>Exact, 42 US gallons</td></tr>
+                        <tr><td>1 cubic metre</td><td>US gallons</td><td>264.172052358</td><td>Derived, 1 m³ = 1,000 L exactly</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-q">How many millilitres are in a US cup?</p>
+                <p class="faq-a">236.5882365 exactly, which is 8 US fluid ounces. A metric cup is 250 mL, so following a US recipe with metric measures adds about 5 per cent to every cup.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why is a US gallon different from a UK gallon?</p>
+                <p class="faq-a">Different ancestors. The US gallon is the 231 cubic inch wine gallon, while the imperial gallon of 1824 was built around 10 pounds of water and measures 4.54609 litres, about 20 per cent larger.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many litres are in a cubic foot?</p>
+                <p class="faq-a">28.316846592 exactly. That is 0.3048 cubed and then multiplied by 1,000, because a cubic metre holds exactly a thousand litres.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a fluid ounce a unit of weight?</p>
+                <p class="faq-a">No, it is a volume. The confusion comes from water, where one US fluid ounce weighs about 1.04 avoirdupois ounces. That near match is why a kitchen scale cannot stand in for a measuring jug.</p>
+            </div>
+        </section>
+
+<div class="related-categories">
             <span style="font-size:var(--text-xs);color:var(--text-dim);margin-right:var(--space-2);">Related:</span>
             <a href="/length/" class="related-cat-pill">Length &amp; Distance</a>
             <a href="/weight/" class="related-cat-pill">Weight &amp; Mass</a>
@@ -371,6 +459,8 @@
         <div class="footer-links">
             <a href="/about">About Us</a>
             <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
             <a href="/contact">Contact</a>
             <a href="/guides/">Engineering Guides</a>
         </div>
