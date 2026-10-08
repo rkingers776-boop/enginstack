@@ -135,19 +135,53 @@ var grpNum = function(n) {
         : String(n);
 };
 
-// Singular unit label for a quantity of exactly 1 ("1 acre", not "1 acres").
-// Mirrors what the static HTML already does by hand.
-var UNIT_IRREGULAR = {
-    'feet': 'foot', 'inches': 'inch',
-    'square feet': 'square foot', 'cubic feet': 'cubic foot'
-};
-var unitOne = function(label) {
-    if (typeof label !== 'string' || label.length < 2) return label;
-    if (label.indexOf('/') !== -1) return label;            // m/s, ft/s — leave alone
-    if (UNIT_IRREGULAR[label]) return UNIT_IRREGULAR[label];
-    var last = label.charAt(label.length - 1);
-    if (last === 's' && label.charAt(label.length - 2) !== 's') return label.slice(0, -1);
-    return label;
+// ── Grammatical number for unit labels ────────────────────
+// A unit label must agree with the number written immediately to its left
+// ("1 acre = 4,046.8564224 square meters", "24 hours = 1 day"). Only full
+// English words are inflected, and only through this explicit pair table:
+// abbreviations must never be touched — stripping a trailing "s" off "Gbps"
+// yielded "Gbp", and off "ms" (milliseconds) would have yielded "m" (metres).
+var UNIT_PAIRS = [
+    ['acre', 'acres'], ['amp', 'amps'], ['atmosphere', 'atmospheres'],
+    ['cup (US)', 'cups (US)'], ['day', 'days'], ['degree', 'degrees'],
+    ['degree (°)', 'degrees (°)'], ['dyne', 'dynes'], ['foot', 'feet'],
+    ['gallon', 'gallons'], ['gradian', 'gradians'],
+    ['gradian (gon)', 'gradians (gon)'], ['hectare', 'hectares'],
+    ['hour', 'hours'], ['inch', 'inches'], ['knot', 'knots'],
+    ['liter', 'liters'], ['meter', 'meters'], ['mile', 'miles'],
+    ['milliwatt', 'milliwatts'], ['minute', 'minutes'], ['month', 'months'],
+    ['newton', 'newtons'], ['ohm', 'ohms'], ['pascal', 'pascals'],
+    ['radian', 'radians'], ['second', 'seconds'], ['ton', 'tons'],
+    ['volt', 'volts'], ['watt', 'watts'], ['week', 'weeks'], ['yard', 'yards'],
+    ['US gallon', 'US gallons'], ['cubic meter', 'cubic meters'],
+    ['square meter', 'square meters'], ['square foot', 'square feet'],
+    ['cubic foot', 'cubic feet'], ['watt-hour', 'watt-hours'],
+    ['liter per minute', 'liters per minute'],
+    ['liter per second', 'liters per second'],
+    ['cubic meter per hour', 'cubic meters per hour'],
+    ['US gallon per minute', 'US gallons per minute']
+];
+// 符号归一：pill 上有写 lbs、有写 lb，但恒等式（句子）里一律用标准符号 lb——
+// 页面原文 8 处全都是这么写的。lb/oz/g/t 这类符号本身不参与变格。
+var UNIT_ALIAS = { 'lbs': 'lb' };
+
+var UNIT_ONE = {}, UNIT_MANY = {};
+(function () {
+    for (var i = 0; i < UNIT_PAIRS.length; i++) {
+        var sg = UNIT_PAIRS[i][0], pl = UNIT_PAIRS[i][1];
+        UNIT_ONE[pl] = sg;  UNIT_ONE[sg] = sg;
+        UNIT_MANY[sg] = pl; UNIT_MANY[pl] = pl;
+    }
+})();
+
+// qtyText is the number the reader sees next to the label, already formatted
+// ("1", "24", "4,046.8564224"), so agreement is judged on the rendered line.
+// Labels outside the table — ha, km, kPa, ms, Gbps, ft³, °C, m/s — pass through.
+var unitAgree = function(label, qtyText) {
+    if (typeof label !== 'string') return label;
+    if (UNIT_ALIAS[label]) label = UNIT_ALIAS[label];
+    var m = (String(qtyText) === '1') ? UNIT_ONE : UNIT_MANY;
+    return Object.prototype.hasOwnProperty.call(m, label) ? m[label] : label;
 };
 
 var fmt = function(v) {
@@ -243,20 +277,20 @@ function universalEnginStack(el) {
     // 恒等式里的单位词用页面 pill 的实际文本（pill 是编辑性短标签，如 ha / ft³ / hour），
     // 而不是 data-unit-* 的内部标签（hectares / ft³ (cubic feet) / hours）—— 否则同一条
     // 恒等式会与紧挨着它的单位 pill 自相矛盾（14 个页面命中）。
+    // 每个标签的数与它左侧那个数字绑定，两侧各自独立判断。
     var pillFromEl = card.querySelector('.unit-pill-from');
     var pillToEl   = card.querySelector('.unit-pill-to');
     var labelFrom  = pillFromEl ? pillFromEl.textContent : unitFrom;
     var labelTo    = pillToEl   ? pillToEl.textContent   : unitTo;
-    var one        = (inputVal === 1);
-    var lblFrom    = one ? unitOne(labelFrom) : labelFrom;
-    var lblTo      = one ? unitOne(labelTo)   : labelTo;
     var nstr       = grpNum(inputVal);
 
     var fwdEl = card.querySelector('.forward-res');
-    if (fwdEl) fwdEl.textContent = nstr + ' ' + lblFrom + ' = ' + outputTo + ' ' + labelTo;
+    if (fwdEl) fwdEl.textContent = nstr + ' ' + unitAgree(labelFrom, nstr)
+                                 + ' = ' + outputTo + ' ' + unitAgree(labelTo, outputTo);
 
     var revEl = card.querySelector('.reverse-res');
-    if (revEl) revEl.textContent = nstr + ' ' + lblTo + ' = ' + outputFromInverse + ' ' + labelFrom;
+    if (revEl) revEl.textContent = nstr + ' ' + unitAgree(labelTo, nstr)
+                                 + ' = ' + outputFromInverse + ' ' + unitAgree(labelFrom, outputFromInverse);
 
     updateUrlParam(inputVal);
 }
