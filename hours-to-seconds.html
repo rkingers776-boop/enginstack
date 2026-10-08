@@ -108,7 +108,7 @@
         <header class="page-header">
             <h1>Hours to Seconds: The Unix Epoch That Multiplies by 3,600, the 32-Bit Odometer That Rolls Over in 2038, and the High-Frequency Trader Who Measures Latency in Nanoseconds</h1>
             <p>Multiply by 3,600. 1 hour = 60 minutes × 60 seconds = 3,600 seconds. It is the largest single-step multiplication in the time conversion ladder. The Unix operating system, born at Bell Labs in 1969, chose to represent time as a single integer: the number of seconds since January 1, 1970 at midnight UTC. Every hour since then has added 3,600 to that counter. The counter is stored in a 32-bit signed integer that maxes out at 2,147,483,647 — on January 19, 2038 at 03:14:07 UTC. One second later, it rolls over to a negative number representing December 13, 1901. Every embedded system, industrial controller, and legacy database still running 32-bit Unix time will think it is 1901. The Y2K bug was a 2-digit year field. The Year 2038 problem is the same bug at the operating system level — caused by the hours-to-seconds conversion accumulating across 68 years.</p>
-            <p class="direct-answer"><strong>1 hour = 3,600 seconds</strong>, and 1 second = 2.777778 × 10<sup>&minus;4</sup> hours. One fixed factor covers the whole range: multiply hours by 3,600. Worked: 10 hours = 36,000 seconds; 100 hours = 360,000 seconds.</p>
+            <p class="direct-answer"><strong>1 hour = 3,600 seconds</strong>, and 1 second = 2.77777778 × 10<sup>&minus;4</sup> hours. One fixed factor covers the whole range: multiply hours by 3,600. Worked: 10 hours = 36,000 seconds; 100 hours = 360,000 seconds.</p>
         </header>
 
 
