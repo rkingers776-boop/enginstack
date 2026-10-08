@@ -193,11 +193,20 @@ var fmt = function(v) {
     if (a !== 0 && a < 1e-6) {
         return v.toExponential(8).replace(/\.?0+e/, 'e');
     }
-    var fixed = parseFloat(v.toFixed(8));
+    // toFixed(8) fixes *decimal places*, not significant digits, so below 1e-4 it
+    // leaves fewer than five: 1 Pa = 1/101325 atm came out as "0.00000987", three
+    // digits where the source page had written 0.0000098692. Widen the decimal
+    // places until five significant digits fit.
+    var d = 8;
+    if (a !== 0 && a < 1e-4) {
+        d = 4 - Math.floor(Math.log10(a));
+        if (d > 20) d = 20;
+    }
+    var fixed = parseFloat(v.toFixed(d));
     if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
         return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
     }
-    return fixed.toLocaleString(undefined, { maximumFractionDigits: 8 });
+    return fixed.toLocaleString(undefined, { maximumFractionDigits: d });
 };
 
 // ── Find calculator card from any descendant element ─────
