@@ -127,7 +127,38 @@ function injectHeader() {
 }
 
 // ── Precision number formatter ────────────────────────────
+// Thousands separators, for the input value echoed in the identity line
+// (100000000 -> "100,000,000", matching how the static HTML writes it).
+var grpNum = function(n) {
+    return (Number.isInteger(n) && Math.abs(n) < 1e21)
+        ? n.toLocaleString(undefined, { maximumFractionDigits: 0 })
+        : String(n);
+};
+
+// Singular unit label for a quantity of exactly 1 ("1 acre", not "1 acres").
+// Mirrors what the static HTML already does by hand.
+var UNIT_IRREGULAR = {
+    'feet': 'foot', 'inches': 'inch',
+    'square feet': 'square foot', 'cubic feet': 'cubic foot'
+};
+var unitOne = function(label) {
+    if (typeof label !== 'string' || label.length < 2) return label;
+    if (label.indexOf('/') !== -1) return label;            // m/s, ft/s — leave alone
+    if (UNIT_IRREGULAR[label]) return UNIT_IRREGULAR[label];
+    var last = label.charAt(label.length - 1);
+    if (last === 's' && label.charAt(label.length - 2) !== 's') return label.slice(0, -1);
+    return label;
+};
+
 var fmt = function(v) {
+    if (!isFinite(v)) return '—';
+    var a = Math.abs(v);
+    // toFixed(8) fixes *decimal places*, so below 1e-6 it eats every significant
+    // digit (6.6845871e-9 -> "0.00000001", off by 33%). Use scientific notation
+    // for that range so the value stays truthful.
+    if (a !== 0 && a < 1e-6) {
+        return v.toExponential(8).replace(/\.?0+e/, 'e');
+    }
     var fixed = parseFloat(v.toFixed(8));
     if (Number.isInteger(fixed) && Math.abs(fixed) < 1000000) {
         return fixed.toLocaleString(undefined, { maximumFractionDigits: 0 });
@@ -209,11 +240,23 @@ function universalEnginStack(el) {
     var resultEl = card.querySelector('.result-value');
     if (resultEl) resultEl.textContent = outputTo;
 
+    // 恒等式里的单位词用页面 pill 的实际文本（pill 是编辑性短标签，如 ha / ft³ / hour），
+    // 而不是 data-unit-* 的内部标签（hectares / ft³ (cubic feet) / hours）—— 否则同一条
+    // 恒等式会与紧挨着它的单位 pill 自相矛盾（14 个页面命中）。
+    var pillFromEl = card.querySelector('.unit-pill-from');
+    var pillToEl   = card.querySelector('.unit-pill-to');
+    var labelFrom  = pillFromEl ? pillFromEl.textContent : unitFrom;
+    var labelTo    = pillToEl   ? pillToEl.textContent   : unitTo;
+    var one        = (inputVal === 1);
+    var lblFrom    = one ? unitOne(labelFrom) : labelFrom;
+    var lblTo      = one ? unitOne(labelTo)   : labelTo;
+    var nstr       = grpNum(inputVal);
+
     var fwdEl = card.querySelector('.forward-res');
-    if (fwdEl) fwdEl.textContent = inputVal + ' ' + unitFrom + ' = ' + outputTo + ' ' + unitTo;
+    if (fwdEl) fwdEl.textContent = nstr + ' ' + lblFrom + ' = ' + outputTo + ' ' + labelTo;
 
     var revEl = card.querySelector('.reverse-res');
-    if (revEl) revEl.textContent = inputVal + ' ' + unitTo + ' = ' + outputFromInverse + ' ' + unitFrom;
+    if (revEl) revEl.textContent = nstr + ' ' + lblTo + ' = ' + outputFromInverse + ' ' + labelFrom;
 
     updateUrlParam(inputVal);
 }
