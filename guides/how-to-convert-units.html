@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>How to Convert Units — The Factor-Label Method | EnginStack</title>
+    <meta name="description" content="How to convert any unit without memorising conversion factors: the factor-label method, worked examples across single, compound and squared units, the five cases where multiplying by a factor silently fails (°C, dBm, AWG, kVA), and the ten-second self-check that would have caught Mars Orbiter, Gimli and Patriot.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/how-to-convert-units">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/how-to-convert-units">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/how-to-convert-units">
+    <meta property="og:title" content="How to Convert Units — The Factor-Label Method | EnginStack">
+    <meta property="og:description" content="The one method worth memorising: multiply by a fraction equal to one, let the units cancel, and check the answer in ten seconds. Plus the five conversions where multiplication is the wrong tool entirely.">
+    <meta property="og:url" content="https://enginstack.com/guides/how-to-convert-units">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Convert Units — The Factor-Label Method",
+  "description": "A method-first guide to unit conversion: multiply by a fraction equal to one and let the units cancel. Covers single, compound and power units, the five cases where a conversion factor does not exist (°C to °F, dBm, AWG, kVA to kW, and same-name units), and a ten-second self-check drawn from real engineering failures.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/how-to-convert-units",
+  "datePublished": "2026-10-09",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "How to Convert Units", "item": "https://enginstack.com/guides/how-to-convert-units" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert units without memorising conversion factors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply by a fraction that equals one. Write the unit you are leaving in the denominator and the unit you want in the numerator, then cancel. For 180 cm to feet: 180 cm × (1 in / 2.54 cm) × (1 ft / 12 in) = 5.90551181 ft. The centimetres and inches cancel and feet remain. You need to remember two or three anchor definitions, not two hundred conversion factors, and a fraction written the wrong way up fails to cancel so you can see the mistake before doing any arithmetic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the factor-label method?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Factor-label is the name engineers use for dimensional analysis as applied to unit conversion: every conversion step is written as a fraction whose numerator and denominator express the same physical quantity in different units, so the fraction equals exactly one. Because multiplying by one cannot change a value, only its label, the method is sound by construction. The technique is the same one taught in chemistry as the unity-bracket or train-track method, and in engineering the fractions are usually called conversion factors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know whether to multiply or divide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You do not have to decide — the units decide for you. Put the unit you are leaving in the denominator and the unit you want in the numerator. If you build the fraction backwards, the unit you are trying to eliminate appears twice and never cancels, which is visible immediately. As a second check, the answer should be larger than the input when the target unit is smaller (metres to millimetres) and smaller when the target unit is larger (millimetres to metres)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't I just multiply by a conversion factor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most units you can, and that is why the habit is dangerous. Five common families of units break the proportional assumption. Degrees Celsius and Fahrenheit have different zero points, so the conversion includes an offset. dBm is logarithmic, so there is no factor at all. AWG wire gauge is reverse-ordered and defined by a geometric series, so gauge is not proportional to diameter or to area. kVA to kW depends on the power factor of the load, so no single factor exists. And some names, such as ton, gallon and psi, cover several different quantities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many decimal places should I keep when converting units?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep full precision through every intermediate step, and round only the final result, to the precision your original measurement justifies. Conversion definitions such as 1 in = 25.4 mm or 1 lb = 0.45359237 kg are exact and impose no limit of their own. If you measured 150 lb to three significant figures, the kilogram answer has three significant figures however many digits your calculator shows. Rounding early is the most common self-inflicted error, because the mistake is squared or cubed along with the unit when you are converting area or volume."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">How to Convert Units</span></nav>
+
+        <header class="page-header">
+            <h1>How to Convert Units: The Method That Replaces Memorised Factors</h1>
+            <p>There are 269 converters on this site and several hundred unit pairs behind them. Nobody memorises that. What you memorise is one rule — multiply by a fraction equal to one — and a handful of anchor definitions. Everything else is arithmetic you can do on paper, in a spreadsheet, or in your head at a machine controller.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="seo-section guide-content">
+            <!-- ══—Navigation ══—-->
+            <nav class="guide-toc" aria-label="Table of contents">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#why-memorising-fails">Why Memorising Conversion Factors Fails</a></li>
+                    <li><a href="#the-rule">The Only Rule: Multiply by One</a></li>
+                    <li><a href="#worked-examples">Three Worked Examples, Increasingly Awkward</a></li>
+                    <li><a href="#when-multiplication-fails">The Five Cases Where Multiplication Is the Wrong Tool</a></li>
+                    <li><a href="#self-check">Catching Your Own Mistake in Ten Seconds</a></li>
+                    <li><a href="#when-nobody-checks">What Happens When Nobody Checks</a></li>
+                    <li><a href="#choosing-a-converter">Choosing the Right Converter</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </nav>
+
+            <!-- ══—Section 1 ══—-->
+            <section id="why-memorising-fails">
+                <h2>1. Why Memorising Conversion Factors Fails</h2>
+                <p>Ask an engineer how many millimetres are in an inch and you will get an instant, correct answer: 25.4. Ask how many square feet are in a square metre and the answers get slower — and wrong more often than you would expect. The number of unit pairs a working engineer meets is quadratic in the number of units. Eighteen categories, a few dozen units each, and you are well past the point where memory is a reliable storage medium.</p>
+                <p>The failure is structural, not personal. Memory has no error signal. If you misremember 25.4 as 25.0, you produce a number that looks entirely reasonable — a part 1.6 mm undersized is not visually wrong, it is scrap. If you remember "a metre is about 3.28 feet" but then apply <em>3.28</em> to a square metre, you get an area 7.5 times too small, and nothing about the arithmetic will tell you so.</p>
+                <div class="example-box">
+                    <p><strong>The squared-factor trap</strong></p>
+                    <p>1 metre = 3.28084 feet. Therefore 1 square metre = 3.28084 square feet — <em>false</em>. The correct answer is 10.7639 ft². The factor is 3.28084², not 3.28084. Anyone who memorised "3.28" for length and reused it for area will be wrong by a factor of 3.28 and will not notice, because 3.28 ft² is not an absurd-looking number.</p>
+                    <p><em>Lesson: a memorised factor is bound to the unit it converts. It does not transfer up or down in dimension, and it carries no warning when you misuse it.</em></p>
+                </div>
+                <p>There is a better way. It is older than the metric system, it is taught in introductory chemistry as <em>dimensional analysis</em> and in engineering as the <em>factor-label</em> or <em>unity-bracket</em> method, and it has one property that memory lacks: when you do it wrong, the units fail to cancel and you can see it before you ever compute a number.</p>
+            </section>
+
+            <!-- ══—Section 2 ══—-->
+            <section id="the-rule">
+                <h2>2. The Only Rule: Multiply by One</h2>
+                <p>Any statement of equivalence can be written as a fraction that equals one. If 1 inch is 2.54 centimetres, then</p>
+                <div class="formula-box">
+                    <p><strong>1 in / 2.54 cm = 1</strong> &nbsp;&nbsp;and&nbsp;&nbsp; <strong>2.54 cm / 1 in = 1</strong></p>
+                </div>
+                <p>Multiplying a quantity by one does not change the quantity — it only changes the label. That is the entire method. Write the conversion as a fraction whose numerator and denominator are the <em>same physical quantity</em> expressed in different units, multiply, and cancel.</p>
+                <p>Take 180 centimetres and ask for feet. The site's own <a href="/cm-to-feet">centimetres to feet</a> converter returns 5.90551181 ft, but you can derive it from two anchor definitions — 1 in = 2.54 cm and 1 ft = 12 in:</p>
+                <div class="formula-box">
+                    <p>180 cm × (1 in / 2.54 cm) × (1 ft / 12 in) = 5.90551181 ft</p>
+                </div>
+                <p>Read the unit chain left to right. Centimetres appear in the numerator of the first term and the denominator of the first bracket, so they cancel. Inches appear in the numerator of the first bracket and the denominator of the second, so they cancel. Feet remain. The chain <em>is</em> the proof: if you had written the first bracket upside down — (2.54 cm / 1 in) — the centimetres would stack up in the numerator and never cancel, and you would see the error immediately without computing anything.</p>
+                <h3>2.1 The units tell you which way up the fraction goes</h3>
+                <p>This is the part people who memorise factors never learn. You do not have to remember whether to multiply or divide. Put the unit you are <em>leaving</em> in the denominator and the unit you are <em>going to</em> in the numerator, and the cancellation does the rest. Ask yourself: "what unit do I want to be left holding?" — then build a fraction that removes everything else.</p>
+                <h3>2.2 You memorise two or three definitions, not two hundred factors</h3>
+                <p>Every metric-to-imperial length conversion on this site descends from a single sentence in the 1959 International Yard and Pound Agreement: <strong>1 yard = 0.9144 metre exactly</strong>, which fixes <strong>1 inch = 25.4 mm exactly</strong>. From that one definition you can build twelve others on paper:</p>
+                <div class="table-scroll">
+                <table>
+                    <thead><tr><th>You want</th><th>Build it from</th><th>Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>inch → mm</td><td>given</td><td>25.4 mm</td></tr>
+                        <tr><td>foot → mm</td><td>25.4 × 12</td><td>304.8 mm</td></tr>
+                        <tr><td>yard → mm</td><td>25.4 × 36</td><td>914.4 mm</td></tr>
+                        <tr><td>mile → m</td><td>25.4 × 12 × 3 × 1760 ÷ 1000</td><td>1,609.344 m</td></tr>
+                        <tr><td>inch → cm</td><td>25.4 ÷ 10</td><td>2.54 cm</td></tr>
+                        <tr><td>foot → m</td><td>304.8 ÷ 1000</td><td>0.3048 m</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>Three anchor definitions — 2.54 cm, 0.45359237 kg, 3.785411784 L — cover most of what an English-speaking engineer needs. Everything else is a chain of unity fractions. This is why the <a href="/guides/length-conversion-guide">length guide</a> and the <a href="/guides/weight-mass-conversion-guide">weight and mass guide</a> both open with the definition rather than the table of factors: the definition is what you actually need to carry.</p>
+            </section>
+
+            <!-- ══—Section 3 ══—-->
+            <section id="worked-examples">
+                <h2>3. Three Worked Examples, Increasingly Awkward</h2>
+                <p>The method scales from a single ratio to compound units and powers without any change in technique. What changes is the number of brackets.</p>
+
+                <h3>3.1 Single ratio: 150 lb to kilograms</h3>
+                <p>The pound is defined exactly as <strong>0.45359237 kg</strong> by the same 1959 agreement, so the conversion is one bracket:</p>
+                <div class="formula-box">
+                    <p>150 lb × (0.45359237 kg / 1 lb) = 68.0388555 kg</p>
+                </div>
+                <p>The bracket is a definition, not a measurement. It has no significant-figure limit of its own — the only precision limit is the 150 you started with. This is the case where people ask "how many decimal places should I keep?" and the answer is: as many as your input justifies, and not one more. See <a href="/lbs-to-kg">pounds to kilograms</a> for the reciprocal direction.</p>
+
+                <h3>3.2 Compound units: 60 mph to metres per second</h3>
+                <p>Speed is length over time, so two brackets are needed — one for the distance, one for the time. The trap is the second bracket: hours appear in the <em>denominator</em> of "mph", so the time fraction must be written with hours on top to cancel them.</p>
+                <div class="formula-box">
+                    <p>60 mi/h × (1609.344 m / 1 mi) × (1 h / 3600 s) = 26.8224 m/s</p>
+                </div>
+                <p>Check the chain: miles cancel (numerator against denominator), hours cancel (numerator against denominator), and what remains is metres over seconds. Had the time bracket been written as (3600 s / 1 h), the hours would have stacked and the answer would have been off by 3600² — a number so large it would have been obvious. That is the point: with factor-label, the large errors become visible before arithmetic, and the small ones become visible in the check step of Section 5. For the reverse direction, see <a href="/kph-to-mps">km/h to m/s</a> and <a href="/mph-to-kph">mph to km/h</a>.</p>
+
+                <h3>3.3 Powers: 1 m³ to cubic centimetres</h3>
+                <p>This is where the memorised-factor habit produces its most expensive errors, because the factor is not the one the memory offers.</p>
+                <div class="formula-box">
+                    <p>1 m³ × (100 cm / 1 m)³ = 100³ = 1,000,000 cm³</p>
+                </div>
+                <p>The bracket is cubed <em>because the unit is cubed</em>. The factor is 10⁶, not 100. The same rule gives 1 m² = 10,000 cm² (factor squared), and it is the reason 1 m² = 10.7639 ft² rather than 3.28084 ft². Whenever the unit carries an exponent, the whole bracket carries it too — which is why the <a href="/guides/area-conversion-guide">area guide</a> and the <a href="/guides/volume-cooking-conversion-guide">volume guide</a> both warn that early rounding error is <em>squared</em> (or cubed) along with the unit.</p>
+                <div class="example-box">
+                    <p><strong>Why volume errors get cubed</strong></p>
+                    <p>Convert 10 ft to metres and round early to 3 m instead of 3.048 m — a 1.6% error. Convert 10 ft³ with the same early rounding and you carry 3³ = 27 m³ against the correct 0.0283168 × 1000 = 28.3168 m³: a 4.8% error. The percentage error is cubed along with the unit. In a concrete pour, that is not a rounding note, it is a short load.</p>
+                </div>
+            </section>
+
+            <!-- ══—Section 4 ══—-->
+            <section id="when-multiplication-fails">
+                <h2>4. The Five Cases Where Multiplication Is the Wrong Tool</h2>
+                <p>Everything above assumes a conversion is a <em>ratio</em> — that zero in one scale is zero in the other, and that the relationship is a straight proportional line through the origin. For most engineering units that is true, which is exactly why the habit is dangerous: five common families of units break the assumption, and in all five the multiplication still produces a plausible number.</p>
+
+                <h3>4.1 Scales with a zero offset: °C and °F</h3>
+                <p>The Celsius and Fahrenheit scales do not share a zero point. Water freezes at 0 °C and at 32 °F; it boils at 100 °C and 212 °F. The relationship is <em>affine</em>, not proportional:</p>
+                <div class="formula-box">
+                    <p>°F = °C × (9/5) + 32 &nbsp;&nbsp;·&nbsp;&nbsp; °C = (°F − 32) × (5/9)</p>
+                </div>
+                <p>Applying a pure factor gives 0 °C → 0 °F, which is wrong by 32 degrees — a comfortable autumn day reported as a hard freeze. The two scales cross at exactly one point, −40°, which is the one temperature you can convert from memory without the offset. Kelvin is different again: K and °C share a <em>step size</em> but differ only by an offset (K = °C + 273.15), so that pair needs addition and no multiplication at all. Use <a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a>, <a href="/fahrenheit-to-celsius">Fahrenheit to Celsius</a>, or <a href="/kelvin-to-celsius">Kelvin to Celsius</a> rather than a factor.</p>
+
+                <h3>4.2 Logarithmic scales: dBm and dB</h3>
+                <p>The decibel is not a unit of power; it is a unit of <em>ratio</em>, read on a logarithmic scale. dBm anchors that ratio to one milliwatt:</p>
+                <div class="formula-box">
+                    <p>dBm = 10 × log₁₀(P / 1 mW)</p>
+                </div>
+                <p>There is no conversion factor between dBm and watts, because the mapping is not linear. 0 dBm = 1 mW, 30 dBm = 1 W, −30 dBm = 1 µW. Adding 3 dB multiplies power by 1.995 (call it 2 in the field); adding 10 dB multiplies it by 10. And because the scale is logarithmic, cascading gains <em>add</em> where powers would <em>multiply</em>: two amplifiers of +20 dB each produce +40 dB, which is 10 W, not 20 W. Any engineer who "multiplies by the dBm factor" has misunderstood what the unit is. See <a href="/dbm-to-watts">dBm to watts</a> for the exact values, and the <a href="/guides/electric-conversion-guide">electric conversion guide</a> for the two laws underneath.</p>
+
+                <h3>4.3 Reverse-ordered scales: AWG wire gauge</h3>
+                <p>American Wire Gauge runs the wrong way round: a higher number is a <em>thinner</em> wire. AWG 10 is 2.588 mm across; AWG 40 is 0.0799 mm. The gauge is defined geometrically, as a geometric progression:</p>
+                <div class="formula-box">
+                    <p>d<sub>n</sub> = 0.005 in × 92<sup>(36 − n) / 39</sup></p>
+                </div>
+                <p>Because the definition is exponential, AWG to square millimetres is not a multiplication — it is an exponential curve, and wire <em>area</em> is what actually carries current. A designer who assumes "AWG 12 to AWG 10 is a fixed ratio" and scales it across the range will be badly wrong at the extremes. Use <a href="/awg-to-mm2">AWG to mm²</a> or <a href="/mm2-to-awg">mm² to AWG</a>, which apply the definition above.</p>
+
+                <h3>4.4 Conversions that need a third quantity: kVA and kW</h3>
+                <p>Some conversions cannot be answered from the two units alone, because the answer depends on something you have not been told. Real power in kilowatts relates to apparent power in kilovolt-amperes through the power factor of the load:</p>
+                <div class="formula-box">
+                    <p>kW = kVA × PF</p>
+                </div>
+                <p>A 100 kVA transformer delivers 100 kW to a purely resistive load (PF = 1) and 80 kW to a load with PF = 0.8. The question "how many kW is 1 kVA?" has no single answer — which is exactly why uninterruptible supplies and standby generators carry both figures on the nameplate, and why sizing a generator from the kVA figure alone is a classic commissioning failure. See <a href="/kva-to-kw">kVA to kW</a> and the <a href="/power-factor">power factor</a> calculator, and the <a href="/guides/energy-power-conversion-guide">energy and power guide</a> for the rest of the family.</p>
+
+                <h3>4.5 Same name, different definitions</h3>
+                <p>Here the multiplication is valid but the <em>factor</em> is not unique, because the unit name is shared by quantities that differ substantially. Choosing the wrong definition gives a plausible number and a real error:</p>
+                <div class="table-scroll">
+                <table>
+                    <thead><tr><th>Unit</th><th>Variants</th><th>Spread</th></tr></thead>
+                    <tbody>
+                        <tr><td>ton</td><td>short ton 907.18474 kg · long ton 1,016.047 kg · tonne 1,000 kg</td><td>up to 12%</td></tr>
+                        <tr><td>gallon</td><td>US 3.785411784 L · imperial 4.54609 L</td><td>~20%</td></tr>
+                        <tr><td>calorie</td><td>cal 4.184 J · kcal 4,184 J · "Cal" on food labels = kcal</td><td>1000×</td></tr>
+                        <tr><td>psi</td><td>psia (absolute) · psig (gauge, reads 0 at 1 atm)</td><td>~14.7 psi</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>The last row bites hardest. A tyre inflated to 32 psig is at 46.7 psia, and any gas-law calculation that uses 32 will be wrong by nearly a third. The number did not lie; the label was abbreviated. This is why the site writes units out in full wherever a variant exists — <a href="/liters-to-gallons">litres to gallons</a> and <a href="/gallons-to-liters">gallons to litres</a> both state US gallons explicitly, and the <a href="/guides/pressure-conversion-guide">pressure guide</a> treats psia, psig and bar as three distinct starting points rather than one.</p>
+            </section>
+
+            <!-- ══—Section 5 ══—-->
+            <section id="self-check">
+                <h2>5. Catching Your Own Mistake in Ten Seconds</h2>
+                <p>The factor-label method prevents the errors you can see. These three questions catch the ones you cannot, and they take less time than reading the answer a second time.</p>
+
+                <h3>5.1 Did the units cancel?</h3>
+                <p>Treat the units as algebraic symbols and cancel them across the whole expression. A conversion that is set up correctly ends with exactly one unit — the one you asked for — and no leftovers. A stray unit anywhere in the middle means a bracket is upside down. This check costs nothing because you are looking at the units you already wrote, not at new work.</p>
+
+                <h3>5.2 Is the order of magnitude right?</h3>
+                <p>Ask whether the answer should be bigger or smaller than the input, and by roughly how much. A kilometre is shorter than a mile, so km-to-miles must come out smaller. A metre converted to feet must come out <em>larger</em> — 1 m is 3.28 ft, not 0.328 ft. This is the check that catches a misplaced decimal point, and a decimal point is the single most common shape of a unit-conversion disaster: see the <a href="/guides/isaac-peral-submarine-decimal-point-error">Isaac Peral submarine case</a>, where a displaced decimal sent a hull design on a scale nobody intended.</p>
+
+                <h3>5.3 Can you get back?</h3>
+                <p>Convert the result back to the original unit. It should return the number you started with, to within rounding. If 150 lb becomes 68.04 kg, then 68.04 kg must become 150 lb. A round-trip that does not close means one of the two directions used a different definition — and this check is also how you find out that the two conversion factors of a pair are reciprocals, not independently rounded numbers. Multiplying by 0.45359 and then by 2.20462 does not return to the start unless those two values are exact inverses; the site's <a href="/kg-to-lbs">kg to lbs</a> and <a href="/lbs-to-kg">lbs to kg</a> converters share one definition so that they do.</p>
+
+                <h3>5.4 Round last, and only once</h3>
+                <p>Never round an intermediate result. Convert 100 ft to metres (30.48 m), keep the full value, convert again to centimetres (3,048 cm) — the round trip closes. Round 30.48 to 30 first and the round trip returns 98.4 ft, a 1.6% loss created out of nothing but impatience. The same discipline applies to significant figures: the answer to a conversion inherits the precision of the <em>input</em>, not the precision of the definition. If you measured 150 lb, the kilogram answer has three significant figures, whatever the calculator displays.</p>
+            </section>
+
+            <!-- ══—Section 6 ══—-->
+            <section id="when-nobody-checks">
+                <h2>6. What Happens When Nobody Checks</h2>
+                <p>Unit conversion errors are not usually arithmetic errors. They are check errors — the arithmetic was executed correctly on the wrong quantity, and no one asked Section 5's three questions before the work went out of the door. The case studies on this site are worth reading as a catalogue of skipped checks.</p>
+
+                <div class="example-box">
+                    <p><strong>Mars Climate Orbiter (1999) — the chain was never written down</strong></p>
+                    <p>A navigation team expected thrust data in newton-seconds; the supplier sent pound-force-seconds. The two are both "impulse", both plausible numbers, and no one wrote the unit chain between them. The spacecraft entered the atmosphere at the wrong altitude and was destroyed. <em>Maps to Section 5.1: had the units been written out, the mismatch was visible before any arithmetic was done.</em></p>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Gimli Glider (1983) — the fraction was upside down</strong></p>
+                    <p>A ground crew computed a fuel load in pounds where the figure was specified in kilograms, and the aircraft took off with roughly 45% of the fuel it needed. The conversion factors were correct; the direction was not. <em>Maps to Section 2: putting the unit you are leaving in the denominator is what prevents this — and to Section 5.2, where the order of magnitude would have exposed it.</em></p>
+                </div>
+
+                <div class="example-box">
+                    <p><strong>Patriot battery, Dhahran (1991) — not a unit error at all</strong></p>
+                    <p>The failure here was numeric representation rather than unit selection: a value incremented in steps of 0.1 was stored in a fixed-point format that could not represent 0.1 exactly, and the accumulated drift over a long uptime moved the radar's range gate far enough to miss. <em>Maps to the boundary between this guide and the source pages: sometimes the units are right and the number is wrong.</em> It is a reminder that "the conversion was correct" is not the same as "the value was correct". See the <a href="/guides/patriot-missile-tenth-of-second-truncation">Patriot case study</a>.</p>
+                </div>
+
+                <p>The pattern across all of them is the same: a correct procedure applied without a check, on a quantity whose unit was assumed rather than stated. The <a href="/guides/engineering-unit-conversion-mistakes">main mistakes hub</a> collects the full set, and the <a href="/guides/the-cost-of-retooling">cost of retooling</a> essay explains why the opposite error — converting everything, everywhere, all at once — is also expensive.</p>
+            </section>
+
+            <!-- ══—Section 7 ══—-->
+            <section id="choosing-a-converter">
+                <h2>7. Choosing the Right Converter</h2>
+                <p>You now have the method. Use it to set up the problem and to check the answer — and use a converter for the arithmetic, so that the definition is applied exactly once and at full precision rather than through a rounded constant. Every converter on this site applies the definition, not an approximation.</p>
+
+                <h3>By category</h3>
+                <div class="related-tags">
+                    <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+                    <a href="/guides/weight-mass-conversion-guide">Weight &amp; Mass Conversion Guide</a>
+                    <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+                    <a href="/guides/speed-conversion-guide">Speed Conversion Guide</a>
+                    <a href="/guides/pressure-conversion-guide">Pressure Conversion Guide</a>
+                    <a href="/guides/area-conversion-guide">Area Conversion Guide</a>
+                    <a href="/guides/volume-cooking-conversion-guide">Volume &amp; Cooking Conversion Guide</a>
+                    <a href="/guides/time-conversion-guide">Time Conversion Guide</a>
+                    <a href="/guides/data-storage-conversion-guide">Data Storage Conversion Guide</a>
+                    <a href="/guides/energy-power-conversion-guide">Energy &amp; Power Conversion Guide</a>
+                    <a href="/guides/angle-conversion-guide">Angle Conversion Guide</a>
+                    <a href="/guides/torque-conversion-guide">Torque Conversion Guide</a>
+                    <a href="/guides/fuel-economy-conversion-guide">Fuel Economy Conversion Guide</a>
+                    <a href="/guides/force-conversion-guide">Force Conversion Guide</a>
+                    <a href="/guides/frequency-conversion-guide">Frequency Conversion Guide</a>
+                    <a href="/guides/density-conversion-guide">Density Conversion Guide</a>
+                    <a href="/guides/flow-rate-conversion-guide">Flow Rate Conversion Guide</a>
+                    <a href="/guides/electric-conversion-guide">Electric Conversion Guide</a>
+                </div>
+
+                <h3>The worked examples from this page</h3>
+                <div class="related-tags">
+                    <a href="/cm-to-feet">Centimetres to Feet</a>
+                    <a href="/lbs-to-kg">Pounds to Kilograms</a>
+                    <a href="/kg-to-lbs">Kilograms to Pounds</a>
+                    <a href="/kph-to-mps">km/h to m/s</a>
+                    <a href="/mph-to-kph">mph to km/h</a>
+                    <a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a>
+                    <a href="/fahrenheit-to-celsius">Fahrenheit to Celsius</a>
+                    <a href="/kelvin-to-celsius">Kelvin to Celsius</a>
+                </div>
+
+                <h3>The cases where multiplication fails</h3>
+                <div class="related-tags">
+                    <a href="/dbm-to-watts">dBm to Watts</a>
+                    <a href="/awg-to-mm2">AWG to mm²</a>
+                    <a href="/mm2-to-awg">mm² to AWG</a>
+                    <a href="/kva-to-kw">kVA to kW</a>
+                    <a href="/kw-to-kva">kW to kVA</a>
+                    <a href="/power-factor">Power Factor</a>
+                    <a href="/liters-to-gallons">Litres to Gallons</a>
+                    <a href="/gallons-to-liters">Gallons to Litres</a>
+                </div>
+            </section>
+
+            <!-- ══—FAQ ══—-->
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I convert units without memorising conversion factors?</p>
+                    <p class="faq-a">Multiply by a fraction that equals one. Write the unit you are leaving in the denominator and the unit you want in the numerator, then cancel. For 180 cm to feet: 180 cm × (1 in / 2.54 cm) × (1 ft / 12 in) = 5.90551181 ft. The centimetres and inches cancel and feet remain. You need to remember two or three anchor definitions, not two hundred conversion factors, and a fraction written the wrong way up fails to cancel so you can see the mistake before doing any arithmetic.</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-q">What is the factor-label method?</p>
+                    <p class="faq-a">Factor-label is the name engineers use for dimensional analysis as applied to unit conversion: every conversion step is written as a fraction whose numerator and denominator express the same physical quantity in different units, so the fraction equals exactly one. Because multiplying by one cannot change a value, only its label, the method is sound by construction. The technique is the same one taught in chemistry as the unity-bracket or train-track method, and in engineering the fractions are usually called conversion factors.</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-q">How do I know whether to multiply or divide?</p>
+                    <p class="faq-a">You do not have to decide — the units decide for you. Put the unit you are leaving in the denominator and the unit you want in the numerator. If you build the fraction backwards, the unit you are trying to eliminate appears twice and never cancels, which is visible immediately. As a second check, the answer should be larger than the input when the target unit is smaller (metres to millimetres) and smaller when the target unit is larger (millimetres to metres).</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-q">Why can't I just multiply by a conversion factor?</p>
+                    <p class="faq-a">For most units you can, and that is why the habit is dangerous. Five common families of units break the proportional assumption. Degrees Celsius and Fahrenheit have different zero points, so the conversion includes an offset. dBm is logarithmic, so there is no factor at all. AWG wire gauge is reverse-ordered and defined by a geometric series, so gauge is not proportional to diameter or to area. kVA to kW depends on the power factor of the load, so no single factor exists. And some names, such as ton, gallon and psi, cover several different quantities.</p>
+                </div>
+
+                <div class="faq-item">
+                    <p class="faq-q">How many decimal places should I keep when converting units?</p>
+                    <p class="faq-a">Keep full precision through every intermediate step, and round only the final result, to the precision your original measurement justifies. Conversion definitions such as 1 in = 25.4 mm or 1 lb = 0.45359237 kg are exact and impose no limit of their own. If you measured 150 lb to three significant figures, the kilogram answer has three significant figures however many digits your calculator shows. Rounding early is the most common self-inflicted error, because the mistake is squared or cubed along with the unit when you are converting area or volume.</p>
+                </div>
+            </section>
+
+            <!-- ══—References ══—-->
+            <section class="eng-context">
+                <h3>Sources and Further Reading</h3>
+                <ul>
+                    <li>NIST Special Publication 811 — Guide for the Use of the International System of Units (SI), Section 7.4: Dimensional analysis and unit conversion</li>
+                    <li>BIPM — The International System of Units (SI), 9th Edition (2019), Chapter 2: Defining the unit system</li>
+                    <li>International Yard and Pound Agreement (1959) — Federal Register Notice 24 FR 5347, defining 1 inch = 25.4 mm and 1 pound = 0.45359237 kg exactly</li>
+                    <li>ASTM B258 — Standard Specification for Standard Nominal Diameters and Cross-Sectional Areas of AWG Sizes of Solid Round Wires Used as Electrical Conductors</li>
+                    <li>NASA — Mars Climate Orbiter Mishap Investigation Board, Phase I Report (1999)</li>
+                    <li>Transportation Safety Board of Canada — Report on the Air Canada Boeing 767 fuel exhaustion at Gimli, Manitoba (1983)</li>
+                    <li>US General Accounting Office — Report on the Patriot air defence system software at Dhahran (GAO/IMTEC-92-26)</li>
+                </ul>
+            </section>
+
+            <h3>Related Guides</h3>
+            <div class="related-tags">
+                <a href="/guides/engineering-unit-conversion-mistakes">The 8 Most Expensive Unit Conversion Mistakes</a>
+                <a href="/guides/why-america-doesnt-use-metric-system">Why America Doesn't Use the Metric System</a>
+                <a href="/guides/the-cost-of-retooling">The Cost of Retooling</a>
+                <a href="/guides/the-1975-metric-conversion-act">The 1975 Metric Conversion Act</a>
+                <a href="/guides/the-1893-photocopy">The 1893 Photocopy</a>
+                <a href="/guides/year-2038-problem">The Year 2038 Problem</a>
+            </div>
+
+            <div class="attribution-box">
+                <p><strong>Reprint & Attribution.</strong> This article was written and fact-checked by the EnginStack Editorial Team. It was first published on October 9, 2026 at <a href="https://enginstack.com/guides/how-to-convert-units">enginstack.com/guides/how-to-convert-units</a>. You are welcome to quote it, share it, or translate it — we ask only that you link back to the original page and credit EnginStack as the source. If you'd like to republish the full text on your own site, please contact us first: <code>support@enginstack.com</code>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- ══—Footer ══—-->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Conversion factor",
+  "termCode": "conversion factor",
+  "description": "A conversion factor is a ratio expressing the same physical quantity in two different units, so that the ratio equals exactly one. Multiplying by it changes the unit label without changing the value. The factor-label method chains such ratios so that unwanted units cancel, leaving only the unit sought. Factors that cannot be expressed as a single ratio — affine temperature scales, logarithmic scales such as dBm, reverse-ordered scales such as AWG, and conversions that depend on a third quantity such as power factor — are not simple conversion factors.",
+  "url": "https://en.wikipedia.org/wiki/Conversion_of_units",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</body>
+</html>
