@@ -1,6 +1,6 @@
 # EnginStack
 
-> Engineering unit converters built on verified international metrology constants. 269 precision unit converters across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 33 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
+> Engineering unit converters built on verified international metrology constants. 269 precision unit converters across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 34 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
 
 ## Converters by category
 
@@ -35,6 +35,7 @@
 - [Density Conversion Guide](https://enginstack.com/guides/density-conversion-guide): the water anchor — 1795 gram definition to aviation lb/in³
 - [Flow Rate Conversion Guide](https://enginstack.com/guides/flow-rate-conversion-guide): L/min, GPM, m³/h, CFM, L/s — the five dialects of moving fluid
 - [Electric Conversion Guide](https://enginstack.com/guides/electric-conversion-guide): Ohm's & Watt's laws, dBm, AWG wire gauge
+- [How to Convert Units](https://enginstack.com/guides/how-to-convert-units): the factor-label method, and the five conversions where a multiplier does not exist
 - [Length Conversion Guide](https://enginstack.com/guides/length-conversion-guide): engineering reference
 - [Weight & Mass Conversion Guide](https://enginstack.com/guides/weight-mass-conversion-guide): engineering reference
 - [Temperature Conversion Guide](https://enginstack.com/guides/temperature-conversion-guide): Fahrenheit, Celsius, Kelvin
