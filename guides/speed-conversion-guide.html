@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Speed Conversion Guide — m/s, km/h, mph, Knots, ft/s, and the Nautical Mile That Maps the Earth",
-  "description": "The definitive engineering guide to speed units. Covers metres per second, kilometres per hour, miles per hour, knots, and feet per second — exact conversion formulas, historical origins, the knot's geodesic definition, the 1959 treaty, and real accidents caused by speed unit confusion.",
+  "description": "The definitive engineering guide to speed units. Covers meters per second, kilometers per hour, miles per hour, knots, and feet per second — exact conversion formulas, historical origins, the knot's geodesic definition, the 1959 treaty, and real accidents caused by speed unit confusion.",
   "author": { "@type": "Organization", "name": "EnginStack" },
   "publisher": { "@type": "Organization", "name": "EnginStack" },
   "url": "https://enginstack.com/guides/speed-conversion-guide",
@@ -58,7 +58,7 @@
       "name": "Why does physics use m/s while road signs use km/h or mph?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Physics uses SI base units — metres, kilograms, seconds. Every equation from F=ma to kinetic energy (½mv²) expects speed in m/s. km/h and mph exist because they're human-scale: a walking pace of 1.4 m/s is hard to visualise, but 5 km/h is instantly meaningful. The two systems coexist because one serves equations and the other serves intuition. The ÷3.6 (km/h to m/s) or ×0.44704 (mph to m/s) conversion is the bridge between them, applied at the input stage of every engineering calculation."
+        "text": "Physics uses SI base units — meters, kilograms, seconds. Every equation from F=ma to kinetic energy (½mv²) expects speed in m/s. km/h and mph exist because they're human-scale: a walking pace of 1.4 m/s is hard to visualize, but 5 km/h is instantly meaningful. The two systems coexist because one serves equations and the other serves intuition. The ÷3.6 (km/h to m/s) or ×0.44704 (mph to m/s) conversion is the bridge between them, applied at the input stage of every engineering calculation."
       }
     },
     {
@@ -74,7 +74,7 @@
       "name": "How exact is the mph-to-m/s conversion?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Completely exact. The 1959 International Yard and Pound Agreement defined 1 yard = 0.9144 metres exactly. A mile is 1760 yards = 1609.344 metres. Dividing by 3600 seconds per hour gives 0.44704 m/s — with no rounding. This is one of the rare imperial-to-SI conversions with zero measurement uncertainty. Every digit after the decimal is fixed by treaty, not by experiment."
+        "text": "Completely exact. The 1959 International Yard and Pound Agreement defined 1 yard = 0.9144 meters exactly. A mile is 1760 yards = 1609.344 meters. Dividing by 3600 seconds per hour gives 0.44704 m/s — with no rounding. This is one of the rare imperial-to-SI conversions with zero measurement uncertainty. Every digit after the decimal is fixed by treaty, not by experiment."
       }
     },
     {
@@ -90,7 +90,7 @@
       "name": "What's the most common speed conversion mistake in engineering?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Forgetting to convert km/h or mph to m/s before plugging into a physics formula. Kinetic energy scales with v², so using km/h instead of m/s produces an error of 3.6² = 12.96× (or 5× for mph). In crash reconstruction, this can mean the difference between 'driver was within the speed limit' and 'driver was travelling at a criminal speed.' The fix is simple — divide by 3.6 or multiply by 0.44704 — but it must be the first step, every time."
+        "text": "Forgetting to convert km/h or mph to m/s before plugging into a physics formula. Kinetic energy scales with v², so using km/h instead of m/s produces an error of 3.6² = 12.96× (or 5× for mph). In crash reconstruction, this can mean the difference between 'driver was within the speed limit' and 'driver was traveling at a criminal speed.' The fix is simple — divide by 3.6 or multiply by 0.44704 — but it must be the first step, every time."
       }
     }
   ]
@@ -123,8 +123,8 @@
             <span class="current">Speed Conversion Guide</span></nav>
 
         <header class="page-header">
-            <h1>Metres per Second, Kilometres per Hour, Miles per Hour, Knots, Feet per Second: A Field Guide to Speed Units</h1>
-            <p>Speed is distance over time. The distance unit varies by domain — metres for physicists, kilometres and miles for drivers, nautical miles for navigators, feet for ballisticians. The time unit is almost always seconds or hours. Five base units, ten conversion directions, and a single rule: always convert to m/s before touching an equation. This guide explains where each unit came from, why it survives, what the exact conversion factors are, and what happens when someone picks the wrong one.</p>
+            <h1>Meters per Second, Kilometers per Hour, Miles per Hour, Knots, Feet per Second: A Field Guide to Speed Units</h1>
+            <p>Speed is distance over time. The distance unit varies by domain — meters for physicists, kilometers and miles for drivers, nautical miles for navigators, feet for ballisticians. The time unit is almost always seconds or hours. Five base units, ten conversion directions, and a single rule: always convert to m/s before touching an equation. This guide explains where each unit came from, why it survives, what the exact conversion factors are, and what happens when someone picks the wrong one.</p>
             <p class="page-meta">~12 min read &nbsp;·&nbsp; Last updated July 2026</p>
         </header>
 
@@ -137,7 +137,7 @@
         </div>
         <article class="seo-section guide-content">
 
-<p>On 23 September 1999, NASA's Mars Climate Orbiter entered the Martian atmosphere at the wrong altitude and disintegrated. The immediate cause, discovered during the post-failure review, was a unit mismatch: Lockheed Martin's navigation software reported thruster impulse in pound-force-seconds (the imperial unit). NASA's trajectory model expected newton-seconds (the SI unit). The spacecraft's course corrections were off by a factor of 4.45 — the ratio of pounds-force to newtons. But buried in the same failure review was a subtler finding: the velocity data that fed the thruster model went through three unit conversions — ft/s to mph for one subsystem, mph to km/h for a display module, km/h to m/s for the final trajectory integrator — and at some point in that chain, a conversion was applied twice. The spacecraft thought it was travelling 0.3 m/s faster than it was. Over a 670-million-kilometre journey, a 0.3 m/s velocity error accumulated into a 170-kilometre altitude error at Mars arrival. The spacecraft hit the atmosphere at 57 km instead of the planned 140–150 km. At that altitude, the atmospheric density was 10 times higher than the spacecraft's thermal protection could survive.</p>
+<p>On 23 September 1999, NASA's Mars Climate Orbiter entered the Martian atmosphere at the wrong altitude and disintegrated. The immediate cause, discovered during the post-failure review, was a unit mismatch: Lockheed Martin's navigation software reported thruster impulse in pound-force-seconds (the imperial unit). NASA's trajectory model expected newton-seconds (the SI unit). The spacecraft's course corrections were off by a factor of 4.45 — the ratio of pounds-force to newtons. But buried in the same failure review was a subtler finding: the velocity data that fed the thruster model went through three unit conversions — ft/s to mph for one subsystem, mph to km/h for a display module, km/h to m/s for the final trajectory integrator — and at some point in that chain, a conversion was applied twice. The spacecraft thought it was traveling 0.3 m/s faster than it was. Over a 670-million-kilometer journey, a 0.3 m/s velocity error accumulated into a 170-kilometer altitude error at Mars arrival. The spacecraft hit the atmosphere at 57 km instead of the planned 140–150 km. At that altitude, the atmospheric density was 10 times higher than the spacecraft's thermal protection could survive.</p>
 
 <p>Speed unit conversions are not hard. Multiply by 3.6. Divide by 1.852. Multiply by 0.44704. The arithmetic fits on a sticky note. The problem is that speed conversions accumulate across subsystems, each maintained by a different team, each with its own unit convention, and each assuming that the other teams use the same convention. This guide is about the five major speed units — where they came from, why they coexist, and how to move between them without stacking errors.</p>
 
@@ -148,8 +148,8 @@
         <li><strong>Five speed units dominate engineering, transportation, and navigation.</strong> m/s (SI physics), km/h (metric roads), mph (imperial roads), knots (maritime/aviation), ft/s (US ballistics/engineering). Each serves a domain where its numbers are human-scale and its arithmetic is one step.</li>
         <li><strong>m/s is the computational base unit.</strong> Every physics equation — kinetic energy, momentum, centripetal force, fluid drag — expects speed in m/s. Convert first, calculate second. Skipping the conversion can produce errors of 3.6² (13×) or worse.</li>
         <li><strong>The knot is defined by the Earth's circumference.</strong> 1 nautical mile = 1 arcminute of latitude. 1 knot = 1 nautical mile per hour. This is the only speed unit with a geodesic rather than historical origin — and it has survived GPS, radar, and electronic charts because it makes navigation arithmetic trivial.</li>
-        <li><strong>The mph-to-m/s factor (0.44704) is exact by treaty.</strong> The 1959 International Yard and Pound Agreement defined the yard as 0.9144 metres. A mile is 1760 yards. Every digit after the decimal is fixed — no measurement uncertainty, no rounding.</li>
-        <li><strong>The m/s-to-km/h factor (3.6) is exact by definition.</strong> 1000 metres in a kilometre, 3600 seconds in an hour. Both numbers are fixed by convention. 3.6 is as exact as the definition of an hour.</li>
+        <li><strong>The mph-to-m/s factor (0.44704) is exact by treaty.</strong> The 1959 International Yard and Pound Agreement defined the yard as 0.9144 meters. A mile is 1760 yards. Every digit after the decimal is fixed — no measurement uncertainty, no rounding.</li>
+        <li><strong>The m/s-to-km/h factor (3.6) is exact by definition.</strong> 1000 meters in a kilometer, 3600 seconds in an hour. Both numbers are fixed by convention. 3.6 is as exact as the definition of an hour.</li>
     </ul>
 </div>
 
@@ -195,8 +195,8 @@
 <nav class="guide-toc" aria-label="Table of contents">
     <h2>Contents</h2>
     <ol>
-        <li><a href="#metres-per-second">Metres per Second: The SI Speed Unit Every Equation Expects</a></li>
-        <li><a href="#kmh">Kilometres per Hour: The Metric Road Sign Standard</a></li>
+        <li><a href="#meters-per-second">Meters per Second: The SI Speed Unit Every Equation Expects</a></li>
+        <li><a href="#kmh">Kilometers per Hour: The Metric Road Sign Standard</a></li>
         <li><a href="#mph">Miles per Hour: The Imperial Speedometer, Exact by 1959 Treaty</a></li>
         <li><a href="#knots">Knots: The Speed Unit That Maps the Earth</a></li>
         <li><a href="#feet-per-second">Feet per Second: Ballistics, Crash Tests, and US Engineering</a></li>
@@ -207,24 +207,24 @@
     </ol>
 </nav>
 
-<!-- ══════════════════════════════════════—     SECTION 1: METRES PER SECOND
+<!-- ══════════════════════════════════════—     SECTION 1: METERS PER SECOND
      ══════════════════════════════════════—-->
-<section id="metres-per-second">
-    <h2>1. Metres per Second: The SI Speed Unit Every Equation Expects</h2>
+<section id="meters-per-second">
+    <h2>1. Meters per Second: The SI Speed Unit Every Equation Expects</h2>
 
-    <p>The metre per second (m/s) is the International System's unit of speed, and it is the only speed unit that plugs directly into the equations of classical mechanics without a conversion factor. Kinetic energy: ½mv² — v must be in m/s. Momentum: mv — v must be in m/s. Centripetal acceleration: v²/r — v must be in m/s. Fluid drag: F<sub>d</sub> = ½ρv²C<sub>d</sub>A — v must be in m/s. Every physics equation that contains a velocity term was derived assuming the metre-kilogram-second (MKS) base system. If you feed one of these equations a speed in km/h or mph, the units don't cancel, and the numerical answer is garbage. This is why first-year engineering students are taught a single rule: convert everything to SI base units before writing down a formula.</p>
+    <p>The meter per second (m/s) is the International System's unit of speed, and it is the only speed unit that plugs directly into the equations of classical mechanics without a conversion factor. Kinetic energy: ½mv² — v must be in m/s. Momentum: mv — v must be in m/s. Centripetal acceleration: v²/r — v must be in m/s. Fluid drag: F<sub>d</sub> = ½ρv²C<sub>d</sub>A — v must be in m/s. Every physics equation that contains a velocity term was derived assuming the meter-kilogram-second (MKS) base system. If you feed one of these equations a speed in km/h or mph, the units don't cancel, and the numerical answer is garbage. This is why first-year engineering students are taught a single rule: convert everything to SI base units before writing down a formula.</p>
 
-    <p>The m/s unit itself is unremarkable — a metre divided by a second, both SI base units — but its human-scale awkwardness is precisely why other speed units exist. 1 m/s is about 3.6 km/h, or a brisk walking pace. An elite sprinter does 10 m/s. A car on a highway does 30 m/s. The numbers are abstract, and abstraction is the point: m/s is not designed for intuitive driving decisions, it's designed for equations. This is why speedometers display km/h or mph while the vehicle's ABS controller and stability program compute in m/s internally. The dashboard is a display layer. The computation is SI.</p>
+    <p>The m/s unit itself is unremarkable — a meter divided by a second, both SI base units — but its human-scale awkwardness is precisely why other speed units exist. 1 m/s is about 3.6 km/h, or a brisk walking pace. An elite sprinter does 10 m/s. A car on a highway does 30 m/s. The numbers are abstract, and abstraction is the point: m/s is not designed for intuitive driving decisions, it's designed for equations. This is why speedometers display km/h or mph while the vehicle's ABS controller and stability program compute in m/s internally. The dashboard is a display layer. The computation is SI.</p>
 
     <p>The two most important conversions involving m/s are to km/h (multiply by 3.6) and to mph (multiply by 0.44704 for the reverse direction). Both are covered in detail in the sections that follow.</p>
 </section>
 
-<!-- ══════════════════════════════════════—     SECTION 2: KILOMETRES PER HOUR
+<!-- ══════════════════════════════════════—     SECTION 2: KILOMETERS PER HOUR
      ══════════════════════════════════════—-->
 <section id="kmh">
-    <h2>2. Kilometres per Hour: The Metric Road Sign Standard</h2>
+    <h2>2. Kilometers per Hour: The Metric Road Sign Standard</h2>
 
-    <p>Kilometres per hour (km/h, sometimes informally written as kph) is the standard unit of speed on road signs in every country except the United States, the United Kingdom, and a handful of small nations. It is a derived metric unit: the kilometre (1000 metres) divided by the hour (3600 seconds). The conversion from km/h to the SI unit m/s is therefore division by exactly 3.6. This factor is not measured — it is defined by the ratio of the number of seconds in an hour to the number of metres in a kilometre. 3600 / 1000 = 3.6. There is no rounding, no measurement campaign, no treaty committee behind this number. It is as fundamental as the definition of an hour.</p>
+    <p>Kilometers per hour (km/h, sometimes informally written as kph) is the standard unit of speed on road signs in every country except the United States, the United Kingdom, and a handful of small nations. It is a derived metric unit: the kilometer (1000 meters) divided by the hour (3600 seconds). The conversion from km/h to the SI unit m/s is therefore division by exactly 3.6. This factor is not measured — it is defined by the ratio of the number of seconds in an hour to the number of meters in a kilometer. 3600 / 1000 = 3.6. There is no rounding, no measurement campaign, no treaty committee behind this number. It is as fundamental as the definition of an hour.</p>
 
     <p>The km/h unit was adopted as road sign countries metricated through the 20th century. France switched in the 1910s. Canada switched in 1977 — overnight, every speed limit sign in the country changed from mph to km/h, and every driver had to learn to think in a new number space. Australia switched in 1974. The UK held out, and still posts speed limits in mph, though vehicle speedometers sold in the UK must display both mph and km/h by EU regulation (a requirement the UK retained post-Brexit). Ireland switched its road signs to km/h in 2005 — the last English-speaking country in Europe to do so.</p>
 
@@ -236,11 +236,11 @@
 <section id="mph">
     <h2>3. Miles per Hour: The Imperial Speedometer, Exact by 1959 Treaty</h2>
 
-    <p>Miles per hour (mph, sometimes written as mi/h) is the speed unit of the United States, the United Kingdom, and a small number of other jurisdictions. One mile per hour is exactly 1.609344 kilometres per hour — a number fixed by the 1959 International Yard and Pound Agreement, in which the English-speaking nations agreed that one yard equals exactly 0.9144 metres. Because a statute mile is 1,760 yards, the mile is fixed at 1,609.344 metres, and the mph-to-km/h factor of 1.609344 is exact to the last digit.</p>
+    <p>Miles per hour (mph, sometimes written as mi/h) is the speed unit of the United States, the United Kingdom, and a small number of other jurisdictions. One mile per hour is exactly 1.609344 kilometers per hour — a number fixed by the 1959 International Yard and Pound Agreement, in which the English-speaking nations agreed that one yard equals exactly 0.9144 meters. Because a statute mile is 1,760 yards, the mile is fixed at 1,609.344 meters, and the mph-to-km/h factor of 1.609344 is exact to the last digit.</p>
 
-    <p>The mph-to-m/s conversion — the one that matters for physics — is similarly exact. 1 mph = 1,609.344 metres / 3,600 seconds = <strong>0.44704 m/s</strong>. This is one of the few imperial-to-SI conversions with zero measurement uncertainty. A reconstructionist calculating skid distance from a 60 mph police report can state with mathematical certainty that the vehicle was doing 26.8224 m/s. The conversion is not approximate. It is a derived consequence of two treaty-level definitions — the yard (1959) and the second (1967) — and the ancient Roman mille passus, the thousand-pace mile that happens to equal 1,760 of those yards. For the interactive calculator, see our <a href="/mph-to-mps">mph to m/s converter</a>.</p>
+    <p>The mph-to-m/s conversion — the one that matters for physics — is similarly exact. 1 mph = 1,609.344 meters / 3,600 seconds = <strong>0.44704 m/s</strong>. This is one of the few imperial-to-SI conversions with zero measurement uncertainty. A reconstructionist calculating skid distance from a 60 mph police report can state with mathematical certainty that the vehicle was doing 26.8224 m/s. The conversion is not approximate. It is a derived consequence of two treaty-level definitions — the yard (1959) and the second (1967) — and the ancient Roman mille passus, the thousand-pace mile that happens to equal 1,760 of those yards. For the interactive calculator, see our <a href="/mph-to-mps">mph to m/s converter</a>.</p>
 
-    <p>Common US speed limits in SI terms: 25 mph (school zone) = 11.18 m/s. 35 mph (urban arterial) = 15.65 m/s. 65 mph (interstate) = 29.06 m/s. 85 mph (Texas SH 130, highest US limit) = 38.00 m/s. A 100 mph fastball — the benchmark of elite pitching in Major League Baseball — is 44.70 m/s, covering the 18.44-metre distance from pitcher's mound to home plate in 0.41 seconds. For the reverse conversion, see our <a href="/mps-to-mph">m/s to mph converter</a>.</p>
+    <p>Common US speed limits in SI terms: 25 mph (school zone) = 11.18 m/s. 35 mph (urban arterial) = 15.65 m/s. 65 mph (interstate) = 29.06 m/s. 85 mph (Texas SH 130, highest US limit) = 38.00 m/s. A 100 mph fastball — the benchmark of elite pitching in Major League Baseball — is 44.70 m/s, covering the 18.44-meter distance from pitcher's mound to home plate in 0.41 seconds. For the reverse conversion, see our <a href="/mps-to-mph">m/s to mph converter</a>.</p>
 </section>
 
 <!-- ══════════════════════════════════════—     SECTION 4: KNOTS
@@ -248,11 +248,11 @@
 <section id="knots">
     <h2>4. Knots: The Speed Unit That Maps the Earth</h2>
 
-    <p>The knot is the only common speed unit defined by the geometry of the planet rather than human anatomy or historical accident. One knot equals one nautical mile per hour. A nautical mile, in turn, was defined as one arcminute of latitude — one-sixtieth of one degree — measured along any meridian. The Earth's meridional circumference is approximately 40,008 kilometres. Divide by 360 degrees, then by 60 arcminutes per degree: 40,008,000 / (360 × 60) ≈ 1,852 metres. In 1929, the International Extraordinary Hydrographic Conference in Monaco standardised the nautical mile at exactly 1,852 metres, making 1 knot = <strong>1.852 km/h</strong> exactly. The knot is thus the only speed unit defined by international hydrographic treaty.</p>
+    <p>The knot is the only common speed unit defined by the geometry of the planet rather than human anatomy or historical accident. One knot equals one nautical mile per hour. A nautical mile, in turn, was defined as one arcminute of latitude — one-sixtieth of one degree — measured along any meridian. The Earth's meridional circumference is approximately 40,008 kilometers. Divide by 360 degrees, then by 60 arcminutes per degree: 40,008,000 / (360 × 60) ≈ 1,852 meters. In 1929, the International Extraordinary Hydrographic Conference in Monaco standardized the nautical mile at exactly 1,852 meters, making 1 knot = <strong>1.852 km/h</strong> exactly. The knot is thus the only speed unit defined by international hydrographic treaty.</p>
 
     <p>The unit's name comes from the 17th-century method of measuring ship speed: a wooden panel (the "chip log") was thrown overboard attached to a rope with knots tied at regular intervals ≈ 47 feet 3 inches apart, to be precise. A sailor counted how many knots passed through his hand in 28 seconds (measured by a sandglass). The spacing was chosen so that one knot per 28-second interval corresponded to one nautical mile per hour. The chip log was still in active use on some vessels into the early 20th century, and the knot as a unit outlived the physical rope by more than a century.</p>
 
-    <p>The knot survives because it makes navigation arithmetic trivial. On any nautical chart, one minute of latitude equals one nautical mile. A vessel moving at 15 knots for 6 hours covers 90 nautical miles, which is 90 minutes of latitude, or 1.5 degrees. The same calculation in kilometres requires multiplying by 1.852: 15 × 6 × 1.852 = 166.68 km, which doesn't map to the chart's latitude scale in any direct way. This is why ships, aircraft, and even GPS units aimed at maritime and aviation users default to knots. The entire global navigation infrastructure — charts, waypoints, air traffic control procedures, International Maritime Organization regulations — assumes knots as the native speed unit. Changing that would require re-gridding every chart and retraining every navigator on Earth.</p>
+    <p>The knot survives because it makes navigation arithmetic trivial. On any nautical chart, one minute of latitude equals one nautical mile. A vessel moving at 15 knots for 6 hours covers 90 nautical miles, which is 90 minutes of latitude, or 1.5 degrees. The same calculation in kilometers requires multiplying by 1.852: 15 × 6 × 1.852 = 166.68 km, which doesn't map to the chart's latitude scale in any direct way. This is why ships, aircraft, and even GPS units aimed at maritime and aviation users default to knots. The entire global navigation infrastructure — charts, waypoints, air traffic control procedures, International Maritime Organization regulations — assumes knots as the native speed unit. Changing that would require re-gridding every chart and retraining every navigator on Earth.</p>
 
     <p>Practical knot-to-km/h conversions: a container ship cruises at 20–25 knots (37–46 km/h). A Ro-Pax fast ferry does 35–40 knots (65–74 km/h). An America's Cup AC75 foiling yacht can sustain 50 knots (92.6 km/h) in a 15-knot breeze — going more than three times the true wind speed. Hurricane-force winds begin at 64 knots (119 km/h, Category 1 on the Saffir-Simpson scale). The fastest warships — hydrofoils and hovercraft — reach 60+ knots (111+ km/h). For the interactive converter, see our <a href="/knots-to-kph">knots to km/h converter</a>. See also our <a href="/nautical-miles-to-km">nautical miles to km</a> and <a href="/km-to-nautical-miles">km to nautical miles</a> converters for the underlying distance units.</p>
 </section>
@@ -266,7 +266,7 @@
 
     <p>The mph-to-ft/s conversion is exact: 1 mph = 5,280 ft / 3,600 s = 1.466666... ft/s, with the 6 repeating. The reverse is 1 ft/s = 3,600 / 5,280 = 0.681818... mph. Both factors derive entirely from definitions — the number of feet in a mile (5,280) and the number of seconds in an hour (3,600). No measurement uncertainty enters. Multiply 60 mph by 1.466667 and you get 88 ft/s — the speed at which a baseball leaves a professional pitcher's hand (roughly 90 mph = 132 ft/s from release to catcher's mitt).</p>
 
-    <p>In crash testing, the 30 mph frontal barrier test — the standard since NHTSA's original FMVSS 208 — is 44 ft/s. A car decelerating from 44 ft/s to zero over a crush distance of 2 feet experiences an average deceleration of v²/(2d) = 44²/(2×2) = 484 ft/s², which is about 15 g. Modern vehicles with longer crush zones (3 feet) reduce the average to about 10 g at the same speed. The math is all in feet and seconds, and the conversion to g is one division by 32.174. This is the rare domain where US customary units are actually more convenient than SI — no decimal points, no factors of 9.81 to memorise. The mph-to-ft/s and ft/s-to-mph converters are coming soon — for now, use the <a href="/mph-to-mps">mph to m/s</a> converter and multiply the result by 3.28084 to get ft/s.</p>
+    <p>In crash testing, the 30 mph frontal barrier test — the standard since NHTSA's original FMVSS 208 — is 44 ft/s. A car decelerating from 44 ft/s to zero over a crush distance of 2 feet experiences an average deceleration of v²/(2d) = 44²/(2×2) = 484 ft/s², which is about 15 g. Modern vehicles with longer crush zones (3 feet) reduce the average to about 10 g at the same speed. The math is all in feet and seconds, and the conversion to g is one division by 32.174. This is the rare domain where US customary units are actually more convenient than SI — no decimal points, no factors of 9.81 to memorize. The mph-to-ft/s and ft/s-to-mph converters are coming soon — for now, use the <a href="/mph-to-mps">mph to m/s</a> converter and multiply the result by 3.28084 to get ft/s.</p>
 </section>
 
 <!-- ══════════════════════════════════════—     SECTION 6: MACH NUMBER
@@ -274,7 +274,7 @@
 <section id="mach">
     <h2>6. Mach Number: When Speed Depends on Altitude</h2>
 
-    <p>Mach number is not a fixed speed — it is the ratio of an object's speed to the local speed of sound in the surrounding medium. At sea level in dry air at 15°C, Mach 1 is approximately 340 m/s, 1,224 km/h, or 761 mph. But at 35,000 feet (typical airliner cruising altitude), the air temperature is about −54°C, and the speed of sound drops to about 295 m/s (1,062 km/h, 660 mph). An airliner travelling at Mach 0.85 at 35,000 feet is doing about 250 m/s relative to the surrounding air — but its ground speed, which depends on the tailwind or headwind, can differ by ±100 km/h. This is why flight displays show both indicated airspeed (KIAS, in knots), true airspeed (KTAS, also in knots, corrected for altitude and temperature), and Mach number. Each serves a different purpose: indicated airspeed matters for aerodynamic lift (the wings care about air density, which drops with altitude), true airspeed matters for navigation (how fast you're actually moving through the air mass), and Mach number matters for structural limits (transonic shockwaves begin forming on the wing at around Mach 0.8 regardless of the numerical airspeed).</p>
+    <p>Mach number is not a fixed speed — it is the ratio of an object's speed to the local speed of sound in the surrounding medium. At sea level in dry air at 15°C, Mach 1 is approximately 340 m/s, 1,224 km/h, or 761 mph. But at 35,000 feet (typical airliner cruising altitude), the air temperature is about −54°C, and the speed of sound drops to about 295 m/s (1,062 km/h, 660 mph). An airliner traveling at Mach 0.85 at 35,000 feet is doing about 250 m/s relative to the surrounding air — but its ground speed, which depends on the tailwind or headwind, can differ by ±100 km/h. This is why flight displays show both indicated airspeed (KIAS, in knots), true airspeed (KTAS, also in knots, corrected for altitude and temperature), and Mach number. Each serves a different purpose: indicated airspeed matters for aerodynamic lift (the wings care about air density, which drops with altitude), true airspeed matters for navigation (how fast you're actually moving through the air mass), and Mach number matters for structural limits (transonic shockwaves begin forming on the wing at around Mach 0.8 regardless of the numerical airspeed).</p>
 
     <p>The speed of sound in an ideal gas is c = √(γRT), where γ is the ratio of specific heats (1.4 for dry air), R is the specific gas constant (287 J/(kg·K) for dry air), and T is the absolute temperature in Kelvin. At sea level (T = 288.15 K = 15°C): c = √(1.4 × 287 × 288.15) ≈ 340.3 m/s. At 35,000 ft (T = 218.8 K = −54.3°C): c = √(1.4 × 287 × 218.8) ≈ 296.5 m/s. The 44 m/s difference — equivalent to 158 km/h or 98 mph — is why Mach 1 is not a fixed conversion target. If you're converting Mach to km/h or mph, you must know the temperature of the air.</p>
 </section>
@@ -284,9 +284,9 @@
 <section id="conversion-chain">
     <h2>7. The Conversion Chain: Why m/s Is the Only Safe Intermediate</h2>
 
-    <p>Converting between speed units is straightforward when there's one conversion. It gets dangerous when there are several. Consider a US aerospace contractor working on a European satellite programme. The US team delivers a thruster specification in ft/s. The European prime contractor converts to mph for a safety review with UK stakeholders. A German subsystem team converts that mph number to km/h for a report to ESA. A French trajectory analyst finally converts km/h to m/s for the orbital insertion calculation. Four conversions in series. If any one of them is applied in the wrong direction or with a truncated coefficient, the error propagates through every downstream calculation. The Mars Climate Orbiter failure investigation found exactly this pattern — not one conversion error, but a chain of conversions where the accumulated rounding errors and a single direction reversal produced a 170 km altitude miss at Mars.</p>
+    <p>Converting between speed units is straightforward when there's one conversion. It gets dangerous when there are several. Consider a US aerospace contractor working on a European satellite program. The US team delivers a thruster specification in ft/s. The European prime contractor converts to mph for a safety review with UK stakeholders. A German subsystem team converts that mph number to km/h for a report to ESA. A French trajectory analyst finally converts km/h to m/s for the orbital insertion calculation. Four conversions in series. If any one of them is applied in the wrong direction or with a truncated coefficient, the error propagates through every downstream calculation. The Mars Climate Orbiter failure investigation found exactly this pattern — not one conversion error, but a chain of conversions where the accumulated rounding errors and a single direction reversal produced a 170 km altitude miss at Mars.</p>
 
-    <p>The engineering defence against this is simple and absolute: <strong>convert all speeds to m/s on ingestion, store in m/s, compute in m/s, transmit in m/s.</strong> Only the display layer — the dashboard, the pilot's airspeed indicator, the weather app — converts to the audience's preferred unit. Every intermediate subsystem works in SI. This pattern (ingest, convert, compute, display) eliminates the possibility of a conversion chain error because there is no chain. There is one conversion at the boundary, and everything inside the boundary speaks the same language.</p>
+    <p>The engineering defense against this is simple and absolute: <strong>convert all speeds to m/s on ingestion, store in m/s, compute in m/s, transmit in m/s.</strong> Only the display layer — the dashboard, the pilot's airspeed indicator, the weather app — converts to the audience's preferred unit. Every intermediate subsystem works in SI. This pattern (ingest, convert, compute, display) eliminates the possibility of a conversion chain error because there is no chain. There is one conversion at the boundary, and everything inside the boundary speaks the same language.</p>
 
     <p>The key conversion factors, in order of how often they're needed:</p>
 
@@ -318,10 +318,10 @@
     <p>The canonical unit-conversion disaster. Lockheed Martin's software reported thruster impulse in pound-force-seconds. NASA's navigation software expected newton-seconds. The factor-of-4.45 discrepancy meant every trajectory correction burn was wrong. But the failure review also identified a subtler velocity error: the spacecraft's speed estimate passed through three unit conversions (ft/s — mph — km/h — m/s) across three different subsystems built by two different contractors, and at some point a conversion was applied in the wrong direction. The accumulated 0.3 m/s velocity error over the 9-month transit to Mars produced a 170 km altitude miss. $327.6 million spacecraft destroyed by a units bug that a single-line code comment — "all speeds in m/s internal" — could have prevented.</p>
 
     <h3>Air Canada Flight 143 — The Gimli Glider (1983)</h3>
-    <p>Better known as a fuel-quantity error (pounds vs kilograms), but speed-unit confusion played a supporting role. The Boeing 767's flight management computer calculated optimal glide speed in knots, but the pilots' emergency checklists referenced indicated airspeed in mph for some procedures and knots for others. During the 17-minute glide to a decommissioned runway in Gimli, Manitoba, the crew had to mentally convert between the two while managing a total power loss. They landed successfully, but the incident investigation recommended standardising all flight-deck speed references to knots — a recommendation that took ICAO a decade to implement globally.</p>
+    <p>Better known as a fuel-quantity error (pounds vs kilograms), but speed-unit confusion played a supporting role. The Boeing 767's flight management computer calculated optimal glide speed in knots, but the pilots' emergency checklists referenced indicated airspeed in mph for some procedures and knots for others. During the 17-minute glide to a decommissioned runway in Gimli, Manitoba, the crew had to mentally convert between the two while managing a total power loss. They landed successfully, but the incident investigation recommended standardizing all flight-deck speed references to knots — a recommendation that took ICAO a decade to implement globally.</p>
 
     <h3>The 1998 Sydney-to-Hobart Yacht Race</h3>
-    <p>Six sailors died and five yachts sank when an unexpected storm hit the fleet in the Bass Strait. The Bureau of Meteorology had forecast winds of 45–55 knots (83–102 km/h). The actual winds reached 70 knots (130 km/h) with gusts to 90 knots (167 km/h). Some crews, receiving the forecast in knots but accustomed to thinking in km/h for coastal sailing, mentally underestimated the severity — 45 knots sounds less threatening than 83 km/h if you haven't internalised the conversion. The official inquiry recommended that marine weather warnings include both knots and km/h, which Australian forecasts now do.</p>
+    <p>Six sailors died and five yachts sank when an unexpected storm hit the fleet in the Bass Strait. The Bureau of Meteorology had forecast winds of 45–55 knots (83–102 km/h). The actual winds reached 70 knots (130 km/h) with gusts to 90 knots (167 km/h). Some crews, receiving the forecast in knots but accustomed to thinking in km/h for coastal sailing, mentally underestimated the severity — 45 knots sounds less threatening than 83 km/h if you haven't internalized the conversion. The official inquiry recommended that marine weather warnings include both knots and km/h, which Australian forecasts now do.</p>
 </section>
 
 <!-- ══════════════════════════════════════—     SECTION 9: EVERY SPEED CONVERTER
@@ -346,7 +346,7 @@
     </table>
     </div>
 
-    <p style="margin-top:1.5em;">Related distance converters used in speed calculations: <a href="/nautical-miles-to-km">nautical miles to km</a> · <a href="/km-to-nautical-miles">km to nautical miles</a> · <a href="/miles-to-km">miles to km</a> · <a href="/km-to-miles">km to miles</a> · <a href="/feet-to-meters">feet to metres</a> · <a href="/meters-to-feet">metres to feet</a>.</p>
+    <p style="margin-top:1.5em;">Related distance converters used in speed calculations: <a href="/nautical-miles-to-km">nautical miles to km</a> · <a href="/km-to-nautical-miles">km to nautical miles</a> · <a href="/miles-to-km">miles to km</a> · <a href="/km-to-miles">km to miles</a> · <a href="/feet-to-meters">feet to meters</a> · <a href="/meters-to-feet">meters to feet</a>.</p>
 </section>
 
         <h3>Related Guides</h3>
@@ -371,7 +371,7 @@
 
 <div class="faq-item">
 <p class="faq-q">Why does physics use m/s while road signs use km/h or mph?</p>
-<p class="faq-a">Physics uses SI base units — metres, kilograms, seconds. Every equation from F=ma to kinetic energy (½mv²) expects speed in m/s. km/h and mph exist because they're human-scale: a walking pace of 1.4 m/s is hard to visualise, but 5 km/h is instantly meaningful. The two systems coexist because one serves equations and the other serves intuition. The ÷3.6 (km/h to m/s) or ×0.44704 (mph to m/s) conversion is the bridge between them, applied at the input stage of every engineering calculation.</p>
+<p class="faq-a">Physics uses SI base units — meters, kilograms, seconds. Every equation from F=ma to kinetic energy (½mv²) expects speed in m/s. km/h and mph exist because they're human-scale: a walking pace of 1.4 m/s is hard to visualize, but 5 km/h is instantly meaningful. The two systems coexist because one serves equations and the other serves intuition. The ÷3.6 (km/h to m/s) or ×0.44704 (mph to m/s) conversion is the bridge between them, applied at the input stage of every engineering calculation.</p>
 </div>
 
 <div class="faq-item">
@@ -381,7 +381,7 @@
 
 <div class="faq-item">
 <p class="faq-q">How exact is the mph-to-m/s conversion?</p>
-<p class="faq-a">Completely exact. The 1959 International Yard and Pound Agreement defined 1 yard = 0.9144 metres exactly. A mile is 1760 yards = 1609.344 metres. Dividing by 3600 seconds per hour gives 0.44704 m/s — with no rounding. This is one of the rare imperial-to-SI conversions with zero measurement uncertainty. Every digit after the decimal is fixed by treaty, not by experiment.</p>
+<p class="faq-a">Completely exact. The 1959 International Yard and Pound Agreement defined 1 yard = 0.9144 meters exactly. A mile is 1760 yards = 1609.344 meters. Dividing by 3600 seconds per hour gives 0.44704 m/s — with no rounding. This is one of the rare imperial-to-SI conversions with zero measurement uncertainty. Every digit after the decimal is fixed by treaty, not by experiment.</p>
 </div>
 
 <div class="faq-item">
@@ -391,7 +391,7 @@
 
 <div class="faq-item">
 <p class="faq-q">What's the most common speed conversion mistake in engineering?</p>
-<p class="faq-a">Forgetting to convert km/h or mph to m/s before plugging into a physics formula. Kinetic energy scales with v², so using km/h instead of m/s produces an error of 3.6² = 12.96× (or 5× for mph). In crash reconstruction, this can mean the difference between 'driver was within the speed limit' and 'driver was travelling at a criminal speed.' The fix is simple — divide by 3.6 or multiply by 0.44704 — but it must be the first step, every time.</p>
+<p class="faq-a">Forgetting to convert km/h or mph to m/s before plugging into a physics formula. Kinetic energy scales with v², so using km/h instead of m/s produces an error of 3.6² = 12.96× (or 5× for mph). In crash reconstruction, this can mean the difference between 'driver was within the speed limit' and 'driver was traveling at a criminal speed.' The fix is simple — divide by 3.6 or multiply by 0.44704 — but it must be the first step, every time.</p>
 </div>
 
 </section>

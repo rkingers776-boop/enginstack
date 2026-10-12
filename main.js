@@ -140,7 +140,7 @@ var grpNum = function(n) {
 // ("1 acre = 4,046.8564224 square meters", "24 hours = 1 day"). Only full
 // English words are inflected, and only through this explicit pair table:
 // abbreviations must never be touched — stripping a trailing "s" off "Gbps"
-// yielded "Gbp", and off "ms" (milliseconds) would have yielded "m" (metres).
+// yielded "Gbp", and off "ms" (milliseconds) would have yielded "m" (meters).
 var UNIT_PAIRS = [
     ['acre', 'acres'], ['amp', 'amps'], ['atmosphere', 'atmospheres'],
     ['cup (US)', 'cups (US)'], ['day', 'days'], ['degree', 'degrees'],

@@ -4,7 +4,7 @@
    Analytics dashboard: analytics.google.com → Admin → Data Streams
 
    Loads for every visitor — no consent gate.
-   GA4's default IP-anonymisation is on; no personally-identifiable
+   GA4's default IP-anonymization is on; no personally-identifiable
    data is collected. A cookie-consent banner is NOT required under
    GDPR for GA4 in its default configuration (no advertising features,
    no remarketing, no Google Signals).
