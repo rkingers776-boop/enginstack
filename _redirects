@@ -47,6 +47,11 @@
 /.wrangler/* / 301
 /__pycache__/* / 301
 
+# ── Root index: /index.html 直达 /（省掉 301 → 308 两跳）────────────────
+# 下面的 /*.html 通配会把 /index.html 送去 /index，再由 Pages 自身 308 收敛到 /，
+# 白跑一次跳转、浪费爬取预算。静态精确规则的优先级高于动态通配，此处直达。
+/index.html / 301
+
 # ── Force .html → clean URL (301 permanent redirect) ─────────────────────
 # Single-segment + nested: /*.html already catches everything including /guides/*.html
 /*.html /:splat 301
