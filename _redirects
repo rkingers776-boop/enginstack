@@ -36,6 +36,7 @@
 /data-storage-devto.md / 301
 /year-2038-devto.md / 301
 /.gitignore / 301
+/.gitattributes / 301
 
 # 内部目录的根路径（目录本身无索引，但显式兜住更稳）
 /.git / 301
