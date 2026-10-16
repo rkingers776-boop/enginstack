@@ -1,6 +1,6 @@
 # EnginStack
 
-> Engineering unit converters built on verified international metrology constants. 269 precision unit converters across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 37 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
+> Engineering unit converters built on verified international metrology constants. 269 precision unit converters across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 38 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
 
 ## Converters by category
 
@@ -36,6 +36,7 @@
 - [Flow Rate Conversion Guide](https://enginstack.com/guides/flow-rate-conversion-guide): L/min, GPM, m³/h, CFM, L/s — the five dialects of moving fluid
 - [Electric Conversion Guide](https://enginstack.com/guides/electric-conversion-guide): Ohm's & Watt's laws, dBm, AWG wire gauge
 - [How to Convert Units](https://enginstack.com/guides/how-to-convert-units): the factor-label method, and the five conversions where a multiplier does not exist
+- [AWG Wire Gauge Chart](https://enginstack.com/guides/awg-wire-gauge-chart): every gauge from 4/0 to 40 in inches, millimeters and mm², derived from the defining formula rather than copied from a table
 - [Drill Bit Size Chart](https://enginstack.com/guides/drill-bit-size-chart): fractional, number, letter and metric drill sizes in inches and mm, with the exact value behind every fractional size
 - [Sheet Metal Gauge Chart](https://enginstack.com/guides/sheet-metal-gauge-chart): gauge to mm for five metals, with the weight basis, the geometric scale and the fractions ladder each traced to its standard
 - [Unit Conversion Chart](https://enginstack.com/guides/unit-conversion-chart): every exact conversion factor, marked exact by definition or adopted by convention
@@ -67,4 +68,4 @@
 
 - [About EnginStack](https://enginstack.com/about): mission and methodology — every constant verified against NIST SP 811 and BIPM
 - [All converters index](https://enginstack.com/): full category grid
-- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (331 pages)
+- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (332 pages)
