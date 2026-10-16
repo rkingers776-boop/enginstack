@@ -3,14 +3,14 @@
 
 <!-- ═══════════ Root Pages ═══════════ -->
 <url><loc>https://enginstack.com/</loc><lastmod>2026-10-12</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-<url><loc>https://enginstack.com/about</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://enginstack.com/about</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://enginstack.com/privacy</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
 <url><loc>https://enginstack.com/contact</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
 
 <url><loc>https://enginstack.com/methodology</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://enginstack.com/corrections</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 <!-- ═══════════ Guide Hub ═══════════ -->
-<url><loc>https://enginstack.com/guides/</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/guides/</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 <!-- ═══════════ Category Hub Pages (new) ═══════════ -->
 <url><loc>https://enginstack.com/length/</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -31,12 +31,12 @@
 
 <!-- ═══════════ Pillar Guides ═══════════ -->
 <url><loc>https://enginstack.com/guides/awg-wire-gauge-chart</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://enginstack.com/guides/drill-bit-size-chart</loc><lastmod>2026-10-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://enginstack.com/guides/sheet-metal-gauge-chart</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://enginstack.com/guides/unit-conversion-chart</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://enginstack.com/guides/how-to-convert-units</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/guides/drill-bit-size-chart</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/guides/sheet-metal-gauge-chart</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/guides/unit-conversion-chart</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/guides/how-to-convert-units</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/guides/engineering-unit-conversion-mistakes</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-<url><loc>https://enginstack.com/guides/length-conversion-guide</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/guides/length-conversion-guide</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/guides/area-conversion-guide</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://enginstack.com/guides/angle-conversion-guide</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://enginstack.com/guides/fuel-economy-conversion-guide</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -101,8 +101,8 @@
 <url><loc>https://enginstack.com/watts-to-dbm</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/dbm-to-mw</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/mw-to-dbm</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://enginstack.com/awg-to-mm2</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://enginstack.com/mm2-to-awg</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/awg-to-mm2</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/mm2-to-awg</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/ohms-to-amps</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/amps-to-ohms</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/kva-to-kw</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -110,7 +110,7 @@
 <url><loc>https://enginstack.com/power-factor</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/watt-hours-to-amp-hours</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/amp-hours-to-watt-hours</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://enginstack.com/voltage-drop</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/voltage-drop</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/btu-to-joules</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/joules-to-btu</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/mmhg-to-kpa</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -143,7 +143,7 @@
 <url><loc>https://enginstack.com/lb-in3-to-g-cm3</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/guides/density-conversion-guide</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://enginstack.com/guides/flow-rate-conversion-guide</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://enginstack.com/guides/electric-conversion-guide</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://enginstack.com/guides/electric-conversion-guide</loc><lastmod>2026-10-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://enginstack.com/guides/the-1893-photocopy</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://enginstack.com/guides/the-1975-metric-conversion-act</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://enginstack.com/guides/year-2038-problem</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -187,7 +187,7 @@
 <url><loc>https://enginstack.com/kelvin-to-celsius</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
 <!-- ═══════════ Tier 2: High Search Volume ═══════════ -->
-<url><loc>https://enginstack.com/inches-to-mm</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/inches-to-mm</loc><lastmod>2026-10-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/mm-to-inches</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/cm-to-mm</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/mm-to-cm</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
