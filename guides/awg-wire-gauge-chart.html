@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="© 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>AWG Wire Gauge Chart: Diameter, Cross-Section and the Rounding Rule | EnginStack</title>
+    <meta name="description" content="Complete AWG wire gauge chart from 4/0 to 40 with diameter in inches and millimeters and cross-section in mm², every figure computed from the defining formula rather than copied from a table, and the rounding decision that makes four published charts disagree.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/awg-wire-gauge-chart">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/awg-wire-gauge-chart">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/awg-wire-gauge-chart">
+    <meta property="og:title" content="AWG Wire Gauge Chart: Diameter, Cross-Section and the Rounding Rule | EnginStack">
+    <meta property="og:description" content="Every AWG size from 4/0 to 40 in inches, millimeters and mm², derived from the gauge formula rather than copied, with the reason two correct charts disagree in the third decimal place.">
+    <meta property="og:url" content="https://enginstack.com/guides/awg-wire-gauge-chart">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AWG Wire Gauge Chart: Diameter, Cross-Section and the Rounding Rule",
+  "description": "An AWG wire gauge chart covering 4/0 to 40 with diameter in inches and millimeters, cross-section in mm² and area in circular mils, computed from the defining formula, together with the metric conductor comparison and the rounding rule behind conflicting published values.",
+  "author": { "@type": "Organization", "name": "EnginStack" },
+  "publisher": { "@type": "Organization", "name": "EnginStack" },
+  "url": "https://enginstack.com/guides/awg-wire-gauge-chart",
+  "datePublished": "2026-10-17",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://enginstack.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "AWG Wire Gauge Chart", "item": "https://enginstack.com/guides/awg-wire-gauge-chart" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does AWG actually measure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AWG measures the diameter of a solid round conductor, not its area and not its current rating. Each gauge number maps to one diameter through the defining formula, and the number runs backwards from intuition: a larger AWG number is a thinner wire. 4/0, the largest common size, is 0.4600 inch across, while 36 AWG is 0.0050 inch and 40 AWG is 0.0031 inch. The system is American, it is still the standard for building wire in the United States, and it applies to any conductive material, not to copper alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is AWG the opposite of every other size scale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the number counts drawing passes rather than size. In the wire mills that gave the gauge its scale, a rod was pulled through successively finer dies, and each additional pass made the wire thinner. The number of passes therefore grew as the wire shrank, and the convention stuck. The same inversion survives in modern drill and sheet gauges. It is the single most common misreading of the table: 30 AWG is a hair-thin signal wire and 4/0 AWG is a service-entrance conductor, even though thirty looks like the bigger number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AWG the same as mm²?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and the two are not interchangeable. AWG is defined by diameter, while the metric conductor sizes in IEC 60228 are defined by cross-sectional area, and area is a second-order quantity: it grows with the square of the diameter. So a wire designated 12 AWG has a cross-section of about 3.309 mm², which sits between the metric 2.5 mm² and 4 mm² sizes and is equivalent to neither. A common shorthand treats 12 AWG as \"the 4 mm² equivalent,\" which is close enough for a rough ampacity comparison and wrong for anything that depends on the actual cross-section, including voltage drop and resistance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do two AWG charts show different millimeter values for the same gauge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because they round at different points in the chain. The defining formula produces a diameter with far more digits than any chart prints, and each chart decides where to cut it. Converting from the unrounded formula value gives one millimeter figure, while converting from a diameter already rounded to four decimal places gives another. For 12 AWG the formula gives 2.053 mm and the printed four-decimal value gives 2.052 mm. Both are correct readings of the same wire, and the difference of one thousandth of a millimeter has no practical consequence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I read ampacity straight off an AWG chart?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only as a rough guideline, and never as a compliance figure. Ampacity depends on the insulation temperature rating, the ambient temperature, how many conductors are bundled together, and whether they run in free air or inside a conduit, so no single number can be derived from the diameter alone. That is why the National Electrical Code publishes ampacity as a table rather than a formula. The quantities on this page, diameter, cross-section and area in circular mils, are the ones the geometry fixes exactly; current capacity is a separate engineering decision."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">AWG Wire Gauge Chart</span></nav>
+
+        <header class="page-header">
+            <h1>AWG Wire Gauge Chart: Diameter in Inches and Millimeters, Cross-Section in mm², and the Formula Behind Every Size</h1>
+            <p>American Wire Gauge looks like a lookup table, and almost every chart on the web treats it as one. It is actually a single formula, and the table is only that formula rounded to whatever number of digits a particular publisher chose. This page computes all forty-four sizes from the formula, states the rounding rule it uses, and explains why four published charts can give four different millimeter values for one wire without any of them being wrong.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="seo-section guide-content">
+            <nav class="guide-toc" aria-label="Table of contents">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#backwards">What AWG Measures, and Why the Numbers Run Backwards</a></li>
+                    <li><a href="#formula">The AWG Formula, Not the AWG Table</a></li>
+                    <li><a href="#chart">Complete AWG Chart, 4/0 to 40</a></li>
+                    <li><a href="#rounding">Why One Gauge Has Several Millimeter Figures</a></li>
+                    <li><a href="#area">Cross-Section Is Not a Direct Conversion</a></li>
+                    <li><a href="#metric">AWG Against Metric Conductor Sizes</a></li>
+                    <li><a href="#ampacity">Why Ampacity Is Not in This Table</a></li>
+                    <li><a href="#drawing">Specifying Wire Size on a Drawing</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </nav>
+
+            <section id="backwards">
+                <h2>1. What AWG Measures, and Why the Numbers Run Backwards</h2>
+                <p>American Wire Gauge is a standard for the diameter of a solid round conductor. It says nothing about insulation, nothing about stranding and nothing about how much current a wire can carry. It fixes one geometric quantity, the diameter of the metal itself, and from that single number almost everything else about the conductor follows.</p>
+                <p>The first surprise is the direction of the scale. A larger AWG number is a thinner wire. 4/0, the largest size in ordinary use, is 0.4600 inch across; 40 AWG, the smallest listed here, is 0.0031 inch. Between those two extremes the diameter falls by a factor of about 146.286, and it falls continuously, with no gap anywhere in the sequence.</p>
+                <p>The inversion is a historical accident that is worth knowing because it explains why the same trap keeps reappearing. The gauge grew out of the wire-drawing trade, where a metal rod is pulled through successively finer dies. Each pass makes the wire thinner. The number recorded was not the size of the wire but the number of passes it had taken, so a wire that had been drawn more times was thinner and carried a larger number. The convention hardened into a standard before anyone had reason to prefer a scale that ran the intuitive way.</p>
+                <p>The same inversion survives in two neighbouring trades, which is why this page sits alongside two others on the site. Sheet metal gauge numbers also rise as the metal gets thinner, and drill number sizes also rise as the drill gets smaller. All three are legacy scales of the same shape, and all three cause the same class of error.</p>
+
+                <h3>The sizes above the ones that have numbers</h3>
+                <p>Above 1 AWG the scale does not continue into 0, −1 and −2. It uses zeros: 1/0, 2/0, 3/0 and 4/0, spoken as one aught, two aught, and so on. 1/0 is larger than 1, 2/0 is larger than 1/0, and 4/0 is the largest of the four. For calculation the sequence is treated as 0, −1, −2 and −3, which makes the formula continuous across the boundary, and that is the convention this page uses internally.</p>
+                <p>Two limitations are worth stating before the tables. The gauge is defined for a solid round conductor, and a stranded cable carrying the same AWG number is named for its equivalent cross-section rather than its outer diameter. A stranded conductor of a given AWG therefore has a larger overall diameter than a solid one, because the spaces between the strands count toward nothing. And AWG is not the only wire gauge in history: the British Standard Wire Gauge and the Birmingham Wire Gauge use the same numbers for different sizes, so a bare figure quoted without its system is meaningless.</p>
+            </section>
+
+            <section id="formula">
+                <h2>2. The AWG Formula, Not the AWG Table</h2>
+                <p>The most useful fact about AWG is that it is not a table at all. The diameter of every size is fixed by one expression:</p>
+                <p class="example-box"><strong>d = 0.005 × 92<sup>(36 − n) / 39</sup> inch</strong>, where n is the gauge number and the sizes above 1 are counted as 0, −1, −2 and −3.</p>
+                <p>Read the formula and the whole scale becomes visible. Two anchor points set it. At n = 36 the exponent is zero, so the diameter is exactly 0.005 inch, which is 0.127 mm. At n = −3, the 4/0 size, the exponent is one and the diameter is 0.005 × 92, or 0.4600 inch. Everything between the anchors is an exponential interpolation in thirty-nine equal steps, and this is why the diameters on any chart look arbitrary: they are the values of a power law, printed to four decimals.</p>
+                <p>The base of that power law is the thirty-ninth root of 92, which is 1.12293. That figure is the ratio between one gauge size and the next. Take a wire one gauge smaller and its diameter is multiplied by 1.12293; take one that is six gauges smaller and the factor is 2.00503, which is close enough to two that the rule of thumb survives in every electrician's memory. Halving or doubling the diameter takes about six gauge steps, and the same relation holds in reverse going the other way.</p>
+                <p>Because cross-section grows with the square of the diameter, the same step has twice the effect on area. One gauge step changes the cross-section by a factor of about 1.26, and three gauge steps change it by 2.00503, very nearly two. This is the second rule of thumb, that doubling the cross-section takes three gauge steps, and it is the reason a three-step change roughly halves the resistance while a six-step change cuts it to about a quarter.</p>
+
+                <h3>The scale from the other direction</h3>
+                <p>The formula inverts cleanly, which is what makes a gauge-to-diameter converter possible at all. Rearranged, the gauge number is 36 minus thirty-nine times the logarithm of the diameter in inches divided by 0.005, divided by the logarithm of 92. In practice nobody does that by hand; the site has an <a href="/awg-to-mm2">AWG to mm² converter</a> and the reverse <a href="/mm2-to-awg">mm² to AWG converter</a> for the arithmetic. What matters here is the consequence: because one expression covers the whole range, a chart that lists forty-four sizes has forty-four chances to misprint one of them, while the formula has no such exposure.</p>
+                <p>This page therefore computes rather than copies. Every diameter in the tables below is the formula evaluated at that gauge number, rounded to four decimal places. The result was then checked against the tabulated values of three independent publishers, and the check is reported honestly in the fourth section: the formula and the published tables agree on all forty-four sizes from 4/0 to 40 except one.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>Moving to a smaller gauge by</th>
+<th>Diameter becomes</th>
+<th>Cross-section becomes</th>
+</tr></thead>
+<tbody>
+<tr><td>1 gauge step smaller</td><td>1.12293 ×</td><td>1.26098 ×</td></tr>
+<tr><td>3 gauge steps smaller</td><td>1.41599 ×</td><td>2.00503 ×</td></tr>
+<tr><td>6 gauge steps smaller</td><td>2.00503 ×</td><td>4.02015 ×</td></tr>
+</tbody>
+</table>
+</div>
+                <p>One caution about the ratios above. They are the exact values, not the rounded thumb rules. Six gauge steps multiply the diameter by 2.00503, not by exactly 2, and three steps multiply the area by 2.00503. The difference is small enough to ignore when choosing a wire and large enough to matter when the arithmetic is the point of the exercise, which is why this page states the exact factors and calls the round ones approximations.</p>
+            </section>
+
+            <section id="chart">
+                <h2>3. Complete AWG Chart, 4/0 to 40</h2>
+                <p>The chart below covers the full range from 4/0, the largest size normally stocked, down to 40 AWG, the smallest used for ordinary hookup wire. Four columns are given: the gauge number, the diameter in inches to four decimals, the diameter in millimeters to three decimals, and the cross-section in square millimeters to four significant figures. The cross-section is computed from the exact diameter, so it is consistent with the columns to its left rather than rounded independently.</p>
+                <p>The large sizes come first because they are the ones a chart is most often consulted for, and because they are the ones whose numbers are hardest to remember.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>AWG</th>
+<th>Diameter (in)</th>
+<th>Diameter (mm)</th>
+<th>Cross-section (mm²)</th>
+<th>Area (cmil)</th>
+</tr></thead>
+<tbody>
+<tr><td>4/0</td><td>0.4600</td><td>11.684</td><td>107.2</td><td>211600</td></tr>
+<tr><td>3/0</td><td>0.4096</td><td>10.405</td><td>85.03</td><td>167800</td></tr>
+<tr><td>2/0</td><td>0.3648</td><td>9.266</td><td>67.43</td><td>133100</td></tr>
+<tr><td>1/0</td><td>0.3249</td><td>8.251</td><td>53.48</td><td>105500</td></tr>
+</tbody>
+</table>
+</div>
+                <p>The prefix convention deserves one more note here. 4/0, 3/0, 2/0 and 1/0 are also written 0000, 000, 00 and 0, and the two notations appear interchangeably in catalogs, which is a reliable source of ordering mistakes. If a specification lists 1/0 and a supplier quotes 0, they are describing the same conductor only if the supplier is using the four-zero convention; otherwise 0 means 1/0 in one notation and something smaller in the other. Where an order matters, spell out the section in square millimeters as well.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>AWG</th>
+<th>Diameter (in)</th>
+<th>Diameter (mm)</th>
+<th>Cross-section (mm²)</th>
+<th>Area (cmil)</th>
+</tr></thead>
+<tbody>
+<tr><td>1</td><td>0.2893</td><td>7.348</td><td>42.41</td><td>83690</td></tr>
+<tr><td>2</td><td>0.2576</td><td>6.544</td><td>33.63</td><td>66370</td></tr>
+<tr><td>3</td><td>0.2294</td><td>5.827</td><td>26.67</td><td>52630</td></tr>
+<tr><td>4</td><td>0.2043</td><td>5.189</td><td>21.15</td><td>41740</td></tr>
+<tr><td>5</td><td>0.1819</td><td>4.621</td><td>16.77</td><td>33100</td></tr>
+<tr><td>6</td><td>0.1620</td><td>4.115</td><td>13.3</td><td>26250</td></tr>
+<tr><td>7</td><td>0.1443</td><td>3.665</td><td>10.55</td><td>20820</td></tr>
+<tr><td>8</td><td>0.1285</td><td>3.264</td><td>8.366</td><td>16510</td></tr>
+<tr><td>9</td><td>0.1144</td><td>2.906</td><td>6.634</td><td>13090</td></tr>
+<tr><td>10</td><td>0.1019</td><td>2.588</td><td>5.261</td><td>10380</td></tr>
+<tr><td>11</td><td>0.0907</td><td>2.305</td><td>4.172</td><td>8234</td></tr>
+<tr><td>12</td><td>0.0808</td><td>2.053</td><td>3.309</td><td>6530</td></tr>
+<tr><td>13</td><td>0.0720</td><td>1.828</td><td>2.624</td><td>5178</td></tr>
+<tr><td>14</td><td>0.0641</td><td>1.628</td><td>2.081</td><td>4107</td></tr>
+<tr><td>15</td><td>0.0571</td><td>1.450</td><td>1.65</td><td>3257</td></tr>
+<tr><td>16</td><td>0.0508</td><td>1.291</td><td>1.309</td><td>2583</td></tr>
+<tr><td>17</td><td>0.0453</td><td>1.150</td><td>1.038</td><td>2048</td></tr>
+<tr><td>18</td><td>0.0403</td><td>1.024</td><td>0.823</td><td>1624</td></tr>
+<tr><td>19</td><td>0.0359</td><td>0.912</td><td>0.6527</td><td>1288</td></tr>
+<tr><td>20</td><td>0.0320</td><td>0.812</td><td>0.5176</td><td>1022</td></tr>
+<tr><td>21</td><td>0.0285</td><td>0.723</td><td>0.4105</td><td>810.1</td></tr>
+<tr><td>22</td><td>0.0253</td><td>0.644</td><td>0.3255</td><td>642.4</td></tr>
+<tr><td>23</td><td>0.0226</td><td>0.573</td><td>0.2582</td><td>509.5</td></tr>
+<tr><td>24</td><td>0.0201</td><td>0.511</td><td>0.2047</td><td>404</td></tr>
+<tr><td>25</td><td>0.0179</td><td>0.455</td><td>0.1624</td><td>320.4</td></tr>
+<tr><td>26</td><td>0.0159</td><td>0.405</td><td>0.1288</td><td>254.1</td></tr>
+<tr><td>27</td><td>0.0142</td><td>0.361</td><td>0.1021</td><td>201.5</td></tr>
+<tr><td>28</td><td>0.0126</td><td>0.321</td><td>0.08098</td><td>159.8</td></tr>
+<tr><td>29</td><td>0.0113</td><td>0.286</td><td>0.06422</td><td>126.7</td></tr>
+<tr><td>30</td><td>0.0100</td><td>0.255</td><td>0.05093</td><td>100.5</td></tr>
+<tr><td>31</td><td>0.0089</td><td>0.227</td><td>0.04039</td><td>79.7</td></tr>
+<tr><td>32</td><td>0.0080</td><td>0.202</td><td>0.03203</td><td>63.21</td></tr>
+<tr><td>33</td><td>0.0071</td><td>0.180</td><td>0.0254</td><td>50.13</td></tr>
+<tr><td>34</td><td>0.0063</td><td>0.160</td><td>0.02014</td><td>39.75</td></tr>
+<tr><td>35</td><td>0.0056</td><td>0.143</td><td>0.01597</td><td>31.52</td></tr>
+<tr><td>36</td><td>0.0050</td><td>0.127</td><td>0.01267</td><td>25</td></tr>
+<tr><td>37</td><td>0.0045</td><td>0.113</td><td>0.01005</td><td>19.83</td></tr>
+<tr><td>38</td><td>0.0040</td><td>0.101</td><td>0.007967</td><td>15.72</td></tr>
+<tr><td>39</td><td>0.0035</td><td>0.090</td><td>0.006318</td><td>12.47</td></tr>
+<tr><td>40</td><td>0.0031</td><td>0.080</td><td>0.00501</td><td>9.888</td></tr>
+</tbody>
+</table>
+</div>
+                <p>The millimeter column is derived from the exact formula value, not from the four-decimal inch figure printed beside it. That choice is the subject of the next section, and it is the single most common reason two correct charts appear to disagree.</p>
+            </section>
+
+            <section id="rounding">
+                <h2>4. Why One Gauge Has Several Millimeter Figures</h2>
+                <p>Put four published AWG charts side by side and the millimeter column will not match from one to the next. This is not because one of them is wrong. It is because the formula produces a diameter with an infinite decimal expansion, every chart has to cut it somewhere, and different charts cut it at different places and then convert from what they printed.</p>
+                <p>Take 12 AWG, a household wiring size. The formula gives a diameter of 0.080808086 inch. A chart that converts that unrounded figure gets 2.053 mm. A chart that first rounds the diameter to four decimals, which is the convention of the standard table, gets 0.0808 inch, and converting that gives 2.052 mm. A chart that prints three decimals instead gets a larger error still, and a chart that converts from a two-decimal figure can be off by several hundredths of a millimeter. The same wire, four defensible readings, one decimal place apart.</p>
+                <p><strong>This page converts the exact formula value and never the printed one.</strong> The rule is the same one the site applies to fractional drill sizes: a printed figure is a lossy representation of a real quantity, and converting a rounded number compounds one rounding with another. There are 24 sizes in the table above where the two orders give different millimeter figures. The common ones are shown below.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>AWG</th>
+<th>Exact diameter (in)</th>
+<th>Printed diameter (in)</th>
+<th>mm from exact value</th>
+<th>mm from printed value</th>
+</tr></thead>
+<tbody>
+<tr><td>3/0</td><td>0.409641830</td><td>0.4096</td><td>10.405</td><td>10.404</td></tr>
+<tr><td>1/0</td><td>0.324860740</td><td>0.3249</td><td>8.251</td><td>8.252</td></tr>
+<tr><td>2</td><td>0.257626279</td><td>0.2576</td><td>6.544</td><td>6.543</td></tr>
+<tr><td>11</td><td>0.090742002</td><td>0.0907</td><td>2.305</td><td>2.304</td></tr>
+<tr><td>12</td><td>0.080808086</td><td>0.0808</td><td>2.053</td><td>2.052</td></tr>
+<tr><td>13</td><td>0.071961679</td><td>0.0720</td><td>1.828</td><td>1.829</td></tr>
+<tr><td>16</td><td>0.050820705</td><td>0.0508</td><td>1.291</td><td>1.290</td></tr>
+<tr><td>20</td><td>0.031961456</td><td>0.0320</td><td>0.812</td><td>0.813</td></tr>
+<tr><td>22</td><td>0.025346587</td><td>0.0253</td><td>0.644</td><td>0.643</td></tr>
+</tbody>
+</table>
+</div>
+                <p>Every difference in that table is one or two thousandths of a millimeter, which is immaterial for any practical purpose. The reason to understand the mechanism is diagnostic. If a chart you are checking differs from this one by one or two thousandths on a millimeter figure, it has rounded in the other order and is perfectly sound. If it differs by more than that, it has either cut the diameter too coarsely or made an arithmetic slip.</p>
+
+                <h3>The one row where the inch figure itself disagrees</h3>
+                <p>Rounding order explains disagreement in the millimeter column. It does not explain disagreement in the inch column, because the inch figure is what the standard tabulates. Where two charts disagree on the inch figure, one of them is simply wrong, and 22 AWG is the case that makes the point.</p>
+                <p>The formula gives 22 AWG a diameter of 0.025346587 inch, which rounds to 0.0253 inch at four decimals. Two of the three published charts checked for this page print 0.0253. The third prints 0.0254, which is 0.0254 inch, a figure the formula does not support and the other two charts do not carry. It is a transcription slip of one digit rather than a competing convention, and it is worth knowing about because 22 AWG is common telephone and signal wire, so the figure gets copied onward.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>AWG</th>
+<th>Formula value (in)</th>
+<th>Rounded to 4 dp (in)</th>
+<th>Printed by Engineering ToolBox (in)</th>
+<th>Verdict</th>
+</tr></thead>
+<tbody>
+<tr><td>22</td><td>0.025346587</td><td>0.0253</td><td>0.0254</td><td>transcription slip</td></tr>
+</tbody>
+</table>
+</div>
+                <p>The practical test generalizes: a difference in the millimeter column of one or two thousandths is a rounding convention and can be ignored, while a difference in the inch column at four decimals is a typo. Since the standard tabulates four decimal places, there is no legitimate reason for two charts to differ there at all.</p>
+            </section>
+
+            <section id="area">
+                <h2>5. Cross-Section Is Not a Direct Conversion</h2>
+                <p>Gauge describes diameter, but almost every electrical decision is made on cross-section. Resistance is inversely proportional to area, voltage drop goes with it, and current capacity rises with it. The step from one to the other is the area of a circle, π/4 times the diameter squared, and the fact that it is squared is what makes the conversion less forgiving than it looks.</p>
+                <p>The consequence is that a small error in the diameter becomes about twice as large an error in the area. A one per cent error in the diameter produces a two per cent error in the cross-section, and a chart that carries a diameter to only three decimals is carrying an area that is wrong in the fourth. The four-significant-figure area column on this page is computed from the unrounded formula diameter for exactly that reason, and the difference is visible wherever the exact and the printed diameters fall on opposite sides of a rounding boundary.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>AWG</th>
+<th>Exact diameter (in)</th>
+<th>mm² from exact diameter</th>
+<th>mm² from printed diameter</th>
+<th>Published charts round differently</th>
+</tr></thead>
+<tbody>
+<tr><td>4</td><td>0.204306928</td><td>21.15</td><td>21.15</td><td>—</td></tr>
+<tr><td>6</td><td>0.162022760</td><td>13.3</td><td>13.3</td><td>—</td></tr>
+<tr><td>8</td><td>0.128489890</td><td>8.366</td><td>8.367</td><td>8.37</td></tr>
+<tr><td>10</td><td>0.101897115</td><td>5.261</td><td>5.261</td><td>—</td></tr>
+<tr><td>12</td><td>0.080808086</td><td>3.309</td><td>3.308</td><td>—</td></tr>
+<tr><td>18</td><td>0.040302651</td><td>0.823</td><td>0.8229</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+                <p>Take 8 AWG, the size at the top of that table. Computed from the exact formula diameter it has a cross-section of 8.366 mm². Computed from the four-decimal diameter the standard tabulates, it comes to 8.367 mm². Published charts show 8.366, 8.367, 8.37 and 8.36 for the same size, and all four are readings of the same conductor through different rounding chains. The span across the whole table is about a thousandth of a square millimeter on a household size, but on a small conductor the same relative error is a larger share of the total.</p>
+                <p>Two more quantities belong to this section because they are pure functions of the diameter. Area in circular mils, the unit North American practice still uses for conductor sizing and voltage drop, is the diameter in thousandths of an inch squared, so it needs no π and no conversion factor at all. And the area in square inches is simply the circular-mil figure times π/4 divided by a million. Both are on the chart above so that neither has to be computed from the other.</p>
+                <p>The area figures are the ones to carry into a calculation and the gauge number is the one to carry into a catalog. Where an electrical calculation depends on the cross-section, converting the gauge to an area and then using that area is one step safer than using an area quoted on a chart, because a quoted area has usually been rounded twice.</p>
+            </section>
+
+            <section id="metric">
+                <h2>6. AWG Against Metric Conductor Sizes</h2>
+                <p>The metric alternative to AWG is not another gauge, it is a list of cross-sectional areas. IEC 60228 defines the standard conductor sizes used across most of the world, and they run 0.5, 0.75, 1.0, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50 and upward in square millimeters. A European datasheet names the size outright, where an American one names a gauge that has to be looked up, and the two systems meet only approximately.</p>
+                <p>The table below takes a range of common AWG sizes, computes their exact cross-sections and places each beside the closest IEC size. Read it as a comparison, not as a substitution table: the ratio column shows how far apart the two actually are, and on the small sizes the nearest metric conductor is often several per cent away in area.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>AWG</th>
+<th>Cross-section (mm²)</th>
+<th>Nearest IEC 60228 size (mm²)</th>
+<th>Ratio of AWG area to that size</th>
+</tr></thead>
+<tbody>
+<tr><td>1/0</td><td>53.48</td><td>50</td><td>1.070</td></tr>
+<tr><td>1</td><td>42.41</td><td>35</td><td>1.212</td></tr>
+<tr><td>2</td><td>33.63</td><td>35</td><td>0.961</td></tr>
+<tr><td>4</td><td>21.15</td><td>25</td><td>0.846</td></tr>
+<tr><td>6</td><td>13.3</td><td>16</td><td>0.831</td></tr>
+<tr><td>8</td><td>8.366</td><td>10</td><td>0.837</td></tr>
+<tr><td>10</td><td>5.261</td><td>6</td><td>0.877</td></tr>
+<tr><td>12</td><td>3.309</td><td>4</td><td>0.827</td></tr>
+<tr><td>14</td><td>2.081</td><td>2.5</td><td>0.832</td></tr>
+<tr><td>16</td><td>1.309</td><td>1.5</td><td>0.872</td></tr>
+<tr><td>18</td><td>0.823</td><td>0.75</td><td>1.097</td></tr>
+<tr><td>20</td><td>0.5176</td><td>0.5</td><td>1.035</td></tr>
+<tr><td>22</td><td>0.3255</td><td>0.5</td><td>0.651</td></tr>
+<tr><td>24</td><td>0.2047</td><td>0.5</td><td>0.409</td></tr>
+</tbody>
+</table>
+</div>
+                <p>The practical traps follow from that last column. 12 AWG is routinely described as the equivalent of 4 mm², and 3.309 mm² against 4 mm² is a difference of the order of a fifth, which is tolerable for a rough comparison of current capacity and not tolerable where the cross-section enters a calculation directly. 8 AWG at 8.366 mm² is usually matched to 10 mm² for the same reason and with the same caveat. And there is no metric size at all close to 22 AWG, whose 0.3255 mm² sits far below the smallest standard metric conductor, which is why fine signal wire is quoted in AWG almost everywhere.</p>
+                <p>The safe habit is to keep the two systems apart. If a drawing is in millimeters, order the metric size the drawing names. If it is in AWG, use the gauge and take the area from the same source you took the gauge from. Bridging the two on the shop floor, by substituting whichever conductor is on the shelf, is the classic silent error: the wire fits, the circuit works, and the voltage drop is wrong by more than the design allowed.</p>
+            </section>
+
+            <section id="ampacity">
+                <h2>7. Why Ampacity Is Not in This Table</h2>
+                <p>Ampacity, the current a conductor can carry continuously without exceeding its temperature limit, is the figure most people come to an AWG chart to find, and it is deliberately absent from this page. The reason is not that it is unimportant but that it is not a property of the gauge.</p>
+                <p>The current a wire can carry depends on how hot it is allowed to get and on how fast it can shed heat, and neither is fixed by the diameter. The insulation rating sets the temperature ceiling: the same 12 AWG copper carries appreciably more current under a 90 °C insulation than under a 60 °C one. The ambient temperature sets how much margin is left. The installation method sets how well the heat escapes, so a conductor in free air carries more than the same conductor in a conduit, and a bundle of conductors carries less per conductor than a single one. Every one of those factors changes the answer, and none of them appears in the gauge formula.</p>
+                <p>That is why the National Electrical Code publishes ampacity as a table rather than an equation, and why the table is indexed by insulation type and installation method as well as by conductor size. Any single ampacity figure quoted against a gauge number is an approximation resting on unstated assumptions about insulation and installation, and the assumptions are usually invisible to the reader.</p>
+                <p>What the geometry does fix exactly is the direct-current resistance, because resistance is the resistivity of the material divided by the cross-section. Copper at 20 °C has a resistivity of about 0.0172 microhm-meter, and dividing that by the exact cross-section gives the resistance of any gauge to as many digits as the area is known. That is why the geometry is worth computing precisely even though ampacity is not: resistance, voltage drop and power loss all come straight from the area, and they are the quantities an electrical calculation actually needs.</p>
+                <p>The site's <a href="/voltage-drop">voltage drop calculator</a> takes the gauge and the run length and does that arithmetic, and the <a href="/guides/electric-conversion-guide">electric conversion guide</a> covers the rest of the electrical quantities that follow from it. Where a job falls under the National Electrical Code, the ampacity column has to come from the code table rather than from a chart like this one.</p>
+            </section>
+
+            <section id="drawing">
+                <h2>8. Specifying Wire Size on a Drawing</h2>
+                <p>The habit that prevents most gauge errors is the same one that applies to every legacy unit: specify by the quantity that has one meaning, and treat the legacy label as a convenience. On a drawing that means the gauge number, the cross-section and the material, in that order of prominence.</p>
+                <ul>
+                    <li>Give the gauge and the cross-section together, and give the cross-section in square millimeters where the document may be read outside North America. The gauge alone is ambiguous between AWG and the older British gauges, and the cross-section is unambiguous.</li>
+                    <li>Do not bridge the two systems by substitution. A metric drawing calls for a metric conductor; substituting the nearest AWG size changes the area, and the change is invisible once the wire is in the conduit.</li>
+                    <li>State whether the conductor is solid or stranded. The AWG number describes the equivalent cross-section either way, but the overall diameter and the bend radius do not follow from it for a stranded cable.</li>
+                    <li>Keep the resistance calculation on the exact area rather than on a chart figure, and state the temperature the resistance is quoted at. Copper resistance rises with temperature, so a figure quoted at 20 °C understates the loss in a warm installation.</li>
+                </ul>
+                <p>For the general method behind converting any of these figures, and for the families where a factor does not exist at all, see <a href="/guides/how-to-convert-units">How to Convert Units</a>. For exact factors across every category, the <a href="/guides/unit-conversion-chart">unit conversion chart</a> collects them in one place. The two neighbouring legacy gauges have their own pages: the <a href="/guides/sheet-metal-gauge-chart">sheet metal gauge chart</a> for the thickness scale used on sheet and plate, and the <a href="/guides/drill-bit-size-chart">drill bit size chart</a> for the number and letter series, which faces the same rounding question in a different form. And because a gauge is reduced to a length before anything else, the <a href="/guides/length-conversion-guide">length conversion guide</a> covers the unit it lands in.</p>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">What does AWG actually measure?</p>
+                    <p class="faq-a">AWG measures the diameter of a solid round conductor, not its area and not its current rating. Each gauge number maps to one diameter through the defining formula, and the number runs backwards from intuition: a larger AWG number is a thinner wire. 4/0, the largest common size, is 0.4600 inch across, while 36 AWG is 0.0050 inch and 40 AWG is 0.0031 inch. The system is American, it is still the standard for building wire in the United States, and it applies to any conductive material, not to copper alone.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why is AWG the opposite of every other size scale?</p>
+                    <p class="faq-a">Because the number counts drawing passes rather than size. In the wire mills that gave the gauge its scale, a rod was pulled through successively finer dies, and each additional pass made the wire thinner. The number of passes therefore grew as the wire shrank, and the convention stuck. The same inversion survives in modern drill and sheet gauges. It is the single most common misreading of the table: 30 AWG is a hair-thin signal wire and 4/0 AWG is a service-entrance conductor, even though thirty looks like the bigger number.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Is AWG the same as mm²?</p>
+                    <p class="faq-a">No, and the two are not interchangeable. AWG is defined by diameter, while the metric conductor sizes in IEC 60228 are defined by cross-sectional area, and area is a second-order quantity: it grows with the square of the diameter. So a wire designated 12 AWG has a cross-section of about 3.309 mm², which sits between the metric 2.5 mm² and 4 mm² sizes and is equivalent to neither. A common shorthand treats 12 AWG as "the 4 mm² equivalent," which is close enough for a rough ampacity comparison and wrong for anything that depends on the actual cross-section, including voltage drop and resistance.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why do two AWG charts show different millimeter values for the same gauge?</p>
+                    <p class="faq-a">Because they round at different points in the chain. The defining formula produces a diameter with far more digits than any chart prints, and each chart decides where to cut it. Converting from the unrounded formula value gives one millimeter figure, while converting from a diameter already rounded to four decimal places gives another. For 12 AWG the formula gives 2.053 mm and the printed four-decimal value gives 2.052 mm. Both are correct readings of the same wire, and the difference of one thousandth of a millimeter has no practical consequence.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Can I read ampacity straight off an AWG chart?</p>
+                    <p class="faq-a">Only as a rough guideline, and never as a compliance figure. Ampacity depends on the insulation temperature rating, the ambient temperature, how many conductors are bundled together, and whether they run in free air or inside a conduit, so no single number can be derived from the diameter alone. That is why the National Electrical Code publishes ampacity as a table rather than a formula. The quantities on this page, diameter, cross-section and area in circular mils, are the ones the geometry fixes exactly; current capacity is a separate engineering decision.</p>
+                </div>
+            </section>
+
+            <section class="eng-context">
+                <h3>Sources and Further Reading</h3>
+                <ul>
+                    <li>ASTM B258, Standard Specification for Standard Nominal Diameters and Cross-Sectional Areas of AWG Sizes of Solid Round Wires Used as Electrical Conductors. This is the standard that fixes the AWG table. Every diameter on this page was computed from the defining formula and then checked against the tabulated values published by three independent sources, which agree on all forty-four sizes from 4/0 to 40 apart from a single transcription slip discussed in the fourth section.</li>
+                    <li>NIST Special Publication 811, Guide for the Use of the International System of Units (SI), for the exact factor relating inch and millimeter, 25.4 millimeters per inch, which the 1959 International Yard and Pound Agreement fixed. Every millimeter figure on this page is an inch figure multiplied by that exact factor.</li>
+                    <li>IEC 60228, Conductors of insulated cables, which defines the metric standard cross-sectional areas used in the comparison table. The metric system names a conductor by its area, where AWG names it by its diameter, and the two scales do not coincide at any point.</li>
+                    <li>NFPA 70, National Electrical Code, Article 310 and Chapter 9, for the ampacity and conductor-property tables. Ampacity is tabulated rather than computed because it depends on insulation rating, ambient temperature and installation method, none of which is a property of the conductor geometry.</li>
+                    <li>The three chart sources cross-checked against the formula were PowerStream, MISUMI and Engineering ToolBox, all read on 17 October 2026. They agree on every four-decimal inch value except 22 AWG, where Engineering ToolBox prints 0.0254 inch against 0.0253 inch in the other two.</li>
+                </ul>
+            </section>
+
+            <h3>Related Guides</h3>
+            <div class="related-tags">
+                <a href="/guides/how-to-convert-units">How to Convert Units — The Factor-Label Method</a>
+                <a href="/guides/unit-conversion-chart">Unit Conversion Chart</a>
+                <a href="/guides/electric-conversion-guide">Electric Conversion Guide</a>
+                <a href="/guides/sheet-metal-gauge-chart">Sheet Metal Gauge Chart</a>
+                <a href="/guides/drill-bit-size-chart">Drill Bit Size Chart</a>
+                <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+            </div>
+
+            <div class="attribution-box">
+                <p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the EnginStack Editorial Team. It was first published on October 17, 2026 at <a href="https://enginstack.com/guides/awg-wire-gauge-chart">enginstack.com/guides/awg-wire-gauge-chart</a>. You are welcome to quote it, share it, or translate it — we ask only that you link back to the original page and credit EnginStack as the source. If you'd like to republish the full text on your own site, please contact us first: <code>support@enginstack.com</code>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "American Wire Gauge",
+  "termCode": "AWG",
+  "description": "American Wire Gauge is a standard for the diameter of solid round electrical conductors. It is defined by a single formula rather than a table: the diameter in inches is 0.005 times 92 raised to the power of (36 minus the gauge number) divided by 39. The gauge number runs backwards, so a larger number is a thinner wire, because it originally counted the number of drawing passes a rod had taken. Sizes larger than 1 AWG are written 1/0, 2/0, 3/0 and 4/0 and are treated as 0, −1, −2 and −3 in the formula. Because cross-section grows with the square of the diameter, moving three gauge steps changes the area by roughly a factor of two while moving six changes the diameter by the same factor.",
+  "url": "https://en.wikipedia.org/wiki/American_wire_gauge",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "EnginStack Engineering Units",
+    "url": "https://enginstack.com/"
+  }
+}
+    </script>
+</body>
+</html>
