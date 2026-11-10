@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="&copy; 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Why Two Correct Unit Converters Disagree | EnginStack</title>
+    <meta name="description" content="One wire, four published values, all correct. Where the gap between converters comes from, and how many digits a conversion should actually keep.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/why-converters-disagree">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/why-converters-disagree">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/why-converters-disagree">
+    <meta property="og:title" content="Why Two Correct Unit Converters Disagree | EnginStack">
+    <meta property="og:description" content="One wire, four published values, all correct. Where the gap between converters comes from, and how many digits a conversion should actually keep.">
+    <meta property="og:url" content="https://enginstack.com/guides/why-converters-disagree">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Two Correct Unit Converters Give Different Answers",
+  "description": "Why two converters can both be right about the same conversion, where the difference between rounded answers comes from, and how many digits a conversion should keep.",
+  "author": {
+    "@type": "Organization",
+    "name": "EnginStack"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EnginStack"
+  },
+  "url": "https://enginstack.com/guides/why-converters-disagree",
+  "datePublished": "2026-11-10",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://enginstack.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://enginstack.com/guides/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Why Two Correct Unit Converters Disagree",
+      "item": "https://enginstack.com/guides/why-converters-disagree"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do two unit converters give different answers for the same conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because they stop rounding at different points, not because one of them is broken. The factors themselves are usually exact definitions — 25.4 millimeters to the inch, 0.45359237 kilograms to the pound — so the multiplication is identical everywhere. What differs is whether a converter rounds an intermediate value before the next step, and how many digits it prints. For 11 AWG, four published values between 2.286 and 2.311 millimeters all derive from the same defining formula, and each is arithmetically correct."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many significant figures should a conversion have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No more than the least precise input supports, and no fewer than the input justifies. A measurement with two significant figures produces an answer with two. A specified value such as the fraction 3/32 inch has no uncertainty of its own, so its conversion can carry as many digits as the job requires. Exact factors such as 25.4 and 0.45359237 never limit the count, because they are exact rather than measured."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it ever wrong to round a conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rounding once, at the end, to the precision the input supports, is correct and necessary. Rounding twice is where errors appear, and rounding an intermediate value is the commonest version of that mistake: 3/32 inch is 2.381 millimeters from the exact fraction but 2.383 millimeters from the four-place inch value. Rounding the factor before using it is worse still, because the error reaches every conversion the factor is applied to rather than one answer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does 3/32 inch appear as both 2.381 and 2.383 millimeters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because 3/32 inch is exactly 2.38125 millimeters. Converting the exact fraction and rounding once gives 2.381. Rounding the inch value to four places first gives 0.0938, and multiplying that by 25.4 gives 2.38252, which prints as 2.383. Both charts are arithmetically correct; they applied the rounding at different stages. Half of the fractional drill sizes are exposed to this, because n/64 runs to six decimal places at most and ends in a digit of 5 whenever the numerator is odd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a more precise conversion factor make the answer more accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only up to the precision of the input, and never beyond it. Multiplying a two-figure measurement by a factor with ten decimal places produces a number with ten decimal places and two figures of real information. The extra digits are not arithmetically wrong, but they describe a measurement that was never made. The factor needs to be more precise than the input, not more precise than the output."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Why Two Correct Unit Converters Disagree</span></nav>
+
+        <header class="page-header">
+            <h1>Why Two Correct Unit Converters Give Different Answers</h1>
+            <p>Ask four converters for the same wire gauge in millimeters and you can get four different answers, all of them defensible. The multiplication is not where they differ: the factors are exact by definition. What differs is where each one stopped rounding, and how many digits it chose to print. This page works through four cases where rounding moved the answer, gives a rule for how many digits an answer should keep, and explains why the five reference charts on this site each round differently.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="seo-section guide-content">
+            <nav class="guide-toc" aria-label="Table of contents">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#four">One Wire, Four Answers</a></li>
+                    <li><a href="#exact">The One Step That Cannot Be Wrong</a></li>
+                    <li><a href="#where">Where the Rounding Actually Happens</a></li>
+                    <li><a href="#factor">A Factor Rounded Before It Was Used</a></li>
+                    <li><a href="#measured">Measured Numbers and Defined Numbers</a></li>
+                    <li><a href="#digits">How Many Digits to Keep</a></li>
+                    <li><a href="#unsafe">When Rounding Is Not Allowed</a></li>
+                    <li><a href="#charts">Why the Charts on This Site Round Differently</a></li>
+                    <li><a href="#check">Twenty Seconds of Self-Check</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </nav>
+
+            <section id="four">
+                <h2>1. One Wire, Four Answers</h2>
+                <p>Ask four converters for 11 AWG in millimeters and you can get four different numbers. Not four values differing in the eighth decimal place &mdash; four values differing in the second decimal place: 2.286, 2.304, 2.305, 2.311. Each one is defensible. Each one comes from the same formula, applied by someone who stopped rounding at a different point.</p>
+                <p>American Wire Gauge is defined by an expression rather than a table. The diameter in inches is 0.005 times 92 raised to the power (36 &minus; n) divided by 39. For 11 AWG that returns 0.0907420 inch, and the exact factor of 25.4 millimeters per inch turns it into 2.305 mm. Everything else on a published chart is that same number seen through a different amount of rounding.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>Where the chain was cut</th>
+<th>Inch value used</th>
+<th>Exact result (mm)</th>
+<th>Printed as</th>
+</tr></thead>
+<tbody>
+<tr><td class="l">The formula, all digits</td><td>0.0907420</td><td><strong>2.305</strong></td><td>2.305 mm</td></tr>
+<tr><td class="l">Rounded to four places first</td><td>0.0907</td><td><strong>2.304</strong></td><td>2.304 mm</td></tr>
+<tr><td class="l">Rounded to three places first</td><td>0.091</td><td><strong>2.311</strong></td><td>2.311 mm</td></tr>
+<tr><td class="l">Rounded to two places first</td><td>0.09</td><td><strong>2.286</strong></td><td>2.29 mm</td></tr>
+</tbody>
+</table>
+</div>
+                <p>The spread is 0.025 mm, which is 1.1 per cent of the answer. For scale, the step from one gauge to the next at this size is 0.283 mm, so the disagreement between two published charts is about 9 per cent of a single gauge step. That is small enough to be invisible when you are estimating a cable run and large enough to settle an argument about which chart is right. Neither chart is right. They answered slightly different questions.</p>
+                <p>The useful thing to take from that table is not which row is correct. It is that the answer moved by more than one per cent while everyone involved did competent arithmetic.</p>
+            </section>
+
+            <section id="exact">
+                <h2>2. The One Step That Cannot Be Wrong</h2>
+                <p>Three of those four chains differ because of rounding. None of them differs because of the multiplication, and there is a structural reason: the conversion factors are exact by definition rather than measured.</p>
+                <ul>
+                    <li>One inch is exactly 25.4 millimeters, fixed by the 1959 International Yard and Pound Agreement and given force in law on both sides of the Atlantic.</li>
+                    <li>One pound is exactly 0.45359237 kilograms, from the same agreement.</li>
+                    <li>One US gallon is exactly 231 cubic inches, which is exactly 3.785411784 liters.</li>
+                    <li>The scale factor between Celsius and Fahrenheit is the fraction 9/5 one way and 5/9 the other, not a decimal that approximates either.</li>
+                </ul>
+                <p>A factor that is exact cannot introduce error. Multiply 0.0907420 by 25.4 and you get 2.305 mm carrying as many digits as you care to write down. The multiplication is the one link in the chain that is safe to trust, which narrows the whole problem to two places: how precise the input was, and where the rounding happened.</p>
+                <p>There is a subtler consequence, and it explains a great deal of the confusion on datasheets. Because the definitions are exact, a short decimal is a display choice rather than a loss of definition. Writing one pound as 0.4536 kg does not make the pound approximate; it makes that sentence approximate. The distinction sounds academic until you meet a drawing that carries 0.4536 into a chain of three more calculations and treats it as the definition it is not.</p>
+            </section>
+
+            <section id="where">
+                <h2>3. Where the Rounding Actually Happens</h2>
+                <p>Take 3/32 inch, a size that appears on every drill chart. As a fraction it is exactly 0.09375 inch, and in millimeters that is 2.38125 before rounding, which prints as 2.381.</p>
+                <p>Now do what a person with a chart and a calculator actually does. The chart gives the inch value to four places: 0.0938. Multiply that by 25.4 and the result is 2.38252, which prints as 2.383.</p>
+                <p>Two conversions, both arithmetically correct, 0.002 mm apart. Both values appear on drill charts published today. Neither chart made a mistake: one rounded at the end and the other rounded first. The rule that separates them is short enough to memorise.</p>
+                <p><strong>Round once, at the end.</strong> Every intermediate value stays at full precision until the last operation, and then it is rounded once. The second half of that sentence is the part that gets skipped.</p>
+                <p>Half the fractional drill sizes are exposed to this, and the reason is arithmetic rather than carelessness. A sixty-fourth is exact, but its decimal expansion is not: n/64 runs to six decimal places at most, and it ends in a digit of 5 whenever the numerator is odd, which is half of them. When it ends in 5, a chart that rounds half up and a chart that truncates produce a different last digit, and both are describing the same drill.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>Fraction</th>
+<th>Inch, four places</th>
+<th>mm from that inch</th>
+<th>mm from the fraction</th>
+<th>Outcome</th>
+</tr></thead>
+<tbody>
+<tr><td class="l">1/32</td><td>0.0313</td><td>0.795</td><td>0.794</td><td>differs</td></tr>
+<tr><td class="l">3/32</td><td>0.0938</td><td>2.383</td><td>2.381</td><td>differs</td></tr>
+<tr><td class="l">19/64</td><td>0.2969</td><td>7.541</td><td>7.541</td><td>same</td></tr>
+<tr><td class="l">21/64</td><td>0.3281</td><td>8.334</td><td>8.334</td><td>same</td></tr>
+</tbody>
+</table>
+</div>
+                <p>2 of these four differ, and the difference is one to two thousandths of a millimeter. That is not the point. The point is that copying 0.0938 off a chart and converting it is a different act from converting 3/32, because the chart's 0.0938 is already a rounded output. A conversion applied to a rounded number inherits the rounding.</p>
+            </section>
+
+            <section id="factor">
+                <h2>4. A Factor Rounded Before It Was Used</h2>
+                <p>Rounding an answer is a small sin. Rounding the factor is a larger one, because a factor is applied to every input that touches it, while a rounded answer is applied to nothing.</p>
+                <p>98.6 &deg;F is exactly 37.00 &deg;C: subtract 32 to get 66.6, multiply by 5/9. The factor 5/9 is 0.5555 recurring. Type 0.5556, which is what four places buys you, and the answer comes back as 37.00 &deg;C. Type 0.56, which is what &ldquo;about 0.56&rdquo; buys you, and the same body temperature reads <strong>37.30 &deg;C</strong>. Three tenths of a degree is the difference between a normal temperature and a fever.</p>
+                <p>The lesson is not that 0.56 is sloppy. It is that the position of the rounding decides how far the error travels. Two rules of thumb make the same point with more familiar numbers.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>Shortcut</th>
+<th>Exact factor</th>
+<th>At this input</th>
+<th>Error</th>
+</tr></thead>
+<tbody>
+<tr><td class="l">2.2 lb per kg</td><td>2.20462</td><td>30 metric tons &rarr; 66,139 lb exactly, 66,000 lb by the shortcut</td><td>139 lb short &middot; 0.21%</td></tr>
+<tr><td class="l">1.6 km per mile</td><td>1.609344</td><td>500 miles &rarr; 804.7 km exactly, 800.0 km by the shortcut</td><td>4.7 km short &middot; 0.58%</td></tr>
+</tbody>
+</table>
+</div>
+                <p>Neither shortcut is wrong for the job it was made for, which is deciding roughly whether a number is the right order of magnitude. Both are wrong if the result is going into another calculation, because the 0.21 per cent does not stay 0.21 per cent &mdash; it gets multiplied by whatever comes next.</p>
+            </section>
+
+            <section id="measured">
+                <h2>5. Measured Numbers and Defined Numbers</h2>
+                <p>This is the distinction that decides how many digits to write, and it is not the one most people reach for. The question is not how precise a number looks. It is where the number came from.</p>
+                <p>A measurement carries the resolution of the instrument that produced it. Read 2.5 inches off a tape measure and the last digit is a statement about the tape, not about the board: the true length lies somewhere between 2.45 and 2.55, and converting 2.5 to 63.5 millimeters claims a precision the tape never had. The honest conversion is 64 mm, or 63 mm, or a range.</p>
+                <p>A specification carries no uncertainty at all. 3/32 inch is the diameter a standard assigns to a drill, and it is exactly 0.09375 inch because a committee wrote it down that way. Converting it to 2.381 mm is not false precision, because there was never a measurement to overstate. The digits are limited only by what the job needs.</p>
+                <p>Two numbers that look equally precise, two opposite answers. A conversion cannot create precision the input did not have, and it should not throw away precision the input did have. Both halves follow from the same requirement: the last digit of the output has to correspond to something real about the input.</p>
+                <p>Applied to a printed chart, the question has an uncomfortable answer. The number in the chart is neither measured nor specified &mdash; it is a display, and its precision is whatever the chart's author chose. That is precisely why converting 0.0938 off a chart is a different act from converting 3/32 inch, even though the two numbers are meant to represent the same drill.</p>
+            </section>
+
+            <section id="digits">
+                <h2>6. How Many Digits to Keep</h2>
+                <p>Five rules cover every case on this site, and the first two are the ones that get confused with each other.</p>
+                <ol>
+                    <li><strong>Multiplication and division keep significant figures.</strong> The answer carries no more significant figures than the least precise input. A two-figure measurement times an exact factor gives a two-figure answer.</li>
+                    <li><strong>Addition and subtraction keep decimal places.</strong> Offsets, altitude corrections and gauge-to-absolute conversions follow this rule instead, and the output keeps no more decimal places than the least precise term. This is a different count from rule one, and applying rule one here is a common error.</li>
+                    <li><strong>Exact factors cost nothing.</strong> 25.4, 0.45359237, 5/9 and 231 are exact, so they never limit the answer's digit count. Only measured and specified inputs do.</li>
+                    <li><strong>Round once, at the end.</strong> Intermediate values stay at full precision, however ugly they look in a spreadsheet cell.</li>
+                    <li><strong>An affine conversion applies both rules in order.</strong> Celsius to Fahrenheit is an addition followed by a multiplication, so the offset decides the decimal places and the scale decides nothing about them.</li>
+                </ol>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>Input</th>
+<th>What it is</th>
+<th>Digits out</th>
+<th>Result</th>
+</tr></thead>
+<tbody>
+<tr><td class="l">2.5 in</td><td>measured, two figures</td><td>two</td><td>64 mm</td></tr>
+<tr><td class="l">3/32 in</td><td>specified exact fraction</td><td>as many as the job needs</td><td>2.381 mm</td></tr>
+<tr><td class="l">0.0907 in</td><td>specified, already rounded to four places</td><td>four</td><td>2.304 mm</td></tr>
+<tr><td class="l">98.6 &deg;F</td><td>measured, three figures</td><td>three</td><td>37.00 &deg;C</td></tr>
+<tr><td class="l">150 psi</td><td>rated, two to three figures</td><td>two to three</td><td>1.0 MPa</td></tr>
+</tbody>
+</table>
+</div>
+                <p>Read the second and third rows together, because they are the same wire of the same problem in two different states. An exact fraction can support four digits. The same fraction already rounded to four places in inches can support four digits in millimeters, but only if you accept that the fourth is inherited rather than computed.</p>
+            </section>
+
+            <section id="unsafe">
+                <h2>7. When Rounding Is Not Allowed</h2>
+                <p>Three places where the rules above stop being enough, and where rounding in the wrong direction stops being an accuracy question: pressure test limits, pharmaceutical doses, and fuel loads. In all three the practice is identical. Carry full precision, round once at the end, and round toward the conservative side rather than the nearest one, because the two are not the same when the number is a limit.</p>
+                <p>Wall thickness is a fourth case, and the quietest, because nobody looks there.</p>
+                <p>NPS 24 Schedule 40 has a wall of 0.688 inch, and the mass works out at <strong>171.48 lb/ft</strong>. Round that wall to 0.69 inch first &mdash; a change of two thousandths of an inch, which looks like nothing &mdash; and the identical formula returns 171.96 lb/ft. A difference of 0.48 lb per foot, or 0.28 per cent.</p>
+                <p>On one joint of pipe that is invisible. On a thousand twelve-meter joints, which is 39,370 feet of pipe, it is <strong>19,044 pounds</strong> &mdash; about 9.5 short tons of steel that exists in one calculation and not in the other. Nothing exotic happened: the same rounding as the drill chart, applied to a quantity that then gets multiplied by 39,370.</p>
+                <p>That is the general shape of the problem. A rounding error is a percentage, but a percentage of a shipment is a number with units, and the units are the part that gets signed for.</p>
+            </section>
+
+            <section id="charts">
+                <h2>8. Why the Charts on This Site Round Differently</h2>
+                <p>Five reference charts here use five different rounding policies, and a careful reader will notice. The differences are not stylistic. Each chart's inch column holds a different kind of number, and the millimeter column has to follow from what that number actually is.</p>
+                <div class="table-scroll">
+<table>
+<thead><tr>
+<th>Chart</th>
+<th>What the inch column holds</th>
+<th>Millimeters computed from</th>
+</tr></thead>
+<tbody>
+<tr><td class="l"><a href="/guides/sheet-metal-gauge-chart">Sheet metal gauge</a></td><td>a thickness back-calculated from weight per unit area, so its fourth digit is approximate</td><td>that rounded inch value &mdash; there is nothing behind it</td></tr>
+<tr><td class="l"><a href="/guides/drill-bit-size-chart">Drill bit sizes</a></td><td>an exact fraction, n/64</td><td>the fraction, never the printed inch</td></tr>
+<tr><td class="l"><a href="/guides/awg-wire-gauge-chart">AWG wire gauge</a></td><td>the defining formula, 0.005 &times; 92<sup>(36&minus;n)/39</sup></td><td>the formula, at full precision</td></tr>
+<tr><td class="l"><a href="/guides/nominal-pipe-size-chart">Nominal pipe size</a></td><td>a defined table value from ASME B36.10M</td><td>the defined inch &times; 25.4, exactly</td></tr>
+<tr><td class="l"><a href="/guides/unit-conversion-chart">Unit conversion chart</a></td><td>a legal definition</td><td>the definition, exactly</td></tr>
+</tbody>
+</table>
+</div>
+                <p>The sheet metal gauge chart is the one that looks inconsistent and is not. Its inch figure originally came out of a calculation &mdash; a nominal weight per square foot divided by a density &mdash; and that calculation does not support more than four places. So the millimeters are computed from the rounded inch, because the rounding is part of the number. Computing them from the unrounded internal value would dress the chart in a precision it does not have.</p>
+                <p>The drill and AWG charts go the other way, and for the same reason. Their inch values are exact &mdash; one an exact fraction, the other a formula &mdash; so full precision is genuinely available, and the millimeters are computed from it. Using the printed inch there would import a display error into an input that never had one.</p>
+                <p>The pipe chart sits closest to the second group. Its outside diameters and wall thicknesses are not measured and not calculated: they are values a standard assigns, in inches, and the millimeter column is those values multiplied by an exact 25.4. That is why its inch column carries three places and its millimeter column carries two, and why neither of them is a rounding of the other.</p>
+                <p>Underneath all five is a single sentence. The millimeter column is computed from whatever the inch column really is, not from what it looks like.</p>
+            </section>
+
+            <section id="check">
+                <h2>9. Twenty Seconds of Self-Check</h2>
+                <p>Three questions, asked in this order, catch nearly every precision error before it reaches a drawing.</p>
+                <ol>
+                    <li><strong>Was this number measured or specified?</strong> If you cannot answer, the last digit means nothing and should not be quoted. This is the question that decides everything downstream.</li>
+                    <li><strong>How many times did I round?</strong> The answer should be once. If it is twice, the second one is the one that did damage, because it was applied to an already-lossy number.</li>
+                    <li><strong>Did my output gain digits?</strong> A conversion can preserve an input's precision and it can shorten it. It cannot add to it. If the output carries more significant figures than the input, one of them was invented somewhere in the middle.</li>
+                </ol>
+                <p>The third question is the one that catches unit converters, and it is worth asking of any tool that prints eight decimal places. Such a tool is not eight times more accurate than one that prints three. It has declined to make a judgement that belongs to whoever is holding the number.</p>
+                <p>Which brings the argument back to where it started. The four converters that disagree about 11 AWG are all telling the truth about the same wire. The value of the number depends entirely on knowing where its last digit came from &mdash; and that is a question no converter can answer for you.</p>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <p class="faq-q">Why do two unit converters give different answers for the same conversion?</p>
+                    <p class="faq-a">Because they stop rounding at different points, not because one of them is broken. The factors themselves are usually exact definitions — 25.4 millimeters to the inch, 0.45359237 kilograms to the pound — so the multiplication is identical everywhere. What differs is whether a converter rounds an intermediate value before the next step, and how many digits it prints. For 11 AWG, four published values between 2.286 and 2.311 millimeters all derive from the same defining formula, and each is arithmetically correct.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">How many significant figures should a conversion have?</p>
+                    <p class="faq-a">No more than the least precise input supports, and no fewer than the input justifies. A measurement with two significant figures produces an answer with two. A specified value such as the fraction 3/32 inch has no uncertainty of its own, so its conversion can carry as many digits as the job requires. Exact factors such as 25.4 and 0.45359237 never limit the count, because they are exact rather than measured.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Is it ever wrong to round a conversion?</p>
+                    <p class="faq-a">Rounding once, at the end, to the precision the input supports, is correct and necessary. Rounding twice is where errors appear, and rounding an intermediate value is the commonest version of that mistake: 3/32 inch is 2.381 millimeters from the exact fraction but 2.383 millimeters from the four-place inch value. Rounding the factor before using it is worse still, because the error reaches every conversion the factor is applied to rather than one answer.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Why does 3/32 inch appear as both 2.381 and 2.383 millimeters?</p>
+                    <p class="faq-a">Because 3/32 inch is exactly 2.38125 millimeters. Converting the exact fraction and rounding once gives 2.381. Rounding the inch value to four places first gives 0.0938, and multiplying that by 25.4 gives 2.38252, which prints as 2.383. Both charts are arithmetically correct; they applied the rounding at different stages. Half of the fractional drill sizes are exposed to this, because n/64 runs to six decimal places at most and ends in a digit of 5 whenever the numerator is odd.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Does a more precise conversion factor make the answer more accurate?</p>
+                    <p class="faq-a">Only up to the precision of the input, and never beyond it. Multiplying a two-figure measurement by a factor with ten decimal places produces a number with ten decimal places and two figures of real information. The extra digits are not arithmetically wrong, but they describe a measurement that was never made. The factor needs to be more precise than the input, not more precise than the output.</p>
+                </div>
+            </section>
+
+            <section class="eng-context">
+                <h3>Sources and Further Reading</h3>
+                <ul>
+                    <li>NIST Special Publication 811, Guide for the Use of the International System of Units, Section 7, which sets out the rules for rounding and for significant figures in converted values, including the instruction to round only once and only at the end.</li>
+                    <li>NIST Handbook 44, Appendix C, General Tables of Units of Measurement, which marks the exact conversion factors. Every factor quoted as exact in this article is underlined as exact in that appendix, including the inch at 2.54 centimeters and the pound at 0.45359237 kilograms.</li>
+                    <li>The International Yard and Pound Agreement of 1 July 1959, which fixed the yard at 0.9144 meter and the pound at 0.45359237 kilogram in the United States, the United Kingdom, Canada, Australia, New Zealand and South Africa. Everything above the pound &mdash; the stone, the hundredweight, the ton &mdash; diverged between the two countries before that date and never converged.</li>
+                    <li>ASTM E29, Standard Practice for Using Significant Digits in Test Data to Determine Conformance with Specifications, for the industrial convention on rounding when a measured value is compared against a limit rather than reported.</li>
+                    <li>The wire gauge figures come from the defining expression for American Wire Gauge, d = 0.005 &times; 92<sup>(36&minus;n)/39</sup> inch, evaluated at fifty digits and rounded once. The drill figures come from the exact fractions in ANSI/ASME B94.11M. The pipe figures come from ASME B36.10M, with mass from the geometry at a density of 7850 kilograms per cubic meter.</li>
+                    <li>The charts whose rounding policies are compared in the eighth section are all published on this site and generated from the models described above, so each policy can be checked against the page it belongs to rather than taken on trust.</li>
+                </ul>
+            </section>
+
+            <h3>Related Guides</h3>
+            <div class="related-tags">
+                <a href="/guides/how-to-convert-units">How to Convert Units &mdash; The Factor-Label Method</a>
+                <a href="/guides/engineering-unit-conversion-mistakes">The 8 Most Expensive Unit Conversion Mistakes</a>
+                <a href="/guides/unit-conversion-chart">Unit Conversion Chart</a>
+                <a href="/guides/drill-bit-size-chart">Drill Bit Size Chart</a>
+                <a href="/guides/awg-wire-gauge-chart">AWG Wire Gauge Chart</a>
+                <a href="/guides/nominal-pipe-size-chart">Nominal Pipe Size Chart</a>
+                <a href="/guides/sheet-metal-gauge-chart">Sheet Metal Gauge Chart</a>
+            </div>
+
+            <div class="attribution-box">
+                <p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the EnginStack Editorial Team. It was first published on November 10, 2026 at <a href="https://enginstack.com/guides/why-converters-disagree">enginstack.com/guides/why-converters-disagree</a>. You are welcome to quote it, share it, or translate it &mdash; we ask only that you link back to the original page and credit EnginStack as the source. If you'd like to republish the full text on your own site, please contact us first: <code>support@enginstack.com</code>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>
