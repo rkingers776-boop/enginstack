@@ -3,7 +3,7 @@
 
 <!-- ═══════════ Root Pages ═══════════ -->
 <url><loc>https://enginstack.com/</loc><lastmod>2026-10-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-<url><loc>https://enginstack.com/about</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://enginstack.com/about</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://enginstack.com/privacy</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
 <url><loc>https://enginstack.com/contact</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
 
@@ -15,7 +15,7 @@
 <url><loc>https://enginstack.com/guides/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 <!-- ═══════════ Category Hub Pages (new) ═══════════ -->
-<url><loc>https://enginstack.com/length/</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/length/</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/weight/</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/temperature/</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/speed/</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -163,9 +163,9 @@
 <url><loc>https://enginstack.com/guides/isaac-peral-submarine-decimal-point-error</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 <!-- ═══════════ Tier 1: Highest Search Volume ═══════════ -->
-<url><loc>https://enginstack.com/inches-to-cm</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-<url><loc>https://enginstack.com/cm-to-inches</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-<url><loc>https://enginstack.com/feet-to-meters</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://enginstack.com/inches-to-cm</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://enginstack.com/cm-to-inches</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url><loc>https://enginstack.com/feet-to-meters</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 <url><loc>https://enginstack.com/meters-to-feet</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 <url><loc>https://enginstack.com/miles-to-km</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 <url><loc>https://enginstack.com/km-to-miles</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -191,7 +191,7 @@
 <url><loc>https://enginstack.com/kelvin-to-celsius</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
 <!-- ═══════════ Tier 2: High Search Volume ═══════════ -->
-<url><loc>https://enginstack.com/inches-to-mm</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://enginstack.com/inches-to-mm</loc><lastmod>2026-11-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/mm-to-inches</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/cm-to-mm</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://enginstack.com/mm-to-cm</loc><lastmod>2026-10-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
