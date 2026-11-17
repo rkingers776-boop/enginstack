@@ -90,6 +90,11 @@ var SITE_HEADER_HTML =
                             '<a href="/flow-rate/" class="nav-dropdown-item" role="menuitem">Flow Rate</a>' +
                             '<a href="/electric/" class="nav-dropdown-item" role="menuitem">Electric</a>' +
                         '</div>' +
+                        '<div class="nav-dropdown-split"></div>' +
+                        '<div class="nav-dropdown-grid">' +
+                            '<a href="/feet-inches-calculator" class="nav-dropdown-item" role="menuitem">Feet &amp; Inches Calculator</a>' +
+                            '<a href="/batch-unit-converter" class="nav-dropdown-item" role="menuitem">Batch Converter</a>' +
+                        '</div>' +
                     '</div>' +
                 '</div>' +
                 '<a href="/guides/" class="nav-link">Guides</a>' +

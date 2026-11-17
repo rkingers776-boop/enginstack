@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Unit Converter — Paste a List, Get a Table</title>
+    <meta name="description" content="Paste a column of mixed-unit measurements and convert them all at once. Runs entirely in your browser, nothing is uploaded, result exports as CSV.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/batch-unit-converter">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/batch-unit-converter">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/batch-unit-converter">
+    <meta property="og:title" content="Batch Unit Converter — Paste a List, Get a Table">
+    <meta property="og:description" content="Paste a column of mixed-unit measurements and convert them all at once. Runs entirely in your browser, nothing is uploaded, result exports as CSV.">
+    <meta property="og:url" content="https://enginstack.com/batch-unit-converter">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Batch Unit Converter",
+  "description": "Paste a column of mixed-unit measurements and convert them all at once. Runs entirely in your browser, nothing is uploaded, result exports as CSV.",
+  "url": "https://enginstack.com/batch-unit-converter",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Batch Unit Converter" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is my list uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The conversion is performed by JavaScript running in the page. There is no network request carrying the list, no server-side processing, and no local storage write. The only way the data leaves the browser is if you download the CSV yourself. This is deliberate: a bill of materials or a drawing schedule is usually the most sensitive document in a project, and a conversion tool should not require handing it over."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What input formats are recognized?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Decimal numbers with a unit (12.5 mm, 0.75 in), fractions (3/8 in), mixed numbers (3 1/2 in), feet-and-inches pairs in either the spelled-out form (5 ft 10 in) or the trade shorthand (5' 10\"), and plain numbers with no unit at all, which are read in the target unit. Unit names can be written out in full or abbreviated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a line marked as needing a check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because another line in the same list converts to the same length, within 0.05 per cent. That usually means the same dimension has been written twice in different units, or the same item has been entered twice. When the two written numbers differ by a factor of 25.4 — the inch-to-millimeter ratio — the note names that explicitly, since it is the clearest sign of a mixed-unit duplicate. The flag is a prompt to look, not a verdict: it catches the most common way a mixed-unit column goes wrong, and it costs one glance to dismiss when the match is genuine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many lines can it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 5,000 at a time. Beyond that the list is truncated and the line count in the summary states that the limit was reached, so a partial result is never presented as a complete one. If you have more, split the list — the parser has no state between runs, so two batches give the same answer as one large one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the exported CSV keep enough to check the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and deliberately so. Every row carries the original input text alongside the converted value, plus the status and any note. That means a second person can audit the output against the source list without re-running the conversion, and a row that was flagged can be traced back to the two lines that triggered the flag."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Batch Unit Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Batch Unit Converter</h1>
+            <p>Convert a whole column of measurements at once. Mixed units in the same list are read line by line, and the list never leaves your browser.</p>
+            <p class="direct-answer">Paste one measurement per line and pick a target unit. <strong>12.5 mm</strong>, <strong>1 1/2 in</strong> and <strong>3/8 in</strong> can sit in the same column &mdash; each line is read on its own. Nothing is uploaded, and the result exports as CSV.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <label class="tool-label" for="bc-src">Paste one measurement per line</label>
+            <textarea class="tool-textarea" id="bc-src" spellcheck="false"
+                      placeholder="12.5 mm&#10;1 1/2 in&#10;3/8 in&#10;5 ft 10 in" aria-describedby="bc-hint"></textarea>
+            <p class="tool-result-sub" id="bc-hint">Lines starting with # are treated as comments. Each line is read on its own, so mixed units in one column are fine.</p>
+
+            <div class="tool-row">
+                <div class="tool-field">
+                    <label class="tool-label" for="bc-target">Convert everything to</label>
+                    <select class="tool-select" id="bc-target">
+                    <option value="mm" selected>millimeter (mm)</option>
+                    <option value="cm">centimeter (cm)</option>
+                    <option value="m">meter (m)</option>
+                    <option value="km">kilometer (km)</option>
+                    <option value="in">inch (in)</option>
+                    <option value="ft">foot (ft)</option>
+                    <option value="yd">yard (yd)</option>
+                    <option value="mi">mile (mi)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tool-btns">
+                <button class="tool-btn tool-btn-primary" type="button" id="bc-csv" disabled>Download CSV</button>
+                <button class="tool-btn" type="button" id="bc-clear">Clear</button>
+                <button class="tool-btn" type="button" data-sample="12.5 mm\n1 1/2 in\n3/8 in\n0.75 in\n19.05 mm\n5 ft 10 in\n2.4 m\n1200 mm\n47 1/4 in\nmetric only\n">Load a sample list</button>
+            </div>
+
+            <div class="tool-note">
+                <span>&#128274;</span>
+                <span><strong>Nothing leaves this page.</strong> The conversion runs in your browser. There is no request, no upload and no copy kept anywhere &mdash; which is the reason this tool exists rather than a chat window that needs your bill of materials pasted into it.</span>
+            </div>
+
+            <div class="tool-stat" id="bc-stat" hidden></div>
+
+            <div class="tool-tablewrap" id="bc-tablewrap" hidden>
+                <table class="tool-table">
+                    <thead>
+                        <tr><th>Line</th><th>Input</th><th>Status</th><th id="bc-th-result">Result</th><th>Note</th></tr>
+                    </thead>
+                    <tbody id="bc-body"></tbody>
+                </table>
+            </div>
+            <p class="tool-result-sub" id="bc-empty">Nothing read yet. Paste a list above, or load the sample.</p>
+        </div>
+
+        <article class="seo-section">
+            <h2>Why this one is not a chat prompt</h2>
+            <p>A single conversion is a question you can ask almost anywhere. A column of two hundred dimensions out of a bill of materials is not. It is a data-handling job, and doing it by conversation has three failure modes that no amount of careful prompting fixes.</p>
+            <p>The first is that the data has to leave your machine. A bill of materials is often the most commercially sensitive document a project has, and pasting it into a hosted service is a disclosure regardless of what the terms say. Here the list never leaves the browser tab: the arithmetic runs in the page, there is no request to a server, and nothing is written to storage. Close the tab and it is gone.</p>
+            <p>The second is that a long list gets quietly shortened. Conversational tools summarize when the input is long, and a summary of two hundred dimensions is not a conversion of two hundred dimensions. This page processes every line it is given, up to 5,000, and reports how many it actually read so the count can be checked against your source.</p>
+            <p>The third is that a single wrong value is invisible. In a column of numbers, one line that came out 25.4 times too large looks exactly like every other line until somebody orders the wrong material. That is what the flagging below is for.</p>
+
+            <h2>One line, one measurement</h2>
+            <p>Each line is parsed independently, so a column does not have to be in one unit. <code>12.5 mm</code>, <code>1 1/2 in</code>, <code>3/8 in</code> and <code>5 ft 10 in</code> can all sit in the same list and each is read on its own terms. Fractions, mixed numbers, quote marks and spelled-out unit names are all accepted, the same grammar the feet-and-inches calculator uses.</p>
+            <p>A line that cannot be read is reported as unreadable and left out of the conversion rather than being guessed at. In a batch job, silently skipping a line is worse than failing it loudly: a silently skipped row changes the item count, and the item count is the only thing tying the output back to the source list.</p>
+
+            <h2>Two lines that land on the same value</h2>
+            <p>When two lines in the same list convert to the same length, within 0.05 per cent, both are marked. In practice this is one of two things: the same physical dimension written twice in different units, or the same item entered twice by accident.</p>
+            <p>The inch-and-millimeter case is the one worth understanding, because it is the one that survives a visual check. A list merged from a supplier's millimeter schedule and an in-house inch drawing will carry both <code>0.75 in</code> and <code>19.05 mm</code> for the same part. They read as two different sizes, they convert to exactly the same length, and anyone scanning the column counts two items where there is one. When the written numbers differ by a factor of 25.4 the note says so, because that ratio is what gives the pair away.</p>
+            <p>A flag is not a verdict. Two parts genuinely can be the same length, and then the flag costs one glance to dismiss. But if they were meant to be different sizes, one of them is probably left over from an earlier revision, and finding that out before the material is cut is worth a great deal more than the glance it took.</p>
+
+            <h2>Export and print</h2>
+            <p>The download button produces a CSV with the original line, its status, the converted value and any note attached. The original input column is preserved so the result can be audited against the source without opening the page again. Printing the result gives a table that can be clipped to a job packet, which is still the most reliable way to get a conversion onto a shop floor.</p>
+
+            <h2>What it will not do</h2>
+            <p>It converts length only &mdash; millimeters, centimeters, meters, kilometers, inches, feet, yards and miles. Area and volume are deliberately excluded even though they are derived from the same definitions, because a list mixing <code>mm</code> and <code>mm2</code> is ambiguous to a parser reading one line at a time, and guessing is the one thing this tool is built not to do.</p>
+            <p>It also does not decide which unit a bare number means. A line reading simply <code>45</code> is read in the target unit shown in the selector, and the note column says so. If a source column is genuinely unitless, set the target deliberately before trusting the output.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Is my list uploaded anywhere?</p>
+                <p class="faq-a">No. The conversion is performed by JavaScript running in the page. There is no network request carrying the list, no server-side processing, and no local storage write. The only way the data leaves the browser is if you download the CSV yourself. This is deliberate: a bill of materials or a drawing schedule is usually the most sensitive document in a project, and a conversion tool should not require handing it over.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What input formats are recognized?</p>
+                <p class="faq-a">Decimal numbers with a unit (<code>12.5 mm</code>, <code>0.75 in</code>), fractions (<code>3/8 in</code>), mixed numbers (<code>3 1/2 in</code>), feet-and-inches pairs in either the spelled-out form (<code>5 ft 10 in</code>) or the trade shorthand (<code>5&#39; 10&quot;</code>), and plain numbers with no unit at all, which are read in the target unit. Unit names can be written out in full or abbreviated.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why is a line marked as needing a check?</p>
+                <p class="faq-a">Because another line in the same list converts to the same length, within 0.05 per cent. That usually means the same dimension has been written twice in different units, or the same item has been entered twice. When the two written numbers differ by a factor of 25.4 &mdash; the inch-to-millimeter ratio &mdash; the note names that explicitly, since it is the clearest sign of a mixed-unit duplicate. The flag is a prompt to look, not a verdict: it catches the most common way a mixed-unit column goes wrong, and it costs one glance to dismiss when the match is genuine.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How many lines can it take?</p>
+                <p class="faq-a">Up to 5,000 at a time. Beyond that the list is truncated and the line count in the summary states that the limit was reached, so a partial result is never presented as a complete one. If you have more, split the list &mdash; the parser has no state between runs, so two batches give the same answer as one large one.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Does the exported CSV keep enough to check the result?</p>
+                <p class="faq-a">Yes, and deliberately so. Every row carries the original input text alongside the converted value, plus the status and any note. That means a second person can audit the output against the source list without re-running the conversion, and a row that was flagged can be traced back to the two lines that triggered the flag.</p>
+            </div>
+
+            <h2>Related</h2>
+            <div class="related-tags"><a href="/inches-to-mm">Inches to Millimeters</a> <a href="/mm-to-inches">Millimeters to Inches</a> <a href="/feet-inches-calculator">Feet and Inches Calculator</a> <a href="/guides/unit-conversion-chart">Unit Conversion Chart</a> <a href="/guides/length-conversion-guide">Length Conversion Guide</a> <a href="/guides/why-converters-disagree">Why Converters Disagree</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="dimensions.js"></script>
+    <script src="batchconvert.js"></script>
+</body>
+</html>

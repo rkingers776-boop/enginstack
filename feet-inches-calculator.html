@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feet and Inches Calculator with Exact Fractions</title>
+    <meta name="description" content="Add, subtract and convert feet, inches and fractions without decimal drift. 3/8 + 5/16 + 1/64 is exactly 45/64, not 0.7031. Runs in your browser.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/feet-inches-calculator">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/feet-inches-calculator">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/feet-inches-calculator">
+    <meta property="og:title" content="Feet and Inches Calculator with Exact Fractions">
+    <meta property="og:description" content="Add, subtract and convert feet, inches and fractions without decimal drift. 3/8 + 5/16 + 1/64 is exactly 45/64, not 0.7031. Runs in your browser.">
+    <meta property="og:url" content="https://enginstack.com/feet-inches-calculator">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Feet and Inches Calculator",
+  "description": "Add, subtract and convert feet, inches and fractions without decimal drift. 3/8 + 5/16 + 1/64 is exactly 45/64, not 0.7031. Runs in your browser.",
+  "url": "https://enginstack.com/feet-inches-calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Feet and Inches Calculator" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why not just multiply everything by 25.4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can, and for a single conversion it works fine. The problem is that multiplying by 25.4 forces a decimal at the start, and once a value is a decimal every later addition carries a rounding error that compounds. Doing the arithmetic in fractions and converting once at the end is the only way to guarantee that a chain closes exactly. The two approaches agree to six digits on any single step and disagree on the last one after a dozen steps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does 5'10\" mean 5 feet 10 inches or 5.10 feet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5 feet 10 inches. That is 70 inches, or 1.778 meters. If it meant 5.10 feet it would be 61.2 inches, which is 8.8 inches shorter — a difference large enough to ruin a door frame. The quote-mark notation always means feet and inches, never a decimal, which is why drawings use it when the distinction matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add 3/8 and 5/16 in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Find the common denominator. Sixteenths: 3/8 is 6/16, so 6/16 + 5/16 = 11/16. If a sixty-fourth appears, drop everything to sixty-fourths: 3/8 is 24/64, 5/16 is 20/64, and adding 1/64 gives 45/64. That last figure cannot be reduced — 45 and 64 share no factor — and a calculator that reports 0.703125 has thrown away the fraction that shows it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can one expression mix millimeters, centimeters and feet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and that is the point of the tool. 12 ft 3 1/2 in + 45 cm - 3/8 in evaluates as a single expression, with each term converted to the common base only for the purpose of adding and subtracting. The answer is shown in all five length units at once, so you can pick the one your next operation needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the tape-measure figure sometimes different from the decimal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it is rounded to a fraction the tape can be read to, and the decimal is not. At a sixteenth setting, a true value of 0.531 in displays as 1/2 in in the main figure and 0.531 in in the line below. The main figure tells you what to set a tape to. The decimal tells you what the arithmetic actually produced. Use the decimal when passing the value to another calculation, and the fraction when standing at a machine."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Feet and Inches Calculator</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Feet and Inches Calculator</h1>
+            <p>Add, subtract and convert feet, inches and fractions without the decimal drift that a normal calculator introduces on the first keystroke.</p>
+            <p class="direct-answer">Type a dimension and read the answer. <strong>5 ft 10 1/2 in + 45 cm - 3/8 in = 7 ft 3 13/16 in</strong>. Fractions are added as fractions, so a sixty-fourth stays a sixty-fourth and a dimension chain closes exactly.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <label class="tool-label" for="fx-expr">Dimension expression</label>
+            <input class="tool-expr" id="fx-expr" type="text" spellcheck="false" autocomplete="off"
+                   value="5 ft 10 1/2 in + 45 cm - 3/8 in" aria-describedby="fx-hint">
+            <p class="tool-result-sub" id="fx-hint">Numbers written without a unit are read in the unit chosen below. Fractions, feet-and-inches pairs and quote marks are all accepted.</p>
+
+            <div class="tool-row">
+                <div class="tool-field">
+                    <label class="tool-label" for="fx-default">Bare numbers are</label>
+                    <select class="tool-select" id="fx-default">
+                    <option value="mm" selected>millimeter (mm)</option>
+                    <option value="cm">centimeter (cm)</option>
+                    <option value="m">meter (m)</option>
+                    <option value="km">kilometer (km)</option>
+                    <option value="in">inch (in)</option>
+                    <option value="ft">foot (ft)</option>
+                    <option value="yd">yard (yd)</option>
+                    <option value="mi">mile (mi)</option>
+                    </select>
+                </div>
+                <div class="tool-field">
+                    <label class="tool-label" for="fx-denom">Tape measure reads to</label>
+                    <select class="tool-select" id="fx-denom">
+                        <option value="64">1/64 in</option>
+                        <option value="32">1/32 in</option>
+                        <option value="16" selected>1/16 in</option>
+                        <option value="8">1/8 in</option>
+                        <option value="4">1/4 in</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tool-btns">
+                <button class="tool-btn" type="button" data-example="3/8 in + 5/16 in + 1/64 in">3/8 + 5/16 + 1/64</button>
+                <button class="tool-btn" type="button" data-example="12 ft 3 1/2 in + 45 cm - 3/8 in">feet-inches plus metric</button>
+                <button class="tool-btn" type="button" data-example="(2 ft + 3 in) * 4">bracket times quantity</button>
+                <button class="tool-btn" type="button" data-example="5&#39; 10&quot;">5&#39; 10&quot; notation</button>
+            </div>
+
+            <div class="tool-result">
+                <div class="tool-result-main" id="fx-main">&mdash;</div>
+                <div class="tool-result-sub" id="fx-sub"></div>
+                <div class="tool-grid" id="fx-grid"></div>
+                <div class="tool-error" id="fx-error" hidden></div>
+            </div>
+        </div>
+
+        <article class="seo-section">
+            <h2>Why the fractions come out exact</h2>
+            <p>Almost every calculator turns a fraction into a decimal the instant you type it. Three eighths becomes 0.375, five sixteenths becomes 0.3125, and by the sixth addition the last digit has drifted. You do not notice on a single conversion. You notice when a stack of dimensions has to close.</p>
+            <p>This page never converts to decimal until it draws the answer. Fractions are held as exact ratios of whole numbers all the way through the arithmetic, so 3/8 + 5/16 + 1/64 is 45/64 &mdash; not 0.7031249999999999, which is what you get if you add the three decimals in double precision. The same guarantee applies to the metric side: an inch is 127/5000 of a meter exactly, because that is the definition the 1959 yard-and-pound agreement wrote down, not a rounded 25.4.</p>
+            <p>That is also why the tool refuses certain input instead of guessing. Two measurements multiplied together has no length dimension, so <code>2 ft * 3 ft</code> returns an error rather than a number with the wrong unit attached. Dividing by zero in a fraction returns an error at the character where it happens.</p>
+
+            <h2>Three ways people write feet and inches</h2>
+            <p>All three appear on real drawings, and two of them are accepted here.</p>
+            <ul>
+                <li><strong>5&#39; 10&quot;</strong> &mdash; the trade shorthand. The apostrophe is feet, the double quote is inches. Written this way it is unambiguous, and this page reads it correctly.</li>
+                <li><strong>5 ft 10 in</strong> &mdash; spelled out. Also unambiguous, and the easier form to paste out of a specification.</li>
+                <li><strong>5-10</strong> &mdash; ambiguous, and deliberately not accepted here. On a drawing it usually means 5 ft 10 in, but in a spreadsheet it means 5.10 ft, and the two differ by about 100&nbsp;mm. If a document uses this form, the value has to be settled before any arithmetic is done.</li>
+            </ul>
+            <p>Mixed numbers work in either family: <code>3 1/2&quot;</code> is three and a half inches, and <code>12 ft 3 1/2 in</code> is twelve feet and three and a half inches. A bare fraction with no whole number in front of it, such as <code>3/8 in</code>, is read as a plain fraction.</p>
+
+            <h2>What a bare number means</h2>
+            <p>The parser has no way to know whether <code>45</code> means 45 millimeters or 45 inches, so it does not pretend to. The unit is taken from the selector above the result, and that choice is shown on screen at all times. Change it to inches and the same expression re-evaluates with 45 inches instead.</p>
+            <p>This matters more than it sounds. Silently assuming a unit is the single most common way a unit conversion produces a wrong answer, and it is the mechanism behind most of the incidents cataloged on this site. A tool that states its assumption can be checked. A tool that hides it cannot.</p>
+
+            <h2>The tape measure rounds; the value underneath does not</h2>
+            <p>The large figure is snapped to the nearest fraction your tape can actually resolve &mdash; a sixteenth by default, because that is what a standard inch tape is marked in. The smaller line below it carries the unrounded decimal in both inches and millimeters, so nothing is lost when the display rounds.</p>
+            <p>Round only at the end. A run of dimensions each rounded to the nearest sixteenth accumulates up to half a sixteenth of error per term, and in a long stack that is the difference between a part that fits and one that needs rework.</p>
+
+            <h2>Where this gets used</h2>
+            <p>The obvious case is a dimension chain: a series of lengths along a part that must add up to an overall size. Drawings often mix metric and imperial on the same chain because a purchased component is metric and the frame around it is imperial, and the chain has to close anyway.</p>
+            <p>The less obvious case is checking work already done. A tape reading of <code>37 5/8 in</code> against a drawing that says <code>955 mm</code> is a two-second calculation, and finding out that the two differ by 0.6&nbsp;mm before assembly is much cheaper than finding out after. The millimeter figure in the result grid is the one to compare, because it is the one that has not been rounded to a tape fraction.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why not just multiply everything by 25.4?</p>
+                <p class="faq-a">You can, and for a single conversion it works fine. The problem is that multiplying by 25.4 forces a decimal at the start, and once a value is a decimal every later addition carries a rounding error that compounds. Doing the arithmetic in fractions and converting once at the end is the only way to guarantee that a chain closes exactly. The two approaches agree to six digits on any single step and disagree on the last one after a dozen steps.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Does 5&#39;10&quot; mean 5 feet 10 inches or 5.10 feet?</p>
+                <p class="faq-a">5 feet 10 inches. That is 70 inches, or 1.778 meters. If it meant 5.10 feet it would be 61.2 inches, which is 8.8 inches shorter — a difference large enough to ruin a door frame. The quote-mark notation always means feet and inches, never a decimal, which is why drawings use it when the distinction matters.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">How do I add 3/8 and 5/16 in my head?</p>
+                <p class="faq-a">Find the common denominator. Sixteenths: 3/8 is 6/16, so 6/16 + 5/16 = 11/16. If a sixty-fourth appears, drop everything to sixty-fourths: 3/8 is 24/64, 5/16 is 20/64, and adding 1/64 gives 45/64. That last figure cannot be reduced — 45 and 64 share no factor — and a calculator that reports 0.703125 has thrown away the fraction that shows it.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Can one expression mix millimeters, centimeters and feet?</p>
+                <p class="faq-a">Yes, and that is the point of the tool. 12 ft 3 1/2 in + 45 cm - 3/8 in evaluates as a single expression, with each term converted to the common base only for the purpose of adding and subtracting. The answer is shown in all five length units at once, so you can pick the one your next operation needs.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Why is the tape-measure figure sometimes different from the decimal?</p>
+                <p class="faq-a">Because it is rounded to a fraction the tape can be read to, and the decimal is not. At a sixteenth setting, a true value of 0.531 in displays as 1/2 in in the main figure and 0.531 in in the line below. The main figure tells you what to set a tape to. The decimal tells you what the arithmetic actually produced. Use the decimal when passing the value to another calculation, and the fraction when standing at a machine.</p>
+            </div>
+
+            <h2>Related</h2>
+            <div class="related-tags"><a href="/inches-to-cm">Inches to Centimeters</a> <a href="/inches-to-mm">Inches to Millimeters</a> <a href="/feet-to-meters">Feet to Meters</a> <a href="/cm-to-inches">Centimeters to Inches</a> <a href="/batch-unit-converter">Batch Unit Converter</a> <a href="/guides/length-conversion-guide">Length Conversion Guide</a> <a href="/guides/drill-bit-size-chart">Drill Bit Size Chart</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="dimensions.js"></script>
+    <script src="feetinches.js"></script>
+</body>
+</html>
