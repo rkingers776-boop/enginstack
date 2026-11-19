@@ -1,6 +1,6 @@
 # EnginStack
 
-> Engineering unit converters built on verified international metrology constants. 269 precision unit converters across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 40 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
+> Engineering unit converters built on verified international metrology constants. 269 precision unit converters across 18 categories (length, weight, temperature, speed, pressure, area, volume, time, data storage, energy, angle, torque, fuel economy, force, frequency, density, flow rate, electric), plus 41 narrative engineering guides. Every conversion factor is exact — derived from the 1959 yard-and-pound agreement (0.9144 m, 0.45359237 kg), NIST SP 811, and BIPM SI definitions. No signup, client-side math, anonymous analytics only.
 
 ## Converters by category
 
@@ -50,6 +50,7 @@
 - [Flow Rate Conversion Guide](https://enginstack.com/guides/flow-rate-conversion-guide): L/min, GPM, m³/h, CFM, L/s — the five dialects of moving fluid
 - [Electric Conversion Guide](https://enginstack.com/guides/electric-conversion-guide): Ohm's & Watt's laws, dBm, AWG wire gauge
 - [How to Convert Units](https://enginstack.com/guides/how-to-convert-units): the factor-label method, and the five conversions where a multiplier does not exist
+- [Bare Dimensions on a Drawing](https://enginstack.com/guides/drawing-dimensions-without-units): what ASME Y14.5 and ISO 129-1 each require of a unit note, why one makes it mandatory and the other advisory, and how the digits leak the unit when the note is missing
 - [Why Two Correct Unit Converters Disagree](https://enginstack.com/guides/why-converters-disagree): why one conversion has four defensible answers, how many digits an answer should keep, and where each reference chart here rounds
 - [Nominal Pipe Size Chart](https://enginstack.com/guides/nominal-pipe-size-chart): NPS to outside diameter from 1/8 to 24 inch, Schedule 40 and 80 wall and bore, and the three ways the nominal size misleads
 - [AWG Wire Gauge Chart](https://enginstack.com/guides/awg-wire-gauge-chart): every gauge from 4/0 to 40 in inches, millimeters and mm², derived from the defining formula rather than copied from a table
@@ -84,4 +85,4 @@
 
 - [About EnginStack](https://enginstack.com/about): mission and methodology — every constant verified against NIST SP 811 and BIPM
 - [All converters index](https://enginstack.com/): full category grid
-- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (334 pages)
+- [Sitemap](https://enginstack.com/sitemap.xml): complete URL list (343 pages)

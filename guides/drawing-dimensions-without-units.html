@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="rights" content="&copy; 2026 EnginStack. All rights reserved. Republication requires attribution link to original URL.">
+    <title>Bare Dimensions on a Drawing: mm or Inches? | EnginStack</title>
+    <meta name="description" content="ASME Y14.5 and ISO 129-1 both require a note naming the unit, then let dimensions go bare. What a missing note costs, and how the digits give the unit away.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/guides/drawing-dimensions-without-units">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/guides/drawing-dimensions-without-units">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/guides/drawing-dimensions-without-units">
+    <meta property="og:title" content="Bare Dimensions on a Drawing: mm or Inches? | EnginStack">
+    <meta property="og:description" content="ASME Y14.5 and ISO 129-1 both require a note naming the unit, then let dimensions go bare. What a missing note costs, and how the digits give the unit away.">
+    <meta property="og:url" content="https://enginstack.com/guides/drawing-dimensions-without-units">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Bare Dimensions on a Drawing: mm or Inches?",
+  "description": "Both ASME Y14.5 and ISO 129-1 require a note that names the drawing's unit, then allow every dimension to stay bare. What a missing note costs, why the note is a shall in one standard and a may in the other, and how the digits themselves leak the unit.",
+  "author": {
+    "@type": "Organization",
+    "name": "EnginStack"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EnginStack"
+  },
+  "url": "https://enginstack.com/guides/drawing-dimensions-without-units",
+  "datePublished": "2026-11-19",
+  "inLanguage": "en"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://enginstack.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://enginstack.com/guides/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bare Dimensions on a Drawing",
+      "item": "https://enginstack.com/guides/drawing-dimensions-without-units"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What unit is a drawing in if it has no note and no unit symbols?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It cannot be determined from the drawing. ISO work is usually millimeter and ASME work usually decimal inch, so the odds favour one or the other, but a sheet carrying neither a note nor symbols is non-compliant under both standards and the only safe reading is to ask the issuer. Guessing wrong costs a factor of 25.4, which turns a clearance slot into a bore."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If one dimension on a metric drawing says IN, are the rest millimeters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. ASME Y14.5 clause 1.5.4 puts the abbreviation IN after an inch value precisely so that every unmarked value keeps the drawing's own unit. The marked values are the exceptions and the bare ones are the rule. Reading a stray inch value as evidence that the drawing has changed units is the mistake the clause was written to prevent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should every dimension carry its unit symbol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and under ISO it is discouraged. ISO 129-1 asks for a single unit of dimension throughout, indicated without symbols, with limit deviations in the same unit as the basic dimension. ASME Y14.5 clause 1.5.3 says individual identification is not required when all dimensions share a unit, in exchange for a note on the sheet. Symbols become mandatory only when a second unit appears in the drawing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do fractions mean the drawing is in inches?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are strong evidence but not proof. Both standards expect decimal inch for dimensioning, so a fraction is already outside the convention; it survives because inch shops still size drills and reamers in sixty-fourths under ANSI/ASME B94.11M. A fractional callout sitting among three-place decimals is a normal inch drawing. A fractional callout sitting next to 12.5 and 0.5 is a sheet carrying two habits, and the note is the only thing that can settle which one governs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the 20 degrees Celsius default really change a measurement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On tight work, yes. Steel expands by about 11.7 micrometers per meter per kelvin, so a one-meter part measured at 30 degrees Celsius reads roughly 0.117 mm longer than it was drawn at 20. Against a tolerance of plus or minus 0.05 mm the whole permitted band is 0.1 mm wide, so the temperature difference alone uses it up. The part is not out of tolerance; the measurement was taken in a condition the drawing never authorised."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb"><a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/guides/">Guides</a> <span class="sep">&rsaquo;</span>
+            <span class="current">Bare Dimensions on a Drawing</span></nav>
+
+        <header class="page-header">
+            <h1>Bare Dimensions on a Drawing: mm or Inches?</h1>
+            <p>A drawing that says <strong>12.5</strong> and nothing else has not stated a size. It has stated a ratio to something unstated, and the two candidates differ by a factor of 25.4. Every drafting standard in force solves this the same way: name the unit once on the sheet, then let every dimension stay bare. The standards disagree on whether that note is mandatory or merely advisable, and on which numbers are allowed to interrupt the silence. This page reads the actual clauses, shows how the digits leak the unit when the note is missing, and covers the second invisible default every bare number carries.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="seo-section guide-content">
+            <nav class="guide-toc" aria-label="Table of contents">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#bare">The Number With No Unit</a></li>
+                    <li><a href="#asme">What ASME Y14.5 Requires</a></li>
+                    <li><a href="#iso">What ISO 129-1 Requires</a></li>
+                    <li><a href="#opposite">Two Rules That Only Look Opposite</a></li>
+                    <li><a href="#digits">Reading the Unit Off the Digits</a></li>
+                    <li><a href="#defaults">The Defaults the Note Never Mentions</a></li>
+                    <li><a href="#pattern">The Same Failure, Repeated</a></li>
+                    <li><a href="#check">Checking a Table Before It Reaches the Shop</a></li>
+                    <li><a href="#selfcheck">Twenty Seconds of Self-Check</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </nav>
+
+            <section id="bare">
+                <h2>1. The Number With No Unit</h2>
+                <p>Two digits, a decimal point, and a great deal of silence. On a drawing, <strong>12.5</strong> is not a size. It is a size divided by a unit that nobody wrote down. Read as millimeters it is a clearance slot for an M12 bolt. Read as inches it is a bore 317.5 millimeters across &mdash; a different part, a different machine, a different purchase order.</p>
+                <p>The multiplication is not the risky step. Twenty-five point four is exact by definition, fixed by the international yard and pound agreement of 1959, and no calculator will get it wrong. The risk sits entirely in the missing word. A number that changes hands without its unit is not a measurement yet; it is a claim waiting for someone to supply the missing half.</p>
+                <p>Both of the standards that govern mechanical drawings reached the same conclusion decades ago, and both of them reached it in the same shape: put the unit on the sheet once, in a note, and leave the dimensions alone. What follows is what each standard actually says, because the two are closer than most summaries admit and the difference between them is smaller and more interesting than the folklore.</p>
+            </section>
+
+            <section id="asme">
+                <h2>2. What ASME Y14.5 Requires</h2>
+                <p>ASME Y14.5 is the American dimensioning and tolerancing standard. Clause 1.5.3 of the 2009 edition, headed <em>Identification of Linear Units</em>, is one sentence long and settles the question for every drawing that follows it:</p>
+                <blockquote>
+                    <p>On drawings where all dimensions are in millimeters or all dimensions are in inches, individual identification of linear units is not required. However, the drawing shall contain a note stating &ldquo;UNLESS OTHERWISE SPECIFIED, ALL DIMENSIONS ARE IN MILLIMETERS (or IN INCHES, as applicable).&rdquo;</p>
+                </blockquote>
+                <p>That sentence grants a permission and imposes an obligation in the same breath. You may drop the symbol from every single dimension. You may not drop the note. The note is not decoration or good practice; it is the thing that converts a page of bare numbers into a specification.</p>
+                <p>Clause 1.5.4 handles the case that actually causes trouble, where a drawing carries both units. Inch dimensions appearing on a millimeter drawing take the abbreviation <strong>IN</strong> after the value. Millimeter dimensions appearing on an inch drawing take the symbol <strong>mm</strong>. The unmarked values keep the drawing's unit; only the intruders are flagged. This is worth reading twice, because it means a metric drawing is allowed to contain an inch value, and the correct interpretation of the bare numbers does not change when one appears.</p>
+                <p>Clauses 1.5.1 and 1.5.2 name the units the standard expects to see. For SI it is the millimeter. For US customary it is the <em>decimal</em> inch &mdash; not the fractional inch. That single adjective does a lot of work later on, because it is the reason a fractional callout is a hint rather than a rule.</p>
+            </section>
+
+            <section id="iso">
+                <h2>3. What ISO 129-1 Requires</h2>
+                <p>ISO 129-1 is the international counterpart, covering the presentation of dimensions and tolerances. Its current edition is ISO 129-1:2018, amended in 2020 and confirmed as current on review in 2023. The clause on units asks for one unit and asks for it quietly:</p>
+                <blockquote>
+                    <p>Dimensions shall be indicated using only one unit of dimension. Where a variety of units of dimension are used within one document, they shall be clearly indicated. For dimensions, SI units shall be used. Limit deviations shall be expressed in the same unit as the basic dimension.</p>
+                </blockquote>
+                <p>The earlier edition phrased the working practice more directly, and the phrasing is still the clearest statement of the idea: each drawing shall use the same unit for all dimensions <em>but without showing the unit symbol</em>, and in order to avoid misinterpretation the predominant unit on a drawing may be specified in a note.</p>
+                <p>Read that last verb carefully. <strong>May</strong>, not shall. ISO offers the unit note as a defense against misreading; ASME makes it a requirement. Everything else &mdash; one unit per drawing, no symbol on the dimensions, deviations in the same unit as the basic dimension &mdash; is common ground.</p>
+                <p>One detail in the ISO clause deserves attention because ASME leaves it implicit: limit deviations must be expressed in the same unit as the basic dimension. A dimension in millimeters with a tolerance in inches is not a style problem, it is a non-conformance, and it produces exactly the arithmetic mess you would expect when a dual-unit conversion tool meets a tolerance band that lives in a different unit from its nominal.</p>
+            </section>
+
+            <section id="opposite">
+                <h2>4. Two Rules That Only Look Opposite</h2>
+                <p>Put the two standards side by side and a pattern emerges that is almost the opposite of the usual summary. ASME says individual identification of units is not required, provided a note exists. ISO says use one unit throughout and do not show the symbol, and a note may name it.</p>
+                <p>Both arrive at the same physical drawing: a sheet with a note in or near the title block, and a field of numbers with no letters after them. The disagreement is about enforcement, not about layout.</p>
+                <p>This is why two common habits are both wrong. A drawing that writes <strong>mm</strong> after all forty dimensions is not more careful than one that states the unit once &mdash; under ISO it arguably contradicts a clause that asks for one unit without symbols, and under ASME it is redundant clutter that slows the reader down. A drawing with no note anywhere and no symbols anywhere is not merely casual; it is non-compliant under both standards, and the person holding it has no way to recover the missing information from the sheet alone.</p>
+                <p>The failure is asymmetric in cost. Adding the note takes one line and is never wrong. Leaving it out saves a line and can turn a 12.5 millimeter slot into a 317.5 millimeter bore, which is not a part you can rework.</p>
+            </section>
+
+            <section id="digits">
+                <h2>5. Reading the Unit Off the Digits</h2>
+                <p>When the note is missing, the digits themselves still carry evidence, because the two conventions format numbers differently. ASME Y14.5 clause 1.6.1 sets out what millimeter dimensioning looks like, and the rules are unusually specific:</p>
+                <ul>
+                    <li>A dimension smaller than one millimeter carries a leading zero: <strong>0.5</strong>, never <strong>.5</strong>.</li>
+                    <li>A whole number carries neither a decimal point nor a trailing zero: <strong>12</strong>, not <strong>12.0</strong>.</li>
+                    <li>A dimension that exceeds a whole number does not end in a zero: <strong>12.5</strong>, not <strong>12.50</strong>.</li>
+                </ul>
+                <p>The same clause notes that tolerances follow a different practice, so a bilateral tolerance written as <strong>&plusmn;0.50</strong> is not a violation &mdash; the no-trailing-zero rule governs the dimension, not the deviation that hangs off it.</p>
+                <p>Decimal inch works the other way round, and this is the useful part. In inch practice the trailing zero is how precision is declared: <strong>0.500</strong> is a part specified to a thousandth, while <strong>0.5</strong> is not the same statement at all. A drawing covered in three-place decimals is therefore almost always an inch drawing, and a drawing where every value stops at one decimal is almost always metric. That inversion &mdash; trailing zeros meaning precision in inches, and being forbidden in millimeters &mdash; is the single most reliable tell available.</p>
+                <p>Fractions are a weaker signal. Both standards expect decimal inch, so a fractional callout is already outside the convention; it survives because inch shops still buy, drill and ream in sixty-fourths, and because ANSI/ASME B94.11M sizes drills by number, letter and fraction rather than by decimal. A <strong>3/8</strong> on the sheet is strong evidence of an inch drawing. It is evidence, not proof.</p>
+                <p>And when the digits contradict the note, the note wins. Formatting conventions are habits that most drawings follow and some do not; the note is the specification. A page of three-place decimals under a note reading ALL DIMENSIONS ARE IN MILLIMETERS is a metric drawing, and the drafter has a formatting problem, not a unit problem.</p>
+            </section>
+
+            <section id="defaults">
+                <h2>6. The Defaults the Note Never Mentions</h2>
+                <p>The unit note is one member of a family. ASME Y14.5 clause 1.4 carries a list of conditions that apply <em>unless otherwise specified</em>, and the unit is only the first of them:</p>
+                <ul>
+                    <li>All dimensions and tolerances apply at <strong>20 &deg;C (68 &deg;F)</strong>, in accordance with ANSI/ASME B89.6.2, with compensation permitted for measurements taken at other temperatures.</li>
+                    <li>All dimensions and tolerances apply in a <strong>free state</strong>, before any clamping or fixturing.</li>
+                    <li>Tolerances apply for the <strong>full depth, length and width</strong> of the feature unless stated otherwise.</li>
+                </ul>
+                <p>The temperature one does real work on real parts, and almost nobody reads it. Carbon steel expands by roughly 11.7 micrometers per meter per kelvin. A one-meter part measured at 30 &deg;C reads about <strong>0.117 mm</strong> longer than it was drawn at 20 &deg;C. Against a tolerance of &plusmn;0.05 mm the permitted band is 0.1 mm wide, so the temperature difference alone consumes the whole band and slightly more. The part is not out of tolerance; the measurement was taken in the wrong condition, and the drawing said so all along in a clause nobody quotes.</p>
+                <p>Which means a bare number on a drawing carries two defaults, not one: the unit it is expressed in, and the temperature at which that unit applies. Both are recoverable from the sheet, and both are lost the moment the number is copied into a spreadsheet without them.</p>
+            </section>
+
+            <section id="pattern">
+                <h2>7. The Same Failure, Repeated</h2>
+                <p>This is not a drafting-room hypothetical. The expensive version of this mistake has a consistent shape across industries: a number changes hands without its unit, at an interface where two units are in use.</p>
+                <p>In 1999 a Mars orbiter was lost because a thruster impulse in newton-seconds was read downstream as pound-force seconds, a discrepancy of about 4.45 times in the wrong direction, accumulated over months of trajectory corrections. In 1983 a Boeing 767 ran out of fuel at 41,000 feet because 22,300 kilograms was entered into a fuelling calculation as 22,300 pounds. In 1999 a cargo 747 crew read an altitude clearance of 1,500 meters as 1,500 feet and flew into terrain.</p>
+                <p>None of those was a rounding error, and none was an arithmetic error. Each was a bare number crossing an interface that had two units on it. The drawing note exists to close that gap before the number ever leaves the sheet &mdash; and the reason it is written in capitals is that it is meant to be the last line anyone has to read to know what the numbers mean.</p>
+            </section>
+
+            <section id="check">
+                <h2>8. Checking a Table Before It Reaches the Shop</h2>
+                <p>When a dimension table arrives from a supplier, a customer or a previous project, the unit question is only the first of several that have to be settled before anyone cuts metal. Five of them are mechanical, and each has a browser page here that runs entirely on your own machine &mdash; nothing is uploaded, and the output is a table you can paste back into a report or export as CSV.</p>
+                <ul>
+                    <li><a href="/drawing-checks/tolerance-table">Tolerance table check</a> &mdash; reads nominal plus deviations per row, produces the limits, and gives each row a verdict. A value sitting exactly on a limit is reported separately from a clean pass, because a part at the boundary is a decision, not a result.</li>
+                    <li><a href="/drawing-checks/dual-unit-dimensions">Dual-unit dimension check</a> &mdash; converts the nominal and both limits together, then reports what the chosen precision did to the band: widened it, narrowed it, or collapsed it entirely.</li>
+                    <li><a href="/drawing-checks/round-trip">Round-trip check</a> &mdash; converts out and back, reports the loss, and finds the fewest decimal places that close the loop.</li>
+                    <li><a href="/drawing-checks/unit-mix">Unit mix scanner</a> &mdash; finds rows whose unit contradicts the rest of the column, and rows carrying no unit at all. The second list is usually the longer and the more dangerous one.</li>
+                    <li><a href="/drawing-checks/chain-closure">Dimension chain closure</a> &mdash; adds toleranced segments in the worst case and compares the total against a target length, so a stack that closes on nominal but not on the limits shows up before assembly does.</li>
+                </ul>
+                <p>Behind all five is the same arithmetic: values are held as exact fractions over a single base unit and are rounded once, at the moment they are printed. That matters here more than it does in a single conversion, because a table multiplies the opportunities to round twice &mdash; and a band that is 0.002 mm wide at nominal does not survive an intermediate rounding step.</p>
+            </section>
+
+            <section id="selfcheck">
+                <h2>9. Twenty Seconds of Self-Check</h2>
+                <p>Four questions, in order, and the first one that fails is your answer:</p>
+                <ol>
+                    <li>Is there a note naming the unit? If not, stop. The drawing is non-compliant under both standards and the unit cannot be recovered from the sheet alone.</li>
+                    <li>Does any dimension carry a unit symbol? If none do, the drawing's unit is the note's unit. If some do, those are the exceptions and the bare values keep the drawing's unit.</li>
+                    <li>Do fractional callouts sit next to three-place decimals? That is two conventions on one sheet, and at least one of them is wrong.</li>
+                    <li>Is the part large enough or the tolerance tight enough for the 20 &deg;C default to matter? A meter of steel and a hundredth of a millimeter is the threshold, and above it the temperature is part of the specification.</li>
+                </ol>
+                <p>The first question is the one that gets skipped, because a drawing without a unit note does not look broken. It looks clean &mdash; which is precisely the problem.</p>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <p class="faq-q">What unit is a drawing in if it has no note and no unit symbols?</p>
+                    <p class="faq-a">It cannot be determined from the drawing. ISO work is usually millimeter and ASME work usually decimal inch, so the odds favour one or the other, but a sheet carrying neither a note nor symbols is non-compliant under both standards and the only safe reading is to ask the issuer. Guessing wrong costs a factor of 25.4, which turns a clearance slot into a bore.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">If one dimension on a metric drawing says IN, are the rest millimeters?</p>
+                    <p class="faq-a">Yes. ASME Y14.5 clause 1.5.4 puts the abbreviation IN after an inch value precisely so that every unmarked value keeps the drawing's own unit. The marked values are the exceptions and the bare ones are the rule. Reading a stray inch value as evidence that the drawing has changed units is the mistake the clause was written to prevent.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Should every dimension carry its unit symbol?</p>
+                    <p class="faq-a">No, and under ISO it is discouraged. ISO 129-1 asks for a single unit of dimension throughout, indicated without symbols, with limit deviations in the same unit as the basic dimension. ASME Y14.5 clause 1.5.3 says individual identification is not required when all dimensions share a unit, in exchange for a note on the sheet. Symbols become mandatory only when a second unit appears in the drawing.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Do fractions mean the drawing is in inches?</p>
+                    <p class="faq-a">They are strong evidence but not proof. Both standards expect decimal inch for dimensioning, so a fraction is already outside the convention; it survives because inch shops still size drills and reamers in sixty-fourths under ANSI/ASME B94.11M. A fractional callout sitting among three-place decimals is a normal inch drawing. A fractional callout sitting next to 12.5 and 0.5 is a sheet carrying two habits, and the note is the only thing that can settle which one governs.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Does the 20 degrees Celsius default really change a measurement?</p>
+                    <p class="faq-a">On tight work, yes. Steel expands by about 11.7 micrometers per meter per kelvin, so a one-meter part measured at 30 degrees Celsius reads roughly 0.117 mm longer than it was drawn at 20. Against a tolerance of plus or minus 0.05 mm the whole permitted band is 0.1 mm wide, so the temperature difference alone uses it up. The part is not out of tolerance; the measurement was taken in a condition the drawing never authorised.</p>
+                </div>
+            </section>
+
+            <section class="eng-context">
+                <h3>Sources and Further Reading</h3>
+                <ul>
+                    <li>ASME Y14.5-2009, <em>Dimensioning and Tolerancing</em>, clause 1.5.3 (Identification of Linear Units), clause 1.5.4 (Combination SI and U.S. Customary Linear Units), clauses 1.5.1 and 1.5.2 (the millimeter and the decimal inch as the units of practice), clause 1.6.1 (millimeter dimensioning format), and clause 1.4 (l), (m), (n) for the conditions that apply unless otherwise specified. The 2018 edition is current; clause 1.5 is the section that governs units in both.</li>
+                    <li>ISO 129-1, <em>Technical product documentation &mdash; Presentation of dimensions and tolerances &mdash; Part 1: General principles</em>. The 2018 edition was amended in 2020 and confirmed as current on its 2023 review. The clause on units of dimension requires one unit throughout, SI for dimensions, clear indication where several units appear, and limit deviations in the same unit as the basic dimension. The 1985 edition of ISO 129 stated the practice more directly: one unit for all dimensions, without showing the unit symbol, with the predominant unit optionally named in a note.</li>
+                    <li>ANSI/ASME B89.6.2, <em>Temperature and Humidity Environment for Dimensional Measurement</em>, which supplies the 20 &deg;C reference temperature that ASME Y14.5 clause 1.4 (l) invokes by reference.</li>
+                    <li>ANSI/ASME B94.11M, <em>Twist Drills</em>, the source of the number, letter and fractional drill sizing that keeps fractional callouts alive on inch drawings.</li>
+                    <li>The 1959 international yard and pound agreement, which fixed the inch at exactly 25.4 millimeters and the pound at 0.45359237 kilogram. Every exact factor quoted here derives from it; see the <a href="/guides/unit-conversion-chart">unit conversion chart</a> for the full table of exact factors.</li>
+                    <li>The three incidents in section seven are documented on this site with their primary sources: <a href="/guides/mars-climate-orbiter-unit-conversion-error">Mars Climate Orbiter</a>, <a href="/guides/gimli-glider-kg-lb-fuel-error">Gimli Glider</a> and <a href="/guides/korean-air-cargo-6316-altitude-unit-mismatch">Korean Air Cargo 6316</a>. The common mechanism is set out in <a href="/guides/engineering-unit-conversion-mistakes">the eight most expensive unit conversion mistakes</a>.</li>
+                </ul>
+            </section>
+
+            <h3>Related Guides</h3>
+            <div class="related-tags">
+                <a href="/guides/why-converters-disagree">Why Two Correct Unit Converters Disagree</a>
+                <a href="/guides/unit-conversion-chart">Unit Conversion Chart</a>
+                <a href="/guides/how-to-convert-units">How to Convert Units &mdash; The Factor-Label Method</a>
+                <a href="/guides/length-conversion-guide">Length Conversion Guide</a>
+                <a href="/guides/temperature-conversion-guide">Temperature Conversion Guide</a>
+                <a href="/guides/engineering-unit-conversion-mistakes">The 8 Most Expensive Unit Conversion Mistakes</a>
+                <a href="/drawing-checks/">Drawing Checks</a>
+            </div>
+
+            <div class="attribution-box">
+                <p><strong>Reprint &amp; Attribution.</strong> This article was written and fact-checked by the EnginStack Editorial Team. It was first published on November 19, 2026 at <a href="https://enginstack.com/guides/drawing-dimensions-without-units">enginstack.com/guides/drawing-dimensions-without-units</a>. You are welcome to quote it, share it, or translate it &mdash; we ask only that you link back to the original page and credit EnginStack as the source. If you'd like to republish the full text on your own site, please contact us first: <code>support@enginstack.com</code>. We license syndication at no cost for educational and non-commercial use with proper attribution.</p>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+</body>
+</html>
