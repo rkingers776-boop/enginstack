@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimension Chain Closure Calculator</title>
+    <meta name="description" content="Add toleranced segments in the worst case and compare against a target length. Reports clearance, interference, or a marginal fit.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/drawing-checks/chain-closure">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/drawing-checks/chain-closure">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/drawing-checks/chain-closure">
+    <meta property="og:title" content="Dimension Chain Closure Calculator">
+    <meta property="og:description" content="Add toleranced segments in the worst case and compare against a target length. Reports clearance, interference, or a marginal fit.">
+    <meta property="og:url" content="https://enginstack.com/drawing-checks/chain-closure">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Dimension Chain Closure Calculator",
+  "description": "Add toleranced segments in the worst case and compare against a target length. Reports clearance, interference, or a marginal fit.",
+  "url": "https://enginstack.com/drawing-checks/chain-closure",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Drawing Checks", "item": "https://enginstack.com/drawing-checks/" },
+    { "@type": "ListItem", "position": 3, "name": "Dimension Chain Closure" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why worst case rather than root sum square?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the question this page answers is whether an assembly can fail, and worst-case addition is the only method that never understates the range. Root sum square is smaller and more realistic over a production run, but it relies on the errors being independent, which is not true for parts made together on the same machine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I enter a segment that subtracts from the chain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter it with a negative value. The checker sums what it is given, so a segment written as -0.375 in the length column reduces the total. It does not try to infer direction from the drawing, because the drawing is the only place that information exists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I leave the target empty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The page still sums the chain and reports the worst-case high and low limits, just without a clearance verdict. That is useful on its own for checking what a stack of dimensions actually adds up to before deciding what the target should be."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the target have its own tolerance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it has two fields so an asymmetric target can be stated. A target of 30.475 with +0.000/-0.020 is common on a slot, and dropping that asymmetry would overstate the clearance on one side."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a row carry its own unit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the same as the other checkers on this site. Values with a unit attached override the dropdown, and the sum is computed in a single base unit so a chain that mixes inches and millimeters still adds up correctly."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body data-tool="chain-closure">
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/drawing-checks/">Drawing Checks</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Dimension Chain Closure</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Dimension Chain Closure Calculator</h1>
+            <p>Add a chain of toleranced segments in the worst case, compare the result against a target length, and read off the clearance range.</p>
+            <p class="direct-answer">Worst-case addition, no assumptions. <strong>10.000 &plusmn;0.002 plus 20.000 &plusmn;0.003 plus 0.375 &plusmn;0.001 runs from 30.369 to 30.381</strong>, so a 30.475 target has clearance at both ends.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <label class="tool-label" for="dc-in">Paste your table</label>
+            <textarea class="tool-textarea" id="dc-in" rows="10" spellcheck="false"
+                      autocomplete="off" aria-describedby="dc-hint">10.000, ±0.002
+20.000, ±0.003
+0.375, ±0.001</textarea>
+            <p class="tool-hint" id="dc-hint">One row per line. Columns separated by commas or tabs.
+            A unit written on a value overrides the dropdown, so <code>0.750 in</code> and
+            <code>19.05 mm</code> can sit in the same column. Nothing leaves your browser.</p>
+
+            <div class="tool-row">
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-unit">Values are in</label>
+                        <select class="tool-select" id="dc-unit">
+                        <option value="mm"                            >millimeter (mm)</option>
+                        <option value="cm"                            >centimeter (cm)</option>
+                        <option value="m"                            >meter (m)</option>
+                        <option value="km"                            >kilometer (km)</option>
+                        <option value="in" selected                            >inch (in)</option>
+                        <option value="ft"                            >foot (ft)</option>
+                        <option value="yd"                            >yard (yd)</option>
+                        <option value="mi"                            >mile (mi)</option>
+                        </select>
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-dp">Decimals</label>
+                        <select class="tool-select" id="dc-dp">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        </select>
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-target">Target length</label>
+                        <input class="tool-input" id="dc-target" type="text" inputmode="decimal" value="30.475">
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-target-plus">Target +</label>
+                        <input class="tool-input" id="dc-target-plus" type="text" inputmode="decimal" value="0.000">
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-target-minus">Target -</label>
+                        <input class="tool-input" id="dc-target-minus" type="text" inputmode="decimal" value="0.000">
+                    </div>
+            </div>
+
+            <div class="tool-btns">
+                <button class="tool-btn tool-btn-primary" id="dc-run" type="button">Check the table</button>
+                <button class="tool-btn" id="dc-csv" type="button" disabled>Download CSV</button>
+            </div>
+
+            <div class="tool-error" id="dc-err" hidden></div>
+            <div class="tool-result" id="dc-out"></div>
+        </div>
+
+        <article class="tool-prose">
+            <h2>What this checks</h2>
+            <p>Paste the segments of a dimension chain and state the target length. Each segment
+            contributes its nominal value and its tolerance, and the checker adds them in the
+            worst-case sense: every segment long at once for the high limit, every segment short at
+            once for the low limit. The result is the range the assembled length can actually take,
+            compared against the target.</p>
+            <p>This is the arithmetic behind a question that comes up on every assembly: will these
+            parts fit, and how much room is left when they do. Doing it by hand means adding the
+            nominals, adding the tolerances separately, and then not being sure whether the answer
+            is the sum of the tolerances or the root sum of squares. This page does the worst-case
+            form, which is the one that never lets a bad assembly through.</p>
+
+            <h2>How to read the verdict</h2>
+            <p><strong>CLEARANCE</strong> means the assembled length is inside the target range even
+            at the worst combination, so there is always room. <strong>INTERFERENCE</strong> means
+            it is outside even at the best combination, so the parts cannot fit as drawn.
+            <strong>MARGINAL</strong> means the answer depends on which way the tolerances happen
+            to fall: sometimes it fits, sometimes it does not, and the note says which failure you
+            would get.</p>
+            <p>The clearance minimum and maximum are the two numbers to carry into a discussion. A
+            design whose minimum clearance is 0.095 has room to spare. The same design with a
+            minimum clearance of 0.002 is technically inside the target and will produce arguments
+            on the floor.</p>
+
+            <h2>Worked example</h2>
+            <p>The sample has three segments: 10.000 &plusmn;0.002, 20.000 &plusmn;0.003 and
+            0.375 &plusmn;0.001, and a target of 30.475. The nominals sum to 30.375, and the
+            tolerances sum to &plusmn;0.006, so the assembled length runs from 30.369 to 30.381.
+            Against a target of 30.475 the clearance runs from 0.094 to 0.106, and the verdict is
+            clearance: it always fits. Change the target to 30.000 and the same parts become
+            interference, because the shortest possible stack is already longer than the target.</p>
+
+            <h2>Worst case, not statistical</h2>
+            <p>The root-sum-square method gives a smaller, more realistic band, and it is the right
+            tool for setting tolerances during design. It is the wrong tool for answering whether a
+            specific assembly can fail, because it assumes the errors are independent and normally
+            distributed, and a stack of three parts from one machine on one afternoon violates both
+            assumptions. Worst-case addition needs no assumptions and never understates the range.</p>
+            <p>Direction matters too. Segments that run in opposite directions subtract rather than
+            add, so a chain with a negative-going segment has to be entered with that segment
+            negated. The tool adds what it is given.</p>
+
+            <h2>What it will not do</h2>
+            <p>It does not handle geometric tolerance, angular contributions, or the effect of a
+            datum shift, and it does not know which segments subtract. Those require the drawing.
+            What it does is remove the arithmetic from a question that is asked constantly and
+            answered by hand with a calculator and a certain amount of hope.</p>
+
+            <h2>Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why worst case rather than root sum square?</p>
+                <p class="faq-a">Because the question this page answers is whether an assembly can fail, and worst-case addition is the only method that never understates the range. Root sum square is smaller and more realistic over a production run, but it relies on the errors being independent, which is not true for parts made together on the same machine.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How do I enter a segment that subtracts from the chain?</p>
+                <p class="faq-a">Enter it with a negative value. The checker sums what it is given, so a segment written as -0.375 in the length column reduces the total. It does not try to infer direction from the drawing, because the drawing is the only place that information exists.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What if I leave the target empty?</p>
+                <p class="faq-a">The page still sums the chain and reports the worst-case high and low limits, just without a clearance verdict. That is useful on its own for checking what a stack of dimensions actually adds up to before deciding what the target should be.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Does the target have its own tolerance?</p>
+                <p class="faq-a">Yes, and it has two fields so an asymmetric target can be stated. A target of 30.475 with +0.000/-0.020 is common on a slot, and dropping that asymmetry would overstate the clearance on one side.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can a row carry its own unit?</p>
+                <p class="faq-a">Yes, the same as the other checkers on this site. Values with a unit attached override the dropdown, and the sum is computed in a single base unit so a chain that mixes inches and millimeters still adds up correctly.</p>
+            </div>
+
+            <h2>Related</h2>
+            <div class="related-tags"><a href="/drawing-checks/tolerance-table">Tolerance Table Checker</a> <a href="/drawing-checks/dual-unit-dimensions">Dual-Unit Dimension Converter</a> <a href="/feet-inches-calculator">Feet and Inches Calculator</a> <a href="/guides/why-converters-disagree">Why Converters Disagree</a> <a href="/batch-unit-converter">Batch Unit Converter</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script src="/dimensions.js"></script>
+    <script src="/drawingcheck.js"></script>
+    <script src="/drawingcheck-ui.js"></script>
+</body>
+</html>

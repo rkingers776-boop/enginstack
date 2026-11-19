@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Mix Scanner for Drawing Tables</title>
+    <meta name="description" content="Find rows whose unit contradicts their column, and rows with no unit at all. Catches mixed-supplier lists before a conversion makes them plausible.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/drawing-checks/unit-mix">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/drawing-checks/unit-mix">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/drawing-checks/unit-mix">
+    <meta property="og:title" content="Unit Mix Scanner for Drawing Tables">
+    <meta property="og:description" content="Find rows whose unit contradicts their column, and rows with no unit at all. Catches mixed-supplier lists before a conversion makes them plausible.">
+    <meta property="og:url" content="https://enginstack.com/drawing-checks/unit-mix">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Unit Mix Scanner",
+  "description": "Find rows whose unit contradicts their column, and rows with no unit at all. Catches mixed-supplier lists before a conversion makes them plausible.",
+  "url": "https://enginstack.com/drawing-checks/unit-mix",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Drawing Checks", "item": "https://enginstack.com/drawing-checks/" },
+    { "@type": "ListItem", "position": 3, "name": "Unit Mix Scanner" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why flag a bare number instead of assuming the column unit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the assumption is the thing being tested. A bare value in a column of inches is probably inches, but the whole point of the scan is to surface the rows where the document does not actually say. Treating it as a pass would hide precisely the uncertainty you opened the tool to find."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a mixed column mean the values are wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every value can be individually correct and the column still be unusable as a list. The scanner reports the inconsistency, not an arithmetic error. What you do about it depends on which supplier or which revision the odd rows came from."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which units does it recognize?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The eight length units the site uses, in their word and symbol forms: mm, cm, m, km, in, inch, inches, ft, foot, feet, yd, mi, plus the quote marks for feet and inches. A unit written as part of an expression such as 3/8 in is recognized too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it scan more than one column at a time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every column is analyzed independently and gets its own dominant unit, so a table with a millimeter column next to an inch column is read correctly rather than reported as uniformly mixed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about a column that has no units anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is left alone. When no row in a column states a unit there is no inconsistency to report, and flagging the whole column would be noise. The scan reports contradictions between rows, not the absence of units in general."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body data-tool="unit-mix">
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/drawing-checks/">Drawing Checks</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Unit Mix Scanner</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Unit Mix Scanner</h1>
+            <p>Find the rows whose unit contradicts the rest of their column, and the rows that carry no unit at all.</p>
+            <p class="direct-answer">A column of millimeters with two inch rows in it converts perfectly and is still wrong by a factor of 25.4. <strong>The scanner reports the contradiction per row</strong> and summarizes what each column actually contains.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <label class="tool-label" for="dc-in">Paste your table</label>
+            <textarea class="tool-textarea" id="dc-in" rows="10" spellcheck="false"
+                      autocomplete="off" aria-describedby="dc-hint">12.500 mm
+0.500 in
+19.050 mm
+0.750 in
+1.250
+6.350 mm
+25.400 mm</textarea>
+            <p class="tool-hint" id="dc-hint">One row per line. Columns separated by commas or tabs.
+            A unit written on a value overrides the dropdown, so <code>0.750 in</code> and
+            <code>19.05 mm</code> can sit in the same column. Nothing leaves your browser.</p>
+
+            <div class="tool-row">
+            </div>
+
+            <div class="tool-btns">
+                <button class="tool-btn tool-btn-primary" id="dc-run" type="button">Check the table</button>
+                <button class="tool-btn" id="dc-csv" type="button" disabled>Download CSV</button>
+            </div>
+
+            <div class="tool-error" id="dc-err" hidden></div>
+            <div class="tool-result" id="dc-out"></div>
+        </div>
+
+        <article class="tool-prose">
+            <h2>What this checks</h2>
+            <p>This one does not convert anything. It reads each column in your table, works out
+            which unit dominates that column, and then flags every row that carries a different
+            unit, plus every row that carries no unit at all. The output is a per-row verdict and a
+            per-column summary of what was actually found.</p>
+            <p>That second category, the row with no unit, is the one that causes the expensive
+            mistakes. A bare <code>1.250</code> in a column of inches is almost certainly an inch
+            value, and a bare <code>1.250</code> in a column of millimeters is almost certainly a
+            millimeter value, but nobody can prove either from the document. Flagging it is the
+            only honest response.</p>
+
+            <h2>How to read the verdict</h2>
+            <p><strong>OK</strong> means the row carries the unit that dominates its column.
+            <strong>AT LIMIT</strong> means the row carries no unit, so it is assumed to follow the
+            column but is not stated to. <strong>FAIL</strong> means the row carries a unit that
+            contradicts the column, and the note names both, in the form <em>col 2 reads mm,
+            column is in</em>.</p>
+            <p>The per-column summary is worth reading on its own. A column whose histogram is split
+            evenly between two units is not a column with a few typos, it is two different lists that
+            were pasted together, and the right fix is upstream of any conversion.</p>
+
+            <h2>Worked example</h2>
+            <p>The sample list has one column with seven values. Four carry millimeters, two carry
+            inches, and one carries nothing. The dominant unit is millimeters, so the two inch rows
+            fail and the bare row is flagged as having no unit. If those seven values were converted
+            as a batch assuming the dropdown unit, four of them would come out wrong by a factor of
+            25.4 and the resulting list would look entirely normal.</p>
+            <p>That is the failure this page is built for: not a wrong conversion, but a correct
+            conversion applied to a value that was never in the assumed unit.</p>
+
+            <h2>Why unit mixing survives review</h2>
+            <p>A mixed column usually arrives from a real cause. One supplier quotes in inches and
+            the rest in millimeters. A table was extended by copying rows from an older revision.
+            Someone converted the first page of a drawing and stopped. Each of those produces a list
+            that reads as consistent at a glance, because the numbers themselves are perfectly
+            plausible: 12.5 mm and 0.5 in are both ordinary values for the same feature.</p>
+            <p>Nothing about the numbers looks wrong, which is why the check has to be mechanical.
+            Reading a column and noticing that row four is 25.4 times smaller than its neighbors is
+            exactly the task human attention is worst at.</p>
+
+            <h2>What it will not do</h2>
+            <p>It does not fix anything and it does not guess. A bare value is flagged, not assigned.
+            A mixed column is reported, not normalized. Deciding whether the odd rows should be
+            converted or the column heading should be corrected is a document question, and getting
+            it wrong in either direction produces a list that is confidently incorrect.</p>
+
+            <p><a href="/batch-unit-converter">Convert the column once it is consistent &rarr;</a></p>
+
+            <h2>Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why flag a bare number instead of assuming the column unit?</p>
+                <p class="faq-a">Because the assumption is the thing being tested. A bare value in a column of inches is probably inches, but the whole point of the scan is to surface the rows where the document does not actually say. Treating it as a pass would hide precisely the uncertainty you opened the tool to find.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Does a mixed column mean the values are wrong?</p>
+                <p class="faq-a">No. Every value can be individually correct and the column still be unusable as a list. The scanner reports the inconsistency, not an arithmetic error. What you do about it depends on which supplier or which revision the odd rows came from.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Which units does it recognize?</p>
+                <p class="faq-a">The eight length units the site uses, in their word and symbol forms: mm, cm, m, km, in, inch, inches, ft, foot, feet, yd, mi, plus the quote marks for feet and inches. A unit written as part of an expression such as <code>3/8 in</code> is recognized too.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can it scan more than one column at a time?</p>
+                <p class="faq-a">Yes. Every column is analyzed independently and gets its own dominant unit, so a table with a millimeter column next to an inch column is read correctly rather than reported as uniformly mixed.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What about a column that has no units anywhere?</p>
+                <p class="faq-a">It is left alone. When no row in a column states a unit there is no inconsistency to report, and flagging the whole column would be noise. The scan reports contradictions between rows, not the absence of units in general.</p>
+            </div>
+
+            <h2>Related</h2>
+            <div class="related-tags"><a href="/drawing-checks/tolerance-table">Tolerance Table Checker</a> <a href="/batch-unit-converter">Batch Unit Converter</a> <a href="/drawing-checks/dual-unit-dimensions">Dual-Unit Dimension Converter</a> <a href="/guides/engineering-unit-conversion-mistakes">Engineering Unit Conversion Mistakes</a> <a href="/guides/why-converters-disagree">Why Converters Disagree</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script src="/dimensions.js"></script>
+    <script src="/drawingcheck.js"></script>
+    <script src="/drawingcheck-ui.js"></script>
+</body>
+</html>

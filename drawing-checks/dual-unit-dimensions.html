@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual-Unit Dimension Converter for Drawings</title>
+    <meta name="description" content="Convert nominal and both tolerance limits together. Reports whether rounding narrowed, widened or collapsed the band, so a converted drawing keeps its intent.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/drawing-checks/dual-unit-dimensions">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/drawing-checks/dual-unit-dimensions">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/drawing-checks/dual-unit-dimensions">
+    <meta property="og:title" content="Dual-Unit Dimension Converter for Drawings">
+    <meta property="og:description" content="Convert nominal and both tolerance limits together. Reports whether rounding narrowed, widened or collapsed the band, so a converted drawing keeps its intent.">
+    <meta property="og:url" content="https://enginstack.com/drawing-checks/dual-unit-dimensions">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Dual-Unit Dimension Converter",
+  "description": "Convert nominal and both tolerance limits together. Reports whether rounding narrowed, widened or collapsed the band, so a converted drawing keeps its intent.",
+  "url": "https://enginstack.com/drawing-checks/dual-unit-dimensions",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Drawing Checks", "item": "https://enginstack.com/drawing-checks/" },
+    { "@type": "ListItem", "position": 3, "name": "Dual-Unit Dimension Converter" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is the band reported separately from the limits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the limits are what you inspect against, and the band is what the design asked for. When a converted drawing shows limits that differ in width from the original, the governing document and the working drawing have diverged, and someone has to decide which one is binding. Reporting the change makes that visible at the moment of conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which direction of change is worse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A narrowed band is worse in practice. It rejects conforming parts and sends them to review, and the cause is invisible on the shop floor because the print looks correct. A widened band is a real problem too, but it shows up as bad parts being accepted rather than good parts being questioned."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert between units other than inches and millimeters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The dropdowns carry the same eight length units the site uses elsewhere, and the conversions come from the same definitions, so a foot is 0.3048 m exactly rather than an approximation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it handle a unilateral tolerance written as plus zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it keeps the asymmetry. A callout of +0.005/-0.000 stays one-sided after conversion rather than being averaged into a symmetric band, which is what a hand conversion often does by accident."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a row has more than three columns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first three are read as nominal, upper and lower, and any further columns are ignored rather than guessed at. If your table has a measured value in the fourth column, the tolerance table checker is the page you want."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body data-tool="dual-unit">
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/drawing-checks/">Drawing Checks</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Dual-Unit Dimension Converter</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Dual-Unit Dimension Converter</h1>
+            <p>Convert nominal and both limits together, then see what the chosen precision did to the width of the tolerance band.</p>
+            <p class="direct-answer">Most conversions carry the nominal and drop the band. Here <strong>0.750 in &plusmn;0.005 in becomes 19.05 mm with limits of 18.923 and 19.177</strong>, and the band width is checked against the original.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <label class="tool-label" for="dc-in">Paste your table</label>
+            <textarea class="tool-textarea" id="dc-in" rows="10" spellcheck="false"
+                      autocomplete="off" aria-describedby="dc-hint">0.750, ±0.005
+1.250, ±0.003
+2.375, +0.002, -0.001
+0.03125, ±0.0005
+4.500, ±0.010</textarea>
+            <p class="tool-hint" id="dc-hint">One row per line. Columns separated by commas or tabs.
+            A unit written on a value overrides the dropdown, so <code>0.750 in</code> and
+            <code>19.05 mm</code> can sit in the same column. Nothing leaves your browser.</p>
+
+            <div class="tool-row">
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-unit">Values are in</label>
+                        <select class="tool-select" id="dc-unit">
+                        <option value="mm"                            >millimeter (mm)</option>
+                        <option value="cm"                            >centimeter (cm)</option>
+                        <option value="m"                            >meter (m)</option>
+                        <option value="km"                            >kilometer (km)</option>
+                        <option value="in" selected                            >inch (in)</option>
+                        <option value="ft"                            >foot (ft)</option>
+                        <option value="yd"                            >yard (yd)</option>
+                        <option value="mi"                            >mile (mi)</option>
+                        </select>
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-to">Convert to</label>
+                        <select class="tool-select" id="dc-to">
+                        <option value="mm" selected                            >millimeter (mm)</option>
+                        <option value="cm"                            >centimeter (cm)</option>
+                        <option value="m"                            >meter (m)</option>
+                        <option value="km"                            >kilometer (km)</option>
+                        <option value="in"                            >inch (in)</option>
+                        <option value="ft"                            >foot (ft)</option>
+                        <option value="yd"                            >yard (yd)</option>
+                        <option value="mi"                            >mile (mi)</option>
+                        </select>
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-dp">Decimals</label>
+                        <select class="tool-select" id="dc-dp">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        </select>
+                    </div>
+            </div>
+
+            <div class="tool-btns">
+                <button class="tool-btn tool-btn-primary" id="dc-run" type="button">Check the table</button>
+                <button class="tool-btn" id="dc-csv" type="button" disabled>Download CSV</button>
+            </div>
+
+            <div class="tool-error" id="dc-err" hidden></div>
+            <div class="tool-result" id="dc-out"></div>
+        </div>
+
+        <article class="tool-prose">
+            <h2>What this checks</h2>
+            <p>Converting a nominal dimension is the easy half. The hard half is that a tolerance
+            has to travel with it, and the tolerance is usually the smaller number, so a rounding
+            rule that is harmless for the nominal can quietly destroy the band. This tool converts
+            nominal, upper limit and lower limit together, then reports what the act of rounding to
+            your chosen number of decimals did to the width of the band.</p>
+            <p>Two columns means nominal and symmetric tolerance. Three columns means nominal,
+            upper deviation and lower deviation, so unilateral callouts like <code>+0.002/-0.001</code>
+            keep their shape after conversion instead of being symmetrized.</p>
+
+            <h2>How to read the verdict</h2>
+            <p><strong>PASS</strong> means the band survived rounding unchanged: the converted
+            limits still describe the same window, at the precision you asked for.
+            <strong>AT LIMIT</strong> means the band changed width, and the last column gives the
+            size of the change. A band that narrows is the dangerous direction, because an inspection
+            limit stated tighter than the design intent rejects good parts without saying so.
+            A band that widens accepts parts the design did not intend.</p>
+            <p><strong>FAIL</strong> means rounding collapsed the band, which happens when the
+            tolerance is smaller than one increment at the chosen precision. Converting a
+            &plusmn;0.0005 in tolerance into millimeters at one decimal place gives both limits the
+            same value, and there is nothing left to inspect against. The answer is not to round
+            harder, it is to carry more decimals.</p>
+
+            <h2>Worked example</h2>
+            <p>Row one is 0.750 in &plusmn;0.005 in converted to millimeters at three decimals.
+            The nominal becomes 19.05 mm, the limits become 18.923 mm and 19.177 mm, and the band
+            is 0.254 mm wide, exactly what 0.010 in is. Nothing changed, so the row passes.
+            Row two is 1.250 in &plusmn;0.003 in. The exact band is 0.1524 mm, but the rounded limits
+            are 31.674 mm and 31.826 mm, a band of 0.152 mm, so the row is flagged as narrowed by
+            0.0004 mm. That number is small, and it is exactly the kind of small number that gets
+            argued about at a receiving inspection.</p>
+
+            <h2>Why this is hard to do by hand</h2>
+            <p>Converting a tolerance by hand means three conversions and a subtraction, and the
+            subtraction is the step people skip. Whoever converts a drawing usually checks the
+            nominal and moves on, because the nominal is the number that appears in the title block.
+            The band width is the number that decides whether parts are accepted, and it is the one
+            that silently changes when the precision changes.</p>
+            <p>The arithmetic here is exact: every value is carried as a fraction over a meter base
+            and only rounded when printed, so the reported change in band width is the real change
+            caused by the precision you selected, not an artifact of intermediate rounding.</p>
+
+            <h2>What it will not do</h2>
+            <p>It does not choose a precision for you. A converted drawing is a decision about what
+            the shop can inspect, and three decimals on a millimeter drawing is conventional while
+            three decimals on a hand-drawn inch sheet may claim more than was ever measured. The
+            tool quantifies the consequence of the choice, it does not make it.</p>
+
+            <p><a href="/drawing-checks/tolerance-table">Tolerance table checker &rarr;</a></p>
+
+            <h2>Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why is the band reported separately from the limits?</p>
+                <p class="faq-a">Because the limits are what you inspect against, and the band is what the design asked for. When a converted drawing shows limits that differ in width from the original, the governing document and the working drawing have diverged, and someone has to decide which one is binding. Reporting the change makes that visible at the moment of conversion.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Which direction of change is worse?</p>
+                <p class="faq-a">A narrowed band is worse in practice. It rejects conforming parts and sends them to review, and the cause is invisible on the shop floor because the print looks correct. A widened band is a real problem too, but it shows up as bad parts being accepted rather than good parts being questioned.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can I convert between units other than inches and millimeters?</p>
+                <p class="faq-a">Yes. The dropdowns carry the same eight length units the site uses elsewhere, and the conversions come from the same definitions, so a foot is 0.3048 m exactly rather than an approximation.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Does it handle a unilateral tolerance written as plus zero?</p>
+                <p class="faq-a">Yes, and it keeps the asymmetry. A callout of +0.005/-0.000 stays one-sided after conversion rather than being averaged into a symmetric band, which is what a hand conversion often does by accident.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What if a row has more than three columns?</p>
+                <p class="faq-a">The first three are read as nominal, upper and lower, and any further columns are ignored rather than guessed at. If your table has a measured value in the fourth column, the tolerance table checker is the page you want.</p>
+            </div>
+
+            <h2>Related</h2>
+            <div class="related-tags"><a href="/drawing-checks/tolerance-table">Tolerance Table Checker</a> <a href="/drawing-checks/round-trip">Round-Trip Conversion Checker</a> <a href="/batch-unit-converter">Batch Unit Converter</a> <a href="/inches-to-mm">Inches to Millimeters</a> <a href="/guides/why-converters-disagree">Why Converters Disagree</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script src="/dimensions.js"></script>
+    <script src="/drawingcheck.js"></script>
+    <script src="/drawingcheck-ui.js"></script>
+</body>
+</html>

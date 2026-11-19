@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Checks: Table-Level Dimension Tools</title>
+    <meta name="description" content="Five table-level dimension checks: tolerance verdicts per row, dual-unit conversion with the tolerance band, round-trip closure, unit mixing, chain closure.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/drawing-checks/">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/drawing-checks/">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/drawing-checks/">
+    <meta property="og:title" content="Drawing Checks: Table-Level Dimension Tools">
+    <meta property="og:description" content="Five table-level dimension checks: tolerance verdicts per row, dual-unit conversion with the tolerance band, round-trip closure, unit mixing, chain closure.">
+    <meta property="og:url" content="https://enginstack.com/drawing-checks/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Drawing Checks",
+  "description": "Five table-level dimension checks: tolerance verdicts per row, dual-unit conversion with the tolerance band, round-trip closure, unit mixing, chain closure.",
+  "url": "https://enginstack.com/drawing-checks/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Drawing Checks", "item": "https://enginstack.com/drawing-checks/" },
+    { "@type": "ListItem", "position": 3, "name": "Drawing Checks" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are these tools related to the site converters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They share the arithmetic engine, so a conversion here and the same conversion on a converter page come from identical exact definitions. What differs is the shape of the input: one table rather than one value, and a verdict rather than a number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is any of the pasted data sent anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The checks run entirely in the page with JavaScript, and there is no request carrying the values. That is a deliberate design constraint rather than a marketing point, because the tables these tools are useful on are usually the ones that cannot be shared."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the results be printed or saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Each tool exports CSV, and the result table prints with the site layout stripped down so the numbers and verdicts survive on paper. The print stylesheet removes the tool controls and keeps the table."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a row cannot be read?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is listed separately under the result rather than dropped. A silently skipped row is worse than a failed one, because the report then claims to cover a table it did not fully read. The count of unreadable lines appears in the summary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do these replace an inspection plan or a GD&T stack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. They do arithmetic on the numbers you give them and nothing else. They do not know your drawing standard, they do not apply geometric tolerance or datum shift, and they do not account for measurement uncertainty. They remove the hand arithmetic from a question that gets asked constantly."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body data-tool="">
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/drawing-checks/">Drawing Checks</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Drawing Checks</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Drawing Checks for Dimension Tables</h1>
+            <p>Five checks that read a pasted table instead of one number: tolerance verdicts, dual-unit conversion with the band carried, round-trip closure, unit mixing, and chain closure.</p>
+            <p class="direct-answer">Paste a dimension table and each tool returns a verdict per row. <strong>Nothing is uploaded</strong>, the arithmetic is exact to the fraction, and every result exports as CSV.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <article class="tool-prose">
+            <h2>Five checks, one idea</h2>
+            <p>Every tool on this site converts a number. These five do something different: they
+            take a table and return a verdict per row. The distinction matters because dimensional
+            errors rarely live in a single conversion. They live in a list, one of whose forty rows
+            came from a different revision, or carries a unit nobody noticed, or sits so close to a
+            limit that the next measurement will fall outside.</p>
+            <p>A converter cannot find those. It answers one value at a time, and it answers
+            correctly, which is why the error survives. A row that was transcribed in the wrong unit
+            converts perfectly into a wrong answer.</p>
+
+            <h2>The five tools</h2>
+            <div class="tool-tablewrap">
+                <table class="tool-table">
+                    <thead><tr><th>Check</th><th>What it does</th><th>Typical use</th></tr></thead>
+                    <tbody>
+                <tr>
+                    <td><a href="/drawing-checks/tolerance-table">Tolerance Table Checker</a></td>
+                    <td>Paste nominal, deviations and measured values. Each row is judged against its own limits, and a value sitting exactly on a limit is reported apart from a clean pass.</td>
+                    <td>Inspection sheets, receiving checks, first-article reports.</td>
+                </tr>
+                <tr>
+                    <td><a href="/drawing-checks/dual-unit-dimensions">Dual-Unit Dimension Converter</a></td>
+                    <td>Converts nominal and both limits together, then reports what the chosen precision did to the width of the tolerance band.</td>
+                    <td>Converting a drawing between inches and millimeters without losing the tolerance.</td>
+                </tr>
+                <tr>
+                    <td><a href="/drawing-checks/round-trip">Round-Trip Conversion Checker</a></td>
+                    <td>Converts each value and converts it back, then reports whether the loop closed and how many decimals it needed.</td>
+                    <td>Deciding how many decimals a converted drawing has to carry.</td>
+                </tr>
+                <tr>
+                    <td><a href="/drawing-checks/unit-mix">Unit Mix Scanner</a></td>
+                    <td>Finds rows whose unit contradicts the rest of their column, and rows that carry no unit at all.</td>
+                    <td>Lists assembled from more than one supplier or revision.</td>
+                </tr>
+                <tr>
+                    <td><a href="/drawing-checks/chain-closure">Dimension Chain Closure Calculator</a></td>
+                    <td>Adds a chain of toleranced segments in the worst case and compares the result against a target length.</td>
+                    <td>Assembly stacks, slot and clearance checks, shim decisions.</td>
+                </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Why these run in the browser</h2>
+            <p>A supplier inspection sheet, a pre-release drawing, a bill of materials from a
+            customer: these are the documents where this kind of checking is worth doing, and they
+            are also the documents that should not be pasted into a web form. Every tool here does
+            its arithmetic in the page. There is no upload, no request, and no server that could log
+            the values. The page works the same way offline once it has loaded.</p>
+
+            <h2>Exact arithmetic, not floating point</h2>
+            <p>All five checks share the engine behind the site's converters, which carries every
+            value as an exact fraction rather than a floating-point number. This is not a
+            theoretical preference. A limit comparison is decided by whether one number is greater
+            than another, and in floating point a value that should sit exactly on a limit can land
+            a few parts in a quadrillion to one side of it, turning a clean pass into a failure in
+            an inspection report. Adding 3/8 to 5/16 to 1/64 gives exactly 45/64 here, and the
+            comparisons that follow inherit that exactness.</p>
+
+            <h2>What the export contains</h2>
+            <p>Each tool exports a CSV with one row per input line: the original text, the computed
+            values, the verdict and any note. Keeping the original text in the export is deliberate.
+            It means a second person can audit the output against the source document without
+            re-running anything, which is what makes the file usable as a record rather than as a
+            convenience.</p>
+
+            <h2>Where these fit</h2>
+            <p>They complement the single-value tools rather than replace them. If you have one
+            dimension to convert, the <a href="/feet-inches-calculator">feet and inches
+            calculator</a> or the <a href="/batch-unit-converter">batch converter</a> is the shorter
+            route. These pages are for the step after: checking a whole list against what the
+            drawing says it should be.</p>
+
+            <h2>Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Are these tools related to the site converters?</p>
+                <p class="faq-a">They share the arithmetic engine, so a conversion here and the same conversion on a converter page come from identical exact definitions. What differs is the shape of the input: one table rather than one value, and a verdict rather than a number.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is any of the pasted data sent anywhere?</p>
+                <p class="faq-a">No. The checks run entirely in the page with JavaScript, and there is no request carrying the values. That is a deliberate design constraint rather than a marketing point, because the tables these tools are useful on are usually the ones that cannot be shared.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can the results be printed or saved?</p>
+                <p class="faq-a">Yes. Each tool exports CSV, and the result table prints with the site layout stripped down so the numbers and verdicts survive on paper. The print stylesheet removes the tool controls and keeps the table.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What if a row cannot be read?</p>
+                <p class="faq-a">It is listed separately under the result rather than dropped. A silently skipped row is worse than a failed one, because the report then claims to cover a table it did not fully read. The count of unreadable lines appears in the summary.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Do these replace an inspection plan or a GD&T stack?</p>
+                <p class="faq-a">No. They do arithmetic on the numbers you give them and nothing else. They do not know your drawing standard, they do not apply geometric tolerance or datum shift, and they do not account for measurement uncertainty. They remove the hand arithmetic from a question that gets asked constantly.</p>
+            </div>
+
+            <h2>Other tools</h2>
+            <div class="related-tags"><a href="/feet-inches-calculator">Feet and Inches Calculator</a> <a href="/batch-unit-converter">Batch Unit Converter</a> <a href="/guides/why-converters-disagree">Why Converters Disagree</a> <a href="/guides/engineering-unit-conversion-mistakes">Engineering Unit Conversion Mistakes</a> <a href="/length">Length Converters</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script src="/dimensions.js"></script>
+    <script src="/drawingcheck.js"></script>
+    <script src="/drawingcheck-ui.js"></script>
+</body>
+</html>

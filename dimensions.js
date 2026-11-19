@@ -6,9 +6,9 @@
 
    Why fractions and not floats
    ────────────────────────────
-   A shop calculator has to add 3/8 + 5/16 + 1/64 and get exactly 47/64.
-   In binary floating point that sum lands on 0.7343749999999999 and then
-   prints as 47/64 only if you round hard enough. Every value here is a
+   A shop calculator has to add 3/8 + 5/16 + 1/64 and get exactly 45/64.
+   In binary floating point that sum lands on 0.7031249999999999 and then
+   prints as 45/64 only if you round hard enough. Every value here is a
    BigInt fraction over a metre base, so the arithmetic is closed: no value
    is ever approximated until the moment it is formatted for display.
 
@@ -316,20 +316,38 @@
         return q;
     }
 
-    function roundHalfUp(a, dp) {
-        var scale = 1n;
-        for (var i = 0; i < dp; i++) scale *= 10n;
-        return F(snapTicks(a, scale), scale);
+    function pow10(k) {
+        var s = 1n;
+        for (var i = 0; i < k; i++) s *= 10n;
+        return s;
     }
 
-    function fmtDecimal(a, dp) {
-        dp = (dp === undefined) ? 6 : dp;
-        var r = roundHalfUp(a, dp);
-        var scale = 1n;
-        for (var i = 0; i < dp; i++) scale *= 10n;
-        var scaled = mul(r, F(scale));
-        var n = scaled.n, d = scaled.d;
-        var q = n / d;
+    /**
+     * 按指定模式把分数吸到 1/scale 刻度上，返回刻度数（BigInt）。
+     * half-up 必须委托给 snapTicks —— 半进只有那一份实现。
+     */
+    function snapMode(a, scale, mode) {
+        if (!mode || mode === 'half-up') return snapTicks(a, scale);
+        var s = mul(a, F(scale));
+        var n = s.n, d = s.d;            // F 保证 d > 0
+        var q = n / d, r = n % d;        // BigInt 除法向零取整
+        if (mode === 'trunc') return q;
+        if (mode === 'floor') return r < 0n ? q - 1n : q;
+        if (mode === 'ceil') return r > 0n ? q + 1n : q;
+        if (mode === 'half-even') {
+            var two = abs(r) * 2n;
+            if (two < d) return q;
+            if (two > d) return q + (n < 0n ? -1n : 1n);
+            return (q % 2n === 0n) ? q : q + (n < 0n ? -1n : 1n);
+        }
+        throw new Error('unknown rounding mode: ' + mode);
+    }
+
+    /**
+     * 刻度数 → 定点字符串。整条格式化路径只有这一份。
+     * keepZeros=true 时保留尾零（有效数字计数需要它，9.999→3 位是 10.0 不是 10）。
+     */
+    function decString(q, dp, keepZeros) {
         var neg_ = q < 0n;
         if (neg_) q = -q;
         var s = q.toString();
@@ -338,12 +356,100 @@
         else {
             while (s.length <= dp) s = '0' + s;
             out = s.slice(0, s.length - dp) + '.' + s.slice(s.length - dp);
-            out = out.replace(/\.?0+$/, '');
-            if (out === '' || out === '-') out = '0';
+            if (!keepZeros) {
+                out = out.replace(/\.?0+$/, '');
+                if (out === '' || out === '-') out = '0';
+            }
         }
         // 刻意不加千分位：这个字符串要能被复制进别的工具，也要能直接写进 CSV。
         // 带逗号的值粘到表格里会变成两列，导出的 CSV 也会错列。
         return (neg_ ? '-' : '') + out;
+    }
+
+    function toFixed(a, dp, mode, keepZeros) {
+        dp = (dp === undefined) ? 6 : dp;
+        if (dp < 0) dp = 0;
+        return decString(snapMode(a, pow10(dp), mode), dp, keepZeros);
+    }
+
+    function roundHalfUp(a, dp) {
+        var scale = pow10(dp);
+        return F(snapTicks(a, scale), scale);
+    }
+
+    function fmtDecimal(a, dp) { return toFixed(a, dp, 'half-up'); }
+
+    // ── 有效数字 ─────────────────────────────────────────────────────
+
+    /**
+     * 十进制字面量的有效数字位数。
+     * 纯整数的尾部 0 不算有效（1200 → 2 位，1200. → 4 位），这是教科书口径。
+     */
+    function sigfigs(s) {
+        s = String(s).trim().replace(/^[+-]/, '').replace(/[eE].*$/, '');
+        if (s === '' || !/^\d*\.?\d+$|^\d+\.$/.test(s)) return 0;
+        var digits = s.replace('.', '');
+        var lead = digits.match(/^0*/)[0].length;
+        digits = digits.slice(lead);
+        if (digits === '') return 0;                        // 值为 0
+        if (s.indexOf('.') === -1) digits = digits.replace(/0+$/, '');
+        return digits.length;
+    }
+
+    /** floor(log10(|a|))，用整数比较求，不经过浮点（浮点在 10 的幂上会错一位）。 */
+    function magExp(a) {
+        var n = abs(a.n), d = a.d;
+        if (n === 0n) return 0;
+        function atLeast(k) {
+            return k >= 0 ? n >= d * pow10(k) : n * pow10(-k) >= d;
+        }
+        var e = n.toString().length - d.toString().length;
+        while (!atLeast(e)) e--;
+        while (atLeast(e + 1)) e++;
+        return e;
+    }
+
+    /**
+     * 舍入到 n 位有效数字，保留尾零（否则 9.999 → 3 位会显示成 10，只剩 1 位）。
+     * 进位跨量级时 dp 要减 1 重算。
+     */
+    function roundSig(a, n) {
+        if (a.n === 0n) return '0';
+        var dp = n - 1 - magExp(a);
+        if (dp < 0) dp = 0;
+        var out = toFixed(a, dp, 'half-up', true);
+        if (sigfigs(out) > n && dp > 0) out = toFixed(a, dp - 1, 'half-up', true);
+        return out;
+    }
+
+    // ── 公差写法 ─────────────────────────────────────────────────────
+
+    /**
+     * 解析公差。接受 ±0.005 / +0.005/-0.000 / +.005 -.000 / 0.005。
+     * 返回 { plus, minus }：plus 是上偏差（≥0），minus 是下偏差（≤0）。
+     * 单个数一律按对称公差理解。
+     */
+    function parseTolerance(s) {
+        s = String(s === undefined || s === null ? '' : s).trim();
+        if (s === '') return { error: 'empty tolerance' };
+        var sym = s.indexOf('\u00b1') >= 0 || s.indexOf('+-') >= 0 || s.indexOf('+/-') >= 0;
+        var nums = s.match(/[+-]?\s*\d*\.?\d+/g) || [];
+        if (!nums.length) return { error: 'no number in tolerance: ' + s };
+        function toF(t) {
+            var neg_ = t.trim().charAt(0) === '-';
+            var f = decToF(t.replace(/[\s+-]/g, ''));
+            return neg_ ? neg(f) : f;
+        }
+        if (sym || nums.length === 1) {
+            var v = toF(nums[0]);
+            if (isNeg(v)) v = neg(v);
+            return { plus: v, minus: neg(v) };
+        }
+        var a = toF(nums[0]), b = toF(nums[1]);
+        if (isNeg(a) && !isNeg(b)) { var t = a; a = b; b = t; }
+        if (isNeg(a)) a = neg(a);
+        if (!isNeg(b)) b = neg(b);
+        return { plus: a, minus: b };
     }
 
     function fmtIn(value_m, unitKey, dp) {
@@ -391,7 +497,7 @@
     }
 
     return {
-        VERSION: '1.0.0',
+        VERSION: '1.1.0',
         SOURCE: 'https://enginstack.com',
         LICENSE: 'MIT',
         // fractions
@@ -403,6 +509,15 @@
         fmtDecimal: fmtDecimal,
         fmtIn: fmtIn,
         fmtFtIn: fmtFtIn,
+        // precision
+        toFixed: toFixed,
+        snapMode: snapMode,
+        pow10: pow10,
+        sigfigs: sigfigs,
+        roundSig: roundSig,
+        magExp: magExp,
+        parseTolerance: parseTolerance,
+        decToF: decToF,
         // table
         units: units,
         unitByKey: unitByKey,

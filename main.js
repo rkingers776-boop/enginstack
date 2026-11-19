@@ -95,6 +95,15 @@ var SITE_HEADER_HTML =
                             '<a href="/feet-inches-calculator" class="nav-dropdown-item" role="menuitem">Feet &amp; Inches Calculator</a>' +
                             '<a href="/batch-unit-converter" class="nav-dropdown-item" role="menuitem">Batch Converter</a>' +
                         '</div>' +
+                        '<div class="nav-dropdown-split"></div>' +
+                        '<div class="nav-dropdown-grid">' +
+                            '<a href="/drawing-checks/" class="nav-dropdown-item" role="menuitem">Drawing Checks</a>' +
+                            '<a href="/drawing-checks/tolerance-table" class="nav-dropdown-item" role="menuitem">Tolerance Table</a>' +
+                            '<a href="/drawing-checks/dual-unit-dimensions" class="nav-dropdown-item" role="menuitem">Dual-Unit Dimension</a>' +
+                            '<a href="/drawing-checks/round-trip" class="nav-dropdown-item" role="menuitem">Round-Trip Conversion</a>' +
+                            '<a href="/drawing-checks/unit-mix" class="nav-dropdown-item" role="menuitem">Unit Mix Scanner</a>' +
+                            '<a href="/drawing-checks/chain-closure" class="nav-dropdown-item" role="menuitem">Dimension Chain Closure</a>' +
+                        '</div>' +
                     '</div>' +
                 '</div>' +
                 '<a href="/guides/" class="nav-link">Guides</a>' +

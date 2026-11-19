@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round-Trip Conversion Checker: Is It Lossy?</title>
+    <meta name="description" content="Convert values and convert them back. Reports which values survive the round trip, how much precision is lost, and the fewest decimals needed to close the loop.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/drawing-checks/round-trip">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/drawing-checks/round-trip">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/drawing-checks/round-trip">
+    <meta property="og:title" content="Round-Trip Conversion Checker: Is It Lossy?">
+    <meta property="og:description" content="Convert values and convert them back. Reports which values survive the round trip, how much precision is lost, and the fewest decimals needed to close the loop.">
+    <meta property="og:url" content="https://enginstack.com/drawing-checks/round-trip">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Round-Trip Conversion Checker",
+  "description": "Convert values and convert them back. Reports which values survive the round trip, how much precision is lost, and the fewest decimals needed to close the loop.",
+  "url": "https://enginstack.com/drawing-checks/round-trip",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Drawing Checks", "item": "https://enginstack.com/drawing-checks/" },
+    { "@type": "ListItem", "position": 3, "name": "Round-Trip Conversion Checker" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does the same conversion give a different answer on a different website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because most converters round the intermediate value before converting again, and they differ in where they round and to how many places. This checker exists to measure that effect rather than argue about it: pick the precision, run the loop, and the size of the discrepancy is stated in the target unit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"closes at 2 dp\" mean exactly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It means that formatting the converted value to two decimal places and converting that back reproduces the original value exactly, as a fraction, not approximately. Zero decimals may not close while two do, which is why the minimum is computed by trying each precision from zero upward rather than guessed from the size of the number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a value that never closes therefore wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It means the value has no finite decimal representation in the target unit, so the conversion is inherently approximate. One third of an inch is real and correct and still cannot be written as a finite number of millimeters. The honest thing to do with such a value is to state the unit it was defined in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it handle fractions like 3/8 and feet and inches pairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The same parser that reads the site feet and inches calculator is used here, so 3/8 in, 1 1/2 in and 5 ft 10 1/2 in are all read as exact fractions before any conversion happens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What precision should a metric drawing carry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The narrowest tolerance on the drawing decides it, not the nominal sizes. A rule that works: carry one more decimal than the tightest tolerance needs, then check the round trip for the values that matter. The tool will show you where that breaks down."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body data-tool="round-trip">
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/drawing-checks/">Drawing Checks</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Round-Trip Conversion Checker</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Round-Trip Conversion Checker</h1>
+            <p>Convert each value, convert it back, and find out whether the loop closed, how much was lost, and how many decimals it would take to close it.</p>
+            <p class="direct-answer">This is why two converters disagree. <strong>1 in at zero decimals becomes 25 mm, and 25 mm is not an inch.</strong> The checker reports the loss and the smallest precision at which the round trip closes.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <label class="tool-label" for="dc-in">Paste your table</label>
+            <textarea class="tool-textarea" id="dc-in" rows="10" spellcheck="false"
+                      autocomplete="off" aria-describedby="dc-hint">1 in
+0.75 in
+1/3 in
+25.4 mm
+2.5 in
+0.0625 in</textarea>
+            <p class="tool-hint" id="dc-hint">One row per line. Columns separated by commas or tabs.
+            A unit written on a value overrides the dropdown, so <code>0.750 in</code> and
+            <code>19.05 mm</code> can sit in the same column. Nothing leaves your browser.</p>
+
+            <div class="tool-row">
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-unit">Values are in</label>
+                        <select class="tool-select" id="dc-unit">
+                        <option value="mm"                            >millimeter (mm)</option>
+                        <option value="cm"                            >centimeter (cm)</option>
+                        <option value="m"                            >meter (m)</option>
+                        <option value="km"                            >kilometer (km)</option>
+                        <option value="in" selected                            >inch (in)</option>
+                        <option value="ft"                            >foot (ft)</option>
+                        <option value="yd"                            >yard (yd)</option>
+                        <option value="mi"                            >mile (mi)</option>
+                        </select>
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-to">Convert to</label>
+                        <select class="tool-select" id="dc-to">
+                        <option value="mm" selected                            >millimeter (mm)</option>
+                        <option value="cm"                            >centimeter (cm)</option>
+                        <option value="m"                            >meter (m)</option>
+                        <option value="km"                            >kilometer (km)</option>
+                        <option value="in"                            >inch (in)</option>
+                        <option value="ft"                            >foot (ft)</option>
+                        <option value="yd"                            >yard (yd)</option>
+                        <option value="mi"                            >mile (mi)</option>
+                        </select>
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-dp">Decimals</label>
+                        <select class="tool-select" id="dc-dp">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        </select>
+                    </div>
+            </div>
+
+            <div class="tool-btns">
+                <button class="tool-btn tool-btn-primary" id="dc-run" type="button">Check the table</button>
+                <button class="tool-btn" id="dc-csv" type="button" disabled>Download CSV</button>
+            </div>
+
+            <div class="tool-error" id="dc-err" hidden></div>
+            <div class="tool-result" id="dc-out"></div>
+        </div>
+
+        <article class="tool-prose">
+            <h2>What this checks</h2>
+            <p>Take a value, convert it to another unit at a chosen precision, then convert the
+            result back. If the value you get back is not the value you started with, the
+            conversion is lossy, and any answer printed at that precision is a different number
+            from the one in the source document. This tool runs that loop for every row and reports
+            the smallest number of decimals at which the loop closes.</p>
+            <p>This is the mechanism behind a familiar complaint: two converters disagree about the
+            same conversion. Usually both are correct, and one of them rounded the intermediate
+            value before converting again. The loss is not a bug in either site, it is arithmetic,
+            but it is worth knowing exactly which values survive a round trip and which do not.</p>
+
+            <h2>How to read the verdict</h2>
+            <p><strong>CLOSED</strong> means the round trip returned the original value exactly.
+            The row also shows the minimum number of decimals at which that happens, which is often
+            smaller than people expect: 25.4 mm is exactly one inch, so zero decimals closes it.
+            <strong>LOSSY</strong> means the round trip returned something else, and the note gives
+            the size of the loss in the target unit.</p>
+            <p>A row marked <em>never closes at any dp</em> is the most interesting case. It means no
+            finite number of decimals can represent the value in the target unit, because the
+            conversion is a repetition. One third of an inch is the standard example: in millimeters
+            it is 8.4666 and the sixes never end.</p>
+
+            <h2>Worked example</h2>
+            <p>Row one is 1 in converted to millimeters at zero decimals. The conversion gives 25.4,
+            which prints as 25, and 25 mm converts back to 0.984 in. The loss is 0.4 mm and the row
+            reports that one decimal is enough to close it, because 25.4 mm is exact. Row three is
+            1/3 in, which never closes: its millimeter value is a repeating decimal, so the loop
+            can be made arbitrarily accurate but never exact.</p>
+            <p>The practical reading is direct. If a drawing states a dimension in one unit and the
+            shop works in the other, the number of decimals needed to close the round trip is the
+            number of decimals needed to avoid an argument later.</p>
+
+            <h2>Why the loop matters more than the conversion</h2>
+            <p>A single conversion has one rounding step and almost always looks fine. The failure
+            mode appears when the value passes through a conversion a second time, which is exactly
+            what happens when a drawing is converted to metric, a feature is inspected in metric,
+            and the inspection report is converted back to inches for the customer. Each pass is
+            defensible on its own and the accumulated difference is not.</p>
+            <p>Because the arithmetic is exact until the moment of printing, the loss reported here
+            is caused by your chosen precision alone. Nothing in the tool adds error of its own.</p>
+
+            <h2>What it will not do</h2>
+            <p>It does not tell you what precision to use, and it does not model measurement
+            uncertainty. A value can close its round trip and still be a poor dimension to put on a
+            drawing. What it does tell you is the arithmetic floor: below that precision, the two
+            documents describe different sizes.</p>
+
+            <p><a href="/drawing-checks/dual-unit-dimensions">Dual-unit converter &rarr;</a></p>
+
+            <h2>Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">Why does the same conversion give a different answer on a different website?</p>
+                <p class="faq-a">Because most converters round the intermediate value before converting again, and they differ in where they round and to how many places. This checker exists to measure that effect rather than argue about it: pick the precision, run the loop, and the size of the discrepancy is stated in the target unit.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What does "closes at 2 dp" mean exactly?</p>
+                <p class="faq-a">It means that formatting the converted value to two decimal places and converting that back reproduces the original value exactly, as a fraction, not approximately. Zero decimals may not close while two do, which is why the minimum is computed by trying each precision from zero upward rather than guessed from the size of the number.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is a value that never closes therefore wrong?</p>
+                <p class="faq-a">No. It means the value has no finite decimal representation in the target unit, so the conversion is inherently approximate. One third of an inch is real and correct and still cannot be written as a finite number of millimeters. The honest thing to do with such a value is to state the unit it was defined in.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Does it handle fractions like 3/8 and feet and inches pairs?</p>
+                <p class="faq-a">Yes. The same parser that reads the site feet and inches calculator is used here, so <code>3/8 in</code>, <code>1 1/2 in</code> and <code>5 ft 10 1/2 in</code> are all read as exact fractions before any conversion happens.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">What precision should a metric drawing carry?</p>
+                <p class="faq-a">The narrowest tolerance on the drawing decides it, not the nominal sizes. A rule that works: carry one more decimal than the tightest tolerance needs, then check the round trip for the values that matter. The tool will show you where that breaks down.</p>
+            </div>
+
+            <h2>Related</h2>
+            <div class="related-tags"><a href="/drawing-checks/dual-unit-dimensions">Dual-Unit Dimension Converter</a> <a href="/feet-inches-calculator">Feet and Inches Calculator</a> <a href="/guides/why-converters-disagree">Why Converters Disagree</a> <a href="/guides/unit-conversion-chart">Unit Conversion Chart</a> <a href="/batch-unit-converter">Batch Unit Converter</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script src="/dimensions.js"></script>
+    <script src="/drawingcheck.js"></script>
+    <script src="/drawingcheck-ui.js"></script>
+</body>
+</html>

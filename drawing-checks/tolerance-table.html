@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tolerance Table Checker for Drawing Callouts</title>
+    <meta name="description" content="Paste nominal, deviations and measured values. Each row is judged against its own limits, and a value exactly on a limit is reported apart from a clean pass.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="canonical" href="https://enginstack.com/drawing-checks/tolerance-table">
+    <link rel="alternate" hreflang="en" href="https://enginstack.com/drawing-checks/tolerance-table">
+    <link rel="alternate" hreflang="x-default" href="https://enginstack.com/drawing-checks/tolerance-table">
+    <meta property="og:title" content="Tolerance Table Checker for Drawing Callouts">
+    <meta property="og:description" content="Paste nominal, deviations and measured values. Each row is judged against its own limits, and a value exactly on a limit is reported apart from a clean pass.">
+    <meta property="og:url" content="https://enginstack.com/drawing-checks/tolerance-table">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://enginstack.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://enginstack.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Tolerance Table Checker",
+  "description": "Paste nominal, deviations and measured values. Each row is judged against its own limits, and a value exactly on a limit is reported apart from a clean pass.",
+  "url": "https://enginstack.com/drawing-checks/tolerance-table",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://enginstack.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Drawing Checks", "item": "https://enginstack.com/drawing-checks/" },
+    { "@type": "ListItem", "position": 3, "name": "Tolerance Table Checker" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens if the upper and lower deviations are entered the wrong way round?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The row is failed with the note tolerance band inverted. A band where both deviations are positive, or where the lower deviation is numerically greater than the upper, produces limits in the wrong order, and silently computing an answer from it would be worse than refusing. The row is still reported so you can see which one it was."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a row carry its own unit even when the dropdown says something else?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and that is deliberate. A unit written on the value wins over the dropdown, so a sheet that drifted into millimeters partway down still compares correctly. If a whole column is in the wrong unit, the unit mix scanner is the tool built to find that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the margin column absolute or signed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the smallest of the two distances to a limit, so it is never negative. The direction of a failure appears in the note instead, as above upper limit or below lower limit, which is easier to act on than a signed number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a value that equals a limit not simply pass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It does pass, in the sense that the part conforms. It is reported separately because a part exactly on a limit has no margin left, and in a real inspection that usually means the process, not the part, is the problem. The summary counts it apart from clean passes so a report does not claim more margin than exists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many rows can it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Several thousand lines run without trouble because each row is independent and the arithmetic is integer based. There is no upload and no request, so the limit is the browser tab rather than a server quota."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnginStack",
+  "url": "https://enginstack.com/",
+  "description": "Precision unit converters reviewed against NIST, BIPM and primary-source documentation. Every constant traceable to its originating legal metrology definition.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@enginstack.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script defer src="/analytics.js"></script>
+</head>
+<body data-tool="tolerance-table">
+    <div id="site-header"></div>
+
+    <main class="page-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <a href="/drawing-checks/">Drawing Checks</a>
+            <span class="sep">&rsaquo;</span>
+            <span class="current">Tolerance Table Checker</span>
+        </nav>
+
+        <header class="page-header">
+            <h1>Tolerance Table Checker</h1>
+            <p>Paste a dimension table with deviations and measured values. Every row is judged against its own limits, and a value sitting exactly on a limit is called out separately.</p>
+            <p class="direct-answer">Row by row: the lower and upper limit are computed from the nominal and the two deviations, then compared with the measured value. <strong>PASS, AT LIMIT or FAIL</strong>, with the margin to the nearer limit.</p>
+        </header>
+
+        <div class="author-byline">
+            <span>By <strong class="author-name">EnginStack Editorial Team</strong></span>
+            <span class="author-sep">|</span>
+            <span><a href="/methodology" class="author-link">Reviewed against NIST, BIPM and primary-source documentation</a></span>
+            <a href="/about" class="author-link">About &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+            <label class="tool-label" for="dc-in">Paste your table</label>
+            <textarea class="tool-textarea" id="dc-in" rows="10" spellcheck="false"
+                      autocomplete="off" aria-describedby="dc-hint">0.750, +0.005, -0.000, 0.752
+1.250, ±0.003, 1.255
+2.000, +0.000, -0.005, 1.994
+0.500, +0.002, -0.002, 0.502
+1.875, +0.001, -0.000, 1.874</textarea>
+            <p class="tool-hint" id="dc-hint">One row per line. Columns separated by commas or tabs.
+            A unit written on a value overrides the dropdown, so <code>0.750 in</code> and
+            <code>19.05 mm</code> can sit in the same column. Nothing leaves your browser.</p>
+
+            <div class="tool-row">
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-unit">Values are in</label>
+                        <select class="tool-select" id="dc-unit">
+                        <option value="mm"                            >millimeter (mm)</option>
+                        <option value="cm"                            >centimeter (cm)</option>
+                        <option value="m"                            >meter (m)</option>
+                        <option value="km"                            >kilometer (km)</option>
+                        <option value="in" selected                            >inch (in)</option>
+                        <option value="ft"                            >foot (ft)</option>
+                        <option value="yd"                            >yard (yd)</option>
+                        <option value="mi"                            >mile (mi)</option>
+                        </select>
+                    </div>
+                    <div class="tool-field">
+                        <label class="tool-label" for="dc-dp">Decimals</label>
+                        <select class="tool-select" id="dc-dp">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        </select>
+                    </div>
+            </div>
+
+            <div class="tool-btns">
+                <button class="tool-btn tool-btn-primary" id="dc-run" type="button">Check the table</button>
+                <button class="tool-btn" id="dc-csv" type="button" disabled>Download CSV</button>
+            </div>
+
+            <div class="tool-error" id="dc-err" hidden></div>
+            <div class="tool-result" id="dc-out"></div>
+        </div>
+
+        <article class="tool-prose">
+            <h2>What this checks</h2>
+            <p>Every row is a dimension with a tolerance, plus the value someone actually measured.
+            The checker computes the lower and upper limit from the nominal and the two deviations,
+            compares the measured value against both, and returns a verdict for that row. The whole
+            table is read in one pass, so a single out-of-tolerance line cannot hide in the middle
+            of a forty-row inspection sheet.</p>
+            <p>Four columns means nominal, upper deviation, lower deviation and measured value.
+            Three columns means nominal, a single tolerance cell and measured value, where the
+            middle cell may be written as <code>&plusmn;0.003</code>, <code>+0.005/-0.000</code>
+            or <code>+0.001/-0.004</code>. A value may carry its own unit, so a column that mixes
+            inches and millimeters still compares correctly, because every limit is evaluated in
+            the base unit rather than in whatever number happened to be typed.</p>
+
+            <h2>How to read the verdict</h2>
+            <p>Three outcomes, and the middle one is the reason this tool exists.
+            <strong>PASS</strong> means the measured value sits strictly inside the band.
+            <strong>AT LIMIT</strong> means the value equals a limit exactly: the part conforms,
+            but it conforms with zero margin, and the next measurement of the same feature will
+            probably fall outside. <strong>FAIL</strong> means the value is past a limit, and the
+            note says which side.</p>
+            <p>The margin column is the distance from the measured value to the nearer limit. It is
+            the number worth putting in a report, because a row that passes with 0.0002 of margin
+            and a row that passes with 0.004 are not the same news even though both print PASS.
+            Every figure is computed as an exact fraction from the definitions in the same engine
+            the site's converters use, so a limit comparison never turns on a floating-point
+            rounding difference.</p>
+
+            <h2>Worked example</h2>
+            <p>The sample table is loaded when the page opens. Row two is written in the three-column
+            form: nominal 1.250 in, tolerance &plusmn;0.003 in, measured 1.255 in. The limits are
+            1.247 and 1.253, so 1.255 is 0.002 past the upper limit and the row fails with
+            <em>above upper limit</em>. Row three is nominal 2.000 in with a unilateral band of
+            +0.000 and -0.005, measured 1.994 in: the lower limit is 1.995, so the row fails below
+            by 0.001. Row four measures exactly 0.502 against limits of 0.498 and 0.502, so it is
+            reported as AT LIMIT rather than PASS.</p>
+
+            <h2>Why check rows instead of numbers</h2>
+            <p>A converter answers one question: what is this value in another unit. That is not
+            where dimensional errors come from. They come from a table where one row was transcribed
+            from a different revision, where a unilateral tolerance was entered as symmetric, or
+            where a deviation was typed with the wrong sign. Those are table-shaped faults, and they
+            need a tool that reads the table.</p>
+            <p>Because the input never leaves the browser, a supplier inspection sheet or a
+            pre-release drawing can be checked without uploading it anywhere. The CSV export carries
+            the original input text next to every computed limit, so a second person can audit the
+            result against the source without re-running anything.</p>
+
+            <h2>What it will not do</h2>
+            <p>It does not know your drawing standard and does not apply one. Limits are computed
+            from the numbers you supply, arithmetically. It will not decide whether a tolerance is
+            appropriate for a fit, and it will not account for geometric tolerance, datum shift or
+            measurement uncertainty. Those live in the drawing and in your inspection plan. This
+            tool only answers whether each measured value sits inside the band the drawing states.</p>
+
+            <p>Drawings are converted to and from the metric system constantly, which is where the
+            next check earns its place.</p>
+            <p><a href="/drawing-checks/dual-unit-dimensions">Dual-unit dimension converter &rarr;</a></p>
+
+            <h2>Questions</h2>
+            <div class="faq-item">
+                <p class="faq-q">What happens if the upper and lower deviations are entered the wrong way round?</p>
+                <p class="faq-a">The row is failed with the note <em>tolerance band inverted</em>. A band where both deviations are positive, or where the lower deviation is numerically greater than the upper, produces limits in the wrong order, and silently computing an answer from it would be worse than refusing. The row is still reported so you can see which one it was.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Can a row carry its own unit even when the dropdown says something else?</p>
+                <p class="faq-a">Yes, and that is deliberate. A unit written on the value wins over the dropdown, so a sheet that drifted into millimeters partway down still compares correctly. If a whole column is in the wrong unit, the unit mix scanner is the tool built to find that.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Is the margin column absolute or signed?</p>
+                <p class="faq-a">It is the smallest of the two distances to a limit, so it is never negative. The direction of a failure appears in the note instead, as <em>above upper limit</em> or <em>below lower limit</em>, which is easier to act on than a signed number.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">Why does a value that equals a limit not simply pass?</p>
+                <p class="faq-a">It does pass, in the sense that the part conforms. It is reported separately because a part exactly on a limit has no margin left, and in a real inspection that usually means the process, not the part, is the problem. The summary counts it apart from clean passes so a report does not claim more margin than exists.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-q">How many rows can it take?</p>
+                <p class="faq-a">Several thousand lines run without trouble because each row is independent and the arithmetic is integer based. There is no upload and no request, so the limit is the browser tab rather than a server quota.</p>
+            </div>
+
+            <h2>Related</h2>
+            <div class="related-tags"><a href="/drawing-checks/dual-unit-dimensions">Dual-Unit Dimension Converter</a> <a href="/drawing-checks/unit-mix">Unit Mix Scanner</a> <a href="/drawing-checks/chain-closure">Dimension Chain Closure</a> <a href="/batch-unit-converter">Batch Unit Converter</a> <a href="/guides/why-converters-disagree">Why Converters Disagree</a></div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/methodology">Methodology</a>
+            <a href="/corrections">Corrections</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 EnginStack</p>
+    </footer>
+
+    <script src="/main.js"></script>
+    <script src="/dimensions.js"></script>
+    <script src="/drawingcheck.js"></script>
+    <script src="/drawingcheck-ui.js"></script>
+</body>
+</html>
