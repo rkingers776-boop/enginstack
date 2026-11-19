@@ -492,6 +492,45 @@ function initGuidesToggle() {
     });
 }
 
+// ── Cite block: copy a citation to the clipboard ──────────
+// The five reference-table pages carry a "Cite This Table" block. Copying the
+// plain-text reference is the whole point of it, so the button is wired here
+// rather than with an inline handler, which the CSP forbids.
+function initCiteCopy() {
+    var buttons = document.querySelectorAll('.cite-copy[data-cite]');
+    if (!buttons.length) return;
+
+    Array.prototype.forEach.call(buttons, function(btn) {
+        btn.addEventListener('click', function() {
+            var target = document.getElementById(btn.getAttribute('data-cite'));
+            if (!target) return;
+            var text = target.textContent.replace(/[ \t]+\n/g, '\n').trim();
+            var done = function() {
+                var label = btn.textContent;
+                btn.textContent = 'Copied';
+                setTimeout(function() { btn.textContent = label; }, 1600);
+            };
+            var fallback = function() {
+                var box = document.createElement('textarea');
+                box.value = text;
+                box.setAttribute('readonly', '');
+                box.style.position = 'fixed';
+                box.style.top = '-1000px';
+                document.body.appendChild(box);
+                box.select();
+                try { document.execCommand('copy'); done(); } catch (e) { /* leave it selected for manual copy */ }
+                document.body.removeChild(box);
+            };
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(done, fallback);
+            } else {
+                fallback();
+            }
+        });
+    });
+}
+
 // ── Bootstrap ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
     injectHeader();
@@ -500,5 +539,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearch();
     initThemeToggle();
     initGuidesToggle();
+    initCiteCopy();
     registerSW();
 });

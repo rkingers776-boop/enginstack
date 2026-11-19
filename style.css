@@ -1619,6 +1619,166 @@ strong { color: var(--text-heading); font-weight: var(--weight-semibold); }
     color: var(--text-dim);
 }
 
+/* ── 24c. CITE BLOCK ───────────────────────────────────── */
+.cite-block {
+    margin-top: var(--space-8);
+    padding: var(--space-5) var(--space-6);
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+}
+
+.cite-block h3 {
+    margin-top: 0 !important;
+    margin-bottom: var(--space-3);
+    font-size: var(--text-base) !important;
+    color: var(--text-heading);
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+
+.cite-block > p {
+    margin: 0 0 var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-body);
+    line-height: 1.65;
+}
+
+.cite-snippet {
+    position: relative;
+    padding: var(--space-3) var(--space-4);
+    padding-right: 84px;
+    background: var(--card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-3);
+}
+
+.cite-text {
+    margin: 0;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    font-size: var(--text-xs);
+    line-height: 1.7;
+    color: var(--text-heading);
+    overflow-wrap: anywhere;
+}
+
+.cite-copy {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    padding: 4px 10px;
+    font-family: inherit;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--text-heading);
+    background: var(--card-raised);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.cite-copy:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.cite-copy:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.cite-more {
+    margin-bottom: var(--space-3);
+    position: relative;
+}
+
+.cite-more summary {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--accent);
+    cursor: pointer;
+    padding: 4px 0;
+    list-style-position: inside;
+}
+
+.cite-more .cite-copy {
+    position: static;
+    margin-top: var(--space-2);
+}
+
+.cite-pre {
+    margin: var(--space-2) 0 var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: var(--card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+}
+
+.cite-pre code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    font-size: var(--text-xs);
+    line-height: 1.6;
+    color: var(--text-body);
+    white-space: pre;
+}
+
+.cite-meta {
+    margin-bottom: 0 !important;
+    font-size: var(--text-xs) !important;
+    color: var(--text-muted) !important;
+    line-height: 1.7;
+}
+
+.cite-convention {
+    margin-bottom: 0 !important;
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--border-subtle);
+    font-size: var(--text-xs) !important;
+    color: var(--text-body) !important;
+    line-height: 1.7;
+}
+
+.cite-convention strong {
+    color: var(--text-heading);
+}
+
+.cite-meta a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.cite-meta code {
+    background: var(--card);
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+}
+
+/* Narrow screens: a 84px reservation for the button squeezes the citation into
+   broken URLs, so the button moves below the text and takes the full width. */
+@media (max-width: 560px) {
+    .cite-block {
+        padding: var(--space-4) var(--space-4);
+    }
+
+    .cite-snippet {
+        padding-right: var(--space-4);
+    }
+
+    .cite-snippet .cite-copy {
+        position: static;
+        display: block;
+        width: 100%;
+        margin-top: var(--space-3);
+        padding: 8px 10px;
+    }
+}
+
 /* ── 25. GUIDE TOC ─────────────────────────────────────── */
 .guide-toc {
     background: var(--code-bg);
@@ -2426,6 +2586,7 @@ strong { color: var(--text-heading); font-weight: var(--weight-semibold); }
     .author-byline,
     .related-tags,
     .attribution-box,
+    .cite-block,
     .calculator-card,
     .noscript-warning,
     .direct-answer {
